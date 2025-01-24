@@ -2560,7 +2560,6 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %719 = shufflevector <4 x float> %718, <4 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   store <4 x float> %719, ptr %5, align 16, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call fastcc void @dt_prophotorgb_to_Lab(ptr noundef nonnull %5, ptr noundef nonnull %6)
   %720 = load float, ptr %6, align 16
   %721 = fmul reassoc nsz arcp contract afn float %720, 0x40847AE140000000

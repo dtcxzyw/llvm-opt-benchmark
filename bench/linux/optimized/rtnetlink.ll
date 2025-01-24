@@ -8949,7 +8949,6 @@ define internal range(i32 -2147483648, 1) i32 @rtnl_stats_get(ptr noundef %0, pt
   br label %.thread
 
 49:                                               ; preds = %42
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !47
   %50 = call fastcc i32 @rtnl_stats_get_parse(ptr noundef %1, i32 noundef %44, ptr noundef nonnull %4, ptr noundef %2)
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %.thread
@@ -9113,7 +9112,6 @@ define internal i32 @rtnl_stats_dump(ptr noundef %0, ptr nocapture noundef initi
   br label %.thread
 
 65:                                               ; preds = %59
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %5, i8 0, i64 24, i1 false), !annotation !47
   %66 = call fastcc i32 @rtnl_stats_get_parse(ptr noundef %28, i32 noundef %60, ptr noundef nonnull %5, ptr noundef %7)
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %.thread

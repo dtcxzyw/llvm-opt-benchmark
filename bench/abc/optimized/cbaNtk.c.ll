@@ -10147,9 +10147,6 @@ Cba_ManRoot.exit:                                 ; preds = %1, %Cba_ManNtkIsOk.
   %33 = tail call noalias dereferenceable_or_null(4000) ptr @malloc(i64 noundef 4000) #25
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %33, ptr %34, align 8
-  store i32 0, ptr %3, align 4
-  store i32 0, ptr %4, align 4
-  store i32 0, ptr %5, align 4
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %35, ptr noundef nonnull readonly align 8 dereferenceable(720) %36, i64 720, i1 false)

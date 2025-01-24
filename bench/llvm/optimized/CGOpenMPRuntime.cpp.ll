@@ -22321,7 +22321,6 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit:
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 144
   %18 = load ptr, ptr %17, align 8
-  store i64 0, ptr %7, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 3488
   call fastcc void @_ZL14getDependTypesRN5clang10ASTContextERNS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %.0.copyload.i.i.i.i.i = load i64, ptr %19, align 8
@@ -23052,7 +23051,6 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime16emitDependClauseERNS0
 
 "_ZSt10accumulateIPKN5clang7CodeGen13OMPTaskDataTy10DependDataEiZNS1_15CGOpenMPRuntime16emitDependClauseERNS1_15CodeGenFunctionEN4llvm8ArrayRefIS3_EENS0_14SourceLocationEE3$_1ET0_T_SF_SE_T1_.exit": ; preds = %"_ZSt10accumulateIPKN5clang7CodeGen13OMPTaskDataTy10DependDataEiZNS1_15CGOpenMPRuntime16emitDependClauseERNS1_15CodeGenFunctionEN4llvm8ArrayRefIS3_EENS0_14SourceLocationEE3$_1ET0_T_SF_SE_T1_.exit.loopexit", %79
   %.0.lcssa.i = phi i64 [ 0, %79 ], [ %98, %"_ZSt10accumulateIPKN5clang7CodeGen13OMPTaskDataTy10DependDataEiZNS1_15CGOpenMPRuntime16emitDependClauseERNS1_15CodeGenFunctionEN4llvm8ArrayRefIS3_EENS0_14SourceLocationEE3$_1ET0_T_SF_SE_T1_.exit.loopexit" ]
-  store i64 0, ptr %16, align 8
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 3488
   call fastcc void @_ZL14getDependTypesRN5clang10ASTContextERNS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %83, ptr noundef nonnull align 8 dereferenceable(8) %99, ptr noundef nonnull align 8 dereferenceable(8) %16)
   %100 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -23915,7 +23913,6 @@ define internal fastcc void @_ZL14emitDependDataRN5clang7CodeGen15CodeGenFunctio
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 144
   %26 = load ptr, ptr %25, align 8
-  store i64 0, ptr %10, align 8
   call fastcc void @_ZL14getDependTypesRN5clang10ASTContextERNS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %26, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %10)
   %.0.copyload.i.i.i.i.i = load i64, ptr %1, align 8
   %27 = and i64 %.0.copyload.i.i.i.i.i, -16
@@ -24407,7 +24404,6 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime22emitDepobjDependClaus
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false), !alias.scope !617
   %48 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #28
-  store i64 0, ptr %12, align 8
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 3488
   call fastcc void @_ZL14getDependTypesRN5clang10ASTContextERNS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %43, ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %12)
   %.0.copyload.i.i.i.i.i = load i64, ptr %49, align 8
@@ -24816,7 +24812,6 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime17emitDestroyClauseERNS
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 144
   %18 = load ptr, ptr %17, align 8
-  store i64 0, ptr %5, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 3488
   call fastcc void @_ZL14getDependTypesRN5clang10ASTContextERNS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -24922,7 +24917,6 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime16emitUpdateClauseERNS0
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %24 = load ptr, ptr %23, align 8
-  store i64 0, ptr %9, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 3488
   call fastcc void @_ZL14getDependTypesRN5clang10ASTContextERNS_8QualTypeES3_(ptr noundef nonnull align 8 dereferenceable(23096) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %9)
   %.0.copyload.i.i.i.i.i = load i64, ptr %25, align 8

@@ -2731,7 +2731,6 @@ define internal fastcc i32 @fetch_token(ptr noundef nonnull initializes((0, 4)) 
   ]
 
 560:                                              ; preds = %556, %556
-  store i32 -1, ptr %6, align 4
   %561 = icmp ult ptr %559, %2
   br i1 %561, label %562, label %.thread967
 
@@ -7551,7 +7550,6 @@ node_new_cclass.exit269.thread.i:                 ; preds = %800
   br i1 %808, label %809, label %829
 
 809:                                              ; preds = %803
-  store ptr null, ptr %13, align 8
   %810 = getelementptr inbounds nuw i8, ptr %5, i64 180
   %811 = load i32, ptr %810, align 4
   %812 = or i32 %811, -67108865
@@ -13197,7 +13195,6 @@ define internal fastcc i32 @or_cclass(ptr noundef %0, ptr nocapture noundef read
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
-  store ptr null, ptr %4, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 1

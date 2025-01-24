@@ -1670,7 +1670,6 @@ dissect_oer_any_oid.exit:                         ; preds = %35, %37
 ; Function Attrs: nounwind uwtable
 define noundef i32 @dissect_oer_IA5String(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  store i32 0, ptr %9, align 4
   %10 = icmp eq i32 %5, %6
   %11 = icmp ne i32 %5, -1
   %or.cond = and i1 %11, %10
@@ -1695,7 +1694,6 @@ define noundef i32 @dissect_oer_IA5String(ptr noundef %0, i32 noundef %1, ptr no
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dissect_oer_UTF8String(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  store i32 0, ptr %9, align 4
   %10 = load i32, ptr @hf_oer_length_determinant, align 4
   %11 = call fastcc i32 @dissect_oer_length_determinant(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %10, ptr noundef %9)
   %12 = load i32, ptr %9, align 4

@@ -400,7 +400,6 @@ entry:
   call void @_ZN2v87Isolate5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #13
   %2 = load ptr, ptr %isolate_, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %2) #13
-  store i32 0, ptr %exit_code, align 4
   call void @_ZN4node16NodeMainInstance21CreateMainEnvironmentEPNS_8ExitCodeE(ptr nonnull sret(%"class.std::unique_ptr.76") align 8 %env, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %exit_code)
   %3 = load ptr, ptr %env, align 8
   %cmp.i.i.not = icmp eq ptr %3, null

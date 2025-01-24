@@ -23757,7 +23757,6 @@ declare noundef ptr @_ZN7Compile10alias_typeEP7ciField(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN8GraphKit12new_instanceEP4NodeS1_PS1_b(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
-  store i32 0, ptr %6, align 4
   %7 = call noundef ptr @_ZN8GraphKit17get_layout_helperEP4NodeRi(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %8 = icmp eq ptr %7, null
   %9 = icmp eq ptr %2, null
@@ -24065,7 +24064,6 @@ declare void @_ZN12AllocateNodeC1EP7CompilePK8TypeFuncP4NodeS6_S6_S6_S6_S6_(ptr 
 define hidden noundef ptr @_ZN8GraphKit9new_arrayEP4NodeS1_iPS1_b(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca i32, align 4
   %8 = alloca %class.BuildCutout, align 8
-  store i32 0, ptr %7, align 4
   %9 = call noundef ptr @_ZN8GraphKit17get_layout_helperEP4NodeRi(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %11

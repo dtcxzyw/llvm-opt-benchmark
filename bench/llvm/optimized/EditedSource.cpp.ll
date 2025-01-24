@@ -605,7 +605,6 @@ _ZN5clang4edit12EditedSource18getActionForOffsetENS0_10FileOffsetE.exit.thread: 
   br i1 %33, label %34, label %.critedge
 
 34:                                               ; preds = %_ZN5clang4edit12EditedSource18getActionForOffsetENS0_10FileOffsetE.exit.thread
-  store i32 0, ptr %5, align 4
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -1002,7 +1001,6 @@ define dso_local noundef zeroext i1 @_ZN5clang4edit12EditedSource12commitInsertE
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %19, align 4
-  store i32 0, ptr %9, align 4
   call void @_ZN5clang4edit12EditedSource22deconstructMacroArgLocENS_14SourceLocationERS2_RNS1_11MacroArgUseE(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 %1, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 8 dereferenceable(16) %8)
   %20 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %20, null

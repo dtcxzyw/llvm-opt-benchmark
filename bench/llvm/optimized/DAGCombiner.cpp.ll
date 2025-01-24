@@ -7339,7 +7339,6 @@ _ZNK4llvm3EVT9isIntegerEv.exit.thread.i:          ; preds = %505, %502
   br i1 %518, label %519, label %_ZN12_GLOBAL__N_111DAGCombiner15PromoteIntBinOpEN4llvm7SDValueE.exit
 
 519:                                              ; preds = %513
-  store i8 0, ptr %30, align 1
   %520 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %521 = load ptr, ptr %520, align 8
   %.sroa.077.0.copyload.i = load ptr, ptr %521, align 8
@@ -7351,7 +7350,6 @@ _ZNK4llvm3EVT9isIntegerEv.exit.thread.i:          ; preds = %505, %502
   %522 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_111DAGCombiner14PromoteOperandEN4llvm7SDValueENS1_3EVTERb(ptr noundef nonnull align 8 dereferenceable(900) %0, ptr %.sroa.077.0.copyload.i, i32 %.sroa.882.0.copyload.i, i16 %.sroa.033.0.copyload.i, ptr %.sroa.235.0.copyload.i, ptr noundef nonnull align 1 dereferenceable(1) %30)
   %.fca.0.extract29.i53 = extractvalue { ptr, i32 } %522, 0
   %.fca.1.extract30.i54 = extractvalue { ptr, i32 } %522, 1
-  store i8 0, ptr %31, align 1
   %523 = load ptr, ptr %520, align 8
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 40
   %.sroa.058.0.copyload.i = load ptr, ptr %524, align 8
@@ -200546,7 +200544,6 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %20, %27
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %29, align 8
-  store i8 0, ptr %7, align 1
   %32 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_111DAGCombiner14PromoteOperandEN4llvm7SDValueENS1_3EVTERb(ptr noundef nonnull align 8 dereferenceable(900) %0, ptr nonnull %1, i32 %2, i16 %3, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %7)
   %.fca.0.extract10 = extractvalue { ptr, i32 } %32, 0
   %.fca.1.extract11 = extractvalue { ptr, i32 } %32, 1
@@ -200631,7 +200628,6 @@ _ZN4llvm5SDLocC2ENS_7SDValueE.exit:               ; preds = %5, %14
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %16, align 8
-  store i8 0, ptr %7, align 1
   %19 = call fastcc { ptr, i32 } @_ZN12_GLOBAL__N_111DAGCombiner14PromoteOperandEN4llvm7SDValueENS1_3EVTERb(ptr noundef nonnull align 8 dereferenceable(900) %0, ptr nonnull %1, i32 %2, i16 %3, ptr %4, ptr noundef nonnull align 1 dereferenceable(1) %7)
   %.fca.0.extract6 = extractvalue { ptr, i32 } %19, 0
   %.fca.1.extract7 = extractvalue { ptr, i32 } %19, 1

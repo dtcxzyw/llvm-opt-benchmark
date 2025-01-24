@@ -455,7 +455,6 @@ define internal i32 @software_key_query(ptr nocapture noundef readonly %0, ptr n
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #8
-  store i8 0, ptr %4, align 1, !annotation !12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -655,7 +654,6 @@ define internal i32 @software_key_eds_op(ptr nocapture noundef readonly %0, ptr 
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %4, i8 0, i64 128, i1 false), !annotation !12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #8
-  store i8 0, ptr %5, align 1, !annotation !12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16

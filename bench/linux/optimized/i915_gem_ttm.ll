@@ -1632,7 +1632,6 @@ define internal i32 @i915_ttm_get_pages(ptr noundef %0) #1 align 16 {
 
 20:                                               ; preds = %18, %15
   %21 = phi ptr [ %17, %15 ], [ %19, %18 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %3, i8 0, i64 112, i1 false), !annotation !5
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1032
@@ -1936,7 +1935,6 @@ define internal i32 @i915_ttm_migrate(ptr noundef %0, ptr noundef %1, i32 nounde
   %4 = alloca %struct.ttm_place, align 4
   %5 = alloca %struct.ttm_placement, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !annotation !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1032

@@ -1011,7 +1011,6 @@ entry:
   br i1 %add_source_line, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  store i8 0, ptr %added_exception_line, align 1
   call fastcc void @_ZN4nodeL14GetErrorSourceB5cxx11EPN2v87IsolateENS0_5LocalINS0_7ContextEEENS3_INS0_7MessageEEEPb(ptr noalias align 8 %source, ptr noundef %isolate, ptr %context.coerce, ptr %message.coerce, ptr noundef %added_exception_line)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41, ptr noundef nonnull align 8 dereferenceable(32) %source) #20
   %call.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp41, i64 noundef 1, i8 noundef signext 10) #20
@@ -1697,7 +1696,6 @@ if.end.i:                                         ; preds = %lor.lhs.false
 
 if.end41:                                         ; preds = %lor.lhs.false, %if.end.i, %land.lhs.true, %if.end
   %err_obj.sroa.0.0 = phi ptr [ null, %if.end ], [ %er.coerce, %if.end.i ], [ null, %land.lhs.true ], [ %er.coerce, %lor.lhs.false ]
-  store i8 0, ptr %added_exception_line, align 1
   %10 = load ptr, ptr %isolate_.i, align 8
   %principal_realm_.i.i17 = getelementptr inbounds nuw i8, ptr %env, i64 2728
   %11 = load ptr, ptr %principal_realm_.i.i17, align 8

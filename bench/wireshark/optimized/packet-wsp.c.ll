@@ -2722,7 +2722,6 @@ define hidden void @add_post_data(ptr noundef %0, ptr noundef %1, i32 noundef %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store i32 0, ptr %7, align 4
   %35 = call i32 @tvb_get_guintvar(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %4, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
   %.not.i = icmp eq i32 %35, 0
   br i1 %.not.i, label %add_multipart_data.exit, label %.lr.ph.i

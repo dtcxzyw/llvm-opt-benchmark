@@ -1193,7 +1193,6 @@ _ZNK7glslang17TParseContextBase20renameShaderFunctionERPNSt7__cxx1112basic_strin
   br label %250
 
 250:                                              ; preds = %248, %235, %231
-  store ptr null, ptr %8, align 8
   call void @_ZN7glslang11HlslGrammar20acceptArraySpecifierERPNS_11TArraySizesE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %8)
   store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %9, align 8
   %251 = load i32, ptr %124, align 8
@@ -9193,7 +9192,6 @@ _ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE17_M_realloc_insertIJ
   br label %_ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE9push_backERKS1_.exit
 
 _ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE9push_backERKS1_.exit: ; preds = %183, %_ZNSt6vectorIN7glslang8TTypeLocENS0_14pool_allocatorIS1_EEE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S4_EEDpOT_.exit.i
-  store ptr null, ptr %8, align 8
   call void @_ZN7glslang11HlslGrammar20acceptArraySpecifierERPNS_11TArraySizesE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %8)
   %207 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %207, null
@@ -9486,7 +9484,6 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar26acceptParameterDeclarationE
   store ptr null, ptr %54, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 20, i1 false)
   %55 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar16acceptIdentifierERNS_9HlslTokenE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(40) %5)
-  store ptr null, ptr %6, align 8
   call void @_ZN7glslang11HlslGrammar20acceptArraySpecifierERPNS_11TArraySizesE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %56 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %56, null
@@ -9978,7 +9975,6 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar23acceptCompoundStatementERP1
   br i1 %4, label %5, label %35
 
 5:                                                ; preds = %2
-  store ptr null, ptr %3, align 8
   %6 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar15acceptStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %6, label %.lr.ph, label %._crit_edge.thread
 
@@ -10071,7 +10067,6 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar21acceptParenExpressionERPNS_
   br label %12
 
 12:                                               ; preds = %5, %2
-  store ptr null, ptr %3, align 8
   %13 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptControlDeclarationERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %13, label %14, label %28
 
@@ -10260,7 +10255,6 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar21acceptUnaryExpressionERPNS_
   br i1 %30, label %31, label %63
 
 31:                                               ; preds = %10
-  store ptr null, ptr %5, align 8
   call void @_ZN7glslang11HlslGrammar20acceptArraySpecifierERPNS_11TArraySizesE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %32 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %32, null
@@ -11491,7 +11485,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptSelectionStatementERP
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %8 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 326) #16
-  br i1 %8, label %9, label %139
+  br i1 %8, label %9, label %140
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -11500,7 +11494,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptSelectionStatementERP
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZN7glslang12TSymbolTable4pushEv(ptr noundef nonnull align 8 dereferenceable(40) %13)
   %14 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar21acceptParenExpressionERPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br i1 %14, label %15, label %139
+  br i1 %14, label %15, label %140
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %10, align 8
@@ -11508,180 +11502,181 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptSelectionStatementERP
   %18 = call noundef ptr @_ZN7glslang16HlslParseContext28convertConditionalExpressionERKNS_10TSourceLocEPNS_12TIntermTypedEb(ptr noundef nonnull align 8 dereferenceable(2489) %16, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %17, i1 noundef zeroext true) #16
   store ptr %18, ptr %5, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %139, label %20
+  br i1 %19, label %140, label %20
 
 20:                                               ; preds = %15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 288
-  %23 = load i32, ptr %22, align 8
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %22, align 8
-  %25 = load ptr, ptr %10, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 232
-  %27 = load ptr, ptr %26, align 8
-  call void @_ZN7glslang12TSymbolTable4pushEv(ptr noundef nonnull align 8 dereferenceable(40) %27)
-  %28 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar15acceptStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %29 = load ptr, ptr %10, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 232
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 -8
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %_ZN7glslang16HlslParseContext8popScopeEv.exit6, label %37
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 0, ptr %21, align 8
+  %22 = load ptr, ptr %10, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 288
+  %24 = load i32, ptr %23, align 8
+  %25 = add nsw i32 %24, 1
+  store i32 %25, ptr %23, align 8
+  %26 = load ptr, ptr %10, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 232
+  %28 = load ptr, ptr %27, align 8
+  call void @_ZN7glslang12TSymbolTable4pushEv(ptr noundef nonnull align 8 dereferenceable(40) %28)
+  %29 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar15acceptStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %30 = load ptr, ptr %10, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 232
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 -8
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %_ZN7glslang16HlslParseContext8popScopeEv.exit6, label %38
 
-37:                                               ; preds = %20
-  call void @_ZN7glslang17TSymbolTableLevelD1Ev(ptr noundef nonnull align 8 dereferenceable(101) %35) #16
-  %.pre2.i.i5 = load ptr, ptr %32, align 8
+38:                                               ; preds = %20
+  call void @_ZN7glslang17TSymbolTableLevelD1Ev(ptr noundef nonnull align 8 dereferenceable(101) %36) #16
+  %.pre2.i.i5 = load ptr, ptr %33, align 8
   br label %_ZN7glslang16HlslParseContext8popScopeEv.exit6
 
-_ZN7glslang16HlslParseContext8popScopeEv.exit6:   ; preds = %20, %37
-  %38 = phi ptr [ %.pre2.i.i5, %37 ], [ %33, %20 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 -8
-  store ptr %39, ptr %32, align 8
-  %40 = load ptr, ptr %31, align 8
-  %41 = ptrtoint ptr %39 to i64
+_ZN7glslang16HlslParseContext8popScopeEv.exit6:   ; preds = %20, %38
+  %39 = phi ptr [ %.pre2.i.i5, %38 ], [ %34, %20 ]
+  %40 = getelementptr inbounds i8, ptr %39, i64 -8
+  store ptr %40, ptr %33, align 8
+  %41 = load ptr, ptr %32, align 8
   %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %44 = lshr exact i64 %43, 3
-  %45 = trunc i64 %44 to i32
-  %46 = add nsw i32 %45, -1
-  %47 = icmp ugt i32 %46, 127
-  %48 = zext nneg i32 %46 to i64
-  %49 = shl nuw nsw i64 %48, 56
-  %50 = select i1 %47, i64 9151314442816847872, i64 %49
-  %51 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %52 = load i64, ptr %51, align 8
-  %53 = and i64 %52, 72057594037927935
-  %54 = or disjoint i64 %50, %53
-  store i64 %54, ptr %51, align 8
-  br i1 %28, label %60, label %55
+  %43 = ptrtoint ptr %41 to i64
+  %44 = sub i64 %42, %43
+  %45 = lshr exact i64 %44, 3
+  %46 = trunc i64 %45 to i32
+  %47 = add nsw i32 %46, -1
+  %48 = icmp ugt i32 %47, 127
+  %49 = zext nneg i32 %47 to i64
+  %50 = shl nuw nsw i64 %49, 56
+  %51 = select i1 %48, i64 9151314442816847872, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %53 = load i64, ptr %52, align 8
+  %54 = and i64 %53, 72057594037927935
+  %55 = or disjoint i64 %51, %54
+  store i64 %55, ptr %52, align 8
+  br i1 %29, label %61, label %56
 
-55:                                               ; preds = %_ZN7glslang16HlslParseContext8popScopeEv.exit6
-  %56 = load ptr, ptr %10, align 8
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 344
-  %59 = load ptr, ptr %58, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %59(ptr noundef nonnull align 8 dereferenceable(1280) %56, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.1) #16
-  br label %139
+56:                                               ; preds = %_ZN7glslang16HlslParseContext8popScopeEv.exit6
+  %57 = load ptr, ptr %10, align 8
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 344
+  %60 = load ptr, ptr %59, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %60(ptr noundef nonnull align 8 dereferenceable(1280) %57, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.1) #16
+  br label %140
 
-60:                                               ; preds = %_ZN7glslang16HlslParseContext8popScopeEv.exit6
-  %61 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 327) #16
-  br i1 %61, label %62, label %99
+61:                                               ; preds = %_ZN7glslang16HlslParseContext8popScopeEv.exit6
+  %62 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 327) #16
+  br i1 %62, label %63, label %100
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %64 = load ptr, ptr %10, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 232
-  %66 = load ptr, ptr %65, align 8
-  call void @_ZN7glslang12TSymbolTable4pushEv(ptr noundef nonnull align 8 dereferenceable(40) %66)
-  %67 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar15acceptStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %63)
-  %68 = load ptr, ptr %10, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 232
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 -8
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %_ZN7glslang16HlslParseContext8popScopeEv.exit8, label %76
+63:                                               ; preds = %61
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %65 = load ptr, ptr %10, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 232
+  %67 = load ptr, ptr %66, align 8
+  call void @_ZN7glslang12TSymbolTable4pushEv(ptr noundef nonnull align 8 dereferenceable(40) %67)
+  %68 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar15acceptStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %64)
+  %69 = load ptr, ptr %10, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 232
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds i8, ptr %73, i64 -8
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %_ZN7glslang16HlslParseContext8popScopeEv.exit8, label %77
 
-76:                                               ; preds = %62
-  call void @_ZN7glslang17TSymbolTableLevelD1Ev(ptr noundef nonnull align 8 dereferenceable(101) %74) #16
-  %.pre2.i.i7 = load ptr, ptr %71, align 8
+77:                                               ; preds = %63
+  call void @_ZN7glslang17TSymbolTableLevelD1Ev(ptr noundef nonnull align 8 dereferenceable(101) %75) #16
+  %.pre2.i.i7 = load ptr, ptr %72, align 8
   br label %_ZN7glslang16HlslParseContext8popScopeEv.exit8
 
-_ZN7glslang16HlslParseContext8popScopeEv.exit8:   ; preds = %62, %76
-  %77 = phi ptr [ %.pre2.i.i7, %76 ], [ %72, %62 ]
-  %78 = getelementptr inbounds i8, ptr %77, i64 -8
-  store ptr %78, ptr %71, align 8
-  %79 = load ptr, ptr %70, align 8
-  %80 = ptrtoint ptr %78 to i64
+_ZN7glslang16HlslParseContext8popScopeEv.exit8:   ; preds = %63, %77
+  %78 = phi ptr [ %.pre2.i.i7, %77 ], [ %73, %63 ]
+  %79 = getelementptr inbounds i8, ptr %78, i64 -8
+  store ptr %79, ptr %72, align 8
+  %80 = load ptr, ptr %71, align 8
   %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = lshr exact i64 %82, 3
-  %84 = trunc i64 %83 to i32
-  %85 = add nsw i32 %84, -1
-  %86 = icmp ugt i32 %85, 127
-  %87 = zext nneg i32 %85 to i64
-  %88 = shl nuw nsw i64 %87, 56
-  %89 = select i1 %86, i64 9151314442816847872, i64 %88
-  %90 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  %91 = load i64, ptr %90, align 8
-  %92 = and i64 %91, 72057594037927935
-  %93 = or disjoint i64 %89, %92
-  store i64 %93, ptr %90, align 8
-  br i1 %67, label %99, label %94
+  %82 = ptrtoint ptr %80 to i64
+  %83 = sub i64 %81, %82
+  %84 = lshr exact i64 %83, 3
+  %85 = trunc i64 %84 to i32
+  %86 = add nsw i32 %85, -1
+  %87 = icmp ugt i32 %86, 127
+  %88 = zext nneg i32 %86 to i64
+  %89 = shl nuw nsw i64 %88, 56
+  %90 = select i1 %87, i64 9151314442816847872, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %92 = load i64, ptr %91, align 8
+  %93 = and i64 %92, 72057594037927935
+  %94 = or disjoint i64 %90, %93
+  store i64 %94, ptr %91, align 8
+  br i1 %68, label %100, label %95
 
-94:                                               ; preds = %_ZN7glslang16HlslParseContext8popScopeEv.exit8
-  %95 = load ptr, ptr %10, align 8
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 344
-  %98 = load ptr, ptr %97, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %98(ptr noundef nonnull align 8 dereferenceable(1280) %95, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.1) #16
-  br label %139
+95:                                               ; preds = %_ZN7glslang16HlslParseContext8popScopeEv.exit8
+  %96 = load ptr, ptr %10, align 8
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 344
+  %99 = load ptr, ptr %98, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %99(ptr noundef nonnull align 8 dereferenceable(1280) %96, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull @.str, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.1) #16
+  br label %140
 
-99:                                               ; preds = %_ZN7glslang16HlslParseContext8popScopeEv.exit8, %60
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr %5, align 8
+100:                                              ; preds = %_ZN7glslang16HlslParseContext8popScopeEv.exit8, %61
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %102 = load ptr, ptr %101, align 8
+  %103 = load ptr, ptr %5, align 8
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
-  %103 = call noundef ptr @_ZN7glslang13TIntermediate12addSelectionEPNS_12TIntermTypedENS_15TIntermNodePairERKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %101, ptr noundef %102, ptr %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %4) #16
-  store ptr %103, ptr %1, align 8
-  %104 = load ptr, ptr %10, align 8
-  %105 = load ptr, ptr %103, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 72
-  %107 = load ptr, ptr %106, align 8
-  %108 = call noundef ptr %107(ptr noundef nonnull align 8 dereferenceable(32) %103) #16
-  call void @_ZN7glslang16HlslParseContext25handleSelectionAttributesERKNS_10TSourceLocEPNS_16TIntermSelectionERKNS_5TListINS_14TAttributeArgsEEE(ptr noundef nonnull align 8 dereferenceable(2489) %104, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %108, ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  %109 = load ptr, ptr %10, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 232
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 -8
-  %115 = load ptr, ptr %114, align 8
-  %116 = icmp eq ptr %115, null
-  br i1 %116, label %_ZN7glslang16HlslParseContext8popScopeEv.exit, label %117
+  %104 = call noundef ptr @_ZN7glslang13TIntermediate12addSelectionEPNS_12TIntermTypedENS_15TIntermNodePairERKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2024) %102, ptr noundef %103, ptr %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %4) #16
+  store ptr %104, ptr %1, align 8
+  %105 = load ptr, ptr %10, align 8
+  %106 = load ptr, ptr %104, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 72
+  %108 = load ptr, ptr %107, align 8
+  %109 = call noundef ptr %108(ptr noundef nonnull align 8 dereferenceable(32) %104) #16
+  call void @_ZN7glslang16HlslParseContext25handleSelectionAttributesERKNS_10TSourceLocEPNS_16TIntermSelectionERKNS_5TListINS_14TAttributeArgsEEE(ptr noundef nonnull align 8 dereferenceable(2489) %105, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef %109, ptr noundef nonnull align 8 dereferenceable(32) %2) #16
+  %110 = load ptr, ptr %10, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 232
+  %112 = load ptr, ptr %111, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 -8
+  %116 = load ptr, ptr %115, align 8
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %_ZN7glslang16HlslParseContext8popScopeEv.exit, label %118
 
-117:                                              ; preds = %99
-  call void @_ZN7glslang17TSymbolTableLevelD1Ev(ptr noundef nonnull align 8 dereferenceable(101) %115) #16
-  %.pre2.i.i = load ptr, ptr %112, align 8
+118:                                              ; preds = %100
+  call void @_ZN7glslang17TSymbolTableLevelD1Ev(ptr noundef nonnull align 8 dereferenceable(101) %116) #16
+  %.pre2.i.i = load ptr, ptr %113, align 8
   br label %_ZN7glslang16HlslParseContext8popScopeEv.exit
 
-_ZN7glslang16HlslParseContext8popScopeEv.exit:    ; preds = %99, %117
-  %118 = phi ptr [ %.pre2.i.i, %117 ], [ %113, %99 ]
-  %119 = getelementptr inbounds i8, ptr %118, i64 -8
-  store ptr %119, ptr %112, align 8
-  %120 = load ptr, ptr %111, align 8
-  %121 = ptrtoint ptr %119 to i64
+_ZN7glslang16HlslParseContext8popScopeEv.exit:    ; preds = %100, %118
+  %119 = phi ptr [ %.pre2.i.i, %118 ], [ %114, %100 ]
+  %120 = getelementptr inbounds i8, ptr %119, i64 -8
+  store ptr %120, ptr %113, align 8
+  %121 = load ptr, ptr %112, align 8
   %122 = ptrtoint ptr %120 to i64
-  %123 = sub i64 %121, %122
-  %124 = lshr exact i64 %123, 3
-  %125 = trunc i64 %124 to i32
-  %126 = add nsw i32 %125, -1
-  %127 = icmp ugt i32 %126, 127
-  %128 = zext nneg i32 %126 to i64
-  %129 = shl nuw nsw i64 %128, 56
-  %130 = select i1 %127, i64 9151314442816847872, i64 %129
-  %131 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  %132 = load i64, ptr %131, align 8
-  %133 = and i64 %132, 72057594037927935
-  %134 = or disjoint i64 %130, %133
-  store i64 %134, ptr %131, align 8
-  %135 = load ptr, ptr %10, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 288
-  %137 = load i32, ptr %136, align 8
-  %138 = add nsw i32 %137, -1
-  store i32 %138, ptr %136, align 8
-  br label %139
+  %123 = ptrtoint ptr %121 to i64
+  %124 = sub i64 %122, %123
+  %125 = lshr exact i64 %124, 3
+  %126 = trunc i64 %125 to i32
+  %127 = add nsw i32 %126, -1
+  %128 = icmp ugt i32 %127, 127
+  %129 = zext nneg i32 %127 to i64
+  %130 = shl nuw nsw i64 %129, 56
+  %131 = select i1 %128, i64 9151314442816847872, i64 %130
+  %132 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %133 = load i64, ptr %132, align 8
+  %134 = and i64 %133, 72057594037927935
+  %135 = or disjoint i64 %131, %134
+  store i64 %135, ptr %132, align 8
+  %136 = load ptr, ptr %10, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 288
+  %138 = load i32, ptr %137, align 8
+  %139 = add nsw i32 %138, -1
+  store i32 %139, ptr %137, align 8
+  br label %140
 
-139:                                              ; preds = %15, %9, %3, %_ZN7glslang16HlslParseContext8popScopeEv.exit, %94, %55
-  %.0 = phi i1 [ true, %_ZN7glslang16HlslParseContext8popScopeEv.exit ], [ false, %94 ], [ false, %55 ], [ false, %3 ], [ false, %9 ], [ false, %15 ]
+140:                                              ; preds = %15, %9, %3, %_ZN7glslang16HlslParseContext8popScopeEv.exit, %95, %56
+  %.0 = phi i1 [ true, %_ZN7glslang16HlslParseContext8popScopeEv.exit ], [ false, %95 ], [ false, %56 ], [ false, %3 ], [ false, %9 ], [ false, %15 ]
   ret i1 %.0
 }
 

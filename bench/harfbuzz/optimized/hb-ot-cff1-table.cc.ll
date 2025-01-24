@@ -325,7 +325,6 @@ return:                                           ; preds = %entry, %if.then
 define hidden noundef zeroext i1 @_ZNK2OT4cff113accelerator_t11get_extentsEP9hb_font_tjP18hb_glyph_extents_t(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %font, i32 noundef %glyph, ptr noundef %extents) local_unnamed_addr #1 align 2 {
 entry:
   %bounds = alloca %struct.bounds_t, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bounds, i8 0, i64 32, i1 false)
   %call = call fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef nonnull %this, i32 noundef %glyph, ptr noundef nonnull align 8 dereferenceable(32) %bounds, i1 noundef zeroext false)
   br i1 %call, label %if.end, label %return
 

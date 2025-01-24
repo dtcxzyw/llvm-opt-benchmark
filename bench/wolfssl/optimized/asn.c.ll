@@ -6969,7 +6969,6 @@ entry:
   %salt = alloca [64 x i8], align 16
   %cbcIv = alloca [64 x i8], align 16
   store i32 0, ptr %inOutIdx, align 4
-  store i32 0, ptr %keySz, align 4
   %cmp = icmp slt i32 %passwordSz, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -12495,8 +12494,8 @@ entry:
   %idx86.i = alloca i32, align 4
   %encodedSig.i = alloca [512 x i8], align 16
   %length.i = alloca i32, align 4
-  %idx.i531.i.i = alloca i32, align 4
-  %len.i532.i.i = alloca i32, align 4
+  %idx.i530.i.i = alloca i32, align 4
+  %len.i531.i.i = alloca i32, align 4
   %idx.i288.i.i = alloca i32, align 4
   %oid.i289.i.i = alloca i32, align 4
   %idx.i279.i.i = alloca i32, align 4
@@ -13489,7 +13488,6 @@ GetASNTag.exit106.i.i.i:                          ; preds = %if.end53.i.i.i.i199
   br i1 %cmp20.i.i.i, label %if.then22.i.i.i, label %if.end48.i.i.i
 
 if.then22.i.i.i:                                  ; preds = %GetASNTag.exit106.i.i.i
-  store i32 0, ptr %length.i.i.i, align 4
   %add.i.i107.i.i.i = add i32 %49, 2
   %cmp.i.i108.i.i.i = icmp ugt i32 %add.i.i107.i.i.i, %length.1.i.i.i.i130.i
   br i1 %cmp.i.i108.i.i.i, label %select.unfold.i.i, label %if.end.i.i109.i.i.i
@@ -13573,19 +13571,11 @@ if.end45.i.i114.i.i.i:                            ; preds = %while.end.i.i155.i.
   br i1 %cmp48.i.i118.i.i.i, label %select.unfold.i.i, label %if.end53.i.i119.i.i.i
 
 if.end53.i.i119.i.i.i:                            ; preds = %if.end45.i.i114.i.i.i
-  %cmp54.not.i.i120.i.i.i = icmp eq i32 %length.1.i.i115.i.i.i, 0
-  br i1 %cmp54.not.i.i120.i.i.i, label %if.end28.i.i.i, label %if.then56.i.i121.i.i.i
-
-if.then56.i.i121.i.i.i:                           ; preds = %if.end53.i.i119.i.i.i
-  store i32 %length.1.i.i115.i.i.i, ptr %length.i.i.i, align 4
-  br label %if.end28.i.i.i
-
-if.end28.i.i.i:                                   ; preds = %if.then56.i.i121.i.i.i, %if.end53.i.i119.i.i.i
   %add.i167.i.i.i = add i32 %53, 1
   %cmp6.i168.i.i.i = icmp ugt i32 %add.i167.i.i.i, %length.1.i.i.i.i130.i
   br i1 %cmp6.i168.i.i.i, label %if.end48.i.i.i, label %GetASNTag.exit172.i.i.i
 
-GetASNTag.exit172.i.i.i:                          ; preds = %if.end28.i.i.i
+GetASNTag.exit172.i.i.i:                          ; preds = %if.end53.i.i119.i.i.i
   %idxprom.i170.i.i.i = zext i32 %53 to i64
   %arrayidx.i171.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom.i170.i.i.i
   %54 = load i8, ptr %arrayidx.i171.i.i.i, align 1
@@ -13608,8 +13598,8 @@ if.end42.i.i.i:                                   ; preds = %if.then36.i.i.i
   %add.i.i201.i = add i32 %56, %55
   br label %if.end48.i.i.i
 
-if.end48.i.i.i:                                   ; preds = %if.end42.i.i.i, %GetASNTag.exit172.i.i.i, %if.end28.i.i.i, %GetASNTag.exit106.i.i.i, %if.end53.i.i.i.i199.i, %GetASNTag.exit.i.i.i, %if.end4.i.i.i
-  %57 = phi i32 [ %idx.1.i.i.i.i53.i.i.i, %if.end4.i.i.i ], [ %add.i.i201.i, %if.end42.i.i.i ], [ %idx.1.i.i.i.i53.i.i.i, %GetASNTag.exit.i.i.i ], [ %add47.i.i117.i.i.i, %GetASNTag.exit172.i.i.i ], [ %add47.i.i117.i.i.i, %if.end28.i.i.i ], [ %add47.i.i.i.i197.i, %GetASNTag.exit106.i.i.i ], [ %add47.i.i.i.i197.i, %if.end53.i.i.i.i199.i ]
+if.end48.i.i.i:                                   ; preds = %if.end42.i.i.i, %GetASNTag.exit172.i.i.i, %if.end53.i.i119.i.i.i, %GetASNTag.exit106.i.i.i, %if.end53.i.i.i.i199.i, %GetASNTag.exit.i.i.i, %if.end4.i.i.i
+  %57 = phi i32 [ %idx.1.i.i.i.i53.i.i.i, %if.end4.i.i.i ], [ %add.i.i201.i, %if.end42.i.i.i ], [ %idx.1.i.i.i.i53.i.i.i, %GetASNTag.exit.i.i.i ], [ %add47.i.i117.i.i.i, %GetASNTag.exit172.i.i.i ], [ %add47.i.i117.i.i.i, %if.end53.i.i119.i.i.i ], [ %add47.i.i.i.i197.i, %GetASNTag.exit106.i.i.i ], [ %add47.i.i.i.i197.i, %if.end53.i.i.i.i199.i ]
   %cmp49.i.i.i = icmp ult i32 %57, %length.1.i.i.i.i130.i
   br i1 %cmp49.i.i.i, label %land.lhs.true51.i.i.i, label %if.end67.i.i.i
 
@@ -15366,73 +15356,73 @@ if.end.i.i.i.i.i357.i.i:                          ; preds = %GetASNTag.exit.i.i.
   %140 = load i8, ptr %arrayidx.i11.i.i.i.i358.i.i, align 1
   %conv.i.i.i.i.i359.i.i = zext i8 %140 to i32
   %cmp1.i.i.i.i.i360.i.i = icmp slt i8 %140, 0
-  br i1 %cmp1.i.i.i.i.i360.i.i, label %if.then3.i.i.i.i.i490.i.i, label %if.end45.i.i.i.i.i361.i.i
+  br i1 %cmp1.i.i.i.i.i360.i.i, label %if.then3.i.i.i.i.i489.i.i, label %if.end45.i.i.i.i.i361.i.i
 
-if.then3.i.i.i.i.i490.i.i:                        ; preds = %if.end.i.i.i.i.i357.i.i
-  %and.i.i.i.i.i491.i.i = and i32 %conv.i.i.i.i.i359.i.i, 127
-  %cmp6.i12.i.i.i.i492.i.i = icmp eq i8 %140, -128
-  br i1 %cmp6.i12.i.i.i.i492.i.i, label %if.end22.i.i.i.i.i501.i.i, label %if.else.i.i.i.i.i493.i.i
+if.then3.i.i.i.i.i489.i.i:                        ; preds = %if.end.i.i.i.i.i357.i.i
+  %and.i.i.i.i.i490.i.i = and i32 %conv.i.i.i.i.i359.i.i, 127
+  %cmp6.i12.i.i.i.i491.i.i = icmp eq i8 %140, -128
+  br i1 %cmp6.i12.i.i.i.i491.i.i, label %if.end22.i.i.i.i.i500.i.i, label %if.else.i.i.i.i.i492.i.i
 
-if.else.i.i.i.i.i493.i.i:                         ; preds = %if.then3.i.i.i.i.i490.i.i
-  %cmp9.i.i.i.i.i494.i.i = icmp eq i32 %and.i.i.i.i.i491.i.i, 1
-  br i1 %cmp9.i.i.i.i.i494.i.i, label %if.end22.thread.i.i.i.i.i529.i.i, label %if.else12.i.i.i.i.i495.i.i
+if.else.i.i.i.i.i492.i.i:                         ; preds = %if.then3.i.i.i.i.i489.i.i
+  %cmp9.i.i.i.i.i493.i.i = icmp eq i32 %and.i.i.i.i.i490.i.i, 1
+  br i1 %cmp9.i.i.i.i.i493.i.i, label %if.end22.thread.i.i.i.i.i528.i.i, label %if.else12.i.i.i.i.i494.i.i
 
-if.else12.i.i.i.i.i495.i.i:                       ; preds = %if.else.i.i.i.i.i493.i.i
-  %cmp14.i.i.i.i.i496.i.i = icmp samesign ugt i32 %and.i.i.i.i.i491.i.i, 4
-  br i1 %cmp14.i.i.i.i.i496.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i.i497.i.i
+if.else12.i.i.i.i.i494.i.i:                       ; preds = %if.else.i.i.i.i.i492.i.i
+  %cmp14.i.i.i.i.i495.i.i = icmp samesign ugt i32 %and.i.i.i.i.i490.i.i, 4
+  br i1 %cmp14.i.i.i.i.i495.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i.i496.i.i
 
-if.else19.i.i.i.i.i497.i.i:                       ; preds = %if.else12.i.i.i.i.i495.i.i
-  %sub.i.i.i.i.i498.i.i = shl nuw nsw i32 %and.i.i.i.i.i491.i.i, 3
-  %mul.i.i.i.i.i499.i.i = add nsw i32 %sub.i.i.i.i.i498.i.i, -8
-  %shl.i.i.i.i.i500.i.i = shl nuw nsw i32 1, %mul.i.i.i.i.i499.i.i
-  br label %if.end22.i.i.i.i.i501.i.i
+if.else19.i.i.i.i.i496.i.i:                       ; preds = %if.else12.i.i.i.i.i494.i.i
+  %sub.i.i.i.i.i497.i.i = shl nuw nsw i32 %and.i.i.i.i.i490.i.i, 3
+  %mul.i.i.i.i.i498.i.i = add nsw i32 %sub.i.i.i.i.i497.i.i, -8
+  %shl.i.i.i.i.i499.i.i = shl nuw nsw i32 1, %mul.i.i.i.i.i498.i.i
+  br label %if.end22.i.i.i.i.i500.i.i
 
-if.end22.i.i.i.i.i501.i.i:                        ; preds = %if.else19.i.i.i.i.i497.i.i, %if.then3.i.i.i.i.i490.i.i
-  %minLen.0.i.i.i.i.i502.i.i = phi i32 [ %shl.i.i.i.i.i500.i.i, %if.else19.i.i.i.i.i497.i.i ], [ 0, %if.then3.i.i.i.i.i490.i.i ]
-  %add23.i.i.i.i.i503.i.i = add nuw nsw i32 %and.i.i.i.i.i491.i.i, 2
-  %cmp24.i.i.i.i.i504.i.i = icmp samesign ugt i32 %add23.i.i.i.i.i503.i.i, %length.1.i.i.i.i130.i
-  br i1 %cmp24.i.i.i.i.i504.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i.i.i505.i.i
+if.end22.i.i.i.i.i500.i.i:                        ; preds = %if.else19.i.i.i.i.i496.i.i, %if.then3.i.i.i.i.i489.i.i
+  %minLen.0.i.i.i.i.i501.i.i = phi i32 [ %shl.i.i.i.i.i499.i.i, %if.else19.i.i.i.i.i496.i.i ], [ 0, %if.then3.i.i.i.i.i489.i.i ]
+  %add23.i.i.i.i.i502.i.i = add nuw nsw i32 %and.i.i.i.i.i490.i.i, 2
+  %cmp24.i.i.i.i.i503.i.i = icmp samesign ugt i32 %add23.i.i.i.i.i502.i.i, %length.1.i.i.i.i130.i
+  br i1 %cmp24.i.i.i.i.i503.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i.i.i504.i.i
 
-if.end22.thread.i.i.i.i.i529.i.i:                 ; preds = %if.else.i.i.i.i.i493.i.i
-  %cmp2433.i.i.i.i.i530.i.i = icmp samesign ult i32 %length.1.i.i.i.i130.i, 3
-  br i1 %cmp2433.i.i.i.i.i530.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i.i.i507.i.i
+if.end22.thread.i.i.i.i.i528.i.i:                 ; preds = %if.else.i.i.i.i.i492.i.i
+  %cmp2433.i.i.i.i.i529.i.i = icmp samesign ult i32 %length.1.i.i.i.i130.i, 3
+  br i1 %cmp2433.i.i.i.i.i529.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i.i.i506.i.i
 
-while.cond.preheader.i.i.i.i.i505.i.i:            ; preds = %if.end22.i.i.i.i.i501.i.i
-  %tobool.not26.i.i.i.i.i506.i.i = icmp eq i32 %and.i.i.i.i.i491.i.i, 0
-  br i1 %tobool.not26.i.i.i.i.i506.i.i, label %while.end.i.i.i.i.i522.i.i, label %while.body.preheader.i.i.i.i.i507.i.i
+while.cond.preheader.i.i.i.i.i504.i.i:            ; preds = %if.end22.i.i.i.i.i500.i.i
+  %tobool.not26.i.i.i.i.i505.i.i = icmp eq i32 %and.i.i.i.i.i490.i.i, 0
+  br i1 %tobool.not26.i.i.i.i.i505.i.i, label %while.end.i.i.i.i.i521.i.i, label %while.body.preheader.i.i.i.i.i506.i.i
 
-while.body.preheader.i.i.i.i.i507.i.i:            ; preds = %while.cond.preheader.i.i.i.i.i505.i.i, %if.end22.thread.i.i.i.i.i529.i.i
-  %minLen.03440.i.i.i.i.i508.i.i = phi i32 [ %minLen.0.i.i.i.i.i502.i.i, %while.cond.preheader.i.i.i.i.i505.i.i ], [ 128, %if.end22.thread.i.i.i.i.i529.i.i ]
-  %add233539.i.i.i.i.i509.i.i = phi i32 [ %add23.i.i.i.i.i503.i.i, %while.cond.preheader.i.i.i.i.i505.i.i ], [ 3, %if.end22.thread.i.i.i.i.i529.i.i ]
-  br label %while.body.i.i.i.i.i510.i.i
+while.body.preheader.i.i.i.i.i506.i.i:            ; preds = %while.cond.preheader.i.i.i.i.i504.i.i, %if.end22.thread.i.i.i.i.i528.i.i
+  %minLen.03440.i.i.i.i.i507.i.i = phi i32 [ %minLen.0.i.i.i.i.i501.i.i, %while.cond.preheader.i.i.i.i.i504.i.i ], [ 128, %if.end22.thread.i.i.i.i.i528.i.i ]
+  %add233539.i.i.i.i.i508.i.i = phi i32 [ %add23.i.i.i.i.i502.i.i, %while.cond.preheader.i.i.i.i.i504.i.i ], [ 3, %if.end22.thread.i.i.i.i.i528.i.i ]
+  br label %while.body.i.i.i.i.i509.i.i
 
-while.body.i.i.i.i.i510.i.i:                      ; preds = %while.body.i.i.i.i.i510.i.i, %while.body.preheader.i.i.i.i.i507.i.i
-  %bytes.029.i.i.i.i.i511.i.i = phi i32 [ %dec.i.i.i.i.i514.i.i, %while.body.i.i.i.i.i510.i.i ], [ %and.i.i.i.i.i491.i.i, %while.body.preheader.i.i.i.i.i507.i.i ]
-  %idx.028.i.i.i.i.i512.i.i = phi i32 [ %inc30.i.i.i.i.i515.i.i, %while.body.i.i.i.i.i510.i.i ], [ 2, %while.body.preheader.i.i.i.i.i507.i.i ]
-  %length.027.i.i.i.i.i513.i.i = phi i32 [ %or.i.i.i.i.i520.i.i, %while.body.i.i.i.i.i510.i.i ], [ 0, %while.body.preheader.i.i.i.i.i507.i.i ]
-  %dec.i.i.i.i.i514.i.i = add nsw i32 %bytes.029.i.i.i.i.i511.i.i, -1
-  %inc30.i.i.i.i.i515.i.i = add i32 %idx.028.i.i.i.i.i512.i.i, 1
-  %idxprom31.i.i.i.i.i516.i.i = zext i32 %idx.028.i.i.i.i.i512.i.i to i64
-  %arrayidx32.i.i.i.i.i517.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom31.i.i.i.i.i516.i.i
-  %141 = load i8, ptr %arrayidx32.i.i.i.i.i517.i.i, align 1
-  %shl33.i.i.i.i.i518.i.i = shl i32 %length.027.i.i.i.i.i513.i.i, 8
-  %conv34.i.i.i.i.i519.i.i = zext i8 %141 to i32
-  %or.i.i.i.i.i520.i.i = or disjoint i32 %shl33.i.i.i.i.i518.i.i, %conv34.i.i.i.i.i519.i.i
-  %tobool.not.i.i.i.i.i521.i.i = icmp eq i32 %dec.i.i.i.i.i514.i.i, 0
-  br i1 %tobool.not.i.i.i.i.i521.i.i, label %while.end.i.i.i.i.i522.i.i, label %while.body.i.i.i.i.i510.i.i, !llvm.loop !7
+while.body.i.i.i.i.i509.i.i:                      ; preds = %while.body.i.i.i.i.i509.i.i, %while.body.preheader.i.i.i.i.i506.i.i
+  %bytes.029.i.i.i.i.i510.i.i = phi i32 [ %dec.i.i.i.i.i513.i.i, %while.body.i.i.i.i.i509.i.i ], [ %and.i.i.i.i.i490.i.i, %while.body.preheader.i.i.i.i.i506.i.i ]
+  %idx.028.i.i.i.i.i511.i.i = phi i32 [ %inc30.i.i.i.i.i514.i.i, %while.body.i.i.i.i.i509.i.i ], [ 2, %while.body.preheader.i.i.i.i.i506.i.i ]
+  %length.027.i.i.i.i.i512.i.i = phi i32 [ %or.i.i.i.i.i519.i.i, %while.body.i.i.i.i.i509.i.i ], [ 0, %while.body.preheader.i.i.i.i.i506.i.i ]
+  %dec.i.i.i.i.i513.i.i = add nsw i32 %bytes.029.i.i.i.i.i510.i.i, -1
+  %inc30.i.i.i.i.i514.i.i = add i32 %idx.028.i.i.i.i.i511.i.i, 1
+  %idxprom31.i.i.i.i.i515.i.i = zext i32 %idx.028.i.i.i.i.i511.i.i to i64
+  %arrayidx32.i.i.i.i.i516.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom31.i.i.i.i.i515.i.i
+  %141 = load i8, ptr %arrayidx32.i.i.i.i.i516.i.i, align 1
+  %shl33.i.i.i.i.i517.i.i = shl i32 %length.027.i.i.i.i.i512.i.i, 8
+  %conv34.i.i.i.i.i518.i.i = zext i8 %141 to i32
+  %or.i.i.i.i.i519.i.i = or disjoint i32 %shl33.i.i.i.i.i517.i.i, %conv34.i.i.i.i.i518.i.i
+  %tobool.not.i.i.i.i.i520.i.i = icmp eq i32 %dec.i.i.i.i.i513.i.i, 0
+  br i1 %tobool.not.i.i.i.i.i520.i.i, label %while.end.i.i.i.i.i521.i.i, label %while.body.i.i.i.i.i509.i.i, !llvm.loop !7
 
-while.end.i.i.i.i.i522.i.i:                       ; preds = %while.body.i.i.i.i.i510.i.i, %while.cond.preheader.i.i.i.i.i505.i.i
-  %minLen.03441.i.i.i.i.i523.i.i = phi i32 [ %minLen.0.i.i.i.i.i502.i.i, %while.cond.preheader.i.i.i.i.i505.i.i ], [ %minLen.03440.i.i.i.i.i508.i.i, %while.body.i.i.i.i.i510.i.i ]
-  %length.0.lcssa.i.i.i.i.i524.i.i = phi i32 [ 0, %while.cond.preheader.i.i.i.i.i505.i.i ], [ %or.i.i.i.i.i520.i.i, %while.body.i.i.i.i.i510.i.i ]
-  %idx.0.lcssa.i.i.i.i.i525.i.i = phi i32 [ 2, %while.cond.preheader.i.i.i.i.i505.i.i ], [ %add233539.i.i.i.i.i509.i.i, %while.body.i.i.i.i.i510.i.i ]
-  %cmp35.i.i.i.i.i526.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i.i524.i.i, 0
-  %cmp39.i.i.i.i.i527.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i.i524.i.i, %minLen.03441.i.i.i.i.i523.i.i
-  %or.cond25.i.i.i.i.i528.i.i = select i1 %cmp35.i.i.i.i.i526.i.i, i1 true, i1 %cmp39.i.i.i.i.i527.i.i
-  br i1 %or.cond25.i.i.i.i.i528.i.i, label %DecodeExtensionType.exit.i, label %if.end45.i.i.i.i.i361.i.i
+while.end.i.i.i.i.i521.i.i:                       ; preds = %while.body.i.i.i.i.i509.i.i, %while.cond.preheader.i.i.i.i.i504.i.i
+  %minLen.03441.i.i.i.i.i522.i.i = phi i32 [ %minLen.0.i.i.i.i.i501.i.i, %while.cond.preheader.i.i.i.i.i504.i.i ], [ %minLen.03440.i.i.i.i.i507.i.i, %while.body.i.i.i.i.i509.i.i ]
+  %length.0.lcssa.i.i.i.i.i523.i.i = phi i32 [ 0, %while.cond.preheader.i.i.i.i.i504.i.i ], [ %or.i.i.i.i.i519.i.i, %while.body.i.i.i.i.i509.i.i ]
+  %idx.0.lcssa.i.i.i.i.i524.i.i = phi i32 [ 2, %while.cond.preheader.i.i.i.i.i504.i.i ], [ %add233539.i.i.i.i.i508.i.i, %while.body.i.i.i.i.i509.i.i ]
+  %cmp35.i.i.i.i.i525.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i.i523.i.i, 0
+  %cmp39.i.i.i.i.i526.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i.i523.i.i, %minLen.03441.i.i.i.i.i522.i.i
+  %or.cond25.i.i.i.i.i527.i.i = select i1 %cmp35.i.i.i.i.i525.i.i, i1 true, i1 %cmp39.i.i.i.i.i526.i.i
+  br i1 %or.cond25.i.i.i.i.i527.i.i, label %DecodeExtensionType.exit.i, label %if.end45.i.i.i.i.i361.i.i
 
-if.end45.i.i.i.i.i361.i.i:                        ; preds = %while.end.i.i.i.i.i522.i.i, %if.end.i.i.i.i.i357.i.i
-  %length.1.i.i.i.i.i362.i.i = phi i32 [ %conv.i.i.i.i.i359.i.i, %if.end.i.i.i.i.i357.i.i ], [ %length.0.lcssa.i.i.i.i.i524.i.i, %while.end.i.i.i.i.i522.i.i ]
-  %idx.1.i.i.i.i.i363.i.i = phi i32 [ 2, %if.end.i.i.i.i.i357.i.i ], [ %idx.0.lcssa.i.i.i.i.i525.i.i, %while.end.i.i.i.i.i522.i.i ]
+if.end45.i.i.i.i.i361.i.i:                        ; preds = %while.end.i.i.i.i.i521.i.i, %if.end.i.i.i.i.i357.i.i
+  %length.1.i.i.i.i.i362.i.i = phi i32 [ %conv.i.i.i.i.i359.i.i, %if.end.i.i.i.i.i357.i.i ], [ %length.0.lcssa.i.i.i.i.i523.i.i, %while.end.i.i.i.i.i521.i.i ]
+  %idx.1.i.i.i.i.i363.i.i = phi i32 [ 2, %if.end.i.i.i.i.i357.i.i ], [ %idx.0.lcssa.i.i.i.i.i524.i.i, %while.end.i.i.i.i.i521.i.i ]
   %add47.i.i.i.i.i364.i.i = add i32 %idx.1.i.i.i.i.i363.i.i, %length.1.i.i.i.i.i362.i.i
   %cmp48.i.i.i.i.i365.i.i = icmp ugt i32 %add47.i.i.i.i.i364.i.i, %length.1.i.i.i.i130.i
   br i1 %cmp48.i.i.i.i.i365.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i179.i
@@ -15441,8 +15431,8 @@ while.cond.preheader.i.i179.i:                    ; preds = %if.end45.i.i.i.i.i3
   %cmp325.i.i.i = icmp ult i32 %idx.1.i.i.i.i.i363.i.i, %length.1.i.i.i.i130.i
   br i1 %cmp325.i.i.i, label %while.body.i368.i.i, label %DecodeExtensionType.exit.i
 
-while.body.i368.i.i:                              ; preds = %while.cond.preheader.i.i179.i, %if.end28.i404.i.i
-  %idx.026.i.i.i = phi i32 [ %add47.i.i.i382.i.i, %if.end28.i404.i.i ], [ %idx.1.i.i.i.i.i363.i.i, %while.cond.preheader.i.i179.i ]
+while.body.i368.i.i:                              ; preds = %while.cond.preheader.i.i179.i, %if.end28.i.i.i
+  %idx.026.i.i.i = phi i32 [ %add47.i.i.i382.i.i, %if.end28.i.i.i ], [ %idx.1.i.i.i.i.i363.i.i, %while.cond.preheader.i.i179.i ]
   %idxprom.i369.i.i = zext i32 %idx.026.i.i.i to i64
   %arrayidx.i370.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom.i369.i.i
   %142 = load i8, ptr %arrayidx.i370.i.i, align 1
@@ -15457,74 +15447,74 @@ if.end.i.i.i373.i.i:                              ; preds = %while.body.i368.i.i
   %143 = load i8, ptr %arrayidx.i.i.i376.i.i, align 1
   %conv.i.i.i377.i.i = zext i8 %143 to i32
   %cmp1.i.i.i378.i.i = icmp slt i8 %143, 0
-  br i1 %cmp1.i.i.i378.i.i, label %if.then3.i.i.i448.i.i, label %if.end45.i.i.i379.i.i
+  br i1 %cmp1.i.i.i378.i.i, label %if.then3.i.i.i447.i.i, label %if.end45.i.i.i379.i.i
 
-if.then3.i.i.i448.i.i:                            ; preds = %if.end.i.i.i373.i.i
-  %and.i.i.i449.i.i = and i32 %conv.i.i.i377.i.i, 127
-  %cmp6.i.i.i450.i.i = icmp eq i8 %143, -128
-  br i1 %cmp6.i.i.i450.i.i, label %if.end22.i.i.i459.i.i, label %if.else.i.i.i451.i.i
+if.then3.i.i.i447.i.i:                            ; preds = %if.end.i.i.i373.i.i
+  %and.i.i.i448.i.i = and i32 %conv.i.i.i377.i.i, 127
+  %cmp6.i.i.i449.i.i = icmp eq i8 %143, -128
+  br i1 %cmp6.i.i.i449.i.i, label %if.end22.i.i.i458.i.i, label %if.else.i.i.i450.i.i
 
-if.else.i.i.i451.i.i:                             ; preds = %if.then3.i.i.i448.i.i
-  %cmp9.i.i.i452.i.i = icmp eq i32 %and.i.i.i449.i.i, 1
-  br i1 %cmp9.i.i.i452.i.i, label %if.end22.thread.i.i.i487.i.i, label %if.else12.i.i.i453.i.i
+if.else.i.i.i450.i.i:                             ; preds = %if.then3.i.i.i447.i.i
+  %cmp9.i.i.i451.i.i = icmp eq i32 %and.i.i.i448.i.i, 1
+  br i1 %cmp9.i.i.i451.i.i, label %if.end22.thread.i.i.i486.i.i, label %if.else12.i.i.i452.i.i
 
-if.else12.i.i.i453.i.i:                           ; preds = %if.else.i.i.i451.i.i
-  %cmp14.i.i.i454.i.i = icmp samesign ugt i32 %and.i.i.i449.i.i, 4
-  br i1 %cmp14.i.i.i454.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i455.i.i
+if.else12.i.i.i452.i.i:                           ; preds = %if.else.i.i.i450.i.i
+  %cmp14.i.i.i453.i.i = icmp samesign ugt i32 %and.i.i.i448.i.i, 4
+  br i1 %cmp14.i.i.i453.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i454.i.i
 
-if.else19.i.i.i455.i.i:                           ; preds = %if.else12.i.i.i453.i.i
-  %sub.i.i.i456.i.i = shl nuw nsw i32 %and.i.i.i449.i.i, 3
-  %mul.i.i.i457.i.i = add nsw i32 %sub.i.i.i456.i.i, -8
-  %shl.i.i.i458.i.i = shl nuw nsw i32 1, %mul.i.i.i457.i.i
-  br label %if.end22.i.i.i459.i.i
+if.else19.i.i.i454.i.i:                           ; preds = %if.else12.i.i.i452.i.i
+  %sub.i.i.i455.i.i = shl nuw nsw i32 %and.i.i.i448.i.i, 3
+  %mul.i.i.i456.i.i = add nsw i32 %sub.i.i.i455.i.i, -8
+  %shl.i.i.i457.i.i = shl nuw nsw i32 1, %mul.i.i.i456.i.i
+  br label %if.end22.i.i.i458.i.i
 
-if.end22.i.i.i459.i.i:                            ; preds = %if.else19.i.i.i455.i.i, %if.then3.i.i.i448.i.i
-  %minLen.0.i.i.i460.i.i = phi i32 [ %shl.i.i.i458.i.i, %if.else19.i.i.i455.i.i ], [ 0, %if.then3.i.i.i448.i.i ]
-  %add23.i.i.i461.i.i = add i32 %and.i.i.i449.i.i, %add.i.i.i371.i.i
-  %cmp24.i.i.i462.i.i = icmp ugt i32 %add23.i.i.i461.i.i, %length.1.i.i.i.i130.i
-  br i1 %cmp24.i.i.i462.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i463.i.i
+if.end22.i.i.i458.i.i:                            ; preds = %if.else19.i.i.i454.i.i, %if.then3.i.i.i447.i.i
+  %minLen.0.i.i.i459.i.i = phi i32 [ %shl.i.i.i457.i.i, %if.else19.i.i.i454.i.i ], [ 0, %if.then3.i.i.i447.i.i ]
+  %add23.i.i.i460.i.i = add i32 %and.i.i.i448.i.i, %add.i.i.i371.i.i
+  %cmp24.i.i.i461.i.i = icmp ugt i32 %add23.i.i.i460.i.i, %length.1.i.i.i.i130.i
+  br i1 %cmp24.i.i.i461.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i462.i.i
 
-if.end22.thread.i.i.i487.i.i:                     ; preds = %if.else.i.i.i451.i.i
-  %add2332.i.i.i488.i.i = add i32 %idx.026.i.i.i, 3
-  %cmp2433.i.i.i489.i.i = icmp ugt i32 %add2332.i.i.i488.i.i, %length.1.i.i.i.i130.i
-  br i1 %cmp2433.i.i.i489.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i465.i.i
+if.end22.thread.i.i.i486.i.i:                     ; preds = %if.else.i.i.i450.i.i
+  %add2332.i.i.i487.i.i = add i32 %idx.026.i.i.i, 3
+  %cmp2433.i.i.i488.i.i = icmp ugt i32 %add2332.i.i.i487.i.i, %length.1.i.i.i.i130.i
+  br i1 %cmp2433.i.i.i488.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i464.i.i
 
-while.cond.preheader.i.i.i463.i.i:                ; preds = %if.end22.i.i.i459.i.i
-  %tobool.not26.i.i.i464.i.i = icmp eq i32 %and.i.i.i449.i.i, 0
-  br i1 %tobool.not26.i.i.i464.i.i, label %while.end.i.i.i480.i.i, label %while.body.preheader.i.i.i465.i.i
+while.cond.preheader.i.i.i462.i.i:                ; preds = %if.end22.i.i.i458.i.i
+  %tobool.not26.i.i.i463.i.i = icmp eq i32 %and.i.i.i448.i.i, 0
+  br i1 %tobool.not26.i.i.i463.i.i, label %while.end.i.i.i479.i.i, label %while.body.preheader.i.i.i464.i.i
 
-while.body.preheader.i.i.i465.i.i:                ; preds = %while.cond.preheader.i.i.i463.i.i, %if.end22.thread.i.i.i487.i.i
-  %minLen.03440.i.i.i466.i.i = phi i32 [ %minLen.0.i.i.i460.i.i, %while.cond.preheader.i.i.i463.i.i ], [ 128, %if.end22.thread.i.i.i487.i.i ]
-  %add233539.i.i.i467.i.i = phi i32 [ %add23.i.i.i461.i.i, %while.cond.preheader.i.i.i463.i.i ], [ %add2332.i.i.i488.i.i, %if.end22.thread.i.i.i487.i.i ]
-  br label %while.body.i.i.i468.i.i
+while.body.preheader.i.i.i464.i.i:                ; preds = %while.cond.preheader.i.i.i462.i.i, %if.end22.thread.i.i.i486.i.i
+  %minLen.03440.i.i.i465.i.i = phi i32 [ %minLen.0.i.i.i459.i.i, %while.cond.preheader.i.i.i462.i.i ], [ 128, %if.end22.thread.i.i.i486.i.i ]
+  %add233539.i.i.i466.i.i = phi i32 [ %add23.i.i.i460.i.i, %while.cond.preheader.i.i.i462.i.i ], [ %add2332.i.i.i487.i.i, %if.end22.thread.i.i.i486.i.i ]
+  br label %while.body.i.i.i467.i.i
 
-while.body.i.i.i468.i.i:                          ; preds = %while.body.i.i.i468.i.i, %while.body.preheader.i.i.i465.i.i
-  %bytes.029.i.i.i469.i.i = phi i32 [ %dec.i.i.i472.i.i, %while.body.i.i.i468.i.i ], [ %and.i.i.i449.i.i, %while.body.preheader.i.i.i465.i.i ]
-  %idx.028.i.i.i470.i.i = phi i32 [ %inc30.i.i.i473.i.i, %while.body.i.i.i468.i.i ], [ %add.i.i.i371.i.i, %while.body.preheader.i.i.i465.i.i ]
-  %length.027.i.i.i471.i.i = phi i32 [ %or.i.i.i478.i.i, %while.body.i.i.i468.i.i ], [ 0, %while.body.preheader.i.i.i465.i.i ]
-  %dec.i.i.i472.i.i = add nsw i32 %bytes.029.i.i.i469.i.i, -1
-  %inc30.i.i.i473.i.i = add i32 %idx.028.i.i.i470.i.i, 1
-  %idxprom31.i.i.i474.i.i = zext i32 %idx.028.i.i.i470.i.i to i64
-  %arrayidx32.i.i.i475.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom31.i.i.i474.i.i
-  %144 = load i8, ptr %arrayidx32.i.i.i475.i.i, align 1
-  %shl33.i.i.i476.i.i = shl i32 %length.027.i.i.i471.i.i, 8
-  %conv34.i.i.i477.i.i = zext i8 %144 to i32
-  %or.i.i.i478.i.i = or disjoint i32 %shl33.i.i.i476.i.i, %conv34.i.i.i477.i.i
-  %tobool.not.i.i.i479.i.i = icmp eq i32 %dec.i.i.i472.i.i, 0
-  br i1 %tobool.not.i.i.i479.i.i, label %while.end.i.i.i480.i.i, label %while.body.i.i.i468.i.i, !llvm.loop !7
+while.body.i.i.i467.i.i:                          ; preds = %while.body.i.i.i467.i.i, %while.body.preheader.i.i.i464.i.i
+  %bytes.029.i.i.i468.i.i = phi i32 [ %dec.i.i.i471.i.i, %while.body.i.i.i467.i.i ], [ %and.i.i.i448.i.i, %while.body.preheader.i.i.i464.i.i ]
+  %idx.028.i.i.i469.i.i = phi i32 [ %inc30.i.i.i472.i.i, %while.body.i.i.i467.i.i ], [ %add.i.i.i371.i.i, %while.body.preheader.i.i.i464.i.i ]
+  %length.027.i.i.i470.i.i = phi i32 [ %or.i.i.i477.i.i, %while.body.i.i.i467.i.i ], [ 0, %while.body.preheader.i.i.i464.i.i ]
+  %dec.i.i.i471.i.i = add nsw i32 %bytes.029.i.i.i468.i.i, -1
+  %inc30.i.i.i472.i.i = add i32 %idx.028.i.i.i469.i.i, 1
+  %idxprom31.i.i.i473.i.i = zext i32 %idx.028.i.i.i469.i.i to i64
+  %arrayidx32.i.i.i474.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom31.i.i.i473.i.i
+  %144 = load i8, ptr %arrayidx32.i.i.i474.i.i, align 1
+  %shl33.i.i.i475.i.i = shl i32 %length.027.i.i.i470.i.i, 8
+  %conv34.i.i.i476.i.i = zext i8 %144 to i32
+  %or.i.i.i477.i.i = or disjoint i32 %shl33.i.i.i475.i.i, %conv34.i.i.i476.i.i
+  %tobool.not.i.i.i478.i.i = icmp eq i32 %dec.i.i.i471.i.i, 0
+  br i1 %tobool.not.i.i.i478.i.i, label %while.end.i.i.i479.i.i, label %while.body.i.i.i467.i.i, !llvm.loop !7
 
-while.end.i.i.i480.i.i:                           ; preds = %while.body.i.i.i468.i.i, %while.cond.preheader.i.i.i463.i.i
-  %minLen.03441.i.i.i481.i.i = phi i32 [ %minLen.0.i.i.i460.i.i, %while.cond.preheader.i.i.i463.i.i ], [ %minLen.03440.i.i.i466.i.i, %while.body.i.i.i468.i.i ]
-  %length.0.lcssa.i.i.i482.i.i = phi i32 [ 0, %while.cond.preheader.i.i.i463.i.i ], [ %or.i.i.i478.i.i, %while.body.i.i.i468.i.i ]
-  %idx.0.lcssa.i.i.i483.i.i = phi i32 [ %add.i.i.i371.i.i, %while.cond.preheader.i.i.i463.i.i ], [ %add233539.i.i.i467.i.i, %while.body.i.i.i468.i.i ]
-  %cmp35.i.i.i484.i.i = icmp slt i32 %length.0.lcssa.i.i.i482.i.i, 0
-  %cmp39.i.i.i485.i.i = icmp slt i32 %length.0.lcssa.i.i.i482.i.i, %minLen.03441.i.i.i481.i.i
-  %or.cond25.i.i.i486.i.i = select i1 %cmp35.i.i.i484.i.i, i1 true, i1 %cmp39.i.i.i485.i.i
-  br i1 %or.cond25.i.i.i486.i.i, label %DecodeExtensionType.exit.i, label %if.end45.i.i.i379.i.i
+while.end.i.i.i479.i.i:                           ; preds = %while.body.i.i.i467.i.i, %while.cond.preheader.i.i.i462.i.i
+  %minLen.03441.i.i.i480.i.i = phi i32 [ %minLen.0.i.i.i459.i.i, %while.cond.preheader.i.i.i462.i.i ], [ %minLen.03440.i.i.i465.i.i, %while.body.i.i.i467.i.i ]
+  %length.0.lcssa.i.i.i481.i.i = phi i32 [ 0, %while.cond.preheader.i.i.i462.i.i ], [ %or.i.i.i477.i.i, %while.body.i.i.i467.i.i ]
+  %idx.0.lcssa.i.i.i482.i.i = phi i32 [ %add.i.i.i371.i.i, %while.cond.preheader.i.i.i462.i.i ], [ %add233539.i.i.i466.i.i, %while.body.i.i.i467.i.i ]
+  %cmp35.i.i.i483.i.i = icmp slt i32 %length.0.lcssa.i.i.i481.i.i, 0
+  %cmp39.i.i.i484.i.i = icmp slt i32 %length.0.lcssa.i.i.i481.i.i, %minLen.03441.i.i.i480.i.i
+  %or.cond25.i.i.i485.i.i = select i1 %cmp35.i.i.i483.i.i, i1 true, i1 %cmp39.i.i.i484.i.i
+  br i1 %or.cond25.i.i.i485.i.i, label %DecodeExtensionType.exit.i, label %if.end45.i.i.i379.i.i
 
-if.end45.i.i.i379.i.i:                            ; preds = %while.end.i.i.i480.i.i, %if.end.i.i.i373.i.i
-  %length.1.i.i.i380.i.i = phi i32 [ %conv.i.i.i377.i.i, %if.end.i.i.i373.i.i ], [ %length.0.lcssa.i.i.i482.i.i, %while.end.i.i.i480.i.i ]
-  %idx.1.i.i.i381.i.i = phi i32 [ %add.i.i.i371.i.i, %if.end.i.i.i373.i.i ], [ %idx.0.lcssa.i.i.i483.i.i, %while.end.i.i.i480.i.i ]
+if.end45.i.i.i379.i.i:                            ; preds = %while.end.i.i.i479.i.i, %if.end.i.i.i373.i.i
+  %length.1.i.i.i380.i.i = phi i32 [ %conv.i.i.i377.i.i, %if.end.i.i.i373.i.i ], [ %length.0.lcssa.i.i.i481.i.i, %while.end.i.i.i479.i.i ]
+  %idx.1.i.i.i381.i.i = phi i32 [ %add.i.i.i371.i.i, %if.end.i.i.i373.i.i ], [ %idx.0.lcssa.i.i.i482.i.i, %while.end.i.i.i479.i.i ]
   %add47.i.i.i382.i.i = add i32 %idx.1.i.i.i381.i.i, %length.1.i.i.i380.i.i
   %cmp48.i.i.i383.i.i = icmp ugt i32 %add47.i.i.i382.i.i, %length.1.i.i.i.i130.i
   %cmp54.not.i.i.i.i.i = icmp eq i32 %length.1.i.i.i380.i.i, 0
@@ -15655,74 +15645,74 @@ if.end.i.i.i.i390.i.i:                            ; preds = %if.end6.i.i.i.i
   %149 = load i8, ptr %arrayidx.i.i.i.i392.i.i, align 1
   %conv.i.i.i.i393.i.i = zext i8 %149 to i32
   %cmp1.i.i.i.i394.i.i = icmp slt i8 %149, 0
-  br i1 %cmp1.i.i.i.i394.i.i, label %if.then3.i.i.i.i406.i.i, label %if.end45.i.i.i.i395.i.i
+  br i1 %cmp1.i.i.i.i394.i.i, label %if.then3.i.i.i.i405.i.i, label %if.end45.i.i.i.i395.i.i
 
-if.then3.i.i.i.i406.i.i:                          ; preds = %if.end.i.i.i.i390.i.i
-  %and.i.i.i.i407.i.i = and i32 %conv.i.i.i.i393.i.i, 127
-  %cmp6.i.i.i.i408.i.i = icmp eq i8 %149, -128
-  br i1 %cmp6.i.i.i.i408.i.i, label %if.end22.i.i.i.i417.i.i, label %if.else.i.i.i.i409.i.i
+if.then3.i.i.i.i405.i.i:                          ; preds = %if.end.i.i.i.i390.i.i
+  %and.i.i.i.i406.i.i = and i32 %conv.i.i.i.i393.i.i, 127
+  %cmp6.i.i.i.i407.i.i = icmp eq i8 %149, -128
+  br i1 %cmp6.i.i.i.i407.i.i, label %if.end22.i.i.i.i416.i.i, label %if.else.i.i.i.i408.i.i
 
-if.else.i.i.i.i409.i.i:                           ; preds = %if.then3.i.i.i.i406.i.i
-  %cmp9.i.i.i.i410.i.i = icmp eq i32 %and.i.i.i.i407.i.i, 1
-  br i1 %cmp9.i.i.i.i410.i.i, label %if.end22.thread.i.i.i.i445.i.i, label %if.else12.i.i.i.i411.i.i
+if.else.i.i.i.i408.i.i:                           ; preds = %if.then3.i.i.i.i405.i.i
+  %cmp9.i.i.i.i409.i.i = icmp eq i32 %and.i.i.i.i406.i.i, 1
+  br i1 %cmp9.i.i.i.i409.i.i, label %if.end22.thread.i.i.i.i444.i.i, label %if.else12.i.i.i.i410.i.i
 
-if.else12.i.i.i.i411.i.i:                         ; preds = %if.else.i.i.i.i409.i.i
-  %cmp14.i.i.i.i412.i.i = icmp samesign ugt i32 %and.i.i.i.i407.i.i, 4
-  br i1 %cmp14.i.i.i.i412.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i413.i.i
+if.else12.i.i.i.i410.i.i:                         ; preds = %if.else.i.i.i.i408.i.i
+  %cmp14.i.i.i.i411.i.i = icmp samesign ugt i32 %and.i.i.i.i406.i.i, 4
+  br i1 %cmp14.i.i.i.i411.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i412.i.i
 
-if.else19.i.i.i.i413.i.i:                         ; preds = %if.else12.i.i.i.i411.i.i
-  %sub.i.i.i.i414.i.i = shl nuw nsw i32 %and.i.i.i.i407.i.i, 3
-  %mul.i.i.i.i415.i.i = add nsw i32 %sub.i.i.i.i414.i.i, -8
-  %shl.i.i.i.i416.i.i = shl nuw nsw i32 1, %mul.i.i.i.i415.i.i
-  br label %if.end22.i.i.i.i417.i.i
+if.else19.i.i.i.i412.i.i:                         ; preds = %if.else12.i.i.i.i410.i.i
+  %sub.i.i.i.i413.i.i = shl nuw nsw i32 %and.i.i.i.i406.i.i, 3
+  %mul.i.i.i.i414.i.i = add nsw i32 %sub.i.i.i.i413.i.i, -8
+  %shl.i.i.i.i415.i.i = shl nuw nsw i32 1, %mul.i.i.i.i414.i.i
+  br label %if.end22.i.i.i.i416.i.i
 
-if.end22.i.i.i.i417.i.i:                          ; preds = %if.else19.i.i.i.i413.i.i, %if.then3.i.i.i.i406.i.i
-  %minLen.0.i.i.i.i418.i.i = phi i32 [ %shl.i.i.i.i416.i.i, %if.else19.i.i.i.i413.i.i ], [ 0, %if.then3.i.i.i.i406.i.i ]
-  %add23.i.i.i.i419.i.i = add i32 %and.i.i.i.i407.i.i, %add.i.i.i.i388.i.i
-  %cmp24.i.i.i.i420.i.i = icmp ugt i32 %add23.i.i.i.i419.i.i, %length.1.i.i.i380.i.i
-  br i1 %cmp24.i.i.i.i420.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i.i421.i.i
+if.end22.i.i.i.i416.i.i:                          ; preds = %if.else19.i.i.i.i412.i.i, %if.then3.i.i.i.i405.i.i
+  %minLen.0.i.i.i.i417.i.i = phi i32 [ %shl.i.i.i.i415.i.i, %if.else19.i.i.i.i412.i.i ], [ 0, %if.then3.i.i.i.i405.i.i ]
+  %add23.i.i.i.i418.i.i = add i32 %and.i.i.i.i406.i.i, %add.i.i.i.i388.i.i
+  %cmp24.i.i.i.i419.i.i = icmp ugt i32 %add23.i.i.i.i418.i.i, %length.1.i.i.i380.i.i
+  br i1 %cmp24.i.i.i.i419.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i.i420.i.i
 
-if.end22.thread.i.i.i.i445.i.i:                   ; preds = %if.else.i.i.i.i409.i.i
-  %add2332.i.i.i.i446.i.i = add i32 %idx.1.i.i.i.i.i.i.i.i, 3
-  %cmp2433.i.i.i.i447.i.i = icmp ugt i32 %add2332.i.i.i.i446.i.i, %length.1.i.i.i380.i.i
-  br i1 %cmp2433.i.i.i.i447.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i.i423.i.i
+if.end22.thread.i.i.i.i444.i.i:                   ; preds = %if.else.i.i.i.i408.i.i
+  %add2332.i.i.i.i445.i.i = add i32 %idx.1.i.i.i.i.i.i.i.i, 3
+  %cmp2433.i.i.i.i446.i.i = icmp ugt i32 %add2332.i.i.i.i445.i.i, %length.1.i.i.i380.i.i
+  br i1 %cmp2433.i.i.i.i446.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i.i422.i.i
 
-while.cond.preheader.i.i.i.i421.i.i:              ; preds = %if.end22.i.i.i.i417.i.i
-  %tobool.not26.i.i.i.i422.i.i = icmp eq i32 %and.i.i.i.i407.i.i, 0
-  br i1 %tobool.not26.i.i.i.i422.i.i, label %while.end.i.i.i.i438.i.i, label %while.body.preheader.i.i.i.i423.i.i
+while.cond.preheader.i.i.i.i420.i.i:              ; preds = %if.end22.i.i.i.i416.i.i
+  %tobool.not26.i.i.i.i421.i.i = icmp eq i32 %and.i.i.i.i406.i.i, 0
+  br i1 %tobool.not26.i.i.i.i421.i.i, label %while.end.i.i.i.i437.i.i, label %while.body.preheader.i.i.i.i422.i.i
 
-while.body.preheader.i.i.i.i423.i.i:              ; preds = %while.cond.preheader.i.i.i.i421.i.i, %if.end22.thread.i.i.i.i445.i.i
-  %minLen.03440.i.i.i.i424.i.i = phi i32 [ %minLen.0.i.i.i.i418.i.i, %while.cond.preheader.i.i.i.i421.i.i ], [ 128, %if.end22.thread.i.i.i.i445.i.i ]
-  %add233539.i.i.i.i425.i.i = phi i32 [ %add23.i.i.i.i419.i.i, %while.cond.preheader.i.i.i.i421.i.i ], [ %add2332.i.i.i.i446.i.i, %if.end22.thread.i.i.i.i445.i.i ]
-  br label %while.body.i.i.i.i426.i.i
+while.body.preheader.i.i.i.i422.i.i:              ; preds = %while.cond.preheader.i.i.i.i420.i.i, %if.end22.thread.i.i.i.i444.i.i
+  %minLen.03440.i.i.i.i423.i.i = phi i32 [ %minLen.0.i.i.i.i417.i.i, %while.cond.preheader.i.i.i.i420.i.i ], [ 128, %if.end22.thread.i.i.i.i444.i.i ]
+  %add233539.i.i.i.i424.i.i = phi i32 [ %add23.i.i.i.i418.i.i, %while.cond.preheader.i.i.i.i420.i.i ], [ %add2332.i.i.i.i445.i.i, %if.end22.thread.i.i.i.i444.i.i ]
+  br label %while.body.i.i.i.i425.i.i
 
-while.body.i.i.i.i426.i.i:                        ; preds = %while.body.i.i.i.i426.i.i, %while.body.preheader.i.i.i.i423.i.i
-  %bytes.029.i.i.i.i427.i.i = phi i32 [ %dec.i.i.i.i430.i.i, %while.body.i.i.i.i426.i.i ], [ %and.i.i.i.i407.i.i, %while.body.preheader.i.i.i.i423.i.i ]
-  %idx.028.i.i.i.i428.i.i = phi i32 [ %inc30.i.i.i.i431.i.i, %while.body.i.i.i.i426.i.i ], [ %add.i.i.i.i388.i.i, %while.body.preheader.i.i.i.i423.i.i ]
-  %length.027.i.i.i.i429.i.i = phi i32 [ %or.i.i.i.i436.i.i, %while.body.i.i.i.i426.i.i ], [ 0, %while.body.preheader.i.i.i.i423.i.i ]
-  %dec.i.i.i.i430.i.i = add nsw i32 %bytes.029.i.i.i.i427.i.i, -1
-  %inc30.i.i.i.i431.i.i = add i32 %idx.028.i.i.i.i428.i.i, 1
-  %idxprom31.i.i.i.i432.i.i = zext i32 %idx.028.i.i.i.i428.i.i to i64
-  %arrayidx32.i.i.i.i433.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i385.i.i, i64 %idxprom31.i.i.i.i432.i.i
-  %150 = load i8, ptr %arrayidx32.i.i.i.i433.i.i, align 1
-  %shl33.i.i.i.i434.i.i = shl i32 %length.027.i.i.i.i429.i.i, 8
-  %conv34.i.i.i.i435.i.i = zext i8 %150 to i32
-  %or.i.i.i.i436.i.i = or disjoint i32 %shl33.i.i.i.i434.i.i, %conv34.i.i.i.i435.i.i
-  %tobool.not.i.i.i.i437.i.i = icmp eq i32 %dec.i.i.i.i430.i.i, 0
-  br i1 %tobool.not.i.i.i.i437.i.i, label %while.end.i.i.i.i438.i.i, label %while.body.i.i.i.i426.i.i, !llvm.loop !7
+while.body.i.i.i.i425.i.i:                        ; preds = %while.body.i.i.i.i425.i.i, %while.body.preheader.i.i.i.i422.i.i
+  %bytes.029.i.i.i.i426.i.i = phi i32 [ %dec.i.i.i.i429.i.i, %while.body.i.i.i.i425.i.i ], [ %and.i.i.i.i406.i.i, %while.body.preheader.i.i.i.i422.i.i ]
+  %idx.028.i.i.i.i427.i.i = phi i32 [ %inc30.i.i.i.i430.i.i, %while.body.i.i.i.i425.i.i ], [ %add.i.i.i.i388.i.i, %while.body.preheader.i.i.i.i422.i.i ]
+  %length.027.i.i.i.i428.i.i = phi i32 [ %or.i.i.i.i435.i.i, %while.body.i.i.i.i425.i.i ], [ 0, %while.body.preheader.i.i.i.i422.i.i ]
+  %dec.i.i.i.i429.i.i = add nsw i32 %bytes.029.i.i.i.i426.i.i, -1
+  %inc30.i.i.i.i430.i.i = add i32 %idx.028.i.i.i.i427.i.i, 1
+  %idxprom31.i.i.i.i431.i.i = zext i32 %idx.028.i.i.i.i427.i.i to i64
+  %arrayidx32.i.i.i.i432.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i385.i.i, i64 %idxprom31.i.i.i.i431.i.i
+  %150 = load i8, ptr %arrayidx32.i.i.i.i432.i.i, align 1
+  %shl33.i.i.i.i433.i.i = shl i32 %length.027.i.i.i.i428.i.i, 8
+  %conv34.i.i.i.i434.i.i = zext i8 %150 to i32
+  %or.i.i.i.i435.i.i = or disjoint i32 %shl33.i.i.i.i433.i.i, %conv34.i.i.i.i434.i.i
+  %tobool.not.i.i.i.i436.i.i = icmp eq i32 %dec.i.i.i.i429.i.i, 0
+  br i1 %tobool.not.i.i.i.i436.i.i, label %while.end.i.i.i.i437.i.i, label %while.body.i.i.i.i425.i.i, !llvm.loop !7
 
-while.end.i.i.i.i438.i.i:                         ; preds = %while.body.i.i.i.i426.i.i, %while.cond.preheader.i.i.i.i421.i.i
-  %minLen.03441.i.i.i.i439.i.i = phi i32 [ %minLen.0.i.i.i.i418.i.i, %while.cond.preheader.i.i.i.i421.i.i ], [ %minLen.03440.i.i.i.i424.i.i, %while.body.i.i.i.i426.i.i ]
-  %length.0.lcssa.i.i.i.i440.i.i = phi i32 [ 0, %while.cond.preheader.i.i.i.i421.i.i ], [ %or.i.i.i.i436.i.i, %while.body.i.i.i.i426.i.i ]
-  %idx.0.lcssa.i.i.i.i441.i.i = phi i32 [ %add.i.i.i.i388.i.i, %while.cond.preheader.i.i.i.i421.i.i ], [ %add233539.i.i.i.i425.i.i, %while.body.i.i.i.i426.i.i ]
-  %cmp35.i.i.i.i442.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i440.i.i, 0
-  %cmp39.i.i.i.i443.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i440.i.i, %minLen.03441.i.i.i.i439.i.i
-  %or.cond25.i.i.i.i444.i.i = select i1 %cmp35.i.i.i.i442.i.i, i1 true, i1 %cmp39.i.i.i.i443.i.i
-  br i1 %or.cond25.i.i.i.i444.i.i, label %DecodeExtensionType.exit.i, label %if.end45.i.i.i.i395.i.i
+while.end.i.i.i.i437.i.i:                         ; preds = %while.body.i.i.i.i425.i.i, %while.cond.preheader.i.i.i.i420.i.i
+  %minLen.03441.i.i.i.i438.i.i = phi i32 [ %minLen.0.i.i.i.i417.i.i, %while.cond.preheader.i.i.i.i420.i.i ], [ %minLen.03440.i.i.i.i423.i.i, %while.body.i.i.i.i425.i.i ]
+  %length.0.lcssa.i.i.i.i439.i.i = phi i32 [ 0, %while.cond.preheader.i.i.i.i420.i.i ], [ %or.i.i.i.i435.i.i, %while.body.i.i.i.i425.i.i ]
+  %idx.0.lcssa.i.i.i.i440.i.i = phi i32 [ %add.i.i.i.i388.i.i, %while.cond.preheader.i.i.i.i420.i.i ], [ %add233539.i.i.i.i424.i.i, %while.body.i.i.i.i425.i.i ]
+  %cmp35.i.i.i.i441.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i439.i.i, 0
+  %cmp39.i.i.i.i442.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i439.i.i, %minLen.03441.i.i.i.i438.i.i
+  %or.cond25.i.i.i.i443.i.i = select i1 %cmp35.i.i.i.i441.i.i, i1 true, i1 %cmp39.i.i.i.i442.i.i
+  br i1 %or.cond25.i.i.i.i443.i.i, label %DecodeExtensionType.exit.i, label %if.end45.i.i.i.i395.i.i
 
-if.end45.i.i.i.i395.i.i:                          ; preds = %while.end.i.i.i.i438.i.i, %if.end.i.i.i.i390.i.i
-  %length.1.i.i.i.i396.i.i = phi i32 [ %conv.i.i.i.i393.i.i, %if.end.i.i.i.i390.i.i ], [ %length.0.lcssa.i.i.i.i440.i.i, %while.end.i.i.i.i438.i.i ]
-  %idx.1.i.i.i.i397.i.i = phi i32 [ %add.i.i.i.i388.i.i, %if.end.i.i.i.i390.i.i ], [ %idx.0.lcssa.i.i.i.i441.i.i, %while.end.i.i.i.i438.i.i ]
+if.end45.i.i.i.i395.i.i:                          ; preds = %while.end.i.i.i.i437.i.i, %if.end.i.i.i.i390.i.i
+  %length.1.i.i.i.i396.i.i = phi i32 [ %conv.i.i.i.i393.i.i, %if.end.i.i.i.i390.i.i ], [ %length.0.lcssa.i.i.i.i439.i.i, %while.end.i.i.i.i437.i.i ]
+  %idx.1.i.i.i.i397.i.i = phi i32 [ %add.i.i.i.i388.i.i, %if.end.i.i.i.i390.i.i ], [ %idx.0.lcssa.i.i.i.i440.i.i, %while.end.i.i.i.i437.i.i ]
   %add47.i.i.i.i398.i.i = add i32 %idx.1.i.i.i.i397.i.i, %length.1.i.i.i.i396.i.i
   %cmp48.i.i.i.i399.i.i = icmp ugt i32 %add47.i.i.i.i398.i.i, %length.1.i.i.i380.i.i
   %cmp54.not.i.i.i.i.i.i = icmp eq i32 %length.1.i.i.i.i396.i.i, 0
@@ -15875,11 +15865,11 @@ if.end55.i.i.i.i:                                 ; preds = %if.end43.i.i.i.i
 
 if.end63.i.i.i.i:                                 ; preds = %if.end55.i.i.i.i, %if.end12.i.i.i.i
   %cmp.i.i403.i.i = icmp ult i32 %add47.i.i.i.i.i.i.i.i, %length.1.i.i.i380.i.i
-  br i1 %cmp.i.i403.i.i, label %while.body.i.i.i.i, label %if.end28.i404.i.i, !llvm.loop !22
+  br i1 %cmp.i.i403.i.i, label %while.body.i.i.i.i, label %if.end28.i.i.i, !llvm.loop !22
 
-if.end28.i404.i.i:                                ; preds = %if.end63.i.i.i.i
-  %cmp3.i405.i.i = icmp ult i32 %add47.i.i.i382.i.i, %length.1.i.i.i.i130.i
-  br i1 %cmp3.i405.i.i, label %while.body.i368.i.i, label %DecodeExtensionType.exit.i, !llvm.loop !23
+if.end28.i.i.i:                                   ; preds = %if.end63.i.i.i.i
+  %cmp3.i404.i.i = icmp ult i32 %add47.i.i.i382.i.i, %length.1.i.i.i.i130.i
+  br i1 %cmp3.i404.i.i, label %while.body.i368.i.i, label %DecodeExtensionType.exit.i, !llvm.loop !23
 
 sw.bb292.i.i:                                     ; preds = %if.end71.i
   %bf.load293.i.i = load i32, ptr %extPolicyConstSet.i.i, align 8
@@ -15893,30 +15883,30 @@ if.then300.i.i:                                   ; preds = %sw.bb292.i.i
   br label %DecodeExtensionType.exit.if.end80_crit_edge.thread.i
 
 sw.bb309.i.i:                                     ; preds = %if.end71.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %idx.i531.i.i)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i532.i.i)
-  store i32 0, ptr %idx.i531.i.i, align 4
-  %call.i533.i.i = call i32 @CheckBitString(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %idx.i531.i.i, ptr noundef nonnull %len.i532.i.i, i32 noundef %length.1.i.i.i.i130.i, i32 noundef 0, ptr noundef null)
-  %cmp.i.i178.i = icmp slt i32 %call.i533.i.i, 0
-  br i1 %cmp.i.i178.i, label %160, label %if.end.i534.i.i
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %idx.i530.i.i)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %len.i531.i.i)
+  store i32 0, ptr %idx.i530.i.i, align 4
+  %call.i532.i.i = call i32 @CheckBitString(ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %idx.i530.i.i, ptr noundef nonnull %len.i531.i.i, i32 noundef %length.1.i.i.i.i130.i, i32 noundef 0, ptr noundef null)
+  %cmp.i.i178.i = icmp slt i32 %call.i532.i.i, 0
+  br i1 %cmp.i.i178.i, label %160, label %if.end.i533.i.i
 
-if.end.i534.i.i:                                  ; preds = %sw.bb309.i.i
-  %158 = load i32, ptr %idx.i531.i.i, align 4
-  %cmp1.i535.i.i = icmp ult i32 %158, %length.1.i.i.i.i130.i
-  br i1 %cmp1.i535.i.i, label %DecodeNsCertType.exit.i.i, label %160
+if.end.i533.i.i:                                  ; preds = %sw.bb309.i.i
+  %158 = load i32, ptr %idx.i530.i.i, align 4
+  %cmp1.i534.i.i = icmp ult i32 %158, %length.1.i.i.i.i130.i
+  br i1 %cmp1.i534.i.i, label %DecodeNsCertType.exit.i.i, label %160
 
-DecodeNsCertType.exit.i.i:                        ; preds = %if.end.i534.i.i
-  %idxprom.i537.i.i = zext nneg i32 %158 to i64
-  %arrayidx.i538.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom.i537.i.i
-  %159 = load i8, ptr %arrayidx.i538.i.i, align 1
+DecodeNsCertType.exit.i.i:                        ; preds = %if.end.i533.i.i
+  %idxprom.i536.i.i = zext nneg i32 %158 to i64
+  %arrayidx.i537.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom.i536.i.i
+  %159 = load i8, ptr %arrayidx.i537.i.i, align 1
   store i8 %159, ptr %nsCertType.i.i.i, align 4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i531.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i532.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i530.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i531.i.i)
   br label %DecodeExtensionType.exit.if.end80_crit_edge.thread.i
 
-160:                                              ; preds = %if.end.i534.i.i, %sw.bb309.i.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i531.i.i)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i532.i.i)
+160:                                              ; preds = %if.end.i533.i.i, %sw.bb309.i.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %idx.i530.i.i)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %len.i531.i.i)
   br label %DecodeExtensionType.exit.i
 
 sw.bb315.i.i:                                     ; preds = %if.end71.i
@@ -15932,203 +15922,203 @@ if.then323.i.i:                                   ; preds = %sw.bb315.i.i
   %bf.clear337.i.i = or disjoint i32 %bf.set327.i.i, %bf.shl336.i.i
   %bf.set338.i.i = or disjoint i32 %bf.clear337.i.i, 4096
   store i32 %bf.set338.i.i, ptr %extPolicyConstSet.i.i, align 8
-  %cmp6.i.i.i.i.i539.i.i = icmp eq i32 %length.1.i.i.i.i130.i, 0
-  br i1 %cmp6.i.i.i.i.i539.i.i, label %DecodeExtensionType.exit.i, label %GetASNTag.exit.i.i.i.i540.i.i
+  %cmp6.i.i.i.i.i538.i.i = icmp eq i32 %length.1.i.i.i.i130.i, 0
+  br i1 %cmp6.i.i.i.i.i538.i.i, label %DecodeExtensionType.exit.i, label %GetASNTag.exit.i.i.i.i539.i.i
 
-GetASNTag.exit.i.i.i.i540.i.i:                    ; preds = %if.then323.i.i
+GetASNTag.exit.i.i.i.i539.i.i:                    ; preds = %if.then323.i.i
   %163 = load i8, ptr %add.ptr.i, align 1
-  %cmp3.not.i.i.i.i541.i.i = icmp ne i8 %163, 48
-  %cmp.i.i.i.i.i542.i.i = icmp eq i32 %length.1.i.i.i.i130.i, 1
-  %or.cond34.i.i.i = or i1 %cmp.i.i.i.i.i542.i.i, %cmp3.not.i.i.i.i541.i.i
-  br i1 %or.cond34.i.i.i, label %DecodeExtensionType.exit.i, label %if.end.i.i.i.i.i543.i.i
+  %cmp3.not.i.i.i.i540.i.i = icmp ne i8 %163, 48
+  %cmp.i.i.i.i.i541.i.i = icmp eq i32 %length.1.i.i.i.i130.i, 1
+  %or.cond34.i.i.i = or i1 %cmp.i.i.i.i.i541.i.i, %cmp3.not.i.i.i.i540.i.i
+  br i1 %or.cond34.i.i.i, label %DecodeExtensionType.exit.i, label %if.end.i.i.i.i.i542.i.i
 
-if.end.i.i.i.i.i543.i.i:                          ; preds = %GetASNTag.exit.i.i.i.i540.i.i
-  %arrayidx.i11.i.i.i.i544.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
-  %164 = load i8, ptr %arrayidx.i11.i.i.i.i544.i.i, align 1
-  %conv.i.i.i.i.i545.i.i = zext i8 %164 to i32
-  %cmp1.i.i.i.i.i546.i.i = icmp slt i8 %164, 0
-  br i1 %cmp1.i.i.i.i.i546.i.i, label %if.then3.i.i.i.i.i615.i.i, label %if.end45.i.i.i.i.i547.i.i
+if.end.i.i.i.i.i542.i.i:                          ; preds = %GetASNTag.exit.i.i.i.i539.i.i
+  %arrayidx.i11.i.i.i.i543.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
+  %164 = load i8, ptr %arrayidx.i11.i.i.i.i543.i.i, align 1
+  %conv.i.i.i.i.i544.i.i = zext i8 %164 to i32
+  %cmp1.i.i.i.i.i545.i.i = icmp slt i8 %164, 0
+  br i1 %cmp1.i.i.i.i.i545.i.i, label %if.then3.i.i.i.i.i614.i.i, label %if.end45.i.i.i.i.i546.i.i
 
-if.then3.i.i.i.i.i615.i.i:                        ; preds = %if.end.i.i.i.i.i543.i.i
-  %and.i.i.i.i.i616.i.i = and i32 %conv.i.i.i.i.i545.i.i, 127
-  %cmp6.i12.i.i.i.i617.i.i = icmp eq i8 %164, -128
-  br i1 %cmp6.i12.i.i.i.i617.i.i, label %if.end22.i.i.i.i.i626.i.i, label %if.else.i.i.i.i.i618.i.i
+if.then3.i.i.i.i.i614.i.i:                        ; preds = %if.end.i.i.i.i.i542.i.i
+  %and.i.i.i.i.i615.i.i = and i32 %conv.i.i.i.i.i544.i.i, 127
+  %cmp6.i12.i.i.i.i616.i.i = icmp eq i8 %164, -128
+  br i1 %cmp6.i12.i.i.i.i616.i.i, label %if.end22.i.i.i.i.i625.i.i, label %if.else.i.i.i.i.i617.i.i
 
-if.else.i.i.i.i.i618.i.i:                         ; preds = %if.then3.i.i.i.i.i615.i.i
-  %cmp9.i.i.i.i.i619.i.i = icmp eq i32 %and.i.i.i.i.i616.i.i, 1
-  br i1 %cmp9.i.i.i.i.i619.i.i, label %if.end22.thread.i.i.i.i.i654.i.i, label %if.else12.i.i.i.i.i620.i.i
+if.else.i.i.i.i.i617.i.i:                         ; preds = %if.then3.i.i.i.i.i614.i.i
+  %cmp9.i.i.i.i.i618.i.i = icmp eq i32 %and.i.i.i.i.i615.i.i, 1
+  br i1 %cmp9.i.i.i.i.i618.i.i, label %if.end22.thread.i.i.i.i.i653.i.i, label %if.else12.i.i.i.i.i619.i.i
 
-if.else12.i.i.i.i.i620.i.i:                       ; preds = %if.else.i.i.i.i.i618.i.i
-  %cmp14.i.i.i.i.i621.i.i = icmp samesign ugt i32 %and.i.i.i.i.i616.i.i, 4
-  br i1 %cmp14.i.i.i.i.i621.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i.i622.i.i
+if.else12.i.i.i.i.i619.i.i:                       ; preds = %if.else.i.i.i.i.i617.i.i
+  %cmp14.i.i.i.i.i620.i.i = icmp samesign ugt i32 %and.i.i.i.i.i615.i.i, 4
+  br i1 %cmp14.i.i.i.i.i620.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i.i.i621.i.i
 
-if.else19.i.i.i.i.i622.i.i:                       ; preds = %if.else12.i.i.i.i.i620.i.i
-  %sub.i.i.i.i.i623.i.i = shl nuw nsw i32 %and.i.i.i.i.i616.i.i, 3
-  %mul.i.i.i.i.i624.i.i = add nsw i32 %sub.i.i.i.i.i623.i.i, -8
-  %shl.i.i.i.i.i625.i.i = shl nuw nsw i32 1, %mul.i.i.i.i.i624.i.i
-  br label %if.end22.i.i.i.i.i626.i.i
+if.else19.i.i.i.i.i621.i.i:                       ; preds = %if.else12.i.i.i.i.i619.i.i
+  %sub.i.i.i.i.i622.i.i = shl nuw nsw i32 %and.i.i.i.i.i615.i.i, 3
+  %mul.i.i.i.i.i623.i.i = add nsw i32 %sub.i.i.i.i.i622.i.i, -8
+  %shl.i.i.i.i.i624.i.i = shl nuw nsw i32 1, %mul.i.i.i.i.i623.i.i
+  br label %if.end22.i.i.i.i.i625.i.i
 
-if.end22.i.i.i.i.i626.i.i:                        ; preds = %if.else19.i.i.i.i.i622.i.i, %if.then3.i.i.i.i.i615.i.i
-  %minLen.0.i.i.i.i.i627.i.i = phi i32 [ %shl.i.i.i.i.i625.i.i, %if.else19.i.i.i.i.i622.i.i ], [ 0, %if.then3.i.i.i.i.i615.i.i ]
-  %add23.i.i.i.i.i628.i.i = add nuw nsw i32 %and.i.i.i.i.i616.i.i, 2
-  %cmp24.i.i.i.i.i629.i.i = icmp samesign ugt i32 %add23.i.i.i.i.i628.i.i, %length.1.i.i.i.i130.i
-  br i1 %cmp24.i.i.i.i.i629.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i.i.i630.i.i
+if.end22.i.i.i.i.i625.i.i:                        ; preds = %if.else19.i.i.i.i.i621.i.i, %if.then3.i.i.i.i.i614.i.i
+  %minLen.0.i.i.i.i.i626.i.i = phi i32 [ %shl.i.i.i.i.i624.i.i, %if.else19.i.i.i.i.i621.i.i ], [ 0, %if.then3.i.i.i.i.i614.i.i ]
+  %add23.i.i.i.i.i627.i.i = add nuw nsw i32 %and.i.i.i.i.i615.i.i, 2
+  %cmp24.i.i.i.i.i628.i.i = icmp samesign ugt i32 %add23.i.i.i.i.i627.i.i, %length.1.i.i.i.i130.i
+  br i1 %cmp24.i.i.i.i.i628.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i.i.i629.i.i
 
-if.end22.thread.i.i.i.i.i654.i.i:                 ; preds = %if.else.i.i.i.i.i618.i.i
-  %cmp2433.i.i.i.i.i655.i.i = icmp samesign ult i32 %length.1.i.i.i.i130.i, 3
-  br i1 %cmp2433.i.i.i.i.i655.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i.i.i632.i.i
+if.end22.thread.i.i.i.i.i653.i.i:                 ; preds = %if.else.i.i.i.i.i617.i.i
+  %cmp2433.i.i.i.i.i654.i.i = icmp samesign ult i32 %length.1.i.i.i.i130.i, 3
+  br i1 %cmp2433.i.i.i.i.i654.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i.i.i631.i.i
 
-while.cond.preheader.i.i.i.i.i630.i.i:            ; preds = %if.end22.i.i.i.i.i626.i.i
-  %tobool.not26.i.i.i.i.i631.i.i = icmp eq i32 %and.i.i.i.i.i616.i.i, 0
-  br i1 %tobool.not26.i.i.i.i.i631.i.i, label %while.end.i.i.i.i.i647.i.i, label %while.body.preheader.i.i.i.i.i632.i.i
+while.cond.preheader.i.i.i.i.i629.i.i:            ; preds = %if.end22.i.i.i.i.i625.i.i
+  %tobool.not26.i.i.i.i.i630.i.i = icmp eq i32 %and.i.i.i.i.i615.i.i, 0
+  br i1 %tobool.not26.i.i.i.i.i630.i.i, label %while.end.i.i.i.i.i646.i.i, label %while.body.preheader.i.i.i.i.i631.i.i
 
-while.body.preheader.i.i.i.i.i632.i.i:            ; preds = %while.cond.preheader.i.i.i.i.i630.i.i, %if.end22.thread.i.i.i.i.i654.i.i
-  %minLen.03440.i.i.i.i.i633.i.i = phi i32 [ %minLen.0.i.i.i.i.i627.i.i, %while.cond.preheader.i.i.i.i.i630.i.i ], [ 128, %if.end22.thread.i.i.i.i.i654.i.i ]
-  %add233539.i.i.i.i.i634.i.i = phi i32 [ %add23.i.i.i.i.i628.i.i, %while.cond.preheader.i.i.i.i.i630.i.i ], [ 3, %if.end22.thread.i.i.i.i.i654.i.i ]
-  br label %while.body.i.i.i.i.i635.i.i
+while.body.preheader.i.i.i.i.i631.i.i:            ; preds = %while.cond.preheader.i.i.i.i.i629.i.i, %if.end22.thread.i.i.i.i.i653.i.i
+  %minLen.03440.i.i.i.i.i632.i.i = phi i32 [ %minLen.0.i.i.i.i.i626.i.i, %while.cond.preheader.i.i.i.i.i629.i.i ], [ 128, %if.end22.thread.i.i.i.i.i653.i.i ]
+  %add233539.i.i.i.i.i633.i.i = phi i32 [ %add23.i.i.i.i.i627.i.i, %while.cond.preheader.i.i.i.i.i629.i.i ], [ 3, %if.end22.thread.i.i.i.i.i653.i.i ]
+  br label %while.body.i.i.i.i.i634.i.i
 
-while.body.i.i.i.i.i635.i.i:                      ; preds = %while.body.i.i.i.i.i635.i.i, %while.body.preheader.i.i.i.i.i632.i.i
-  %bytes.029.i.i.i.i.i636.i.i = phi i32 [ %dec.i.i.i.i.i639.i.i, %while.body.i.i.i.i.i635.i.i ], [ %and.i.i.i.i.i616.i.i, %while.body.preheader.i.i.i.i.i632.i.i ]
-  %idx.028.i.i.i.i.i637.i.i = phi i32 [ %inc30.i.i.i.i.i640.i.i, %while.body.i.i.i.i.i635.i.i ], [ 2, %while.body.preheader.i.i.i.i.i632.i.i ]
-  %length.027.i.i.i.i.i638.i.i = phi i32 [ %or.i.i.i.i.i645.i.i, %while.body.i.i.i.i.i635.i.i ], [ 0, %while.body.preheader.i.i.i.i.i632.i.i ]
-  %dec.i.i.i.i.i639.i.i = add nsw i32 %bytes.029.i.i.i.i.i636.i.i, -1
-  %inc30.i.i.i.i.i640.i.i = add i32 %idx.028.i.i.i.i.i637.i.i, 1
-  %idxprom31.i.i.i.i.i641.i.i = zext i32 %idx.028.i.i.i.i.i637.i.i to i64
-  %arrayidx32.i.i.i.i.i642.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom31.i.i.i.i.i641.i.i
-  %165 = load i8, ptr %arrayidx32.i.i.i.i.i642.i.i, align 1
-  %shl33.i.i.i.i.i643.i.i = shl i32 %length.027.i.i.i.i.i638.i.i, 8
-  %conv34.i.i.i.i.i644.i.i = zext i8 %165 to i32
-  %or.i.i.i.i.i645.i.i = or disjoint i32 %shl33.i.i.i.i.i643.i.i, %conv34.i.i.i.i.i644.i.i
-  %tobool.not.i.i.i.i.i646.i.i = icmp eq i32 %dec.i.i.i.i.i639.i.i, 0
-  br i1 %tobool.not.i.i.i.i.i646.i.i, label %while.end.i.i.i.i.i647.i.i, label %while.body.i.i.i.i.i635.i.i, !llvm.loop !7
+while.body.i.i.i.i.i634.i.i:                      ; preds = %while.body.i.i.i.i.i634.i.i, %while.body.preheader.i.i.i.i.i631.i.i
+  %bytes.029.i.i.i.i.i635.i.i = phi i32 [ %dec.i.i.i.i.i638.i.i, %while.body.i.i.i.i.i634.i.i ], [ %and.i.i.i.i.i615.i.i, %while.body.preheader.i.i.i.i.i631.i.i ]
+  %idx.028.i.i.i.i.i636.i.i = phi i32 [ %inc30.i.i.i.i.i639.i.i, %while.body.i.i.i.i.i634.i.i ], [ 2, %while.body.preheader.i.i.i.i.i631.i.i ]
+  %length.027.i.i.i.i.i637.i.i = phi i32 [ %or.i.i.i.i.i644.i.i, %while.body.i.i.i.i.i634.i.i ], [ 0, %while.body.preheader.i.i.i.i.i631.i.i ]
+  %dec.i.i.i.i.i638.i.i = add nsw i32 %bytes.029.i.i.i.i.i635.i.i, -1
+  %inc30.i.i.i.i.i639.i.i = add i32 %idx.028.i.i.i.i.i636.i.i, 1
+  %idxprom31.i.i.i.i.i640.i.i = zext i32 %idx.028.i.i.i.i.i636.i.i to i64
+  %arrayidx32.i.i.i.i.i641.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom31.i.i.i.i.i640.i.i
+  %165 = load i8, ptr %arrayidx32.i.i.i.i.i641.i.i, align 1
+  %shl33.i.i.i.i.i642.i.i = shl i32 %length.027.i.i.i.i.i637.i.i, 8
+  %conv34.i.i.i.i.i643.i.i = zext i8 %165 to i32
+  %or.i.i.i.i.i644.i.i = or disjoint i32 %shl33.i.i.i.i.i642.i.i, %conv34.i.i.i.i.i643.i.i
+  %tobool.not.i.i.i.i.i645.i.i = icmp eq i32 %dec.i.i.i.i.i638.i.i, 0
+  br i1 %tobool.not.i.i.i.i.i645.i.i, label %while.end.i.i.i.i.i646.i.i, label %while.body.i.i.i.i.i634.i.i, !llvm.loop !7
 
-while.end.i.i.i.i.i647.i.i:                       ; preds = %while.body.i.i.i.i.i635.i.i, %while.cond.preheader.i.i.i.i.i630.i.i
-  %minLen.03441.i.i.i.i.i648.i.i = phi i32 [ %minLen.0.i.i.i.i.i627.i.i, %while.cond.preheader.i.i.i.i.i630.i.i ], [ %minLen.03440.i.i.i.i.i633.i.i, %while.body.i.i.i.i.i635.i.i ]
-  %length.0.lcssa.i.i.i.i.i649.i.i = phi i32 [ 0, %while.cond.preheader.i.i.i.i.i630.i.i ], [ %or.i.i.i.i.i645.i.i, %while.body.i.i.i.i.i635.i.i ]
-  %idx.0.lcssa.i.i.i.i.i650.i.i = phi i32 [ 2, %while.cond.preheader.i.i.i.i.i630.i.i ], [ %add233539.i.i.i.i.i634.i.i, %while.body.i.i.i.i.i635.i.i ]
-  %cmp35.i.i.i.i.i651.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i.i649.i.i, 0
-  %cmp39.i.i.i.i.i652.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i.i649.i.i, %minLen.03441.i.i.i.i.i648.i.i
-  %or.cond25.i.i.i.i.i653.i.i = select i1 %cmp35.i.i.i.i.i651.i.i, i1 true, i1 %cmp39.i.i.i.i.i652.i.i
-  br i1 %or.cond25.i.i.i.i.i653.i.i, label %DecodeExtensionType.exit.i, label %if.end45.i.i.i.i.i547.i.i
+while.end.i.i.i.i.i646.i.i:                       ; preds = %while.body.i.i.i.i.i634.i.i, %while.cond.preheader.i.i.i.i.i629.i.i
+  %minLen.03441.i.i.i.i.i647.i.i = phi i32 [ %minLen.0.i.i.i.i.i626.i.i, %while.cond.preheader.i.i.i.i.i629.i.i ], [ %minLen.03440.i.i.i.i.i632.i.i, %while.body.i.i.i.i.i634.i.i ]
+  %length.0.lcssa.i.i.i.i.i648.i.i = phi i32 [ 0, %while.cond.preheader.i.i.i.i.i629.i.i ], [ %or.i.i.i.i.i644.i.i, %while.body.i.i.i.i.i634.i.i ]
+  %idx.0.lcssa.i.i.i.i.i649.i.i = phi i32 [ 2, %while.cond.preheader.i.i.i.i.i629.i.i ], [ %add233539.i.i.i.i.i633.i.i, %while.body.i.i.i.i.i634.i.i ]
+  %cmp35.i.i.i.i.i650.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i.i648.i.i, 0
+  %cmp39.i.i.i.i.i651.i.i = icmp slt i32 %length.0.lcssa.i.i.i.i.i648.i.i, %minLen.03441.i.i.i.i.i647.i.i
+  %or.cond25.i.i.i.i.i652.i.i = select i1 %cmp35.i.i.i.i.i650.i.i, i1 true, i1 %cmp39.i.i.i.i.i651.i.i
+  br i1 %or.cond25.i.i.i.i.i652.i.i, label %DecodeExtensionType.exit.i, label %if.end45.i.i.i.i.i546.i.i
 
-if.end45.i.i.i.i.i547.i.i:                        ; preds = %while.end.i.i.i.i.i647.i.i, %if.end.i.i.i.i.i543.i.i
-  %length.1.i.i.i.i.i548.i.i = phi i32 [ %conv.i.i.i.i.i545.i.i, %if.end.i.i.i.i.i543.i.i ], [ %length.0.lcssa.i.i.i.i.i649.i.i, %while.end.i.i.i.i.i647.i.i ]
-  %idx.1.i.i.i.i.i549.i.i = phi i32 [ 2, %if.end.i.i.i.i.i543.i.i ], [ %idx.0.lcssa.i.i.i.i.i650.i.i, %while.end.i.i.i.i.i647.i.i ]
-  %add47.i.i.i.i.i550.i.i = add i32 %idx.1.i.i.i.i.i549.i.i, %length.1.i.i.i.i.i548.i.i
-  %cmp48.i.i.i.i.i551.i.i = icmp ule i32 %add47.i.i.i.i.i550.i.i, %length.1.i.i.i.i130.i
-  %cmp3.i552.i.i = icmp ne i32 %length.1.i.i.i.i.i548.i.i, 0
-  %or.cond35.not39.i.i.i = and i1 %cmp3.i552.i.i, %cmp48.i.i.i.i.i551.i.i
-  %cmp6.i.not.i.i.i = icmp ult i32 %idx.1.i.i.i.i.i549.i.i, %length.1.i.i.i.i130.i
-  %or.cond.i553.i.i = and i1 %cmp6.i.not.i.i.i, %or.cond35.not39.i.i.i
-  br i1 %or.cond.i553.i.i, label %if.end11.i555.i.i, label %DecodeExtensionType.exit.i
+if.end45.i.i.i.i.i546.i.i:                        ; preds = %while.end.i.i.i.i.i646.i.i, %if.end.i.i.i.i.i542.i.i
+  %length.1.i.i.i.i.i547.i.i = phi i32 [ %conv.i.i.i.i.i544.i.i, %if.end.i.i.i.i.i542.i.i ], [ %length.0.lcssa.i.i.i.i.i648.i.i, %while.end.i.i.i.i.i646.i.i ]
+  %idx.1.i.i.i.i.i548.i.i = phi i32 [ 2, %if.end.i.i.i.i.i542.i.i ], [ %idx.0.lcssa.i.i.i.i.i649.i.i, %while.end.i.i.i.i.i646.i.i ]
+  %add47.i.i.i.i.i549.i.i = add i32 %idx.1.i.i.i.i.i548.i.i, %length.1.i.i.i.i.i547.i.i
+  %cmp48.i.i.i.i.i550.i.i = icmp ule i32 %add47.i.i.i.i.i549.i.i, %length.1.i.i.i.i130.i
+  %cmp3.i551.i.i = icmp ne i32 %length.1.i.i.i.i.i547.i.i, 0
+  %or.cond35.not39.i.i.i = and i1 %cmp3.i551.i.i, %cmp48.i.i.i.i.i550.i.i
+  %cmp6.i.not.i.i.i = icmp ult i32 %idx.1.i.i.i.i.i548.i.i, %length.1.i.i.i.i130.i
+  %or.cond.i552.i.i = and i1 %cmp6.i.not.i.i.i, %or.cond35.not39.i.i.i
+  br i1 %or.cond.i552.i.i, label %if.end11.i554.i.i, label %DecodeExtensionType.exit.i
 
-if.end11.i555.i.i:                                ; preds = %if.end45.i.i.i.i.i547.i.i
-  %idxprom.i.i556.i.i = zext nneg i32 %idx.1.i.i.i.i.i549.i.i to i64
-  %arrayidx.i.i557.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom.i.i556.i.i
-  %166 = load i8, ptr %arrayidx.i.i557.i.i, align 1
+if.end11.i554.i.i:                                ; preds = %if.end45.i.i.i.i.i546.i.i
+  %idxprom.i.i555.i.i = zext nneg i32 %idx.1.i.i.i.i.i548.i.i to i64
+  %arrayidx.i.i556.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom.i.i555.i.i
+  %166 = load i8, ptr %arrayidx.i.i556.i.i, align 1
   switch i8 %166, label %DecodeExtensionType.exit.i [
     i8 -128, label %if.end26.i.i.i
     i8 -127, label %if.then18.i.i.i
   ]
 
-if.then18.i.i.i:                                  ; preds = %if.end11.i555.i.i
+if.then18.i.i.i:                                  ; preds = %if.end11.i554.i.i
   br label %if.end26.i.i.i
 
-if.end26.i.i.i:                                   ; preds = %if.then18.i.i.i, %if.end11.i555.i.i
-  %.sink.i.i.i = phi i32 [ 16384, %if.then18.i.i.i ], [ 8192, %if.end11.i555.i.i ]
+if.end26.i.i.i:                                   ; preds = %if.then18.i.i.i, %if.end11.i554.i.i
+  %.sink.i.i.i = phi i32 [ 16384, %if.then18.i.i.i ], [ 8192, %if.end11.i554.i.i ]
   %bf.set21.i.i.i = or i32 %.sink.i.i.i, %bf.set338.i.i
   store i32 %bf.set21.i.i.i, ptr %extPolicyConstSet.i.i, align 8
-  %add.i.i.i558.i.i = add nuw nsw i32 %idx.1.i.i.i.i.i549.i.i, 2
-  %cmp.i.i.i559.i.i = icmp ugt i32 %add.i.i.i558.i.i, %length.1.i.i.i.i130.i
-  br i1 %cmp.i.i.i559.i.i, label %DecodeExtensionType.exit.i, label %if.end.i.i.i560.i.i
+  %add.i.i.i557.i.i = add nuw nsw i32 %idx.1.i.i.i.i.i548.i.i, 2
+  %cmp.i.i.i558.i.i = icmp ugt i32 %add.i.i.i557.i.i, %length.1.i.i.i.i130.i
+  br i1 %cmp.i.i.i558.i.i, label %DecodeExtensionType.exit.i, label %if.end.i.i.i559.i.i
 
-if.end.i.i.i560.i.i:                              ; preds = %if.end26.i.i.i
-  %arrayidx.i.i.i561.i.i = getelementptr i8, ptr %arrayidx.i.i557.i.i, i64 1
-  %167 = load i8, ptr %arrayidx.i.i.i561.i.i, align 1
-  %conv.i.i.i562.i.i = zext i8 %167 to i32
-  %cmp1.i.i.i563.i.i = icmp slt i8 %167, 0
-  br i1 %cmp1.i.i.i563.i.i, label %if.then3.i.i.i573.i.i, label %if.end45.i.i.i564.i.i
+if.end.i.i.i559.i.i:                              ; preds = %if.end26.i.i.i
+  %arrayidx.i.i.i560.i.i = getelementptr i8, ptr %arrayidx.i.i556.i.i, i64 1
+  %167 = load i8, ptr %arrayidx.i.i.i560.i.i, align 1
+  %conv.i.i.i561.i.i = zext i8 %167 to i32
+  %cmp1.i.i.i562.i.i = icmp slt i8 %167, 0
+  br i1 %cmp1.i.i.i562.i.i, label %if.then3.i.i.i572.i.i, label %if.end45.i.i.i563.i.i
 
-if.then3.i.i.i573.i.i:                            ; preds = %if.end.i.i.i560.i.i
-  %and.i.i.i574.i.i = and i32 %conv.i.i.i562.i.i, 127
-  %cmp6.i.i.i575.i.i = icmp eq i8 %167, -128
-  br i1 %cmp6.i.i.i575.i.i, label %if.end22.i.i.i584.i.i, label %if.else.i.i.i576.i.i
+if.then3.i.i.i572.i.i:                            ; preds = %if.end.i.i.i559.i.i
+  %and.i.i.i573.i.i = and i32 %conv.i.i.i561.i.i, 127
+  %cmp6.i.i.i574.i.i = icmp eq i8 %167, -128
+  br i1 %cmp6.i.i.i574.i.i, label %if.end22.i.i.i583.i.i, label %if.else.i.i.i575.i.i
 
-if.else.i.i.i576.i.i:                             ; preds = %if.then3.i.i.i573.i.i
-  %cmp9.i.i.i577.i.i = icmp eq i32 %and.i.i.i574.i.i, 1
-  br i1 %cmp9.i.i.i577.i.i, label %if.end22.thread.i.i.i612.i.i, label %if.else12.i.i.i578.i.i
+if.else.i.i.i575.i.i:                             ; preds = %if.then3.i.i.i572.i.i
+  %cmp9.i.i.i576.i.i = icmp eq i32 %and.i.i.i573.i.i, 1
+  br i1 %cmp9.i.i.i576.i.i, label %if.end22.thread.i.i.i611.i.i, label %if.else12.i.i.i577.i.i
 
-if.else12.i.i.i578.i.i:                           ; preds = %if.else.i.i.i576.i.i
-  %cmp14.i.i.i579.i.i = icmp samesign ugt i32 %and.i.i.i574.i.i, 4
-  br i1 %cmp14.i.i.i579.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i580.i.i
+if.else12.i.i.i577.i.i:                           ; preds = %if.else.i.i.i575.i.i
+  %cmp14.i.i.i578.i.i = icmp samesign ugt i32 %and.i.i.i573.i.i, 4
+  br i1 %cmp14.i.i.i578.i.i, label %DecodeExtensionType.exit.i, label %if.else19.i.i.i579.i.i
 
-if.else19.i.i.i580.i.i:                           ; preds = %if.else12.i.i.i578.i.i
-  %sub.i.i.i581.i.i = shl nuw nsw i32 %and.i.i.i574.i.i, 3
-  %mul.i.i.i582.i.i = add nsw i32 %sub.i.i.i581.i.i, -8
-  %shl.i.i.i583.i.i = shl nuw nsw i32 1, %mul.i.i.i582.i.i
-  br label %if.end22.i.i.i584.i.i
+if.else19.i.i.i579.i.i:                           ; preds = %if.else12.i.i.i577.i.i
+  %sub.i.i.i580.i.i = shl nuw nsw i32 %and.i.i.i573.i.i, 3
+  %mul.i.i.i581.i.i = add nsw i32 %sub.i.i.i580.i.i, -8
+  %shl.i.i.i582.i.i = shl nuw nsw i32 1, %mul.i.i.i581.i.i
+  br label %if.end22.i.i.i583.i.i
 
-if.end22.i.i.i584.i.i:                            ; preds = %if.else19.i.i.i580.i.i, %if.then3.i.i.i573.i.i
-  %minLen.0.i.i.i585.i.i = phi i32 [ %shl.i.i.i583.i.i, %if.else19.i.i.i580.i.i ], [ 0, %if.then3.i.i.i573.i.i ]
-  %add23.i.i.i586.i.i = add nuw nsw i32 %and.i.i.i574.i.i, %add.i.i.i558.i.i
-  %cmp24.i.i.i587.i.i = icmp ugt i32 %add23.i.i.i586.i.i, %length.1.i.i.i.i130.i
-  br i1 %cmp24.i.i.i587.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i588.i.i
+if.end22.i.i.i583.i.i:                            ; preds = %if.else19.i.i.i579.i.i, %if.then3.i.i.i572.i.i
+  %minLen.0.i.i.i584.i.i = phi i32 [ %shl.i.i.i582.i.i, %if.else19.i.i.i579.i.i ], [ 0, %if.then3.i.i.i572.i.i ]
+  %add23.i.i.i585.i.i = add nuw nsw i32 %and.i.i.i573.i.i, %add.i.i.i557.i.i
+  %cmp24.i.i.i586.i.i = icmp ugt i32 %add23.i.i.i585.i.i, %length.1.i.i.i.i130.i
+  br i1 %cmp24.i.i.i586.i.i, label %DecodeExtensionType.exit.i, label %while.cond.preheader.i.i.i587.i.i
 
-if.end22.thread.i.i.i612.i.i:                     ; preds = %if.else.i.i.i576.i.i
-  %add2332.i.i.i613.i.i = add nuw nsw i32 %idx.1.i.i.i.i.i549.i.i, 3
-  %cmp2433.i.i.i614.i.i = icmp ugt i32 %add2332.i.i.i613.i.i, %length.1.i.i.i.i130.i
-  br i1 %cmp2433.i.i.i614.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i590.i.i
+if.end22.thread.i.i.i611.i.i:                     ; preds = %if.else.i.i.i575.i.i
+  %add2332.i.i.i612.i.i = add nuw nsw i32 %idx.1.i.i.i.i.i548.i.i, 3
+  %cmp2433.i.i.i613.i.i = icmp ugt i32 %add2332.i.i.i612.i.i, %length.1.i.i.i.i130.i
+  br i1 %cmp2433.i.i.i613.i.i, label %DecodeExtensionType.exit.i, label %while.body.preheader.i.i.i589.i.i
 
-while.cond.preheader.i.i.i588.i.i:                ; preds = %if.end22.i.i.i584.i.i
-  %tobool.not26.i.i.i589.i.i = icmp eq i32 %and.i.i.i574.i.i, 0
-  br i1 %tobool.not26.i.i.i589.i.i, label %while.end.i.i.i605.i.i, label %while.body.preheader.i.i.i590.i.i
+while.cond.preheader.i.i.i587.i.i:                ; preds = %if.end22.i.i.i583.i.i
+  %tobool.not26.i.i.i588.i.i = icmp eq i32 %and.i.i.i573.i.i, 0
+  br i1 %tobool.not26.i.i.i588.i.i, label %while.end.i.i.i604.i.i, label %while.body.preheader.i.i.i589.i.i
 
-while.body.preheader.i.i.i590.i.i:                ; preds = %while.cond.preheader.i.i.i588.i.i, %if.end22.thread.i.i.i612.i.i
-  %minLen.03440.i.i.i591.i.i = phi i32 [ %minLen.0.i.i.i585.i.i, %while.cond.preheader.i.i.i588.i.i ], [ 128, %if.end22.thread.i.i.i612.i.i ]
-  %add233539.i.i.i592.i.i = phi i32 [ %add23.i.i.i586.i.i, %while.cond.preheader.i.i.i588.i.i ], [ %add2332.i.i.i613.i.i, %if.end22.thread.i.i.i612.i.i ]
-  br label %while.body.i.i.i593.i.i
+while.body.preheader.i.i.i589.i.i:                ; preds = %while.cond.preheader.i.i.i587.i.i, %if.end22.thread.i.i.i611.i.i
+  %minLen.03440.i.i.i590.i.i = phi i32 [ %minLen.0.i.i.i584.i.i, %while.cond.preheader.i.i.i587.i.i ], [ 128, %if.end22.thread.i.i.i611.i.i ]
+  %add233539.i.i.i591.i.i = phi i32 [ %add23.i.i.i585.i.i, %while.cond.preheader.i.i.i587.i.i ], [ %add2332.i.i.i612.i.i, %if.end22.thread.i.i.i611.i.i ]
+  br label %while.body.i.i.i592.i.i
 
-while.body.i.i.i593.i.i:                          ; preds = %while.body.i.i.i593.i.i, %while.body.preheader.i.i.i590.i.i
-  %bytes.029.i.i.i594.i.i = phi i32 [ %dec.i.i.i597.i.i, %while.body.i.i.i593.i.i ], [ %and.i.i.i574.i.i, %while.body.preheader.i.i.i590.i.i ]
-  %idx.028.i.i.i595.i.i = phi i32 [ %inc30.i.i.i598.i.i, %while.body.i.i.i593.i.i ], [ %add.i.i.i558.i.i, %while.body.preheader.i.i.i590.i.i ]
-  %length.027.i.i.i596.i.i = phi i32 [ %or.i.i.i603.i.i, %while.body.i.i.i593.i.i ], [ 0, %while.body.preheader.i.i.i590.i.i ]
-  %dec.i.i.i597.i.i = add nsw i32 %bytes.029.i.i.i594.i.i, -1
-  %inc30.i.i.i598.i.i = add i32 %idx.028.i.i.i595.i.i, 1
-  %idxprom31.i.i.i599.i.i = zext i32 %idx.028.i.i.i595.i.i to i64
-  %arrayidx32.i.i.i600.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom31.i.i.i599.i.i
-  %168 = load i8, ptr %arrayidx32.i.i.i600.i.i, align 1
-  %shl33.i.i.i601.i.i = shl i32 %length.027.i.i.i596.i.i, 8
-  %conv34.i.i.i602.i.i = zext i8 %168 to i32
-  %or.i.i.i603.i.i = or disjoint i32 %shl33.i.i.i601.i.i, %conv34.i.i.i602.i.i
-  %tobool.not.i.i.i604.i.i = icmp eq i32 %dec.i.i.i597.i.i, 0
-  br i1 %tobool.not.i.i.i604.i.i, label %while.end.i.i.i605.i.i, label %while.body.i.i.i593.i.i, !llvm.loop !7
+while.body.i.i.i592.i.i:                          ; preds = %while.body.i.i.i592.i.i, %while.body.preheader.i.i.i589.i.i
+  %bytes.029.i.i.i593.i.i = phi i32 [ %dec.i.i.i596.i.i, %while.body.i.i.i592.i.i ], [ %and.i.i.i573.i.i, %while.body.preheader.i.i.i589.i.i ]
+  %idx.028.i.i.i594.i.i = phi i32 [ %inc30.i.i.i597.i.i, %while.body.i.i.i592.i.i ], [ %add.i.i.i557.i.i, %while.body.preheader.i.i.i589.i.i ]
+  %length.027.i.i.i595.i.i = phi i32 [ %or.i.i.i602.i.i, %while.body.i.i.i592.i.i ], [ 0, %while.body.preheader.i.i.i589.i.i ]
+  %dec.i.i.i596.i.i = add nsw i32 %bytes.029.i.i.i593.i.i, -1
+  %inc30.i.i.i597.i.i = add i32 %idx.028.i.i.i594.i.i, 1
+  %idxprom31.i.i.i598.i.i = zext i32 %idx.028.i.i.i594.i.i to i64
+  %arrayidx32.i.i.i599.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom31.i.i.i598.i.i
+  %168 = load i8, ptr %arrayidx32.i.i.i599.i.i, align 1
+  %shl33.i.i.i600.i.i = shl i32 %length.027.i.i.i595.i.i, 8
+  %conv34.i.i.i601.i.i = zext i8 %168 to i32
+  %or.i.i.i602.i.i = or disjoint i32 %shl33.i.i.i600.i.i, %conv34.i.i.i601.i.i
+  %tobool.not.i.i.i603.i.i = icmp eq i32 %dec.i.i.i596.i.i, 0
+  br i1 %tobool.not.i.i.i603.i.i, label %while.end.i.i.i604.i.i, label %while.body.i.i.i592.i.i, !llvm.loop !7
 
-while.end.i.i.i605.i.i:                           ; preds = %while.body.i.i.i593.i.i, %while.cond.preheader.i.i.i588.i.i
-  %minLen.03441.i.i.i606.i.i = phi i32 [ %minLen.0.i.i.i585.i.i, %while.cond.preheader.i.i.i588.i.i ], [ %minLen.03440.i.i.i591.i.i, %while.body.i.i.i593.i.i ]
-  %length.0.lcssa.i.i.i607.i.i = phi i32 [ 0, %while.cond.preheader.i.i.i588.i.i ], [ %or.i.i.i603.i.i, %while.body.i.i.i593.i.i ]
-  %idx.0.lcssa.i.i.i608.i.i = phi i32 [ %add.i.i.i558.i.i, %while.cond.preheader.i.i.i588.i.i ], [ %add233539.i.i.i592.i.i, %while.body.i.i.i593.i.i ]
-  %cmp35.i.i.i609.i.i = icmp slt i32 %length.0.lcssa.i.i.i607.i.i, 0
-  %cmp39.i.i.i610.i.i = icmp slt i32 %length.0.lcssa.i.i.i607.i.i, %minLen.03441.i.i.i606.i.i
-  %or.cond25.i.i.i611.i.i = select i1 %cmp35.i.i.i609.i.i, i1 true, i1 %cmp39.i.i.i610.i.i
-  br i1 %or.cond25.i.i.i611.i.i, label %DecodeExtensionType.exit.i, label %if.end45.i.i.i564.i.i
+while.end.i.i.i604.i.i:                           ; preds = %while.body.i.i.i592.i.i, %while.cond.preheader.i.i.i587.i.i
+  %minLen.03441.i.i.i605.i.i = phi i32 [ %minLen.0.i.i.i584.i.i, %while.cond.preheader.i.i.i587.i.i ], [ %minLen.03440.i.i.i590.i.i, %while.body.i.i.i592.i.i ]
+  %length.0.lcssa.i.i.i606.i.i = phi i32 [ 0, %while.cond.preheader.i.i.i587.i.i ], [ %or.i.i.i602.i.i, %while.body.i.i.i592.i.i ]
+  %idx.0.lcssa.i.i.i607.i.i = phi i32 [ %add.i.i.i557.i.i, %while.cond.preheader.i.i.i587.i.i ], [ %add233539.i.i.i591.i.i, %while.body.i.i.i592.i.i ]
+  %cmp35.i.i.i608.i.i = icmp slt i32 %length.0.lcssa.i.i.i606.i.i, 0
+  %cmp39.i.i.i609.i.i = icmp slt i32 %length.0.lcssa.i.i.i606.i.i, %minLen.03441.i.i.i605.i.i
+  %or.cond25.i.i.i610.i.i = select i1 %cmp35.i.i.i608.i.i, i1 true, i1 %cmp39.i.i.i609.i.i
+  br i1 %or.cond25.i.i.i610.i.i, label %DecodeExtensionType.exit.i, label %if.end45.i.i.i563.i.i
 
-if.end45.i.i.i564.i.i:                            ; preds = %while.end.i.i.i605.i.i, %if.end.i.i.i560.i.i
-  %length.1.i.i.i565.i.i = phi i32 [ %conv.i.i.i562.i.i, %if.end.i.i.i560.i.i ], [ %length.0.lcssa.i.i.i607.i.i, %while.end.i.i.i605.i.i ]
-  %idx.1.i.i.i566.i.i = phi i32 [ %add.i.i.i558.i.i, %if.end.i.i.i560.i.i ], [ %idx.0.lcssa.i.i.i608.i.i, %while.end.i.i.i605.i.i ]
-  %add47.i.i.i567.i.i = add i32 %idx.1.i.i.i566.i.i, %length.1.i.i.i565.i.i
-  %cmp48.i.i.i568.i.i = icmp ugt i32 %add47.i.i.i567.i.i, %length.1.i.i.i.i130.i
-  br i1 %cmp48.i.i.i568.i.i, label %DecodeExtensionType.exit.i, label %if.end53.i.i.i569.i.i
+if.end45.i.i.i563.i.i:                            ; preds = %while.end.i.i.i604.i.i, %if.end.i.i.i559.i.i
+  %length.1.i.i.i564.i.i = phi i32 [ %conv.i.i.i561.i.i, %if.end.i.i.i559.i.i ], [ %length.0.lcssa.i.i.i606.i.i, %while.end.i.i.i604.i.i ]
+  %idx.1.i.i.i565.i.i = phi i32 [ %add.i.i.i557.i.i, %if.end.i.i.i559.i.i ], [ %idx.0.lcssa.i.i.i607.i.i, %while.end.i.i.i604.i.i ]
+  %add47.i.i.i566.i.i = add i32 %idx.1.i.i.i565.i.i, %length.1.i.i.i564.i.i
+  %cmp48.i.i.i567.i.i = icmp ugt i32 %add47.i.i.i566.i.i, %length.1.i.i.i.i130.i
+  br i1 %cmp48.i.i.i567.i.i, label %DecodeExtensionType.exit.i, label %if.end53.i.i.i568.i.i
 
-if.end53.i.i.i569.i.i:                            ; preds = %if.end45.i.i.i564.i.i
-  %cmp34.i570.i.i = icmp samesign ult i32 %length.1.i.i.i565.i.i, 2
-  %cmp40.not.i.i.i = icmp ult i32 %idx.1.i.i.i566.i.i, %length.1.i.i.i.i130.i
-  %or.cond37.i.i.i = and i1 %cmp34.i570.i.i, %cmp40.not.i.i.i
+if.end53.i.i.i568.i.i:                            ; preds = %if.end45.i.i.i563.i.i
+  %cmp34.i569.i.i = icmp samesign ult i32 %length.1.i.i.i564.i.i, 2
+  %cmp40.not.i.i.i = icmp ult i32 %idx.1.i.i.i565.i.i, %length.1.i.i.i.i130.i
+  %or.cond37.i.i.i = and i1 %cmp34.i569.i.i, %cmp40.not.i.i.i
   br i1 %or.cond37.i.i.i, label %DecodePolicyConstraints.exit.i.i, label %DecodeExtensionType.exit.i
 
-DecodePolicyConstraints.exit.i.i:                 ; preds = %if.end53.i.i.i569.i.i
-  %idxprom.i571.i.i = zext i32 %idx.1.i.i.i566.i.i to i64
-  %arrayidx.i572.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom.i571.i.i
-  %169 = load i8, ptr %arrayidx.i572.i.i, align 1
+DecodePolicyConstraints.exit.i.i:                 ; preds = %if.end53.i.i.i568.i.i
+  %idxprom.i570.i.i = zext i32 %idx.1.i.i.i565.i.i to i64
+  %arrayidx.i571.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom.i570.i.i
+  %169 = load i8, ptr %arrayidx.i571.i.i, align 1
   store i8 %169, ptr %policyConstSkip.i.i.i, align 2
   br label %DecodeExtensionType.exit.if.end80_crit_edge.thread.i
 
@@ -16137,8 +16127,8 @@ if.end348.i.i:                                    ; preds = %if.end71.i
   %spec.select95.i.i = select i1 %tobool349.not.i.i, i32 0, i32 -160
   br label %DecodeExtensionType.exit.i
 
-DecodeExtensionType.exit.i:                       ; preds = %if.end28.i404.i.i, %if.end9.i.i.i, %if.end45.i.i.i379.i.i, %while.end.i.i.i480.i.i, %if.end22.thread.i.i.i487.i.i, %if.end22.i.i.i459.i.i, %if.else12.i.i.i453.i.i, %while.body.i368.i.i, %if.end36.i.i.i.i, %if.end45.i.i.i.i40.i.i.i.i, %while.end.i.i.i.i78.i.i.i.i, %if.end22.thread.i.i.i.i85.i.i.i.i, %if.end22.i.i.i.i57.i.i.i.i, %if.else12.i.i.i.i51.i.i.i.i, %land.lhs.true9.i.i.i32.i.i.i.i, %GetASNTag.exit.i.i.i27.i.i.i.i, %if.then28.i.i.i.i, %if.end45.i.i.i.i395.i.i, %while.end.i.i.i.i438.i.i, %if.end22.thread.i.i.i.i445.i.i, %if.end22.i.i.i.i417.i.i, %if.else12.i.i.i.i411.i.i, %if.end6.i.i.i.i, %if.end45.i.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i, %if.end22.thread.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i.i.i, %if.else12.i.i.i.i.i.i.i.i, %land.lhs.true9.i.i.i.i.i.i.i, %while.body.i.i.i.i, %if.end348.i.i, %if.end53.i.i.i569.i.i, %if.end45.i.i.i564.i.i, %while.end.i.i.i605.i.i, %if.end22.thread.i.i.i612.i.i, %if.end22.i.i.i584.i.i, %if.else12.i.i.i578.i.i, %if.end26.i.i.i, %if.end11.i555.i.i, %if.end45.i.i.i.i.i547.i.i, %while.end.i.i.i.i.i647.i.i, %if.end22.thread.i.i.i.i.i654.i.i, %if.end22.i.i.i.i.i626.i.i, %if.else12.i.i.i.i.i620.i.i, %GetASNTag.exit.i.i.i.i540.i.i, %if.then323.i.i, %sw.bb315.i.i, %160, %sw.bb292.i.i, %if.then53.i.i.i.i, %while.cond.preheader.i.i179.i, %if.end45.i.i.i.i.i361.i.i, %while.end.i.i.i.i.i522.i.i, %if.end22.thread.i.i.i.i.i529.i.i, %if.end22.i.i.i.i.i501.i.i, %if.else12.i.i.i.i.i495.i.i, %GetASNTag.exit.i.i.i.i353.i.i, %if.then270.i.i, %sw.bb253.i.i, %.loopexit.i.i, %sw.bb223.i.i, %126, %sw.bb193.i.i, %land.lhs.true184.i.i, %sw.bb150.i.i, %land.lhs.true144.i.i, %sw.bb110.i.i, %DecodeAltNames.exit.i.i, %sw.bb84.i.i, %land.lhs.true.i.i, %sw.bb47.i.i, %select.unfold.i.i, %sw.bb17.i.i, %if.end7.i.i.i.i, %if.end.i14.i.i.i, %if.end15.i.i.i, %if.end45.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i, %if.end22.thread.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i.i, %if.else12.i.i.i.i.i.i.i, %GetASNTag.exit.i.i.i.i.i.i, %if.then3.i.i, %sw.bb.i.i
-  %retval.0.i177.i = phi i32 [ -144, %sw.bb.i.i ], [ -144, %sw.bb17.i.i ], [ -144, %sw.bb47.i.i ], [ -144, %sw.bb84.i.i ], [ -144, %sw.bb110.i.i ], [ -144, %sw.bb150.i.i ], [ -144, %sw.bb193.i.i ], [ -144, %sw.bb223.i.i ], [ -144, %sw.bb253.i.i ], [ -144, %sw.bb292.i.i ], [ -144, %sw.bb315.i.i ], [ %retval.0.i176.i.i, %DecodeAltNames.exit.i.i ], [ %spec.select85.i.i, %land.lhs.true.i.i ], [ %spec.select87.i.i, %land.lhs.true144.i.i ], [ %spec.select89.i.i, %land.lhs.true184.i.i ], [ %spec.select95.i.i, %if.end348.i.i ], [ -140, %if.end22.thread.i.i.i.i.i.i.i ], [ -140, %if.end45.i.i.i.i.i.i.i ], [ -140, %while.end.i.i.i.i.i.i.i ], [ -140, %if.end22.i.i.i.i.i.i.i ], [ -140, %if.else12.i.i.i.i.i.i.i ], [ -140, %GetASNTag.exit.i.i.i.i.i.i ], [ -140, %if.then3.i.i ], [ -140, %if.end7.i.i.i.i ], [ -140, %if.end.i14.i.i.i ], [ -140, %if.end15.i.i.i ], [ -140, %select.unfold.i.i ], [ -140, %126 ], [ -140, %.loopexit.i.i ], [ %spec.select92.i.i, %while.cond.preheader.i.i179.i ], [ -140, %if.end22.thread.i.i.i.i.i529.i.i ], [ -140, %if.end45.i.i.i.i.i361.i.i ], [ -140, %while.end.i.i.i.i.i522.i.i ], [ -140, %if.end22.i.i.i.i.i501.i.i ], [ -140, %if.else12.i.i.i.i.i495.i.i ], [ -140, %GetASNTag.exit.i.i.i.i353.i.i ], [ -140, %if.then270.i.i ], [ -140, %if.then53.i.i.i.i ], [ -140, %160 ], [ -140, %if.end11.i555.i.i ], [ -140, %if.end22.thread.i.i.i.i.i654.i.i ], [ -140, %if.end45.i.i.i.i.i547.i.i ], [ -140, %while.end.i.i.i.i.i647.i.i ], [ -140, %if.end22.i.i.i.i.i626.i.i ], [ -140, %if.else12.i.i.i.i.i620.i.i ], [ -140, %GetASNTag.exit.i.i.i.i540.i.i ], [ -140, %if.then323.i.i ], [ -140, %if.end22.thread.i.i.i612.i.i ], [ -140, %if.end45.i.i.i564.i.i ], [ -140, %while.end.i.i.i605.i.i ], [ -140, %if.end22.i.i.i584.i.i ], [ -140, %if.else12.i.i.i578.i.i ], [ -140, %if.end26.i.i.i ], [ -140, %if.end53.i.i.i569.i.i ], [ -140, %while.body.i.i.i.i ], [ -140, %land.lhs.true9.i.i.i.i.i.i.i ], [ -140, %if.else12.i.i.i.i.i.i.i.i ], [ -140, %if.end22.i.i.i.i.i.i.i.i ], [ -140, %if.end22.thread.i.i.i.i.i.i.i.i ], [ -140, %while.end.i.i.i.i.i.i.i.i ], [ -140, %if.end45.i.i.i.i.i.i.i.i ], [ -140, %if.end6.i.i.i.i ], [ -140, %if.else12.i.i.i.i411.i.i ], [ -140, %if.end22.i.i.i.i417.i.i ], [ -140, %if.end22.thread.i.i.i.i445.i.i ], [ -140, %while.end.i.i.i.i438.i.i ], [ -140, %if.end45.i.i.i.i395.i.i ], [ -140, %if.then28.i.i.i.i ], [ -140, %GetASNTag.exit.i.i.i27.i.i.i.i ], [ -140, %land.lhs.true9.i.i.i32.i.i.i.i ], [ -140, %if.else12.i.i.i.i51.i.i.i.i ], [ -140, %if.end22.i.i.i.i57.i.i.i.i ], [ -140, %if.end22.thread.i.i.i.i85.i.i.i.i ], [ -140, %while.end.i.i.i.i78.i.i.i.i ], [ -140, %if.end45.i.i.i.i40.i.i.i.i ], [ -140, %if.end36.i.i.i.i ], [ -140, %while.body.i368.i.i ], [ -140, %if.else12.i.i.i453.i.i ], [ -140, %if.end22.i.i.i459.i.i ], [ -140, %if.end22.thread.i.i.i487.i.i ], [ -140, %while.end.i.i.i480.i.i ], [ -140, %if.end45.i.i.i379.i.i ], [ -140, %if.end9.i.i.i ], [ %spec.select92.i.i, %if.end28.i404.i.i ]
+DecodeExtensionType.exit.i:                       ; preds = %if.end28.i.i.i, %if.end9.i.i.i, %if.end45.i.i.i379.i.i, %while.end.i.i.i479.i.i, %if.end22.thread.i.i.i486.i.i, %if.end22.i.i.i458.i.i, %if.else12.i.i.i452.i.i, %while.body.i368.i.i, %if.end36.i.i.i.i, %if.end45.i.i.i.i40.i.i.i.i, %while.end.i.i.i.i78.i.i.i.i, %if.end22.thread.i.i.i.i85.i.i.i.i, %if.end22.i.i.i.i57.i.i.i.i, %if.else12.i.i.i.i51.i.i.i.i, %land.lhs.true9.i.i.i32.i.i.i.i, %GetASNTag.exit.i.i.i27.i.i.i.i, %if.then28.i.i.i.i, %if.end45.i.i.i.i395.i.i, %while.end.i.i.i.i437.i.i, %if.end22.thread.i.i.i.i444.i.i, %if.end22.i.i.i.i416.i.i, %if.else12.i.i.i.i410.i.i, %if.end6.i.i.i.i, %if.end45.i.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i.i, %if.end22.thread.i.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i.i.i, %if.else12.i.i.i.i.i.i.i.i, %land.lhs.true9.i.i.i.i.i.i.i, %while.body.i.i.i.i, %if.end348.i.i, %if.end53.i.i.i568.i.i, %if.end45.i.i.i563.i.i, %while.end.i.i.i604.i.i, %if.end22.thread.i.i.i611.i.i, %if.end22.i.i.i583.i.i, %if.else12.i.i.i577.i.i, %if.end26.i.i.i, %if.end11.i554.i.i, %if.end45.i.i.i.i.i546.i.i, %while.end.i.i.i.i.i646.i.i, %if.end22.thread.i.i.i.i.i653.i.i, %if.end22.i.i.i.i.i625.i.i, %if.else12.i.i.i.i.i619.i.i, %GetASNTag.exit.i.i.i.i539.i.i, %if.then323.i.i, %sw.bb315.i.i, %160, %sw.bb292.i.i, %if.then53.i.i.i.i, %while.cond.preheader.i.i179.i, %if.end45.i.i.i.i.i361.i.i, %while.end.i.i.i.i.i521.i.i, %if.end22.thread.i.i.i.i.i528.i.i, %if.end22.i.i.i.i.i500.i.i, %if.else12.i.i.i.i.i494.i.i, %GetASNTag.exit.i.i.i.i353.i.i, %if.then270.i.i, %sw.bb253.i.i, %.loopexit.i.i, %sw.bb223.i.i, %126, %sw.bb193.i.i, %land.lhs.true184.i.i, %sw.bb150.i.i, %land.lhs.true144.i.i, %sw.bb110.i.i, %DecodeAltNames.exit.i.i, %sw.bb84.i.i, %land.lhs.true.i.i, %sw.bb47.i.i, %select.unfold.i.i, %sw.bb17.i.i, %if.end7.i.i.i.i, %if.end.i14.i.i.i, %if.end15.i.i.i, %if.end45.i.i.i.i.i.i.i, %while.end.i.i.i.i.i.i.i, %if.end22.thread.i.i.i.i.i.i.i, %if.end22.i.i.i.i.i.i.i, %if.else12.i.i.i.i.i.i.i, %GetASNTag.exit.i.i.i.i.i.i, %if.then3.i.i, %sw.bb.i.i
+  %retval.0.i177.i = phi i32 [ -144, %sw.bb.i.i ], [ -144, %sw.bb17.i.i ], [ -144, %sw.bb47.i.i ], [ -144, %sw.bb84.i.i ], [ -144, %sw.bb110.i.i ], [ -144, %sw.bb150.i.i ], [ -144, %sw.bb193.i.i ], [ -144, %sw.bb223.i.i ], [ -144, %sw.bb253.i.i ], [ -144, %sw.bb292.i.i ], [ -144, %sw.bb315.i.i ], [ %retval.0.i176.i.i, %DecodeAltNames.exit.i.i ], [ %spec.select85.i.i, %land.lhs.true.i.i ], [ %spec.select87.i.i, %land.lhs.true144.i.i ], [ %spec.select89.i.i, %land.lhs.true184.i.i ], [ %spec.select95.i.i, %if.end348.i.i ], [ -140, %if.end22.thread.i.i.i.i.i.i.i ], [ -140, %if.end45.i.i.i.i.i.i.i ], [ -140, %while.end.i.i.i.i.i.i.i ], [ -140, %if.end22.i.i.i.i.i.i.i ], [ -140, %if.else12.i.i.i.i.i.i.i ], [ -140, %GetASNTag.exit.i.i.i.i.i.i ], [ -140, %if.then3.i.i ], [ -140, %if.end7.i.i.i.i ], [ -140, %if.end.i14.i.i.i ], [ -140, %if.end15.i.i.i ], [ -140, %select.unfold.i.i ], [ -140, %126 ], [ -140, %.loopexit.i.i ], [ %spec.select92.i.i, %while.cond.preheader.i.i179.i ], [ -140, %if.end22.thread.i.i.i.i.i528.i.i ], [ -140, %if.end45.i.i.i.i.i361.i.i ], [ -140, %while.end.i.i.i.i.i521.i.i ], [ -140, %if.end22.i.i.i.i.i500.i.i ], [ -140, %if.else12.i.i.i.i.i494.i.i ], [ -140, %GetASNTag.exit.i.i.i.i353.i.i ], [ -140, %if.then270.i.i ], [ -140, %if.then53.i.i.i.i ], [ -140, %160 ], [ -140, %if.end11.i554.i.i ], [ -140, %if.end22.thread.i.i.i.i.i653.i.i ], [ -140, %if.end45.i.i.i.i.i546.i.i ], [ -140, %while.end.i.i.i.i.i646.i.i ], [ -140, %if.end22.i.i.i.i.i625.i.i ], [ -140, %if.else12.i.i.i.i.i619.i.i ], [ -140, %GetASNTag.exit.i.i.i.i539.i.i ], [ -140, %if.then323.i.i ], [ -140, %if.end22.thread.i.i.i611.i.i ], [ -140, %if.end45.i.i.i563.i.i ], [ -140, %while.end.i.i.i604.i.i ], [ -140, %if.end22.i.i.i583.i.i ], [ -140, %if.else12.i.i.i577.i.i ], [ -140, %if.end26.i.i.i ], [ -140, %if.end53.i.i.i568.i.i ], [ -140, %while.body.i.i.i.i ], [ -140, %land.lhs.true9.i.i.i.i.i.i.i ], [ -140, %if.else12.i.i.i.i.i.i.i.i ], [ -140, %if.end22.i.i.i.i.i.i.i.i ], [ -140, %if.end22.thread.i.i.i.i.i.i.i.i ], [ -140, %while.end.i.i.i.i.i.i.i.i ], [ -140, %if.end45.i.i.i.i.i.i.i.i ], [ -140, %if.end6.i.i.i.i ], [ -140, %if.else12.i.i.i.i410.i.i ], [ -140, %if.end22.i.i.i.i416.i.i ], [ -140, %if.end22.thread.i.i.i.i444.i.i ], [ -140, %while.end.i.i.i.i437.i.i ], [ -140, %if.end45.i.i.i.i395.i.i ], [ -140, %if.then28.i.i.i.i ], [ -140, %GetASNTag.exit.i.i.i27.i.i.i.i ], [ -140, %land.lhs.true9.i.i.i32.i.i.i.i ], [ -140, %if.else12.i.i.i.i51.i.i.i.i ], [ -140, %if.end22.i.i.i.i57.i.i.i.i ], [ -140, %if.end22.thread.i.i.i.i85.i.i.i.i ], [ -140, %while.end.i.i.i.i78.i.i.i.i ], [ -140, %if.end45.i.i.i.i40.i.i.i.i ], [ -140, %if.end36.i.i.i.i ], [ -140, %while.body.i368.i.i ], [ -140, %if.else12.i.i.i452.i.i ], [ -140, %if.end22.i.i.i458.i.i ], [ -140, %if.end22.thread.i.i.i486.i.i ], [ -140, %while.end.i.i.i479.i.i ], [ -140, %if.end45.i.i.i379.i.i ], [ -140, %if.end9.i.i.i ], [ %spec.select92.i.i, %if.end28.i.i.i ]
   %retval.0.i177.fr.i = freeze i32 %retval.0.i177.i
   %cmp73.i = icmp ne i32 %retval.0.i177.fr.i, -160
   %cmp77278.i = icmp slt i32 %retval.0.i177.fr.i, 0
@@ -19686,7 +19676,6 @@ if.end14:                                         ; preds = %GetMyVersion.exit
   ]
 
 if.end25:                                         ; preds = %if.end14, %if.end14, %if.end14
-  store i32 0, ptr %length, align 4
   %add.i.i67 = add i32 %4, 5
   %cmp.i.i = icmp ugt i32 %add.i.i67, %inSz
   br i1 %cmp.i.i, label %return, label %if.end.i.i
@@ -19771,15 +19760,10 @@ if.end45.i.i:                                     ; preds = %while.end.i.i, %if.
 
 if.end53.i.i:                                     ; preds = %if.end45.i.i
   store i32 %10, ptr %inOutIdx, align 4
-  %cmp54.not.i.i = icmp eq i32 %length.1.i.i, 0
-  br i1 %cmp54.not.i.i, label %if.end34, label %if.end30
-
-if.end30:                                         ; preds = %if.end53.i.i
-  store i32 %length.1.i.i, ptr %length, align 4
   %cmp31 = icmp samesign ugt i32 %length.1.i.i, 66
   br i1 %cmp31, label %return, label %if.end34
 
-if.end34:                                         ; preds = %if.end53.i.i, %if.end30
+if.end34:                                         ; preds = %if.end53.i.i
   %add35 = add i32 %10, %length.1.i.i
   store i32 %add35, ptr %inOutIdx, align 4
   %cmp36.not = icmp ult i32 %add35, %inSz
@@ -20068,8 +20052,8 @@ if.end117:                                        ; preds = %if.end112
   store i32 %add118, ptr %inOutIdx, align 4
   br label %return
 
-return:                                           ; preds = %GetASNTag.exit.i.i.i.i, %if.else12.i.i.i.i.i, %if.end22.thread.i.i.i.i.i, %if.end45.i.i.i.i.i, %while.end.i.i.i.i.i, %if.end22.i.i.i.i.i, %land.lhs.true9.i.i.i.i, %if.then5.i.i.i.i.i, %if.then5.i.i.i.i72, %GetASNTag.exit.i.i.i75, %land.lhs.true9.i.i.i80, %if.else12.i.i.i.i99, %if.end22.i.i.i.i105, %while.end.i.i.i.i126, %if.end45.i.i.i.i88, %if.end22.thread.i.i.i.i133, %if.end22.thread.i.i, %if.end45.i.i, %while.end.i.i, %if.end22.i.i, %if.else12.i.i, %if.end25, %if.then5.i.i.i.i, %GetASNTag.exit.i.i.i, %land.lhs.true9.i.i.i, %if.else12.i.i.i.i, %if.end22.i.i.i.i, %while.end.i.i.i.i, %if.end45.i.i.i.i, %if.end22.thread.i.i.i.i, %if.end112, %if.end107, %if.end101, %if.end93, %if.then89, %if.end81, %if.else76, %GetASNTag.exit, %if.end63, %if.end47, %if.end39, %if.end34, %if.end30, %if.end14, %GetMyVersion.exit, %entry, %if.end117
-  %retval.0 = phi i32 [ 0, %if.end117 ], [ -173, %entry ], [ -140, %GetMyVersion.exit ], [ -140, %if.end14 ], [ -132, %if.end30 ], [ -140, %if.end34 ], [ -171, %if.end39 ], [ -140, %if.end47 ], [ -132, %if.end63 ], [ -140, %GetASNTag.exit ], [ %call77, %if.else76 ], [ -172, %if.end81 ], [ -140, %if.then89 ], [ -171, %if.end93 ], [ -140, %if.end101 ], [ %call108, %if.end107 ], [ -171, %if.end112 ], [ -140, %if.end22.thread.i.i.i.i ], [ -140, %if.end45.i.i.i.i ], [ -140, %while.end.i.i.i.i ], [ -140, %if.end22.i.i.i.i ], [ -140, %if.else12.i.i.i.i ], [ -140, %land.lhs.true9.i.i.i ], [ -140, %GetASNTag.exit.i.i.i ], [ -140, %if.then5.i.i.i.i ], [ -140, %if.end25 ], [ -140, %if.else12.i.i ], [ -140, %if.end22.i.i ], [ -140, %while.end.i.i ], [ -140, %if.end45.i.i ], [ -140, %if.end22.thread.i.i ], [ -140, %if.end22.thread.i.i.i.i133 ], [ -140, %if.end45.i.i.i.i88 ], [ -140, %while.end.i.i.i.i126 ], [ -140, %if.end22.i.i.i.i105 ], [ -140, %if.else12.i.i.i.i99 ], [ -140, %land.lhs.true9.i.i.i80 ], [ -140, %GetASNTag.exit.i.i.i75 ], [ -140, %if.then5.i.i.i.i72 ], [ -140, %if.then5.i.i.i.i.i ], [ -140, %land.lhs.true9.i.i.i.i ], [ -140, %if.end22.i.i.i.i.i ], [ -140, %while.end.i.i.i.i.i ], [ -140, %if.end45.i.i.i.i.i ], [ -140, %if.end22.thread.i.i.i.i.i ], [ -140, %if.else12.i.i.i.i.i ], [ -140, %GetASNTag.exit.i.i.i.i ]
+return:                                           ; preds = %if.end53.i.i, %GetASNTag.exit.i.i.i.i, %if.else12.i.i.i.i.i, %if.end22.thread.i.i.i.i.i, %if.end45.i.i.i.i.i, %while.end.i.i.i.i.i, %if.end22.i.i.i.i.i, %land.lhs.true9.i.i.i.i, %if.then5.i.i.i.i.i, %if.then5.i.i.i.i72, %GetASNTag.exit.i.i.i75, %land.lhs.true9.i.i.i80, %if.else12.i.i.i.i99, %if.end22.i.i.i.i105, %while.end.i.i.i.i126, %if.end45.i.i.i.i88, %if.end22.thread.i.i.i.i133, %if.end22.thread.i.i, %if.end45.i.i, %while.end.i.i, %if.end22.i.i, %if.else12.i.i, %if.end25, %if.then5.i.i.i.i, %GetASNTag.exit.i.i.i, %land.lhs.true9.i.i.i, %if.else12.i.i.i.i, %if.end22.i.i.i.i, %while.end.i.i.i.i, %if.end45.i.i.i.i, %if.end22.thread.i.i.i.i, %if.end112, %if.end107, %if.end101, %if.end93, %if.then89, %if.end81, %if.else76, %GetASNTag.exit, %if.end63, %if.end47, %if.end39, %if.end34, %if.end14, %GetMyVersion.exit, %entry, %if.end117
+  %retval.0 = phi i32 [ 0, %if.end117 ], [ -173, %entry ], [ -140, %GetMyVersion.exit ], [ -140, %if.end14 ], [ -140, %if.end34 ], [ -171, %if.end39 ], [ -140, %if.end47 ], [ -132, %if.end63 ], [ -140, %GetASNTag.exit ], [ %call77, %if.else76 ], [ -172, %if.end81 ], [ -140, %if.then89 ], [ -171, %if.end93 ], [ -140, %if.end101 ], [ %call108, %if.end107 ], [ -171, %if.end112 ], [ -140, %if.end22.thread.i.i.i.i ], [ -140, %if.end45.i.i.i.i ], [ -140, %while.end.i.i.i.i ], [ -140, %if.end22.i.i.i.i ], [ -140, %if.else12.i.i.i.i ], [ -140, %land.lhs.true9.i.i.i ], [ -140, %GetASNTag.exit.i.i.i ], [ -140, %if.then5.i.i.i.i ], [ -140, %if.end25 ], [ -140, %if.else12.i.i ], [ -140, %if.end22.i.i ], [ -140, %while.end.i.i ], [ -140, %if.end45.i.i ], [ -140, %if.end22.thread.i.i ], [ -140, %if.end22.thread.i.i.i.i133 ], [ -140, %if.end45.i.i.i.i88 ], [ -140, %while.end.i.i.i.i126 ], [ -140, %if.end22.i.i.i.i105 ], [ -140, %if.else12.i.i.i.i99 ], [ -140, %land.lhs.true9.i.i.i80 ], [ -140, %GetASNTag.exit.i.i.i75 ], [ -140, %if.then5.i.i.i.i72 ], [ -140, %if.then5.i.i.i.i.i ], [ -140, %land.lhs.true9.i.i.i.i ], [ -140, %if.end22.i.i.i.i.i ], [ -140, %while.end.i.i.i.i.i ], [ -140, %if.end45.i.i.i.i.i ], [ -140, %if.end22.thread.i.i.i.i.i ], [ -140, %if.else12.i.i.i.i.i ], [ -140, %GetASNTag.exit.i.i.i.i ], [ -132, %if.end53.i.i ]
   ret i32 %retval.0
 }
 

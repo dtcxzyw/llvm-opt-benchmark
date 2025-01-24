@@ -690,7 +690,6 @@ define hidden void @ntlmssp_create_session_key(ptr noundef %0, ptr noundef %1, p
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  store ptr null, ptr %19, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %34 = load ptr, ptr %33, align 8
@@ -1059,7 +1058,6 @@ define internal fastcc void @create_ntlmssp_v1_key(ptr noundef %0, ptr noundef %
   %26 = alloca [256 x i8], align 16
   %27 = alloca ptr, align 8
   %28 = load ptr, ptr @ntlmssp_option_nt_password, align 8
-  store ptr null, ptr %27, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #13
   %.not.i = icmp eq i64 %29, 0
@@ -2218,14 +2216,12 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %199, %202, %166
   %269 = call i32 @llvm.smin.i32(i32 %256, i32 %268)
   %270 = add i32 %267, 4
   %271 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %270) #12
-  store i32 %271, ptr %6, align 4
   %272 = load i32, ptr @hf_ntlmssp_auth_domain, align 4
   %273 = call fastcc i32 @dissect_ntlmssp_string(ptr noundef %0, i32 noundef %267, ptr noundef %.0..0..0..0.36, i32 noundef %.1168.i, i32 noundef %272, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %45)
   %274 = load i32, ptr %6, align 4
   %275 = call i32 @llvm.smin.i32(i32 %269, i32 %274)
   %276 = add i32 %273, 4
   %277 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %276) #12
-  store i32 %277, ptr %6, align 4
   %278 = load i32, ptr @hf_ntlmssp_auth_username, align 4
   %279 = call fastcc i32 @dissect_ntlmssp_string(ptr noundef %0, i32 noundef %273, ptr noundef %.0..0..0..0.36, i32 noundef %.1168.i, i32 noundef %278, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %46)
   %280 = load i32, ptr %6, align 4
@@ -2236,7 +2232,6 @@ dissect_ntlmssp_challenge.exit:                   ; preds = %199, %202, %166
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %282, i32 noundef 25, ptr noundef nonnull @.str.288, ptr noundef nonnull @.str.296, ptr noundef %283, ptr noundef %284) #12
   %285 = add i32 %279, 4
   %286 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %285) #12
-  store i32 %286, ptr %6, align 4
   %287 = load i32, ptr @hf_ntlmssp_auth_hostname, align 4
   %288 = call fastcc i32 @dissect_ntlmssp_string(ptr noundef %0, i32 noundef %279, ptr noundef %.0..0..0..0.36, i32 noundef %.1168.i, i32 noundef %287, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %47)
   %289 = load i32, ptr %6, align 4

@@ -3178,7 +3178,6 @@ define dso_local noundef i32 @_ZNK4llvm18FunctionComparator14cmpBasicBlocksEPKNS
 11:                                               ; preds = %61, %3
   %.sroa.053.0 = phi ptr [ %6, %3 ], [ %58, %61 ]
   %.sroa.043.0 = phi ptr [ %9, %3 ], [ %60, %61 ]
-  store i8 1, ptr %4, align 1
   %12 = icmp eq ptr %.sroa.053.0, null
   %13 = getelementptr inbounds i8, ptr %.sroa.053.0, i64 -24
   %14 = select i1 %12, ptr null, ptr %13

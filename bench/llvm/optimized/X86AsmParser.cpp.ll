@@ -19997,7 +19997,6 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit17.sink.split.i14.i: ; 
   %724 = call noundef nonnull align 8 dereferenceable(40) ptr %723(ptr noundef nonnull align 8 dereferenceable(34) %719) #23
   store i32 0, ptr %154, align 8
   %725 = call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %720) #23
-  store ptr null, ptr %18, align 8
   %726 = getelementptr inbounds nuw i8, ptr %720, i64 8
   %.sroa.0.0.copyload.i.i308 = load ptr, ptr %726, align 8
   %.sroa.2.0..sroa_idx.i.i309 = getelementptr inbounds nuw i8, ptr %720, i64 16

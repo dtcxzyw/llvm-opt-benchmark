@@ -43758,7 +43758,6 @@ if.then27:                                        ; preds = %if.end22, %if.end22
 if.end28:                                         ; preds = %if.then27, %if.end22
   %4 = phi i64 [ %0, %if.end22 ], [ %inc, %if.then27 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time_pos) #40
-  store i64 0, ptr %time_pos, align 8, !tbaa !87
   %add.ptr = getelementptr inbounds i8, ptr %str, i64 %4
   %sub = sub i64 %len, %4
   %call.i126 = call noundef zeroext i1 @_ZN6duckdb4Time18TryConvertInternalEPKcmRmRNS_7dtime_tEb(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull align 8 dereferenceable(8) %time_pos, ptr noundef nonnull align 8 dereferenceable(8) %time, i1 noundef zeroext false)
@@ -46576,7 +46575,6 @@ cleanup:                                          ; preds = %land.lhs.true19.i, 
 
 if.end14:                                         ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %offset) #40
-  store i32 0, ptr %offset, align 4, !tbaa !197
   %call15 = call noundef zeroext i1 @_ZN6duckdb4Time17TryParseUTCOffsetEPKcRmmRi(ptr noundef %buf, ptr noundef nonnull align 8 dereferenceable(8) %pos, i64 noundef %len, ptr noundef nonnull align 4 dereferenceable(4) %offset)
   br i1 %call15, label %if.end17, label %cleanup29
 

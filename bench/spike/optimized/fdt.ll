@@ -606,7 +606,6 @@ define noundef i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %1, ptr no
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @fdt_check_node_offset_(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
-  store i32 %1, ptr %3, align 4
   %4 = and i32 %1, -2147483645
   %or.cond = icmp eq i32 %4, 0
   br i1 %or.cond, label %5, label %8
@@ -626,7 +625,6 @@ define i32 @fdt_check_node_offset_(ptr noundef %0, i32 noundef %1) local_unnamed
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @fdt_check_prop_offset_(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
-  store i32 %1, ptr %3, align 4
   %4 = and i32 %1, -2147483645
   %or.cond = icmp eq i32 %4, 0
   br i1 %or.cond, label %5, label %8
@@ -653,7 +651,6 @@ define i32 @fdt_next_node(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 %1, ptr %4, align 4
   %8 = and i32 %1, 3
   %or.cond.i = icmp eq i32 %8, 0
   br i1 %or.cond.i, label %9, label %fdt_check_node_offset_.exit.thread
@@ -743,13 +740,11 @@ define range(i32 -1, -2147483648) i32 @fdt_first_subnode(ptr noundef %0, i32 nou
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 0, ptr %4, align 4
   %5 = icmp sgt i32 %1, -1
   br i1 %5, label %6, label %.split.i.preheader
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  store i32 %1, ptr %3, align 4
   %7 = and i32 %1, 3
   %or.cond.i.i = icmp eq i32 %7, 0
   br i1 %or.cond.i.i, label %8, label %fdt_check_node_offset_.exit.thread.i
@@ -766,7 +761,6 @@ fdt_check_node_offset_.exit.thread.i:             ; preds = %8, %6
 fdt_check_node_offset_.exit.i:                    ; preds = %8
   %10 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  store i32 %10, ptr %4, align 4
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %fdt_next_node.exit, label %.split.i.preheader
 
@@ -836,7 +830,6 @@ define range(i32 -1, -2147483648) i32 @fdt_next_subnode(ptr noundef %0, i32 noun
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  store i32 %.0, ptr %3, align 4
   %23 = and i32 %.0, 3
   %or.cond.i.i = icmp eq i32 %23, 0
   br i1 %or.cond.i.i, label %24, label %fdt_check_node_offset_.exit.thread.i

@@ -185,7 +185,6 @@ define internal fastcc range(i64 0, 8589934592) i64 @_ZN4llvm3sys7unicodeL15name
   %24 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #16
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %25, align 8
-  store i64 0, ptr %17, align 8
   store i8 0, ptr %18, align 1
   %26 = call fastcc noundef zeroext i1 @_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb(ptr %0, i64 %1, ptr nonnull @.str.2, i64 16, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(1) %18, i1 noundef zeroext false)
   br i1 %26, label %27, label %109
@@ -213,7 +212,6 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %43, %27
   br i1 %.not.i.i, label %36, label %43
 
 36:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i.i
-  store i64 0, ptr %15, align 8
   store i8 %31, ptr %16, align 1
   %37 = call fastcc noundef zeroext i1 @_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb(ptr %29, i64 %30, ptr %33, i64 %34, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, i1 noundef zeroext false)
   br i1 %37, label %38, label %43
@@ -260,7 +258,6 @@ _ZN4llvm9StringRefC2EPKc.exit.i39.i:              ; preds = %59, %._crit_edge.i.
   br i1 %.not.i40.i, label %52, label %59
 
 52:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit.i39.i
-  store i64 0, ptr %13, align 8
   store i8 %spec.select.i, ptr %14, align 1
   %53 = call fastcc noundef zeroext i1 @_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb(ptr %46, i64 %47, ptr %49, i64 %50, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 1 dereferenceable(1) %14, i1 noundef zeroext false)
   br i1 %53, label %54, label %59
@@ -306,7 +303,6 @@ _ZN4llvm9StringRefC2EPKc.exit.i39.i:              ; preds = %59, %._crit_edge.i.
   br i1 %.not.i56.i, label %68, label %74
 
 68:                                               ; preds = %.lr.ph.i50.i
-  store i64 0, ptr %11, align 8
   store i8 %spec.select105.i, ptr %12, align 1
   %69 = call fastcc noundef zeroext i1 @_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb(ptr %62, i64 %63, ptr %65, i64 %66, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, i1 noundef zeroext false)
   br i1 %69, label %70, label %74
@@ -411,7 +407,6 @@ _ZN4llvm9StringRefC2EPKc.exit70.i:                ; preds = %95, %88
   %.sroa.03.0.copyload.us.i = load ptr, ptr %.0.ptr40.us.i, align 8
   %.sroa.24.0..sroa_idx.us.i = getelementptr inbounds nuw i8, ptr %.0.ptr40.us.i, i64 8
   %.sroa.24.0.copyload.us.i = load i64, ptr %.sroa.24.0..sroa_idx.us.i, align 8
-  store i64 0, ptr %7, align 8
   %.not.i.i18 = icmp ult i64 %1, %.sroa.24.0.copyload.us.i
   br i1 %.not.i.i18, label %_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb.exit.thread, label %113
 
@@ -557,7 +552,6 @@ _ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb.exit.thread: ; preds =
   %.0.ptr40.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm3sys7unicodeL23GeneratedNamesDataTableE, i64 %.0.idx39.i
   %169 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #16
   store i64 0, ptr %25, align 8
-  store i64 0, ptr %7, align 8
   store i8 0, ptr %8, align 1
   %.sroa.03.0.copyload.i = load ptr, ptr %.0.ptr40.i, align 8
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.ptr40.i, i64 8
@@ -2002,7 +1996,6 @@ define internal fastcc void @_ZN4llvm3sys7unicodeL11compareNodeEjNS_9StringRefEb
   %.ph45 = phi i32 [ %101, %99 ], [ -1, %14 ]
   %.sroa.27.0.copyload.ph = phi i64 [ %.sink.i, %99 ], [ 0, %14 ]
   %.sroa.06.0.copyload.ph = phi ptr [ %49, %99 ], [ null, %14 ]
-  store i64 0, ptr %11, align 8
   %109 = call fastcc noundef zeroext i1 @_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb(ptr %2, i64 %3, ptr %.sroa.06.0.copyload.ph, i64 %.sroa.27.0.copyload.ph, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 1 dereferenceable(1) %9, i1 noundef zeroext false)
   br i1 %109, label %.critedge, label %_ZSt12reverse_copyIPKcSt20back_insert_iteratorIN4llvm11SmallStringILj64EEEEET0_T_S8_S7_.exit
 

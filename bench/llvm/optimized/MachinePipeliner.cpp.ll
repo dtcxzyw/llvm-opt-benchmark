@@ -25282,9 +25282,6 @@ define dso_local noundef zeroext i1 @_ZNK4llvm17SwingSchedulerDAG16isLoopCarried
   ]
 
 99:                                               ; preds = %96, %96
-  store i32 0, ptr %13, align 4
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %101 = load ptr, ptr %100, align 8
   call fastcc void @_ZL10getPhiRegsRN4llvm12MachineInstrEPNS_17MachineBasicBlockERjS4_(ptr noundef nonnull align 8 dereferenceable(70) %85, ptr noundef %101, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14)

@@ -112,7 +112,6 @@ if.end34:                                         ; preds = %if.end28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %current.sroa.7.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %current.sroa.11.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %current.sroa.13.i)
-  store i8 0, ptr %seq_valid.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %candidate.sroa.5.i, i8 0, i64 3, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %candidate.sroa.7.i, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %candidate.sroa.10.i, i8 0, i64 48, i1 false)

@@ -7037,9 +7037,6 @@ _ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit: ; preds = %_ZN22Con
   br i1 %or.cond, label %540, label %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit.thread
 
 540:                                              ; preds = %_ZN14CompilerConfig31is_c2_or_jvmci_compiler_enabledEv.exit
-  store i32 0, ptr %16, align 4
-  store i8 0, ptr %17, align 1
-  store i8 0, ptr %18, align 1
   %541 = load i8, ptr %115, align 1
   %542 = icmp eq i8 %541, 3
   br i1 %542, label %543, label %547

@@ -9317,8 +9317,6 @@ define dso_local noundef ptr @_ZNK4llvm4Loop29getCanonicalInductionVariableEv(pt
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  store ptr null, ptr %2, align 8
-  store ptr null, ptr %3, align 8
   %7 = call noundef zeroext i1 @_ZNK4llvm4Loop22getIncomingAndBackEdgeERPNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br i1 %7, label %8, label %.loopexit
 

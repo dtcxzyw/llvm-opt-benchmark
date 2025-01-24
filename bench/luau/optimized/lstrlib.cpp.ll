@@ -3801,7 +3801,6 @@ define internal fastcc noundef range(i32 0, 9) i32 @_ZL10getdetailsP6HeadermPPKc
   %6 = alloca i32, align 4
   %7 = tail call fastcc noundef i32 @_ZL9getoptionP6HeaderPPKcPi(ptr noundef %0, ptr noundef %2, ptr noundef %3)
   %8 = load i32, ptr %3, align 4
-  store i32 %8, ptr %6, align 4
   %9 = icmp eq i32 %7, 7
   br i1 %9, label %10, label %21
 

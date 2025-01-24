@@ -2205,8 +2205,6 @@ _ZN4llvm5APIntD2Ev.exit157:                       ; preds = %_ZNK4llvm5APInt12ge
   br label %_ZN4llvm5APIntD2Ev.exit160
 
 384:                                              ; preds = %221
-  store i32 0, ptr %24, align 4
-  store i32 0, ptr %25, align 4
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %386 = load ptr, ptr %385, align 8
   %387 = getelementptr inbounds nuw i8, ptr %386, i64 4
@@ -10079,8 +10077,6 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_124RISCVInstructionS
   %12 = alloca %"class.llvm::Register", align 4
   %13 = alloca i32, align 4
   %14 = alloca %"class.llvm::TypeSize", align 8
-  store i32 0, ptr %11, align 4
-  store i32 0, ptr %12, align 4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 36

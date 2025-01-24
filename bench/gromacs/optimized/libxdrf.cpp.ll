@@ -2684,7 +2684,6 @@ define noundef range(i32 -2, 1) i32 @_Z17xdr_xtc_seek_timefP8_IO_FILEP3XDRib(flo
   %6 = alloca float, align 4
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1
-  store i8 0, ptr %8, align 1
   br i1 %4, label %9, label %12
 
 9:                                                ; preds = %5

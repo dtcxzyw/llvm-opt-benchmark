@@ -7089,7 +7089,6 @@ define hidden range(i32 -1, 1) i32 @phar_split_fname(ptr noundef %0, i64 noundef
   %.029 = select i1 %.not31, i64 %14, i64 %1
   %.028.idx = select i1 %.not31, i64 7, i64 0
   %.028 = getelementptr inbounds nuw i8, ptr %0, i64 %.028.idx
-  store i64 0, ptr %10, align 8
   %15 = call i32 @phar_detect_phar_fname_ext(ptr noundef %.028, i64 noundef %.029, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %6, i32 noundef %7, i32 noundef 0)
   %16 = icmp eq i32 %15, -1
   %.pre = load i64, ptr %10, align 8

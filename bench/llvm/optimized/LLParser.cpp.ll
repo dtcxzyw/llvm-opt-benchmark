@@ -8412,7 +8412,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser19parseFunctionHeaderERPNS
   %168 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store i8 0, ptr %168, align 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #25
-  store i32 0, ptr %33, align 4
   store ptr null, ptr %34, align 8
   store ptr null, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -10020,7 +10019,6 @@ _ZN4llvm11GlobalValue13setVisibilityENS0_15VisibilityTypesE.exit: ; preds = %_ZN
   br i1 %199, label %.loopexit, label %225
 
 200:                                              ; preds = %188
-  store i8 0, ptr %186, align 1
   %201 = call noundef zeroext i1 @_ZN4llvm8LLParser22parseOptionalAlignmentERNS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 1 dereferenceable(2) %25, i1 noundef zeroext false)
   br i1 %201, label %.loopexit, label %202
 
@@ -17194,194 +17192,192 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser18parseEnumAttributeENS_9A
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %20 = load i32, ptr %19, align 8
   %21 = tail call noundef zeroext i1 @_ZN4llvm8LLParser21parseRequiredTypeAttrERNS_11AttrBuilderENS_5lltok4KindENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %20, i32 noundef %1)
-  br label %108
+  br label %107
 
 22:                                               ; preds = %4
-  switch i32 %1, label %103 [
+  switch i32 %1, label %102 [
     i32 82, label %23
-    i32 89, label %42
-    i32 84, label %59
-    i32 91, label %65
-    i32 85, label %71
-    i32 86, label %76
-    i32 90, label %81
-    i32 83, label %86
-    i32 87, label %91
-    i32 88, label %95
-    i32 92, label %99
-    i32 93, label %101
+    i32 89, label %41
+    i32 84, label %58
+    i32 91, label %64
+    i32 85, label %70
+    i32 86, label %75
+    i32 90, label %80
+    i32 83, label %85
+    i32 87, label %90
+    i32 88, label %94
+    i32 92, label %98
+    i32 93, label %100
   ]
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 0, ptr %24, align 1
-  br i1 %3, label %25, label %38
+  br i1 %3, label %24, label %37
 
-25:                                               ; preds = %23
+24:                                               ; preds = %23
   store i32 0, ptr %6, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %27 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %26) #25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %27, ptr %28, align 8
-  %29 = tail call noundef zeroext i1 @_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc(ptr noundef nonnull align 8 dereferenceable(1768) %0, i32 noundef 3, ptr noundef nonnull @.str.31)
-  br i1 %29, label %108, label %30
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %26 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %25) #25
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i32 %26, ptr %27, align 8
+  %28 = tail call noundef zeroext i1 @_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc(ptr noundef nonnull align 8 dereferenceable(1768) %0, i32 noundef 3, ptr noundef nonnull @.str.31)
+  br i1 %28, label %107, label %29
 
-30:                                               ; preds = %25
-  %31 = call noundef zeroext i1 @_ZN4llvm8LLParser11parseUInt32ERj(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  br i1 %31, label %108, label %32
+29:                                               ; preds = %24
+  %30 = call noundef zeroext i1 @_ZN4llvm8LLParser11parseUInt32ERj(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %6)
+  br i1 %30, label %107, label %31
 
-32:                                               ; preds = %30
-  %33 = load i32, ptr %6, align 4
-  %34 = zext i32 %33 to i64
-  %35 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %34, i1 false)
-  %36 = trunc nuw nsw i64 %35 to i16
-  %37 = sub nsw i16 63, %36
-  %.sroa.029.0.insert.ext = and i16 %37, 255
+31:                                               ; preds = %29
+  %32 = load i32, ptr %6, align 4
+  %33 = zext i32 %32 to i64
+  %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %33, i1 false)
+  %35 = trunc nuw nsw i64 %34 to i16
+  %36 = sub nsw i16 63, %35
+  %.sroa.029.0.insert.ext = and i16 %36, 255
   %.sroa.029.0.insert.insert = or disjoint i16 %.sroa.029.0.insert.ext, 256
-  br label %40
+  br label %39
 
-38:                                               ; preds = %23
-  %39 = call noundef zeroext i1 @_ZN4llvm8LLParser22parseOptionalAlignmentERNS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 1 dereferenceable(2) %5, i1 noundef zeroext true)
-  br i1 %39, label %108, label %._crit_edge
+37:                                               ; preds = %23
+  %38 = call noundef zeroext i1 @_ZN4llvm8LLParser22parseOptionalAlignmentERNS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 1 dereferenceable(2) %5, i1 noundef zeroext true)
+  br i1 %38, label %107, label %._crit_edge
 
-._crit_edge:                                      ; preds = %38
+._crit_edge:                                      ; preds = %37
   %.sroa.02.0.copyload.pre = load i16, ptr %5, align 2
-  br label %40
+  br label %39
 
-40:                                               ; preds = %._crit_edge, %32
-  %.sroa.02.0.copyload = phi i16 [ %.sroa.02.0.copyload.pre, %._crit_edge ], [ %.sroa.029.0.insert.insert, %32 ]
-  %41 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder16addAlignmentAttrENS_10MaybeAlignE(ptr noundef nonnull align 8 dereferenceable(88) %2, i16 %.sroa.02.0.copyload) #25
-  br label %108
+39:                                               ; preds = %._crit_edge, %31
+  %.sroa.02.0.copyload = phi i16 [ %.sroa.02.0.copyload.pre, %._crit_edge ], [ %.sroa.029.0.insert.insert, %31 ]
+  %40 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder16addAlignmentAttrENS_10MaybeAlignE(ptr noundef nonnull align 8 dereferenceable(88) %2, i16 %.sroa.02.0.copyload) #25
+  br label %107
 
-42:                                               ; preds = %22
-  br i1 %3, label %43, label %50
+41:                                               ; preds = %22
+  br i1 %3, label %42, label %49
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %45 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %44) #25
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %45, ptr %46, align 8
-  %47 = tail call noundef zeroext i1 @_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc(ptr noundef nonnull align 8 dereferenceable(1768) %0, i32 noundef 3, ptr noundef nonnull @.str.31)
-  br i1 %47, label %108, label %48
+42:                                               ; preds = %41
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %44 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %43) #25
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i32 %44, ptr %45, align 8
+  %46 = tail call noundef zeroext i1 @_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc(ptr noundef nonnull align 8 dereferenceable(1768) %0, i32 noundef 3, ptr noundef nonnull @.str.31)
+  br i1 %46, label %107, label %47
 
-48:                                               ; preds = %43
-  %49 = call noundef zeroext i1 @_ZN4llvm8LLParser11parseUInt32ERj(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  br i1 %49, label %108, label %52
+47:                                               ; preds = %42
+  %48 = call noundef zeroext i1 @_ZN4llvm8LLParser11parseUInt32ERj(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  br i1 %48, label %107, label %51
 
-50:                                               ; preds = %42
-  %51 = call noundef zeroext i1 @_ZN4llvm8LLParser27parseOptionalStackAlignmentERj(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  br i1 %51, label %108, label %52
+49:                                               ; preds = %41
+  %50 = call noundef zeroext i1 @_ZN4llvm8LLParser27parseOptionalStackAlignmentERj(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %7)
+  br i1 %50, label %107, label %51
 
-52:                                               ; preds = %50, %48
-  %53 = load i32, ptr %7, align 4
-  %54 = zext i32 %53 to i64
-  %.not.i.not.i = icmp eq i32 %53, 0
-  %55 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %54, i1 true)
-  %56 = trunc nuw nsw i64 %55 to i16
-  %57 = xor i16 %56, 319
-  %.sroa.0.0.insert.insert.i = select i1 %.not.i.not.i, i16 0, i16 %57
-  %58 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder21addStackAlignmentAttrENS_10MaybeAlignE(ptr noundef nonnull align 8 dereferenceable(88) %2, i16 %.sroa.0.0.insert.insert.i) #25
-  br label %108
+51:                                               ; preds = %49, %47
+  %52 = load i32, ptr %7, align 4
+  %53 = zext i32 %52 to i64
+  %.not.i.not.i = icmp eq i32 %52, 0
+  %54 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %53, i1 true)
+  %55 = trunc nuw nsw i64 %54 to i16
+  %56 = xor i16 %55, 319
+  %.sroa.0.0.insert.insert.i = select i1 %.not.i.not.i, i16 0, i16 %56
+  %57 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder21addStackAlignmentAttrENS_10MaybeAlignE(ptr noundef nonnull align 8 dereferenceable(88) %2, i16 %.sroa.0.0.insert.insert.i) #25
+  br label %107
 
-59:                                               ; preds = %22
-  %60 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i8 0, ptr %60, align 4
-  %61 = call noundef zeroext i1 @_ZN4llvm8LLParser23parseAllocSizeArgumentsERjRSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
-  br i1 %61, label %108, label %62
+58:                                               ; preds = %22
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i8 0, ptr %59, align 4
+  %60 = call noundef zeroext i1 @_ZN4llvm8LLParser23parseAllocSizeArgumentsERjRSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
+  br i1 %60, label %107, label %61
 
-62:                                               ; preds = %59
-  %63 = load i32, ptr %8, align 4
-  %64 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder16addAllocSizeAttrEjRKSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %63, ptr noundef nonnull align 4 dereferenceable(8) %9) #25
-  br label %108
+61:                                               ; preds = %58
+  %62 = load i32, ptr %8, align 4
+  %63 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder16addAllocSizeAttrEjRKSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %62, ptr noundef nonnull align 4 dereferenceable(8) %9) #25
+  br label %107
 
-65:                                               ; preds = %22
-  %66 = call noundef zeroext i1 @_ZN4llvm8LLParser25parseVScaleRangeArgumentsERjS1_(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
-  br i1 %66, label %108, label %67
+64:                                               ; preds = %22
+  %65 = call noundef zeroext i1 @_ZN4llvm8LLParser25parseVScaleRangeArgumentsERjS1_(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  br i1 %65, label %107, label %66
 
-67:                                               ; preds = %65
-  %68 = load i32, ptr %10, align 4
-  %69 = load i32, ptr %11, align 4
-  %.not25.not = icmp eq i32 %69, 0
+66:                                               ; preds = %64
+  %67 = load i32, ptr %10, align 4
+  %68 = load i32, ptr %11, align 4
+  %.not25.not = icmp eq i32 %68, 0
   %.sroa.227.0.insert.shift = select i1 %.not25.not, i64 0, i64 4294967296
-  %.sroa.026.0.insert.ext = zext i32 %69 to i64
+  %.sroa.026.0.insert.ext = zext i32 %68 to i64
   %.sroa.026.0.insert.insert = or disjoint i64 %.sroa.227.0.insert.shift, %.sroa.026.0.insert.ext
-  %70 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder18addVScaleRangeAttrEjSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %68, i64 %.sroa.026.0.insert.insert) #25
-  br label %108
+  %69 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder18addVScaleRangeAttrEjSt8optionalIjE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %67, i64 %.sroa.026.0.insert.insert) #25
+  br label %107
 
-71:                                               ; preds = %22
-  %72 = call noundef zeroext i1 @_ZN4llvm8LLParser27parseOptionalDerefAttrBytesENS_5lltok4KindERm(ptr noundef nonnull align 8 dereferenceable(1768) %0, i32 noundef 248, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  br i1 %72, label %108, label %73
+70:                                               ; preds = %22
+  %71 = call noundef zeroext i1 @_ZN4llvm8LLParser27parseOptionalDerefAttrBytesENS_5lltok4KindERm(ptr noundef nonnull align 8 dereferenceable(1768) %0, i32 noundef 248, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  br i1 %71, label %107, label %72
 
-73:                                               ; preds = %71
-  %74 = load i64, ptr %12, align 8
-  %75 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder22addDereferenceableAttrEm(ptr noundef nonnull align 8 dereferenceable(88) %2, i64 noundef %74) #25
-  br label %108
+72:                                               ; preds = %70
+  %73 = load i64, ptr %12, align 8
+  %74 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder22addDereferenceableAttrEm(ptr noundef nonnull align 8 dereferenceable(88) %2, i64 noundef %73) #25
+  br label %107
 
-76:                                               ; preds = %22
-  %77 = call noundef zeroext i1 @_ZN4llvm8LLParser27parseOptionalDerefAttrBytesENS_5lltok4KindERm(ptr noundef nonnull align 8 dereferenceable(1768) %0, i32 noundef 249, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  br i1 %77, label %108, label %78
+75:                                               ; preds = %22
+  %76 = call noundef zeroext i1 @_ZN4llvm8LLParser27parseOptionalDerefAttrBytesENS_5lltok4KindERm(ptr noundef nonnull align 8 dereferenceable(1768) %0, i32 noundef 249, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  br i1 %76, label %107, label %77
 
-78:                                               ; preds = %76
-  %79 = load i64, ptr %13, align 8
-  %80 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder28addDereferenceableOrNullAttrEm(ptr noundef nonnull align 8 dereferenceable(88) %2, i64 noundef %79) #25
-  br label %108
+77:                                               ; preds = %75
+  %78 = load i64, ptr %13, align 8
+  %79 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder28addDereferenceableOrNullAttrEm(ptr noundef nonnull align 8 dereferenceable(88) %2, i64 noundef %78) #25
+  br label %107
 
-81:                                               ; preds = %22
-  %82 = call noundef zeroext i1 @_ZN4llvm8LLParser24parseOptionalUWTableKindERNS_11UWTableKindE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  br i1 %82, label %108, label %83
+80:                                               ; preds = %22
+  %81 = call noundef zeroext i1 @_ZN4llvm8LLParser24parseOptionalUWTableKindERNS_11UWTableKindE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  br i1 %81, label %107, label %82
 
-83:                                               ; preds = %81
-  %84 = load i32, ptr %14, align 4
-  %85 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder14addUWTableAttrENS_11UWTableKindE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %84) #25
-  br label %108
+82:                                               ; preds = %80
+  %83 = load i32, ptr %14, align 4
+  %84 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder14addUWTableAttrENS_11UWTableKindE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %83) #25
+  br label %107
 
-86:                                               ; preds = %22
+85:                                               ; preds = %22
   store i64 0, ptr %15, align 8
-  %87 = call noundef zeroext i1 @_ZN4llvm8LLParser14parseAllocKindERNS_11AllocFnKindE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  br i1 %87, label %108, label %88
+  %86 = call noundef zeroext i1 @_ZN4llvm8LLParser14parseAllocKindERNS_11AllocFnKindE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  br i1 %86, label %107, label %87
 
-88:                                               ; preds = %86
-  %89 = load i64, ptr %15, align 8
-  %90 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder16addAllocKindAttrENS_11AllocFnKindE(ptr noundef nonnull align 8 dereferenceable(88) %2, i64 noundef %89) #25
-  br label %108
+87:                                               ; preds = %85
+  %88 = load i64, ptr %15, align 8
+  %89 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder16addAllocKindAttrENS_11AllocFnKindE(ptr noundef nonnull align 8 dereferenceable(88) %2, i64 noundef %88) #25
+  br label %107
 
-91:                                               ; preds = %22
-  %92 = tail call i64 @_ZN4llvm8LLParser15parseMemoryAttrEv(ptr noundef nonnull align 8 dereferenceable(1768) %0)
-  %.not31 = icmp samesign ult i64 %92, 4294967296
-  br i1 %.not31, label %108, label %93
+90:                                               ; preds = %22
+  %91 = tail call i64 @_ZN4llvm8LLParser15parseMemoryAttrEv(ptr noundef nonnull align 8 dereferenceable(1768) %0)
+  %.not31 = icmp samesign ult i64 %91, 4294967296
+  br i1 %.not31, label %107, label %92
 
-93:                                               ; preds = %91
-  %.sroa.0.0.extract.trunc = trunc i64 %92 to i32
-  %94 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder13addMemoryAttrENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 %.sroa.0.0.extract.trunc) #25
-  br label %108
+92:                                               ; preds = %90
+  %.sroa.0.0.extract.trunc = trunc i64 %91 to i32
+  %93 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder13addMemoryAttrENS_17MemoryEffectsBaseINS_13IRMemLocationEEE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 %.sroa.0.0.extract.trunc) #25
+  br label %107
 
-95:                                               ; preds = %22
-  %96 = tail call noundef i32 @_ZN4llvm8LLParser18parseNoFPClassAttrEv(ptr noundef nonnull align 8 dereferenceable(1768) %0)
-  %.not = icmp eq i32 %96, 0
-  br i1 %.not, label %108, label %97
+94:                                               ; preds = %22
+  %95 = tail call noundef i32 @_ZN4llvm8LLParser18parseNoFPClassAttrEv(ptr noundef nonnull align 8 dereferenceable(1768) %0)
+  %.not = icmp eq i32 %95, 0
+  br i1 %.not, label %107, label %96
 
-97:                                               ; preds = %95
-  %98 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder16addNoFPClassAttrENS_11FPClassTestE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %96) #25
-  br label %108
+96:                                               ; preds = %94
+  %97 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder16addNoFPClassAttrENS_11FPClassTestE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %95) #25
+  br label %107
 
-99:                                               ; preds = %22
-  %100 = tail call noundef zeroext i1 @_ZN4llvm8LLParser14parseRangeAttrERNS_11AttrBuilderE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 8 dereferenceable(88) %2)
-  br label %108
+98:                                               ; preds = %22
+  %99 = tail call noundef zeroext i1 @_ZN4llvm8LLParser14parseRangeAttrERNS_11AttrBuilderE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 8 dereferenceable(88) %2)
+  br label %107
 
-101:                                              ; preds = %22
-  %102 = tail call noundef zeroext i1 @_ZN4llvm8LLParser20parseInitializesAttrERNS_11AttrBuilderE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 8 dereferenceable(88) %2)
-  br label %108
+100:                                              ; preds = %22
+  %101 = tail call noundef zeroext i1 @_ZN4llvm8LLParser20parseInitializesAttrERNS_11AttrBuilderE(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 8 dereferenceable(88) %2)
+  br label %107
 
-103:                                              ; preds = %22
-  %104 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %1) #25
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %106 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %105) #25
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %106, ptr %107, align 8
-  br label %108
+102:                                              ; preds = %22
+  %103 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %1) #25
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %105 = tail call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %104) #25
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i32 %105, ptr %106, align 8
+  br label %107
 
-108:                                              ; preds = %95, %91, %86, %81, %76, %71, %65, %59, %50, %43, %48, %38, %25, %30, %103, %101, %99, %97, %93, %88, %83, %78, %73, %67, %62, %52, %40, %18
-  %.0 = phi i1 [ %21, %18 ], [ false, %103 ], [ %102, %101 ], [ %100, %99 ], [ false, %97 ], [ false, %93 ], [ false, %88 ], [ false, %83 ], [ false, %78 ], [ false, %73 ], [ false, %67 ], [ false, %62 ], [ false, %52 ], [ false, %40 ], [ true, %30 ], [ true, %25 ], [ true, %38 ], [ true, %48 ], [ true, %43 ], [ true, %50 ], [ true, %59 ], [ true, %65 ], [ true, %71 ], [ true, %76 ], [ true, %81 ], [ true, %86 ], [ true, %91 ], [ true, %95 ]
+107:                                              ; preds = %94, %90, %85, %80, %75, %70, %64, %58, %49, %42, %47, %37, %24, %29, %102, %100, %98, %96, %92, %87, %82, %77, %72, %66, %61, %51, %39, %18
+  %.0 = phi i1 [ %21, %18 ], [ false, %102 ], [ %101, %100 ], [ %99, %98 ], [ false, %96 ], [ false, %92 ], [ false, %87 ], [ false, %82 ], [ false, %77 ], [ false, %72 ], [ false, %66 ], [ false, %61 ], [ false, %51 ], [ false, %39 ], [ true, %29 ], [ true, %24 ], [ true, %37 ], [ true, %47 ], [ true, %42 ], [ true, %49 ], [ true, %58 ], [ true, %64 ], [ true, %70 ], [ true, %75 ], [ true, %80 ], [ true, %85 ], [ true, %90 ], [ true, %94 ]
   ret i1 %.0
 }
 
@@ -23417,7 +23413,6 @@ _ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit18: ; preds = %59
 
 63:                                               ; preds = %_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit18.thread, %_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit18, %.lr.ph
   store ptr null, ptr %11, align 8
-  store ptr null, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   store i8 1, ptr %31, align 1
   store ptr @.str.612, ptr %4, align 8
@@ -45472,7 +45467,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser15parseCleanupRetERPNS_11I
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca ptr, align 8
-  store ptr null, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -45640,7 +45634,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser13parseCatchRetERPNS_11Ins
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca ptr, align 8
-  store ptr null, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -46080,7 +46073,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser13parseCatchPadERPNS_11Ins
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::SmallVector.716", align 8
   %9 = alloca %"class.llvm::Twine", align 8
-  store ptr null, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -46179,7 +46171,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm8LLParser15parseCleanupPadERPNS_11I
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::SmallVector.716", align 8
   %9 = alloca %"class.llvm::Twine", align 8
-  store ptr null, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -51245,7 +51236,6 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4llvm8LLParser10parseFenceERPNS
   %5 = alloca i8, align 1
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
-  store i8 1, ptr %5, align 1
   %8 = call noundef zeroext i1 @_ZN4llvm8LLParser10parseScopeERh(ptr noundef nonnull align 8 dereferenceable(1768) %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
   br i1 %8, label %_ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit.thread, label %9
 

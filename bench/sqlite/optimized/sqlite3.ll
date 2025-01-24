@@ -6236,7 +6236,6 @@ printfTempBuf.exit:                               ; preds = %sqlite3DbMallocRaw.
 
 659:                                              ; preds = %657
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40)
-  store double 0.000000e+00, ptr %40, align 8
   %660 = getelementptr inbounds nuw i8, ptr %645, i64 8
   %661 = load ptr, ptr %660, align 8
   %662 = getelementptr inbounds nuw i8, ptr %645, i64 16
@@ -12370,7 +12369,6 @@ define dso_local ptr @sqlite3_serialize(ptr noundef %0, ptr noundef %1, ptr noun
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  store ptr null, ptr %6, align 8
   %8 = icmp eq ptr %1, null
   br i1 %8, label %9, label %13
 
@@ -15316,7 +15314,6 @@ sqlite3Error.exit:                                ; preds = %sqlite3ErrorFinish.
   br i1 %.not96, label %.critedge.loopexit190, label %67
 
 67:                                               ; preds = %65
-  store ptr null, ptr %13, align 8
   %68 = call fastcc i32 @sqlite3LockAndPrepare(ptr noundef nonnull %0, ptr noundef nonnull %.082.ph, i32 noundef -1, i32 noundef 128, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull %12)
   %.not97 = icmp eq i32 %68, 0
   br i1 %.not97, label %69, label %63, !llvm.loop !87
@@ -16322,7 +16319,6 @@ sqlite3VdbeReset.exit:                            ; preds = %78, %sqlite3DbFree.
 define dso_local i32 @sqlite3_deserialize(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
@@ -23211,7 +23207,6 @@ define dso_local double @sqlite3_value_double(ptr nocapture noundef readonly %0)
 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store double 0.000000e+00, ptr %2, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -27017,7 +27012,6 @@ define dso_local double @sqlite3_column_double(ptr noundef %0, i32 noundef %1) #
 
 18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store double 0.000000e+00, ptr %3, align 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -78606,7 +78600,6 @@ define internal fastcc i32 @allocateBtreePage(ptr noundef %0, ptr nocapture noun
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr null, ptr %6, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %0, i64 64
@@ -79475,7 +79468,6 @@ ptrmapPageno.exit:                                ; preds = %535, %537
   br i1 %547, label %548, label %565
 
 548:                                              ; preds = %ptrmapPageno.exit
-  store ptr null, ptr %9, align 8
   %549 = call fastcc i32 @btreeGetUnusedPage(ptr noundef nonnull %0, i32 noundef %532, ptr noundef %9, i32 noundef %517)
   %550 = icmp eq i32 %549, 0
   br i1 %550, label %551, label %releasePage.exit278
@@ -84619,7 +84611,6 @@ sqlite3BtreeGetFilename.exit190.thread:           ; preds = %141, %139
 sqlite3BtreeGetFilename.exit190:                  ; preds = %141
   %143 = getelementptr inbounds nuw i8, ptr %.val180.val, i64 216
   %144 = load ptr, ptr %143, align 8
-  store ptr null, ptr %3, align 8
   %145 = icmp eq ptr %144, null
   br i1 %145, label %sqlite3Strlen30.exit192, label %146
 
@@ -92816,7 +92807,6 @@ sqlite3AddInt64.exit.thread:                      ; preds = %1356, %1350, %1386,
 
 1403:                                             ; preds = %1401
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %96)
-  store double 0.000000e+00, ptr %96, align 8
   %1404 = getelementptr inbounds nuw i8, ptr %1327, i64 8
   %1405 = load ptr, ptr %1404, align 8
   %1406 = getelementptr inbounds nuw i8, ptr %1327, i64 16
@@ -92857,7 +92847,6 @@ sqlite3VdbeRealValue.exit:                        ; preds = %1394, %1398, %1401,
 
 1424:                                             ; preds = %1422
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %95)
-  store double 0.000000e+00, ptr %95, align 8
   %1425 = getelementptr inbounds nuw i8, ptr %1333, i64 8
   %1426 = load ptr, ptr %1425, align 8
   %1427 = getelementptr inbounds nuw i8, ptr %1333, i64 16
@@ -93790,7 +93779,6 @@ sqlite3VdbeMemIntegerify.exit:                    ; preds = %1633, %1637, %1640,
 
 1913:                                             ; preds = %1911
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %87)
-  store double 0.000000e+00, ptr %87, align 8
   %1914 = getelementptr inbounds nuw i8, ptr %1896, i64 8
   %1915 = load ptr, ptr %1914, align 8
   %1916 = getelementptr inbounds nuw i8, ptr %1896, i64 16
@@ -93848,7 +93836,6 @@ sqlite3VdbeBooleanValue.exit:                     ; preds = %1901, %1905, %sqlit
 
 1944:                                             ; preds = %1942
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %86)
-  store double 0.000000e+00, ptr %86, align 8
   %1945 = getelementptr inbounds nuw i8, ptr %1927, i64 8
   %1946 = load ptr, ptr %1945, align 8
   %1947 = getelementptr inbounds nuw i8, ptr %1927, i64 16
@@ -93946,7 +93933,6 @@ sqlite3VdbeBooleanValue.exit3805:                 ; preds = %1932, %1936, %sqlit
 
 2004:                                             ; preds = %2002
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %85)
-  store double 0.000000e+00, ptr %85, align 8
   %2005 = getelementptr inbounds nuw i8, ptr %1985, i64 8
   %2006 = load ptr, ptr %2005, align 8
   %2007 = getelementptr inbounds nuw i8, ptr %1985, i64 16
@@ -94238,7 +94224,6 @@ sqlite3VdbeMemSetNull.exit3825:                   ; preds = %2063, %2091, %2094
 
 2160:                                             ; preds = %2158
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %80)
-  store double 0.000000e+00, ptr %80, align 8
   %2161 = getelementptr inbounds nuw i8, ptr %2141, i64 8
   %2162 = load ptr, ptr %2161, align 8
   %2163 = getelementptr inbounds nuw i8, ptr %2141, i64 16
@@ -94299,7 +94284,6 @@ sqlite3VdbeBooleanValue.exit3833:                 ; preds = %2146, %2150, %sqlit
 
 2190:                                             ; preds = %2188
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %79)
-  store double 0.000000e+00, ptr %79, align 8
   %2191 = getelementptr inbounds nuw i8, ptr %2175, i64 8
   %2192 = load ptr, ptr %2191, align 8
   %2193 = getelementptr inbounds nuw i8, ptr %2175, i64 16
@@ -110061,7 +110045,6 @@ define internal fastcc void @sqlite3VdbeMemRealify(ptr nocapture noundef %0) unn
 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store double 0.000000e+00, ptr %2, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -110299,7 +110282,6 @@ sqlite3VdbeMemIntegerify.exit:                    ; preds = %68, %72, %75, %77, 
 
 104:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store double 0.000000e+00, ptr %4, align 8
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -110730,7 +110712,6 @@ define internal fastcc i32 @sqlite3VdbeBooleanValue(ptr nocapture noundef readon
 
 20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store double 0.000000e+00, ptr %3, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -181228,7 +181209,6 @@ sqlite3_stricmp.exit1762.thread:                  ; preds = %845, %837
   br i1 %.not1614, label %878, label %sqlite3DbFree.exit
 
 sqlite3DbFree.exit:                               ; preds = %872
-  store ptr null, ptr %20, align 8
   %875 = call fastcc i32 @sqlite3LockAndPrepare(ptr noundef %32, ptr noundef nonnull %874, i32 noundef -1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %20, ptr noundef null)
   %876 = load ptr, ptr %20, align 8
   %877 = call i32 @sqlite3_finalize(ptr noundef %876)
@@ -220201,7 +220181,6 @@ sqlite3RecordErrorOffsetOfExpr.exit:              ; preds = %.critedge2.i, %12, 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc i32 @exprProbability(ptr nocapture noundef readonly %0) unnamed_addr #9 {
   %2 = alloca double, align 8
-  store double -1.000000e+00, ptr %2, align 8
   %3 = load i8, ptr %0, align 8
   %.not = icmp eq i8 %3, -103
   br i1 %.not, label %4, label %18
@@ -339293,7 +339272,6 @@ sqlite3_result_null.exit:                         ; preds = %87, %114, %117
 
 134:                                              ; preds = %132
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store double 0.000000e+00, ptr %6, align 8
   %135 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -339512,7 +339490,6 @@ sqlite3_value_int.exit:                           ; preds = %22, %26, %29, %31, 
 
 66:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store double 0.000000e+00, ptr %6, align 8
   %67 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -339526,7 +339503,6 @@ sqlite3_value_int.exit:                           ; preds = %22, %26, %29, %31, 
 
 sqlite3_value_double.exit:                        ; preds = %57, %61, %64, %66
   %.0.i.i19 = phi double [ %58, %57 ], [ %63, %61 ], [ %74, %66 ], [ 0.000000e+00, %64 ]
-  store double %.0.i.i19, ptr %8, align 8
   %75 = tail call double @llvm.fabs.f64(double %.0.i.i19)
   %or.cond = fcmp ogt double %75, 0x4330000000000000
   br i1 %or.cond, label %sqlite3_free.exit, label %76
@@ -341069,7 +341045,6 @@ define internal void @quoteFunc(ptr nocapture noundef %0, i32 %1, ptr nocapture 
 
 40:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store double 0.000000e+00, ptr %7, align 8
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -342970,7 +342945,6 @@ kahanBabuskaNeumaierInit.exit:                    ; preds = %54, %59
 
 76:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14)
-  store double 0.000000e+00, ptr %14, align 8
   %77 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -343278,7 +343252,6 @@ sqlite3_value_int64.exit48:                       ; preds = %180, %184, %187, %1
 
 219:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store double 0.000000e+00, ptr %7, align 8
   %220 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %205, i64 16
@@ -343976,7 +343949,6 @@ sqlite3_value_int64.exit26.thread33:              ; preds = %96, %sqlite3_value_
 
 155:                                              ; preds = %153
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store double 0.000000e+00, ptr %7, align 8
   %156 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -345773,7 +345745,6 @@ sqlite3_result_int64.exit:                        ; preds = %sqlite3_value_int64
 
 94:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store double 0.000000e+00, ptr %6, align 8
   %95 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %80, i64 16
@@ -345922,7 +345893,6 @@ define internal void @logFunc(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store double 0.000000e+00, ptr %7, align 8
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -345985,7 +345955,6 @@ sqlite3_value_double.exit:                        ; preds = %16, %20, %25
 
 58:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store double 0.000000e+00, ptr %6, align 8
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -346160,7 +346129,6 @@ define internal void @math1Func(ptr nocapture noundef readonly %0, i32 %1, ptr n
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store double 0.000000e+00, ptr %6, align 8
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -346315,7 +346283,6 @@ define internal void @math2Func(ptr nocapture noundef readonly %0, i32 %1, ptr n
 
 31:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store double 0.000000e+00, ptr %7, align 8
   %32 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -346358,7 +346325,6 @@ sqlite3_value_double.exit:                        ; preds = %22, %26, %29, %31
 
 54:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store double 0.000000e+00, ptr %6, align 8
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -346637,7 +346603,6 @@ define internal void @signFunc(ptr nocapture noundef readonly %0, i32 %1, ptr no
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store double 0.000000e+00, ptr %6, align 8
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -355789,7 +355754,6 @@ sqlite3_aggregate_context.exit:                   ; preds = %3, %24
 
 73:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store double 0.000000e+00, ptr %4, align 8
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -359261,7 +359225,6 @@ sqlite3StmtCurrentTime.exit.i:                    ; preds = %sqlite3OsCurrentTim
 
 74:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  store double 0.000000e+00, ptr %19, align 8
   %75 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -365722,7 +365685,6 @@ sqlite3DbFree.exit.i:                             ; preds = %147
 
 162:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  store i32 0, ptr %4, align 4
   %163 = tail call ptr @sqlite3_value_blob(ptr noundef %1)
   store ptr %163, ptr %.0.i.i, align 8
   %164 = load i16, ptr %5, align 4
@@ -370318,7 +370280,6 @@ jsonLabelCompareEscaped.exit:                     ; preds = %94, %98, %.thread.i
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @jsonAfterEditSizeAdjust(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -373201,7 +373162,6 @@ jsonStringExpandAndAppend.exit.sink.split.i:      ; preds = %24, %19
 
 42:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store double 0.000000e+00, ptr %3, align 8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -373740,7 +373700,6 @@ define internal fastcc i32 @jsonbValidityCheck(ptr noundef nonnull %0, i32 nound
   br label %.loopexit
 
 10:                                               ; preds = %4
-  store i32 0, ptr %5, align 4
   %11 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %5)
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
@@ -374244,7 +374203,6 @@ define internal fastcc i32 @jsonbValidityCheck(ptr noundef nonnull %0, i32 nound
 
 247:                                              ; preds = %.lr.ph330, %261
   %.12329 = phi i32 [ %16, %.lr.ph330 ], [ %255, %261 ]
-  store i32 0, ptr %5, align 4
   %248 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %.12329, ptr noundef %5)
   %249 = icmp eq i32 %248, 0
   br i1 %249, label %250, label %252
@@ -374276,7 +374234,6 @@ define internal fastcc i32 @jsonbValidityCheck(ptr noundef nonnull %0, i32 nound
 263:                                              ; preds = %.lr.ph, %288
   %.0234327 = phi i32 [ 0, %.lr.ph ], [ %289, %288 ]
   %.13326 = phi i32 [ %16, %.lr.ph ], [ %271, %288 ]
-  store i32 0, ptr %5, align 4
   %264 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %.13326, ptr noundef %5)
   %265 = icmp eq i32 %264, 0
   br i1 %265, label %266, label %268
@@ -375282,7 +375239,6 @@ tailrecurse._crit_edge.i132:                      ; preds = %tailrecurse.i142, %
 
 227:                                              ; preds = %224
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store double 0.000000e+00, ptr %5, align 8
   %228 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -376192,8 +376148,6 @@ define internal fastcc range(i32 0, 4) i32 @jsonMergePatch(ptr noundef nonnull %
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  store i32 0, ptr %6, align 4
-  store i32 0, ptr %7, align 4
   %10 = load ptr, ptr %2, align 8
   %11 = zext i32 %3 to i64
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %11
@@ -376206,7 +376160,6 @@ define internal fastcc range(i32 0, 4) i32 @jsonMergePatch(ptr noundef nonnull %
   %16 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %2, i32 noundef %3, ptr noundef %5)
   %17 = load i32, ptr %5, align 4
   %18 = add i32 %17, %16
-  store i32 0, ptr %5, align 4
   %19 = call fastcc i32 @jsonbPayloadSize(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %5)
   %20 = load i32, ptr %5, align 4
   %21 = add i32 %20, %19
@@ -380116,14 +380069,12 @@ define internal range(i32 0, 8) i32 @jsonEachNext(ptr noundef %0) #0 {
   br i1 %.not, label %108, label %9
 
 9:                                                ; preds = %1
-  store i32 0, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %10 = load i8, ptr %8, align 8
   %11 = icmp eq i8 %10, 12
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %9
-  store i32 0, ptr %3, align 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
@@ -380315,14 +380266,12 @@ jsonSkipLabel.exit:                               ; preds = %12, %20
   br label %.critedge
 
 108:                                              ; preds = %1
-  store i32 0, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   %109 = load i8, ptr %8, align 8
   %110 = icmp eq i8 %109, 12
   br i1 %110, label %111, label %119
 
 111:                                              ; preds = %108
-  store i32 0, ptr %2, align 4
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %114 = load i32, ptr %113, align 4
@@ -380579,7 +380528,6 @@ sqlite3_result_int64.exit:                        ; preds = %60, %93, %96
   br i1 %104, label %105, label %113
 
 105:                                              ; preds = %101
-  store i32 0, ptr %11, align 4
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %108 = load i32, ptr %107, align 4
@@ -380625,7 +380573,6 @@ jsonSkipLabel.exit:                               ; preds = %105, %113
   br i1 %132, label %133, label %141
 
 133:                                              ; preds = %129
-  store i32 0, ptr %10, align 4
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %136 = load i32, ptr %135, align 4
@@ -380663,7 +380610,6 @@ jsonSkipLabel.exit82:                             ; preds = %133, %141
   br i1 %156, label %157, label %165
 
 157:                                              ; preds = %153
-  store i32 0, ptr %9, align 4
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %160 = load i32, ptr %159, align 4
@@ -381117,7 +381063,6 @@ define internal fastcc void @jsonAppendPathName(ptr noundef %0) unnamed_addr #0 
   br label %44
 
 16:                                               ; preds = %1
-  store i32 0, ptr %2, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4

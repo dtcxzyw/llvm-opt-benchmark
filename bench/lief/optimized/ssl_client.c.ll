@@ -423,7 +423,6 @@ ssl_generate_random.exit.i:                       ; preds = %48, %._crit_edge.i
   %224 = lshr i64 %219, 1
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 394, ptr noundef nonnull @.str.16, i64 noundef %224) #6
   %225 = sub i64 %217, %174
-  store i64 %225, ptr %2, align 8
   %226 = getelementptr inbounds i8, ptr %.0112.i, i64 %225
   %227 = icmp ule ptr %.2.i.i, %107
   %228 = sub i64 %117, %217

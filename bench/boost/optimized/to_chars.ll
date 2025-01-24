@@ -311,7 +311,6 @@ _ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i: ; preds = %62
   %.sroa.053.0.extract.trunc.i = trunc i128 %27 to i64
   %.sroa.254.0.extract.shift.i = lshr i64 %.sroa.0.0.extract.trunc, 62
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #15, !noalias !3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.053.0.extract.trunc.i, i64 %.sroa.254.0.extract.shift.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %8) #15, !noalias !3
   %83 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !14, !noalias !3
@@ -323,7 +322,6 @@ _ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i: ; preds = %62
   %.sroa.051.0.insert.insert.i = or disjoint i128 %.sroa.252.0.insert.shift.i, %.sroa.051.0.insert.ext.i
   %.sroa.049.0.extract.trunc.i = or disjoint i64 %.sroa.053.0.extract.trunc.i, 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #15, !noalias !3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.049.0.extract.trunc.i, i64 %.sroa.254.0.extract.shift.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %7) #15, !noalias !3
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %87 = load i64, ptr %86, align 8, !tbaa !14, !noalias !3
@@ -340,7 +338,6 @@ _ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i: ; preds = %62
   %.sroa.246.0.extract.shift.i = lshr i128 %90, 64
   %.sroa.246.0.extract.trunc.i = trunc nuw i128 %.sroa.246.0.extract.shift.i to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #15, !noalias !3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.045.0.extract.trunc.i, i64 %.sroa.246.0.extract.trunc.i, ptr noundef nonnull readonly %9, i32 noundef range(i32 -261896, 267305) %43, i32 noundef 0, ptr noundef %6) #15, !noalias !3
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %92 = load i64, ptr %91, align 8, !tbaa !14, !noalias !3
@@ -522,7 +519,6 @@ _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %152, 
   %.sroa.023.0.extract.trunc.i = trunc i128 %27 to i64
   %.sroa.224.0.extract.shift.i = lshr i64 %.sroa.0.0.extract.trunc, 62
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15, !noalias !3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.023.0.extract.trunc.i, i64 %.sroa.224.0.extract.shift.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %135, i32 noundef 0, ptr noundef %5) #15, !noalias !3
   %171 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %172 = load i64, ptr %171, align 8, !tbaa !14, !noalias !3
@@ -534,7 +530,6 @@ _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %152, 
   %.sroa.021.0.insert.insert.i = or disjoint i128 %.sroa.222.0.insert.shift.i, %.sroa.021.0.insert.ext.i
   %.sroa.019.0.extract.trunc.i = or disjoint i64 %.sroa.023.0.extract.trunc.i, 2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15, !noalias !3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.019.0.extract.trunc.i, i64 %.sroa.224.0.extract.shift.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %135, i32 noundef 0, ptr noundef %4) #15, !noalias !3
   %174 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %175 = load i64, ptr %174, align 8, !tbaa !14, !noalias !3
@@ -551,7 +546,6 @@ _ZN5boost8charconv6detail3ryuL19generic_computePow5EjPm.exit.i: ; preds = %152, 
   %.sroa.216.0.extract.shift.i = lshr i128 %178, 64
   %.sroa.216.0.extract.trunc.i = trunc nuw i128 %.sroa.216.0.extract.shift.i to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15, !noalias !3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !noalias !3
   call fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.sroa.015.0.extract.trunc.i, i64 %.sroa.216.0.extract.trunc.i, ptr noundef nonnull readonly %10, i32 noundef range(i32 -261896, 267305) %135, i32 noundef 0, ptr noundef %3) #15, !noalias !3
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %180 = load i64, ptr %179, align 8, !tbaa !14, !noalias !3

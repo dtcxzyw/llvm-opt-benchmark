@@ -9710,7 +9710,6 @@ define range(i32 -1, 1) i32 @unpack_key_pair_list(ptr nocapture noundef writeonl
 
 11:                                               ; preds = %10
   %12 = call ptr @list_create(ptr noundef nonnull @destroy_config_key_pair) #18
-  store ptr null, ptr %5, align 8
   %13 = load i32, ptr %4, align 4
   %.not18 = icmp eq i32 %13, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -9821,7 +9820,6 @@ define range(i32 -1, 1) i32 @unpack_config_plugin_params_list(ptr nocapture noun
 
 11:                                               ; preds = %10
   %12 = call ptr @list_create(ptr noundef nonnull @destroy_config_plugin_params) #18
-  store ptr null, ptr %5, align 8
   %13 = load i32, ptr %4, align 4
   %.not18 = icmp eq i32 %13, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph

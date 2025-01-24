@@ -1350,7 +1350,6 @@ define noundef ptr @_Z8open_enxRKNSt10filesystem7__cxx114pathEPKc(ptr noundef no
   %20 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr null, ptr %5, align 8
   store i32 -1, ptr %6, align 4
-  store i8 1, ptr %8, align 1
   %21 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.9, i32 noundef 815, i64 noundef 1, i64 noundef 40)
   %22 = load i8, ptr %1, align 1
   %23 = icmp eq i8 %22, 114

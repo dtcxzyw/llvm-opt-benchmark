@@ -7680,7 +7680,6 @@ entry:
   %fLength.i = getelementptr inbounds nuw i8, ptr %this, i64 1148
   %3 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %3, i32 %shr.i.i
-  store i32 %cond.i, ptr %len, align 4
   %cmp = icmp sgt i32 %cond.i, 0
   br i1 %cmp, label %land.lhs.true, label %if.end
 
@@ -7833,7 +7832,6 @@ if.then22:                                        ; preds = %_ZNK6icu_7513Unicod
 
 if.end25:                                         ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit, %if.then22
   %sign.0 = phi i32 [ -1, %if.then22 ], [ 1, %_ZNK6icu_7513UnicodeString6charAtEi.exit ]
-  store i32 0, ptr %lenWithSep, align 4
   %call27 = call noundef i32 @_ZNK6icu_7514TimeZoneFormat24parseDefaultOffsetFieldsERKNS_13UnicodeStringEiDsRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %add11, i16 noundef zeroext 58, ptr noundef nonnull align 4 dereferenceable(4) %lenWithSep)
   %6 = load i32, ptr %lenWithSep, align 4
   %7 = load i16, ptr %fUnion.i.i, align 8

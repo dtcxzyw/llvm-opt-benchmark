@@ -1121,7 +1121,6 @@ if.end:                                           ; preds = %entry
   %mFileBuffer = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mFileBuffer, align 8
   %oldPtr = getelementptr inbounds nuw i8, ptr %dna, i64 8
-  store ptr null, ptr %oldPtr, align 8
   %mFileLen = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %mFileLen, align 8
   %cmp222 = icmp sgt i32 %2, 0
@@ -2373,7 +2372,6 @@ entry:
   store i32 12, ptr %mDataStart, align 8
   %2 = load ptr, ptr %mFileBuffer, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 0, ptr %dataChunk, align 8
   %mFlags = getelementptr inbounds nuw i8, ptr %this, i64 536
   %3 = load i32, ptr %mFlags, align 8
   %call = call noundef i32 @_ZN6bParse5bFile12getNextBlockEPNS_9bChunkIndEPKci(ptr nonnull align 8 poison, ptr noundef nonnull %dataChunk, ptr noundef nonnull %add.ptr, i32 noundef %3)

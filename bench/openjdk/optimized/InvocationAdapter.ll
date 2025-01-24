@@ -149,7 +149,6 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
-  store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
   %7 = call fastcc i32 @parseArgumentTail(ptr noundef %1, ptr noundef %5, ptr noundef %6)
   %.not = icmp eq i32 %7, 0
@@ -831,7 +830,6 @@ define i32 @Agent_OnAttach(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %7 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   store ptr null, ptr %5, align 8
-  store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48

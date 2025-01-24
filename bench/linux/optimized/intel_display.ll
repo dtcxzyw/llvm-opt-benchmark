@@ -18050,9 +18050,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %17 = load i16, ptr %16, align 8
   %18 = icmp ugt i16 %17, 10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #25
-  store i8 0, ptr %5, align 1, !annotation !64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #25
-  store i8 0, ptr %6, align 1, !annotation !64
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 2624
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 2639
   %21 = select i1 %18, i64 112, i64 16
@@ -18511,9 +18509,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   %306 = load ptr, ptr %1, align 8
   %307 = load ptr, ptr %306, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #25
-  store i8 0, ptr %3, align 1, !annotation !64
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #25
-  store i8 0, ptr %4, align 1, !annotation !64
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 1648
   %309 = load i32, ptr %308, align 8
   call fastcc void @enabled_bigjoiner_pipes(ptr noundef %307, ptr noundef nonnull %3, ptr noundef nonnull %4)

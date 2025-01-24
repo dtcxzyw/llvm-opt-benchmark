@@ -4140,7 +4140,6 @@ amf_get_u29.exit437:                              ; preds = %207, %211, %218, %2
 amf_get_u29.exit443:                              ; preds = %.thread470, %269, %276, %283
   %.sink.i441 = phi i32 [ 4, %283 ], [ 1, %.thread470 ], [ 2, %269 ], [ 3, %276 ]
   %.0.i442 = phi i32 [ %288, %283 ], [ %32, %.thread470 ], [ %275, %269 ], [ %282, %276 ]
-  store i32 %.sink.i441, ptr %6, align 4
   %289 = and i32 %.0.i442, 1
   %.not402 = icmp eq i32 %289, 0
   br i1 %.not402, label %437, label %290

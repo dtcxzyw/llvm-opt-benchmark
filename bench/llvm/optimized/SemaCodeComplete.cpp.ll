@@ -27327,7 +27327,6 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i80: ; preds = %_ZSt8
   br label %_ZN5clang20CodeCompletionResultD2Ev.exit82
 
 90:                                               ; preds = %14
-  store i8 0, ptr %9, align 1
   %91 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_113ResultBuilder17isInterestingDeclEPKN5clang9NamedDeclERb(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %15, ptr noundef nonnull align 1 dereferenceable(1) %9)
   br i1 %91, label %92, label %_ZN5clang20CodeCompletionResultD2Ev.exit82
 
@@ -45141,7 +45140,6 @@ _ZSt8_DestroyIPN5clang9FixItHintES1_EvT_S3_RSaIT0_E.exit.i.i114: ; preds = %_ZSt
   %92 = tail call noundef ptr %91(ptr noundef nonnull align 8 dereferenceable(33) %13) #29
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %94 = load i32, ptr %93, align 4
-  store i8 0, ptr %6, align 1
   %95 = load ptr, ptr %1, align 8
   %96 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_113ResultBuilder17isInterestingDeclEPKN5clang9NamedDeclERb(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %95, ptr noundef nonnull align 1 dereferenceable(1) %6)
   br i1 %96, label %97, label %_ZN5clang20CodeCompletionResultD2Ev.exit116

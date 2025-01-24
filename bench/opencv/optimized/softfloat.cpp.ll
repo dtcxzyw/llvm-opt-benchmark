@@ -5595,7 +5595,6 @@ _ZNK2cv10softdoubleeqERKS0_.exit.thread:          ; preds = %_ZNK2cv10softdouble
 
 78:                                               ; preds = %76, %74
   %79 = phi i64 [ %77, %76 ], [ %.sroa.028.0, %74 ]
-  store i64 %79, ptr %9, align 8
   %80 = icmp slt i64 %79, 0
   %81 = lshr i64 %79, 52
   %82 = and i64 %81, 2047
@@ -5910,7 +5909,6 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %33, %26
   %36 = shl nuw nsw i64 %27, 29
   %37 = and i64 %36, 17591649173504
   %38 = or disjoint i64 %37, 4607182418800017408
-  store i64 %38, ptr %4, align 8
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 noundef %38, i64 noundef 4607182418800017408, i1 noundef zeroext false)
   %39 = shl nuw nsw i32 %35, 1
   %40 = zext nneg i32 %39 to i64
@@ -6291,7 +6289,6 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %107, %104, %101
   %111 = and i32 %110, 255
   %112 = and i64 %108, 17592186044415
   %113 = or disjoint i64 %112, 4607182418800017408
-  store i64 %113, ptr %18, align 8
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %113, i64 noundef 4607182418800017408, i1 noundef zeroext false)
   %114 = shl nuw nsw i32 %111, 1
   %115 = zext nneg i32 %114 to i64

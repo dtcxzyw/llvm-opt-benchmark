@@ -24786,7 +24786,6 @@ define dso_local noundef i64 @_ZN5clang4Sema20BuildBaseInitializerENS_8QualTypeE
 
 86:                                               ; preds = %84, %71, %78
   %.sroa.0116.0 = phi i32 [ %5, %71 ], [ 0, %78 ], [ 0, %84 ]
-  store ptr null, ptr %15, align 8
   store ptr null, ptr %16, align 8
   br i1 %69, label %.critedge, label %87
 
@@ -85126,7 +85125,6 @@ define dso_local void @_ZN5clang4Sema34actOnDelayedExceptionSpecificationEPNS_4D
   %22 = getelementptr inbounds nuw i8, ptr %.0, i64 28
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %23, i64 noundef 4) #24
-  store i32 0, ptr %10, align 8
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   call void @_ZN5clang4Sema27checkExceptionSpecificationEbNS_26ExceptionSpecificationTypeEN4llvm8ArrayRefINS_9OpaquePtrINS_8QualTypeEEEEENS3_INS_11SourceRangeEEEPNS_4ExprERNS2_15SmallVectorImplIS5_EERNS_17FunctionProtoType17ExceptionSpecInfoE(ptr noundef nonnull align 8 dereferenceable(17560) %0, i1 noundef zeroext true, i32 noundef %2, ptr %4, i64 %5, ptr noundef nonnull byval(%"class.llvm::ArrayRef.2303") align 8 %6, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(48) %10)

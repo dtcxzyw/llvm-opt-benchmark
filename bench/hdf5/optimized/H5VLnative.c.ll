@@ -127,7 +127,6 @@ define range(i32 -1, 1) i32 @H5VL_native_get_file_addr_len(i64 noundef %0, ptr n
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr null, ptr %3, align 8
   %18 = call i32 @H5VL_native_get_file_struct(ptr noundef nonnull %11, i32 noundef %4, ptr noundef nonnull %3)
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %23, label %H5VL__native_get_file_addr_len.exit
@@ -162,7 +161,6 @@ declare ptr @H5VL_object(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5VL__native_get_file_addr_len(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  store ptr null, ptr %4, align 8
   %5 = call i32 @H5VL_native_get_file_struct(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
@@ -364,7 +362,6 @@ define range(i32 -1, 1) i32 @H5VL_native_addr_to_token(ptr noundef %0, i32 nound
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  store ptr null, ptr %5, align 8
   %7 = call i32 @H5VL_native_get_file_struct(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %5)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %16
@@ -504,7 +501,6 @@ define range(i32 -1, 1) i32 @H5VL_native_token_to_addr(ptr noundef %0, i32 nound
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr null, ptr %6, align 8
   %10 = call i32 @H5VL_native_get_file_struct(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %6)
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %19

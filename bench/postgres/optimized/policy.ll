@@ -645,7 +645,6 @@ define dso_local { i64, i32 } @CreatePolicy(ptr noundef %0) local_unnamed_addr #
   %5 = alloca [8 x i64], align 16
   %6 = alloca [8 x i8], align 8
   %7 = alloca %struct.ObjectAddress, align 4
-  store i32 0, ptr %3, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null

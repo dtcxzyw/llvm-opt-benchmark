@@ -20410,7 +20410,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %30, ptr %vtable_.i.i.i.i1.i, align 8, !alias.scope !272
   %buffer_.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 16
   store i64 %31, ptr %buffer_.i.i.i.i2.i, align 8, !alias.scope !272
-  br i1 %35, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
+  br i1 %35, label %invoke.cont45, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
   %36 = atomicrmw add ptr %32, i32 1 monotonic, align 4, !noalias !272
@@ -20441,13 +20441,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEE
   store ptr %30, ptr %vtable_.i.i.i.i16.i, align 8, !alias.scope !272
   %buffer_.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 16
   store i64 %31, ptr %buffer_.i.i.i.i27.i, align 8, !alias.scope !272
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp38, align 8, !alias.scope !272
   br label %invoke.cont45
 
-invoke.cont45:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i, %if.then.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
+invoke.cont45:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i, %if.then.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
   %42 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 8
   %ref.tmp38.val = load ptr, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %ref.tmp38, i64 16
@@ -20702,7 +20698,6 @@ invoke.cont76:                                    ; preds = %invoke.cont68
   store ptr %82, ptr %vtable_.i.i.i.i112, align 8, !alias.scope !275
   %buffer_.i.i.i.i113 = getelementptr inbounds nuw i8, ptr %ref.tmp72, i64 16
   store i64 %83, ptr %buffer_.i.i.i.i113, align 8, !alias.scope !275
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp72, align 8, !alias.scope !275
   %84 = inttoptr i64 %83 to ptr
   invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS_7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar71, ptr %82, i64 %83, ptr noundef nonnull align 4 dereferenceable(6) %copy_detector)
           to label %invoke.cont78 unwind label %lpad77
@@ -20909,7 +20904,6 @@ invoke.cont106:                                   ; preds = %invoke.cont98
   store ptr %112, ptr %vtable_.i.i.i.i166, align 8, !alias.scope !278
   %buffer_.i.i.i.i167 = getelementptr inbounds nuw i8, ptr %ref.tmp102, i64 16
   store i64 %113, ptr %buffer_.i.i.i.i167, align 8, !alias.scope !278
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp102, align 8, !alias.scope !278
   %114 = inttoptr i64 %113 to ptr
   invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS_7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar101, ptr %112, i64 %113, ptr noundef nonnull align 4 dereferenceable(6) %copy_detector)
           to label %invoke.cont108 unwind label %lpad107
@@ -63360,7 +63354,6 @@ invoke.cont3.i.i.i.i.i:                           ; preds = %call.i.i.i.i.i.noex
   %0 = ptrtoint ptr %call.i.i.i.i.i3.i.i.i.i.i to i64
   store i64 %0, ptr %value.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1075
   store ptr %call.i.i1.i.i.i.i.i.i.i4.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1076, !noalias !1059
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN4absl8StatusOrIN12_GLOBAL__N_129ImplicitConstructibleFromBoolEEEEE, i64 16), ptr %ref.tmp.i.i.i.i.i, align 8, !alias.scope !1076, !noalias !1059
   %ref.tmp.val2.cast.i.i.i.i.i = ptrtoint ptr %call.i.i1.i.i.i.i.i.i.i4.i.i.i.i.i to i64
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal14NotMatcherImplIRKN4absl8StatusOrIN12_GLOBAL__N_129ImplicitConstructibleFromBoolEEEEE, i64 16), ptr %call.i.i.i.i.i, align 8, !noalias !1059
   %matcher_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 8
@@ -75437,12 +75430,10 @@ invoke.cont14:
   store ptr @_ZZN7testing8internal11MatcherBaseIRKiE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIiEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i7.i, align 8, !alias.scope !1282
   %buffer_.i.i.i.i.i8.i = getelementptr inbounds nuw i8, ptr %agg.tmp3, i64 16
   store i64 10, ptr %buffer_.i.i.i.i.i8.i, align 8, !alias.scope !1282
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKiEE, i64 16), ptr %agg.tmp3, align 8, !alias.scope !1282
   %vtable_.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKiE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIiEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i16.i, align 8, !alias.scope !1285
   %buffer_.i.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store i64 10, ptr %buffer_.i.i.i.i.i.i27.i, align 8, !alias.scope !1285
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKiEE, i64 16), ptr %ref.tmp2, align 8, !alias.scope !1285
   invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_119IsOkAndHoldsMatcherINS_18PolymorphicMatcherINS0_15variant_matcher14VariantMatcherIiEEEEEEEclIN4absl8StatusOrISt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr nonnull @_ZZN7testing8internal11MatcherBaseIRKiE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIiEELb1EEEEEPKNS4_6VTableEvE7kVTable, i64 10, ptr noundef nonnull align 8 dereferenceable(48) %status_or)
           to label %_ZN7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_119IsOkAndHoldsMatcherINS_18PolymorphicMatcherINS0_15variant_matcher14VariantMatcherIiEEEEEEED2Ev.exit unwind label %lpad15
 
@@ -81517,7 +81508,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp6.val, ptr %vtable_.i.i.i.i.i1.i, align 8, !alias.scope !1387
   %buffer_.i.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
   store i64 %agg.tmp6.val49, ptr %buffer_.i.i.i.i.i2.i, align 8, !alias.scope !1387
-  br i1 %20, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i
+  br i1 %20, label %invoke.cont16, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i
   %21 = atomicrmw add ptr %17, i32 1 monotonic, align 4, !noalias !1387
@@ -81548,13 +81539,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetecto
   store ptr %agg.tmp6.val, ptr %vtable_.i.i.i.i.i16.i, align 8, !alias.scope !1387
   %buffer_.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
   store i64 %agg.tmp6.val49, ptr %buffer_.i.i.i.i.i27.i, align 8, !alias.scope !1387
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp5, align 8, !alias.scope !1387
   br label %invoke.cont16
 
-invoke.cont16:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i, %if.then.i.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i
+invoke.cont16:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i, %if.then.i.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i
   %27 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
   %ref.tmp5.val = load ptr, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
@@ -81946,7 +81933,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp38.val, ptr %vtable_.i.i.i.i.i1.i145, align 8, !alias.scope !1396
   %buffer_.i.i.i.i.i2.i146 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 16
   store i64 %agg.tmp38.val50, ptr %buffer_.i.i.i.i.i2.i146, align 8, !alias.scope !1396
-  br i1 %97, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i153, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i147
+  br i1 %97, label %invoke.cont48, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i147
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i147: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i143
   %98 = atomicrmw add ptr %94, i32 1 monotonic, align 4, !noalias !1396
@@ -81977,13 +81964,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetecto
   store ptr %agg.tmp38.val, ptr %vtable_.i.i.i.i.i16.i156, align 8, !alias.scope !1396
   %buffer_.i.i.i.i.i27.i157 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 16
   store i64 %agg.tmp38.val50, ptr %buffer_.i.i.i.i.i27.i157, align 8, !alias.scope !1396
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i153
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i153: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i154, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i143
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp37, align 8, !alias.scope !1396
   br label %invoke.cont48
 
-invoke.cont48:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i153, %if.then.i.i.i.i.i6.i151, %land.lhs.true.i.i.i.i.i.i149, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i147
+invoke.cont48:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i143, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i154, %if.then.i.i.i.i.i6.i151, %land.lhs.true.i.i.i.i.i.i149, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i147
   %104 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 8
   %ref.tmp37.val = load ptr, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 16
@@ -82529,7 +82512,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp103.val, ptr %vtable_.i.i.i.i.i1.i317, align 8, !alias.scope !1405
   %buffer_.i.i.i.i.i2.i318 = getelementptr inbounds nuw i8, ptr %ref.tmp102, i64 16
   store i64 %agg.tmp103.val51, ptr %buffer_.i.i.i.i.i2.i318, align 8, !alias.scope !1405
-  br i1 %192, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i325, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i319
+  br i1 %192, label %invoke.cont113, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i319
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i319: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i315
   %193 = atomicrmw add ptr %189, i32 1 monotonic, align 4, !noalias !1405
@@ -82560,13 +82543,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetecto
   store ptr %agg.tmp103.val, ptr %vtable_.i.i.i.i.i16.i328, align 8, !alias.scope !1405
   %buffer_.i.i.i.i.i27.i329 = getelementptr inbounds nuw i8, ptr %ref.tmp102, i64 16
   store i64 %agg.tmp103.val51, ptr %buffer_.i.i.i.i.i27.i329, align 8, !alias.scope !1405
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i325
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i325: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i326, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i315
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp102, align 8, !alias.scope !1405
   br label %invoke.cont113
 
-invoke.cont113:                                   ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i325, %if.then.i.i.i.i.i6.i323, %land.lhs.true.i.i.i.i.i.i321, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i319
+invoke.cont113:                                   ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i315, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i326, %if.then.i.i.i.i.i6.i323, %land.lhs.true.i.i.i.i.i.i321, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i319
   %199 = getelementptr inbounds nuw i8, ptr %ref.tmp102, i64 8
   %ref.tmp102.val = load ptr, ptr %199, align 8
   %200 = getelementptr inbounds nuw i8, ptr %ref.tmp102, i64 16
@@ -83099,7 +83078,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp168.val, ptr %vtable_.i.i.i.i.i1.i478, align 8, !alias.scope !1414
   %buffer_.i.i.i.i.i2.i479 = getelementptr inbounds nuw i8, ptr %ref.tmp167, i64 16
   store i64 %agg.tmp168.val52, ptr %buffer_.i.i.i.i.i2.i479, align 8, !alias.scope !1414
-  br i1 %283, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i486, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i480
+  br i1 %283, label %invoke.cont178, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i480
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i480: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i476
   %284 = atomicrmw add ptr %280, i32 1 monotonic, align 4, !noalias !1414
@@ -83130,13 +83109,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetecto
   store ptr %agg.tmp168.val, ptr %vtable_.i.i.i.i.i16.i489, align 8, !alias.scope !1414
   %buffer_.i.i.i.i.i27.i490 = getelementptr inbounds nuw i8, ptr %ref.tmp167, i64 16
   store i64 %agg.tmp168.val52, ptr %buffer_.i.i.i.i.i27.i490, align 8, !alias.scope !1414
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i486
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i486: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i487, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i476
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp167, align 8, !alias.scope !1414
   br label %invoke.cont178
 
-invoke.cont178:                                   ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i486, %if.then.i.i.i.i.i6.i484, %land.lhs.true.i.i.i.i.i.i482, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i480
+invoke.cont178:                                   ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i476, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i487, %if.then.i.i.i.i.i6.i484, %land.lhs.true.i.i.i.i.i.i482, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i480
   %290 = getelementptr inbounds nuw i8, ptr %ref.tmp167, i64 8
   %ref.tmp167.val = load ptr, ptr %290, align 8
   %291 = getelementptr inbounds nuw i8, ptr %ref.tmp167, i64 16
@@ -84440,7 +84415,6 @@ invoke.cont3.i.i.i.i.i:                           ; preds = %call.i.i.i.i.i.noex
   %0 = ptrtoint ptr %call.i.i.i.i.i3.i.i.i.i.i to i64
   store i64 %0, ptr %value.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !1493
   store ptr %call.i.i1.i.i.i.i.i.i.i4.i.i.i.i.i, ptr %buffer_.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !1494, !noalias !1477
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN4absl8StatusOrINS2_IN12_GLOBAL__N_112CopyDetectorEEEEEEE, i64 16), ptr %ref.tmp.i.i.i.i.i, align 8, !alias.scope !1494, !noalias !1477
   %ref.tmp.val2.cast.i.i.i.i.i = ptrtoint ptr %call.i.i1.i.i.i.i.i.i.i4.i.i.i.i.i to i64
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal14NotMatcherImplIRKN4absl8StatusOrINS3_IN12_GLOBAL__N_112CopyDetectorEEEEEEE, i64 16), ptr %call.i.i.i.i.i, align 8, !noalias !1477
   %matcher_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i, i64 8
@@ -86182,7 +86156,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp11.val, ptr %vtable_.i.i.i.i.i1.i, align 8, !alias.scope !1504
   %buffer_.i.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 16
   store i64 %agg.tmp11.val38, ptr %buffer_.i.i.i.i.i2.i, align 8, !alias.scope !1504
-  br i1 %25, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i
+  br i1 %25, label %invoke.cont20, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i
   %26 = atomicrmw add ptr %22, i32 1 monotonic, align 4, !noalias !1504
@@ -86213,13 +86187,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetecto
   store ptr %agg.tmp11.val, ptr %vtable_.i.i.i.i.i16.i, align 8, !alias.scope !1504
   %buffer_.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 16
   store i64 %agg.tmp11.val38, ptr %buffer_.i.i.i.i.i27.i, align 8, !alias.scope !1504
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp10, align 8, !alias.scope !1504
   br label %invoke.cont20
 
-invoke.cont20:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i, %if.then.i.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i
+invoke.cont20:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i, %if.then.i.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i
   %32 = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
   %ref.tmp10.val = load ptr, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 16
@@ -86675,7 +86645,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp71.val, ptr %vtable_.i.i.i.i.i1.i139, align 8, !alias.scope !1513
   %buffer_.i.i.i.i.i2.i140 = getelementptr inbounds nuw i8, ptr %ref.tmp70, i64 16
   store i64 %agg.tmp71.val37, ptr %buffer_.i.i.i.i.i2.i140, align 8, !alias.scope !1513
-  br i1 %107, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i147, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i141
+  br i1 %107, label %invoke.cont80, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i141
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i141: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i137
   %108 = atomicrmw add ptr %104, i32 1 monotonic, align 4, !noalias !1513
@@ -86706,13 +86676,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetecto
   store ptr %agg.tmp71.val, ptr %vtable_.i.i.i.i.i16.i150, align 8, !alias.scope !1513
   %buffer_.i.i.i.i.i27.i151 = getelementptr inbounds nuw i8, ptr %ref.tmp70, i64 16
   store i64 %agg.tmp71.val37, ptr %buffer_.i.i.i.i.i27.i151, align 8, !alias.scope !1513
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i147
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i147: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i148, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i137
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp70, align 8, !alias.scope !1513
   br label %invoke.cont80
 
-invoke.cont80:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i147, %if.then.i.i.i.i.i6.i145, %land.lhs.true.i.i.i.i.i.i143, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i141
+invoke.cont80:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i137, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i148, %if.then.i.i.i.i.i6.i145, %land.lhs.true.i.i.i.i.i.i143, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i141
   %114 = getelementptr inbounds nuw i8, ptr %ref.tmp70, i64 8
   %ref.tmp70.val = load ptr, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %ref.tmp70, i64 16
@@ -87158,7 +87124,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp137.val, ptr %vtable_.i.i.i.i.i1.i273, align 8, !alias.scope !1522
   %buffer_.i.i.i.i.i2.i274 = getelementptr inbounds nuw i8, ptr %ref.tmp136, i64 16
   store i64 %agg.tmp137.val36, ptr %buffer_.i.i.i.i.i2.i274, align 8, !alias.scope !1522
-  br i1 %186, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i281, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i275
+  br i1 %186, label %invoke.cont146, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i275
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i275: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i271
   %187 = atomicrmw add ptr %183, i32 1 monotonic, align 4, !noalias !1522
@@ -87189,13 +87155,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetecto
   store ptr %agg.tmp137.val, ptr %vtable_.i.i.i.i.i16.i284, align 8, !alias.scope !1522
   %buffer_.i.i.i.i.i27.i285 = getelementptr inbounds nuw i8, ptr %ref.tmp136, i64 16
   store i64 %agg.tmp137.val36, ptr %buffer_.i.i.i.i.i27.i285, align 8, !alias.scope !1522
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i281
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i281: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i282, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i271
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp136, align 8, !alias.scope !1522
   br label %invoke.cont146
 
-invoke.cont146:                                   ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i281, %if.then.i.i.i.i.i6.i279, %land.lhs.true.i.i.i.i.i.i277, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i275
+invoke.cont146:                                   ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i271, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherINS0_IN7testing7MatcherIRKNS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i282, %if.then.i.i.i.i.i6.i279, %land.lhs.true.i.i.i.i.i.i277, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i2.i275
   %193 = getelementptr inbounds nuw i8, ptr %ref.tmp136, i64 8
   %ref.tmp136.val = load ptr, ptr %193, align 8
   %194 = getelementptr inbounds nuw i8, ptr %ref.tmp136, i64 16
@@ -88611,7 +88573,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp6.val, ptr %vtable_.i.i.i.i.i.i1.i, align 8, !alias.scope !1538
   %buffer_.i.i.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
   store i64 %agg.tmp6.val53, ptr %buffer_.i.i.i.i.i.i2.i, align 8, !alias.scope !1538
-  br i1 %31, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i
+  br i1 %31, label %invoke.cont16, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i
   %32 = atomicrmw add ptr %28, i32 1 monotonic, align 4, !noalias !1538
@@ -88642,13 +88604,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8intern
   store ptr %agg.tmp6.val, ptr %vtable_.i.i.i.i.i.i16.i, align 8, !alias.scope !1538
   %buffer_.i.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
   store i64 %agg.tmp6.val53, ptr %buffer_.i.i.i.i.i.i27.i, align 8, !alias.scope !1538
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp5, align 8, !alias.scope !1538
   br label %invoke.cont16
 
-invoke.cont16:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i, %if.then.i.i.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i
+invoke.cont16:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i, %if.then.i.i.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i
   %38 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
   %ref.tmp5.val = load ptr, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 16
@@ -89089,7 +89047,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp38.val, ptr %vtable_.i.i.i.i.i.i1.i153, align 8, !alias.scope !1554
   %buffer_.i.i.i.i.i.i2.i154 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 16
   store i64 %agg.tmp38.val54, ptr %buffer_.i.i.i.i.i.i2.i154, align 8, !alias.scope !1554
-  br i1 %119, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i161, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i155
+  br i1 %119, label %invoke.cont48, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i155
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i155: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i151
   %120 = atomicrmw add ptr %116, i32 1 monotonic, align 4, !noalias !1554
@@ -89120,13 +89078,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8intern
   store ptr %agg.tmp38.val, ptr %vtable_.i.i.i.i.i.i16.i164, align 8, !alias.scope !1554
   %buffer_.i.i.i.i.i.i27.i165 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 16
   store i64 %agg.tmp38.val54, ptr %buffer_.i.i.i.i.i.i27.i165, align 8, !alias.scope !1554
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i161
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i161: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i162, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i151
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp37, align 8, !alias.scope !1554
   br label %invoke.cont48
 
-invoke.cont48:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i161, %if.then.i.i.i.i.i.i6.i159, %land.lhs.true.i.i.i.i.i.i.i157, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i155
+invoke.cont48:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i151, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i162, %if.then.i.i.i.i.i.i6.i159, %land.lhs.true.i.i.i.i.i.i.i157, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i155
   %126 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 8
   %ref.tmp37.val = load ptr, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %ref.tmp37, i64 16
@@ -89711,7 +89665,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp103.val, ptr %vtable_.i.i.i.i.i.i1.i332, align 8, !alias.scope !1570
   %buffer_.i.i.i.i.i.i2.i333 = getelementptr inbounds nuw i8, ptr %ref.tmp102, i64 16
   store i64 %agg.tmp103.val55, ptr %buffer_.i.i.i.i.i.i2.i333, align 8, !alias.scope !1570
-  br i1 %223, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i340, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i334
+  br i1 %223, label %invoke.cont113, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i334
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i334: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i330
   %224 = atomicrmw add ptr %220, i32 1 monotonic, align 4, !noalias !1570
@@ -89742,13 +89696,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8intern
   store ptr %agg.tmp103.val, ptr %vtable_.i.i.i.i.i.i16.i343, align 8, !alias.scope !1570
   %buffer_.i.i.i.i.i.i27.i344 = getelementptr inbounds nuw i8, ptr %ref.tmp102, i64 16
   store i64 %agg.tmp103.val55, ptr %buffer_.i.i.i.i.i.i27.i344, align 8, !alias.scope !1570
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i340
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i340: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i341, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i330
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp102, align 8, !alias.scope !1570
   br label %invoke.cont113
 
-invoke.cont113:                                   ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i340, %if.then.i.i.i.i.i.i6.i338, %land.lhs.true.i.i.i.i.i.i.i336, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i334
+invoke.cont113:                                   ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i330, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i341, %if.then.i.i.i.i.i.i6.i338, %land.lhs.true.i.i.i.i.i.i.i336, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i334
   %230 = getelementptr inbounds nuw i8, ptr %ref.tmp102, i64 8
   %ref.tmp102.val = load ptr, ptr %230, align 8
   %231 = getelementptr inbounds nuw i8, ptr %ref.tmp102, i64 16
@@ -90334,7 +90284,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp168.val, ptr %vtable_.i.i.i.i.i.i1.i506, align 8, !alias.scope !1586
   %buffer_.i.i.i.i.i.i2.i507 = getelementptr inbounds nuw i8, ptr %ref.tmp167, i64 16
   store i64 %agg.tmp168.val56, ptr %buffer_.i.i.i.i.i.i2.i507, align 8, !alias.scope !1586
-  br i1 %327, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i514, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i508
+  br i1 %327, label %invoke.cont178, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i508
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i508: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i504
   %328 = atomicrmw add ptr %324, i32 1 monotonic, align 4, !noalias !1586
@@ -90365,13 +90315,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8intern
   store ptr %agg.tmp168.val, ptr %vtable_.i.i.i.i.i.i16.i517, align 8, !alias.scope !1586
   %buffer_.i.i.i.i.i.i27.i518 = getelementptr inbounds nuw i8, ptr %ref.tmp167, i64 16
   store i64 %agg.tmp168.val56, ptr %buffer_.i.i.i.i.i.i27.i518, align 8, !alias.scope !1586
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i514
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i514: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i515, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i504
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp167, align 8, !alias.scope !1586
   br label %invoke.cont178
 
-invoke.cont178:                                   ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i514, %if.then.i.i.i.i.i.i6.i512, %land.lhs.true.i.i.i.i.i.i.i510, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i508
+invoke.cont178:                                   ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i504, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i515, %if.then.i.i.i.i.i.i6.i512, %land.lhs.true.i.i.i.i.i.i.i510, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i508
   %334 = getelementptr inbounds nuw i8, ptr %ref.tmp167, i64 8
   %ref.tmp167.val = load ptr, ptr %334, align 8
   %335 = getelementptr inbounds nuw i8, ptr %ref.tmp167, i64 16
@@ -94470,7 +94416,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp11.val, ptr %vtable_.i.i.i.i.i.i1.i, align 8, !alias.scope !1678
   %buffer_.i.i.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 16
   store i64 %agg.tmp11.val41, ptr %buffer_.i.i.i.i.i.i2.i, align 8, !alias.scope !1678
-  br i1 %31, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i
+  br i1 %31, label %invoke.cont20, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i
   %32 = atomicrmw add ptr %28, i32 1 monotonic, align 4, !noalias !1678
@@ -94501,13 +94447,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8intern
   store ptr %agg.tmp11.val, ptr %vtable_.i.i.i.i.i.i16.i, align 8, !alias.scope !1678
   %buffer_.i.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 16
   store i64 %agg.tmp11.val41, ptr %buffer_.i.i.i.i.i.i27.i, align 8, !alias.scope !1678
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp10, align 8, !alias.scope !1678
   br label %invoke.cont20
 
-invoke.cont20:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i, %if.then.i.i.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i
+invoke.cont20:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i, %if.then.i.i.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i
   %38 = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 8
   %ref.tmp10.val = load ptr, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %ref.tmp10, i64 16
@@ -95021,7 +94963,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp71.val, ptr %vtable_.i.i.i.i.i.i1.i159, align 8, !alias.scope !1694
   %buffer_.i.i.i.i.i.i2.i160 = getelementptr inbounds nuw i8, ptr %ref.tmp70, i64 16
   store i64 %agg.tmp71.val40, ptr %buffer_.i.i.i.i.i.i2.i160, align 8, !alias.scope !1694
-  br i1 %125, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i167, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i161
+  br i1 %125, label %invoke.cont80, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i161
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i161: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i157
   %126 = atomicrmw add ptr %122, i32 1 monotonic, align 4, !noalias !1694
@@ -95052,13 +94994,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8intern
   store ptr %agg.tmp71.val, ptr %vtable_.i.i.i.i.i.i16.i170, align 8, !alias.scope !1694
   %buffer_.i.i.i.i.i.i27.i171 = getelementptr inbounds nuw i8, ptr %ref.tmp70, i64 16
   store i64 %agg.tmp71.val40, ptr %buffer_.i.i.i.i.i.i27.i171, align 8, !alias.scope !1694
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i167
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i167: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i168, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i157
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp70, align 8, !alias.scope !1694
   br label %invoke.cont80
 
-invoke.cont80:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i167, %if.then.i.i.i.i.i.i6.i165, %land.lhs.true.i.i.i.i.i.i.i163, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i161
+invoke.cont80:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i157, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i168, %if.then.i.i.i.i.i.i6.i165, %land.lhs.true.i.i.i.i.i.i.i163, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i161
   %132 = getelementptr inbounds nuw i8, ptr %ref.tmp70, i64 8
   %ref.tmp70.val = load ptr, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %ref.tmp70, i64 16
@@ -95571,7 +95509,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %agg.tmp137.val, ptr %vtable_.i.i.i.i.i.i1.i314, align 8, !alias.scope !1710
   %buffer_.i.i.i.i.i.i2.i315 = getelementptr inbounds nuw i8, ptr %ref.tmp136, i64 16
   store i64 %agg.tmp137.val39, ptr %buffer_.i.i.i.i.i.i2.i315, align 8, !alias.scope !1710
-  br i1 %217, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i322, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i316
+  br i1 %217, label %invoke.cont146, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i316
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i316: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i312
   %218 = atomicrmw add ptr %214, i32 1 monotonic, align 4, !noalias !1710
@@ -95602,13 +95540,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8intern
   store ptr %agg.tmp137.val, ptr %vtable_.i.i.i.i.i.i16.i325, align 8, !alias.scope !1710
   %buffer_.i.i.i.i.i.i27.i326 = getelementptr inbounds nuw i8, ptr %ref.tmp136, i64 16
   store i64 %agg.tmp137.val39, ptr %buffer_.i.i.i.i.i.i27.i326, align 8, !alias.scope !1710
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i322
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i322: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i323, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i312
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp136, align 8, !alias.scope !1710
   br label %invoke.cont146
 
-invoke.cont146:                                   ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.i322, %if.then.i.i.i.i.i.i6.i320, %land.lhs.true.i.i.i.i.i.i.i318, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i316
+invoke.cont146:                                   ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i.i312, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing18PolymorphicMatcherINS1_8internal16any_cast_matcher14AnyCastMatcherINS_12CopyDetectorEEEEEED2Ev.exit.sink.split.sink.split.i323, %if.then.i.i.i.i.i.i6.i320, %land.lhs.true.i.i.i.i.i.i.i318, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i.i2.i316
   %224 = getelementptr inbounds nuw i8, ptr %ref.tmp136, i64 8
   %ref.tmp136.val = load ptr, ptr %224, align 8
   %225 = getelementptr inbounds nuw i8, ptr %ref.tmp136, i64 16
@@ -96776,7 +96710,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %1, ptr %vtable_.i.i.i.i1.i, align 8, !alias.scope !1716
   %buffer_.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store i64 %2, ptr %buffer_.i.i.i.i2.i, align 8, !alias.scope !1716
-  br i1 %6, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
+  br i1 %6, label %invoke.cont7, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
   %7 = atomicrmw add ptr %3, i32 1 monotonic, align 4, !noalias !1716
@@ -96807,13 +96741,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEE
   store ptr %1, ptr %vtable_.i.i.i.i16.i, align 8, !alias.scope !1716
   %buffer_.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store i64 %2, ptr %buffer_.i.i.i.i27.i, align 8, !alias.scope !1716
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp2, align 8, !alias.scope !1716
   br label %invoke.cont7
 
-invoke.cont7:                                     ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i, %if.then.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
+invoke.cont7:                                     ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i, %if.then.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
   %13 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   %ref.tmp2.val = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
@@ -97095,7 +97025,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %55, ptr %vtable_.i.i.i.i1.i76, align 8, !alias.scope !1722
   %buffer_.i.i.i.i2.i77 = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 16
   store i64 %56, ptr %buffer_.i.i.i.i2.i77, align 8, !alias.scope !1722
-  br i1 %60, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i84, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i78
+  br i1 %60, label %invoke.cont34, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i78
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i78: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i74
   %61 = atomicrmw add ptr %57, i32 1 monotonic, align 4, !noalias !1722
@@ -97126,13 +97056,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEE
   store ptr %55, ptr %vtable_.i.i.i.i16.i87, align 8, !alias.scope !1722
   %buffer_.i.i.i.i27.i88 = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 16
   store i64 %56, ptr %buffer_.i.i.i.i27.i88, align 8, !alias.scope !1722
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i84
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i84: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i85, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i74
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp26, align 8, !alias.scope !1722
   br label %invoke.cont34
 
-invoke.cont34:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i84, %if.then.i.i.i.i6.i82, %land.lhs.true.i.i.i.i.i80, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i78
+invoke.cont34:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i74, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i85, %if.then.i.i.i.i6.i82, %land.lhs.true.i.i.i.i.i80, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i78
   %67 = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 8
   %ref.tmp26.val = load ptr, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 16
@@ -97408,7 +97334,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %108, ptr %vtable_.i.i.i.i1.i166, align 8, !alias.scope !1728
   %buffer_.i.i.i.i2.i167 = getelementptr inbounds nuw i8, ptr %ref.tmp59, i64 16
   store i64 %109, ptr %buffer_.i.i.i.i2.i167, align 8, !alias.scope !1728
-  br i1 %113, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i174, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i168
+  br i1 %113, label %invoke.cont67, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i168
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i168: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i164
   %114 = atomicrmw add ptr %110, i32 1 monotonic, align 4, !noalias !1728
@@ -97439,13 +97365,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEE
   store ptr %108, ptr %vtable_.i.i.i.i16.i177, align 8, !alias.scope !1728
   %buffer_.i.i.i.i27.i178 = getelementptr inbounds nuw i8, ptr %ref.tmp59, i64 16
   store i64 %109, ptr %buffer_.i.i.i.i27.i178, align 8, !alias.scope !1728
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i174
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i174: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i175, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i164
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp59, align 8, !alias.scope !1728
   br label %invoke.cont67
 
-invoke.cont67:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i174, %if.then.i.i.i.i6.i172, %land.lhs.true.i.i.i.i.i170, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i168
+invoke.cont67:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i164, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i175, %if.then.i.i.i.i6.i172, %land.lhs.true.i.i.i.i.i170, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i168
   %120 = getelementptr inbounds nuw i8, ptr %ref.tmp59, i64 8
   %ref.tmp59.val = load ptr, ptr %120, align 8
   %121 = getelementptr inbounds nuw i8, ptr %ref.tmp59, i64 16
@@ -97714,7 +97636,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %159, ptr %vtable_.i.i.i.i1.i251, align 8, !alias.scope !1734
   %buffer_.i.i.i.i2.i252 = getelementptr inbounds nuw i8, ptr %ref.tmp91, i64 16
   store i64 %160, ptr %buffer_.i.i.i.i2.i252, align 8, !alias.scope !1734
-  br i1 %164, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i259, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i253
+  br i1 %164, label %invoke.cont99, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i253
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i253: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i249
   %165 = atomicrmw add ptr %161, i32 1 monotonic, align 4, !noalias !1734
@@ -97745,13 +97667,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEE
   store ptr %159, ptr %vtable_.i.i.i.i16.i262, align 8, !alias.scope !1734
   %buffer_.i.i.i.i27.i263 = getelementptr inbounds nuw i8, ptr %ref.tmp91, i64 16
   store i64 %160, ptr %buffer_.i.i.i.i27.i263, align 8, !alias.scope !1734
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i259
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i259: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i260, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i249
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp91, align 8, !alias.scope !1734
   br label %invoke.cont99
 
-invoke.cont99:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i259, %if.then.i.i.i.i6.i257, %land.lhs.true.i.i.i.i.i255, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i253
+invoke.cont99:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i249, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i260, %if.then.i.i.i.i6.i257, %land.lhs.true.i.i.i.i.i255, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i253
   %171 = getelementptr inbounds nuw i8, ptr %ref.tmp91, i64 8
   %ref.tmp91.val = load ptr, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %ref.tmp91, i64 16
@@ -98188,7 +98106,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %1, ptr %vtable_.i.i.i.i1.i, align 8, !alias.scope !1740
   %buffer_.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store i64 %2, ptr %buffer_.i.i.i.i2.i, align 8, !alias.scope !1740
-  br i1 %6, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
+  br i1 %6, label %invoke.cont7, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
   %7 = atomicrmw add ptr %3, i32 1 monotonic, align 4, !noalias !1740
@@ -98219,13 +98137,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEE
   store ptr %1, ptr %vtable_.i.i.i.i16.i, align 8, !alias.scope !1740
   %buffer_.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store i64 %2, ptr %buffer_.i.i.i.i27.i, align 8, !alias.scope !1740
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp2, align 8, !alias.scope !1740
   br label %invoke.cont7
 
-invoke.cont7:                                     ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i, %if.then.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
+invoke.cont7:                                     ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i, %if.then.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
   %13 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   %ref.tmp2.val = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
@@ -98488,7 +98402,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %52, ptr %vtable_.i.i.i.i1.i71, align 8, !alias.scope !1746
   %buffer_.i.i.i.i2.i72 = getelementptr inbounds nuw i8, ptr %ref.tmp29, i64 16
   store i64 %53, ptr %buffer_.i.i.i.i2.i72, align 8, !alias.scope !1746
-  br i1 %57, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i79, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i73
+  br i1 %57, label %invoke.cont36, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i73
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i73: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i69
   %58 = atomicrmw add ptr %54, i32 1 monotonic, align 4, !noalias !1746
@@ -98519,13 +98433,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEE
   store ptr %52, ptr %vtable_.i.i.i.i16.i82, align 8, !alias.scope !1746
   %buffer_.i.i.i.i27.i83 = getelementptr inbounds nuw i8, ptr %ref.tmp29, i64 16
   store i64 %53, ptr %buffer_.i.i.i.i27.i83, align 8, !alias.scope !1746
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i79
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i79: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i80, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i69
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp29, align 8, !alias.scope !1746
   br label %invoke.cont36
 
-invoke.cont36:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i79, %if.then.i.i.i.i6.i77, %land.lhs.true.i.i.i.i.i75, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i73
+invoke.cont36:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i69, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i80, %if.then.i.i.i.i6.i77, %land.lhs.true.i.i.i.i.i75, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i73
   %64 = getelementptr inbounds nuw i8, ptr %ref.tmp29, i64 8
   %ref.tmp29.val = load ptr, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %ref.tmp29, i64 16
@@ -98782,7 +98692,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %102, ptr %vtable_.i.i.i.i1.i152, align 8, !alias.scope !1752
   %buffer_.i.i.i.i2.i153 = getelementptr inbounds nuw i8, ptr %ref.tmp64, i64 16
   store i64 %103, ptr %buffer_.i.i.i.i2.i153, align 8, !alias.scope !1752
-  br i1 %107, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i160, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i154
+  br i1 %107, label %invoke.cont71, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i154
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i154: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i150
   %108 = atomicrmw add ptr %104, i32 1 monotonic, align 4, !noalias !1752
@@ -98813,13 +98723,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEE
   store ptr %102, ptr %vtable_.i.i.i.i16.i163, align 8, !alias.scope !1752
   %buffer_.i.i.i.i27.i164 = getelementptr inbounds nuw i8, ptr %ref.tmp64, i64 16
   store i64 %103, ptr %buffer_.i.i.i.i27.i164, align 8, !alias.scope !1752
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i160
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i160: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i161, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i150
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp64, align 8, !alias.scope !1752
   br label %invoke.cont71
 
-invoke.cont71:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i160, %if.then.i.i.i.i6.i158, %land.lhs.true.i.i.i.i.i156, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i154
+invoke.cont71:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i150, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i161, %if.then.i.i.i.i6.i158, %land.lhs.true.i.i.i.i.i156, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i154
   %114 = getelementptr inbounds nuw i8, ptr %ref.tmp64, i64 8
   %ref.tmp64.val = load ptr, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %ref.tmp64, i64 16
@@ -99076,7 +98982,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %152, ptr %vtable_.i.i.i.i1.i233, align 8, !alias.scope !1758
   %buffer_.i.i.i.i2.i234 = getelementptr inbounds nuw i8, ptr %ref.tmp99, i64 16
   store i64 %153, ptr %buffer_.i.i.i.i2.i234, align 8, !alias.scope !1758
-  br i1 %157, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i241, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i235
+  br i1 %157, label %invoke.cont106, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i235
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i235: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i231
   %158 = atomicrmw add ptr %154, i32 1 monotonic, align 4, !noalias !1758
@@ -99107,13 +99013,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEE
   store ptr %152, ptr %vtable_.i.i.i.i16.i244, align 8, !alias.scope !1758
   %buffer_.i.i.i.i27.i245 = getelementptr inbounds nuw i8, ptr %ref.tmp99, i64 16
   store i64 %153, ptr %buffer_.i.i.i.i27.i245, align 8, !alias.scope !1758
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i241
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i241: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i242, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i231
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp99, align 8, !alias.scope !1758
   br label %invoke.cont106
 
-invoke.cont106:                                   ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i241, %if.then.i.i.i.i6.i239, %land.lhs.true.i.i.i.i.i237, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i235
+invoke.cont106:                                   ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i231, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i242, %if.then.i.i.i.i6.i239, %land.lhs.true.i.i.i.i.i237, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i235
   %164 = getelementptr inbounds nuw i8, ptr %ref.tmp99, i64 8
   %ref.tmp99.val = load ptr, ptr %164, align 8
   %165 = getelementptr inbounds nuw i8, ptr %ref.tmp99, i64 16
@@ -99832,12 +99734,10 @@ invoke.cont12:                                    ; preds = %if.then.i.i.i.i, %i
   store ptr @_ZZN7testing8internal11MatcherBaseIRKiE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIiEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i7.i, align 8, !alias.scope !1768
   %buffer_.i.i.i.i.i8.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   store i64 10, ptr %buffer_.i.i.i.i.i8.i, align 8, !alias.scope !1768
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKiEE, i64 16), ptr %agg.tmp, align 8, !alias.scope !1768
   %vtable_.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKiE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIiEELb1EEEEEPKNS4_6VTableEvE7kVTable, ptr %vtable_.i.i.i.i.i.i16.i, align 8, !alias.scope !1771
   %buffer_.i.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 16
   store i64 10, ptr %buffer_.i.i.i.i.i.i27.i, align 8, !alias.scope !1771
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKiEE, i64 16), ptr %ref.tmp2, align 8, !alias.scope !1771
   invoke fastcc void @_ZNK7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_119IsOkAndHoldsMatcherINS_18PolymorphicMatcherINS0_15variant_matcher14VariantMatcherIiEEEEEEEclIN4absl8StatusOrISt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEENS_15AssertionResultEPKcRKT_(ptr noalias align 8 %gtest_ar, ptr nonnull @_ZZN7testing8internal11MatcherBaseIRKiE9GetVTableINS4_11ValuePolicyINS0_9EqMatcherIiEELb1EEEEEPKNS4_6VTableEvE7kVTable, i64 10, ptr noundef nonnull align 8 dereferenceable(48) %status_or)
           to label %_ZN7testing8internal29PredicateFormatterFromMatcherIN12_GLOBAL__N_119IsOkAndHoldsMatcherINS_18PolymorphicMatcherINS0_15variant_matcher14VariantMatcherIiEEEEEEED2Ev.exit unwind label %lpad13
 
@@ -104758,7 +104658,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %3, ptr %vtable_.i.i.i.i1.i, align 8, !alias.scope !1854
   %buffer_.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %4, ptr %buffer_.i.i.i.i2.i, align 8, !alias.scope !1854
-  br i1 %8, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
+  br i1 %8, label %invoke.cont8, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
   %9 = atomicrmw add ptr %5, i32 1 monotonic, align 4, !noalias !1854
@@ -104789,13 +104689,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEE
   store ptr %3, ptr %vtable_.i.i.i.i16.i, align 8, !alias.scope !1854
   %buffer_.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   store i64 %4, ptr %buffer_.i.i.i.i27.i, align 8, !alias.scope !1854
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !1854
   br label %invoke.cont8
 
-invoke.cont8:                                     ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i, %if.then.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
+invoke.cont8:                                     ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i, %if.then.i.i.i.i6.i, %land.lhs.true.i.i.i.i.i, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i
   %15 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %ref.tmp.val = load ptr, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
@@ -105067,7 +104963,7 @@ _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.
   store ptr %55, ptr %vtable_.i.i.i.i1.i140, align 8, !alias.scope !1860
   %buffer_.i.i.i.i2.i141 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 16
   store i64 %56, ptr %buffer_.i.i.i.i2.i141, align 8, !alias.scope !1860
-  br i1 %60, label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i148, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i142
+  br i1 %60, label %invoke.cont38, label %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i142
 
 _ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i142: ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i138
   %61 = atomicrmw add ptr %57, i32 1 monotonic, align 4, !noalias !1860
@@ -105098,13 +104994,9 @@ _ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEE
   store ptr %55, ptr %vtable_.i.i.i.i16.i151, align 8, !alias.scope !1860
   %buffer_.i.i.i.i27.i152 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 16
   store i64 %56, ptr %buffer_.i.i.i.i27.i152, align 8, !alias.scope !1860
-  br label %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i148
-
-_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i148: ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i149, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i138
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEE, i64 16), ptr %ref.tmp31, align 8, !alias.scope !1860
   br label %invoke.cont38
 
-invoke.cont38:                                    ; preds = %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.i148, %if.then.i.i.i.i6.i146, %land.lhs.true.i.i.i.i.i144, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i142
+invoke.cont38:                                    ; preds = %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i.i138, %_ZN12_GLOBAL__N_119IsOkAndHoldsMatcherIN7testing7MatcherIRKNS_12CopyDetectorEEEED2Ev.exit.sink.split.sink.split.i149, %if.then.i.i.i.i6.i146, %land.lhs.true.i.i.i.i.i144, %_ZNK7testing8internal11MatcherBaseIRKN12_GLOBAL__N_112CopyDetectorEE8IsSharedEv.exit.i.i.i.i2.i142
   %67 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 8
   %ref.tmp31.val = load ptr, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %ref.tmp31, i64 16

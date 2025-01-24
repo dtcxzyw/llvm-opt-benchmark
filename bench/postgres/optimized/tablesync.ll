@@ -216,7 +216,6 @@ process_syncing_tables_for_sync.exit:             ; preds = %20, %25
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  store i8 0, ptr %4, align 1
   %62 = call fastcc zeroext i1 @FetchTableStates(ptr noundef %4)
   %63 = load ptr, ptr @table_states_not_ready, align 8
   %64 = icmp eq ptr %63, null
@@ -495,7 +494,6 @@ wait_for_relation_state_change.exit.i:            ; preds = %149, %144, %144
 210:                                              ; preds = %205
   call void @CommandCounterIncrement() #12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  store i8 0, ptr %2, align 1
   %211 = call fastcc zeroext i1 @FetchTableStates(ptr noundef %2)
   %212 = load i8, ptr %2, align 1
   %213 = trunc i8 %212 to i1
@@ -630,7 +628,6 @@ define internal fastcc void @finish_sync_worker() unnamed_addr #4 {
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @AllTablesyncsReady() local_unnamed_addr #1 {
   %1 = alloca i8, align 1
-  store i8 0, ptr %1, align 1
   %2 = call fastcc zeroext i1 @FetchTableStates(ptr noundef %1)
   %3 = load i8, ptr %1, align 1
   %4 = trunc i8 %3 to i1

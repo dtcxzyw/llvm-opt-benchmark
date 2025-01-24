@@ -213,48 +213,49 @@ define dso_local void @_ZN4llvm17SjLjEHPreparePass3runERNS_8FunctionERNS_15Analy
   %5 = alloca %"class.(anonymous namespace)::SjLjEHPrepareImpl", align 8
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5, i8 0, i64 128, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %8, i8 0, i64 96, i1 false)
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %9 = load ptr, ptr %8, align 8
-  call fastcc void @_ZN12_GLOBAL__N_117SjLjEHPrepareImpl16doInitializationERN4llvm6ModuleE(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(857) %9)
-  %10 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117SjLjEHPrepareImpl13runOnFunctionERN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(136) %2)
-  br i1 %10, label %11, label %14
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %10 = load ptr, ptr %9, align 8
+  call fastcc void @_ZN12_GLOBAL__N_117SjLjEHPrepareImpl16doInitializationERN4llvm6ModuleE(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(857) %10)
+  %11 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117SjLjEHPrepareImpl13runOnFunctionERN4llvm8FunctionE(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(136) %2)
+  br i1 %11, label %12, label %15
 
-11:                                               ; preds = %4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %12, i8 0, i64 72, i1 false), !alias.scope !4
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %18
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %13, i8 0, i64 72, i1 false), !alias.scope !4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %19
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %16, align 8, !alias.scope !7
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 0, ptr %17, align 4, !alias.scope !7
-  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %15, align 8, !alias.scope !7, !noalias !10
-  br label %18
+15:                                               ; preds = %4
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %17, align 8, !alias.scope !7
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 0, ptr %18, align 4, !alias.scope !7
+  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %16, align 8, !alias.scope !7, !noalias !10
+  br label %19
 
-18:                                               ; preds = %14, %11
-  %.sink6 = phi ptr [ %13, %11 ], [ %15, %14 ]
-  %.sink4 = phi i32 [ 0, %11 ], [ 1, %14 ]
+19:                                               ; preds = %15, %12
+  %.sink6 = phi ptr [ %14, %12 ], [ %16, %15 ]
+  %.sink4 = phi i32 [ 0, %12 ], [ 1, %15 ]
   %.sink3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.sink6, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink6, ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 2, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.sink4, ptr %21, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sink3, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink6, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 2, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.sink4, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sink3, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 2, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %25, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.sink3, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 2, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 0, ptr %26, align 8
   ret void
 }
 

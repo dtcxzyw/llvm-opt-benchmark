@@ -4419,7 +4419,6 @@ entry:
   %align = alloca i32, align 4
   %call = tail call fastcc i32 @getoption(ptr noundef %h, ptr noundef %fmt, ptr noundef %psize)
   %0 = load i32, ptr %psize, align 4
-  store i32 %0, ptr %align, align 4
   %cmp = icmp eq i32 %call, 9
   br i1 %cmp, label %if.then, label %if.end11
 

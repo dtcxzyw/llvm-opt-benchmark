@@ -7228,7 +7228,6 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %140, %146, %88, %94
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang5Lexer25LexUnicodeIdentifierStartERNS_5TokenEjPKc(ptr nocapture noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i8, align 1
-  store i8 0, ptr %5, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load ptr, ptr %6, align 8
   %8 = call fastcc noundef zeroext i1 @_ZL24isAllowedInitiallyIDCharjRKN5clang11LangOptionsERb(i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(841) %7, ptr noundef nonnull align 1 dereferenceable(1) %5)

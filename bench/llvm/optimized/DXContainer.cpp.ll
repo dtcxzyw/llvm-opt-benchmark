@@ -1445,7 +1445,6 @@ _ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit.thread: ; preds = %5
 
 75:                                               ; preds = %_ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %19, ptr noundef nonnull readonly align 1 dereferenceable(52) %44, i64 52, i1 false), !noalias !240
-  store ptr null, ptr %0, align 8, !alias.scope !240
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1497,7 +1496,6 @@ _ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit.thread303: ; preds =
 
 91:                                               ; preds = %_ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit.thread303
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %20, ptr noundef nonnull readonly align 1 dereferenceable(48) %44, i64 48, i1 false), !noalias !252
-  store ptr null, ptr %0, align 8, !alias.scope !252
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 72

@@ -257,12 +257,12 @@ ssl_write_supported_point_formats_ext.exit:       ; preds = %36
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 5
   store i8 1, ptr %46, align 1
   store i8 0, ptr %47, align 1
-  store i64 6, ptr %6, align 8
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 6
   br label %49
 
 49:                                               ; preds = %42, %33
   %.0 = phi ptr [ %48, %42 ], [ %35, %33 ]
+  store i64 0, ptr %6, align 8
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %52 = load i8, ptr %51, align 4
@@ -292,6 +292,7 @@ ssl_write_supported_point_formats_ext.exit:       ; preds = %36
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %67 = load i8, ptr %66, align 4
   store i8 %67, ptr %64, align 1
+  store i64 5, ptr %6, align 8
   %.pre = load ptr, ptr %0, align 8
   br label %68
 
@@ -337,7 +338,6 @@ ssl_write_encrypt_then_mac_ext.exit:              ; preds = %75
   %86 = phi ptr [ %.pre79, %81 ], [ %69, %68 ]
   %87 = phi i64 [ 4, %81 ], [ 0, %68 ]
   %88 = getelementptr inbounds nuw i8, ptr %71, i64 %87
-  store i64 0, ptr %6, align 8
   %89 = getelementptr inbounds nuw i8, ptr %86, i64 14
   %90 = load i8, ptr %89, align 2
   %91 = icmp eq i8 %90, 0
@@ -361,7 +361,6 @@ ssl_write_encrypt_then_mac_ext.exit:              ; preds = %75
   %101 = getelementptr inbounds nuw i8, ptr %88, i64 3
   store i8 0, ptr %100, align 1
   store i8 0, ptr %101, align 1
-  store i64 4, ptr %6, align 8
   br label %102
 
 ssl_write_extended_ms_ext.exit:                   ; preds = %92
@@ -1405,8 +1404,6 @@ thread-pre-split.i:                               ; preds = %462
   br i1 %switch.i.i, label %539, label %479
 
 479:                                              ; preds = %477
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
   %480 = load ptr, ptr %445, align 8
   %.val125.i = load ptr, ptr %0, align 8
   %481 = getelementptr i8, ptr %.val125.i, i64 9

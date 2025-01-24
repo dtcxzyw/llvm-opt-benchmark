@@ -13290,7 +13290,6 @@ tng_block_header_len_calculate.exit:              ; preds = %tng_block_init.exit
   %127 = add i64 %126, 1
   %128 = tail call noundef range(i64 0, 1025) i64 @llvm.umin.i64(i64 %127, i64 1024)
   %129 = add nuw nsw i64 %128, 48
-  store i64 %129, ptr %21, align 8
   br label %tng_block_header_len_calculate.exit94
 
 tng_block_header_len_calculate.exit94:            ; preds = %120, %124
@@ -19980,7 +19979,6 @@ tng_block_init.exit:                              ; preds = %41, %44
 
 tng_block_destroy.exit:                           ; preds = %86, %89
   tail call void @free(ptr noundef nonnull %40) #24
-  store ptr null, ptr %4, align 8
   %90 = load i64, ptr %14, align 8
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %92 = load i64, ptr %91, align 8

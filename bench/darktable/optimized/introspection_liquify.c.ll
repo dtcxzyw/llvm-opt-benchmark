@@ -5780,11 +5780,8 @@ define noundef range(i32 0, 2) i32 @scrolled(ptr nocapture noundef readonly %0, 
 26:                                               ; preds = %15
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #29
-  store float 0.000000e+00, ptr %6, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #29
-  store float 0.000000e+00, ptr %7, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #29
-  store float 0.000000e+00, ptr %8, align 4, !tbaa !11
   call fastcc void @get_stamp_params(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %28 = load float, ptr %7, align 4, !tbaa !11
   %29 = tail call reassoc nsz arcp contract afn float @dt_masks_change_size(i32 noundef %11, float noundef %28, float noundef 1.000000e+01, float noundef 0x47EFFFFFE0000000) #29
@@ -7408,11 +7405,8 @@ define internal fastcc void @_start_new_shape(ptr nocapture noundef readonly %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #29
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #29
-  store float 0.000000e+00, ptr %5, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #29
-  store float 1.000000e+00, ptr %6, align 4, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #29
-  store float 0.000000e+00, ptr %7, align 4, !tbaa !11
   call fastcc void @get_stamp_params(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %48 = getelementptr i8, ptr %0, i64 680
   %49 = load ptr, ptr %48, align 8, !tbaa !123

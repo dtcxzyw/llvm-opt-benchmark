@@ -1059,8 +1059,6 @@ entry:
   %curTick = alloca i64, align 8
   %curTime = alloca i64, align 8
   %curUserEvent = alloca i64, align 8
-  store i64 0, ptr %curTick, align 8
-  store i64 0, ptr %curTime, align 8
   call void @_ZN2EA4StdC15CallbackManager14UpdateInternalERlS2_S2_(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(8) %curTick, ptr noundef nonnull align 8 dereferenceable(8) %curTime, ptr noundef nonnull align 8 dereferenceable(8) %curUserEvent)
   ret void
 }

@@ -25066,7 +25066,6 @@ if.end306:                                        ; preds = %land.lhs.true278, %
   %files_totalsize.i.i = getelementptr inbounds nuw i8, ptr %stats, i64 24
   %fileio_time.i.i = getelementptr inbounds nuw i8, ptr %stats, i64 56
   %max_aniso.i.i = getelementptr inbounds nuw i8, ptr %stats, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %stats, i8 0, i64 20, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %files_totalsize.i.i, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %fileio_time.i.i, i8 0, i64 136, i1 false)
   store float 1.000000e+00, ptr %max_aniso.i.i, align 8

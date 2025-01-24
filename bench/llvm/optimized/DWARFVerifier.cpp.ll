@@ -6896,8 +6896,6 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4llvm13DWARFVerifier17verifyUni
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %18 = zext i1 %17 to i8
   store i64 0, ptr %3, align 8
-  store i8 0, ptr %4, align 1
-  store i8 0, ptr %5, align 1
   %.not35 = icmp eq i64 %.sroa.2.0.copyload.i, 0
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %19, i64 noundef 1) #26

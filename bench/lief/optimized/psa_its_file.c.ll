@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree nounwind uwtable
 define hidden range(i32 -152, 1) i32 @psa_its_get_info(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  store ptr null, ptr %3, align 8
   %4 = call fastcc i32 @psa_its_read_file(i64 noundef %0, ptr noundef %1, ptr noundef %3)
   %5 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %5, null
@@ -79,7 +78,6 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 define hidden range(i32 -152, 1) i32 @psa_its_get(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.psa_storage_info_t, align 4
-  store ptr null, ptr %6, align 8
   %8 = call fastcc i32 @psa_its_read_file(i64 noundef %0, ptr noundef nonnull %7, ptr noundef %6)
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %.thread-pre-split_crit_edge

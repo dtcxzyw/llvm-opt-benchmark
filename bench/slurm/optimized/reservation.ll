@@ -10531,7 +10531,6 @@ _get_core_resrcs.exit.i:                          ; preds = %135, %90, %72
   br i1 %.not121.i, label %183, label %159
 
 159:                                              ; preds = %156
-  store i32 0, ptr %6, align 4
   %160 = call fastcc i32 @_build_account_list(ptr noundef nonnull %158, ptr noundef %6, ptr noundef %7, ptr noundef %3)
   %.not122.i = icmp eq i32 %160, 0
   br i1 %.not122.i, label %.preheader.i, label %165
@@ -10620,8 +10619,6 @@ _get_core_resrcs.exit.i:                          ; preds = %135, %90, %72
   br i1 %.not125.i, label %217, label %202
 
 202:                                              ; preds = %199
-  store i32 0, ptr %9, align 4
-  store ptr null, ptr %10, align 8
   %203 = call fastcc i32 @_build_uid_list(ptr noundef nonnull %201, ptr noundef %9, ptr noundef %10, ptr noundef %4, i1 noundef zeroext false)
   %.not126.i = icmp eq i32 %203, 0
   br i1 %.not126.i, label %.sink.split154.i, label %204

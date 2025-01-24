@@ -14580,8 +14580,6 @@ define range(i32 0, 2) i32 @mz_zip_writer_add_mem_ex(ptr noundef %0, ptr noundef
   %13 = alloca [30 x i8], align 16
   %14 = alloca i64, align 8
   %15 = alloca %struct.mz_zip_writer_add_state, align 8
-  store i16 0, ptr %11, align 2
-  store i16 0, ptr %12, align 2
   %16 = load i64, ptr %0, align 8
   %17 = icmp slt i32 %6, 0
   %spec.store.select = select i1 %17, i32 6, i32 %6

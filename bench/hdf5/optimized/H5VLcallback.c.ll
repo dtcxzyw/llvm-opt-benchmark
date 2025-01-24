@@ -2332,7 +2332,6 @@ H5VL__attr_optional.exit:                         ; preds = %33, %26, %37
 define range(i32 -1, -2147483648) i32 @H5VLattr_optional_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
   %10 = load i8, ptr @H5_libinit_g, align 1
   %11 = trunc i8 %10 to i1
@@ -3870,7 +3869,6 @@ H5VL__dataset_optional.exit:                      ; preds = %26, %37
 define range(i32 -1, 1) i32 @H5VLdataset_optional_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
   %10 = load i8, ptr @H5_libinit_g, align 1
   %11 = trunc i8 %10 to i1
@@ -5945,7 +5943,6 @@ H5VL__file_optional.exit:                         ; preds = %26, %37
 define range(i32 -1, 1) i32 @H5VLfile_optional_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
   %10 = load i8, ptr @H5_libinit_g, align 1
   %11 = trunc i8 %10 to i1
@@ -6793,7 +6790,6 @@ H5VL__group_optional.exit:                        ; preds = %33, %26, %37
 define range(i32 -1, -2147483648) i32 @H5VLgroup_optional_op(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
   %10 = load i8, ptr @H5_libinit_g, align 1
   %11 = trunc i8 %10 to i1

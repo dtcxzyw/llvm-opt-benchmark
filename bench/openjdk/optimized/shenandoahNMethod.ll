@@ -227,7 +227,6 @@ define hidden void @_ZN17ShenandoahNMethod6updateEv(ptr nocapture noundef nonnul
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8
-  store i8 0, ptr %2, align 1
   %16 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #15
   store i32 0, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -511,7 +510,6 @@ define hidden noundef ptr @_ZN17ShenandoahNMethod11for_nmethodEP7nmethod(ptr nou
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8
-  store i8 0, ptr %2, align 1
   %16 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #15
   store i32 0, ptr %3, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4

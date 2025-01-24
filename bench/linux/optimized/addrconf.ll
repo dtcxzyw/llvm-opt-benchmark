@@ -5889,7 +5889,6 @@ ipv6_find_idev.exit:                              ; preds = %110, %113, %119
 
 353:                                              ; preds = %352
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #20
-  store i64 0, ptr %6, align 8, !annotation !19
   %354 = getelementptr inbounds nuw i8, ptr %127, i64 168
   %355 = load ptr, ptr %354, align 8
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 616

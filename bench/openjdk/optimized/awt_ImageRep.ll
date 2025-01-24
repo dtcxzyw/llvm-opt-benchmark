@@ -375,7 +375,6 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_image_ImageRepresentation_setDiff
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca [256 x i8], align 16
-  store i32 2, ptr %18, align 4
   %20 = icmp eq ptr %6, null
   br i1 %20, label %21, label %22
 

@@ -4278,7 +4278,6 @@ define internal i32 @dm_blk_ioctl(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #23
-  store i32 0, ptr %6, align 4, !annotation !52
   %11 = call fastcc i32 @dm_prepare_ioctl(ptr noundef %10, ptr noundef nonnull %6, ptr noundef nonnull %5)
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %28, label %13
@@ -5924,7 +5923,6 @@ define internal i32 @dm_pr_clear(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #23
-  store i32 0, ptr %4, align 4, !annotation !52
   %9 = call fastcc i32 @dm_prepare_ioctl(ptr noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %3)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %26, label %11

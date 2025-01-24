@@ -2039,7 +2039,6 @@ bench_stats_check.exit:                           ; preds = %for.end38
 exit_aes_gcm:                                     ; preds = %bench_stats_check.exit, %for.body19
   %storemerge = phi i32 [ %add72, %for.body19 ], [ %add, %bench_stats_check.exit ]
   %ret.3 = phi i32 [ %call27, %for.body19 ], [ %ret.2.lcssa, %bench_stats_check.exit ]
-  store i32 %storemerge, ptr %count, align 4
   %18 = load i32, ptr @bench_size, align 4
   call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %storemerge, i32 noundef %18, double noundef %add.i.i, i32 noundef %ret.3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1696) %dec, i8 0, i64 1696, i1 false)

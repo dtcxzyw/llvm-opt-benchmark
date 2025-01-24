@@ -945,9 +945,7 @@ define dso_local { i64, i32 } @_ZN4absl5TruncENS_8DurationES0_(i64 %d.coerce0, i
 entry:
   %lhs.i = alloca %"class.absl::Duration", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i)
-  store i64 %d.coerce0, ptr %lhs.i, align 8
   %coerce.sroa.2.0.lhs.sroa_idx.i = getelementptr inbounds nuw i8, ptr %lhs.i, i64 8
-  store i32 %d.coerce1, ptr %coerce.sroa.2.0.lhs.sroa_idx.i, align 8
   %call.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull align 4 dereferenceable(12) %lhs.i)
   %retval.sroa.0.0.copyload.i = load i64, ptr %lhs.i, align 8
   %retval.sroa.2.0.copyload.i = load i32, ptr %coerce.sroa.2.0.lhs.sroa_idx.i, align 8
@@ -1002,9 +1000,7 @@ define dso_local { i64, i32 } @_ZN4absl5FloorENS_8DurationES0_(i64 %d.coerce0, i
 entry:
   %lhs.i.i = alloca %"class.absl::Duration", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i)
-  store i64 %d.coerce0, ptr %lhs.i.i, align 8
   %coerce.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %lhs.i.i, i64 8
-  store i32 %d.coerce1, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i, align 8
   %call.i.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i)
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %lhs.i.i, align 8
   %retval.sroa.2.0.copyload.i.i = load i32, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i, align 8
@@ -1172,9 +1168,7 @@ define dso_local { i64, i32 } @_ZN4absl4CeilENS_8DurationES0_(i64 %d.coerce0, i3
 entry:
   %lhs.i.i = alloca %"class.absl::Duration", align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %lhs.i.i)
-  store i64 %d.coerce0, ptr %lhs.i.i, align 8
   %coerce.sroa.2.0.lhs.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %lhs.i.i, i64 8
-  store i32 %d.coerce1, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i, align 8
   %call.i.i.i = call noundef i64 @_ZN4absl13time_internal12IDivDurationEbNS_8DurationES1_PS1_(i1 noundef zeroext false, i64 %d.coerce0, i32 %d.coerce1, i64 %unit.coerce0, i32 %unit.coerce1, ptr noundef nonnull align 4 dereferenceable(12) %lhs.i.i)
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %lhs.i.i, align 8
   %retval.sroa.2.0.copyload.i.i = load i32, ptr %coerce.sroa.2.0.lhs.sroa_idx.i.i, align 8
@@ -1980,9 +1974,7 @@ entry:
   %buf.i89 = alloca [17 x i8], align 16
   %buf.i = alloca [17 x i8], align 16
   %d = alloca %"class.absl::Duration", align 8
-  store i64 %d.coerce0, ptr %d, align 8
   %coerce.sroa.2.0.d.sroa_idx = getelementptr inbounds nuw i8, ptr %d, i64 8
-  store i32 %d.coerce1, ptr %coerce.sroa.2.0.d.sroa_idx, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #17
   %cmp.i = icmp eq i64 %d.coerce0, -9223372036854775808
   %cmp8.i = icmp eq i32 %d.coerce1, 0
@@ -2029,8 +2021,6 @@ _ZN4abslngENS_8DurationE.exit:                    ; preds = %invoke.cont8, %cond
   %call6.pn.i = phi { i64, i32 } [ %.fca.1.insert.i.i, %cond.false.i5 ], [ %.fca.1.insert.i.i.i, %cond.false18.i ], [ { i64 9223372036854775807, i32 -1 }, %cond.true.i4 ], [ { i64 9223372036854775807, i32 -1 }, %invoke.cont8 ]
   %call11.fca.0.extract = extractvalue { i64, i32 } %call6.pn.i, 0
   %call11.fca.1.extract = extractvalue { i64, i32 } %call6.pn.i, 1
-  store i64 %call11.fca.0.extract, ptr %d, align 8
-  store i32 %call11.fca.1.extract, ptr %coerce.sroa.2.0.d.sroa_idx, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end, %_ZN4abslngENS_8DurationE.exit

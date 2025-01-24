@@ -12426,7 +12426,7 @@ _ZN4NodenwEm.exit:                                ; preds = %34, %36
   %91 = getelementptr inbounds nuw ptr, ptr %80, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = tail call noundef ptr @_ZN8GraphKit15access_store_atEP4NodeS1_PK7TypePtrS1_PK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef null, ptr noundef %73, ptr noundef %87, ptr noundef %16, ptr noundef %92, i8 noundef zeroext 12, i64 noundef 524352) #13
-  tail call void @_ZN14LibraryCallKit23extend_setCurrentThreadEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %50, ptr noundef %16)
+  tail call void @_ZN14LibraryCallKit23extend_setCurrentThreadEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr poison, ptr noundef %16)
   ret i1 true
 }
 
@@ -50985,9 +50985,8 @@ define hidden noundef ptr @_ZN14LibraryCallKit25field_address_from_objectEP4Node
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14LibraryCallKit23extend_setCurrentThreadEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14LibraryCallKit23extend_setCurrentThreadEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr nocapture readnone %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
-  store ptr %1, ptr %4, align 8
   %5 = tail call noundef ptr @_ZN8GraphKit12reset_memoryEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #13
   tail call void @_ZN8GraphKit14set_all_memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %5) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32

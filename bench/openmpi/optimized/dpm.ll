@@ -11717,7 +11717,6 @@ define noundef i32 @ompi_dpm_close_port(ptr nocapture noundef readnone %0) local
 ; Function Attrs: nounwind uwtable
 define i32 @ompi_dpm_dyn_init() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
-  store ptr null, ptr %1, align 8
   %2 = tail call ptr @getenv(ptr noundef nonnull @.str.15) #22
   %3 = icmp eq ptr %2, null
   br i1 %3, label %100, label %4

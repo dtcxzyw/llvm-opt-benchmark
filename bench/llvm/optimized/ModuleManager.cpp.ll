@@ -441,7 +441,6 @@ define dso_local noundef range(i32 0, 4) i32 @_ZN5clang13serialization13ModuleMa
   %40 = alloca %"struct.clang::ASTFileSignature", align 8
   %41 = alloca ptr, align 8
   store ptr null, ptr %11, align 8
-  store ptr null, ptr %28, align 8
   %42 = and i32 %3, -5
   %or.cond = icmp eq i32 %42, 1
   %spec.select = select i1 %or.cond, i64 0, i64 %8

@@ -1783,7 +1783,6 @@ define range(i32 -1, 1) i32 @sapi_send_headers() local_unnamed_addr #0 {
   br i1 %or.cond25, label %41, label %18
 
 18:                                               ; preds = %15
-  store i32 0, ptr %5, align 4
   %19 = call fastcc ptr @get_default_content_type(i32 noundef 0, ptr noundef %5)
   %20 = icmp ne ptr %19, null
   %21 = load i32, ptr %5, align 4

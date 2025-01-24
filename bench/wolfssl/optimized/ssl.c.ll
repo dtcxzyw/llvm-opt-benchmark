@@ -8989,7 +8989,6 @@ do.end:                                           ; preds = %land.lhs.true2
 if.then6:                                         ; preds = %do.end
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
   %call.i = call i32 @wc_Md5Hash(ptr noundef %serverID, i32 noundef %conv, ptr noundef nonnull %digest.i) #20
-  store i32 %call.i, ptr %error, align 4
   %cmp.i = icmp eq i32 %call.i, 0
   br i1 %cmp.i, label %cond.true.i, label %HashObject.exit
 
@@ -9025,7 +9024,6 @@ if.else:                                          ; preds = %do.end
 if.then10:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i23)
   %call.i24 = call i32 @wc_Md5Hash(ptr noundef %sessionID, i32 noundef 32, ptr noundef nonnull %digest.i23) #20
-  store i32 %call.i24, ptr %error, align 4
   %cmp.i25 = icmp eq i32 %call.i24, 0
   br i1 %cmp.i25, label %cond.true.i27, label %HashObject.exit41
 

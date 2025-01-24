@@ -77412,7 +77412,6 @@ _ZNSt6vectorIN4llvm11PassBuilder15PipelineElementESaIS2_EED2Ev.exit54: ; preds =
 
 317:                                              ; preds = %290
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 1808
-  store i8 0, ptr %14, align 1
   %.not.i.i.i.i57 = icmp ult i64 %.sroa.234.0.copyload, 5
   br i1 %.not.i.i.i.i57, label %_ZN4llvm11PassBuilder25checkParametrizedPassNameENS_9StringRefES1_.exit.thread.i59, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i.i
 

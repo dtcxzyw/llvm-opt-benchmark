@@ -16970,7 +16970,6 @@ tty_read_esc.exit:                                ; preds = %21, %36, %42, %47, 
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i32
   tail call void (ptr, ...) @debug_msg(ptr noundef nonnull @.str.257, i64 noundef %.0.i17, i32 noundef %78, i32 noundef %80, i32 noundef %83, i32 noundef %86)
-  store i64 0, ptr %6, align 8
   %87 = call fastcc i32 @unicode_from_qutf8(ptr noundef nonnull %5, i64 noundef %.0.i17, ptr noundef %6)
   %88 = load i64, ptr %6, align 8
   %89 = icmp sgt i64 %.0.i17, %88

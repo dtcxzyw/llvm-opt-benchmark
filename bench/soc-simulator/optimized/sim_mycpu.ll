@@ -6011,7 +6011,6 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1, ptr nocapture
   %114 = load ptr, ptr %113, align 16, !tbaa !170
   store ptr %114, ptr @pc, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %5) #26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(232) %5, i8 0, i64 232, i1 false)
   call void @_Z12connect_wireR8axi4_ptrILj32ELj32ELj4EEP10Vmycpu_top(ptr noundef nonnull align 8 dereferenceable(232) %5, ptr noundef nonnull %11) #28
   call void @llvm.lifetime.start.p0(i64 232, ptr nonnull %6) #26
   %115 = load <2 x ptr>, ptr %5, align 16, !tbaa !18

@@ -2835,7 +2835,6 @@ Abc_Clock.exit144:                                ; preds = %.loopexit, %105
   br label %.loopexit153
 
 118:                                              ; preds = %Abc_Clock.exit144
-  store ptr null, ptr %10, align 8
   %119 = load i32, ptr %60, align 8
   %120 = add nsw i32 %119, -1
   %121 = load ptr, ptr %70, align 8

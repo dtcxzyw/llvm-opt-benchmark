@@ -19517,7 +19517,6 @@ define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_PKhm16LodePNGColor
 entry:
   %buffer = alloca ptr, align 8
   %state = alloca %"class.lodepng::State", align 8
-  store ptr null, ptr %buffer, align 8
   %call = call noundef i32 @_Z21lodepng_decode_memoryPPhPjS1_PKhm16LodePNGColorTypej(ptr noundef nonnull %buffer, ptr noundef nonnull %w, ptr noundef nonnull %h, ptr noundef %in, i64 noundef %insize, i32 noundef %colortype, i32 noundef %bitdepth)
   %0 = load ptr, ptr %buffer, align 8
   %tobool = icmp eq ptr %0, null
@@ -19602,7 +19601,6 @@ entry:
 define noundef i32 @_ZN7lodepng6decodeERSt6vectorIhSaIhEERjS4_RNS_5StateEPKhm(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %w, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %h, ptr noundef nonnull align 8 dereferenceable(544) %state, ptr noundef %in, i64 noundef %insize) local_unnamed_addr #5 {
 entry:
   %buffer = alloca ptr, align 8
-  store ptr null, ptr %buffer, align 8
   %call = call noundef i32 @_Z14lodepng_decodePPhPjS1_P12LodePNGStatePKhm(ptr noundef nonnull %buffer, ptr noundef nonnull %w, ptr noundef nonnull %h, ptr noundef nonnull %state, ptr noundef %in, i64 noundef %insize)
   %0 = load ptr, ptr %buffer, align 8
   %tobool = icmp eq ptr %0, null

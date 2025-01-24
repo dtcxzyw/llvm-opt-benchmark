@@ -22232,7 +22232,6 @@ _Z17CheckFallPositionP6CFaceON3vcg6Point3IfEEf.exit.thread: ; preds = %9, %_Z17C
   %.sroa.10.0 = phi float [ %57, %42 ], [ %5, %_Z17CheckFallPositionP6CFaceON3vcg6Point3IfEEf.exit.thread ]
   %59 = load ptr, ptr %0, align 8
   store ptr %59, ptr %11, align 8
-  store ptr %59, ptr %12, align 8
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0176.0.copyload = load <2 x float>, ptr %60, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16

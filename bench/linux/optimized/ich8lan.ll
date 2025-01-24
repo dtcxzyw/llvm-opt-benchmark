@@ -6641,7 +6641,6 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_ich8lan(ptr noundef
   %6 = alloca i16, align 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  store i32 0, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #9
   %8 = zext i16 %1 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1136
@@ -6747,7 +6746,6 @@ define internal i32 @e1000_update_nvm_checksum_ich8lan(ptr noundef %0) #0 align 
   br i1 %10, label %11, label %109
 
 11:                                               ; preds = %7
-  store i32 0, ptr %2, align 4, !annotation !5
   %12 = load ptr, ptr %4, align 8
   %13 = tail call i32 %12(ptr noundef %0) #9
   %14 = call fastcc i32 @e1000_valid_nvm_bank_detect_ich8lan(ptr noundef %0, ptr noundef nonnull %2)
@@ -7441,7 +7439,6 @@ define internal noundef range(i32 -1, 1) i32 @e1000_read_nvm_spt(ptr noundef %0,
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  store i32 0, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
   store i32 0, ptr %6, align 4
   %8 = zext i16 %1 to i32
@@ -7627,7 +7624,6 @@ define internal i32 @e1000_update_nvm_checksum_spt(ptr noundef %0) #0 align 16 {
   br i1 %10, label %11, label %112
 
 11:                                               ; preds = %7
-  store i32 0, ptr %2, align 4, !annotation !5
   %12 = load ptr, ptr %4, align 8
   %13 = tail call i32 %12(ptr noundef %0) #9
   %14 = call fastcc i32 @e1000_valid_nvm_bank_detect_ich8lan(ptr noundef %0, ptr noundef nonnull %2)

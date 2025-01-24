@@ -1620,7 +1620,6 @@ _ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char
   br label %.loopexit106
 
 42:                                               ; preds = %_ZNK12_GLOBAL__N_113gridshiftData8findGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK6PJ_XYZRPN5osgeo4proj19GenericShiftGridSetE.exit50
-  store i8 0, ptr %8, align 1
   %43 = load ptr, ptr %2, align 8
   %44 = load i8, ptr %17, align 2
   %45 = trunc i8 %44 to i1

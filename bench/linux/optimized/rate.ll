@@ -643,7 +643,6 @@ define dso_local void @ieee80211_get_tx_rates(ptr noundef readonly %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %6) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %6, i8 0, i64 10, i1 false), !annotation !37
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
-  store i32 0, ptr %7, align 4, !annotation !37
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !37
@@ -1428,7 +1427,6 @@ define dso_local noundef range(i32 -22, 1) i32 @rate_control_set_rates(ptr nound
 
 30:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  store i32 0, ptr %4, align 4, !annotation !37
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 10, i1 false), !annotation !37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14

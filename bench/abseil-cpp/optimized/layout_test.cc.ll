@@ -1814,11 +1814,8 @@ $_ZTISt5tupleIJN4absl4SpanIKiEEEE = comdat any
 @_ZTSN7testing16MatcherInterfaceIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant [94 x i8] c"N7testing16MatcherInterfaceIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE\00", align 1
 @_ZTIN7testing16MatcherInterfaceIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing16MatcherInterfaceIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE, ptr @_ZTIN7testing25MatcherDescriberInterfaceE }, align 8
 @_ZTIN4absl18container_internal12_GLOBAL__N_119IsSameSliceMatcherPINS_4SpanIKNS1_6Int128EEEE10gmock_ImplIRKS6_EE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4absl18container_internal12_GLOBAL__N_119IsSameSliceMatcherPINS_4SpanIKNS1_6Int128EEEE10gmock_ImplIRKS6_EE, ptr @_ZTIN7testing16MatcherInterfaceIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE }, align 8
-@_ZTVN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE = internal unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE, ptr @_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev, ptr @_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED0Ev, ptr @_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE10DescribeToEPSo, ptr @_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE18DescribeNegationToEPSo] }, align 8
-@_ZTSN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant [84 x i8] c"N7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE\00", align 1
 @_ZTSN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant [98 x i8] c"N7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEEE\00", align 1
 @_ZTIN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEEE, i32 0, i32 1, ptr @_ZTIN7testing25MatcherDescriberInterfaceE, i64 0 }, align 8
-@_ZTIN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE, ptr @_ZTIN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEEE }, align 8
 @_ZTVN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEEE = internal unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEEE, ptr @_ZN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEED2Ev, ptr @_ZN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEED0Ev, ptr @_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE10DescribeToEPSo, ptr @_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE18DescribeNegationToEPSo] }, align 8
 @_ZZN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE9GetVTableINSB_11ValuePolicyIPKNS_16MatcherInterfaceISA_EELb1EEEEEPKNSB_6VTableEvE7kVTable = internal constant %"struct.testing::internal::MatcherBase<const absl::Span<const absl::container_internal::(anonymous namespace)::Int128> &>::VTable" { ptr @_ZN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE19MatchAndExplainImplINSB_11ValuePolicyIPKNS_16MatcherInterfaceISA_EELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_fp1_EERKSB_SA_PNS_19MatchResultListenerE, ptr @_ZN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE12DescribeImplINSB_11ValuePolicyIPKNS_16MatcherInterfaceISA_EELb1EEEEEvRKSB_PSob, ptr @_ZN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE16GetDescriberImplINSB_11ValuePolicyIPKNS_16MatcherInterfaceISA_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKSB_, ptr @_ZN7testing8internal13SharedPayloadISt10unique_ptrIKNS_16MatcherInterfaceIRKN4absl4SpanIKNS4_18container_internal12_GLOBAL__N_16Int128EEEEESt14default_deleteISE_EEE7DestroyEPNS0_17SharedPayloadBaseE }, align 8
 @_ZTVN7testing7MatcherIRKSt5tupleIJN4absl4SpanIKaEES5_NS3_IKNS2_18container_internal12_GLOBAL__N_16Int128EEEEEEE = internal unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN7testing7MatcherIRKSt5tupleIJN4absl4SpanIKaEES5_NS3_IKNS2_18container_internal12_GLOBAL__N_16Int128EEEEEEE, ptr @_ZN7testing7MatcherIRKSt5tupleIJN4absl4SpanIKaEES5_NS3_IKNS2_18container_internal12_GLOBAL__N_16Int128EEEEEED2Ev, ptr @_ZN7testing7MatcherIRKSt5tupleIJN4absl4SpanIKaEES5_NS3_IKNS2_18container_internal12_GLOBAL__N_16Int128EEEEEED0Ev, ptr @_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJN4absl4SpanIKaEES6_NS4_IKNS3_18container_internal12_GLOBAL__N_16Int128EEEEEE10DescribeToEPSo, ptr @_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJN4absl4SpanIKaEES6_NS4_IKNS3_18container_internal12_GLOBAL__N_16Int128EEEEEE18DescribeNegationToEPSo] }, align 8
@@ -1907,11 +1904,8 @@ $_ZTISt5tupleIJN4absl4SpanIKiEEEE = comdat any
 @_ZTSN7testing16MatcherInterfaceIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant [93 x i8] c"N7testing16MatcherInterfaceIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE\00", align 1
 @_ZTIN7testing16MatcherInterfaceIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing16MatcherInterfaceIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE, ptr @_ZTIN7testing25MatcherDescriberInterfaceE }, align 8
 @_ZTIN4absl18container_internal12_GLOBAL__N_119IsSameSliceMatcherPINS_4SpanINS1_6Int128EEEE10gmock_ImplIRKS5_EE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4absl18container_internal12_GLOBAL__N_119IsSameSliceMatcherPINS_4SpanINS1_6Int128EEEE10gmock_ImplIRKS5_EE, ptr @_ZTIN7testing16MatcherInterfaceIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE }, align 8
-@_ZTVN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE = internal unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE, ptr @_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev, ptr @_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED0Ev, ptr @_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE10DescribeToEPSo, ptr @_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE18DescribeNegationToEPSo] }, align 8
-@_ZTSN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant [83 x i8] c"N7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE\00", align 1
 @_ZTSN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant [97 x i8] c"N7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEEE\00", align 1
 @_ZTIN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEEE, i32 0, i32 1, ptr @_ZTIN7testing25MatcherDescriberInterfaceE, i64 0 }, align 8
-@_ZTIN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE, ptr @_ZTIN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEEE }, align 8
 @_ZTVN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEEE = internal unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEEE, ptr @_ZN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEED2Ev, ptr @_ZN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEED0Ev, ptr @_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE10DescribeToEPSo, ptr @_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE18DescribeNegationToEPSo] }, align 8
 @_ZZN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE9GetVTableINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEPKNSA_6VTableEvE7kVTable = internal constant %"struct.testing::internal::MatcherBase<const absl::Span<absl::container_internal::(anonymous namespace)::Int128> &>::VTable" { ptr @_ZN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE19MatchAndExplainImplINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_fp1_EERKSA_S9_PNS_19MatchResultListenerE, ptr @_ZN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE12DescribeImplINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEvRKSA_PSob, ptr @_ZN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE16GetDescriberImplINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKSA_, ptr @_ZN7testing8internal13SharedPayloadISt10unique_ptrIKNS_16MatcherInterfaceIRKN4absl4SpanINS4_18container_internal12_GLOBAL__N_16Int128EEEEESt14default_deleteISD_EEE7DestroyEPNS0_17SharedPayloadBaseE }, align 8
 @_ZTVN7testing7MatcherIRKSt5tupleIJN4absl4SpanIaEES4_NS3_INS2_18container_internal12_GLOBAL__N_16Int128EEEEEEE = internal unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN7testing7MatcherIRKSt5tupleIJN4absl4SpanIaEES4_NS3_INS2_18container_internal12_GLOBAL__N_16Int128EEEEEEE, ptr @_ZN7testing7MatcherIRKSt5tupleIJN4absl4SpanIaEES4_NS3_INS2_18container_internal12_GLOBAL__N_16Int128EEEEEED2Ev, ptr @_ZN7testing7MatcherIRKSt5tupleIJN4absl4SpanIaEES4_NS3_INS2_18container_internal12_GLOBAL__N_16Int128EEEEEED0Ev, ptr @_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJN4absl4SpanIaEES5_NS4_INS3_18container_internal12_GLOBAL__N_16Int128EEEEEE10DescribeToEPSo, ptr @_ZNK7testing8internal11MatcherBaseIRKSt5tupleIJN4absl4SpanIaEES5_NS4_INS3_18container_internal12_GLOBAL__N_16Int128EEEEEE18DescribeNegationToEPSo] }, align 8
@@ -60220,7 +60214,6 @@ invoke.cont19.i.i:                                ; preds = %call.i.i.i.i.i.i38.
   %11 = ptrtoint ptr %call.i.i.i.i.i.i3845.i.i to i64
   store i64 %11, ptr %value.i.i.i.i.i.i.i.i.i.i.i44.i.i, align 8, !noalias !497
   store ptr %call.i.i1.i.i.i.i.i.i.i.i4346.i.i, ptr %buffer_.i.i.i.i.i.i.i.i42.i.i, align 8, !alias.scope !497
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEEE, i64 16), ptr %ref.tmp16.i.i, align 8, !alias.scope !497
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i48.i.i)
   %stream_.i.i.i49.i.i = getelementptr inbounds nuw i8, ptr %dummy.i48.i.i, i64 8
   store ptr null, ptr %stream_.i.i.i49.i.i, align 8
@@ -60385,7 +60378,7 @@ lpad21.i.i:                                       ; preds = %if.end.i.i56.i.i, %
 
 lpad21.body.i.i:                                  ; preds = %lpad21.i.i, %lpad.i.i54.i.i
   %eh.lpad-body60.i.i = phi { ptr, i32 } [ %46, %lpad21.i.i ], [ %12, %lpad.i.i54.i.i ]
-  call void @_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp16.i.i) #23
+  call fastcc void @_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp16.i.i) #23
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad21.body.i.i, %lpad11.i.i, %lpad.i.i29.i.i
@@ -60408,7 +60401,7 @@ _ZNK4absl18container_internal12_GLOBAL__N_112TupleMatcherIJNS1_19IsSameSliceMatc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -60719,48 +60712,6 @@ _ZN7testing8internal7PrintToIN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_1
 }
 
 declare void @_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEEE, i64 16), ptr %this, align 8
-  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %this.val.i.i.i = load ptr, ptr %0, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %this.val.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE8IsSharedEv.exit.i.i.i
-
-_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE8IsSharedEv.exit.i.i.i: ; preds = %entry
-  %shared_destroy.i.i.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i.i, i64 24
-  %1 = load ptr, ptr %shared_destroy.i.i.i.i, align 8
-  %cmp3.i.not.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp3.i.not.i.i.i, label %_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev.exit, label %land.lhs.true.i.i.i
-
-land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE8IsSharedEv.exit.i.i.i
-  %buffer_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %buffer_.i.i.i, align 8
-  %3 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i = icmp eq i32 %3, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev.exit
-
-if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  %4 = load ptr, ptr %0, align 8
-  %shared_destroy.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %5 = load ptr, ptr %shared_destroy.i.i.i, align 8
-  %6 = load ptr, ptr %buffer_.i.i.i, align 8
-  invoke void %5(ptr noundef %6)
-          to label %_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev.exit unwind label %terminate.lpad.i.i
-
-terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %7 = landingpad { ptr, i32 }
-          catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #26
-  unreachable
-
-_ZN7testing7MatcherIRKN4absl4SpanIKNS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE8IsSharedEv.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
-  ret void
-}
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanIKNS2_18container_internal12_GLOBAL__N_16Int128EEEE10DescribeToEPSo(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %os) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -65350,7 +65301,6 @@ invoke.cont19.i.i:                                ; preds = %call.i.i.i.i.i.i38.
   %11 = ptrtoint ptr %call.i.i.i.i.i.i3845.i.i to i64
   store i64 %11, ptr %value.i.i.i.i.i.i.i.i.i.i.i44.i.i, align 8, !noalias !673
   store ptr %call.i.i1.i.i.i.i.i.i.i.i4346.i.i, ptr %buffer_.i.i.i.i.i.i.i.i42.i.i, align 8, !alias.scope !673
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEEE, i64 16), ptr %ref.tmp16.i.i, align 8, !alias.scope !673
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dummy.i48.i.i)
   %stream_.i.i.i49.i.i = getelementptr inbounds nuw i8, ptr %dummy.i48.i.i, i64 8
   store ptr null, ptr %stream_.i.i.i49.i.i, align 8
@@ -65515,7 +65465,7 @@ lpad21.i.i:                                       ; preds = %if.end.i.i56.i.i, %
 
 lpad21.body.i.i:                                  ; preds = %lpad21.i.i, %lpad.i.i54.i.i
   %eh.lpad-body60.i.i = phi { ptr, i32 } [ %46, %lpad21.i.i ], [ %12, %lpad.i.i54.i.i ]
-  call void @_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp16.i.i) #23
+  call fastcc void @_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp16.i.i) #23
   br label %ehcleanup.i.i
 
 ehcleanup.i.i:                                    ; preds = %lpad21.body.i.i, %lpad11.i.i, %lpad.i.i29.i.i
@@ -65538,7 +65488,7 @@ _ZNK4absl18container_internal12_GLOBAL__N_112TupleMatcherIJNS1_19IsSameSliceMatc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -65845,48 +65795,6 @@ if.then11.i.i.i:                                  ; preds = %if.end8.i.i.i, %for
 
 _ZN7testing8internal7PrintToIN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEEEvRKT_PSo.exit: ; preds = %entry, %if.then11.i.i.i
   %call14.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext 125)
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEEE, i64 16), ptr %this, align 8
-  %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %this.val.i.i.i = load ptr, ptr %0, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %this.val.i.i.i, null
-  br i1 %cmp.not.i.i.i.i, label %_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE8IsSharedEv.exit.i.i.i
-
-_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE8IsSharedEv.exit.i.i.i: ; preds = %entry
-  %shared_destroy.i.i.i.i = getelementptr inbounds nuw i8, ptr %this.val.i.i.i, i64 24
-  %1 = load ptr, ptr %shared_destroy.i.i.i.i, align 8
-  %cmp3.i.not.i.i.i = icmp eq ptr %1, null
-  br i1 %cmp3.i.not.i.i.i, label %_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev.exit, label %land.lhs.true.i.i.i
-
-land.lhs.true.i.i.i:                              ; preds = %_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE8IsSharedEv.exit.i.i.i
-  %buffer_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %buffer_.i.i.i, align 8
-  %3 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i = icmp eq i32 %3, 1
-  br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev.exit
-
-if.then.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
-  %4 = load ptr, ptr %0, align 8
-  %shared_destroy.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %5 = load ptr, ptr %shared_destroy.i.i.i, align 8
-  %6 = load ptr, ptr %buffer_.i.i.i, align 8
-  invoke void %5(ptr noundef %6)
-          to label %_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev.exit unwind label %terminate.lpad.i.i
-
-terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %7 = landingpad { ptr, i32 }
-          catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #26
-  unreachable
-
-_ZN7testing7MatcherIRKN4absl4SpanINS1_18container_internal12_GLOBAL__N_16Int128EEEED2Ev.exit: ; preds = %entry, %_ZNK7testing8internal11MatcherBaseIRKN4absl4SpanINS2_18container_internal12_GLOBAL__N_16Int128EEEE8IsSharedEv.exit.i.i.i, %land.lhs.true.i.i.i, %if.then.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #24
   ret void
 }
 

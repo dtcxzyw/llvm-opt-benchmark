@@ -150,7 +150,6 @@ declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @license_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
-  store i8 1, ptr %2, align 1
   %3 = tail call i64 @time(ptr noundef null) #11
   store i64 %3, ptr @last_license_update, align 8
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @license_mutex) #11
@@ -426,7 +425,6 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @license_update(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
-  store i8 1, ptr %2, align 1
   %3 = call fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef nonnull %2)
   %.fr = freeze ptr %3
   %4 = load i8, ptr %2, align 1
@@ -1605,7 +1603,6 @@ declare i32 @assoc_mgr_find_tres_pos(ptr noundef, i1 noundef zeroext) local_unna
 define dso_local void @license_job_merge(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i8, align 1
-  store i8 1, ptr %3, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

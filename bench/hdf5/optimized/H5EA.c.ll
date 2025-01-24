@@ -335,7 +335,6 @@ define range(i32 -1, 1) i32 @H5EA_set(ptr nocapture noundef readonly %0, i64 nou
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %0, align 8
-  store ptr null, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 384
@@ -990,8 +989,6 @@ define range(i32 -1, 1) i32 @H5EA_get(ptr nocapture noundef readonly %0, i64 nou
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = load ptr, ptr %0, align 8
-  store ptr null, ptr %4, align 8
-  store ptr null, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 328
   %10 = load i64, ptr %9, align 8
   %.not = icmp ult i64 %1, %10

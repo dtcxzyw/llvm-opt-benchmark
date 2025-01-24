@@ -1210,7 +1210,6 @@ declare i32 @shmdt(ptr noundef) local_unnamed_addr #9
 define i32 @Java_sun_awt_X11GraphicsEnvironment_checkShmExt(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  store i32 -1, ptr %3, align 4
   call void @TryInitMITShm(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %5 = load i32, ptr %3, align 4
   ret i32 %5

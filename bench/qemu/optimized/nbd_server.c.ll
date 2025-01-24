@@ -5730,7 +5730,6 @@ sw.bb77:                                          ; preds = %if.then64, %if.then
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %namelen.i)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %sizes.i)
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i)
-  store ptr null, ptr %name.i, align 8
   store i32 0, ptr %namelen.i, align 4
   %call.i178 = call fastcc i32 @nbd_opt_read_name(ptr noundef nonnull %client, ptr noundef %name.i, ptr noundef nonnull %namelen.i, ptr noundef %errp)
   %cmp.i179 = icmp slt i32 %call.i178, 1
@@ -6280,7 +6279,6 @@ sw.bb119:                                         ; preds = %if.then64, %if.then
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %export_name.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %local_meta.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %nb_queries.i)
-  store ptr null, ptr %export_name.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %local_meta.i, i8 0, i64 32, i1 false)
   %155 = load i32, ptr %opt, align 8
   %cmp.i231 = icmp eq i32 %155, 10

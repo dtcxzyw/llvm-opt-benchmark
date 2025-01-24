@@ -5946,7 +5946,6 @@ RSTRING_END.exit:                                 ; preds = %29, %33
   %34 = getelementptr i8, ptr %.sroa.3.0.i, i64 %.sroa.1.0.i
   %35 = trunc i64 %30 to i32
   %36 = and i32 %35, 3145728
-  store i32 %36, ptr %3, align 4
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %46
 

@@ -1153,9 +1153,7 @@ define dso_local noundef zeroext i1 @intel_ddi_get_hw_state(ptr nocapture nounde
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
-  store i8 0, ptr %3, align 1, !annotation !6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #14
-  store i8 0, ptr %4, align 1, !annotation !6
   call fastcc void @intel_ddi_get_encoder_pipes(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %5 = load i8, ptr %4, align 1, !range !37, !noundef !38
   %6 = icmp eq i8 %5, 0
@@ -1940,9 +1938,7 @@ define dso_local void @intel_ddi_sanitize_encoder_pll_mapping(ptr noundef %0) lo
 
 17:                                               ; preds = %13, %12, %12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
-  store i8 0, ptr %2, align 1, !annotation !6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #14
-  store i8 0, ptr %3, align 1, !annotation !6
   call fastcc void @intel_ddi_get_encoder_pipes(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %18 = load i8, ptr %3, align 1, !range !37, !noundef !38
   %19 = icmp eq i8 %18, 0

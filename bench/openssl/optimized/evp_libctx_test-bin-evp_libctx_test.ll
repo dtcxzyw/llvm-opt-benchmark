@@ -980,7 +980,6 @@ entry:
   %unwraplen = alloca i64, align 8
   %secretlen = alloca i64, align 8
   store ptr null, ptr %pub, align 8
-  store ptr null, ptr %priv, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %secret, i8 0, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %ct, i8 0, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %unwrap, i8 0, i64 256, i1 false)
@@ -1113,7 +1112,6 @@ entry:
   %ctlen = alloca i64, align 8
   %secretlen = alloca i64, align 8
   store ptr null, ptr %pub, align 8
-  store ptr null, ptr %priv, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %secret, i8 0, i64 256, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %ct, i8 0, i64 256, i1 false)
   store i64 0, ptr %ctlen, align 8

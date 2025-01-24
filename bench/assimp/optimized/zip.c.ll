@@ -11179,8 +11179,6 @@ entry:
   %local_dir_header = alloca [30 x i8], align 16
   %cur_time = alloca i64, align 8
   %state = alloca %struct.mz_zip_writer_add_state, align 8
-  store i16 0, ptr %dos_time, align 2
-  store i16 0, ptr %dos_date, align 2
   %cmp = icmp slt i32 %level_and_flags, 0
   %spec.store.select = select i1 %cmp, i32 6, i32 %level_and_flags
   %and = and i32 %spec.store.select, 15
@@ -12105,8 +12103,6 @@ entry:
   %dos_date = alloca i16, align 2
   %local_dir_header = alloca [30 x i8], align 16
   %state = alloca %struct.mz_zip_writer_add_state, align 8
-  store i16 0, ptr %dos_time, align 2
-  store i16 0, ptr %dos_date, align 2
   %cmp = icmp slt i32 %level_and_flags, 0
   %spec.store.select = select i1 %cmp, i32 6, i32 %level_and_flags
   %and = and i32 %spec.store.select, 15

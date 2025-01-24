@@ -136,7 +136,6 @@ define internal fastcc i32 @do_one_pass(ptr noundef %0, ptr nocapture noundef %1
   %12 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  store ptr null, ptr %10, align 8, !annotation !5
   %13 = tail call i64 @journal_tag_bytes(ptr noundef %0) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
   store i32 -1, ptr %11, align 4
@@ -1173,7 +1172,6 @@ select.unfold49:                                  ; preds = %138, %565, %485, %1
 599:                                              ; preds = %592
   %600 = load i32, ptr %26, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  store ptr null, ptr %5, align 8, !annotation !5
   %601 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %602 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   %603 = load ptr, ptr %602, align 8
@@ -1654,7 +1652,6 @@ define internal fastcc range(i32 0, 2) i32 @jbd2_descriptor_block_csum_verify(pt
 define internal fastcc void @calc_chksums(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  store ptr null, ptr %5, align 8, !annotation !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 952
   %7 = load i32, ptr %6, align 8
   %8 = tail call i64 @journal_tag_bytes(ptr noundef %0) #9

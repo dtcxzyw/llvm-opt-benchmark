@@ -1937,7 +1937,6 @@ if.end13:                                         ; preds = %if.then12, %if.then
   br label %return
 
 if.end14:                                         ; preds = %clusterManagerNodeIsCluster.exit
-  store ptr null, ptr %err, align 8
   %call15 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %call.i178, i32 noundef 0, ptr noundef %err)
   %tobool16.not = icmp eq i32 %call15, 0
   br i1 %tobool16.not, label %if.then17, label %if.end23
@@ -1961,7 +1960,6 @@ if.end22:                                         ; preds = %if.then19, %if.then
   br label %return
 
 if.end23:                                         ; preds = %if.end14
-  store ptr null, ptr %err, align 8
   %call24 = call fastcc i32 @clusterManagerNodeIsEmpty(ptr noundef nonnull %call.i178, ptr noundef %err)
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %if.then26, label %if.end30
@@ -17991,7 +17989,6 @@ if.then3:                                         ; preds = %clusterManagerNodeI
   br i1 %tobool.not.i, label %return.sink.split, label %return.sink.split.sink.split
 
 if.end7:                                          ; preds = %clusterManagerNodeIsCluster.exit
-  store ptr null, ptr %e, align 8
   %call8 = call fastcc i32 @clusterManagerNodeLoadInfo(ptr noundef nonnull %node, i32 noundef 1, ptr noundef %e)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %if.end14

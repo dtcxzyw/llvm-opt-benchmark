@@ -736,7 +736,6 @@ define dso_local range(i32 -2147483648, 1) i32 @cap_bprm_creds_from_file(ptr nou
 
 21:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !12
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 0, ptr %22, align 8
   %23 = load i32, ptr @file_caps_enabled, align 4

@@ -461,7 +461,6 @@ define dso_local range(i64 0, 4503599627370496) i64 @slow_virt_to_phys(ptr nound
   %2 = alloca i32, align 4
   %3 = ptrtoint ptr %0 to i64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
-  store i32 0, ptr %2, align 4, !annotation !15
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_mm, i64 128), align 64
   %5 = load i32, ptr @pgdir_shift, align 4
   %6 = zext nneg i32 %5 to i64
@@ -470,11 +469,11 @@ define dso_local range(i64 0, 4503599627370496) i64 @slow_virt_to_phys(ptr nound
   %9 = getelementptr %struct.pgd_t, ptr %4, i64 %8
   %10 = call ptr @lookup_address_in_pgd(ptr noundef %9, i64 noundef %3, ptr noundef nonnull %2)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %12, label %13, !prof !16
+  br i1 %11, label %12, label %13, !prof !15
 
 12:                                               ; preds = %1
-  tail call void asm sideeffect "440: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 440b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 440) #11, !srcloc !17
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 772, i32 0, i64 12) #11, !srcloc !18
+  tail call void asm sideeffect "440: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 440b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 440) #11, !srcloc !16
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 772, i32 0, i64 12) #11, !srcloc !17
   unreachable
 
 13:                                               ; preds = %1
@@ -568,15 +567,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
 37:                                               ; preds = %31
   %38 = and i64 %34, -4096
   store i64 %38, ptr %33, align 8
-  tail call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #11, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1818, i32 2307, i64 12) #11, !srcloc !20
-  tail call void asm sideeffect "464: nop\0A\09.pushsection .discard.instr_end\0A\09.long 464b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 464) #11, !srcloc !21
+  tail call void asm sideeffect "463: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 463b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 463) #11, !srcloc !18
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1818, i32 2307, i64 12) #11, !srcloc !19
+  tail call void asm sideeffect "464: nop\0A\09.pushsection .discard.instr_end\0A\09.long 464b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 464) #11, !srcloc !20
   br label %39
 
 39:                                               ; preds = %37, %31
   %40 = add nuw nsw i64 %32, 1
   %41 = icmp eq i64 %40, %30
-  br i1 %41, label %.loopexit8, label %31, !llvm.loop !22
+  br i1 %41, label %.loopexit8, label %31, !llvm.loop !21
 
 42:                                               ; preds = %24
   %43 = and i32 %5, 4
@@ -592,9 +591,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
 49:                                               ; preds = %45
   %50 = and i64 %46, -4096
   store i64 %50, ptr %0, align 8
-  tail call void asm sideeffect "465: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 465b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 465) #11, !srcloc !23
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1831, i32 2307, i64 12) #11, !srcloc !24
-  tail call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_end\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #11, !srcloc !25
+  tail call void asm sideeffect "465: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 465b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 465) #11, !srcloc !22
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 1831, i32 2307, i64 12) #11, !srcloc !23
+  tail call void asm sideeffect "466: nop\0A\09.pushsection .discard.instr_end\0A\09.long 466b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 466) #11, !srcloc !24
   br label %.loopexit8
 
 .loopexit8:                                       ; preds = %39, %49, %45, %42, %27
@@ -630,7 +629,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
 
 68:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #11
-  store i64 0, ptr %11, align 8, !annotation !15
+  store i64 0, ptr %11, align 8, !annotation !25
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %11) #11, !srcloc !26
   %69 = load i64, ptr %11, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
@@ -639,7 +638,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
   %72 = load i8, ptr @early_boot_irqs_disabled, align 1, !range !27
   %73 = icmp eq i8 %72, 0
   %74 = select i1 %71, i1 %73, i1 false
-  br i1 %74, label %75, label %76, !prof !16
+  br i1 %74, label %75, label %76, !prof !15
 
 75:                                               ; preds = %68
   call void asm sideeffect "433: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 433b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 433) #11, !srcloc !28
@@ -654,7 +653,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
 
 79:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
-  store i64 0, ptr %9, align 8, !annotation !15
+  store i64 0, ptr %9, align 8, !annotation !25
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9) #11, !srcloc !26
   %80 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
@@ -663,7 +662,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
   %83 = load i8, ptr @early_boot_irqs_disabled, align 1, !range !27
   %84 = icmp eq i8 %83, 0
   %85 = select i1 %82, i1 %84, i1 false
-  br i1 %85, label %86, label %87, !prof !16
+  br i1 %85, label %86, label %87, !prof !15
 
 86:                                               ; preds = %79
   call void asm sideeffect "434: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 434b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 434) #11, !srcloc !30
@@ -679,7 +678,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
 
 89:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
-  store i64 0, ptr %8, align 8, !annotation !15
+  store i64 0, ptr %8, align 8, !annotation !25
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8) #11, !srcloc !26
   %90 = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
@@ -688,7 +687,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
   %93 = load i8, ptr @early_boot_irqs_disabled, align 1, !range !27
   %94 = icmp eq i8 %93, 0
   %95 = select i1 %92, i1 %94, i1 false
-  br i1 %95, label %96, label %97, !prof !16
+  br i1 %95, label %96, label %97, !prof !15
 
 96:                                               ; preds = %89
   call void asm sideeffect "433: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 433b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 433) #11, !srcloc !28
@@ -1359,7 +1358,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_direct_map_invalid_noflush(p
   store i64 %9, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #11
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 0, ptr %10, align 8, !annotation !15
+  store i64 0, ptr %10, align 8, !annotation !25
   store ptr %2, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1393,7 +1392,7 @@ define dso_local range(i32 -2147483648, 1) i32 @set_direct_map_default_noflush(p
   store i64 %9, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #11
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 0, ptr %10, align 8, !annotation !15
+  store i64 0, ptr %10, align 8, !annotation !25
   store ptr %2, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %11, align 8
@@ -1446,7 +1445,7 @@ define dso_local range(i32 -2147483648, 1) i32 @kernel_map_pages_in_pgd(ptr noun
   store i64 %2, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 48, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 48, i1 false), !annotation !25
   store ptr %6, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %9, align 8
@@ -1565,7 +1564,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   store i64 %47, ptr %15, align 8
   call void @_raw_spin_lock(ptr noundef nonnull @cpa_lock) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #11
-  store i32 0, ptr %14, align 4, !annotation !15
+  store i32 0, ptr %14, align 4, !annotation !25
   %48 = load i64, ptr %32, align 8
   %49 = load i32, ptr %31, align 8
   %50 = and i32 %49, 4
@@ -1735,7 +1734,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
 153:                                              ; preds = %149
   call void @_raw_spin_lock(ptr noundef nonnull @pgd_lock) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #11
-  store i32 0, ptr %12, align 4, !annotation !15
+  store i32 0, ptr %12, align 4, !annotation !25
   %154 = load ptr, ptr %34, align 8
   %155 = icmp eq ptr %154, null
   %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_mm, i64 128), align 64
@@ -1864,7 +1863,6 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
 
 244:                                              ; preds = %237
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #11
-  store i32 0, ptr %11, align 4, !annotation !15
   %245 = icmp ne i32 %.pre67, 0
   %246 = and i1 %92, %245
   %247 = and i1 %240, %246
@@ -2011,7 +2009,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %325 = add i64 %323, %324
   %326 = inttoptr i64 %325 to ptr
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
-  store i32 0, ptr %9, align 4, !annotation !15
+  store i32 0, ptr %9, align 4, !annotation !25
   call void @_raw_spin_lock(ptr noundef nonnull @pgd_lock) #11
   %327 = load ptr, ptr %34, align 8
   %328 = icmp eq ptr %327, null
@@ -2140,7 +2138,6 @@ static_protections.exit.thread.us.us:             ; preds = %static_protections.
 
 420:                                              ; preds = %418, %410
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
-  store i32 0, ptr %3, align 4, !annotation !15
   %421 = load i32, ptr @kernel_set_to_readonly, align 4
   %422 = icmp ne i32 %421, 0
   %423 = icmp ule i64 %404, sub (i64 ptrtoint (ptr @__end_rodata_hpage_align to i64), i64 1)
@@ -2538,7 +2535,7 @@ define dso_local range(i32 -2147483648, 1) i32 @kernel_unmap_pages_in_pgd(ptr no
   store i64 %1, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 0, ptr %6, align 8, !annotation !15
+  store i64 0, ptr %6, align 8, !annotation !25
   store ptr %4, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
@@ -3223,7 +3220,6 @@ define internal fastcc i64 @static_protections(i64 %0, i64 noundef %1, i64 nound
 
 31:                                               ; preds = %27, %25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
-  store i32 0, ptr %7, align 4, !annotation !15
   %32 = load i32, ptr @kernel_set_to_readonly, align 4
   %33 = icmp ne i32 %32, 0
   %34 = icmp ule i64 %1, sub (i64 ptrtoint (ptr @__end_rodata_hpage_align to i64), i64 1)
@@ -3992,17 +3988,17 @@ attributes #12 = { cold nounwind }
 !12 = !{i64 2156582213, i64 2156582022, i64 2156582074, i64 2156582120, i64 2156582148}
 !13 = !{i64 2156582287, i64 2156582316, i64 2156582362, i64 2156582420, i64 2156582474, i64 2156582528, i64 2156582583, i64 2156582614, i64 2156582922, i64 2156582928, i64 2156582975, i64 2156582998, i64 2156583024}
 !14 = !{i64 2156583485, i64 2156583296, i64 2156583346, i64 2156583392, i64 2156583420}
-!15 = !{!"auto-init"}
-!16 = !{!"branch_weights", i32 1, i32 2000}
-!17 = !{i64 2156616916, i64 2156616725, i64 2156616777, i64 2156616823, i64 2156616851}
-!18 = !{i64 2156616990, i64 2156617019, i64 2156617065, i64 2156617123, i64 2156617177, i64 2156617231, i64 2156617286, i64 2156617317}
-!19 = !{i64 2156713714, i64 2156713523, i64 2156713575, i64 2156713621, i64 2156713649}
-!20 = !{i64 2156713788, i64 2156713817, i64 2156713863, i64 2156713921, i64 2156713975, i64 2156714029, i64 2156714084, i64 2156714115, i64 2156714423, i64 2156714429, i64 2156714476, i64 2156714499, i64 2156714525}
-!21 = !{i64 2156714987, i64 2156714798, i64 2156714848, i64 2156714894, i64 2156714922}
-!22 = distinct !{!22, !8, !9}
-!23 = !{i64 2156715976, i64 2156715785, i64 2156715837, i64 2156715883, i64 2156715911}
-!24 = !{i64 2156716050, i64 2156716079, i64 2156716125, i64 2156716183, i64 2156716237, i64 2156716291, i64 2156716346, i64 2156716377, i64 2156716685, i64 2156716691, i64 2156716738, i64 2156716761, i64 2156716787}
-!25 = !{i64 2156717249, i64 2156717060, i64 2156717110, i64 2156717156, i64 2156717184}
+!15 = !{!"branch_weights", i32 1, i32 2000}
+!16 = !{i64 2156616916, i64 2156616725, i64 2156616777, i64 2156616823, i64 2156616851}
+!17 = !{i64 2156616990, i64 2156617019, i64 2156617065, i64 2156617123, i64 2156617177, i64 2156617231, i64 2156617286, i64 2156617317}
+!18 = !{i64 2156713714, i64 2156713523, i64 2156713575, i64 2156713621, i64 2156713649}
+!19 = !{i64 2156713788, i64 2156713817, i64 2156713863, i64 2156713921, i64 2156713975, i64 2156714029, i64 2156714084, i64 2156714115, i64 2156714423, i64 2156714429, i64 2156714476, i64 2156714499, i64 2156714525}
+!20 = !{i64 2156714987, i64 2156714798, i64 2156714848, i64 2156714894, i64 2156714922}
+!21 = distinct !{!21, !8, !9}
+!22 = !{i64 2156715976, i64 2156715785, i64 2156715837, i64 2156715883, i64 2156715911}
+!23 = !{i64 2156716050, i64 2156716079, i64 2156716125, i64 2156716183, i64 2156716237, i64 2156716291, i64 2156716346, i64 2156716377, i64 2156716685, i64 2156716691, i64 2156716738, i64 2156716761, i64 2156716787}
+!24 = !{i64 2156717249, i64 2156717060, i64 2156717110, i64 2156717156, i64 2156717184}
+!25 = !{!"auto-init"}
 !26 = !{i64 763978, i64 763999}
 !27 = !{i8 0, i8 2}
 !28 = !{i64 2156587509, i64 2156587318, i64 2156587370, i64 2156587416, i64 2156587444}

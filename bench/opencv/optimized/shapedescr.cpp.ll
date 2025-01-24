@@ -4820,11 +4820,11 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IfEEEEvPKT_iR
 .lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext nneg i32 %1 to i64
   %.pre = load float, ptr %2, align 4
-  %.pre69 = load float, ptr %17, align 4
+  %.pre65 = load float, ptr %17, align 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %146
-  %32 = phi float [ %.pre69, %.lr.ph.preheader ], [ %147, %146 ]
+  %32 = phi float [ %.pre65, %.lr.ph.preheader ], [ %147, %146 ]
   %33 = phi float [ %.pre, %.lr.ph.preheader ], [ %148, %146 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %146 ]
   %34 = getelementptr inbounds nuw %"class.cv::Point_", ptr %0, i64 %indvars.iv
@@ -4875,7 +4875,7 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IfEEEEvPKT_iR
 71:                                               ; preds = %141, %47
   %.sroa.5.0 = phi float [ %53, %47 ], [ %.sroa.5.1, %141 ]
   %.sroa.0.0 = phi float [ %50, %47 ], [ %.sroa.0.1, %141 ]
-  %.062 = phi float [ %62, %47 ], [ %.1, %141 ]
+  %.058 = phi float [ %62, %47 ], [ %.1, %141 ]
   %72 = phi float [ %53, %47 ], [ %142, %141 ]
   %73 = phi float [ %50, %47 ], [ %143, %141 ]
   %indvars.iv.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i, %141 ]
@@ -4890,7 +4890,7 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IfEEEEvPKT_iR
   %82 = fmul double %81, %81
   %83 = tail call double @llvm.fmuladd.f64(double %80, double %80, double %82)
   %sqrt.i45.i = tail call noundef double @llvm.sqrt.f64(double %83)
-  %84 = fpext float %.062 to double
+  %84 = fpext float %.058 to double
   %85 = fcmp olt double %sqrt.i45.i, %84
   br i1 %85, label %141, label %.preheader.preheader.i
 
@@ -4961,8 +4961,8 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IfEEEEvPKT_iR
   %131 = fmul float %86, %70
   %132 = tail call float @llvm.fmuladd.f32(float %54, float %127, float %131)
   %133 = fdiv float %132, %90
-  %.sroa.048.0.vec.insert50 = insertelement <2 x float> poison, float %130, i64 0
-  %.sroa.048.4.vec.insert54 = insertelement <2 x float> %.sroa.048.0.vec.insert50, float %133, i64 1
+  %.sroa.048.0.vec.insert = insertelement <2 x float> poison, float %130, i64 0
+  %.sroa.048.4.vec.insert = insertelement <2 x float> %.sroa.048.0.vec.insert, float %133, i64 1
   %134 = fsub float %130, %48
   %135 = fsub float %133, %51
   %136 = fmul float %135, %135
@@ -4972,9 +4972,9 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IfEEEEvPKT_iR
   br label %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit
 
 _ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit: ; preds = %93, %111, %116, %121
-  %.063 = phi float [ %138, %121 ], [ %105, %116 ], [ %105, %111 ], [ %105, %93 ]
-  %.sroa.048.4 = phi <2 x float> [ %.sroa.048.4.vec.insert54, %121 ], [ %.sroa.0.4.vec.insert.i153.i, %116 ], [ %.sroa.0.4.vec.insert.i149.i, %111 ], [ %.sroa.0.4.vec.insert.i145.i, %93 ]
-  %139 = fcmp ogt float %.063, 0.000000e+00
+  %.059 = phi float [ %138, %121 ], [ %105, %116 ], [ %105, %111 ], [ %105, %93 ]
+  %.sroa.048.4 = phi <2 x float> [ %.sroa.048.4.vec.insert, %121 ], [ %.sroa.0.4.vec.insert.i153.i, %116 ], [ %.sroa.0.4.vec.insert.i149.i, %111 ], [ %.sroa.0.4.vec.insert.i145.i, %93 ]
+  %139 = fcmp ogt float %.059, 0.000000e+00
   br i1 %139, label %140, label %141
 
 140:                                              ; preds = %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit
@@ -4985,7 +4985,7 @@ _ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit: ; preds = %93, %111, %116, %
 141:                                              ; preds = %140, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit, %71
   %.sroa.5.1 = phi float [ %.sroa.5.0, %71 ], [ %.sroa.048.4.vec.extract, %140 ], [ %.sroa.5.0, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit ]
   %.sroa.0.1 = phi float [ %.sroa.0.0, %71 ], [ %.sroa.048.0.vec.extract, %140 ], [ %.sroa.0.0, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit ]
-  %.1 = phi float [ %.062, %71 ], [ %.063, %140 ], [ %.062, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit ]
+  %.1 = phi float [ %.058, %71 ], [ %.059, %140 ], [ %.058, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit ]
   %142 = phi float [ %72, %71 ], [ %.sroa.048.4.vec.extract, %140 ], [ %72, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit ]
   %143 = phi float [ %73, %71 ], [ %.sroa.048.0.vec.extract, %140 ], [ %73, %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

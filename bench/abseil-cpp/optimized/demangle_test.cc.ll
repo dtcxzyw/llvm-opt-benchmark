@@ -5067,7 +5067,6 @@ entry:
   %gtest_ar280 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp285 = alloca %"class.testing::Message", align 8
   %ref.tmp288 = alloca %"class.testing::internal::AssertHelper", align 8
-  store i32 0, ptr %stack_consumed, align 4
   %call = call fastcc noundef ptr @_ZN4absl18debugging_internal12_GLOBAL__N_124DemangleStackConsumptionEPKcPi(ptr noundef nonnull @.str.18, ptr noundef %stack_consumed)
   call void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.24, ptr noundef %call)
   %0 = load i8, ptr %gtest_ar, align 8

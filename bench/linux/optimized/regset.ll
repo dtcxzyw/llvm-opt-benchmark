@@ -507,51 +507,52 @@ define dso_local i32 @fpregs_get(ptr noundef %0, ptr nocapture noundef readnone 
   %5 = alloca %struct.user_i387_ia32_struct, align 4
   %6 = alloca %struct.fxregs_state, align 16
   call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %5) #12
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %6) #12
-  %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
-  %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %0, %8
-  br i1 %9, label %10, label %12
+  %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !6
+  %9 = inttoptr i64 %8 to ptr
+  %10 = icmp eq ptr %0, %9
+  br i1 %10, label %11, label %13
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 3008
-  tail call void @fpu_sync_fpstate(ptr noundef nonnull %11) #12
-  br label %12
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 3008
+  tail call void @fpu_sync_fpstate(ptr noundef nonnull %12) #12
+  br label %13
 
-12:                                               ; preds = %10, %4
+13:                                               ; preds = %11, %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %6, i8 0, i64 512, i1 false), !annotation !8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 154, i32 4, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 59)) #12
-          to label %17 [label %17, label %13], !srcloc !7
+          to label %18 [label %18, label %14], !srcloc !7
 
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 3024
-  %15 = load ptr, ptr %14, align 16
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  br label %18
+14:                                               ; preds = %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3024
+  %16 = load ptr, ptr %15, align 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  br label %19
 
-17:                                               ; preds = %12, %12
+18:                                               ; preds = %13, %13
   call void @copy_xstate_to_uabi_buf(ptr nonnull %6, i64 512, ptr noundef %0, i32 noundef 0) #12
-  br label %18
+  br label %19
 
-18:                                               ; preds = %17, %13
-  %19 = phi ptr [ %6, %17 ], [ %16, %13 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %5, i8 0, i64 108, i1 false), !annotation !8
-  call fastcc void @__convert_from_fxsr(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %19)
-  %20 = icmp eq i64 %3, 0
-  br i1 %20, label %25, label %21
+19:                                               ; preds = %18, %14
+  %20 = phi ptr [ %6, %18 ], [ %17, %14 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %7, i8 0, i64 100, i1 false), !annotation !8
+  call fastcc void @__convert_from_fxsr(ptr noundef nonnull %5, ptr noundef %0, ptr noundef nonnull %20)
+  %21 = icmp eq i64 %3, 0
+  br i1 %21, label %26, label %22
 
-21:                                               ; preds = %18
-  %22 = call i64 @llvm.umin.i64(i64 %3, i64 108)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 4 %5, i64 %22, i1 false)
-  %23 = sub i64 %3, %22
-  %24 = trunc i64 %23 to i32
-  br label %25
+22:                                               ; preds = %19
+  %23 = call i64 @llvm.umin.i64(i64 %3, i64 108)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 4 %5, i64 %23, i1 false)
+  %24 = sub i64 %3, %23
+  %25 = trunc i64 %24 to i32
+  br label %26
 
-25:                                               ; preds = %21, %18
-  %26 = phi i32 [ 0, %18 ], [ %24, %21 ]
+26:                                               ; preds = %22, %19
+  %27 = phi i32 [ 0, %19 ], [ %25, %22 ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %5) #12
-  ret i32 %26
+  ret i32 %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

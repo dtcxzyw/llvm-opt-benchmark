@@ -68,7 +68,6 @@ target triple = "x86_64-unknown-linux-gnu"
 define range(i32 0, 2) i32 @ossl_cmp_exchange_certConf(ptr noundef %ctx, i32 noundef %certReqId, i32 noundef %fail_info, ptr noundef %txt) local_unnamed_addr #0 {
 entry:
   %PKIconf = alloca ptr, align 8
-  store ptr null, ptr %PKIconf, align 8
   %call = tail call ptr @ossl_cmp_certConf_new(ptr noundef %ctx, i32 noundef %certReqId, i32 noundef %fail_info, ptr noundef %txt) #4
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %err, label %if.end
@@ -324,7 +323,6 @@ declare void @OSSL_CMP_MSG_free(ptr noundef) local_unnamed_addr #1
 define range(i32 0, 2) i32 @ossl_cmp_exchange_error(ptr noundef %ctx, i32 noundef %status, i32 noundef %fail_info, ptr noundef %txt, i32 noundef %errorCode, ptr noundef %details) local_unnamed_addr #0 {
 entry:
   %PKIconf = alloca ptr, align 8
-  store ptr null, ptr %PKIconf, align 8
   %call = tail call ptr @OSSL_CMP_STATUSINFO_new(i32 noundef %status, i32 noundef %fail_info, ptr noundef %txt) #4
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %err, label %if.end
@@ -559,7 +557,6 @@ if.else:                                          ; preds = %if.end
 
 if.then13:                                        ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %PKIconf.i)
-  store ptr null, ptr %PKIconf.i, align 8
   %call.i16 = tail call ptr @OSSL_CMP_STATUSINFO_new(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.11) #4
   %cmp.i17 = icmp eq ptr %call.i16, null
   br i1 %cmp.i17, label %ossl_cmp_exchange_error.exit, label %if.end.i18
@@ -1128,7 +1125,6 @@ define range(i32 0, 2) i32 @OSSL_CMP_exec_RR_ses(ptr noundef %ctx) local_unnamed
 entry:
   %rp = alloca ptr, align 8
   %buf = alloca [1024 x i8], align 16
-  store ptr null, ptr %rp, align 8
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -1401,7 +1397,6 @@ declare void @ERR_add_error_data(i32 noundef, ...) local_unnamed_addr #1
 define ptr @OSSL_CMP_exec_GENM_ses(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %genp = alloca ptr, align 8
-  store ptr null, ptr %genp, align 8
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end
 

@@ -31921,8 +31921,6 @@ _ZNK5clang4Type10isVoidTypeEv.exit233:            ; preds = %_ZNK5clang4Type10is
   br i1 %241, label %242, label %290
 
 242:                                              ; preds = %233, %224
-  store i64 0, ptr %20, align 8
-  store i64 0, ptr %21, align 8
   %243 = load i64, ptr %2, align 8
   %244 = and i64 %243, -2
   %245 = inttoptr i64 %244 to ptr

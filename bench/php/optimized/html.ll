@@ -5805,7 +5805,6 @@ unescape_inverse_map.exit:                        ; preds = %switch.lookup, %64
   br i1 %94, label %95, label %457
 
 95:                                               ; preds = %92
-  store i32 0, ptr %11, align 4
   %96 = call fastcc i32 @get_next_char(i32 noundef %.016.i, ptr noundef %0, i64 noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11)
   %97 = add i64 %.1326, -40
   %98 = icmp ugt i64 %.0323.ph, %97
@@ -5961,7 +5960,6 @@ unescape_inverse_map.exit:                        ; preds = %switch.lookup, %64
   br label %find_entity_for_char.exit
 
 185:                                              ; preds = %166
-  store i32 0, ptr %9, align 4
   %186 = icmp ult i64 %145, %1
   br i1 %186, label %187, label %.loopexit.i
 

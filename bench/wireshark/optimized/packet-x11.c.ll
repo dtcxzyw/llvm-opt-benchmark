@@ -29366,7 +29366,6 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %.0108.lcssa.i = phi i32 [ -1, %.preheader138.i ], [ -1, %.preheader137.lr.ph.i ], [ %.2110.us.i, %._crit_edge.us.i ]
   %.098.lcssa.i = phi i32 [ 0, %.preheader138.i ], [ 0, %.preheader137.lr.ph.i ], [ %.2100.us.i, %._crit_edge.us.i ]
   %.095.lcssa.i = phi i32 [ 0, %.preheader138.i ], [ 0, %.preheader137.lr.ph.i ], [ %.297.us.i, %._crit_edge.us.i ]
-  store i32 %storemerge.lcssa166.lcssa.i, ptr %7, align 4
   %57 = getelementptr i8, ptr %4, i64 12456
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
@@ -29563,7 +29562,6 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   br i1 %or.cond9.i, label %151, label %142
 
 142:                                              ; preds = %139
-  store i32 0, ptr %10, align 4
   br i1 %141, label %149, label %143
 
 143:                                              ; preds = %142
@@ -29573,7 +29571,6 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
 145:                                              ; preds = %143
   %146 = getelementptr i8, ptr %.0114.i, i64 4
   %147 = load i32, ptr %146, align 4
-  store i32 %147, ptr %10, align 4
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %171
 
@@ -29584,7 +29581,6 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   br label %171
 
 151:                                              ; preds = %139
-  store i32 0, ptr %12, align 4
   br i1 %141, label %158, label %152
 
 152:                                              ; preds = %151

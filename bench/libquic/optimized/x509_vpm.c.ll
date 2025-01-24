@@ -32,7 +32,8 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call, i8 0, i64 56, i1 false)
+  %0 = getelementptr inbounds nuw i8, ptr %call, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 48, i1 false)
   %id = getelementptr inbounds nuw i8, ptr %call, i64 56
   store ptr %calloc, ptr %id, align 8
   tail call fastcc void @x509_verify_param_zero(ptr noundef %call)

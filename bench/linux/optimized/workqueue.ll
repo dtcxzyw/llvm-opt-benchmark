@@ -2072,7 +2072,6 @@ define internal fastcc void @__queue_delayed_work(i32 noundef %0, ptr noundef %1
 define dso_local noundef zeroext i1 @mod_delayed_work_on(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #1 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  store i64 0, ptr %5, align 8, !annotation !14
   br label %6
 
 6:                                                ; preds = %6, %4
@@ -3316,7 +3315,6 @@ define internal fastcc noundef zeroext i1 @__cancel_work_timer(ptr noundef %0, i
   %3 = alloca i64, align 8
   %4 = alloca %struct.cwt_wait, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
-  store i64 0, ptr %3, align 8, !annotation !14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3493,7 +3491,6 @@ declare dso_local void @rcu_barrier() local_unnamed_addr #0
 define dso_local noundef zeroext i1 @cancel_work(ptr noundef %0) #1 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
-  store i64 0, ptr %2, align 8, !annotation !14
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -3566,7 +3563,6 @@ define dso_local noundef zeroext i1 @cancel_work(ptr noundef %0) #1 align 16 {
 define dso_local noundef zeroext i1 @cancel_delayed_work(ptr noundef %0) #1 align 16 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
-  store i64 0, ptr %2, align 8, !annotation !14
   br label %3
 
 3:                                                ; preds = %3, %1

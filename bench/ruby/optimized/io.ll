@@ -26103,7 +26103,6 @@ rb_io_ext_int_to_encs.exit:                       ; preds = %54, %56
 
 61:                                               ; preds = %58
   %62 = tail call ptr @rb_enc_get(i64 noundef %59) #24
-  store ptr %62, ptr %5, align 8
   %63 = getelementptr i8, ptr %62, i64 20
   %.val.i = load i32, ptr %63, align 4
   %.not.i30 = icmp eq i32 %.val.i, 1

@@ -7812,7 +7812,6 @@ land.lhs.true535:                                 ; preds = %land.lhs.true532
   br i1 %tobool538.not, label %if.end552, label %if.then539
 
 if.then539:                                       ; preds = %land.lhs.true535
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %result, i8 0, i64 64, i1 false)
   %call540 = call i32 @qcow2_co_check_locked(ptr noundef nonnull %bs, ptr noundef nonnull %result, i32 noundef 3)
   %cmp541 = icmp slt i32 %call540, 0
   %check_errors = getelementptr inbounds nuw i8, ptr %result, i64 8

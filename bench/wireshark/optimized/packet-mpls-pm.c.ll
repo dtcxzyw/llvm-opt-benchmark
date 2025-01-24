@@ -300,11 +300,6 @@ define internal i32 @dissect_mpls_pm_delay(ptr noundef %0, ptr nocapture noundef
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
-  store i32 0, ptr %5, align 4
-  store i32 0, ptr %6, align 4
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %8, align 4
-  store i8 0, ptr %9, align 1
   call fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.128, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
   %10 = load i32, ptr @proto_mpls_pm_dm, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
@@ -390,11 +385,6 @@ define internal fastcc void @dissect_mpls_pm_loss(ptr noundef %0, ptr nocapture 
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
-  store i32 0, ptr %5, align 4
-  store i32 0, ptr %6, align 4
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %8, align 4
-  store i8 0, ptr %9, align 1
   %10 = zext nneg i8 %3 to i32
   %11 = tail call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @pmt_vals, ptr noundef nonnull @.str.121) #2
   call fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)
@@ -756,11 +746,6 @@ define internal fastcc void @dissect_mpls_pm_combined(ptr noundef %0, ptr nocapt
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i8, align 1
-  store i32 0, ptr %5, align 4
-  store i32 0, ptr %6, align 4
-  store i32 0, ptr %7, align 4
-  store i32 0, ptr %8, align 4
-  store i8 0, ptr %9, align 1
   %10 = zext nneg i8 %3 to i32
   %11 = tail call ptr @val_to_str_const(i32 noundef %10, ptr noundef nonnull @pmt_vals, ptr noundef nonnull @.str.121) #2
   call fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr noundef %1, ptr noundef %11, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9)

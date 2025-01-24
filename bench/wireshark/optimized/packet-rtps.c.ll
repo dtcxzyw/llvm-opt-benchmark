@@ -11990,9 +11990,6 @@ define internal fastcc void @dissect_serialized_data(ptr noundef %0, ptr noundef
   %16 = alloca ptr, align 8
   %17 = tail call ptr @wmem_packet_scope() #13
   %18 = tail call noalias ptr @wmem_alloc(ptr noundef %17, i64 noundef 8) #13
-  store ptr null, ptr %13, align 8
-  store i32 0, ptr %14, align 4
-  store i32 0, ptr %15, align 4
   store ptr null, ptr %16, align 8
   store i16 0, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4

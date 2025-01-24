@@ -8430,7 +8430,6 @@ Wlc_PrsSkipSpaces.exit:                           ; preds = %9
   br i1 %narrow.i, label %.preheader, label %13
 
 13:                                               ; preds = %Wlc_PrsSkipSpaces.exit
-  store i32 0, ptr %8, align 4
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %14 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   %15 = call fastcc ptr @Wlc_PrsReadConstant(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %calloc, ptr noundef %6, ptr noundef %7, ptr noundef %8)

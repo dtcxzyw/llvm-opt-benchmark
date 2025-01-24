@@ -387,7 +387,6 @@ define dso_local noundef zeroext i1 @_ZN3net16HpackInputStream24DecodeNextIdenti
 entry:
   %size = alloca i32, align 4
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
-  store i32 0, ptr %size, align 4
   %call = call noundef zeroext i1 @_ZN3net16HpackInputStream16DecodeNextUint32EPj(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull %size)
   br i1 %call, label %if.end, label %return
 
@@ -430,7 +429,6 @@ define dso_local noundef zeroext i1 @_ZN3net16HpackInputStream23DecodeNextHuffma
 entry:
   %encoded_size = alloca i32, align 4
   %bounded_reader = alloca %"class.net::HpackInputStream", align 8
-  store i32 0, ptr %encoded_size, align 4
   %call = call noundef zeroext i1 @_ZN3net16HpackInputStream16DecodeNextUint32EPj(ptr noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull %encoded_size)
   br i1 %call, label %if.end3, label %return
 

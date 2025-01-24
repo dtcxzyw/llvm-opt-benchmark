@@ -59,7 +59,6 @@ entry:
   %ctlen = alloca i32, align 4
   %taglen = alloca i32, align 4
   store i32 0, ptr %ctlen, align 4
-  store i32 0, ptr %taglen, align 4
   %call = call fastcc i32 @do_encrypt(ptr noundef null, ptr noundef %ct, ptr noundef %ctlen, ptr noundef %tag, ptr noundef %taglen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.lhs.true
@@ -133,7 +132,6 @@ entry:
   %ctlen = alloca i32, align 4
   %taglen = alloca i32, align 4
   store i32 0, ptr %ctlen, align 4
-  store i32 0, ptr %taglen, align 4
   %call = call fastcc i32 @do_encrypt(ptr noundef nonnull %iv_gen, ptr noundef %ct, ptr noundef %ctlen, ptr noundef %tag, ptr noundef %taglen)
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %land.end, label %land.rhs

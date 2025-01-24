@@ -365,7 +365,6 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
 define noundef zeroext i1 @_ZN13sentencepiece11string_util19IsStructurallyValidESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr %1) local_unnamed_addr #6 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 %0
-  store i64 0, ptr %3, align 8
   %5 = icmp slt i64 %0, 1
   br i1 %5, label %._crit_edge, label %.lr.ph
 

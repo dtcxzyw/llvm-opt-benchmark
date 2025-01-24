@@ -6718,7 +6718,6 @@ for.body115:                                      ; preds = %for.body115.lr.ph, 
   %added.2125 = phi i32 [ 0, %for.body115.lr.ph ], [ %spec.select, %if.end129 ]
   %arrayidx117 = getelementptr inbounds nuw double, ptr %call74, i64 %indvars.iv143
   %27 = load double, ptr %arrayidx117, align 8
-  store i32 0, ptr %retflags, align 4
   %28 = load ptr, ptr %argv, align 8
   %.idx150 = shl nsw i64 %indvars.iv143, 4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx150
@@ -15415,7 +15414,6 @@ define internal void @zrangeResultEmitCBufferForStore(ptr nocapture noundef read
 entry:
   %newscore = alloca double, align 8
   %retflags = alloca i32, align 4
-  store i32 0, ptr %retflags, align 4
   %call = tail call ptr @sdsnewlen(ptr noundef %value, i64 noundef %value_length_in_bytes) #19
   %dstobj = getelementptr inbounds nuw i8, ptr %handler, i64 24
   %0 = load ptr, ptr %dstobj, align 8
@@ -15438,7 +15436,6 @@ define internal void @zrangeResultEmitLongLongForStore(ptr nocapture noundef rea
 entry:
   %newscore = alloca double, align 8
   %retflags = alloca i32, align 4
-  store i32 0, ptr %retflags, align 4
   %call = tail call ptr @sdsfromlonglong(i64 noundef %value) #19
   %dstobj = getelementptr inbounds nuw i8, ptr %handler, i64 24
   %0 = load ptr, ptr %dstobj, align 8

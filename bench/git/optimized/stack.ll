@@ -2658,7 +2658,6 @@ entry:
   %stack = alloca ptr, align 8
   %cfg = alloca %struct.reftable_write_options, align 8
   %table = alloca %struct.reftable_table, align 8
-  store ptr null, ptr %stack, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cfg, i8 0, i64 28, i1 false)
   %hash_id1 = getelementptr inbounds nuw i8, ptr %cfg, i64 16
   store i32 %hash_id, ptr %hash_id1, align 8

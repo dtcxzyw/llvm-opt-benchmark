@@ -13786,7 +13786,6 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 define void @_ZN7openvdb5v11_06points12AttributeSet10Descriptor10parseNamesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESD_RKSA_(ptr noundef nonnull align 8 dereferenceable(24) %includeNames, ptr noundef nonnull align 8 dereferenceable(24) %excludeNames, ptr noundef nonnull align 8 dereferenceable(32) %nameStr) local_unnamed_addr #3 align 2 {
 entry:
   %includeAll = alloca i8, align 1
-  store i8 0, ptr %includeAll, align 1
   call void @_ZN7openvdb5v11_06points12AttributeSet10Descriptor10parseNamesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EESD_RbRKSA_(ptr noundef nonnull align 8 dereferenceable(24) %includeNames, ptr noundef nonnull align 8 dereferenceable(24) %excludeNames, ptr noundef nonnull align 1 dereferenceable(1) %includeAll, ptr noundef nonnull align 8 dereferenceable(32) %nameStr)
   ret void
 }

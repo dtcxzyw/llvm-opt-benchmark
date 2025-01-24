@@ -646,7 +646,6 @@ declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 define ptr @BN_mod_inverse(ptr noundef %in, ptr noundef %a, ptr noundef %n, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %noinv = alloca i32, align 4
-  store i32 0, ptr %noinv, align 4
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %if.end3
 

@@ -4582,7 +4582,6 @@ define dso_local range(i64 -22, 1) i64 @__x64_sys_getrusage(ptr nocapture nounde
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false), !annotation !25
   %11 = inttoptr i64 %6 to ptr
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !7
   %13 = inttoptr i64 %12 to ptr
@@ -4612,7 +4611,6 @@ define dso_local range(i64 -22, 1) i64 @__ia32_sys_getrusage(ptr nocapture nound
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false), !annotation !25
   %11 = and i64 %6, 4294967295
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !7
@@ -4643,7 +4641,6 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_compat_sys_getru
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false), !annotation !25
   %11 = and i64 %6, 4294967295
   %12 = inttoptr i64 %11 to ptr
   %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #12, !srcloc !7

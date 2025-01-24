@@ -129066,7 +129066,6 @@ for.body.lr.ph:                                   ; preds = %if.end4.i.i
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %ma_node_input_bus_next.exit.us
   %pOutputBus.017.us = phi ptr [ %14, %ma_node_input_bus_next.exit.us ], [ %5, %for.body.lr.ph ]
-  store i32 0, ptr %framesProcessed, align 4
   %10 = load ptr, ptr %pOutputBus.017.us, align 8
   %outputBusIndex69.us = getelementptr inbounds nuw i8, ptr %pOutputBus.017.us, i64 8
   %11 = load i8, ptr %outputBusIndex69.us, align 8
@@ -151429,7 +151428,6 @@ entry:
   %lastSuccessfulSeekOffset = alloca i64, align 8
   %totalPCMFrameCount = getelementptr inbounds nuw i8, ptr %pFlac, i64 56
   %0 = load i64, ptr %totalPCMFrameCount, align 8
-  store i64 -1, ptr %lastSuccessfulSeekOffset, align 8
   %maxBlockSizeInPCMFrames = getelementptr inbounds nuw i8, ptr %pFlac, i64 54
   %1 = load i16, ptr %maxBlockSizeInPCMFrames, align 2
   %cmp.not = icmp eq i16 %1, 0

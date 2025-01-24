@@ -803,7 +803,6 @@ entry:
   %reason = alloca %struct.strbuf, align 8
   %path = alloca ptr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %reason, ptr noundef nonnull align 8 dereferenceable(24) @__const.infer_backlink.inferred, i64 24, i1 false)
-  store ptr null, ptr %path, align 8
   %id.i = getelementptr inbounds nuw i8, ptr %wt, i64 8
   %0 = load ptr, ptr %id.i, align 8
   %tobool.not.i.not = icmp eq ptr %0, null

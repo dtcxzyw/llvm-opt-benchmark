@@ -4838,7 +4838,6 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
   store i64 0, ptr %8, align 8
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 18
   store i8 0, ptr %67, align 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %9, i8 0, i64 17, i1 false)
   store i32 0, ptr %10, align 4
   store i32 0, ptr %11, align 4
   %68 = call noundef zeroext i1 @_ZN5clang6Parser25ParseParenExprOrConditionEPNS_12ActionResultIPNS_4StmtELb1EEERNS_4Sema15ConditionResultENS_14SourceLocationENS6_13ConditionKindERS9_SB_(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(19) %9, i32 %.sroa.01.0.copyload.i, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
@@ -5115,7 +5114,6 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
   tail call void @_ZN5clang6Parser10EnterScopeEj(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %.) #14
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 18
   store i8 0, ptr %65, align 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %6, i8 0, i64 17, i1 false)
   store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   %66 = call noundef zeroext i1 @_ZN5clang6Parser25ParseParenExprOrConditionEPNS_12ActionResultIPNS_4StmtELb1EEERNS_4Sema15ConditionResultENS_14SourceLocationENS6_13ConditionKindERS9_SB_(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(19) %6, i32 %11, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)

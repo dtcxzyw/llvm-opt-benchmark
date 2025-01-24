@@ -837,7 +837,6 @@ define i32 @SUNLogger_QueueMsg(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br label %32
 
 13:                                               ; preds = %8
-  store ptr null, ptr %7, align 8
   call void @sunCreateLogMessage(i32 noundef %1, i32 noundef 0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %6, ptr noundef nonnull %7)
   switch i32 %1, label %._crit_edge [
     i32 4, label %14

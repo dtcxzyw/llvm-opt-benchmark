@@ -9082,7 +9082,6 @@ define dso_local noundef ptr @_ZN5clang4Sema20GetTypeForDeclaratorERNS_10Declara
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 265
   store i8 0, ptr %19, align 1
-  store ptr null, ptr %4, align 8
   %20 = call fastcc i64 @_ZL28GetDeclSpecTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateERPN5clang14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(266) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %22 = load i32, ptr %21, align 8
@@ -20519,7 +20518,6 @@ define dso_local noundef ptr @_ZN5clang4Sema24GetTypeForDeclaratorCastERNS_10Dec
   store i8 0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 265
   store i8 0, ptr %20, align 1
-  store ptr null, ptr %5, align 8
   %21 = call fastcc i64 @_ZL28GetDeclSpecTypeForDeclaratorRN12_GLOBAL__N_119TypeProcessingStateERPN5clang14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(266) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %23 = load ptr, ptr %22, align 8

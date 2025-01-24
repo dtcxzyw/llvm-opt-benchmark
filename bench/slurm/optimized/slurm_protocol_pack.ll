@@ -1308,7 +1308,6 @@ define range(i32 -1, 1) i32 @unpack_config_response_msg(ptr nocapture noundef wr
   br i1 %.not14.i, label %.loopexit, label %13
 
 13:                                               ; preds = %11
-  store ptr null, ptr %5, align 8
   %14 = call ptr @list_create(ptr noundef nonnull @destroy_config_file) #8
   store ptr %14, ptr %7, align 8
   %15 = load i32, ptr %4, align 4

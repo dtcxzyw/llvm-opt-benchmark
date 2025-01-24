@@ -2961,7 +2961,6 @@ security_is_socket_class.exit:                    ; preds = %66, %55, %71, %74
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #17
   store i32 0, ptr %12, align 4, !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
-  store i32 0, ptr %13, align 4, !annotation !13
   %207 = call i32 @sidtab_sid2str_get(ptr noundef %206, ptr noundef nonnull %79, ptr noundef nonnull %8, ptr noundef nonnull %11) #17
   switch i32 %207, label %.thread30 [
     i32 -2, label %208
@@ -3283,7 +3282,6 @@ define dso_local range(i32 -21, -22) i32 @services_convert_context(ptr nocapture
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store ptr null, ptr %5, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  store i32 0, ptr %6, align 4, !annotation !13
   %118 = load volatile i8, ptr @selinux_state, align 8, !range !5, !noundef !6
   %119 = icmp eq i8 %118, 0
   br i1 %119, label %120, label %128
@@ -3311,7 +3309,6 @@ define dso_local range(i32 -21, -22) i32 @services_convert_context(ptr nocapture
   br label %129
 
 129:                                              ; preds = %128, %108, %.loopexit, %91, %65, %50, %36
-  store i32 0, ptr %8, align 4, !annotation !13
   %130 = load ptr, ptr %0, align 8
   %131 = call fastcc i32 @context_struct_to_string(ptr noundef %130, ptr noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8), !range !14
   %132 = icmp eq i32 %131, 0
@@ -4071,11 +4068,8 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
 128:                                              ; preds = %123
   %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @selinux_state, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  store ptr null, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
-  store ptr null, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
-  store i32 0, ptr %6, align 4
   %130 = call i32 @security_get_bools(ptr noundef %129, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4), !range !14
   %131 = icmp eq i32 %130, 0
   br i1 %131, label %132, label %153
@@ -5862,7 +5856,6 @@ define dso_local i32 @security_sid_mls_copy(i32 noundef %0, i32 noundef %1, ptr 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   store ptr null, ptr %4, align 8, !annotation !13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  store i32 0, ptr %5, align 4, !annotation !13
   %62 = load volatile i8, ptr @selinux_state, align 8, !range !5, !noundef !6
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %64, label %71
@@ -7683,7 +7676,6 @@ define internal fastcc void @security_dump_masked_av(ptr noundef %0, ptr noundef
   br i1 %31, label %67, label %32
 
 32:                                               ; preds = %28
-  store i32 0, ptr %9, align 4, !annotation !13
   %33 = call fastcc i32 @context_struct_to_string(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %9), !range !14
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %67, label %35

@@ -3510,7 +3510,6 @@ _ZL12parseRegMaskjRbS_RjRi.exit.thread.i:         ; preds = %279, %271, %261, %2
   br i1 %290, label %_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit.thread, label %291
 
 291:                                              ; preds = %.thread508.i
-  store i32 0, ptr %7, align 4
   %292 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %120) #17
   %293 = icmp eq i64 %292, 0
   br i1 %293, label %418, label %294

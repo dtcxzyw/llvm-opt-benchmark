@@ -10842,7 +10842,6 @@ if.end.i79:                                       ; preds = %if.end12
 _ZNK6vectorI3mpzLb0EjE4sizeEv.exit87:             ; preds = %if.end12, %if.end.i79
   %retval.0.i81 = phi i32 [ %32, %if.end.i79 ], [ 0, %if.end12 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %d.i)
-  store i32 0, ptr %d.i, align 4
   call void @_ZN11upolynomial12core_manager3remEjPK3mpzjS3_RjR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %retval.0.i81, ptr noundef %31, i32 noundef %17, ptr noundef nonnull %16, ptr noundef nonnull align 4 dereferenceable(4) %d.i, ptr noundef nonnull align 8 dereferenceable(8) %buffer)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %d.i)
   %33 = load ptr, ptr %buffer, align 8
@@ -13003,7 +13002,6 @@ if.end.i281:                                      ; preds = %if.end
 _ZNK6vectorI3mpzLb0EjE4sizeEv.exit289:            ; preds = %if.end, %if.end.i281
   %retval.0.i283 = phi i32 [ %101, %if.end.i281 ], [ 0, %if.end ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %d.i)
-  store i32 0, ptr %d.i, align 4
   invoke void @_ZN11upolynomial12core_manager12div_rem_coreEjPK3mpzjS3_RjR7svectorIS1_jES7_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %retval.0.i283, ptr noundef %100, i32 noundef %34, ptr noundef nonnull %33, ptr noundef nonnull align 4 dereferenceable(4) %d.i, ptr noundef nonnull align 8 dereferenceable(8) %m_div_tmp2.i.i, ptr noundef nonnull align 8 dereferenceable(8) %m_div_tmp1.i.i)
           to label %invoke.cont88 unwind label %lpad20.loopexit
 

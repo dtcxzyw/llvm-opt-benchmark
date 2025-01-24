@@ -79055,20 +79055,20 @@ if.then3.i.i:                                     ; preds = %_ZNK3org6apache5arr
 
 if.end.i.i:                                       ; preds = %_ZNK3org6apache5arrow7flatbuf11RecordBatch11compressionEv.exit.i.i
   %cmp.i.i.i11.i.i = icmp samesign ugt i16 %58, 4
-  br i1 %cmp.i.i.i11.i.i, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i, label %if.end12.i.i
+  br i1 %cmp.i.i.i11.i.i, label %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i
 
 _ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i: ; preds = %if.end.i.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression6methodEv.exit.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i
   %add.ptr.i.i.i14.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i6.i.i, i64 4
   %61 = load i16, ptr %add.ptr.i.i.i14.i.i, align 2, !noalias !1768
   %tobool.not.i.i15.i.i = icmp eq i16 %61, 0
-  br i1 %tobool.not.i.i15.i.i, label %if.end12.i.i, label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i
+  br i1 %tobool.not.i.i15.i.i, label %_ZN5arrow6StatusD2Ev.exit.thread.i, label %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i
 
 _ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i: ; preds = %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i
   %idx.ext.i.i17.i.i = zext i16 %61 to i64
   %add.ptr.i.i18.i.i = getelementptr inbounds nuw i8, ptr %add.ptr4.i.i.i.i.i, i64 %idx.ext.i.i17.i.i
   %62 = load i8, ptr %add.ptr.i.i18.i.i, align 1, !noalias !1768
   switch i8 %62, label %if.else10.i.i [
-    i8 0, label %if.end12.i.i
+    i8 0, label %_ZN5arrow6StatusD2Ev.exit.thread.i
     i8 1, label %if.end12.fold.split.i.i
   ]
 
@@ -79077,15 +79077,10 @@ if.else10.i.i:                                    ; preds = %_ZNK3org6apache5arr
           to label %_ZN5arrow6StatusD2Ev.exit.i unwind label %lpad14
 
 if.end12.fold.split.i.i:                          ; preds = %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i
-  br label %if.end12.i.i
-
-if.end12.i.i:                                     ; preds = %if.end12.fold.split.i.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i, %if.end.i.i
-  %storemerge.i.i = phi i32 [ 6, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i ], [ 6, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i ], [ 6, %if.end.i.i ], [ 4, %if.end12.fold.split.i.i ]
-  store i32 %storemerge.i.i, ptr %compression.i, align 4, !noalias !1768
   br label %_ZN5arrow6StatusD2Ev.exit.thread.i
 
-_ZN5arrow6StatusD2Ev.exit.thread.i:               ; preds = %if.end12.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i, %invoke.cont30
-  %63 = phi i32 [ 0, %invoke.cont30 ], [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i ], [ %storemerge.i.i, %if.end12.i.i ]
+_ZN5arrow6StatusD2Ev.exit.thread.i:               ; preds = %if.end12.fold.split.i.i, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i, %if.end.i.i, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i, %invoke.cont30
+  %63 = phi i32 [ 0, %invoke.cont30 ], [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i.i.i ], [ 6, %_ZNK3org6apache5arrow7flatbuf15BodyCompression5codecEv.exit.i.i ], [ 6, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i13.i.i ], [ 6, %if.end.i.i ], [ 4, %if.end12.fold.split.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1771)
   store ptr null, ptr %__s.i, align 8, !alias.scope !1771, !noalias !1765
   store ptr null, ptr %ref.tmp.i, align 8, !noalias !1774

@@ -3052,9 +3052,7 @@ define dso_local void @console_unlock() #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #28
-  store i8 0, ptr %3, align 1, !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #28
-  store i64 0, ptr %4, align 8, !annotation !11
   %5 = load i1, ptr @console_may_schedule, align 4
   br label %6
 
@@ -4590,8 +4588,6 @@ define dso_local void @console_flush_on_panic(i32 noundef %0) local_unnamed_addr
   br label %32
 
 32:                                               ; preds = %31, %1
-  store i8 0, ptr %2, align 1, !annotation !11
-  store i64 0, ptr %3, align 8, !annotation !11
   %33 = call fastcc zeroext i1 @console_flush_all(i1 noundef zeroext false, ptr noundef nonnull %3, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #28
@@ -5345,7 +5341,6 @@ define internal fastcc void @console_init_seq(ptr nocapture noundef initializes(
   br i1 %26, label %.loopexit6, label %.preheader5, !llvm.loop !71
 
 .loopexit6:                                       ; preds = %24, %.preheader5, %17
-  store i8 0, ptr %3, align 1, !annotation !11
   tail call void @down(ptr noundef nonnull @console_sem) #28
   store i1 true, ptr @console_locked, align 4
   store i1 true, ptr @console_may_schedule, align 4

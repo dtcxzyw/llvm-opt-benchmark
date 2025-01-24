@@ -607,7 +607,6 @@ define internal noundef range(i32 0, 4098) i32 @acpi_ut_copy_ielement_to_eelemen
   ]
 
 14:                                               ; preds = %4
-  store i64 0, ptr %5, align 8, !annotation !9
   %15 = load ptr, ptr %3, align 8
   %16 = call fastcc i32 @acpi_ut_copy_isimple_to_esimple(ptr noundef %1, ptr noundef %13, ptr noundef %15, ptr noundef nonnull %5), !range !5
   %17 = icmp eq i32 %16, 0

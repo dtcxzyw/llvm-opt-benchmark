@@ -5276,7 +5276,6 @@ define dso_local void @intel_write_dp_vsc_sdp(ptr noundef %0, ptr noundef %1, pt
 11:                                               ; preds = %10, %7, %3, %3, %3, %3
   %12 = phi ptr [ %9, %7 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ %0, %3 ], [ null, %10 ]
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %4, i8 0, i64 36, i1 false)
   call fastcc void @intel_dp_vsc_sdp_pack(ptr noundef %2, ptr noundef nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4016
   %14 = load ptr, ptr %13, align 8
@@ -5474,7 +5473,6 @@ define dso_local void @intel_dp_set_infoframes(ptr noundef %0, i1 noundef zeroex
 55:                                               ; preds = %54, %51, %48, %48, %48, %48
   %56 = phi ptr [ %53, %51 ], [ %0, %48 ], [ %0, %48 ], [ %0, %48 ], [ %0, %48 ], [ null, %54 ]
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %7, i8 0, i64 36, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 4340
   %58 = load i32, ptr %57, align 4
   %59 = tail call i32 @intel_hdmi_infoframe_enable(i32 noundef 7) #14

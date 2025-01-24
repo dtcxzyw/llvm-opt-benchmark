@@ -410,150 +410,151 @@ define internal i32 @p9_fd_create_tcp(ptr noundef %0, ptr noundef %1, ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 0, ptr %9, align 4, !annotation !14
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, i8 0, i64 12, i1 false), !annotation !14
-  %10 = call fastcc i32 @parse_opts(ptr noundef %2, ptr noundef nonnull %8), !range !15
-  %11 = icmp slt i32 %10, 0
-  br i1 %11, label %89, label %12
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 0, ptr %10, align 4, !annotation !14
+  %11 = call fastcc i32 @parse_opts(ptr noundef %2, ptr noundef nonnull %8), !range !15
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %90, label %13
 
-12:                                               ; preds = %3
-  %13 = icmp eq ptr %1, null
-  br i1 %13, label %89, label %14
+13:                                               ; preds = %3
+  %14 = icmp eq ptr %1, null
+  br i1 %14, label %90, label %15
 
-14:                                               ; preds = %12
+15:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !14
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %18 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
-  %19 = icmp eq i32 %18, 4
-  br i1 %19, label %.preheader, label %.loopexit
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %19 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18)
+  %20 = icmp eq i32 %19, 4
+  br i1 %20, label %.preheader, label %.loopexit
 
-20:                                               ; preds = %.preheader
-  %21 = add nuw nsw i64 %23, 1
-  %22 = icmp eq i64 %21, 4
-  br i1 %22, label %27, label %.preheader, !llvm.loop !16
+21:                                               ; preds = %.preheader
+  %22 = add nuw nsw i64 %24, 1
+  %23 = icmp eq i64 %22, 4
+  br i1 %23, label %28, label %.preheader, !llvm.loop !16
 
-.preheader:                                       ; preds = %14, %20
-  %23 = phi i64 [ %21, %20 ], [ 0, %14 ]
-  %24 = getelementptr [4 x i32], ptr %5, i64 0, i64 %23
-  %25 = load i32, ptr %24, align 4
-  %26 = icmp sgt i32 %25, 255
-  br i1 %26, label %.loopexit, label %20
+.preheader:                                       ; preds = %15, %21
+  %24 = phi i64 [ %22, %21 ], [ 0, %15 ]
+  %25 = getelementptr [4 x i32], ptr %5, i64 0, i64 %24
+  %26 = load i32, ptr %25, align 4
+  %27 = icmp sgt i32 %26, 255
+  br i1 %27, label %.loopexit, label %21
 
-27:                                               ; preds = %20
+28:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
   store ptr null, ptr %6, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %29 = load i16, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i16 %29, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 10
-  %32 = load i8, ptr %31, align 2, !range !17, !noundef !18
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  store i8 %32, ptr %33, align 2
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %30 = load i16, ptr %29, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i16 %30, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 10
+  %33 = load i8, ptr %32, align 2, !range !17, !noundef !18
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  store i8 %33, ptr %34, align 2
   store i16 2, ptr %7, align 4
-  %34 = call i32 @in_aton(ptr noundef nonnull %1) #13
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %34, ptr %35, align 4
-  %36 = call i16 @llvm.bswap.i16(i16 %29)
-  %37 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i16 %36, ptr %37, align 2
-  %38 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !19
-  %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1872
-  %41 = load ptr, ptr %40, align 16
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %43 = load ptr, ptr %42, align 8
-  %44 = call i32 @__sock_create(ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %6, i32 noundef 1) #13
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %50, label %46
+  %35 = call i32 @in_aton(ptr noundef nonnull %1) #13
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 %35, ptr %36, align 4
+  %37 = call i16 @llvm.bswap.i16(i16 %30)
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  store i16 %37, ptr %38, align 2
+  %39 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #14, !srcloc !19
+  %40 = inttoptr i64 %39 to ptr
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1872
+  %42 = load ptr, ptr %41, align 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %44 = load ptr, ptr %43, align 8
+  %45 = call i32 @__sock_create(ptr noundef %44, i32 noundef 2, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %6, i32 noundef 1) #13
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %51, label %47
 
-46:                                               ; preds = %27
-  %47 = getelementptr inbounds nuw i8, ptr %39, i64 1320
-  %48 = load i32, ptr %47, align 8
-  %49 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.p9_fd_create_tcp, i32 noundef %48) #15
-  br label %89
+47:                                               ; preds = %28
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 1320
+  %49 = load i32, ptr %48, align 8
+  %50 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.p9_fd_create_tcp, i32 noundef %49) #15
+  br label %90
 
-50:                                               ; preds = %27
-  %51 = icmp eq i8 %32, 0
-  br i1 %51, label %73, label %52
+51:                                               ; preds = %28
+  %52 = icmp eq i8 %33, 0
+  br i1 %52, label %74, label %53
 
-52:                                               ; preds = %50
-  %53 = load ptr, ptr %6, align 8
+53:                                               ; preds = %51
+  %54 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 0, ptr %55, align 4
   store i16 2, ptr %4, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  br label %60
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 0, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  br label %61
 
-57:                                               ; preds = %60
-  %58 = add nsw i32 %61, -1
-  %59 = icmp ugt i32 %58, 664
-  br i1 %59, label %60, label %.thread, !llvm.loop !20
+58:                                               ; preds = %61
+  %59 = add nsw i32 %62, -1
+  %60 = icmp ugt i32 %59, 664
+  br i1 %60, label %61, label %.thread, !llvm.loop !20
 
-.thread:                                          ; preds = %57
+.thread:                                          ; preds = %58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  br label %68
+  br label %69
 
-60:                                               ; preds = %57, %52
-  %61 = phi i32 [ 1023, %52 ], [ %58, %57 ]
-  %62 = trunc i32 %61 to i16
-  %63 = call i16 @llvm.bswap.i16(i16 %62)
-  store i16 %63, ptr %56, align 2
-  %64 = call i32 @kernel_bind(ptr noundef %53, ptr noundef nonnull %4, i32 noundef 16) #13
-  %65 = icmp eq i32 %64, -98
-  br i1 %65, label %57, label %66
+61:                                               ; preds = %58, %53
+  %62 = phi i32 [ 1023, %53 ], [ %59, %58 ]
+  %63 = trunc i32 %62 to i16
+  %64 = call i16 @llvm.bswap.i16(i16 %63)
+  store i16 %64, ptr %57, align 2
+  %65 = call i32 @kernel_bind(ptr noundef %54, ptr noundef nonnull %4, i32 noundef 16) #13
+  %66 = icmp eq i32 %65, -98
+  br i1 %66, label %58, label %67
 
-66:                                               ; preds = %60
+67:                                               ; preds = %61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  %67 = icmp slt i32 %64, 0
-  br i1 %67, label %68, label %73
+  %68 = icmp slt i32 %65, 0
+  br i1 %68, label %69, label %74
 
-68:                                               ; preds = %.thread, %66
-  %69 = getelementptr inbounds nuw i8, ptr %39, i64 1320
-  %70 = load i32, ptr %69, align 8
-  %71 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.p9_fd_create_tcp, i32 noundef %70) #15
-  %72 = load ptr, ptr %6, align 8
-  call void @sock_release(ptr noundef %72) #13
-  br label %89
+69:                                               ; preds = %.thread, %67
+  %70 = getelementptr inbounds nuw i8, ptr %40, i64 1320
+  %71 = load i32, ptr %70, align 8
+  %72 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.p9_fd_create_tcp, i32 noundef %71) #15
+  %73 = load ptr, ptr %6, align 8
+  call void @sock_release(ptr noundef %73) #13
+  br label %90
 
-73:                                               ; preds = %66, %50
-  %74 = load ptr, ptr %6, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %76 = load volatile ptr, ptr %75, align 32
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %78 = load ptr, ptr %77, align 8
-  %79 = call i32 %78(ptr noundef %74, ptr noundef nonnull %7, i32 noundef 16, i32 noundef 0) #13
-  %80 = icmp slt i32 %79, 0
-  br i1 %80, label %81, label %86
+74:                                               ; preds = %67, %51
+  %75 = load ptr, ptr %6, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
+  %77 = load volatile ptr, ptr %76, align 32
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %79 = load ptr, ptr %78, align 8
+  %80 = call i32 %79(ptr noundef %75, ptr noundef nonnull %7, i32 noundef 16, i32 noundef 0) #13
+  %81 = icmp slt i32 %80, 0
+  br i1 %81, label %82, label %87
 
-81:                                               ; preds = %73
-  %82 = getelementptr inbounds nuw i8, ptr %39, i64 1320
-  %83 = load i32, ptr %82, align 8
-  %84 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.p9_fd_create_tcp, i32 noundef %83, ptr noundef nonnull %1) #15
-  %85 = load ptr, ptr %6, align 8
-  call void @sock_release(ptr noundef %85) #13
-  br label %89
+82:                                               ; preds = %74
+  %83 = getelementptr inbounds nuw i8, ptr %40, i64 1320
+  %84 = load i32, ptr %83, align 8
+  %85 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.p9_fd_create_tcp, i32 noundef %84, ptr noundef nonnull %1) #15
+  %86 = load ptr, ptr %6, align 8
+  call void @sock_release(ptr noundef %86) #13
+  br label %90
 
-86:                                               ; preds = %73
-  %87 = load ptr, ptr %6, align 8
-  %88 = call fastcc i32 @p9_socket_open(ptr noundef %0, ptr noundef %87)
-  br label %89
+87:                                               ; preds = %74
+  %88 = load ptr, ptr %6, align 8
+  %89 = call fastcc i32 @p9_socket_open(ptr noundef %0, ptr noundef %88)
+  br label %90
 
-.loopexit:                                        ; preds = %.preheader, %14
+.loopexit:                                        ; preds = %.preheader, %15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
-  br label %89
+  br label %90
 
-89:                                               ; preds = %.loopexit, %86, %81, %68, %46, %12, %3
-  %90 = phi i32 [ %44, %46 ], [ %64, %68 ], [ %79, %81 ], [ %88, %86 ], [ %10, %3 ], [ -22, %12 ], [ -22, %.loopexit ]
+90:                                               ; preds = %.loopexit, %87, %82, %69, %47, %13, %3
+  %91 = phi i32 [ %45, %47 ], [ %65, %69 ], [ %80, %82 ], [ %89, %87 ], [ %11, %3 ], [ -22, %13 ], [ -22, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  ret i32 %90
+  ret i32 %91
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1953,7 +1954,6 @@ declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalia
 define internal noundef range(i32 -92, 1) i32 @p9_fd_create(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #2 align 16 {
   %4 = alloca %struct.p9_fd_opts, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !14
   %5 = call fastcc i32 @parse_opts(ptr noundef %2, ptr noundef nonnull %4), !range !15
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %.thread, label %7

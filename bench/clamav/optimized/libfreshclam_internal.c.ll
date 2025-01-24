@@ -2893,7 +2893,6 @@ define internal fastcc range(i32 0, 17) i32 @remote_cvdhead(ptr noundef nonnull 
   %11 = alloca i64, align 8
   %12 = alloca i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store ptr null, ptr %8, align 8
   store i64 0, ptr %11, align 8
   store ptr null, ptr %4, align 8
   %13 = tail call i32 @strncasecmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.110, i64 noundef 4) #27

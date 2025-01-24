@@ -5998,7 +5998,6 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  store i32 0, ptr %merged_argc, align 4
   store i32 0, ptr %invalid_idx, align 4
   %call = call ptr @ACLMergeSelectorArguments(ptr noundef %argv, i32 noundef %argc, ptr noundef nonnull %merged_argc, ptr noundef nonnull %invalid_idx)
   %tobool3.not = icmp eq ptr %call, null

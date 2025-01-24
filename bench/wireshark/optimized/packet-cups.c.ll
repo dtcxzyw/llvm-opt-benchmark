@@ -374,7 +374,6 @@ get_quoted_string.exit170:                        ; preds = %137
   %140 = sub i32 %139, %138
   %141 = tail call ptr @tvb_get_string_enc(ptr noundef %134, ptr noundef %0, i32 noundef %138, i32 noundef %140, i32 noundef 2) #2
   %142 = add nuw i32 %139, 1
-  store i32 %140, ptr %6, align 4
   %143 = icmp eq ptr %141, null
   br i1 %143, label %skip_space.exit.thread, label %144
 
@@ -397,7 +396,6 @@ get_quoted_string.exit170:                        ; preds = %137
   br label %147, !llvm.loop !6
 
 151:                                              ; preds = %147
-  store i32 %.08.i171, ptr %5, align 4
   %152 = load ptr, ptr %101, align 8
   %153 = call fastcc ptr @get_quoted_string(ptr noundef %152, ptr noundef %0, i32 noundef %.08.i171, ptr noundef %5, ptr noundef %6)
   %154 = icmp eq ptr %153, null

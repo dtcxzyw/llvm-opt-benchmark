@@ -4486,11 +4486,9 @@ _ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCar
   %z.i = getelementptr inbounds nuw i8, ptr %z, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %z, i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr %z.i, align 8
-  store double 1.000000e+00, ptr %r, align 8
   %y.i6 = getelementptr inbounds nuw i8, ptr %r, i64 8
   %z.i7 = getelementptr inbounds nuw i8, ptr %r, i64 16
   %have.i = getelementptr inbounds nuw i8, ptr %in, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %y.i6, i8 0, i64 16, i1 false)
   %8 = load i8, ptr %have.i, align 8
   %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %if.then, label %if.end
@@ -4724,11 +4722,9 @@ _ZN10aiVector3tIdEixEj.exit.i:                    ; preds = %sw.bb3.i.i, %sw.bb2
   br i1 %exitcond.not, label %_ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCartesianPointE.exit, label %for.body.i, !llvm.loop !153
 
 _ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCartesianPointE.exit: ; preds = %_ZN10aiVector3tIdEixEj.exit.i, %_ZNK6Assimp4STEP4LazyINS_3IFC10Schema_2x317IfcCartesianPointEEcvRKS4_Ev.exit
-  store double 1.000000e+00, ptr %x, align 8
   %y.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %z.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %have.i = getelementptr inbounds nuw i8, ptr %in, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %y.i, i8 0, i64 16, i1 false)
   %8 = load i8, ptr %have.i, align 8
   %tobool.i = trunc i8 %8 to i1
   br i1 %tobool.i, label %if.then, label %if.end
@@ -5083,7 +5079,6 @@ _ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCar
   %y.i23 = getelementptr inbounds nuw i8, ptr %z, i64 8
   %z.i24 = getelementptr inbounds nuw i8, ptr %z, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %z, i8 0, i64 16, i1 false)
-  store double 1.000000e+00, ptr %z.i24, align 8
   %have.i = getelementptr inbounds nuw i8, ptr %op, i64 56
   %8 = load i8, ptr %have.i, align 8
   %tobool.i = trunc i8 %8 to i1

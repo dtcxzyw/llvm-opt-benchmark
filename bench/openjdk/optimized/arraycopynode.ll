@@ -3819,12 +3819,9 @@ define hidden noundef ptr @_ZN13ArrayCopyNode5IdealEP8PhaseGVNb(ptr noundef nonn
 
 88:                                               ; preds = %83
   store ptr null, ptr %4, align 8
-  store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  store ptr null, ptr %7, align 8
   store i8 99, ptr %8, align 1
   store ptr null, ptr %9, align 8
-  store i8 0, ptr %10, align 1
   %89 = call noundef zeroext i1 @_ZN13ArrayCopyNode18prepare_array_copyEP8PhaseGVNbRP4NodeS4_S4_S4_R9BasicTypeRPK4TypeRb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(1) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
   br i1 %89, label %90, label %220
 
@@ -3910,7 +3907,6 @@ _ZN13ArrayCopyNode16get_address_typeEP8PhaseGVNPK7TypePtrP4Node.exit81: ; preds 
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 744
   %150 = load ptr, ptr %149, align 8
   store ptr %150, ptr %11, align 8
-  store ptr %150, ptr %12, align 8
   %151 = load i8, ptr %10, align 1
   %152 = trunc i8 %151 to i1
   call void @_ZN13ArrayCopyNode23array_copy_test_overlapEP8PhaseGVNbbiRP4NodeS4_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %1, i1 zeroext poison, i1 noundef zeroext %152, i32 noundef %78, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %11)

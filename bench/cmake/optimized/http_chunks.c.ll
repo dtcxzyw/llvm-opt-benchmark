@@ -526,7 +526,6 @@ define internal i32 @cw_chunked_write(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %50
 
 12:                                               ; preds = %5
-  store i64 0, ptr %6, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8

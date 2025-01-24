@@ -7946,8 +7946,6 @@ define internal fastcc range(i32 -1, 1) i32 @H5S__generate_hyperslab(ptr noundef
   br label %.thread
 
 40:                                               ; preds = %19
-  store i8 0, ptr %8, align 1
-  store i8 0, ptr %9, align 1
   %41 = call fastcc i32 @H5S__fill_in_new_space(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %13, i1 noundef zeroext true, ptr noundef %8, ptr noundef %9, ptr noundef %7)
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %47

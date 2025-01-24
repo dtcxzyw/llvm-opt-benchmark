@@ -704,7 +704,6 @@ declare zeroext i1 @int_comp(ptr noundef byval(%struct.Int) align 8, ptr noundef
 define dso_local noundef ptr @sema_ct_eval_expr(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  store ptr null, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load i16, ptr %7, align 8
   %9 = lshr i16 %8, 8
@@ -846,7 +845,6 @@ sema_analyse_ct_expr.exit:                        ; preds = %66
   br label %sema_analyse_ct_expr.exit.thread
 
 80:                                               ; preds = %sema_analyse_ct_expr.exit
-  store ptr null, ptr %6, align 8
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 40

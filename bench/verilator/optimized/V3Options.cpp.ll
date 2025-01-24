@@ -37913,8 +37913,6 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsLis
   %.val3 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 18, ptr %3, align 1
-  store i8 18, ptr %4, align 1
   call void @_ZN10VTimescale12parseSlashedEP8FileLinePKcRS_S4_b(ptr noundef %.val2, ptr noundef %.val3, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext false)
   %6 = load i8, ptr %3, align 1
   %7 = icmp eq i8 %6, 18
@@ -37987,8 +37985,6 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZN9V3Options13parseOptsLis
   %.val3 = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 18, ptr %3, align 1
-  store i8 18, ptr %4, align 1
   call void @_ZN10VTimescale12parseSlashedEP8FileLinePKcRS_S4_b(ptr noundef %.val2, ptr noundef %.val3, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext true)
   %6 = load i8, ptr %3, align 1
   %7 = icmp eq i8 %6, 18

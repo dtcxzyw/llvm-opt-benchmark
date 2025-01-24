@@ -7197,7 +7197,6 @@ define dso_local range(i32 0, 23) i32 @job_req_node_filter(ptr noundef %0, ptr n
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %7 = load ptr, ptr %6, align 8
-  store i8 0, ptr %4, align 1
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 

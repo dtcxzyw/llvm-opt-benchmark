@@ -3820,7 +3820,6 @@ dissect_acn_common_base_pdu.exit.i82:             ; preds = %598, %608
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %142)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %143)
   store i32 %.0111.i, ptr %137, align 4
-  store ptr null, ptr %143, align 8
   %647 = load i32, ptr @ett_acn_sdt_client_pdu, align 4
   call fastcc void @begin_dissect_acn_pdu(ptr noundef %143, ptr noundef %0, ptr noundef %142, ptr noundef %601, ptr noundef %139, ptr noundef %137, ptr noundef %138, ptr noundef %140, ptr noundef %141, i32 noundef %647, i32 noundef 1)
   %648 = load ptr, ptr %143, align 8
@@ -3904,7 +3903,6 @@ dissect_pdu_bit_flag_h.exit.i.i:                  ; preds = %665, %dissect_pdu_b
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %135)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %136)
   store i32 %.048.i.i, ptr %130, align 4
-  store ptr null, ptr %136, align 8
   %685 = load i32, ptr @ett_acn_sdt_pdu, align 4
   call fastcc void @begin_dissect_acn_pdu(ptr noundef %136, ptr noundef %0, ptr noundef %135, ptr noundef %648, ptr noundef %132, ptr noundef %130, ptr noundef %131, ptr noundef %133, ptr noundef %134, i32 noundef %685, i32 noundef 1)
   %686 = load ptr, ptr %136, align 8
@@ -4023,7 +4021,6 @@ dissect_acn_sdt_wrapped_pdu.exit.i.i:             ; preds = %727, %724, %718, %7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %128)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %129)
   store i32 %.1.i.i89, ptr %121, align 4
-  store ptr null, ptr %127, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %128, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %129, i8 0, i64 24, i1 false)
   %737 = load i32, ptr @ett_acn_dmp_pdu, align 4

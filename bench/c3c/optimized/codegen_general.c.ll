@@ -565,7 +565,6 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph81
   %.066.lcssa = phi i32 [ 1, %.lr.ph81 ], [ %34, %.lr.ph ]
   %.065.lcssa = phi ptr [ %28, %.lr.ph81 ], [ %35, %.lr.ph ]
-  store i32 0, ptr %4, align 4
   %38 = tail call fastcc ptr @type_lowering(ptr noundef nonnull %.065.lcssa)
   %39 = call zeroext i1 @type_is_homogenous_aggregate(ptr noundef %38, ptr noundef %1, ptr noundef nonnull %4)
   br i1 %39, label %40, label %type_homogenous_aggregate_small_enough.exit

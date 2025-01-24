@@ -6450,7 +6450,6 @@ entry:
   %hours = alloca i32, align 4
   %minutes = alloca i32, align 4
   %seconds = alloca i32, align 4
-  store i32 0, ptr %hours, align 4
   store i32 0, ptr %minutes, align 4
   store i32 0, ptr %seconds, align 4
   %call = call fastcc i32 @parse_transition_time(ptr noundef %p, ptr noundef %hours, ptr noundef %minutes, ptr noundef %seconds)

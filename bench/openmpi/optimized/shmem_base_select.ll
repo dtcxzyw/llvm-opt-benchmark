@@ -29,8 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 define noalias ptr @opal_shmem_base_best_runnable_component_name() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  store ptr null, ptr %1, align 8
-  store ptr null, ptr %2, align 8
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opal_shmem_base_framework, i64 76), align 4
   %4 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %3) #3
   br i1 %4, label %5, label %7
@@ -241,8 +239,6 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #
 define i32 @opal_shmem_base_select() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = alloca ptr, align 8
-  store ptr null, ptr %1, align 8
-  store ptr null, ptr %2, align 8
   %3 = call fastcc i32 @opal_shmem_base_runtime_query(ptr noundef %2, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %10

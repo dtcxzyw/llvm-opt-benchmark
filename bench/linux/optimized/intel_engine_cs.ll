@@ -4553,7 +4553,6 @@ define dso_local void @intel_engine_dump(ptr noundef %0, ptr noundef %1, ptr nou
 
 79:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
-  store ptr null, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
   store ptr null, ptr %7, align 8
   call void @intel_engine_get_hung_entity(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7)

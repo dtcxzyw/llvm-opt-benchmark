@@ -23674,9 +23674,7 @@ define void @LoadTexture(ptr dead_on_unwind noalias nocapture writable writeonly
   %3 = alloca i32, align 4
   %4 = alloca %struct.Image, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !alias.scope !11
   store i32 0, ptr %3, align 4, !noalias !11
   %5 = call ptr @LoadFileData(ptr noundef %1, ptr noundef nonnull %3) #49, !noalias !11
   %.not.i = icmp eq ptr %5, null

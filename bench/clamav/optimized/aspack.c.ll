@@ -865,7 +865,6 @@ getbits.exit78.thread:                            ; preds = %37
   br label %.loopexit114
 
 .split.us:                                        ; preds = %getbits.exit78.us
-  store i32 0, ptr %2, align 4
   %60 = tail call fastcc zeroext i8 @build_decrypt_array(ptr noundef %0, ptr noundef %33, i8 noundef zeroext 3)
   %.not61 = icmp eq i8 %60, 0
   br i1 %.not61, label %.loopexit114, label %.preheader113

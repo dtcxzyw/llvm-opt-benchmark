@@ -2051,7 +2051,6 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPN5clang14IdentifierInfoENS2_14SourceL
   br label %_ZN4llvm11SmallVectorISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj8EED2Ev.exit
 
 109:                                              ; preds = %_ZN5clang6Parser15TryConsumeTokenENS_3tok9TokenKindE.exit
-  store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   %110 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %9, ptr noundef nonnull %110, i64 noundef 8) #15
@@ -2254,7 +2253,6 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %switch.hole_check, 
   br i1 %64, label %65, label %_ZN4llvm11SmallVectorISt4pairIPN5clang14IdentifierInfoENS2_14SourceLocationEELj8EED2Ev.exit
 
 65:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
-  store i32 0, ptr %6, align 4
   store i32 0, ptr %7, align 4
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull %66, i64 noundef 8) #15
@@ -2646,7 +2644,6 @@ _ZNK5clang17DiagnosticBuilderlsINS_3tok9TokenKindEvEERKS0_OT_.exit65: ; preds = 
 240:                                              ; preds = %236
   call void @_ZN5clang6Parser4DiagERKNS_5TokenEj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %15, ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr noundef nonnull align 8 dereferenceable(20) %30, i32 noundef 1798) #15
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(26) %15) #15
-  store i32 0, ptr %16, align 4
   store i32 0, ptr %17, align 4
   %241 = getelementptr inbounds nuw i8, ptr %18, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr noundef nonnull %241, i64 noundef 4) #15
@@ -2774,7 +2771,6 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit75
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit75:          ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i70, %281, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i74
-  store i32 0, ptr %21, align 4
   store i32 0, ptr %22, align 4
   %295 = getelementptr inbounds nuw i8, ptr %23, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull %295, i64 noundef 4) #15
@@ -3819,7 +3815,6 @@ define dso_local noundef ptr @_ZN5clang6Parser22parseObjCTypeParamListEv(ptr nou
   %3 = alloca %"class.llvm::SmallVector.1320", align 8
   %4 = alloca %"class.clang::SourceLocation", align 4
   %5 = alloca %"class.clang::Parser::ObjCTypeParamListScope", align 8
-  store i32 0, ptr %2, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %6, i64 noundef 1) #15
   store i32 0, ptr %4, align 4
@@ -10828,7 +10823,6 @@ define dso_local { ptr, i8 } @_ZN5clang6Parser30parseObjCProtocolQualifierTypeER
   %9 = alloca %"class.llvm::SmallVector.711", align 8
   %10 = alloca %"class.clang::DiagnosticBuilder", align 8
   %11 = alloca %"class.clang::FixItHint", align 8
-  store i32 0, ptr %7, align 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull %12, i64 noundef 8) #15
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16

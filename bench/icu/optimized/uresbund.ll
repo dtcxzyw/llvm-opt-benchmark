@@ -2892,7 +2892,6 @@ if.then9:                                         ; preds = %if.end3
   %4 = load ptr, ptr %fData.i, align 8
   %fData2.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   %call12 = call i32 @res_getTableItemByKey_75(ptr noundef nonnull %fData2.i, i32 noundef %1, ptr noundef nonnull %t, ptr noundef nonnull %key)
-  store i32 %call12, ptr %res, align 4
   %cmp13 = icmp eq i32 %call12, -1
   br i1 %cmp13, label %if.then14, label %if.else25
 
@@ -3095,7 +3094,6 @@ if.then9:                                         ; preds = %if.end3
   %4 = load ptr, ptr %fData.i, align 8
   %fData2.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   %call12 = call i32 @res_getTableItemByKey_75(ptr noundef nonnull %fData2.i, i32 noundef %1, ptr noundef nonnull %t, ptr noundef nonnull %key)
-  store i32 %call12, ptr %res, align 4
   %cmp13 = icmp eq i32 %call12, -1
   br i1 %cmp13, label %if.then14, label %if.else29
 

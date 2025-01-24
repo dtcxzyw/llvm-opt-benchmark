@@ -46541,7 +46541,6 @@ _ZNK4llvm22MustBeExecutedIteratorneERKS0_.exit.thread.i: ; preds = %91
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   store i8 0, ptr %7, align 1
-  store i8 0, ptr %8, align 1
   %99 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm10IRPosition18getAssociatedValueEv(ptr noundef nonnull align 8 dereferenceable(16) %41)
   %100 = call fastcc noundef i64 @_ZN12_GLOBAL__N_134getKnownNonNullAndDerefBytesForUseERN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_5ValueEPKNS0_3UseEPKNS0_11InstructionERbSE_(ptr noundef nonnull align 8 dereferenceable(4296) %1, ptr noundef nonnull align 8 dereferenceable(90) %0, ptr noundef nonnull align 8 dereferenceable(24) %99, ptr noundef nonnull %52, ptr noundef nonnull %54, ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
   %101 = load i8, ptr %7, align 1
@@ -64364,7 +64363,6 @@ _ZNK4llvm22MustBeExecutedIteratorneERKS0_.exit.thread.i: ; preds = %103
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13)
   store i8 0, ptr %12, align 1
-  store i8 0, ptr %13, align 1
   %111 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm10IRPosition18getAssociatedValueEv(ptr noundef nonnull align 8 dereferenceable(16) %46)
   %112 = call fastcc noundef i64 @_ZN12_GLOBAL__N_134getKnownNonNullAndDerefBytesForUseERN4llvm10AttributorERKNS0_17AbstractAttributeERNS0_5ValueEPKNS0_3UseEPKNS0_11InstructionERbSE_(ptr noundef nonnull align 8 dereferenceable(4296) %1, ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
   %.val.i = load ptr, ptr %64, align 8

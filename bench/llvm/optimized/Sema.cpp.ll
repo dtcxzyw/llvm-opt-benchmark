@@ -27737,7 +27737,6 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema20tryToRecoverWithCallERNS_12
   br i1 %27, label %105, label %28
 
 28:                                               ; preds = %5
-  store i64 0, ptr %11, align 8
   %29 = load i64, ptr %1, align 8
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr

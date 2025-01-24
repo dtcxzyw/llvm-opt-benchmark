@@ -555,7 +555,6 @@ define i32 @slurm_xlate_job_id(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 8:                                                ; preds = %1
-  store ptr null, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %10 = call i64 @strtol(ptr noundef nonnull %9, ptr noundef nonnull %2, i32 noundef 10) #19
   %11 = load ptr, ptr %2, align 8

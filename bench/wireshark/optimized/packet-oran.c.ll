@@ -2577,7 +2577,6 @@ write_section_info.exit:                          ; preds = %93, %94, %95
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %346, ptr noundef nonnull @.str.712, i32 noundef %354, ptr noundef %356) #9
   %357 = load i32, ptr %25, align 4
   store i32 0, ptr %27, align 4
-  store i32 0, ptr %28, align 4
   %358 = load i32, ptr %26, align 4
   %359 = call fastcc i32 @dissect_bfwCompParam(ptr noundef %0, ptr noundef %317, ptr noundef %2, i32 noundef %353, ptr noundef %352, i32 noundef %358, ptr noundef %27, ptr noundef %28)
   %360 = load i32, ptr %28, align 4
@@ -3158,7 +3157,6 @@ switch.lookup:                                    ; preds = %546
   br label %proto_item_set_hidden.exit.i
 
 proto_item_set_hidden.exit.i:                     ; preds = %708, %704, %701, %694
-  store i32 0, ptr %7, align 4
   store i32 0, ptr %8, align 4
   %712 = call fastcc i32 @dissect_bfwCompParam(ptr noundef %0, ptr noundef %698, ptr noundef %2, i32 noundef %.61060, ptr noundef %659, i32 noundef %682, ptr noundef %8, ptr noundef %7)
   %713 = load i32, ptr %7, align 4
@@ -3659,7 +3657,6 @@ dissect_bfw_bundle.exit._crit_edge:               ; preds = %dissect_bfw_bundle.
   %982 = load i32, ptr %15, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %965, ptr noundef nonnull @.str.707, i32 noundef %982) #9
   %983 = add i32 %.131021, 6
-  store i32 0, ptr %54, align 4
   store i32 0, ptr %55, align 4
   %984 = load i32, ptr %53, align 4
   %985 = call fastcc i32 @dissect_bfwCompParam(ptr noundef %0, ptr noundef %967, ptr noundef %2, i32 noundef %983, ptr noundef %958, i32 noundef %984, ptr noundef %55, ptr noundef %54)
