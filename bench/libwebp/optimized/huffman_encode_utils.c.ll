@@ -11,23 +11,23 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %.lr.ph62, label %._crit_edge
+  br i1 %5, label %.lr.ph60, label %._crit_edge
 
-.lr.ph62:                                         ; preds = %3
+.lr.ph60:                                         ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = zext nneg i32 %4 to i64
   br label %8
 
-8:                                                ; preds = %.lr.ph62, %CodeRepeatedZeros.exit
-  %.061 = phi ptr [ %1, %.lr.ph62 ], [ %.1, %CodeRepeatedZeros.exit ]
-  %.02960 = phi i32 [ 8, %.lr.ph62 ], [ %.130, %CodeRepeatedZeros.exit ]
-  %.03159 = phi i32 [ 0, %.lr.ph62 ], [ %.028.lcssa, %CodeRepeatedZeros.exit ]
+8:                                                ; preds = %.lr.ph60, %CodeRepeatedZeros.exit
+  %.059 = phi ptr [ %1, %.lr.ph60 ], [ %.1, %CodeRepeatedZeros.exit ]
+  %.02958 = phi i32 [ 8, %.lr.ph60 ], [ %.130, %CodeRepeatedZeros.exit ]
+  %.03157 = phi i32 [ 0, %.lr.ph60 ], [ %.028.lcssa, %CodeRepeatedZeros.exit ]
   %9 = load ptr, ptr %6, align 8
-  %10 = sext i32 %.03159 to i64
+  %10 = sext i32 %.03157 to i64
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
-  %14 = add nsw i32 %.03159, 1
+  %14 = add nsw i32 %.03157, 1
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 %14)
   br label %15
 
@@ -41,17 +41,17 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
   %18 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.next
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, %12
-  br i1 %20, label %15, label %.critedge.split.loop.exit81, !llvm.loop !4
+  br i1 %20, label %15, label %.critedge.split.loop.exit84, !llvm.loop !4
 
-.critedge.split.loop.exit81:                      ; preds = %17
+.critedge.split.loop.exit84:                      ; preds = %17
   %21 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %.critedge.split.loop.exit81
-  %.028.lcssa = phi i32 [ %21, %.critedge.split.loop.exit81 ], [ %smax, %15 ]
-  %22 = sub i32 %.028.lcssa, %.03159
+.critedge:                                        ; preds = %15, %.critedge.split.loop.exit84
+  %.028.lcssa = phi i32 [ %21, %.critedge.split.loop.exit84 ], [ %smax, %15 ]
+  %22 = sub nsw i32 %.028.lcssa, %.03157
   %23 = icmp eq i8 %12, 0
-  br i1 %23, label %24, label %53
+  br i1 %23, label %24, label %48
 
 24:                                               ; preds = %.critedge
   %25 = icmp sgt i32 %22, 0
@@ -60,149 +60,137 @@ define hidden i32 @VP8LCreateCompressedHuffmanTree(ptr nocapture noundef readonl
 .lr.ph.preheader.i:                               ; preds = %24
   %26 = add nsw i32 %22, -1
   %27 = urem i32 %26, 138
-  %28 = udiv i32 %26, 138
-  %29 = zext nneg i32 %26 to i64
-  %30 = shl nuw nsw i64 %29, 1
-  %31 = getelementptr i8, ptr %.061, i64 %30
-  %scevgep.i = getelementptr i8, ptr %31, i64 2
-  %32 = icmp samesign ult i32 %22, 3
-  br i1 %32, label %.lr.ph35.preheader.i, label %.lr.ph55.preheader
-
-.lr.ph55.preheader:                               ; preds = %.lr.ph.preheader.i
-  %wide.trip.count = zext nneg i32 %28 to i64
-  br label %.lr.ph55
+  %28 = icmp samesign ult i32 %22, 3
+  br i1 %28, label %.lr.ph35.preheader.i, label %.lr.ph53
 
 .lr.ph35.preheader.i.loopexit:                    ; preds = %.lr.ph.i
-  %33 = mul nsw i64 %indvar.next.i, -276
+  %.pre = add nsw i32 %.02331.i51, -139
   br label %.lr.ph35.preheader.i
 
 .lr.ph35.preheader.i:                             ; preds = %.lr.ph35.preheader.i.loopexit, %.lr.ph.preheader.i
-  %indvars.iv.i.lcssa = phi ptr [ %scevgep.i, %.lr.ph.preheader.i ], [ %scevgep47.i, %.lr.ph35.preheader.i.loopexit ]
-  %indvar.i.lcssa = phi i64 [ 0, %.lr.ph.preheader.i ], [ %33, %.lr.ph35.preheader.i.loopexit ]
-  %.02232.i.lcssa = phi ptr [ %.061, %.lr.ph.preheader.i ], [ %50, %.lr.ph35.preheader.i.loopexit ]
-  %34 = shl nuw i32 %22, 1
-  %35 = zext i32 %34 to i64
-  %36 = add i64 %indvar.i.lcssa, %35
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.02232.i.lcssa, i8 0, i64 %36, i1 false)
+  %.pre-phi = phi i32 [ %.pre, %.lr.ph35.preheader.i.loopexit ], [ %26, %.lr.ph.preheader.i ]
+  %.02232.i.lcssa = phi ptr [ %indvars.iv.i52, %.lr.ph35.preheader.i.loopexit ], [ %.059, %.lr.ph.preheader.i ]
+  %.02331.i.lcssa = phi i32 [ %46, %.lr.ph35.preheader.i.loopexit ], [ %22, %.lr.ph.preheader.i ]
+  %29 = getelementptr i8, ptr %.02232.i.lcssa, i64 2
+  %30 = shl nuw nsw i32 %.02331.i.lcssa, 1
+  %31 = zext nneg i32 %30 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.02232.i.lcssa, i8 0, i64 %31, i1 false)
+  %32 = zext nneg i32 %.pre-phi to i64
+  %33 = shl nuw nsw i64 %32, 1
+  %scevgep53.i = getelementptr i8, ptr %29, i64 %33
   br label %CodeRepeatedZeros.exit
 
-.lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph.i
-  %.02331.i54 = phi i32 [ %51, %.lr.ph.i ], [ %22, %.lr.ph55.preheader ]
-  %.02232.i53 = phi ptr [ %50, %.lr.ph.i ], [ %.061, %.lr.ph55.preheader ]
-  %indvar.i52 = phi i64 [ %indvar.next.i, %.lr.ph.i ], [ 0, %.lr.ph55.preheader ]
-  %indvars.iv.i51 = phi ptr [ %scevgep47.i, %.lr.ph.i ], [ %scevgep.i, %.lr.ph55.preheader ]
-  %37 = icmp samesign ult i32 %.02331.i54, 11
-  br i1 %37, label %38, label %43
+.lr.ph53:                                         ; preds = %.lr.ph.preheader.i, %.lr.ph.i
+  %indvars.iv.i52.pn = phi ptr [ %indvars.iv.i52, %.lr.ph.i ], [ %.059, %.lr.ph.preheader.i ]
+  %.02331.i51 = phi i32 [ %46, %.lr.ph.i ], [ %22, %.lr.ph.preheader.i ]
+  %indvars.iv.i52 = getelementptr i8, ptr %indvars.iv.i52.pn, i64 2
+  %34 = icmp samesign ult i32 %.02331.i51, 11
+  br i1 %34, label %35, label %39
 
-38:                                               ; preds = %.lr.ph55
-  store i8 17, ptr %.02232.i53, align 1
-  %39 = trunc nuw i32 %.02331.i54 to i8
-  %40 = add nsw i8 %39, -3
-  %41 = getelementptr inbounds nuw i8, ptr %.02232.i53, i64 1
-  store i8 %40, ptr %41, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %.02232.i53, i64 2
+35:                                               ; preds = %.lr.ph53
+  store i8 17, ptr %indvars.iv.i52.pn, align 1
+  %36 = trunc nuw i32 %.02331.i51 to i8
+  %37 = add nsw i8 %36, -3
+  %38 = getelementptr inbounds nuw i8, ptr %indvars.iv.i52.pn, i64 1
+  store i8 %37, ptr %38, align 1
   br label %CodeRepeatedZeros.exit
 
-43:                                               ; preds = %.lr.ph55
-  %exitcond = icmp eq i64 %indvar.i52, %wide.trip.count
-  store i8 18, ptr %.02232.i53, align 1
-  br i1 %exitcond, label %44, label %.lr.ph.i
+39:                                               ; preds = %.lr.ph53
+  %40 = icmp samesign ult i32 %.02331.i51, 139
+  store i8 18, ptr %indvars.iv.i52.pn, align 1
+  br i1 %40, label %41, label %.lr.ph.i
 
-44:                                               ; preds = %43
-  %45 = trunc nuw i32 %27 to i8
-  %46 = add i8 %45, -10
-  %47 = getelementptr inbounds nuw i8, ptr %.02232.i53, i64 1
-  store i8 %46, ptr %47, align 1
-  %48 = getelementptr inbounds nuw i8, ptr %.02232.i53, i64 2
+41:                                               ; preds = %39
+  %42 = trunc nuw i32 %27 to i8
+  %43 = add i8 %42, -10
+  %44 = getelementptr inbounds nuw i8, ptr %indvars.iv.i52.pn, i64 1
+  store i8 %43, ptr %44, align 1
   br label %CodeRepeatedZeros.exit
 
-.lr.ph.i:                                         ; preds = %43
-  %49 = getelementptr inbounds nuw i8, ptr %.02232.i53, i64 1
-  store i8 127, ptr %49, align 1
-  %50 = getelementptr i8, ptr %.02232.i53, i64 2
-  %51 = add nsw i32 %.02331.i54, -138
-  %indvar.next.i = add nuw nsw i64 %indvar.i52, 1
-  %scevgep47.i = getelementptr i8, ptr %indvars.iv.i51, i64 -274
-  %52 = icmp samesign ult i32 %51, 3
-  br i1 %52, label %.lr.ph35.preheader.i.loopexit, label %.lr.ph55
+.lr.ph.i:                                         ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %indvars.iv.i52.pn, i64 1
+  store i8 127, ptr %45, align 1
+  %46 = add nsw i32 %.02331.i51, -138
+  %47 = icmp samesign ult i32 %46, 3
+  br i1 %47, label %.lr.ph35.preheader.i.loopexit, label %.lr.ph53
 
-53:                                               ; preds = %.critedge
-  %.not.i = icmp eq i32 %.02960, %13
-  br i1 %.not.i, label %58, label %54
+48:                                               ; preds = %.critedge
+  %.not.i = icmp eq i32 %.02958, %13
+  br i1 %.not.i, label %53, label %49
 
-54:                                               ; preds = %53
-  store i8 %12, ptr %.061, align 1
-  %55 = getelementptr inbounds nuw i8, ptr %.061, i64 1
-  store i8 0, ptr %55, align 1
-  %56 = getelementptr inbounds nuw i8, ptr %.061, i64 2
-  %57 = add nsw i32 %22, -1
-  br label %58
+49:                                               ; preds = %48
+  store i8 %12, ptr %.059, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %.059, i64 1
+  store i8 0, ptr %50, align 1
+  %51 = getelementptr inbounds nuw i8, ptr %.059, i64 2
+  %52 = add nsw i32 %22, -1
+  br label %53
 
-58:                                               ; preds = %54, %53
-  %.026.i = phi ptr [ %56, %54 ], [ %.061, %53 ]
-  %.025.i = phi i32 [ %57, %54 ], [ %22, %53 ]
-  %59 = icmp sgt i32 %.025.i, 0
-  br i1 %59, label %.lr.ph.preheader.i34, label %CodeRepeatedZeros.exit
+53:                                               ; preds = %49, %48
+  %.026.i = phi ptr [ %51, %49 ], [ %.059, %48 ]
+  %.025.i = phi i32 [ %52, %49 ], [ %22, %48 ]
+  %54 = icmp sgt i32 %.025.i, 0
+  br i1 %54, label %.lr.ph.preheader.i34, label %CodeRepeatedZeros.exit
 
-.lr.ph.preheader.i34:                             ; preds = %58
-  %60 = add nsw i32 %.025.i, -1
-  %61 = urem i32 %60, 6
-  %62 = icmp samesign ult i32 %.025.i, 3
-  br i1 %62, label %.lr.ph38.i.preheader, label %.lr.ph
+.lr.ph.preheader.i34:                             ; preds = %53
+  %55 = add nsw i32 %.025.i, -1
+  %56 = urem i32 %55, 6
+  %57 = icmp samesign ult i32 %.025.i, 3
+  br i1 %57, label %.lr.ph38.i.preheader, label %.lr.ph
 
 .lr.ph38.i.preheader:                             ; preds = %.lr.ph.i36, %.lr.ph.preheader.i34
-  %.135.i.lcssa = phi i32 [ %.025.i, %.lr.ph.preheader.i34 ], [ %74, %.lr.ph.i36 ]
-  %.12734.i.lcssa = phi ptr [ %.026.i, %.lr.ph.preheader.i34 ], [ %73, %.lr.ph.i36 ]
+  %.135.i.lcssa = phi i32 [ %.025.i, %.lr.ph.preheader.i34 ], [ %69, %.lr.ph.i36 ]
+  %.12734.i.lcssa = phi ptr [ %.026.i, %.lr.ph.preheader.i34 ], [ %68, %.lr.ph.i36 ]
   br label %.lr.ph38.i
 
 .lr.ph38.i:                                       ; preds = %.lr.ph38.i.preheader, %.lr.ph38.i
-  %.037.i = phi i32 [ %65, %.lr.ph38.i ], [ 0, %.lr.ph38.i.preheader ]
-  %.336.i = phi ptr [ %64, %.lr.ph38.i ], [ %.12734.i.lcssa, %.lr.ph38.i.preheader ]
+  %.037.i = phi i32 [ %60, %.lr.ph38.i ], [ 0, %.lr.ph38.i.preheader ]
+  %.336.i = phi ptr [ %59, %.lr.ph38.i ], [ %.12734.i.lcssa, %.lr.ph38.i.preheader ]
   store i8 %12, ptr %.336.i, align 1
-  %63 = getelementptr inbounds nuw i8, ptr %.336.i, i64 1
-  store i8 0, ptr %63, align 1
-  %64 = getelementptr inbounds nuw i8, ptr %.336.i, i64 2
-  %65 = add nuw nsw i32 %.037.i, 1
-  %exitcond.not.i = icmp eq i32 %65, %.135.i.lcssa
+  %58 = getelementptr inbounds nuw i8, ptr %.336.i, i64 1
+  store i8 0, ptr %58, align 1
+  %59 = getelementptr inbounds nuw i8, ptr %.336.i, i64 2
+  %60 = add nuw nsw i32 %.037.i, 1
+  %exitcond.not.i = icmp eq i32 %60, %.135.i.lcssa
   br i1 %exitcond.not.i, label %CodeRepeatedZeros.exit, label %.lr.ph38.i, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i34, %.lr.ph.i36
-  %.12734.i49 = phi ptr [ %73, %.lr.ph.i36 ], [ %.026.i, %.lr.ph.preheader.i34 ]
-  %.135.i48 = phi i32 [ %74, %.lr.ph.i36 ], [ %.025.i, %.lr.ph.preheader.i34 ]
-  %66 = icmp samesign ult i32 %.135.i48, 7
-  store i8 16, ptr %.12734.i49, align 1
-  br i1 %66, label %67, label %.lr.ph.i36
+  %.12734.i47 = phi ptr [ %68, %.lr.ph.i36 ], [ %.026.i, %.lr.ph.preheader.i34 ]
+  %.135.i46 = phi i32 [ %69, %.lr.ph.i36 ], [ %.025.i, %.lr.ph.preheader.i34 ]
+  %61 = icmp samesign ult i32 %.135.i46, 7
+  store i8 16, ptr %.12734.i47, align 1
+  br i1 %61, label %62, label %.lr.ph.i36
 
-67:                                               ; preds = %.lr.ph
-  %68 = trunc nuw nsw i32 %61 to i8
-  %69 = add nsw i8 %68, -2
-  %70 = getelementptr inbounds nuw i8, ptr %.12734.i49, i64 1
-  store i8 %69, ptr %70, align 1
-  %71 = getelementptr inbounds nuw i8, ptr %.12734.i49, i64 2
+62:                                               ; preds = %.lr.ph
+  %63 = trunc nuw nsw i32 %56 to i8
+  %64 = add nsw i8 %63, -2
+  %65 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 1
+  store i8 %64, ptr %65, align 1
+  %66 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 2
   br label %CodeRepeatedZeros.exit
 
 .lr.ph.i36:                                       ; preds = %.lr.ph
-  %72 = getelementptr inbounds nuw i8, ptr %.12734.i49, i64 1
-  store i8 3, ptr %72, align 1
-  %73 = getelementptr inbounds nuw i8, ptr %.12734.i49, i64 2
-  %74 = add nsw i32 %.135.i48, -6
-  %75 = icmp samesign ult i32 %74, 3
-  br i1 %75, label %.lr.ph38.i.preheader, label %.lr.ph
+  %67 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 1
+  store i8 3, ptr %67, align 1
+  %68 = getelementptr inbounds nuw i8, ptr %.12734.i47, i64 2
+  %69 = add nsw i32 %.135.i46, -6
+  %70 = icmp samesign ult i32 %69, 3
+  br i1 %70, label %.lr.ph38.i.preheader, label %.lr.ph
 
-CodeRepeatedZeros.exit:                           ; preds = %.lr.ph38.i, %67, %58, %44, %38, %.lr.ph35.preheader.i, %24
-  %.130 = phi i32 [ %.02960, %24 ], [ %.02960, %.lr.ph35.preheader.i ], [ %.02960, %38 ], [ %.02960, %44 ], [ %13, %58 ], [ %13, %67 ], [ %13, %.lr.ph38.i ]
-  %.1 = phi ptr [ %.061, %24 ], [ %indvars.iv.i.lcssa, %.lr.ph35.preheader.i ], [ %42, %38 ], [ %48, %44 ], [ %.026.i, %58 ], [ %71, %67 ], [ %64, %.lr.ph38.i ]
-  %76 = icmp slt i32 %.028.lcssa, %4
-  br i1 %76, label %8, label %._crit_edge, !llvm.loop !7
+CodeRepeatedZeros.exit:                           ; preds = %.lr.ph38.i, %62, %53, %41, %35, %.lr.ph35.preheader.i, %24
+  %.130 = phi i32 [ %.02958, %24 ], [ %.02958, %.lr.ph35.preheader.i ], [ %.02958, %35 ], [ %.02958, %41 ], [ %13, %53 ], [ %13, %62 ], [ %13, %.lr.ph38.i ]
+  %.1 = phi ptr [ %.059, %24 ], [ %scevgep53.i, %.lr.ph35.preheader.i ], [ %indvars.iv.i52, %35 ], [ %indvars.iv.i52, %41 ], [ %.026.i, %53 ], [ %66, %62 ], [ %59, %.lr.ph38.i ]
+  %71 = icmp slt i32 %.028.lcssa, %4
+  br i1 %71, label %8, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %CodeRepeatedZeros.exit, %3
   %.0.lcssa = phi ptr [ %1, %3 ], [ %.1, %CodeRepeatedZeros.exit ]
-  %77 = ptrtoint ptr %.0.lcssa to i64
-  %78 = ptrtoint ptr %1 to i64
-  %79 = sub i64 %77, %78
-  %80 = lshr exact i64 %79, 1
-  %81 = trunc i64 %80 to i32
-  ret i32 %81
+  %72 = ptrtoint ptr %.0.lcssa to i64
+  %73 = ptrtoint ptr %1 to i64
+  %74 = sub i64 %72, %73
+  %75 = lshr exact i64 %74, 1
+  %76 = trunc i64 %75 to i32
+  ret i32 %76
 }
 
 ; Function Attrs: nofree nounwind uwtable

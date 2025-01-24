@@ -150,7 +150,7 @@ define void @Ptngc_comp_conv_to_huffman(ptr nocapture noundef readonly %0, i32 n
   br i1 %73, label %.lr.ph390, label %._crit_edge391, !llvm.loop !6
 
 ._crit_edge391:                                   ; preds = %71, %.lr.ph390
-  %.0186.lcssa.ph = phi i32 [ %72, %71 ], [ %.0186388, %.lr.ph390 ]
+  %.0186.lcssa.ph = phi i32 [ 0, %71 ], [ %.0186388, %.lr.ph390 ]
   %74 = zext i32 %.0186.lcssa.ph to i64
   %.not202 = icmp eq i64 %indvars.iv.next470, %74
   br i1 %.not202, label %81, label %75
