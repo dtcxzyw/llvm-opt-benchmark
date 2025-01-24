@@ -7148,7 +7148,7 @@ expression_returns_set_walker.exit10.thread31:    ; preds = %expression_returns_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %379 = sext i32 %378 to i64
   %.not = icmp slt i64 %indvars.iv.next, %379
-  br i1 %.not, label %360, label %.loopexit, !llvm.loop !8
+  br i1 %.not, label %360, label %.loopexit, !llvm.loop !12
 
 380:                                              ; preds = %.lr.ph
   %381 = getelementptr inbounds nuw i8, ptr %.tr99, i64 8
@@ -7948,7 +7948,7 @@ tailrecurse:                                      ; preds = %.lr.ph
   %339 = load i32, ptr %4, align 4
   %340 = sext i32 %339 to i64
   %.not = icmp slt i64 %indvars.iv.next, %340
-  br i1 %.not, label %341, label %.loopexit7, !llvm.loop !8
+  br i1 %.not, label %341, label %.loopexit7, !llvm.loop !13
 
 341:                                              ; preds = %.lr.ph76, %338
   %indvars.iv = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next, %338 ]
@@ -8180,3 +8180,5 @@ attributes #13 = { "function-inline-cost-multiplier"="2" }
 !9 = distinct !{!9, !6}
 !10 = distinct !{!10, !6}
 !11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}

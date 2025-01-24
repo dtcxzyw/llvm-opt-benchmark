@@ -891,7 +891,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 .backedge36.i:                                    ; preds = %46, %33, %.lr.ph.i
   %32 = call ptr @list_next(ptr noundef %27) #11
   %.not4.i = icmp eq ptr %32, null
-  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 33:                                               ; preds = %.lr.ph.i
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 400
@@ -914,7 +914,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 43:                                               ; preds = %40
   %44 = call i32 @xstrcmp(ptr noundef nonnull %41, ptr noundef %42) #11
   %.not7.i = icmp eq i32 %44, 0
-  br i1 %.not7.i, label %45, label %40, !llvm.loop !6
+  br i1 %.not7.i, label %45, label %40, !llvm.loop !19
 
 .critedge.i:                                      ; preds = %40
   call void @list_append(ptr noundef %.0229.i, ptr noundef %42) #11
@@ -973,7 +973,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
   call fastcc void @_check_create_grouping(ptr noundef %48, ptr noundef %24, ptr noundef %68, ptr noundef %66, ptr noundef nonnull %64, i1 noundef zeroext %.not3.i, i1 noundef zeroext true)
   %69 = call ptr @list_next(ptr noundef %62) #11
   %.not9.i = icmp eq ptr %69, null
-  br i1 %.not9.i, label %._crit_edge43.i, label %.lr.ph42.i, !llvm.loop !9
+  br i1 %.not9.i, label %._crit_edge43.i, label %.lr.ph42.i, !llvm.loop !20
 
 ._crit_edge43.i:                                  ; preds = %.lr.ph42.i, %61
   call void @list_iterator_destroy(ptr noundef %62) #11
@@ -1000,7 +1000,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 .critedge27.backedge.i:                           ; preds = %83, %.critedge27.backedge.sink.split.i, %.lr.ph50.i
   %76 = call ptr @list_next(ptr noundef %71) #11
   %.not10.i = icmp eq ptr %76, null
-  br i1 %.not10.i, label %.critedge27._crit_edge.i, label %.lr.ph50.i, !llvm.loop !15
+  br i1 %.not10.i, label %.critedge27._crit_edge.i, label %.lr.ph50.i, !llvm.loop !21
 
 77:                                               ; preds = %.lr.ph50.i
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 56
@@ -1023,7 +1023,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
   %87 = load ptr, ptr %86, align 8
   %88 = call i32 @xstrcmp(ptr noundef nonnull %spec.select.i, ptr noundef %87) #11
   %.not22.i = icmp eq i32 %88, 0
-  br i1 %.not22.i, label %89, label %83, !llvm.loop !11
+  br i1 %.not22.i, label %89, label %83, !llvm.loop !22
 
 89:                                               ; preds = %85
   %90 = load ptr, ptr %84, align 8
@@ -1039,7 +1039,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
   %95 = load ptr, ptr %93, align 8
   %96 = call i32 @xstrcmp(ptr noundef nonnull %6, ptr noundef %95) #11
   %.not24.i = icmp eq i32 %96, 0
-  br i1 %.not24.i, label %97, label %92, !llvm.loop !12
+  br i1 %.not24.i, label %97, label %92, !llvm.loop !23
 
 97:                                               ; preds = %94
   call void @list_iterator_destroy(ptr noundef %91) #11
@@ -1082,7 +1082,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 .backedge35.i:                                    ; preds = %123, %117, %112, %107
   %122 = call ptr @list_next(ptr noundef %100) #11
   %.not25.i = icmp eq ptr %122, null
-  br i1 %.not25.i, label %.critedge27.backedge.sink.split.i, label %107, !llvm.loop !14
+  br i1 %.not25.i, label %.critedge27.backedge.sink.split.i, label %107, !llvm.loop !24
 
 123:                                              ; preds = %117
   %124 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -1131,7 +1131,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 .backedge34.i:                                    ; preds = %._crit_edge54.i, %143
   %145 = call ptr @list_next(ptr noundef %49) #11
   %.not11.i = icmp eq ptr %145, null
-  br i1 %.not11.i, label %._crit_edge58.i, label %.lr.ph57.i, !llvm.loop !16
+  br i1 %.not11.i, label %._crit_edge58.i, label %.lr.ph57.i, !llvm.loop !25
 
 146:                                              ; preds = %.lr.ph57.i
   %147 = load ptr, ptr %140, align 8
@@ -1150,7 +1150,7 @@ define noundef ptr @slurmdb_report_job_sizes_grouped_by_wckey(ptr noundef %0, pt
 .backedge.i:                                      ; preds = %154, %.lr.ph53.i
   %153 = call ptr @list_next(ptr noundef %148) #11
   %.not17.i = icmp eq ptr %153, null
-  br i1 %.not17.i, label %._crit_edge54.i, label %.lr.ph53.i, !llvm.loop !17
+  br i1 %.not17.i, label %._crit_edge54.i, label %.lr.ph53.i, !llvm.loop !26
 
 154:                                              ; preds = %.lr.ph53.i
   %155 = call i32 @list_delete_item(ptr noundef %148) #11
@@ -1285,7 +1285,7 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @xstrcmp(ptr noundef %2, ptr noundef %13) #11
   %.not52 = icmp eq i32 %14, 0
-  br i1 %.not52, label %15, label %9, !llvm.loop !18
+  br i1 %.not52, label %15, label %9, !llvm.loop !27
 
 15:                                               ; preds = %11
   tail call void @list_iterator_destroy(ptr noundef %8) #11
@@ -1317,7 +1317,7 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   %27 = load ptr, ptr %25, align 8
   %28 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %27) #11
   %.not54 = icmp eq i32 %28, 0
-  br i1 %.not54, label %29, label %24, !llvm.loop !19
+  br i1 %.not54, label %29, label %24, !llvm.loop !28
 
 29:                                               ; preds = %26
   tail call void @list_iterator_destroy(ptr noundef %23) #11
@@ -1366,7 +1366,7 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   tail call void @list_append(ptr noundef %50, ptr noundef nonnull %44) #11
   %51 = tail call ptr @list_next(ptr noundef %1) #11
   %.not55.us = icmp eq ptr %51, null
-  br i1 %.not55.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !20
+  br i1 %.not55.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %52 = phi ptr [ %61, %.lr.ph.split ], [ %42, %.lr.ph ]
@@ -1385,7 +1385,7 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   tail call void @list_append(ptr noundef %60, ptr noundef nonnull %53) #11
   %61 = tail call ptr @list_next(ptr noundef %1) #11
   %.not55 = icmp eq ptr %61, null
-  br i1 %.not55, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %.not55, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.0.lcssa = phi i32 [ %47, %.lr.ph.split.us ], [ %57, %.lr.ph.split ]
@@ -1487,3 +1487,12 @@ attributes #13 = { nounwind willreturn memory(read) }
 !18 = distinct !{!18, !7}
 !19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
+!21 = distinct !{!21, !7}
+!22 = distinct !{!22, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !7}
+!29 = distinct !{!29, !7}

@@ -2391,7 +2391,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %33 = add nsw i32 %.2356157, 1
   %34 = add i64 %.0323158, -1
   %.not2 = icmp eq i64 %34, 0
-  br i1 %.not2, label %.critedge, label %26, !llvm.loop !5
+  br i1 %.not2, label %.critedge, label %26, !llvm.loop !30
 
 .critedge:                                        ; preds = %26, %31
   %.2356.lcssa = phi i32 [ %.2356157, %26 ], [ %25, %31 ]
@@ -2509,7 +2509,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %86 = add nsw i32 %.4358193, 1
   %87 = add nsw i32 %83, -1
   %88 = icmp sgt i32 %83, 1
-  br i1 %88, label %.lr.ph194, label %.loopexit113, !llvm.loop !7
+  br i1 %88, label %.lr.ph194, label %.loopexit113, !llvm.loop !31
 
 .loopexit113:                                     ; preds = %85, %.preheader112, %78
   %.5359 = phi i32 [ %.1355, %78 ], [ %.1355, %.preheader112 ], [ %82, %85 ]
@@ -2541,7 +2541,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %98 = add nsw i32 %.in269, -1
   %99 = add nsw i32 %.6360197, 1
   %100 = icmp sgt i32 %.in269, 2
-  br i1 %100, label %.lr.ph198, label %.loopexit, !llvm.loop !8
+  br i1 %100, label %.lr.ph198, label %.loopexit, !llvm.loop !32
 
 101:                                              ; preds = %74
   %102 = and i32 %.1320, 1024
@@ -2600,7 +2600,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   store i8 %116, ptr %.0324.ptr, align 1
   %117 = udiv i64 %.1333206, 10
   %.not50 = icmp ult i64 %.1333206, 10
-  br i1 %.not50, label %.loopexit105.thread, label %.lr.ph208, !llvm.loop !9
+  br i1 %.not50, label %.loopexit105.thread, label %.lr.ph208, !llvm.loop !33
 
 .lr.ph203:                                        ; preds = %.lr.ph203.preheader, %.lr.ph203
   %.2326.idx202 = phi i64 [ %.2326.add, %.lr.ph203 ], [ 324, %.lr.ph203.preheader ]
@@ -2613,7 +2613,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   store i8 %120, ptr %.2326.ptr, align 1
   %121 = lshr i64 %.2334201, %110
   %.not49 = icmp ugt i64 %.033511.ph, %.2334201
-  br i1 %.not49, label %.loopexit105, label %.lr.ph203, !llvm.loop !10
+  br i1 %.not49, label %.loopexit105, label %.lr.ph203, !llvm.loop !34
 
 .loopexit105.thread:                              ; preds = %.lr.ph208, %.preheader104
   %.1325.idx.ph = phi i64 [ 324, %.preheader104 ], [ %.0324.add, %.lr.ph208 ]
@@ -2720,7 +2720,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %164 = add nsw i32 %.8362215, 1
   %165 = add nsw i32 %161, -1
   %166 = icmp sgt i32 %161, 0
-  br i1 %166, label %.lr.ph216, label %.loopexit101, !llvm.loop !11
+  br i1 %166, label %.lr.ph216, label %.loopexit101, !llvm.loop !35
 
 .loopexit101:                                     ; preds = %163, %.preheader100, %.loopexit103
   %.7361 = phi i32 [ %.1355, %.loopexit103 ], [ %.1355, %.preheader100 ], [ %160, %163 ]
@@ -2817,7 +2817,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %201 = add nsw i32 %.12366219, 1
   %202 = add nsw i32 %198, -1
   %203 = icmp sgt i32 %198, 0
-  br i1 %203, label %.lr.ph220, label %.loopexit98, !llvm.loop !12
+  br i1 %203, label %.lr.ph220, label %.loopexit98, !llvm.loop !36
 
 .loopexit98:                                      ; preds = %200, %.preheader97, %194
   %.11365 = phi i32 [ %.10364, %194 ], [ %.10364, %.preheader97 ], [ %197, %200 ]
@@ -2845,7 +2845,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
 210:                                              ; preds = %.lr.ph228
   %211 = add nsw i32 %.13367225, 1
   %exitcond325 = icmp eq i64 %.6330.add226, 324
-  br i1 %exitcond325, label %._crit_edge229, label %.lr.ph228, !llvm.loop !13
+  br i1 %exitcond325, label %._crit_edge229, label %.lr.ph228, !llvm.loop !37
 
 ._crit_edge229:                                   ; preds = %210, %.loopexit98
   %.13367.lcssa = phi i32 [ %.11365, %.loopexit98 ], [ %206, %210 ]
@@ -2868,7 +2868,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %216 = add nsw i32 %.in270, -1
   %217 = add nsw i32 %.14368231, 1
   %218 = icmp sgt i32 %.in270, 1
-  br i1 %218, label %.lr.ph232, label %.loopexit, !llvm.loop !14
+  br i1 %218, label %.lr.ph232, label %.loopexit, !llvm.loop !38
 
 219:                                              ; preds = %64
   %220 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -2954,7 +2954,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %254 = add nsw i32 %.17371177, 1
   %255 = add nsw i32 %251, -1
   %256 = icmp sgt i32 %251, 0
-  br i1 %256, label %.lr.ph178, label %.loopexit120, !llvm.loop !15
+  br i1 %256, label %.lr.ph178, label %.loopexit120, !llvm.loop !39
 
 .loopexit120:                                     ; preds = %253, %.preheader119, %243
   %.16370 = phi i32 [ %.15369, %243 ], [ %.15369, %.preheader119 ], [ %250, %253 ]
@@ -2986,7 +2986,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %265 = add nsw i32 %.18372182, 1
   %266 = add i64 %.1315184, -1
   %.not38 = icmp eq i64 %266, 0
-  br i1 %.not38, label %.critedge12, label %.lr.ph186, !llvm.loop !16
+  br i1 %.not38, label %.critedge12, label %.lr.ph186, !llvm.loop !40
 
 .critedge12:                                      ; preds = %263, %.lr.ph186, %.loopexit120
   %.18372.lcssa = phi i32 [ %.16370, %.loopexit120 ], [ %.18372182, %.lr.ph186 ], [ %258, %263 ]
@@ -3009,7 +3009,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %271 = add nsw i32 %.in268, -1
   %272 = add nsw i32 %.20374190, 1
   %273 = icmp sgt i32 %.in268, 1
-  br i1 %273, label %.lr.ph191, label %.loopexit116, !llvm.loop !17
+  br i1 %273, label %.lr.ph191, label %.loopexit116, !llvm.loop !41
 
 .loopexit116:                                     ; preds = %270, %.critedge12
   %.19373 = phi i32 [ %.18372.lcssa, %.critedge12 ], [ %268, %270 ]
@@ -3063,7 +3063,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %294 = add nsw i32 %.22168, 1
   %295 = add nsw i32 %291, -1
   %296 = icmp sgt i32 %291, 0
-  br i1 %296, label %.lr.ph169, label %.loopexit127, !llvm.loop !18
+  br i1 %296, label %.lr.ph169, label %.loopexit127, !llvm.loop !42
 
 .loopexit127:                                     ; preds = %293, %.preheader126, %285
   %.21375 = phi i32 [ %.1355, %285 ], [ %.1355, %.preheader126 ], [ %290, %293 ]
@@ -3086,7 +3086,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %.ptr327 = getelementptr inbounds nuw i8, ptr @formatf.nilstr, i64 %.0313173.add
   %304 = load i8, ptr %.ptr327, align 1
   %exitcond = icmp eq i64 %.0313173.add, 5
-  br i1 %exitcond, label %305, label %298, !llvm.loop !19
+  br i1 %exitcond, label %305, label %298, !llvm.loop !43
 
 305:                                              ; preds = %302
   %306 = icmp sgt i32 %.17, 0
@@ -3108,7 +3108,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %310 = add nsw i32 %.in, -1
   %311 = add nsw i32 %.24174, 1
   %312 = icmp sgt i32 %.in, 1
-  br i1 %312, label %.lr.ph175, label %.loopexit, !llvm.loop !20
+  br i1 %312, label %.lr.ph175, label %.loopexit, !llvm.loop !44
 
 313:                                              ; preds = %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) @__const.formatf.formatbuf, i64 32, i1 false)
@@ -3205,7 +3205,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %351 = fdiv double %.0161, 1.000000e+01
   %352 = add i32 %.1160, -1
   %353 = fcmp ult double %351, 1.000000e+01
-  br i1 %353, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %353, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %345
   %.1.lcssa = phi i32 [ %.0309, %345 ], [ %352, %.lr.ph ]
@@ -3278,7 +3278,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %383 = getelementptr inbounds nuw i8, ptr %.8164, i64 1
   %384 = load i8, ptr %383, align 1
   %.not23 = icmp eq i8 %384, 0
-  br i1 %.not23, label %.loopexit, label %.lr.ph166, !llvm.loop !22
+  br i1 %.not23, label %.loopexit, label %.lr.ph166, !llvm.loop !46
 
 385:                                              ; preds = %64
   %386 = and i32 %.0319, 64
@@ -3329,7 +3329,7 @@ define internal fastcc i32 @formatf.specialized.1(ptr nocapture noundef %0, ptr 
   %406 = load i32, ptr %4, align 4
   %407 = sext i32 %406 to i64
   %408 = icmp slt i64 %indvars.iv.next, %407
-  br i1 %408, label %15, label %.loopexit95, !llvm.loop !23
+  br i1 %408, label %15, label %.loopexit95, !llvm.loop !47
 
 .loopexit133.split.loop.exit242:                  ; preds = %186
   %409 = add nsw i32 %.9363, 1
@@ -3403,7 +3403,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %33 = add nsw i32 %.235654, 1
   %34 = add i64 %.032355, -1
   %.not2 = icmp eq i64 %34, 0
-  br i1 %.not2, label %.critedge, label %26, !llvm.loop !5
+  br i1 %.not2, label %.critedge, label %26, !llvm.loop !48
 
 .critedge:                                        ; preds = %26, %28
   %.2356.lcssa = phi i32 [ %.235654, %26 ], [ %25, %28 ]
@@ -3516,7 +3516,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   store ptr %85, ptr %0, align 8
   %86 = add nsw i32 %83, -1
   %87 = icmp samesign ugt i32 %83, 1
-  br i1 %87, label %.lr.ph93, label %.loopexit38.loopexit, !llvm.loop !7
+  br i1 %87, label %.lr.ph93, label %.loopexit38.loopexit, !llvm.loop !49
 
 .loopexit38.loopexit:                             ; preds = %.lr.ph93
   %88 = add i32 %80, %.1355
@@ -3553,7 +3553,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1
   store ptr %101, ptr %0, align 8
   %102 = icmp samesign ugt i32 %.434597, 2
-  br i1 %102, label %.lr.ph98, label %.loopexit.loopexit146, !llvm.loop !8
+  br i1 %102, label %.lr.ph98, label %.loopexit.loopexit146, !llvm.loop !50
 
 103:                                              ; preds = %74
   %104 = and i32 %.1320, 1024
@@ -3612,7 +3612,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   store i8 %118, ptr %.0324.ptr, align 1
   %119 = udiv i64 %.1333106, 10
   %.not50 = icmp ult i64 %.1333106, 10
-  br i1 %.not50, label %.loopexit31.thread, label %.lr.ph108, !llvm.loop !9
+  br i1 %.not50, label %.loopexit31.thread, label %.lr.ph108, !llvm.loop !51
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %.2326.idx102 = phi i64 [ %.2326.add, %.lr.ph103 ], [ 324, %.lr.ph103.preheader ]
@@ -3625,7 +3625,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   store i8 %122, ptr %.2326.ptr, align 1
   %123 = lshr i64 %.2334101, %112
   %.not49 = icmp ugt i64 %.033511.ph, %.2334101
-  br i1 %.not49, label %.loopexit31, label %.lr.ph103, !llvm.loop !10
+  br i1 %.not49, label %.loopexit31, label %.lr.ph103, !llvm.loop !52
 
 .loopexit31.thread:                               ; preds = %.lr.ph108, %.preheader30
   %.1325.idx.ph = phi i64 [ 324, %.preheader30 ], [ %.0324.add, %.lr.ph108 ]
@@ -3728,7 +3728,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   store ptr %164, ptr %0, align 8
   %165 = add nsw i32 %162, -1
   %.not235 = icmp eq i32 %162, 0
-  br i1 %.not235, label %.loopexit28.loopexit, label %.lr.ph116, !llvm.loop !11
+  br i1 %.not235, label %.loopexit28.loopexit, label %.lr.ph116, !llvm.loop !53
 
 .loopexit28.loopexit:                             ; preds = %.lr.ph116
   %166 = add i32 %160, %155
@@ -3796,7 +3796,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   store ptr %187, ptr %0, align 8
   %188 = add nsw i32 %185, -1
   %.not236 = icmp eq i32 %185, 0
-  br i1 %.not236, label %.loopexit26.loopexit, label %.lr.ph120, !llvm.loop !12
+  br i1 %.not236, label %.loopexit26.loopexit, label %.lr.ph120, !llvm.loop !54
 
 .loopexit26.loopexit:                             ; preds = %.lr.ph120
   %189 = add i32 %.10364, %.9
@@ -3824,7 +3824,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 1
   store ptr %194, ptr %0, align 8
   %exitcond167 = icmp eq i64 %.6330.add, 324
-  br i1 %exitcond167, label %._crit_edge128.loopexit, label %.lr.ph127, !llvm.loop !13
+  br i1 %exitcond167, label %._crit_edge128.loopexit, label %.lr.ph127, !llvm.loop !55
 
 ._crit_edge128.loopexit:                          ; preds = %.lr.ph127
   %195 = add i32 %.11365, 324
@@ -3850,7 +3850,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 1
   store ptr %201, ptr %0, align 8
   %202 = icmp samesign ugt i32 %.13131, 1
-  br i1 %202, label %.lr.ph132, label %.loopexit.loopexit, !llvm.loop !14
+  br i1 %202, label %.lr.ph132, label %.loopexit.loopexit, !llvm.loop !56
 
 203:                                              ; preds = %64
   %204 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -3934,7 +3934,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   store ptr %238, ptr %0, align 8
   %239 = add nsw i32 %236, -1
   %.not234 = icmp eq i32 %236, 0
-  br i1 %.not234, label %.loopexit42.loopexit, label %.lr.ph76, !llvm.loop !15
+  br i1 %.not234, label %.loopexit42.loopexit, label %.lr.ph76, !llvm.loop !57
 
 .loopexit42.loopexit:                             ; preds = %.lr.ph76
   %240 = sub i32 %234, %230
@@ -3969,7 +3969,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %249 = add nsw i32 %.1837280, 1
   %250 = add i64 %.131582, -1
   %.not38 = icmp eq i64 %250, 0
-  br i1 %.not38, label %.critedge12, label %.lr.ph84, !llvm.loop !16
+  br i1 %.not38, label %.critedge12, label %.lr.ph84, !llvm.loop !58
 
 .critedge12:                                      ; preds = %244, %.lr.ph84, %.loopexit42
   %.18372.lcssa = phi i32 [ %.16370, %.loopexit42 ], [ %.1837280, %.lr.ph84 ], [ %242, %244 ]
@@ -3990,7 +3990,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 1
   store ptr %255, ptr %0, align 8
   %256 = icmp samesign ugt i32 %.1689, 1
-  br i1 %256, label %.lr.ph90, label %.loopexit40.loopexit, !llvm.loop !17
+  br i1 %256, label %.lr.ph90, label %.loopexit40.loopexit, !llvm.loop !59
 
 .loopexit40.loopexit:                             ; preds = %.lr.ph90
   %257 = add i32 %.14, %.18372.lcssa
@@ -4047,7 +4047,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   store ptr %278, ptr %0, align 8
   %279 = add nsw i32 %276, -1
   %.not233 = icmp eq i32 %276, 0
-  br i1 %.not233, label %.loopexit46.loopexit, label %.lr.ph66, !llvm.loop !18
+  br i1 %.not233, label %.loopexit46.loopexit, label %.lr.ph66, !llvm.loop !60
 
 .loopexit46.loopexit:                             ; preds = %.lr.ph66
   %280 = add i32 %271, %.1355
@@ -4071,7 +4071,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %.ptr183 = getelementptr inbounds nuw i8, ptr @formatf.nilstr, i64 %.031370.add
   %286 = load i8, ptr %.ptr183, align 1
   %exitcond = icmp eq i64 %.031370.add, 5
-  br i1 %exitcond, label %287, label %281, !llvm.loop !19
+  br i1 %exitcond, label %287, label %281, !llvm.loop !61
 
 287:                                              ; preds = %281
   %288 = add i32 %.21375, 5
@@ -4088,7 +4088,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 1
   store ptr %293, ptr %0, align 8
   %294 = icmp samesign ugt i32 %.1972, 1
-  br i1 %294, label %.lr.ph73, label %.loopexit.loopexit147, !llvm.loop !20
+  br i1 %294, label %.lr.ph73, label %.loopexit.loopexit147, !llvm.loop !62
 
 295:                                              ; preds = %64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) @__const.formatf.formatbuf, i64 32, i1 false)
@@ -4185,7 +4185,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %333 = fdiv double %.058, 1.000000e+01
   %334 = add i32 %.157, -1
   %335 = fcmp ult double %333, 1.000000e+01
-  br i1 %335, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %335, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %327
   %.1.lcssa = phi i32 [ %.0309, %327 ], [ %334, %.lr.ph ]
@@ -4261,7 +4261,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %365 = getelementptr inbounds nuw i8, ptr %.861, i64 1
   %366 = load i8, ptr %365, align 1
   %.not23 = icmp eq i8 %366, 0
-  br i1 %.not23, label %.loopexit, label %.lr.ph63, !llvm.loop !22
+  br i1 %.not23, label %.loopexit, label %.lr.ph63, !llvm.loop !64
 
 367:                                              ; preds = %64
   %368 = and i32 %.0319, 64
@@ -4324,7 +4324,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr nocapture noundef %0, ptr 
   %391 = load i32, ptr %4, align 4
   %392 = sext i32 %391 to i64
   %393 = icmp slt i64 %indvars.iv.next, %392
-  br i1 %393, label %15, label %.loopexit49, !llvm.loop !23
+  br i1 %393, label %15, label %.loopexit49, !llvm.loop !65
 
 .loopexit49:                                      ; preds = %.loopexit, %3
   %.0331 = phi i32 [ 0, %3 ], [ %.3357, %.loopexit ]
@@ -4422,7 +4422,7 @@ alloc_addbyter.exit:                              ; preds = %48
   %56 = add nsw i32 %.2356150, 1
   %57 = add i64 %.0323151, -1
   %.not2 = icmp eq i64 %57, 0
-  br i1 %.not2, label %.critedge, label %46, !llvm.loop !5
+  br i1 %.not2, label %.critedge, label %46, !llvm.loop !66
 
 .critedge:                                        ; preds = %46, %54
   %.2356.lcssa = phi i32 [ %.2356150, %46 ], [ %45, %54 ]
@@ -4550,7 +4550,7 @@ alloc_addbyter.exit90:                            ; preds = %.lr.ph187
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22)
   %113 = add nsw i32 %106, -1
   %114 = icmp sgt i32 %106, 1
-  br i1 %114, label %.lr.ph187, label %.loopexit77, !llvm.loop !7
+  br i1 %114, label %.lr.ph187, label %.loopexit77, !llvm.loop !67
 
 .loopexit77:                                      ; preds = %112, %.preheader76, %101
   %.5359 = phi i32 [ %.1355, %101 ], [ %.1355, %.preheader76 ], [ %105, %112 ]
@@ -4603,7 +4603,7 @@ alloc_addbyter.exit96:                            ; preds = %.lr.ph191
   %131 = add nsw i32 %.in251, -1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20)
   %132 = icmp sgt i32 %.in251, 2
-  br i1 %132, label %.lr.ph191, label %.loopexit, !llvm.loop !8
+  br i1 %132, label %.lr.ph191, label %.loopexit, !llvm.loop !68
 
 133:                                              ; preds = %97
   %134 = and i32 %.1320, 1024
@@ -4662,7 +4662,7 @@ alloc_addbyter.exit96:                            ; preds = %.lr.ph191
   store i8 %148, ptr %.0324.ptr, align 1
   %149 = udiv i64 %.1333199, 10
   %.not50 = icmp ult i64 %.1333199, 10
-  br i1 %.not50, label %.loopexit70.thread, label %.lr.ph201, !llvm.loop !9
+  br i1 %.not50, label %.loopexit70.thread, label %.lr.ph201, !llvm.loop !69
 
 .lr.ph196:                                        ; preds = %.lr.ph196.preheader, %.lr.ph196
   %.2326.idx195 = phi i64 [ %.2326.add, %.lr.ph196 ], [ 324, %.lr.ph196.preheader ]
@@ -4675,7 +4675,7 @@ alloc_addbyter.exit96:                            ; preds = %.lr.ph191
   store i8 %152, ptr %.2326.ptr, align 1
   %153 = lshr i64 %.2334194, %142
   %.not49 = icmp ugt i64 %.033519.ph, %.2334194
-  br i1 %.not49, label %.loopexit70, label %.lr.ph196, !llvm.loop !10
+  br i1 %.not49, label %.loopexit70, label %.lr.ph196, !llvm.loop !70
 
 .loopexit70.thread:                               ; preds = %.lr.ph201, %.preheader69
   %.1325.idx.ph = phi i64 [ 324, %.preheader69 ], [ %.0324.add, %.lr.ph201 ]
@@ -4792,7 +4792,7 @@ alloc_addbyter.exit99:                            ; preds = %.lr.ph209
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %19)
   %200 = add nsw i32 %193, -1
   %201 = icmp sgt i32 %193, 0
-  br i1 %201, label %.lr.ph209, label %.loopexit67, !llvm.loop !11
+  br i1 %201, label %.lr.ph209, label %.loopexit67, !llvm.loop !71
 
 .loopexit67:                                      ; preds = %199, %.preheader66, %.loopexit68
   %.7361 = phi i32 [ %.1355, %.loopexit68 ], [ %.1355, %.preheader66 ], [ %192, %199 ]
@@ -4959,7 +4959,7 @@ alloc_addbyter.exit117:                           ; preds = %.lr.ph213
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13)
   %260 = add nsw i32 %253, -1
   %261 = icmp sgt i32 %253, 0
-  br i1 %261, label %.lr.ph213, label %.loopexit65, !llvm.loop !12
+  br i1 %261, label %.lr.ph213, label %.loopexit65, !llvm.loop !72
 
 .loopexit65:                                      ; preds = %259, %.preheader64, %249
   %.11365 = phi i32 [ %.10364, %249 ], [ %.10364, %.preheader64 ], [ %252, %259 ]
@@ -4996,7 +4996,7 @@ alloc_addbyter.exit120:                           ; preds = %.lr.ph221
 271:                                              ; preds = %.lr.ph221
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   %exitcond337 = icmp eq i64 %.6330.add219, 324
-  br i1 %exitcond337, label %._crit_edge222, label %.lr.ph221, !llvm.loop !13
+  br i1 %exitcond337, label %._crit_edge222, label %.lr.ph221, !llvm.loop !73
 
 ._crit_edge222:                                   ; preds = %271, %.loopexit65
   %.13367.lcssa = phi i32 [ %.11365, %.loopexit65 ], [ %264, %271 ]
@@ -5029,7 +5029,7 @@ alloc_addbyter.exit123:                           ; preds = %.lr.ph225
   %280 = add nsw i32 %.in252, -1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
   %281 = icmp sgt i32 %.in252, 1
-  br i1 %281, label %.lr.ph225, label %.loopexit, !llvm.loop !14
+  br i1 %281, label %.lr.ph225, label %.loopexit, !llvm.loop !74
 
 282:                                              ; preds = %87
   %283 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -5125,7 +5125,7 @@ alloc_addbyter.exit126:                           ; preds = %.lr.ph171
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
   %321 = add nsw i32 %314, -1
   %322 = icmp sgt i32 %314, 0
-  br i1 %322, label %.lr.ph171, label %.loopexit81, !llvm.loop !15
+  br i1 %322, label %.lr.ph171, label %.loopexit81, !llvm.loop !75
 
 .loopexit81:                                      ; preds = %320, %.preheader80, %306
   %.16370 = phi i32 [ %.15369, %306 ], [ %.15369, %.preheader80 ], [ %313, %320 ]
@@ -5168,7 +5168,7 @@ alloc_addbyter.exit129:                           ; preds = %326
   %334 = add nsw i32 %.18372175, 1
   %335 = add i64 %.1315177, -1
   %.not38 = icmp eq i64 %335, 0
-  br i1 %.not38, label %.critedge12, label %.lr.ph179, !llvm.loop !16
+  br i1 %.not38, label %.critedge12, label %.lr.ph179, !llvm.loop !76
 
 .critedge12:                                      ; preds = %332, %.lr.ph179, %.loopexit81
   %.18372.lcssa = phi i32 [ %.16370, %.loopexit81 ], [ %.18372175, %.lr.ph179 ], [ %324, %332 ]
@@ -5201,7 +5201,7 @@ alloc_addbyter.exit132:                           ; preds = %.lr.ph184
   %344 = add nsw i32 %.in250, -1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
   %345 = icmp sgt i32 %.in250, 1
-  br i1 %345, label %.lr.ph184, label %.loopexit79, !llvm.loop !17
+  br i1 %345, label %.lr.ph184, label %.loopexit79, !llvm.loop !77
 
 .loopexit79:                                      ; preds = %343, %.critedge12
   %.19373 = phi i32 [ %.18372.lcssa, %.critedge12 ], [ %337, %343 ]
@@ -5265,7 +5265,7 @@ alloc_addbyter.exit135:                           ; preds = %.lr.ph162
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
   %370 = add nsw i32 %363, -1
   %371 = icmp sgt i32 %363, 0
-  br i1 %371, label %.lr.ph162, label %.loopexit85, !llvm.loop !18
+  br i1 %371, label %.lr.ph162, label %.loopexit85, !llvm.loop !78
 
 .loopexit85:                                      ; preds = %369, %.preheader84, %357
   %.21375 = phi i32 [ %.1355, %357 ], [ %.1355, %.preheader84 ], [ %362, %369 ]
@@ -5297,7 +5297,7 @@ alloc_addbyter.exit138:                           ; preds = %373
   %.ptr339 = getelementptr inbounds nuw i8, ptr @formatf.nilstr, i64 %.0313166.add
   %381 = load i8, ptr %.ptr339, align 1
   %exitcond = icmp eq i64 %.0313166.add, 5
-  br i1 %exitcond, label %382, label %373, !llvm.loop !19
+  br i1 %exitcond, label %382, label %373, !llvm.loop !79
 
 382:                                              ; preds = %380
   %383 = icmp sgt i32 %.17, 0
@@ -5329,7 +5329,7 @@ alloc_addbyter.exit141:                           ; preds = %.lr.ph168
   %391 = add nsw i32 %.in, -1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   %392 = icmp sgt i32 %.in, 1
-  br i1 %392, label %.lr.ph168, label %.loopexit, !llvm.loop !20
+  br i1 %392, label %.lr.ph168, label %.loopexit, !llvm.loop !80
 
 393:                                              ; preds = %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %29, ptr noundef nonnull align 16 dereferenceable(32) @__const.formatf.formatbuf, i64 32, i1 false)
@@ -5426,7 +5426,7 @@ alloc_addbyter.exit141:                           ; preds = %.lr.ph168
   %431 = fdiv double %.0154, 1.000000e+01
   %432 = add i32 %.1153, -1
   %433 = fcmp ult double %431, 1.000000e+01
-  br i1 %433, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %433, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %.lr.ph, %425
   %.1.lcssa = phi i32 [ %.0309, %425 ], [ %432, %.lr.ph ]
@@ -5510,7 +5510,7 @@ alloc_addbyter.exit144:                           ; preds = %.lr.ph159
   %466 = getelementptr inbounds nuw i8, ptr %.8157, i64 1
   %467 = load i8, ptr %466, align 1
   %.not23 = icmp eq i8 %467, 0
-  br i1 %.not23, label %.loopexit, label %.lr.ph159, !llvm.loop !22
+  br i1 %.not23, label %.loopexit, label %.lr.ph159, !llvm.loop !82
 
 468:                                              ; preds = %87
   %469 = and i32 %.0319, 64
@@ -5561,7 +5561,7 @@ alloc_addbyter.exit144:                           ; preds = %.lr.ph159
   %489 = load i32, ptr %24, align 4
   %490 = sext i32 %489 to i64
   %491 = icmp slt i64 %indvars.iv.next, %490
-  br i1 %491, label %35, label %.loopexit88, !llvm.loop !23
+  br i1 %491, label %35, label %.loopexit88, !llvm.loop !83
 
 .loopexit88:                                      ; preds = %220, %302, %346, %.loopexit, %alloc_addbyter.exit144, %alloc_addbyter.exit141, %alloc_addbyter.exit138, %alloc_addbyter.exit135, %alloc_addbyter.exit132, %alloc_addbyter.exit129, %alloc_addbyter.exit126, %alloc_addbyter.exit123, %alloc_addbyter.exit120, %alloc_addbyter.exit117, %alloc_addbyter.exit114, %alloc_addbyter.exit111, %alloc_addbyter.exit108, %alloc_addbyter.exit105, %alloc_addbyter.exit102, %alloc_addbyter.exit99, %alloc_addbyter.exit96, %alloc_addbyter.exit93, %alloc_addbyter.exit90, %alloc_addbyter.exit, %3
   ret void
@@ -5637,3 +5637,57 @@ attributes #12 = { nounwind }
 !27 = distinct !{!27, !6}
 !28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}
+!34 = distinct !{!34, !6}
+!35 = distinct !{!35, !6}
+!36 = distinct !{!36, !6}
+!37 = distinct !{!37, !6}
+!38 = distinct !{!38, !6}
+!39 = distinct !{!39, !6}
+!40 = distinct !{!40, !6}
+!41 = distinct !{!41, !6}
+!42 = distinct !{!42, !6}
+!43 = distinct !{!43, !6}
+!44 = distinct !{!44, !6}
+!45 = distinct !{!45, !6}
+!46 = distinct !{!46, !6}
+!47 = distinct !{!47, !6}
+!48 = distinct !{!48, !6}
+!49 = distinct !{!49, !6}
+!50 = distinct !{!50, !6}
+!51 = distinct !{!51, !6}
+!52 = distinct !{!52, !6}
+!53 = distinct !{!53, !6}
+!54 = distinct !{!54, !6}
+!55 = distinct !{!55, !6}
+!56 = distinct !{!56, !6}
+!57 = distinct !{!57, !6}
+!58 = distinct !{!58, !6}
+!59 = distinct !{!59, !6}
+!60 = distinct !{!60, !6}
+!61 = distinct !{!61, !6}
+!62 = distinct !{!62, !6}
+!63 = distinct !{!63, !6}
+!64 = distinct !{!64, !6}
+!65 = distinct !{!65, !6}
+!66 = distinct !{!66, !6}
+!67 = distinct !{!67, !6}
+!68 = distinct !{!68, !6}
+!69 = distinct !{!69, !6}
+!70 = distinct !{!70, !6}
+!71 = distinct !{!71, !6}
+!72 = distinct !{!72, !6}
+!73 = distinct !{!73, !6}
+!74 = distinct !{!74, !6}
+!75 = distinct !{!75, !6}
+!76 = distinct !{!76, !6}
+!77 = distinct !{!77, !6}
+!78 = distinct !{!78, !6}
+!79 = distinct !{!79, !6}
+!80 = distinct !{!80, !6}
+!81 = distinct !{!81, !6}
+!82 = distinct !{!82, !6}
+!83 = distinct !{!83, !6}
