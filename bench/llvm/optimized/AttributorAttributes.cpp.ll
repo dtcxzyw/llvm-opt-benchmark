@@ -146599,9 +146599,9 @@ _ZN12_GLOBAL__N_121AAHeapToStackFunction8getAPIntERN4llvm10AttributorERKNS1_17Ab
   %.0.in.i = select i1 %179, ptr %13, ptr %180
   %.0.i105 = load i64, ptr %.0.in.i, align 8
   %.not.i = icmp eq i64 %.0.i105, 0
-  %181 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i105, i1 true)
+  %181 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.0.i105, i1 false)
   %182 = trunc nuw nsw i64 %181 to i8
-  %183 = xor i8 %182, 63
+  %183 = sub nuw nsw i8 63, %182
   %184 = call i8 @llvm.umax.i8(i8 %.sroa.0136.0, i8 %183)
   %.sroa.speculated = select i1 %.not.i, i8 %.sroa.0136.0, i8 %184
   %185 = trunc nuw i8 %.sink.i to i1

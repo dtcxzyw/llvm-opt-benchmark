@@ -634,9 +634,9 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i:   ; preds = %21, %15
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 128), align 8
   %39 = zext i32 %38 to i64
   %.not.i6.i.i = icmp eq i32 %38, 0
-  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %39, i1 true)
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %39, i1 false)
   %41 = trunc nuw nsw i64 %40 to i8
-  %42 = xor i8 %41, 63
+  %42 = sub nuw nsw i8 63, %41
   %.sroa.0.0.i.i.i = select i1 %.not.i6.i.i, i8 0, i8 %42
   store i8 %.sroa.0.0.i.i.i, ptr %24, align 1
   br label %43
@@ -728,9 +728,9 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i: ; preds = %61, %55
   %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 128), align 8
   %79 = zext i32 %78 to i64
   %.not.i6.i.i.i = icmp eq i32 %78, 0
-  %80 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %79, i1 true)
+  %80 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %79, i1 false)
   %81 = trunc nuw nsw i64 %80 to i8
-  %82 = xor i8 %81, 63
+  %82 = sub nuw nsw i8 63, %81
   %.sroa.0.0.i.i.i.i = select i1 %.not.i6.i.i.i, i8 0, i8 %82
   store i8 %.sroa.0.0.i.i.i.i, ptr %64, align 1
   br label %83
@@ -817,9 +817,9 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i19: ; preds = %97, %_ZN4llvm23MC
   %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 128), align 8
   %115 = zext i32 %114 to i64
   %.not.i6.i.i.i22 = icmp eq i32 %114, 0
-  %116 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %115, i1 true)
+  %116 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %115, i1 false)
   %117 = trunc nuw nsw i64 %116 to i8
-  %118 = xor i8 %117, 63
+  %118 = sub nuw nsw i8 63, %117
   %.sroa.0.0.i.i.i.i23 = select i1 %.not.i6.i.i.i22, i8 0, i8 %118
   store i8 %.sroa.0.0.i.i.i.i23, ptr %100, align 1
   br label %119
@@ -910,9 +910,9 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i:     ; preds = %9, %4
   %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 128), align 8
   %27 = zext i32 %26 to i64
   %.not.i6.i = icmp eq i32 %26, 0
-  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %27, i1 true)
+  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %27, i1 false)
   %29 = trunc nuw nsw i64 %28 to i8
-  %30 = xor i8 %29, 63
+  %30 = sub nuw nsw i8 63, %29
   %.sroa.0.0.i.i = select i1 %.not.i6.i, i8 0, i8 %30
   store i8 %.sroa.0.0.i.i, ptr %12, align 1
   br label %31
@@ -1045,9 +1045,9 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i:   ; preds = %21, %15
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 128), align 8
   %39 = zext i32 %38 to i64
   %.not.i6.i.i = icmp eq i32 %38, 0
-  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %39, i1 true)
+  %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %39, i1 false)
   %41 = trunc nuw nsw i64 %40 to i8
-  %42 = xor i8 %41, 63
+  %42 = sub nuw nsw i8 63, %41
   %.sroa.0.0.i.i.i = select i1 %.not.i6.i.i, i8 0, i8 %42
   store i8 %.sroa.0.0.i.i.i, ptr %24, align 1
   br label %43
@@ -1130,9 +1130,9 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i21: ; preds = %58, %52
   %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 128), align 8
   %76 = zext i32 %75 to i64
   %.not.i6.i.i24 = icmp eq i32 %75, 0
-  %77 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %76, i1 true)
+  %77 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %76, i1 false)
   %78 = trunc nuw nsw i64 %77 to i8
-  %79 = xor i8 %78, 63
+  %79 = sub nuw nsw i8 63, %78
   %.sroa.0.0.i.i.i25 = select i1 %.not.i6.i.i24, i8 0, i8 %79
   store i8 %.sroa.0.0.i.i.i25, ptr %61, align 1
   br label %80
@@ -1236,9 +1236,9 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i: ; preds = %100, %94
   %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 128), align 8
   %118 = zext i32 %117 to i64
   %.not.i6.i.i.i = icmp eq i32 %117, 0
-  %119 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %118, i1 true)
+  %119 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %118, i1 false)
   %120 = trunc nuw nsw i64 %119 to i8
-  %121 = xor i8 %120, 63
+  %121 = sub nuw nsw i8 63, %120
   %.sroa.0.0.i.i.i.i = select i1 %.not.i6.i.i.i, i8 0, i8 %121
   store i8 %.sroa.0.0.i.i.i.i, ptr %103, align 1
   br label %122
@@ -1321,9 +1321,9 @@ _ZNK4llvm6Target17createMCInstrInfoEv.exit.i.i.i31: ; preds = %137, %131
   %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_122X86AlignBranchBoundaryE, i64 128), align 8
   %155 = zext i32 %154 to i64
   %.not.i6.i.i.i34 = icmp eq i32 %154, 0
-  %156 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %155, i1 true)
+  %156 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %155, i1 false)
   %157 = trunc nuw nsw i64 %156 to i8
-  %158 = xor i8 %157, 63
+  %158 = sub nuw nsw i8 63, %157
   %.sroa.0.0.i.i.i.i35 = select i1 %.not.i6.i.i.i34, i8 0, i8 %158
   store i8 %.sroa.0.0.i.i.i.i35, ptr %140, align 1
   br label %159

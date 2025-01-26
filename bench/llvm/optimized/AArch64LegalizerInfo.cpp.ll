@@ -21303,9 +21303,9 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread56:       ; preds = %_ZN4llvmneENS_9Stri
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %31 = load i64, ptr %30, align 8
   %.not.i = icmp eq i64 %31, 0
-  %32 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)
+  %32 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 false)
   %33 = trunc nuw nsw i64 %32 to i8
-  %34 = xor i8 %33, 63
+  %34 = sub nuw nsw i8 63, %33
   %.sroa.0.0.i = select i1 %.not.i, i8 0, i8 %34
   %35 = icmp slt i32 %27, 0
   br i1 %35, label %36, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit

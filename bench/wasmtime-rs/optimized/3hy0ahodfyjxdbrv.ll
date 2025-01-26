@@ -36381,8 +36381,8 @@ define hidden { i1, i8 } @"_ZN17cranelift_codegen6bitset15BitSet$LT$T$GT$3min17h
 define hidden { i1, i8 } @"_ZN17cranelift_codegen6bitset15BitSet$LT$T$GT$3max17h221f76032dd3c588E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #14 {
   %2 = load i8, ptr %0, align 1, !noundef !9
   %3 = icmp ne i8 %2, 0
-  %4 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %2, i1 true)
-  %5 = xor i8 %4, 7
+  %4 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %2, i1 false)
+  %5 = sub nuw nsw i8 7, %4
   %.sroa.3.0 = select i1 %3, i8 %5, i8 undef
   %6 = insertvalue { i1, i8 } poison, i1 %3, 0
   %7 = insertvalue { i1, i8 } %6, i8 %.sroa.3.0, 1

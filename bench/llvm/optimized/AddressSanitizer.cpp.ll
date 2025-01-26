@@ -10356,9 +10356,9 @@ _ZN12_GLOBAL__N_122ModuleAddressSanitizer20instrumentGlobalsELFERN4llvm9IRBuilde
   %809 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %32) #22
   %810 = and i64 %809, 4294967295
   %.not.i20.i = icmp eq i64 %810, 0
-  %811 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %810, i1 true)
+  %811 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %810, i1 false)
   %812 = trunc nuw nsw i64 %811 to i8
-  %813 = xor i8 %812, 63
+  %813 = sub nuw nsw i8 63, %812
   %.sroa.0.0.i.i149 = select i1 %.not.i20.i, i8 0, i8 %813
   call void @_ZN4llvm12GlobalObject12setAlignmentENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(56) %790, i8 %.sroa.0.0.i.i149) #22
   call fastcc void @_ZN12_GLOBAL__N_122ModuleAddressSanitizer26SetComdatForGlobalMetadataEPN4llvm14GlobalVariableES3_NS1_9StringRefE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull %786, ptr noundef nonnull %790, ptr nonnull @.str.176, i64 0)

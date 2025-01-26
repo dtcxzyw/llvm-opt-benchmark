@@ -40424,9 +40424,9 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm15LegalizerHelper18lowerDy
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %25 = load i64, ptr %24, align 8
   %.not.i = icmp eq i64 %25, 0
-  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 false)
   %27 = trunc nuw nsw i64 %26 to i8
-  %28 = xor i8 %27, 63
+  %28 = sub nuw nsw i8 63, %27
   %.sroa.0.0.i = select i1 %.not.i, i8 0, i8 %28
   %29 = icmp slt i32 %21, 0
   br i1 %29, label %30, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit

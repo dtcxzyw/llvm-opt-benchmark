@@ -145,17 +145,17 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej
   %13 = load i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8
   %14 = trunc i8 %13 to i1
   %15 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %5, i1 true)
-  %.0 = select i1 %14, i32 %15, i32 %12
-  %16 = shl nuw i32 1, %.0
+  %spec.select = select i1 %14, i32 %15, i32 %12
+  %16 = shl nuw i32 1, %spec.select
   %17 = xor i32 %16, -1
   %18 = and i32 %5, %17
   store i32 %18, ptr %4, align 4
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
-  %20 = zext nneg i32 %.0 to i64
+  %20 = zext nneg i32 %spec.select to i64
   %21 = getelementptr inbounds nuw [32 x i32], ptr %19, i64 0, i64 %20
   store i32 %2, ptr %21, align 4
   %22 = and i8 %1, 7
-  %23 = trunc nuw nsw i32 %.0 to i8
+  %23 = trunc nuw nsw i32 %spec.select to i8
   %24 = shl nuw i8 %23, 3
   %25 = or disjoint i8 %24, %22
   br label %26
@@ -188,8 +188,8 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E
   %12 = load i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8
   %13 = trunc i8 %12 to i1
   %14 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %4, i1 true)
-  %.0 = select i1 %13, i32 %14, i32 %11
-  %15 = shl nuw i32 1, %.0
+  %spec.select = select i1 %13, i32 %14, i32 %11
+  %15 = shl nuw i32 1, %spec.select
   %16 = xor i32 %15, -1
   %17 = and i32 %4, %16
   store i32 %17, ptr %3, align 4
@@ -198,7 +198,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E
   %20 = or i32 %15, %19
   store i32 %20, ptr %18, align 4
   %21 = and i8 %1, 7
-  %22 = trunc nuw nsw i32 %.0 to i8
+  %22 = trunc nuw nsw i32 %spec.select to i8
   %23 = shl nuw i8 %22, 3
   %24 = or disjoint i8 %23, %21
   br label %25
@@ -211,8 +211,8 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA649allocTempENS1_7KindA64E
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA64EjSt16initializer_listINS0_4IrOpEE(ptr nocapture noundef nonnull align 8 dereferenceable(325) %0, i8 noundef zeroext %1, i32 noundef %2, ptr readonly %3, i64 %4) local_unnamed_addr #4 align 2 {
   %6 = getelementptr inbounds %"struct.Luau::CodeGen::IrOp", ptr %3, i64 %4
-  %.not30 = icmp eq i64 %4, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
+  %.not29 = icmp eq i64 %4, 0
+  br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %7 = load ptr, ptr %0, align 8
@@ -220,8 +220,8 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA6
   br label %9
 
 9:                                                ; preds = %.lr.ph, %33
-  %.031 = phi ptr [ %3, %.lr.ph ], [ %34, %33 ]
-  %.sroa.07.0.copyload = load i32, ptr %.031, align 4
+  %.030 = phi ptr [ %3, %.lr.ph ], [ %34, %33 ]
+  %.sroa.07.0.copyload = load i32, ptr %.030, align 4
   %10 = and i32 %.sroa.07.0.copyload, 15
   %.not22 = icmp eq i32 %10, 4
   br i1 %.not22, label %11, label %33
@@ -245,8 +245,8 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA6
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 39
   %25 = load i8, ptr %24, align 1
-  %.not25 = icmp eq i8 %25, 0
-  br i1 %.not25, label %33, label %26
+  %.not24 = icmp eq i8 %25, 0
+  br i1 %.not24, label %33, label %26
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 40
@@ -265,7 +265,7 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA6
   br label %_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej.exit
 
 33:                                               ; preds = %11, %19, %23, %9
-  %34 = getelementptr inbounds nuw i8, ptr %.031, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.030, i64 4
   %.not = icmp eq ptr %34, %6
   br i1 %.not, label %._crit_edge, label %9
 
@@ -291,17 +291,17 @@ define dso_local i8 @_ZN4Luau7CodeGen3A6413IrRegAllocA6410allocReuseENS1_7KindA6
   %44 = load i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8
   %45 = trunc i8 %44 to i1
   %46 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %36, i1 true)
-  %.0.i23 = select i1 %45, i32 %46, i32 %43
-  %47 = shl nuw i32 1, %.0.i23
+  %spec.select.i = select i1 %45, i32 %46, i32 %43
+  %47 = shl nuw i32 1, %spec.select.i
   %48 = xor i32 %47, -1
   %49 = and i32 %36, %48
   store i32 %49, ptr %35, align 4
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
-  %51 = zext nneg i32 %.0.i23 to i64
+  %51 = zext nneg i32 %spec.select.i to i64
   %52 = getelementptr inbounds nuw [32 x i32], ptr %50, i64 0, i64 %51
   store i32 %2, ptr %52, align 4
   %53 = and i8 %1, 7
-  %54 = trunc nuw nsw i32 %.0.i23 to i8
+  %54 = trunc nuw nsw i32 %spec.select.i to i8
   %55 = shl nuw i8 %54, 3
   %56 = or disjoint i8 %55, %53
   br label %_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej.exit
@@ -1466,16 +1466,16 @@ define dso_local void @_ZN4Luau7CodeGen3A6413IrRegAllocA6410restoreRegERNS1_18As
   %35 = load i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8
   %36 = trunc i8 %35 to i1
   %37 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %28, i1 true)
-  %.0.i = select i1 %36, i32 %37, i32 %34
-  %38 = shl nuw i32 1, %.0.i
+  %spec.select.i = select i1 %36, i32 %37, i32 %34
+  %38 = shl nuw i32 1, %spec.select.i
   %39 = xor i32 %38, -1
   %40 = and i32 %28, %39
   store i32 %40, ptr %27, align 4
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
-  %42 = zext nneg i32 %.0.i to i64
+  %42 = zext nneg i32 %spec.select.i to i64
   %43 = getelementptr inbounds nuw [32 x i32], ptr %41, i64 0, i64 %42
   store i32 %11, ptr %43, align 4
-  %44 = trunc nuw nsw i32 %.0.i to i8
+  %44 = trunc nuw nsw i32 %spec.select.i to i8
   %45 = shl nuw i8 %44, 3
   %46 = or disjoint i8 %45, %26
   br label %_ZN4Luau7CodeGen3A6413IrRegAllocA648allocRegENS1_7KindA64Ej.exit

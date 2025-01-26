@@ -7859,53 +7859,37 @@ _ZN17cranelift_codegen2ir5types4Type14log2_lane_bits17h96ee7a58341145dcE.exit.i2
 
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i16 118, 256) i16 @_ZN17cranelift_codegen2ir12instructions12ValueTypeSet7example17h93fca4a878ad4a9dE(i64 %0) unnamed_addr #2 {
-  %.sroa.219.0.extract.shift = lshr i64 %0, 32
-  %.sroa.219.0.extract.trunc = trunc i64 %.sroa.219.0.extract.shift to i8
-  %.not = icmp ne i8 %.sroa.219.0.extract.trunc, 0
-  %2 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %.sroa.219.0.extract.trunc, i1 true)
-  %3 = xor i8 %2, 6
-  %4 = icmp samesign ugt i8 %3, 5
-  %.09 = select i1 %.not, i1 %4, i1 false
-  br i1 %.09, label %10, label %5
+  %2 = and i64 %0, 65535
+  %.not25 = icmp eq i64 %2, 0
+  br i1 %.not25, label %3, label %_ZN17cranelift_codegen2ir5types4Type2by17hd5fb9e46d78fdb7fE.exit
 
-5:                                                ; preds = %1
-  %.sroa.3.0.extract.shift = lshr i64 %0, 40
-  %.sroa.3.0.extract.trunc = trunc i64 %.sroa.3.0.extract.shift to i8
-  %.not23 = icmp ne i8 %.sroa.3.0.extract.trunc, 0
-  %6 = tail call range(i8 0, 9) i8 @llvm.ctlz.i8(i8 %.sroa.3.0.extract.trunc, i1 true)
-  %7 = xor i8 %6, 6
-  %8 = icmp samesign ugt i8 %7, 5
-  %.0 = select i1 %.not23, i1 %8, i1 false
-  %9 = select i1 %.0, i32 123, i32 118
-  br label %10
-
-10:                                               ; preds = %5, %1
-  %.010 = phi i32 [ 120, %1 ], [ %9, %5 ]
-  %11 = and i64 %0, 65535
-  %.not24 = icmp eq i64 %11, 0
-  br i1 %.not24, label %12, label %_ZN17cranelift_codegen2ir5types4Type2by17hd5fb9e46d78fdb7fE.exit
-
-12:                                               ; preds = %10
+3:                                                ; preds = %1
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7173b3c5b10b09ddf4bd2faf440a3554.101) #36
   unreachable
 
-_ZN17cranelift_codegen2ir5types4Type2by17hd5fb9e46d78fdb7fE.exit: ; preds = %10
-  %13 = trunc i64 %0 to i32
-  %14 = and i32 %13, 65535
-  %15 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %14, i1 false)
-  %16 = shl nuw nsw i32 %15, 4
-  %17 = and i32 %16, 496
-  %18 = add nuw nsw i32 %.010, %17
-  %19 = icmp samesign ult i32 %18, 256
-  br i1 %19, label %20, label %_ZN17cranelift_codegen2ir5types4Type2by17hd5fb9e46d78fdb7fE.exit.thread
+_ZN17cranelift_codegen2ir5types4Type2by17hd5fb9e46d78fdb7fE.exit: ; preds = %1
+  %4 = and i64 %0, 824633720832
+  %.not = icmp eq i64 %4, 0
+  %5 = and i64 %0, 211106232532992
+  %.not24 = icmp eq i64 %5, 0
+  %6 = select i1 %.not24, i32 118, i32 123
+  %.010 = select i1 %.not, i32 %6, i32 120
+  %7 = trunc i64 %0 to i32
+  %8 = and i32 %7, 65535
+  %9 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %8, i1 false)
+  %10 = shl nuw nsw i32 %9, 4
+  %11 = and i32 %10, 496
+  %12 = add nuw nsw i32 %11, %.010
+  %13 = icmp samesign ult i32 %12, 256
+  br i1 %13, label %14, label %_ZN17cranelift_codegen2ir5types4Type2by17hd5fb9e46d78fdb7fE.exit.thread
 
 _ZN17cranelift_codegen2ir5types4Type2by17hd5fb9e46d78fdb7fE.exit.thread: ; preds = %_ZN17cranelift_codegen2ir5types4Type2by17hd5fb9e46d78fdb7fE.exit
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7173b3c5b10b09ddf4bd2faf440a3554.102) #36
   unreachable
 
-20:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type2by17hd5fb9e46d78fdb7fE.exit
-  %21 = trunc nuw nsw i32 %18 to i16
-  ret i16 %21
+14:                                               ; preds = %_ZN17cranelift_codegen2ir5types4Type2by17hd5fb9e46d78fdb7fE.exit
+  %15 = trunc nuw nsw i32 %12 to i16
+  ret i16 %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -58174,9 +58158,6 @@ declare i64 @llvm.umin.i64(i64, i64) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #33
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ctlz.i8(i8, i1 immarg) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #33
