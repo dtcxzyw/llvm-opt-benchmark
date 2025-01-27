@@ -60,50 +60,50 @@ define internal i64 @SharpYuvUpdateY_SSE2(ptr nocapture noundef readonly %0, ptr
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
   %.lcssa = phi <4 x i32> [ zeroinitializer, %5 ], [ %24, %._crit_edge.loopexit ]
   %.0105.lcssa = phi i32 [ 0, %5 ], [ %25, %._crit_edge.loopexit ]
-  %shift = shufflevector <4 x i32> %.lcssa, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %26 = add <4 x i32> %shift, %.lcssa
-  %shift134 = shufflevector <4 x i32> %26, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %27 = add <4 x i32> %shift134, %.lcssa
-  %shift135 = shufflevector <4 x i32> %27, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %28 = add <4 x i32> %shift135, %.lcssa
-  %29 = extractelement <4 x i32> %28, i64 0
-  %30 = zext i32 %29 to i64
-  %31 = icmp slt i32 %.0105.lcssa, %3
-  br i1 %31, label %.lr.ph116.preheader, label %._crit_edge117
+  %26 = shufflevector <4 x i32> %.lcssa, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %27 = shufflevector <4 x i32> %.lcssa, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %28 = add <4 x i32> %26, %27
+  %29 = shufflevector <4 x i32> %.lcssa, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift135 = add <4 x i32> %28, %29
+  %30 = add <4 x i32> %shift135, %.lcssa
+  %31 = extractelement <4 x i32> %30, i64 0
+  %32 = zext i32 %31 to i64
+  %33 = icmp slt i32 %.0105.lcssa, %3
+  br i1 %33, label %.lr.ph116.preheader, label %._crit_edge117
 
 .lr.ph116.preheader:                              ; preds = %._crit_edge
-  %32 = zext nneg i32 %.0105.lcssa to i64
+  %34 = zext nneg i32 %.0105.lcssa to i64
   %wide.trip.count = zext i32 %3 to i64
   br label %.lr.ph116
 
 .lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
-  %indvars.iv127 = phi i64 [ %32, %.lr.ph116.preheader ], [ %indvars.iv.next128, %.lr.ph116 ]
-  %.0114 = phi i64 [ %30, %.lr.ph116.preheader ], [ %50, %.lr.ph116 ]
-  %33 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv127
-  %34 = load i16, ptr %33, align 2
-  %35 = zext i16 %34 to i32
-  %36 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv127
-  %37 = load i16, ptr %36, align 2
-  %38 = zext i16 %37 to i32
-  %39 = sub nsw i32 %35, %38
-  %40 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv127
-  %41 = load i16, ptr %40, align 2
-  %42 = zext i16 %41 to i32
-  %43 = add nsw i32 %39, %42
-  %44 = icmp slt i32 %43, 0
-  %45 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %43, i32 range(i32 -2147483648, 2147483647) %6)
-  %46 = trunc i32 %45 to i16
-  %47 = select i1 %44, i16 0, i16 %46
-  store i16 %47, ptr %40, align 2
-  %48 = tail call i32 @llvm.abs.i32(i32 %39, i1 true)
-  %49 = zext nneg i32 %48 to i64
-  %50 = add i64 %.0114, %49
+  %indvars.iv127 = phi i64 [ %34, %.lr.ph116.preheader ], [ %indvars.iv.next128, %.lr.ph116 ]
+  %.0114 = phi i64 [ %32, %.lr.ph116.preheader ], [ %52, %.lr.ph116 ]
+  %35 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv127
+  %36 = load i16, ptr %35, align 2
+  %37 = zext i16 %36 to i32
+  %38 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv127
+  %39 = load i16, ptr %38, align 2
+  %40 = zext i16 %39 to i32
+  %41 = sub nsw i32 %37, %40
+  %42 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv127
+  %43 = load i16, ptr %42, align 2
+  %44 = zext i16 %43 to i32
+  %45 = add nsw i32 %41, %44
+  %46 = icmp slt i32 %45, 0
+  %47 = tail call i32 @llvm.smin.i32(i32 range(i32 -65535, 131071) %45, i32 range(i32 -2147483648, 2147483647) %6)
+  %48 = trunc i32 %47 to i16
+  %49 = select i1 %46, i16 0, i16 %48
+  store i16 %49, ptr %42, align 2
+  %50 = tail call i32 @llvm.abs.i32(i32 %41, i1 true)
+  %51 = zext nneg i32 %50 to i64
+  %52 = add i64 %.0114, %51
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge117, label %.lr.ph116, !llvm.loop !6
 
 ._crit_edge117:                                   ; preds = %.lr.ph116, %._crit_edge
-  %.0.lcssa = phi i64 [ %30, %._crit_edge ], [ %50, %.lr.ph116 ]
+  %.0.lcssa = phi i64 [ %32, %._crit_edge ], [ %52, %.lr.ph116 ]
   ret i64 %.0.lcssa
 }
 

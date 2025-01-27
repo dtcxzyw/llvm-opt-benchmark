@@ -2463,14 +2463,14 @@ define internal i32 @SSE16x16_SSE2(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %3, !llvm.loop !19
 
 SSE_16xN_SSE2.exit:                               ; preds = %3
-  %shift = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %36 = add nsw <4 x i32> %shift, %32
-  %shift2 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %37 = add nsw <4 x i32> %shift2, %32
-  %shift3 = shufflevector <4 x i32> %37, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %38 = add nsw <4 x i32> %shift3, %32
-  %39 = extractelement <4 x i32> %38, i64 0
-  ret i32 %39
+  %36 = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %37 = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %38 = add nsw <4 x i32> %36, %37
+  %39 = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift3 = add nsw <4 x i32> %38, %39
+  %40 = add nsw <4 x i32> %shift3, %32
+  %41 = extractelement <4 x i32> %40, i64 0
+  ret i32 %41
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -2517,14 +2517,14 @@ define internal i32 @SSE16x8_SSE2(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %exitcond.not.i, label %SSE_16xN_SSE2.exit, label %3, !llvm.loop !19
 
 SSE_16xN_SSE2.exit:                               ; preds = %3
-  %shift = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %36 = add nsw <4 x i32> %shift, %32
-  %shift2 = shufflevector <4 x i32> %36, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %37 = add nsw <4 x i32> %shift2, %32
-  %shift3 = shufflevector <4 x i32> %37, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %38 = add nsw <4 x i32> %shift3, %32
-  %39 = extractelement <4 x i32> %38, i64 0
-  ret i32 %39
+  %36 = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %37 = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %38 = add nsw <4 x i32> %36, %37
+  %39 = shufflevector <4 x i32> %32, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift3 = add nsw <4 x i32> %38, %39
+  %40 = add nsw <4 x i32> %shift3, %32
+  %41 = extractelement <4 x i32> %40, i64 0
+  ret i32 %41
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -2571,14 +2571,14 @@ define internal i32 @SSE8x8_SSE2(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %36, label %3, label %37, !llvm.loop !20
 
 37:                                               ; preds = %3
-  %shift = shufflevector <4 x i32> %33, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %38 = add nsw <4 x i32> %shift, %33
-  %shift62 = shufflevector <4 x i32> %38, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %39 = add nsw <4 x i32> %shift62, %33
-  %shift63 = shufflevector <4 x i32> %39, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %40 = add nsw <4 x i32> %shift63, %33
-  %41 = extractelement <4 x i32> %40, i64 0
-  ret i32 %41
+  %38 = shufflevector <4 x i32> %33, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %39 = shufflevector <4 x i32> %33, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %40 = add nsw <4 x i32> %38, %39
+  %41 = shufflevector <4 x i32> %33, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift63 = add nsw <4 x i32> %40, %41
+  %42 = add nsw <4 x i32> %shift63, %33
+  %43 = extractelement <4 x i32> %42, i64 0
+  ret i32 %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -2634,14 +2634,14 @@ define internal i32 @SSE4x4_SSE2(ptr nocapture noundef readonly %0, ptr nocaptur
   %51 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %47, <8 x i16> %47)
   %52 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %50, <8 x i16> %50)
   %53 = add <4 x i32> %52, %51
-  %shift = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %54 = add nsw <4 x i32> %shift, %53
-  %shift80 = shufflevector <4 x i32> %54, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %55 = add nsw <4 x i32> %shift80, %53
-  %shift81 = shufflevector <4 x i32> %55, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %56 = add nsw <4 x i32> %shift81, %53
-  %57 = extractelement <4 x i32> %56, i64 0
-  ret i32 %57
+  %54 = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %55 = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %56 = add nsw <4 x i32> %54, %55
+  %57 = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift81 = add nsw <4 x i32> %56, %57
+  %58 = add nsw <4 x i32> %shift81, %53
+  %59 = extractelement <4 x i32> %58, i64 0
+  ret i32 %59
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

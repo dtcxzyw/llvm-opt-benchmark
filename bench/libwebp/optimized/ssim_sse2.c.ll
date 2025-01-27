@@ -18,7 +18,7 @@ define hidden void @VP8SSIMDspInitSSE2() local_unnamed_addr #0 {
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 {
   %4 = icmp sgt i32 %2, 15
-  br i1 %4, label %5, label %58
+  br i1 %4, label %5, label %60
 
 5:                                                ; preds = %3
   %.05864 = load <2 x i64>, ptr %1, align 1
@@ -95,44 +95,44 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
   %51 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %50, <8 x i16> %50)
   %52 = add <4 x i32> %49, %.lcssa
   %53 = add <4 x i32> %52, %51
-  %shift = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 3, i32 poison>
-  %54 = add nsw <4 x i32> %shift, %53
-  %shift96 = shufflevector <4 x i32> %54, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
-  %55 = add nsw <4 x i32> %shift96, %53
-  %shift97 = shufflevector <4 x i32> %55, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %56 = add nsw <4 x i32> %shift97, %53
-  %57 = extractelement <4 x i32> %56, i64 0
-  br label %58
+  %54 = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 3, i32 poison, i32 poison, i32 poison>
+  %55 = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %56 = add nsw <4 x i32> %54, %55
+  %57 = shufflevector <4 x i32> %53, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %shift97 = add nsw <4 x i32> %56, %57
+  %58 = add nsw <4 x i32> %shift97, %53
+  %59 = extractelement <4 x i32> %58, i64 0
+  br label %60
 
-58:                                               ; preds = %._crit_edge, %3
-  %.055 = phi i32 [ %57, %._crit_edge ], [ 0, %3 ]
+60:                                               ; preds = %._crit_edge, %3
+  %.055 = phi i32 [ %59, %._crit_edge ], [ 0, %3 ]
   %.0 = phi i32 [ %.1.lcssa, %._crit_edge ], [ 0, %3 ]
-  %59 = icmp slt i32 %.0, %2
-  br i1 %59, label %.lr.ph76.preheader, label %._crit_edge77
+  %61 = icmp slt i32 %.0, %2
+  br i1 %61, label %.lr.ph76.preheader, label %._crit_edge77
 
-.lr.ph76.preheader:                               ; preds = %58
-  %60 = zext nneg i32 %.0 to i64
+.lr.ph76.preheader:                               ; preds = %60
+  %62 = zext nneg i32 %.0 to i64
   %wide.trip.count = zext i32 %2 to i64
   br label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
-  %indvars.iv85 = phi i64 [ %60, %.lr.ph76.preheader ], [ %indvars.iv.next86, %.lr.ph76 ]
-  %.15673 = phi i32 [ %.055, %.lr.ph76.preheader ], [ %69, %.lr.ph76 ]
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv85
-  %62 = load i8, ptr %61, align 1
-  %63 = zext i8 %62 to i32
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv85
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = sub nsw i32 %63, %66
-  %68 = mul nsw i32 %67, %67
-  %69 = add i32 %68, %.15673
+  %indvars.iv85 = phi i64 [ %62, %.lr.ph76.preheader ], [ %indvars.iv.next86, %.lr.ph76 ]
+  %.15673 = phi i32 [ %.055, %.lr.ph76.preheader ], [ %71, %.lr.ph76 ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv85
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv85
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i32
+  %69 = sub nsw i32 %65, %68
+  %70 = mul nsw i32 %69, %69
+  %71 = add i32 %70, %.15673
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge77, label %.lr.ph76, !llvm.loop !6
 
-._crit_edge77:                                    ; preds = %.lr.ph76, %58
-  %.156.lcssa = phi i32 [ %.055, %58 ], [ %69, %.lr.ph76 ]
+._crit_edge77:                                    ; preds = %.lr.ph76, %60
+  %.156.lcssa = phi i32 [ %.055, %60 ], [ %71, %.lr.ph76 ]
   ret i32 %.156.lcssa
 }
 
