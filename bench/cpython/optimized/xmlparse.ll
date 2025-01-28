@@ -4224,7 +4224,7 @@ if.then:                                          ; preds = %entry
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.then
   %bytesWrittenTotal.0.i.i = phi i64 [ 0, %if.then ], [ %bytesWrittenTotal.111.i.i, %land.rhs.i.i ]
   %add.ptr.i.i = getelementptr i8, ptr %entropy.i, i64 %bytesWrittenTotal.0.i.i
-  %sub.i.i = sub i64 8, %bytesWrittenTotal.0.i.i
+  %sub.i.i = sub nuw nsw i64 8, %bytesWrittenTotal.0.i.i
   %call.i.i = call i64 @getrandom(ptr noundef %add.ptr.i.i, i64 noundef %sub.i.i, i32 noundef 1) #25
   %conv.i.i = trunc i64 %call.i.i to i32
   %cmp.i.i = icmp sgt i32 %conv.i.i, 0
@@ -4232,8 +4232,8 @@ do.body.i.i:                                      ; preds = %land.rhs.i.i, %if.t
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %conv2.i.i = and i64 %call.i.i, 2147483647
-  %add.i.i = add i64 %conv2.i.i, %bytesWrittenTotal.0.i.i
-  %cmp3.i.i = icmp ugt i64 %add.i.i, 7
+  %add.i.i = add nuw nsw i64 %conv2.i.i, %bytesWrittenTotal.0.i.i
+  %cmp3.i.i = icmp samesign ugt i64 %add.i.i, 7
   br i1 %cmp3.i.i, label %if.then.i, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %do.cond.i.i, %do.body.i.i

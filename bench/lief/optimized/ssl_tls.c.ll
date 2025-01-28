@@ -748,8 +748,8 @@ mbedtls_ssl_conf_is_tls12_only.exit:              ; preds = %101
   ]
 
 115:                                              ; preds = %.preheader120, %.preheader120, %.preheader120, %.preheader120, %.preheader120, %.preheader120
-  %116 = add nsw i64 %.088, 4
-  %117 = icmp ugt i64 %116, 65534
+  %116 = add nuw nsw i64 %.088, 4
+  %117 = icmp ugt i64 %.088, 65530
   br i1 %117, label %.loopexit, label %mbedtls_ssl_hash_from_md_alg.exit
 
 mbedtls_ssl_hash_from_md_alg.exit:                ; preds = %.preheader120, %115
@@ -758,11 +758,11 @@ mbedtls_ssl_hash_from_md_alg.exit:                ; preds = %.preheader120, %115
   br label %.preheader120, !llvm.loop !8
 
 119:                                              ; preds = %.preheader120
-  %120 = icmp ult i64 %.088, 2
+  %120 = icmp samesign ult i64 %.088, 2
   br i1 %120, label %.loopexit, label %121
 
 121:                                              ; preds = %119
-  %122 = add i64 %.088, 2
+  %122 = add nuw nsw i64 %.088, 2
   %123 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %122) #23
   %124 = load ptr, ptr %16, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 112

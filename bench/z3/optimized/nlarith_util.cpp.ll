@@ -7619,7 +7619,7 @@ for.body.preheader.i.i:                           ; preds = %while.end.i.i
   %idx.ext.i.i584 = zext nneg i32 %retval.0.i16.i.i.ph to i64
   %add.ptr.i.i585 = getelementptr ptr, ptr %250, i64 %idx.ext.i.i584
   %251 = shl nuw nsw i64 %idx.ext.i.i584, 3
-  %252 = sub nuw nsw i64 24, %251
+  %252 = xor i64 %251, 24
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i585, i8 0, i64 %252, i1 false)
   br label %invoke.cont197
 

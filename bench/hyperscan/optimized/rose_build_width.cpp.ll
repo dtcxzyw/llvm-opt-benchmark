@@ -1026,7 +1026,7 @@ if.end133:                                        ; preds = %invoke.cont126, %in
   %follow_max.0 = zext i32 %follow_max.0.in to i64
   %add = add nuw nsw i64 %follow_max.0, %conv
   %.sroa.speculated266 = call i64 @llvm.umax.i64(i64 %maxWidth.0291, i64 %add)
-  %cmp139 = icmp ugt i64 %.sroa.speculated266, 4294967294
+  %cmp139 = icmp samesign ugt i64 %.sroa.speculated266, 4294967294
   br i1 %cmp139, label %cleanup169, label %for.inc155
 
 for.inc155:                                       ; preds = %if.end133, %for.body47

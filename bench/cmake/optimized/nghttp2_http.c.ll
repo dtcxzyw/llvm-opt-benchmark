@@ -1938,7 +1938,7 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly %0, ptr nou
   br i1 %switch66.i, label %24, label %.loopexit.i
 
 24:                                               ; preds = %23
-  %25 = icmp ugt i64 %.04586.i, 12
+  %25 = icmp samesign ugt i64 %.04586.i, 12
   br i1 %25, label %sf_parse_integer_or_decimal.exit, label %26
 
 26:                                               ; preds = %24, %16

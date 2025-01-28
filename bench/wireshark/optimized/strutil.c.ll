@@ -808,7 +808,7 @@ define range(i32 0, 2) i32 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr no
   br i1 %59, label %.loopexit, label %.thread
 
 60:                                               ; preds = %._crit_edge86
-  %61 = icmp ult i32 %.05690, 2
+  %61 = icmp samesign ult i32 %.05690, 2
   %62 = icmp ugt i32 %.053.lcssa, 39
   %or.cond3 = select i1 %61, i1 %62, i1 false
   br i1 %or.cond3, label %.loopexit, label %63

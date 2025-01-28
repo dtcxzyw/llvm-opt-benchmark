@@ -9925,8 +9925,8 @@ sub_1346:                                         ; preds = %.critedge302.tail, 
   %330 = load ptr, ptr %17, align 8
   call void @col_set_fence(ptr noundef %330, i32 noundef 25) #10
   %331 = add i32 %.0264377, 1
-  %332 = add i32 %.1262378, 1
-  %333 = icmp ugt i32 %332, 1000
+  %332 = add nuw nsw i32 %.1262378, 1
+  %333 = icmp ugt i32 %.1262378, 999
   br i1 %333, label %334, label %336
 
 334:                                              ; preds = %328

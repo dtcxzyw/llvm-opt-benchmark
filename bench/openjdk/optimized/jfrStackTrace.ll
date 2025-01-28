@@ -1261,30 +1261,30 @@ define linkonce_odr hidden void @_ZN15JfrVframeStream10next_frameEv(ptr noundef 
 25:                                               ; preds = %22, %14, %11
   %26 = load i8, ptr %5, align 8
   %27 = trunc i8 %26 to i1
-  br i1 %27, label %28, label %33
+  br i1 %27, label %28, label %32
 
 28:                                               ; preds = %25
-  %29 = add i32 %.0, 1
-  %30 = icmp ugt i32 %29, 4096
-  br i1 %30, label %31, label %34
+  %29 = icmp ugt i32 %.0, 4095
+  br i1 %29, label %30, label %33
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 5048
-  store i32 2, ptr %32, align 8
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 5048
+  store i32 2, ptr %31, align 8
   br label %.critedge
 
-33:                                               ; preds = %25
+32:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   br label %37
 
-34:                                               ; preds = %28
+33:                                               ; preds = %28
+  %34 = add nuw nsw i32 %.0, 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %35 = load ptr, ptr %6, align 8
   %36 = call noundef zeroext i1 @_ZN5frame15safe_for_senderEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(5121) %0, ptr noundef %35) #15
   br i1 %36, label %37, label %_ZN15JfrVframeStream14step_to_senderEv.exit
 
-37:                                               ; preds = %33, %34
-  %.15 = phi i32 [ %29, %34 ], [ %.0, %33 ]
+37:                                               ; preds = %32, %33
+  %.15 = phi i32 [ %34, %33 ], [ %.0, %32 ]
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef nonnull align 8 dereferenceable(5121) %0, ptr noundef nonnull %7)
   %38 = load i8, ptr %8, align 1, !noalias !14
   %39 = trunc i8 %38 to i1
@@ -1305,7 +1305,7 @@ _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7i
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(56) %2) #15
   br label %46
 
-_ZN15JfrVframeStream14step_to_senderEv.exit:      ; preds = %34
+_ZN15JfrVframeStream14step_to_senderEv.exit:      ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 5048
   store i32 2, ptr %45, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
@@ -1317,7 +1317,7 @@ _ZN15JfrVframeStream14step_to_senderEv.exit:      ; preds = %34
   %47 = call noundef zeroext i1 @_ZN18vframeStreamCommon15fill_from_frameEv(ptr noundef nonnull align 8 dereferenceable(5104) %0)
   br i1 %47, label %.critedge, label %11, !llvm.loop !17
 
-.critedge:                                        ; preds = %46, %_ZN15JfrVframeStream14step_to_senderEv.exit, %31, %20
+.critedge:                                        ; preds = %46, %_ZN15JfrVframeStream14step_to_senderEv.exit, %30, %20
   ret void
 }
 

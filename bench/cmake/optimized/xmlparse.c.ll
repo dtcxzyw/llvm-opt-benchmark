@@ -4112,8 +4112,8 @@ define internal fastcc zeroext range(i8 0, 2) i8 @startParsing(ptr nocapture nou
 
 11:                                               ; preds = %.thread.i.i, %10
   %.012.i.i = phi i64 [ 0, %10 ], [ %.11321.i.i, %.thread.i.i ]
-  %12 = getelementptr inbounds i8, ptr %6, i64 %.012.i.i
-  %13 = sub i64 8, %.012.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %.012.i.i
+  %13 = sub nuw nsw i64 8, %.012.i.i
   %14 = call i64 @getrandom(ptr noundef nonnull %12, i64 noundef %13, i32 noundef 1) #23
   %15 = trunc i64 %14 to i32
   %16 = icmp sgt i32 %15, 0
@@ -4121,8 +4121,8 @@ define internal fastcc zeroext range(i8 0, 2) i8 @startParsing(ptr nocapture nou
 
 17:                                               ; preds = %11
   %18 = and i64 %14, 2147483647
-  %19 = add i64 %18, %.012.i.i
-  %20 = icmp ugt i64 %19, 7
+  %19 = add nuw nsw i64 %18, %.012.i.i
+  %20 = icmp samesign ugt i64 %19, 7
   br i1 %20, label %writeRandomBytes_getrandom_nonblock.exit.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %17, %11

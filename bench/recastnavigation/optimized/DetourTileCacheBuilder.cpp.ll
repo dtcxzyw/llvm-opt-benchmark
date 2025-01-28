@@ -1439,7 +1439,6 @@ _ZL15getNeighbourRegR16dtTileCacheLayeriii.exit94.i.us: ; preds = %158, %154, %1
   %280 = zext i8 %279 to i32
   %281 = load i8, ptr %39, align 1
   %282 = zext i8 %281 to i32
-  %wide.trip.count.i.us = zext nneg i32 %273 to i64
   br label %.lr.ph197.i.us
 
 .lr.ph197.i.us:                                   ; preds = %304, %.lr.ph197.preheader.i.us
@@ -1493,7 +1492,7 @@ _ZL15getNeighbourRegR16dtTileCacheLayeriii.exit94.i.us: ; preds = %158, %154, %1
   %.1166.i.us = phi i32 [ %290, %302 ], [ %.0165191.i.us, %299 ]
   %.1164.i.us = phi i32 [ %286, %302 ], [ %.0163192.i.us, %299 ]
   %indvars.iv.next231.i.us = add nuw nsw i64 %indvars.iv230.i.us, 1
-  %exitcond.not.i101.us = icmp eq i64 %indvars.iv.next231.i.us, %wide.trip.count.i.us
+  %exitcond.not.i101.us = icmp eq i64 %indvars.iv.next231.i.us, %274
   br i1 %exitcond.not.i101.us, label %.thread.i.us, label %.lr.ph197.i.us, !llvm.loop !25
 
 305:                                              ; preds = %_ZL15getNeighbourRegR16dtTileCacheLayeriii.exit.i.us
