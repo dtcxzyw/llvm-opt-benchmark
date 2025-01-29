@@ -69977,61 +69977,59 @@ define linkonce_odr dso_local void @_ZN4asio2ip6detail8endpointC2ERKNS0_7address
           catch ptr null
   call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #36, !noalias !1268
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #36, !noalias !1268
-  br label %41
+  br label %40
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !97, !noalias !1268
-  br label %37
+  br label %36
 
 21:                                               ; preds = %3
   store i16 10, ptr %0, align 4, !tbaa !14
   store i16 %8, ptr %9, align 2, !tbaa !14
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %22, align 4, !tbaa !14
-  %23 = load i32, ptr %1, align 8, !tbaa !1253, !noalias !1271
-  %24 = icmp eq i32 %23, 1
-  br i1 %24, label %30, label %25
+  %22 = load i32, ptr %1, align 8, !tbaa !1253, !noalias !1271
+  %23 = icmp eq i32 %22, 1
+  br i1 %23, label %29, label %24
 
-25:                                               ; preds = %21
+24:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #36, !noalias !1271
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio2ip16bad_address_castE, i64 16), ptr %4, align 8, !tbaa !102, !noalias !1271
-  %26 = tail call ptr @__cxa_allocate_exception(i64 8) #36, !noalias !1271
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio2ip16bad_address_castE, i64 16), ptr %26, align 8, !tbaa !102, !noalias !1271
-  invoke void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTIN4asio2ip16bad_address_castE, ptr nonnull @_ZNSt8bad_castD2Ev) #40
-          to label %27 unwind label %28, !noalias !1271
+  %25 = tail call ptr @__cxa_allocate_exception(i64 8) #36, !noalias !1271
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4asio2ip16bad_address_castE, i64 16), ptr %25, align 8, !tbaa !102, !noalias !1271
+  invoke void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTIN4asio2ip16bad_address_castE, ptr nonnull @_ZNSt8bad_castD2Ev) #40
+          to label %26 unwind label %27, !noalias !1271
 
-27:                                               ; preds = %25
+26:                                               ; preds = %24
   unreachable
 
-28:                                               ; preds = %25
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %24
+  %28 = landingpad { ptr, i32 }
           catch ptr null
   call void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #36, !noalias !1271
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #36, !noalias !1271
-  br label %41
+  br label %40
 
-30:                                               ; preds = %21
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !1261, !noalias !1271
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load <2 x i64>, ptr %31, align 8
-  store <2 x i64> %35, ptr %34, align 4
-  %36 = trunc i64 %33 to i32
-  br label %37
+29:                                               ; preds = %21
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %32 = load i64, ptr %31, align 8, !tbaa !1261, !noalias !1271
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load <2 x i64>, ptr %30, align 8
+  store <2 x i64> %34, ptr %33, align 4
+  %35 = trunc i64 %32 to i32
+  br label %36
 
-37:                                               ; preds = %30, %18
-  %38 = phi i64 [ 24, %30 ], [ 4, %18 ]
-  %39 = phi i32 [ %36, %30 ], [ %20, %18 ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %38
-  store i32 %39, ptr %40, align 4, !tbaa !14
+36:                                               ; preds = %29, %18
+  %37 = phi i64 [ 24, %29 ], [ 4, %18 ]
+  %38 = phi i32 [ %35, %29 ], [ %20, %18 ]
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 %37
+  store i32 %38, ptr %39, align 4, !tbaa !14
   ret void
 
-41:                                               ; preds = %28, %16
-  %42 = phi { ptr, i32 } [ %17, %16 ], [ %29, %28 ]
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #38
+40:                                               ; preds = %27, %16
+  %41 = phi { ptr, i32 } [ %17, %16 ], [ %28, %27 ]
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #38
   unreachable
 }
 

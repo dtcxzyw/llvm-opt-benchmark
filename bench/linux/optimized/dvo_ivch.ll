@@ -128,7 +128,7 @@ define internal noundef zeroext i1 @ivch_init(ptr nocapture noundef %0, ptr noun
   store i16 0, ptr %10, align 2, !annotation !5
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %11, i8 0, i64 48, i1 false), !annotation !5
-  %51 = zext nneg i8 %43 to i16
+  %51 = trunc i32 %45 to i16
   store i16 %51, ptr %11, align 16
   %52 = getelementptr inbounds nuw i8, ptr %11, i64 2
   store i16 1, ptr %52, align 2

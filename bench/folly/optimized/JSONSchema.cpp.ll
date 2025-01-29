@@ -72092,11 +72092,11 @@ lor.lhs.false19:                                  ; preds = %lor.lhs.false
   %14 = load ptr, ptr %next_count, align 8, !tbaa !2233
   %state_id.i132 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %15 = load i32, ptr %state_id.i132, align 8, !tbaa !2236
-  %cmp22.not = icmp eq i32 %15, %12
+  %cmp22.not = icmp eq i32 %15, %13
   br i1 %cmp22.not, label %if.end26, label %if.then23
 
 if.then23:                                        ; preds = %lor.lhs.false19, %lor.lhs.false, %if.end.if.then23_crit_edge
-  %16 = phi i32 [ %.pre, %if.end.if.then23_crit_edge ], [ %12, %lor.lhs.false19 ], [ %13, %lor.lhs.false ]
+  %16 = phi i32 [ %.pre, %if.end.if.then23_crit_edge ], [ %13, %lor.lhs.false19 ], [ %13, %lor.lhs.false ]
   %next_count25 = getelementptr inbounds nuw i8, ptr %this, i64 128
   tail call void @_ZN5boost13re_detail_50012perl_matcherIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISC_EEENS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEE19push_repeater_countEiPPNS0_14repeater_countISC_EE(ptr noundef nonnull align 8 dereferenceable(236) %this, i32 noundef %16, ptr noundef nonnull %next_count25)
   %.pre174 = load ptr, ptr %next_count25, align 8, !tbaa !2233

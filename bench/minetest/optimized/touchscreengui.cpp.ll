@@ -7295,8 +7295,6 @@ if.then.i:                                        ; preds = %if.then16
   %call.i = tail call fastcc noundef i32 @_ZL13id_to_keycode19touch_gui_button_id(i32 noundef 3)
   %Key.i = getelementptr inbounds nuw i8, ptr %translated.i, i64 12
   store i32 %call.i, ptr %Key.i, align 4, !tbaa !13
-  %PressedDown.i = getelementptr inbounds nuw i8, ptr %translated.i, i64 20
-  store i8 0, ptr %PressedDown.i, align 4
   %m_receiver.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load ptr, ptr %m_receiver.i, align 8, !tbaa !142
   %vtable.i = load ptr, ptr %7, align 8, !tbaa !37
@@ -7308,6 +7306,7 @@ if.then.i:                                        ; preds = %if.then16
   br i1 %tobool3.not.i, label %if.end.i, label %if.then4.i
 
 if.then4.i:                                       ; preds = %if.then.i
+  %PressedDown.i = getelementptr inbounds nuw i8, ptr %translated.i, i64 20
   %bf.load6.i = load i8, ptr %PressedDown.i, align 4
   %bf.set8.i = or i8 %bf.load6.i, 1
   store i8 %bf.set8.i, ptr %PressedDown.i, align 4
@@ -7444,8 +7443,6 @@ if.then:                                          ; preds = %entry
   %call = tail call fastcc noundef i32 @_ZL13id_to_keycode19touch_gui_button_id(i32 noundef 3)
   %Key = getelementptr inbounds nuw i8, ptr %translated, i64 12
   store i32 %call, ptr %Key, align 4, !tbaa !13
-  %PressedDown = getelementptr inbounds nuw i8, ptr %translated, i64 20
-  store i8 0, ptr %PressedDown, align 4
   %m_receiver = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %m_receiver, align 8, !tbaa !142
   %vtable = load ptr, ptr %1, align 8, !tbaa !37
@@ -7458,6 +7455,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool3.not, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then
+  %PressedDown = getelementptr inbounds nuw i8, ptr %translated, i64 20
   %bf.load6 = load i8, ptr %PressedDown, align 4
   %bf.set8 = or i8 %bf.load6, 1
   store i8 %bf.set8, ptr %PressedDown, align 4

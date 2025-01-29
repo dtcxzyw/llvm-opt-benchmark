@@ -19310,16 +19310,15 @@ entry:
   %2 = load ptr, ptr %1, align 8
   %segments = getelementptr inbounds nuw i8, ptr %2, i64 32
   %3 = load atomic i64, ptr %xheap.i monotonic, align 8
-  %4 = inttoptr i64 %3 to ptr
   %prev.i = getelementptr inbounds nuw i8, ptr %page, i64 64
-  %5 = load ptr, ptr %prev.i, align 8
-  %cmp.not.i = icmp eq ptr %5, null
+  %4 = load ptr, ptr %prev.i, align 8
+  %cmp.not.i = icmp eq ptr %4, null
   %next3.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %page, i64 56
   %.pre.i = load ptr, ptr %next3.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %next2.i = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %next2.i = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %.pre.i, ptr %next2.i, align 8
   br label %if.end.i
 
@@ -19328,37 +19327,37 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   br i1 %cmp4.not.i, label %if.end9.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i
-  %6 = load ptr, ptr %prev.i, align 8
+  %5 = load ptr, ptr %prev.i, align 8
   %prev8.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 64
-  store ptr %6, ptr %prev8.i, align 8
+  store ptr %5, ptr %prev8.i, align 8
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then5.i, %if.end.i
   %last.i = getelementptr inbounds nuw i8, ptr %pq, i64 8
-  %7 = load ptr, ptr %last.i, align 8
-  %cmp10.i = icmp eq ptr %page, %7
+  %6 = load ptr, ptr %last.i, align 8
+  %cmp10.i = icmp eq ptr %page, %6
   br i1 %cmp10.i, label %if.then11.i, label %if.end14.i
 
 if.then11.i:                                      ; preds = %if.end9.i
-  %8 = load ptr, ptr %prev.i, align 8
-  store ptr %8, ptr %last.i, align 8
+  %7 = load ptr, ptr %prev.i, align 8
+  store ptr %7, ptr %last.i, align 8
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then11.i, %if.end9.i
-  %9 = load ptr, ptr %pq, align 8
-  %cmp15.i = icmp eq ptr %page, %9
+  %8 = load ptr, ptr %pq, align 8
+  %cmp15.i = icmp eq ptr %page, %8
   br i1 %cmp15.i, label %if.then16.i, label %mi_page_queue_remove.exit
 
 if.then16.i:                                      ; preds = %if.end14.i
-  %10 = load ptr, ptr %next3.phi.trans.insert.i, align 8
-  store ptr %10, ptr %pq, align 8
-  tail call fastcc void @mi_heap_queue_first_update(ptr noundef %4, ptr noundef nonnull %pq)
+  %9 = load ptr, ptr %next3.phi.trans.insert.i, align 8
+  store ptr %9, ptr %pq, align 8
+  tail call fastcc void @mi_heap_queue_first_update(ptr noundef nonnull %1, ptr noundef nonnull %pq)
   br label %mi_page_queue_remove.exit
 
 mi_page_queue_remove.exit:                        ; preds = %if.end14.i, %if.then16.i
-  %page_count.i = getelementptr inbounds nuw i8, ptr %4, i64 3024
-  %11 = load i64, ptr %page_count.i, align 8
-  %dec.i = add i64 %11, -1
+  %page_count.i = getelementptr inbounds nuw i8, ptr %1, i64 3024
+  %10 = load i64, ptr %page_count.i, align 8
+  %dec.i = add i64 %10, -1
   store i64 %dec.i, ptr %page_count.i, align 8
   %flags.i.i = getelementptr inbounds nuw i8, ptr %page, i64 14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %next3.phi.trans.insert.i, i8 0, i64 16, i1 false)
@@ -19366,52 +19365,52 @@ mi_page_queue_remove.exit:                        ; preds = %if.end14.i, %if.the
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
   store i8 %bf.clear.i.i, ptr %flags.i.i, align 2
   store atomic i64 0, ptr %xheap.i release, align 8
-  %12 = ptrtoint ptr %page to i64
-  %sub.i.i.i = add i64 %12, -1
+  %11 = ptrtoint ptr %page to i64
+  %sub.i.i.i = add i64 %11, -1
   %and.i.i.i = and i64 %sub.i.i.i, -33554432
-  %13 = inttoptr i64 %and.i.i.i to ptr
-  %abandoned.i = getelementptr inbounds nuw i8, ptr %13, i64 192
-  %14 = load i64, ptr %abandoned.i, align 64
-  %inc.i = add i64 %14, 1
+  %12 = inttoptr i64 %and.i.i.i to ptr
+  %abandoned.i = getelementptr inbounds nuw i8, ptr %12, i64 192
+  %13 = load i64, ptr %abandoned.i, align 64
+  %inc.i = add i64 %13, 1
   store i64 %inc.i, ptr %abandoned.i, align 64
   %stats.i = getelementptr inbounds nuw i8, ptr %2, i64 928
-  %15 = load ptr, ptr %stats.i, align 8
-  %pages_abandoned.i = getelementptr inbounds nuw i8, ptr %15, i64 256
+  %14 = load ptr, ptr %stats.i, align 8
+  %pages_abandoned.i = getelementptr inbounds nuw i8, ptr %14, i64 256
   %cmp.i.i.i.i = icmp uge ptr %pages_abandoned.i, @_mi_stats_main
   %cmp1.i.i.i.i = icmp ult ptr %pages_abandoned.i, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 640)
-  %16 = select i1 %cmp.i.i.i.i, i1 %cmp1.i.i.i.i, i1 false
-  %current2.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 280
-  br i1 %16, label %if.then1.i.i.i, label %if.else9.i.i.i
+  %15 = select i1 %cmp.i.i.i.i, i1 %cmp1.i.i.i.i, i1 false
+  %current2.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 280
+  br i1 %15, label %if.then1.i.i.i, label %if.else9.i.i.i
 
 if.then1.i.i.i:                                   ; preds = %mi_page_queue_remove.exit
-  %17 = atomicrmw add ptr %current2.i.i.i, i64 1 monotonic, align 8
-  %peak.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 272
-  %add.i.i.i = add i64 %17, 1
-  %18 = load atomic i64, ptr %peak.i.i.i monotonic, align 8
+  %16 = atomicrmw add ptr %current2.i.i.i, i64 1 monotonic, align 8
+  %peak.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 272
+  %add.i.i.i = add i64 %16, 1
+  %17 = load atomic i64, ptr %peak.i.i.i monotonic, align 8
   br label %while.cond.i.i.i.i
 
 while.cond.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i, %if.then1.i.i.i
-  %current.0.i.i.i.i = phi i64 [ %18, %if.then1.i.i.i ], [ %21, %land.rhs.i.i.i.i ]
+  %current.0.i.i.i.i = phi i64 [ %17, %if.then1.i.i.i ], [ %20, %land.rhs.i.i.i.i ]
   %cmp.i21.i.i.i = icmp slt i64 %current.0.i.i.i.i, %add.i.i.i
   br i1 %cmp.i21.i.i.i, label %land.rhs.i.i.i.i, label %mi_atomic_maxi64_relaxed.exit.i.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %while.cond.i.i.i.i
-  %19 = cmpxchg weak ptr %peak.i.i.i, i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
-  %20 = extractvalue { i64, i1 } %19, 1
-  %21 = extractvalue { i64, i1 } %19, 0
-  br i1 %20, label %mi_atomic_maxi64_relaxed.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !5
+  %18 = cmpxchg weak ptr %peak.i.i.i, i64 %current.0.i.i.i.i, i64 %add.i.i.i release monotonic, align 8
+  %19 = extractvalue { i64, i1 } %18, 1
+  %20 = extractvalue { i64, i1 } %18, 0
+  br i1 %19, label %mi_atomic_maxi64_relaxed.exit.i.i.i, label %while.cond.i.i.i.i, !llvm.loop !5
 
 mi_atomic_maxi64_relaxed.exit.i.i.i:              ; preds = %land.rhs.i.i.i.i, %while.cond.i.i.i.i
-  %22 = atomicrmw add ptr %pages_abandoned.i, i64 1 monotonic, align 8
+  %21 = atomicrmw add ptr %pages_abandoned.i, i64 1 monotonic, align 8
   br label %_mi_stat_increase.exit.i
 
 if.else9.i.i.i:                                   ; preds = %mi_page_queue_remove.exit
-  %23 = load i64, ptr %current2.i.i.i, align 8
-  %add11.i.i.i = add i64 %23, 1
+  %22 = load i64, ptr %current2.i.i.i, align 8
+  %add11.i.i.i = add i64 %22, 1
   store i64 %add11.i.i.i, ptr %current2.i.i.i, align 8
-  %peak13.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 272
-  %24 = load i64, ptr %peak13.i.i.i, align 8
-  %cmp14.i.i.i = icmp sgt i64 %add11.i.i.i, %24
+  %peak13.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 272
+  %23 = load i64, ptr %peak13.i.i.i, align 8
+  %cmp14.i.i.i = icmp sgt i64 %add11.i.i.i, %23
   br i1 %cmp14.i.i.i, label %if.then15.i.i.i, label %if.end18.i.i.i
 
 if.then15.i.i.i:                                  ; preds = %if.else9.i.i.i
@@ -19419,20 +19418,20 @@ if.then15.i.i.i:                                  ; preds = %if.else9.i.i.i
   br label %if.end18.i.i.i
 
 if.end18.i.i.i:                                   ; preds = %if.then15.i.i.i, %if.else9.i.i.i
-  %25 = load i64, ptr %pages_abandoned.i, align 8
-  %add22.i.i.i = add i64 %25, 1
+  %24 = load i64, ptr %pages_abandoned.i, align 8
+  %add22.i.i.i = add i64 %24, 1
   store i64 %add22.i.i.i, ptr %pages_abandoned.i, align 8
   br label %_mi_stat_increase.exit.i
 
 _mi_stat_increase.exit.i:                         ; preds = %if.end18.i.i.i, %mi_atomic_maxi64_relaxed.exit.i.i.i
-  %used.i = getelementptr inbounds nuw i8, ptr %13, i64 208
-  %26 = load i64, ptr %used.i, align 16
-  %27 = load i64, ptr %abandoned.i, align 64
-  %cmp.i = icmp eq i64 %26, %27
+  %used.i = getelementptr inbounds nuw i8, ptr %12, i64 208
+  %25 = load i64, ptr %used.i, align 16
+  %26 = load i64, ptr %abandoned.i, align 64
+  %cmp.i = icmp eq i64 %25, %26
   br i1 %cmp.i, label %if.then.i6, label %_mi_segment_page_abandon.exit
 
 if.then.i6:                                       ; preds = %_mi_stat_increase.exit.i
-  tail call fastcc void @mi_segment_abandon(ptr noundef nonnull %13, ptr noundef nonnull %segments)
+  tail call fastcc void @mi_segment_abandon(ptr noundef nonnull %12, ptr noundef nonnull %segments)
   br label %_mi_segment_page_abandon.exit
 
 _mi_segment_page_abandon.exit:                    ; preds = %_mi_stat_increase.exit.i, %if.then.i6

@@ -4132,7 +4132,6 @@ if.then.i:                                        ; preds = %invoke.cont
   br label %invoke.cont3
 
 if.else.i:                                        ; preds = %invoke.cont
-  store i8 1, ptr %fBogus.i, align 2
   %1 = load ptr, ptr %currencyPluralInfo.i, align 8
   invoke void @_ZN6icu_756number4impl31CurrencyPluralInfoAffixProvider5setToERKNS_18CurrencyPluralInfoERKNS1_23DecimalFormatPropertiesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2185) %currencyPluralInfoAPP, ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull align 8 dereferenceable(757) %properties, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont3 unwind label %lpad2
