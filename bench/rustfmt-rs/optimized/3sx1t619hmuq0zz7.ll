@@ -40830,7 +40830,7 @@ define void @"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..
 15:                                               ; preds = %12
   %16 = load i64, ptr %.pre5, align 8, !range !4744, !noalias !6318, !noundef !10
   %17 = icmp eq i64 %16, 2
-  br i1 %17, label %18, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit
+  br i1 %17, label %18, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %.pre5, i64 8
@@ -40838,32 +40838,35 @@ define void @"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..
   %21 = load i8, ptr %20, align 8, !range !239, !noalias !6318, !noundef !10
   %22 = add nsw i8 %21, -32
   %switch.i = icmp ult i8 %22, -3
-  br label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit
+  br label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread
 
-_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit: ; preds = %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge, %18, %15, %12
-  %23 = phi i8 [ %.pre6, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge ], [ %13, %12 ], [ %13, %18 ], [ %13, %15 ]
-  %24 = phi ptr [ %.pre, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge ], [ %.pre5, %12 ], [ %.pre5, %18 ], [ %.pre5, %15 ]
-  %.0 = phi i1 [ false, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge ], [ false, %12 ], [ %switch.i, %18 ], [ false, %15 ]
+_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit: ; preds = %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge, %12
+  %23 = phi i8 [ %.pre6, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge ], [ %13, %12 ]
+  %24 = phi ptr [ %.pre, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge ], [ %.pre5, %12 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6315)
   %25 = trunc nuw i8 %23 to i1
-  br i1 %25, label %26, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit4
+  br i1 %25, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit4
 
-26:                                               ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit
-  %27 = load i64, ptr %24, align 8, !range !4744, !noalias !6315, !noundef !10
+_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread: ; preds = %15, %18, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit
+  %.09 = phi i1 [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit ], [ false, %15 ], [ %switch.i, %18 ]
+  %26 = phi ptr [ %24, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit ], [ %.pre5, %15 ], [ %.pre5, %18 ]
+  %27 = load i64, ptr %26, align 8, !range !4744, !noalias !6315, !noundef !10
   %28 = icmp eq i64 %27, 2
   br i1 %28, label %29, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit4
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
+29:                                               ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %31 = load ptr, ptr %30, align 8, !noalias !6315, !nonnull !10, !align !11, !noundef !10
   %32 = load i8, ptr %31, align 8, !range !239, !noalias !6315, !noundef !10
   %33 = add nsw i8 %32, -32
   %switch.i3 = icmp ult i8 %33, -3
   br label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit4
 
-_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit4: ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit, %26, %29
-  %.0.i2 = phi i1 [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit ], [ %switch.i3, %29 ], [ false, %26 ]
-  tail call void @_ZN15rustfmt_nightly4stmt11format_stmt17hc1e4420385e2f2e2E.llvm.9097680112167513710(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %24, i1 noundef zeroext %.0, i1 noundef zeroext %.0.i2)
+_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit4: ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread, %29
+  %.08 = phi i1 [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit ], [ %.09, %29 ], [ %.09, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread ]
+  %34 = phi ptr [ %24, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit ], [ %26, %29 ], [ %26, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread ]
+  %.0.i2 = phi i1 [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit ], [ %switch.i3, %29 ], [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread ]
+  tail call void @_ZN15rustfmt_nightly4stmt11format_stmt17hc1e4420385e2f2e2E.llvm.9097680112167513710(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %34, i1 noundef zeroext %.08, i1 noundef zeroext %.0.i2)
   ret void
 }
 

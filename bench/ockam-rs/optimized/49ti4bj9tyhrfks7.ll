@@ -153,7 +153,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
 
 24:                                               ; preds = %20
   %25 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h4671fa193704fdaeE()
-          to label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit unwind label %145
+          to label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit unwind label %144
 
 26:                                               ; preds = %_ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.8928096027746465073.exit
   %.sink.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1216
@@ -164,20 +164,20 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   %28 = invoke noundef align 8 dereferenceable(120) ptr @_ZN12tracing_core4span10Attributes8metadata17hf3c37deaeae0e9cbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
           to label %29 unwind label %.loopexit.split-lp
 
-.thread59:                                        ; preds = %104, %.loopexit, %.loopexit.split-lp, %143, %86
-  %.pn7.pn = phi { ptr, i32 } [ %.pn7, %143 ], [ %.pn7, %86 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %105, %104 ]
+.thread63:                                        ; preds = %104, %.loopexit, %.loopexit.split-lp, %.thread45, %86
+  %.pn7.pn = phi { ptr, i32 } [ %.pn748, %.thread45 ], [ %.pn7, %86 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %105, %104 ]
   invoke void @"_ZN4core3ptr257drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h4605b60f31167a01E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12) #19
-          to label %144 unwind label %128
+          to label %143 unwind label %128
 
 .loopexit:                                        ; preds = %52
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %.thread59
+  br label %.thread63
 
 .loopexit.split-lp:                               ; preds = %26, %64, %38, %132
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.thread59
+  br label %.thread63
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 64
@@ -258,7 +258,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
           to label %72 unwind label %.loopexit.split-lp
 
 .thread:                                          ; preds = %49, %29, %126
-  %67 = phi ptr [ %13, %29 ], [ %.pre50, %126 ], [ %13, %49 ]
+  %67 = phi ptr [ %13, %29 ], [ %.pre54, %126 ], [ %13, %49 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !39)
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %68 = atomicrmw sub ptr %67, i32 1 release, align 4, !noalias !45
@@ -314,11 +314,11 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   %85 = invoke noundef i8 @_ZN4core4sync6atomic11atomic_load17hf8786cd089701c2dE.llvm.1214941078669613289(ptr noundef nonnull align 1 %84, i8 noundef 0)
           to label %90 unwind label %88
 
-86:                                               ; preds = %142, %141, %139, %88
-  %.15 = phi i8 [ %.04, %88 ], [ %.0, %142 ], [ %.0, %139 ], [ %.0, %141 ]
-  %.pn7 = phi { ptr, i32 } [ %89, %88 ], [ %122, %142 ], [ %122, %139 ], [ %122, %141 ]
+86:                                               ; preds = %141, %139, %88
+  %.15 = phi i8 [ %.04, %88 ], [ %.0, %139 ], [ %.0, %141 ]
+  %.pn7 = phi { ptr, i32 } [ %89, %88 ], [ %122, %139 ], [ %122, %141 ]
   %87 = trunc nuw i8 %.15 to i1
-  br i1 %87, label %143, label %.thread59
+  br i1 %87, label %.thread45, label %.thread63
 
 88:                                               ; preds = %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h8e062c2867e568d2E.exit.i", %79, %.noexc21, %75, %130, %127
   %.04 = phi i8 [ 0, %127 ], [ 1, %130 ], [ 1, %75 ], [ 1, %.noexc21 ], [ 1, %79 ], [ 1, %"_ZN3std4sync6rwlock25RwLockWriteGuard$LT$T$GT$3new17h8e062c2867e568d2E.exit.i" ]
@@ -361,7 +361,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.llvm.892809
   %105 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr242drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17h8bdd7559e877ce12E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #19
-          to label %.thread59 unwind label %128
+          to label %.thread63 unwind label %128
 
 106:                                              ; preds = %94
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %6)
@@ -426,14 +426,14 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.1799741712541865863.exit.th
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 536, ptr nonnull %10)
-  %.pre50 = load ptr, ptr %27, align 8, !alias.scope !45
+  %.pre54 = load ptr, ptr %27, align 8, !alias.scope !45
   br label %.thread
 
 127:                                              ; preds = %"_ZN4core3ptr242drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17h8bdd7559e877ce12E.exit"
   invoke void @"_ZN4core3ptr532drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$$GT$$GT$17h7f3d678a7077b144E.llvm.8928096027746465073"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
           to label %126 unwind label %88
 
-128:                                              ; preds = %145, %143, %142, %141, %104, %.thread59
+128:                                              ; preds = %144, %.thread45, %142, %141, %104, %.thread63
   %129 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #20
@@ -493,41 +493,42 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit27.
 
 142:                                              ; preds = %139
   invoke void @"_ZN4core3ptr242drop_in_place$LT$std..sync..rwlock..RwLockWriteGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..span..Id$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$$GT$$GT$17h8bdd7559e877ce12E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %92) #19
-          to label %86 unwind label %128
+          to label %.thread45 unwind label %128
 
-143:                                              ; preds = %86
+.thread45:                                        ; preds = %142, %86
+  %.pn748 = phi { ptr, i32 } [ %.pn7, %86 ], [ %122, %142 ]
   invoke void @"_ZN4core3ptr130drop_in_place$LT$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..SpanMatch$GT$$GT$17he5aebb2ce52372c9E"(ptr noalias noundef nonnull align 8 dereferenceable(536) %10) #19
-          to label %.thread59 unwind label %128
+          to label %.thread63 unwind label %128
 
-144:                                              ; preds = %145, %.thread59
-  %.pn7.pn.pn = phi { ptr, i32 } [ %.pn7.pn, %.thread59 ], [ %146, %145 ]
+143:                                              ; preds = %144, %.thread63
+  %.pn7.pn.pn = phi { ptr, i32 } [ %.pn7.pn, %.thread63 ], [ %145, %144 ]
   resume { ptr, i32 } %.pn7.pn.pn
 
-145:                                              ; preds = %24, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit.thread
-  %146 = landingpad { ptr, i32 }
+144:                                              ; preds = %24, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit.thread
+  %145 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr562drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$$GT$$GT$17hb804f63c13eb1319E"(ptr nonnull %13) #19
-          to label %144 unwind label %128
+          to label %143 unwind label %128
 
 _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit: ; preds = %24
-  br i1 %25, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit.thread, label %147
+  br i1 %25, label %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit.thread, label %146
 
 _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit.thread: ; preds = %20, %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit
   invoke void @_ZN3std9panicking11begin_panic17h4484d861d01dd41fE(ptr noalias noundef nonnull readonly align 1 @anon.793505ffd18f7c066000dc06e6aa6fdc.1.llvm.8928096027746465073, i64 noundef 13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.793505ffd18f7c066000dc06e6aa6fdc.4) #21
-          to label %131 unwind label %145
+          to label %131 unwind label %144
 
-147:                                              ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit
-  %148 = atomicrmw sub ptr %13, i32 1 release, align 4, !noalias !13
-  %149 = add i32 %148, -1
-  %150 = and i32 %149, -1073741825
-  %or.cond.not.i.i.i36 = icmp eq i32 %150, -2147483648
+146:                                              ; preds = %_ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.8928096027746465073.exit
+  %147 = atomicrmw sub ptr %13, i32 1 release, align 4, !noalias !13
+  %148 = add i32 %147, -1
+  %149 = and i32 %148, -1073741825
+  %or.cond.not.i.i.i36 = icmp eq i32 %149, -2147483648
   br i1 %or.cond.not.i.i.i36, label %"_ZN4core3ptr257drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h4605b60f31167a01E.exit.sink.split.i37", label %"_ZN4core3ptr562drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$$GT$$GT$17hb804f63c13eb1319E.exit38"
 
-"_ZN4core3ptr257drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h4605b60f31167a01E.exit.sink.split.i37": ; preds = %147
-  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h18502b593df6c008E(ptr noundef nonnull align 4 %13, i32 noundef %149), !noalias !13
+"_ZN4core3ptr257drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h4605b60f31167a01E.exit.sink.split.i37": ; preds = %146
+  tail call void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h18502b593df6c008E(ptr noundef nonnull align 4 %13, i32 noundef %148), !noalias !13
   br label %"_ZN4core3ptr562drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$$GT$$GT$17hb804f63c13eb1319E.exit38"
 
-"_ZN4core3ptr562drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$$GT$$GT$17hb804f63c13eb1319E.exit38": ; preds = %147, %"_ZN4core3ptr257drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h4605b60f31167a01E.exit.sink.split.i37"
+"_ZN4core3ptr562drop_in_place$LT$core..result..Result$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$C$std..sync..poison..PoisonError$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$$GT$$GT$17hb804f63c13eb1319E.exit38": ; preds = %146, %"_ZN4core3ptr257drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h4605b60f31167a01E.exit.sink.split.i37"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %138
 }

@@ -4595,13 +4595,13 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %42 = extractvalue { ptr, i32 } %41, 1
   %43 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #32
   %44 = icmp eq i32 %42, %43
-  br i1 %44, label %45, label %108
+  br i1 %44, label %45, label %110
 
 45:                                               ; preds = %40
   %46 = extractvalue { ptr, i32 } %41, 0
   %47 = call ptr @__cxa_begin_catch(ptr %46) #32
   %48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.9)
-          to label %49 unwind label %106
+          to label %49 unwind label %108
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr %47, align 8
@@ -4609,17 +4609,17 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %52 = load ptr, ptr %51, align 8
   %53 = call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(8) %47) #32
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef %53)
-          to label %55 unwind label %106
+          to label %55 unwind label %108
 
 55:                                               ; preds = %49
   %56 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %57 unwind label %106
+          to label %57 unwind label %108
 
 57:                                               ; preds = %55
   call void @__cxa_end_catch()
   br label %58
 
-58:                                               ; preds = %100, %57
+58:                                               ; preds = %102, %57
   ret void
 
 59:                                               ; preds = %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge
@@ -4661,7 +4661,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
           to label %83 unwind label %40
 
 83:                                               ; preds = %.critedge
-  br i1 %82, label %100, label %.thread
+  br i1 %82, label %102, label %.thread
 
 .thread:                                          ; preds = %27, %28, %33, %83
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -4685,34 +4685,37 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %99 = invoke noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef %93, i32 noundef %95)
           to label %100 unwind label %40
 
-100:                                              ; preds = %.thread, %83
-  %.1.in = phi i1 [ true, %83 ], [ %99, %.thread ]
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 260
-  %102 = load i64, ptr %3, align 8
-  store i64 %102, ptr %101, align 4
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 349
-  %104 = load i8, ptr %103, align 1
-  %.tr = trunc i8 %104 to i1
-  %.narrow = or i1 %.1.in, %.tr
-  %105 = zext i1 %.narrow to i8
-  store i8 %105, ptr %103, align 1
+100:                                              ; preds = %.thread
+  %101 = zext i1 %99 to i8
+  br label %102
+
+102:                                              ; preds = %100, %83
+  %.1 = phi i8 [ 1, %83 ], [ %101, %100 ]
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 260
+  %104 = load i64, ptr %3, align 8
+  store i64 %104, ptr %103, align 4
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 349
+  %106 = load i8, ptr %105, align 1
+  %.masked = and i8 %106, 1
+  %107 = or i8 %.masked, %.1
+  store i8 %107, ptr %105, align 1
   br label %58
 
-106:                                              ; preds = %55, %49, %45
-  %107 = landingpad { ptr, i32 }
+108:                                              ; preds = %55, %49, %45
+  %109 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %108 unwind label %109
+          to label %110 unwind label %111
 
-108:                                              ; preds = %106, %40
-  %.merged = phi { ptr, i32 } [ %107, %106 ], [ %41, %40 ]
+110:                                              ; preds = %108, %40
+  %.merged = phi { ptr, i32 } [ %109, %108 ], [ %41, %40 ]
   resume { ptr, i32 } %.merged
 
-109:                                              ; preds = %106
-  %110 = landingpad { ptr, i32 }
+111:                                              ; preds = %108
+  %112 = landingpad { ptr, i32 }
           catch ptr null
-  %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #33
+  %113 = extractvalue { ptr, i32 } %112, 0
+  call void @__clang_call_terminate(ptr %113) #33
   unreachable
 }
 

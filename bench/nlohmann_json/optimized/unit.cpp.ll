@@ -12824,8 +12824,8 @@ _ZN7doctest6detail18getRegisteredTestsEv.exit:    ; preds = %if.end120, %init.ch
 
 for.end139.thread:                                ; preds = %_ZN7doctest6detail18getRegisteredTestsEv.exit
   %67 = load ptr, ptr %this, align 8
-  %add.ptr142716 = getelementptr inbounds nuw i8, ptr %67, i64 136
-  store i32 0, ptr %add.ptr142716, align 8
+  %add.ptr142717 = getelementptr inbounds nuw i8, ptr %67, i64 136
+  store i32 0, ptr %add.ptr142717, align 8
   br label %if.end226
 
 for.body131:                                      ; preds = %_ZN7doctest6detail18getRegisteredTestsEv.exit, %for.inc137
@@ -13008,9 +13008,9 @@ for.body204:                                      ; preds = %if.then197, %for.bo
   br i1 %cmp203.not, label %if.end226, label %for.body204, !llvm.loop !90
 
 if.end226:                                        ; preds = %for.body204, %if.then149.invoke, %for.end139.thread, %if.then197, %if.else191, %for.end139
-  %cmp.i.i169721 = phi i1 [ true, %for.end139.thread ], [ false, %if.then197 ], [ false, %if.else191 ], [ true, %for.end139 ], [ false, %if.then149.invoke ], [ false, %for.body204 ]
-  %testArray.sroa.0.0.lcssa719 = phi ptr [ null, %for.end139.thread ], [ %testArray.sroa.0.1, %if.then197 ], [ %testArray.sroa.0.1, %if.else191 ], [ %testArray.sroa.0.1, %for.end139 ], [ %testArray.sroa.0.1, %if.then149.invoke ], [ %testArray.sroa.0.1, %for.body204 ]
-  %testArray.sroa.13.0.lcssa718 = phi ptr [ null, %for.end139.thread ], [ %testArray.sroa.13.1, %if.then197 ], [ %testArray.sroa.13.1, %if.else191 ], [ %testArray.sroa.13.1, %for.end139 ], [ %testArray.sroa.13.1, %if.then149.invoke ], [ %testArray.sroa.13.1, %for.body204 ]
+  %cmp.i.i169722 = phi i1 [ true, %for.end139.thread ], [ false, %if.then197 ], [ false, %if.else191 ], [ true, %for.end139 ], [ false, %if.then149.invoke ], [ false, %for.body204 ]
+  %testArray.sroa.0.0.lcssa720 = phi ptr [ null, %for.end139.thread ], [ %testArray.sroa.0.1, %if.then197 ], [ %testArray.sroa.0.1, %if.else191 ], [ %testArray.sroa.0.1, %for.end139 ], [ %testArray.sroa.0.1, %if.then149.invoke ], [ %testArray.sroa.0.1, %for.body204 ]
+  %testArray.sroa.13.0.lcssa719 = phi ptr [ null, %for.end139.thread ], [ %testArray.sroa.13.1, %if.then197 ], [ %testArray.sroa.13.1, %if.else191 ], [ %testArray.sroa.13.1, %for.end139 ], [ %testArray.sroa.13.1, %if.then149.invoke ], [ %testArray.sroa.13.1, %for.body204 ]
   %81 = getelementptr inbounds nuw i8, ptr %testSuitesPassingFilt, i64 8
   store i32 0, ptr %81, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %testSuitesPassingFilt, i64 16
@@ -13116,7 +13116,7 @@ lpad252.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.
 
 if.end257:                                        ; preds = %for.inc254, %if.then236, %if.end226, %lor.lhs.false229, %lor.end
   %91 = phi i1 [ true, %lor.end ], [ true, %lor.lhs.false229 ], [ true, %if.end226 ], [ false, %if.then236 ], [ false, %for.inc254 ]
-  br i1 %cmp.i.i169721, label %for.end589, label %for.body267.lr.ph
+  br i1 %cmp.i.i169722, label %for.end589, label %for.body267.lr.ph
 
 for.body267.lr.ph:                                ; preds = %if.end257
   %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %t.i.i, i64 8
@@ -13138,7 +13138,7 @@ for.body267:                                      ; preds = %for.body267.lr.ph, 
   %queryResults.sroa.0.2662 = phi ptr [ null, %for.body267.lr.ph ], [ %queryResults.sroa.0.3, %for.inc587 ]
   %queryResults.sroa.9.0661 = phi ptr [ null, %for.body267.lr.ph ], [ %queryResults.sroa.9.1, %for.inc587 ]
   %queryResults.sroa.18.0660 = phi ptr [ null, %for.body267.lr.ph ], [ %queryResults.sroa.18.1, %for.inc587 ]
-  %__begin1259.sroa.0.0659 = phi ptr [ %testArray.sroa.0.0.lcssa719, %for.body267.lr.ph ], [ %incdec.ptr.i410, %for.inc587 ]
+  %__begin1259.sroa.0.0659 = phi ptr [ %testArray.sroa.0.0.lcssa720, %for.body267.lr.ph ], [ %incdec.ptr.i410, %for.inc587 ]
   %93 = load ptr, ptr %__begin1259.sroa.0.0659, align 8
   %m_skip = getelementptr inbounds nuw i8, ptr %93, i64 56
   %94 = load i8, ptr %m_skip, align 8
@@ -13226,10 +13226,10 @@ if.end346:                                        ; preds = %if.then343, %invoke
   %first354 = getelementptr inbounds nuw i8, ptr %117, i64 92
   %120 = load i32, ptr %first354, align 4
   %cmp357.not = icmp ule i32 %120, %118
-  %or.cond.not750 = select i1 %cmp351, i1 %cmp357.not, i1 false
+  %or.cond.not751 = select i1 %cmp351, i1 %cmp357.not, i1 false
   %cmp364 = icmp ugt i32 %120, %119
-  %or.cond746 = select i1 %or.cond.not750, i1 true, i1 %cmp364
-  %brmerge = or i1 %or.cond746, %tobool342
+  %or.cond747 = select i1 %or.cond.not751, i1 true, i1 %cmp364
+  %brmerge = or i1 %or.cond747, %tobool342
   br i1 %brmerge, label %if.then368, label %if.end388
 
 if.then368:                                       ; preds = %if.end346
@@ -13570,8 +13570,8 @@ delete.notnull.i339:                              ; preds = %if.then.i337
 if.end429.critedge:                               ; preds = %invoke.cont409
   %cmp.i.i343 = icmp sgt i8 %.pre708, -1
   %isnull.i345 = icmp eq ptr %133, null
-  %or.cond747 = select i1 %cmp.i.i343, i1 true, i1 %isnull.i345
-  br i1 %or.cond747, label %for.inc587, label %delete.notnull.i346
+  %or.cond748 = select i1 %cmp.i.i343, i1 true, i1 %isnull.i345
+  br i1 %or.cond748, label %for.inc587, label %delete.notnull.i346
 
 delete.notnull.i346:                              ; preds = %if.end429.critedge
   call void @_ZdaPv(ptr noundef nonnull %133) #45
@@ -13672,7 +13672,7 @@ for.end456:                                       ; preds = %for.inc454, %_ZNSt1
 
 do.body:                                          ; preds = %if.end544, %for.end456
   %168 = phi ptr [ %.pre702, %for.end456 ], [ %221, %if.end544 ]
-  %run_test.0 = phi i8 [ 1, %for.end456 ], [ %spec.select59, %if.end544 ]
+  %run_test.0 = phi i8 [ 1, %for.end456 ], [ %run_test.1, %if.end544 ]
   %reachedLeaf = getelementptr inbounds nuw i8, ptr %168, i64 4368
   store i8 0, ptr %reachedLeaf, align 8
   %169 = load ptr, ptr %this, align 8
@@ -13915,11 +13915,11 @@ delete.notnull.i.i398:                            ; preds = %if.then.i.i396
   br label %ehcleanup
 
 for.end489.invoke:                                ; preds = %_ZN7doctest17TestCaseExceptionD2Ev.exit, %catch, %lpad467
-  %.sink748 = phi i32 [ 1, %lpad467 ], [ 2, %catch ], [ 2, %_ZN7doctest17TestCaseExceptionD2Ev.exit ]
+  %.sink749 = phi i32 [ 1, %lpad467 ], [ 2, %catch ], [ 2, %_ZN7doctest17TestCaseExceptionD2Ev.exit ]
   %209 = load ptr, ptr %this, align 8
   %failure_flags499 = getelementptr inbounds nuw i8, ptr %209, i64 176
   %210 = load i32, ptr %failure_flags499, align 8
-  %or500 = or i32 %210, %.sink748
+  %or500 = or i32 %210, %.sink749
   store i32 %or500, ptr %failure_flags499, align 8
   invoke void @__cxa_end_catch()
           to label %try.cont unwind label %lpad252.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -13941,7 +13941,7 @@ if.end519:                                        ; preds = %if.then514, %_ZNK7d
 
 land.lhs.true522:                                 ; preds = %if.end519
   %tobool523 = trunc nuw i8 %run_test.1 to i1
-  br i1 %tobool523, label %if.then524, label %if.end544
+  br i1 %tobool523, label %if.then524, label %do.end
 
 if.then524:                                       ; preds = %land.lhs.true522
   %214 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8
@@ -13974,17 +13974,15 @@ if.end544.loopexit:                               ; preds = %for.inc541
   %.pre707 = load ptr, ptr %_M_finish.i.i405.phi.trans.insert, align 8
   br label %if.end544
 
-if.end544:                                        ; preds = %if.end544.loopexit, %if.then524, %land.lhs.true522
-  %219 = phi ptr [ %.pre707, %if.end544.loopexit ], [ %213, %if.then524 ], [ %213, %land.lhs.true522 ]
-  %220 = phi ptr [ %.pre706, %if.end544.loopexit ], [ %212, %if.then524 ], [ %212, %land.lhs.true522 ]
-  %221 = phi ptr [ %.pre705, %if.end544.loopexit ], [ %211, %if.then524 ], [ %211, %land.lhs.true522 ]
-  %cmp.i.i406 = icmp eq ptr %220, %219
-  %spec.select59 = select i1 %cmp.i.i406, i8 0, i8 %run_test.1
-  %tobool550 = trunc nuw i8 %spec.select59 to i1
-  br i1 %tobool550, label %do.body, label %do.end, !llvm.loop !94
+if.end544:                                        ; preds = %if.end544.loopexit, %if.then524
+  %219 = phi ptr [ %.pre707, %if.end544.loopexit ], [ %213, %if.then524 ]
+  %220 = phi ptr [ %.pre706, %if.end544.loopexit ], [ %212, %if.then524 ]
+  %221 = phi ptr [ %.pre705, %if.end544.loopexit ], [ %211, %if.then524 ]
+  %cmp.i.i406.not = icmp eq ptr %220, %219
+  br i1 %cmp.i.i406.not, label %do.end, label %do.body, !llvm.loop !94
 
-do.end:                                           ; preds = %if.end519, %if.end544
-  %222 = phi ptr [ %221, %if.end544 ], [ %211, %if.end519 ]
+do.end:                                           ; preds = %if.end519, %land.lhs.true522, %if.end544
+  %222 = phi ptr [ %221, %if.end544 ], [ %211, %land.lhs.true522 ], [ %211, %if.end519 ]
   invoke void @_ZN7doctest6detail12ContextState20finalizeTestCaseDataEv(ptr noundef nonnull align 8 dereferenceable(4489) %222)
           to label %invoke.cont552 unwind label %lpad252.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -14034,7 +14032,7 @@ for.inc587:                                       ; preds = %for.inc384, %if.the
   %queryResults.sroa.9.1 = phi ptr [ %queryResults.sroa.9.0661, %if.then368 ], [ %queryResults.sroa.9.0661, %if.end388 ], [ %queryResults.sroa.9.0661, %_ZN7doctest6StringD2Ev.exit265 ], [ %queryResults.sroa.9.3, %_ZN7doctest6StringD2Ev.exit327 ], [ %queryResults.sroa.9.0661, %land.lhs.true578 ], [ %queryResults.sroa.9.0661, %for.end572 ], [ %incdec.ptr.i.i.i224, %_ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %incdec.ptr.i.i209, %if.then.i.i208 ], [ %queryResults.sroa.9.0661, %if.end429.critedge ], [ %queryResults.sroa.9.0661, %delete.notnull.i346 ], [ %queryResults.sroa.9.0661, %if.then370 ], [ %queryResults.sroa.9.0661, %for.inc384 ]
   %queryResults.sroa.0.3 = phi ptr [ %queryResults.sroa.0.2662, %if.then368 ], [ %queryResults.sroa.0.2662, %if.end388 ], [ %queryResults.sroa.0.2662, %_ZN7doctest6StringD2Ev.exit265 ], [ %queryResults.sroa.0.5, %_ZN7doctest6StringD2Ev.exit327 ], [ %queryResults.sroa.0.2662, %land.lhs.true578 ], [ %queryResults.sroa.0.2662, %for.end572 ], [ %call5.i.i.i.i.i.i232, %_ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ], [ %queryResults.sroa.0.2662, %if.then.i.i208 ], [ %queryResults.sroa.0.2662, %if.end429.critedge ], [ %queryResults.sroa.0.2662, %delete.notnull.i346 ], [ %queryResults.sroa.0.2662, %if.then370 ], [ %queryResults.sroa.0.2662, %for.inc384 ]
   %incdec.ptr.i410 = getelementptr inbounds nuw i8, ptr %__begin1259.sroa.0.0659, i64 8
-  %cmp.i189.not = icmp eq ptr %incdec.ptr.i410, %testArray.sroa.13.0.lcssa718
+  %cmp.i189.not = icmp eq ptr %incdec.ptr.i410, %testArray.sroa.13.0.lcssa719
   br i1 %cmp.i189.not, label %for.end589.loopexit, label %for.body267
 
 for.end589.loopexit:                              ; preds = %land.lhs.true578, %for.inc587
@@ -14207,11 +14205,11 @@ terminate.lpad.i.i:                               ; preds = %_ZNSt6vectorIPKN7do
   unreachable
 
 _ZNSt3setIN7doctest6StringESt4lessIS1_ESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EED2Ev.exit
-  %tobool.not.i.i.i463 = icmp eq ptr %testArray.sroa.0.0.lcssa719, null
+  %tobool.not.i.i.i463 = icmp eq ptr %testArray.sroa.0.0.lcssa720, null
   br i1 %tobool.not.i.i.i463, label %cleanup, label %if.then.i.i.i464
 
 if.then.i.i.i464:                                 ; preds = %_ZNSt3setIN7doctest6StringESt4lessIS1_ESaIS1_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %testArray.sroa.0.0.lcssa719) #45
+  call void @_ZdlPv(ptr noundef nonnull %testArray.sroa.0.0.lcssa720) #45
   br label %cleanup
 
 ehcleanup642:                                     ; preds = %lpad252.loopexit, %lpad252.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad252.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad252.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad252.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad252.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad252.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad252.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad252.loopexit.split-lp.loopexit, %delete.notnull.i339, %if.then.i337, %lpad422, %ehcleanup
@@ -14225,13 +14223,13 @@ if.then.i.i.i466:                                 ; preds = %ehcleanup642
   br label %_ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EED2Ev.exit467
 
 _ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EED2Ev.exit467: ; preds = %ehcleanup642.thread, %ehcleanup642, %if.then.i.i.i466
-  %.pn47730 = phi { ptr, i32 } [ %lpad.loopexit579, %ehcleanup642.thread ], [ %.pn47, %ehcleanup642 ], [ %.pn47, %if.then.i.i.i466 ]
+  %.pn47731 = phi { ptr, i32 } [ %lpad.loopexit579, %ehcleanup642.thread ], [ %.pn47, %ehcleanup642 ], [ %.pn47, %if.then.i.i.i466 ]
   call void @_ZNSt3setIN7doctest6StringESt4lessIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %testSuitesPassingFilt) #44
   br label %ehcleanup644
 
 ehcleanup644:                                     ; preds = %lpad135.loopexit, %lpad135.loopexit.split-lp, %_ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EED2Ev.exit467
-  %testArray.sroa.0.0617 = phi ptr [ %testArray.sroa.0.0.lcssa719, %_ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EED2Ev.exit467 ], [ %testArray.sroa.0.0640, %lpad135.loopexit ], [ %testArray.sroa.0.0629, %lpad135.loopexit.split-lp ]
-  %.pn49 = phi { ptr, i32 } [ %.pn47730, %_ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EED2Ev.exit467 ], [ %lpad.loopexit582, %lpad135.loopexit ], [ %lpad.loopexit.split-lp583, %lpad135.loopexit.split-lp ]
+  %testArray.sroa.0.0617 = phi ptr [ %testArray.sroa.0.0.lcssa720, %_ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EED2Ev.exit467 ], [ %testArray.sroa.0.0640, %lpad135.loopexit ], [ %testArray.sroa.0.0629, %lpad135.loopexit.split-lp ]
+  %.pn49 = phi { ptr, i32 } [ %.pn47731, %_ZNSt6vectorIPKN7doctest12TestCaseDataESaIS3_EED2Ev.exit467 ], [ %lpad.loopexit582, %lpad135.loopexit ], [ %lpad.loopexit.split-lp583, %lpad135.loopexit.split-lp ]
   %tobool.not.i.i.i468 = icmp eq ptr %testArray.sroa.0.0617, null
   br i1 %tobool.not.i.i.i468, label %ehcleanup645, label %if.then.i.i.i469
 

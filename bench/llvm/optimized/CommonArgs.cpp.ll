@@ -17112,7 +17112,6 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvmneE
   br i1 %190, label %191, label %.thread265
 
 191:                                              ; preds = %.thread271, %189
-  %.3277 = phi i8 [ 1, %.thread271 ], [ %.3, %189 ]
   %.290276 = phi i8 [ %.189, %.thread271 ], [ %.290, %189 ]
   %.1252275 = phi i8 [ 0, %.thread271 ], [ %.1252, %189 ]
   %192 = load i32, ptr %43, align 4
@@ -17156,7 +17155,7 @@ _ZNK4llvm6Triple10isOSDarwinEv.exit.thread:       ; preds = %191, %194, %194, %1
   br label %.thread265
 
 .thread265:                                       ; preds = %_ZNK4llvm6Triple10isOSDarwinEv.exit, %145, %_ZNK4llvm6Triple4isPSEv.exit, %_ZN4llvmneENS_9StringRefES0_.exit, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread, %_ZNK4llvm6Triple4isPSEv.exit128, %189
-  %.3270 = phi i8 [ %.3277, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread ], [ %.3277, %_ZNK4llvm6Triple4isPSEv.exit128 ], [ %.3, %189 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %_ZNK4llvm6Triple4isPSEv.exit ], [ 0, %145 ], [ %.3277, %_ZNK4llvm6Triple10isOSDarwinEv.exit ]
+  %.3270 = phi i8 [ 1, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread ], [ 1, %_ZNK4llvm6Triple4isPSEv.exit128 ], [ %.3, %189 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %_ZNK4llvm6Triple4isPSEv.exit ], [ 0, %145 ], [ 1, %_ZNK4llvm6Triple10isOSDarwinEv.exit ]
   %.1252269 = phi i8 [ %.1252275, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread ], [ %.1252275, %_ZNK4llvm6Triple4isPSEv.exit128 ], [ %.1252, %189 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %_ZNK4llvm6Triple4isPSEv.exit ], [ 0, %145 ], [ %.1252275, %_ZNK4llvm6Triple10isOSDarwinEv.exit ]
   %.391 = phi i8 [ %209, %_ZNK4llvm6Triple10isOSDarwinEv.exit.thread ], [ %.290276, %_ZNK4llvm6Triple4isPSEv.exit128 ], [ %.290, %189 ], [ %.189, %_ZN4llvmneENS_9StringRefES0_.exit ], [ %.189, %_ZNK4llvm6Triple4isPSEv.exit ], [ %.189, %145 ], [ %.290276, %_ZNK4llvm6Triple10isOSDarwinEv.exit ]
   br i1 %.not295, label %221, label %210

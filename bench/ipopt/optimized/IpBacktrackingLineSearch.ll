@@ -5190,7 +5190,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit217: ; preds = %390, %402, %40
 
 430:                                              ; preds = %.thread450, %428, %.critedge165.thread
   %431 = phi i1 [ true, %.critedge165.thread ], [ false, %428 ], [ true, %.thread450 ]
-  %432 = phi i8 [ %.1, %.critedge165.thread ], [ %.1, %428 ], [ 1, %.thread450 ]
+  %432 = phi i8 [ 1, %.critedge165.thread ], [ %.1, %428 ], [ 1, %.thread450 ]
   %433 = phi i1 [ false, %.critedge165.thread ], [ %429, %428 ], [ false, %.thread450 ]
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %435 = load i8, ptr %434, align 8
@@ -9402,11 +9402,11 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i: ; preds = %_ZNK5Ipopt1
   store i32 %30, ptr %28, align 8, !noalias !259
   %.pre = load ptr, ptr %7, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 208
-  %.pre197 = load ptr, ptr %.phi.trans.insert, align 8, !noalias !262
+  %.pre195 = load ptr, ptr %.phi.trans.insert, align 8, !noalias !262
   br label %_ZNK5Ipopt14IteratesVector1xEv.exit
 
 _ZNK5Ipopt14IteratesVector1xEv.exit:              ; preds = %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i
-  %31 = phi ptr [ %23, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i ], [ %.pre197, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i ]
+  %31 = phi ptr [ %23, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i ], [ %.pre195, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i ]
   %32 = phi ptr [ %21, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i ], [ %.pre, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i ]
   %storemerge.i.i = phi ptr [ null, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i ], [ %.0.i3.i.i.i, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -9539,7 +9539,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit114:     ; preds = %74, %69
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 72
   %105 = load ptr, ptr %104, align 8
   %106 = tail call noundef zeroext i1 %105(ptr noundef nonnull align 8 dereferenceable(49) %102, double noundef %.071, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  br i1 %106, label %.loopexit.sink.split, label %.critedge95.preheader
+  br i1 %106, label %.critedge103.sink.split, label %.critedge95.preheader
 
 .critedge95.preheader:                            ; preds = %.thread, %100
   %107 = load double, ptr %2, align 8
@@ -9547,7 +9547,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit114:     ; preds = %74, %69
   %109 = load i32, ptr %5, align 4
   %110 = icmp eq i32 %109, 0
   %or.cond183 = select i1 %108, i1 true, i1 %110
-  br i1 %or.cond183, label %.lr.ph, label %.loopexit
+  br i1 %or.cond183, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.critedge95.preheader
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -9589,14 +9589,14 @@ _ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i118: ; preds = %_ZNK5Ipo
   %134 = load i32, ptr %133, align 8, !noalias !275
   %135 = add nsw i32 %134, 1
   store i32 %135, ptr %133, align 8, !noalias !275
-  %.pre198 = load ptr, ptr %7, align 8
-  %.phi.trans.insert199 = getelementptr inbounds nuw i8, ptr %.pre198, i64 208
-  %.pre200 = load ptr, ptr %.phi.trans.insert199, align 8, !noalias !278
+  %.pre196 = load ptr, ptr %7, align 8
+  %.phi.trans.insert197 = getelementptr inbounds nuw i8, ptr %.pre196, i64 208
+  %.pre198 = load ptr, ptr %.phi.trans.insert197, align 8, !noalias !278
   br label %_ZNK5Ipopt14IteratesVector1xEv.exit123
 
 _ZNK5Ipopt14IteratesVector1xEv.exit123:           ; preds = %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i118, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i121
-  %136 = phi ptr [ %128, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i121 ], [ %.pre200, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i118 ]
-  %137 = phi ptr [ %126, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i121 ], [ %.pre198, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i118 ]
+  %136 = phi ptr [ %128, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i121 ], [ %.pre198, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i118 ]
+  %137 = phi ptr [ %126, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i121 ], [ %.pre196, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i118 ]
   %storemerge.i.i120 = phi ptr [ null, %_ZNK5Ipopt14CompoundVector10IsCompNullEi.exit.i.i121 ], [ %.0.i3.i.i.i119, %_ZNK5Ipopt14CompoundVector9ConstCompEi.exit.thread.i.i.i118 ]
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %139 = load ptr, ptr %138, align 8, !noalias !278
@@ -9864,7 +9864,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit138:     ; preds = %182, %177, %_ZN5Ipo
   %.576174 = phi double [ %.475, %.thread171 ], [ %187, %234 ]
   %250 = load i8, ptr %59, align 8
   %251 = trunc i8 %250 to i1
-  br i1 %251, label %.loopexit.thread, label %252
+  br i1 %251, label %._crit_edge.thread, label %252
 
 252:                                              ; preds = %249
   %253 = load i8, ptr %115, align 4
@@ -9872,7 +9872,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit138:     ; preds = %182, %177, %_ZN5Ipo
   %255 = load i32, ptr %116, align 4
   %256 = icmp sgt i32 %255, 4
   %or.cond100 = select i1 %254, i1 %256, i1 false
-  br i1 %or.cond100, label %.loopexit.thread, label %257
+  br i1 %or.cond100, label %._crit_edge.thread, label %257
 
 257:                                              ; preds = %252
   %258 = load i8, ptr %6, align 1
@@ -9902,7 +9902,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit138:     ; preds = %182, %177, %_ZN5Ipo
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 64
   %278 = load ptr, ptr %277, align 8
   %279 = call noundef zeroext i1 %278(ptr noundef nonnull align 8 dereferenceable(49) %275, double noundef %.576174, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  br i1 %279, label %.loopexit.sink.split, label %.critedge95
+  br i1 %279, label %.critedge103.sink.split, label %.critedge95
 
 .critedge95:                                      ; preds = %260, %274, %257
   %280 = load double, ptr %117, align 8
@@ -9916,27 +9916,22 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit138:     ; preds = %182, %177, %_ZN5Ipo
   %286 = fcmp ogt double %285, %.077
   %287 = icmp eq i32 %284, 0
   %or.cond = select i1 %286, i1 true, i1 %287
-  br i1 %or.cond, label %118, label %.loopexit, !llvm.loop !286
+  br i1 %or.cond, label %118, label %._crit_edge.thread, !llvm.loop !286
 
-.loopexit.sink.split:                             ; preds = %274, %100
-  %.sink = phi ptr [ %3, %100 ], [ %4, %274 ]
-  %.172.ph = phi double [ %.071, %100 ], [ %.576174, %274 ]
-  store i8 1, ptr %.sink, align 1
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.critedge95, %.loopexit.sink.split, %.critedge95.preheader
-  %.172 = phi double [ %.071, %.critedge95.preheader ], [ %.172.ph, %.loopexit.sink.split ], [ %.576174, %.critedge95 ]
-  %.156 = phi i1 [ false, %.critedge95.preheader ], [ true, %.loopexit.sink.split ], [ false, %.critedge95 ]
-  br i1 %.156, label %.critedge103, label %.loopexit.thread
-
-.loopexit.thread:                                 ; preds = %249, %252, %.loopexit
+._crit_edge.thread:                               ; preds = %252, %249, %.critedge95, %.critedge95.preheader
   %288 = load i8, ptr %59, align 8
   %289 = trunc i8 %288 to i1
   %.mux = select i1 %289, i8 119, i8 63
   br label %296
 
-.critedge103:                                     ; preds = %234, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %.loopexit
-  %.172179 = phi double [ %.172, %.loopexit ], [ %187, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %187, %234 ]
+.critedge103.sink.split:                          ; preds = %274, %100
+  %.sink = phi ptr [ %3, %100 ], [ %4, %274 ]
+  %.172179.ph = phi double [ %.071, %100 ], [ %.576174, %274 ]
+  store i8 1, ptr %.sink, align 1
+  br label %.critedge103
+
+.critedge103:                                     ; preds = %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %234, %.critedge103.sink.split
+  %.172179 = phi double [ %.172179.ph, %.critedge103.sink.split ], [ %187, %234 ], [ %187, %_ZN5Ipopt9IpoptData18Append_info_stringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %291 = load ptr, ptr %290, align 8
   %292 = load ptr, ptr %291, align 8
@@ -9945,9 +9940,9 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit138:     ; preds = %182, %177, %_ZN5Ipo
   %295 = call noundef signext i8 %294(ptr noundef nonnull align 8 dereferenceable(49) %291, double noundef %.172179)
   br label %296
 
-296:                                              ; preds = %.loopexit.thread, %.critedge103
-  %297 = phi i1 [ true, %.critedge103 ], [ false, %.loopexit.thread ]
-  %.0 = phi i8 [ %295, %.critedge103 ], [ %.mux, %.loopexit.thread ]
+296:                                              ; preds = %._crit_edge.thread, %.critedge103
+  %297 = phi i1 [ true, %.critedge103 ], [ false, %._crit_edge.thread ]
+  %.0 = phi i8 [ %295, %.critedge103 ], [ %.mux, %._crit_edge.thread ]
   %298 = load i8, ptr %4, align 1
   %299 = trunc i8 %298 to i1
   br i1 %299, label %300, label %304

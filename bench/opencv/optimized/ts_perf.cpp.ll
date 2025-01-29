@@ -11574,6 +11574,7 @@ _ZN7testing7MessageD2Ev.exit:                     ; preds = %43, %32, %16, %52
   %.b66 = load i1, ptr @_ZL23perf_validation_enabled, align 1
   %.b66.not = xor i1 %.b66, true
   %brmerge = select i1 %.b66.not, i1 true, i1 %.049.shrunk
+  %.049.shrunk.mux = select i1 %.b66, i1 true, i1 %.049.shrunk
   br i1 %brmerge, label %.thread, label %137
 
 137:                                              ; preds = %136
@@ -11889,7 +11890,7 @@ _ZL24savePerfValidationResultRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %276
 
 .thread:                                          ; preds = %125, %121, %77, %136, %.thread113
-  %.150 = phi i1 [ %.251115, %.thread113 ], [ %.049.shrunk, %136 ], [ true, %77 ], [ true, %121 ], [ true, %125 ]
+  %.150 = phi i1 [ %.251115, %.thread113 ], [ %.049.shrunk.mux, %136 ], [ true, %77 ], [ true, %121 ], [ true, %125 ]
   ret i1 %.150
 
 276:                                              ; preds = %205, %206, %275, %103, %76, %51

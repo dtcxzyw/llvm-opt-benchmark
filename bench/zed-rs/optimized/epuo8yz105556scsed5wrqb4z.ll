@@ -18245,7 +18245,7 @@ default.unreachable122:                           ; preds = %115, %65, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !2912
   br label %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..Entry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h900460a9fc4038d9E.exit.i.i"
 
-"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..Entry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h900460a9fc4038d9E.exit.i.i": ; preds = %"_ZN4core3ptr144drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h1acfc6a87375a4c7E.exit.i.i", %"_ZN4core3ptr144drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h1acfc6a87375a4c7E.exit.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf61881608624df1fE.exit.i.i.i.i.i.i", %514, %510
+"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..Entry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h900460a9fc4038d9E.exit.i.i": ; preds = %"_ZN4core3ptr144drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h1acfc6a87375a4c7E.exit.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf61881608624df1fE.exit.i.i.i.i.i.i", %514, %510
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %43)
   %537 = trunc nuw i8 %.sroa.05.0.i.i to i1
   br i1 %537, label %559, label %"_ZN4core3ptr72drop_in_place$LT$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$17hdcf31121f79a489fE.exit.i.i"
@@ -18259,22 +18259,23 @@ default.unreachable122:                           ; preds = %115, %65, %2
   %539 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %540 = load i64, ptr %539, align 8, !range !39, !noalias !2925, !noundef !25
   %541 = icmp eq i64 %540, 0
-  br i1 %541, label %"_ZN4core3ptr144drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h1acfc6a87375a4c7E.exit.i.i", label %542
+  br i1 %541, label %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..Entry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h900460a9fc4038d9E.exit.thread.i.i", label %542
 
 542:                                              ; preds = %.noexc184.i.i
   %543 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %544 = load i64, ptr %543, align 8, !noalias !2925, !noundef !25
   %545 = icmp eq i64 %544, 0
-  br i1 %545, label %"_ZN4core3ptr144drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h1acfc6a87375a4c7E.exit.i.i", label %546
+  br i1 %545, label %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..Entry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h900460a9fc4038d9E.exit.thread.i.i", label %546
 
 546:                                              ; preds = %542
   %547 = load ptr, ptr %9, align 8, !noalias !2925, !nonnull !25, !noundef !25
   call void @__rust_dealloc(ptr noundef nonnull %547, i64 noundef %544, i64 noundef %540) #17
-  br label %"_ZN4core3ptr144drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h1acfc6a87375a4c7E.exit.i.i"
+  br label %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..Entry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h900460a9fc4038d9E.exit.thread.i.i"
 
-"_ZN4core3ptr144drop_in_place$LT$std..collections..hash..map..VacantEntry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h1acfc6a87375a4c7E.exit.i.i": ; preds = %546, %542, %.noexc184.i.i
+"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..Entry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h900460a9fc4038d9E.exit.thread.i.i": ; preds = %546, %542, %.noexc184.i.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !2925
-  br label %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..Entry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h900460a9fc4038d9E.exit.i.i"
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %43)
+  br label %559
 
 548:                                              ; preds = %538, %527, %517
   %549 = landingpad { ptr, i32 }
@@ -18304,7 +18305,7 @@ default.unreachable122:                           ; preds = %115, %65, %2
   call void @__rust_dealloc(ptr noundef nonnull %558, i64 noundef %555, i64 noundef %551) #17
   br label %569
 
-559:                                              ; preds = %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..Entry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h900460a9fc4038d9E.exit.i.i"
+559:                                              ; preds = %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..Entry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h900460a9fc4038d9E.exit.thread.i.i", %"_ZN4core3ptr138drop_in_place$LT$std..collections..hash..map..Entry$LT$alloc..string..String$C$alloc..sync..Arc$LT$live_kit_client..test..Room$GT$$GT$$GT$17h900460a9fc4038d9E.exit.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !2947)
   call void @llvm.experimental.noalias.scope.decl(metadata !2950)
   %560 = load ptr, ptr %50, align 8, !alias.scope !2953, !nonnull !25, !noundef !25

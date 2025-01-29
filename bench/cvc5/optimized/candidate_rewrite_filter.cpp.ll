@@ -1487,7 +1487,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit589: ; preds = %invoke.cont134, %i
   %bf.load.i.i590 = load i64, ptr %108, align 8
   %109 = and i64 %bf.load.i.i590, 1152920405095219200
   %cmp.not.i.i591 = icmp eq i64 %109, 1152920405095219200
-  br i1 %cmp.not.i.i591, label %if.end161, label %if.then.i.i592
+  br i1 %cmp.not.i.i591, label %if.end142, label %if.then.i.i592
 
 if.then.i.i592:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit589
   %bf.value.i.i593 = add i64 %bf.load.i.i590, 1152920405095219200
@@ -1496,11 +1496,11 @@ if.then.i.i592:                                   ; preds = %_ZN4cvc58internal12
   %bf.set.i.i596 = or disjoint i64 %bf.shl.i.i594, %bf.clear7.i.i595
   store i64 %bf.set.i.i596, ptr %108, align 8
   %cmp12.i.i597 = icmp eq i64 %bf.shl.i.i594, 0
-  br i1 %cmp12.i.i597, label %if.then13.i.i598, label %if.end161
+  br i1 %cmp12.i.i597, label %if.then13.i.i598, label %if.end142
 
 if.then13.i.i598:                                 ; preds = %if.then.i.i592
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(16) %108)
-          to label %if.end161 unwind label %terminate.lpad.i599
+          to label %if.end142 unwind label %terminate.lpad.i599
 
 terminate.lpad.i599:                              ; preds = %if.then13.i.i598
   %110 = landingpad { ptr, i32 }
@@ -1525,10 +1525,10 @@ ehcleanup138:                                     ; preds = %lpad133, %lpad131
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp128) #20
   br label %ehcleanup375
 
-if.end161:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit589, %if.then.i.i592, %if.then13.i.i598
-  br i1 %call135, label %cleanup.done319, label %land.lhs.true
+if.end142:                                        ; preds = %if.then13.i.i598, %if.then.i.i592, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit589
+  br i1 %call135, label %if.end295, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %if.then13.i.i546, %if.then.i.i540, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit537, %if.else124, %invoke.cont38, %if.end161
+land.lhs.true:                                    ; preds = %if.then13.i.i546, %if.then.i.i540, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit537, %if.else124, %invoke.cont38, %if.end142
   %call164 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont163 unwind label %lpad2
 
@@ -1675,7 +1675,7 @@ ehcleanup193:                                     ; preds = %lpad189, %lpad187
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp184) #20
   br label %ehcleanup375
 
-land.lhs.true213:                                 ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit744, %invoke.cont163
+land.lhs.true213:                                 ; preds = %invoke.cont163, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit744
   %call215 = invoke noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16) %this)
           to label %invoke.cont214 unwind label %lpad2
 
@@ -2173,11 +2173,12 @@ ehcleanup294:                                     ; preds = %lpad251, %lpad.i.i,
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %bni) #20
   br label %ehcleanup375
 
-if.end295:                                        ; preds = %if.then13.i.i1171, %if.then.i.i1165, %if.end293
-  %tobool296 = trunc nuw i8 %keep.4 to i1
+if.end295:                                        ; preds = %if.end142, %if.then13.i.i1171, %if.then.i.i1165, %if.end293
+  %keep.3 = phi i8 [ %keep.4, %if.end293 ], [ %keep.4, %if.then.i.i1165 ], [ %keep.4, %if.then13.i.i1171 ], [ 0, %if.end142 ]
+  %tobool296 = trunc nuw i8 %keep.3 to i1
   br i1 %tobool296, label %cleanup, label %cleanup.done319
 
-cleanup.done319:                                  ; preds = %lor.lhs.false99, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit511, %if.end161, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit744, %if.end295
+cleanup.done319:                                  ; preds = %lor.lhs.false99, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit511, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit744, %if.end295
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont214, %cleanup.done319, %if.end295

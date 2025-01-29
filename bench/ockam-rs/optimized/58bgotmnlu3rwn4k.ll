@@ -933,7 +933,7 @@ define hidden noundef range(i8 0, 18) i8 @"_ZN113_$LT$futures_util..stream..stre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = tail call noundef align 8 dereferenceable_or_null(8) ptr @"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$9poll_lock17hb1154f23612036faE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %36, label %7
+  br i1 %6, label %33, label %7
 
 7:                                                ; preds = %2
   store ptr %5, ptr %4, align 8
@@ -943,11 +943,11 @@ define hidden noundef range(i8 0, 18) i8 @"_ZN113_$LT$futures_util..stream..stre
   %trunc.i = trunc nuw i64 %10 to i1
   br i1 %trunc.i, label %13, label %.invoke
 
-11:                                               ; preds = %.invoke, %"_ZN139_$LT$tokio_util..udp..frame..UdpFramed$LT$C$C$T$GT$$u20$as$u20$futures_sink..Sink$LT$$LP$I$C$core..net..socket_addr..SocketAddr$RP$$GT$$GT$10poll_ready17h0c817e0eb4df3dbbE.exit.thread.i", %"_ZN139_$LT$tokio_util..udp..frame..UdpFramed$LT$C$C$T$GT$$u20$as$u20$futures_sink..Sink$LT$$LP$I$C$core..net..socket_addr..SocketAddr$RP$$GT$$GT$10poll_ready17h0c817e0eb4df3dbbE.exit.i", %31
+11:                                               ; preds = %.invoke, %"_ZN139_$LT$tokio_util..udp..frame..UdpFramed$LT$C$C$T$GT$$u20$as$u20$futures_sink..Sink$LT$$LP$I$C$core..net..socket_addr..SocketAddr$RP$$GT$$GT$10poll_ready17h0c817e0eb4df3dbbE.exit.thread.i", %"_ZN139_$LT$tokio_util..udp..frame..UdpFramed$LT$C$C$T$GT$$u20$as$u20$futures_sink..Sink$LT$$LP$I$C$core..net..socket_addr..SocketAddr$RP$$GT$$GT$10poll_ready17h0c817e0eb4df3dbbE.exit.i", %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread.thread"
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr167drop_in_place$LT$futures_util..lock..bilock..BiLockGuard$LT$tokio_util..udp..frame..UdpFramed$LT$ockam_transport_udp..workers..codec..TransportMessageCodec$GT$$GT$$GT$17h9d3c58d358afdef7E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #20
-          to label %39 unwind label %37
+          to label %36 unwind label %34
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -957,7 +957,7 @@ define hidden noundef range(i8 0, 18) i8 @"_ZN113_$LT$futures_util..stream..stre
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %17 = load i16, ptr %16, align 8, !range !171, !alias.scope !181, !noalias !183, !noundef !115
   %.not.i = icmp eq i16 %17, 2
-  br i1 %.not.i, label %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread", label %18
+  br i1 %.not.i, label %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread.thread", label %18
 
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 184
@@ -987,25 +987,20 @@ define hidden noundef range(i8 0, 18) i8 @"_ZN113_$LT$futures_util..stream..stre
 .noexc16:                                         ; preds = %"_ZN139_$LT$tokio_util..udp..frame..UdpFramed$LT$C$C$T$GT$$u20$as$u20$futures_sink..Sink$LT$$LP$I$C$core..net..socket_addr..SocketAddr$RP$$GT$$GT$10poll_ready17h0c817e0eb4df3dbbE.exit.thread.i"
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3), !noalias !190
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %27, label %.sink.split
+  br i1 %26, label %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread", label %.sink.split
 
-27:                                               ; preds = %.noexc16
+"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread": ; preds = %.noexc16
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 130
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  store i16 %17, ptr %28, align 8, !alias.scope !196, !noalias !197
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  store i16 %17, ptr %27, align 8, !alias.scope !196, !noalias !197
   %.sroa.6.120..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.6.120..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(30) %.sroa.5.0..sroa_idx.i, i64 30, i1 false), !alias.scope !198, !noalias !199
   store i8 0, ptr %19, align 8, !alias.scope !200, !noalias !201
   %.pre = load ptr, ptr %5, align 8, !noalias !202
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre24 = load i64, ptr %.phi.trans.insert, align 8, !range !130, !noalias !202
-  br label %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread"
-
-"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread": ; preds = %27, %13
-  %29 = phi i64 [ %.pre24, %27 ], [ %10, %13 ]
-  %30 = phi ptr [ %.pre, %27 ], [ %8, %13 ]
-  %trunc.i17 = trunc nuw i64 %29 to i1
-  br i1 %trunc.i17, label %31, label %.invoke
+  %trunc.i17 = trunc nuw i64 %.pre24 to i1
+  br i1 %trunc.i17, label %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread.thread", label %.invoke
 
 .invoke:                                          ; preds = %7, %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread"
   invoke void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.86854b3818c1e107d967125bc7de3ba7.27.llvm.3380558238963146499, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86854b3818c1e107d967125bc7de3ba7.28.llvm.3380558238963146499) #19
@@ -1014,33 +1009,34 @@ define hidden noundef range(i8 0, 18) i8 @"_ZN113_$LT$futures_util..stream..stre
 .cont:                                            ; preds = %.invoke
   unreachable
 
-31:                                               ; preds = %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread"
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %33 = invoke noundef i8 @"_ZN139_$LT$tokio_util..udp..frame..UdpFramed$LT$C$C$T$GT$$u20$as$u20$futures_sink..Sink$LT$$LP$I$C$core..net..socket_addr..SocketAddr$RP$$GT$$GT$10poll_flush17h42f6abcf668d5450E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %32, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
-          to label %34 unwind label %11, !range !205
+"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread.thread": ; preds = %13, %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread"
+  %28 = phi ptr [ %.pre, %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread" ], [ %8, %13 ]
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %30 = invoke noundef i8 @"_ZN139_$LT$tokio_util..udp..frame..UdpFramed$LT$C$C$T$GT$$u20$as$u20$futures_sink..Sink$LT$$LP$I$C$core..net..socket_addr..SocketAddr$RP$$GT$$GT$10poll_flush17h42f6abcf668d5450E"(ptr noalias noundef nonnull align 8 dereferenceable(168) %29, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
+          to label %31 unwind label %11, !range !205
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %4, align 8, !alias.scope !206, !nonnull !115, !align !116, !noundef !115
+31:                                               ; preds = %"_ZN12futures_util6stream6stream5split25SplitSink$LT$S$C$Item$GT$15poll_flush_slot17h80715b36c0b45a6cE.exit.thread.thread"
+  %32 = load ptr, ptr %4, align 8, !alias.scope !206, !nonnull !115, !align !116, !noundef !115
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.noexc15, %.noexc16, %34
-  %.sink = phi ptr [ %35, %34 ], [ %5, %.noexc16 ], [ %5, %.noexc15 ]
-  %.2.ph = phi i8 [ %33, %34 ], [ %25, %.noexc16 ], [ %22, %.noexc15 ]
+.sink.split:                                      ; preds = %.noexc15, %.noexc16, %31
+  %.sink = phi ptr [ %32, %31 ], [ %5, %.noexc16 ], [ %5, %.noexc15 ]
+  %.2.ph = phi i8 [ %30, %31 ], [ %25, %.noexc16 ], [ %22, %.noexc15 ]
   tail call void @"_ZN12futures_util4lock6bilock15BiLock$LT$T$GT$6unlock17h4eb7084bb51adb30E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sink), !noalias !115
-  br label %36
+  br label %33
 
-36:                                               ; preds = %.sink.split, %2
+33:                                               ; preds = %.sink.split, %2
   %.2 = phi i8 [ 17, %2 ], [ %.2.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret i8 %.2
 
-37:                                               ; preds = %11
-  %38 = landingpad { ptr, i32 }
+34:                                               ; preds = %11
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #21
   unreachable
 
-39:                                               ; preds = %11
+36:                                               ; preds = %11
   resume { ptr, i32 } %12
 }
 

@@ -844,7 +844,7 @@ invoke.cont169:                                   ; preds = %if.then168
 
 if.end172:                                        ; preds = %if.then153, %invoke.cont165, %invoke.cont169, %land.lhs.true160, %if.end158
   %maybeMore.7225 = phi i8 [ %maybeMore.7, %if.end158 ], [ %maybeMore.7, %invoke.cont169 ], [ %maybeMore.7, %invoke.cont165 ], [ %maybeMore.7, %land.lhs.true160 ], [ %frombool148, %if.then153 ]
-  %isGrouping.1224 = phi i8 [ %isGrouping.0, %if.end158 ], [ %isGrouping.0, %invoke.cont169 ], [ %isGrouping.0, %invoke.cont165 ], [ %isGrouping.0, %land.lhs.true160 ], [ 1, %if.then153 ]
+  %isGrouping.1224 = phi i8 [ 1, %if.end158 ], [ %isGrouping.0, %invoke.cont169 ], [ %isGrouping.0, %invoke.cont165 ], [ %isGrouping.0, %land.lhs.true160 ], [ 1, %if.then153 ]
   %isDecimal.1 = phi i1 [ %isDecimal.0, %if.end158 ], [ true, %invoke.cont169 ], [ %isDecimal.0, %invoke.cont165 ], [ %isDecimal.0, %land.lhs.true160 ], [ %isDecimal.0, %if.then153 ]
   %33 = load i8, ptr %groupingDisabled, align 1
   %tobool174 = trunc i8 %33 to i1

@@ -2703,10 +2703,10 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u
 
 6:                                                ; preds = %2
   %trunc = trunc nuw i64 %3 to i1
-  br i1 %trunc, label %15, label %8
+  br i1 %trunc, label %7, label %8
 
-7:                                                ; preds = %2, %15, %8
-  %.0 = phi i1 [ true, %15 ], [ %14, %8 ], [ false, %2 ]
+7:                                                ; preds = %6, %2, %8
+  %.0 = phi i1 [ %14, %8 ], [ false, %2 ], [ true, %6 ]
   ret i1 %.0
 
 8:                                                ; preds = %6
@@ -2719,11 +2719,6 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$core..result..Result$LT$T$C$E$GT$$u
   %12 = load i64, ptr %10, align 8, !alias.scope !438, !noalias !441, !noundef !4
   %13 = load i64, ptr %11, align 8, !alias.scope !441, !noalias !438, !noundef !4
   %14 = icmp eq i64 %12, %13
-  br label %7
-
-15:                                               ; preds = %6
-  %16 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %16)
   br label %7
 }
 

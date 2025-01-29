@@ -24642,26 +24642,26 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$T$u20$as$u20$core..option..SpecOpti
   %9 = icmp eq i64 %3, %5
   br i1 %9, label %10, label %"_ZN76_$LT$typst..model..reference..Supplement$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c2b0f40776c6d3E.llvm.3683678558897460461.exit"
 
-"_ZN76_$LT$typst..model..reference..Supplement$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c2b0f40776c6d3E.llvm.3683678558897460461.exit": ; preds = %16, %13, %8, %6
-  %.0.shrunk = phi i1 [ %7, %6 ], [ false, %8 ], [ %18, %16 ], [ %15, %13 ]
+"_ZN76_$LT$typst..model..reference..Supplement$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c2b0f40776c6d3E.llvm.3683678558897460461.exit": ; preds = %16, %11, %8, %6
+  %.0.shrunk = phi i1 [ %7, %6 ], [ false, %8 ], [ %19, %16 ], [ %15, %11 ]
   ret i1 %.0.shrunk
 
 10:                                               ; preds = %8
   %trunc.i = trunc nuw i64 %3 to i1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %trunc.i, label %16, label %13
+  br i1 %trunc.i, label %16, label %11
 
-13:                                               ; preds = %10
-  %14 = icmp eq i64 %3, 0
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call noundef zeroext i1 @"_ZN77_$LT$typst..foundations..content..Content$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb8fbde024badb170E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+11:                                               ; preds = %10
+  %12 = icmp eq i64 %3, 0
+  tail call void @llvm.assume(i1 %12)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = tail call noundef zeroext i1 @"_ZN77_$LT$typst..foundations..content..Content$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb8fbde024badb170E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   br label %"_ZN76_$LT$typst..model..reference..Supplement$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c2b0f40776c6d3E.llvm.3683678558897460461.exit"
 
 16:                                               ; preds = %10
-  %17 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
   br label %"_ZN76_$LT$typst..model..reference..Supplement$u20$as$u20$core..cmp..PartialEq$GT$2eq17ha6c2b0f40776c6d3E.llvm.3683678558897460461.exit"
 }
 
@@ -27421,24 +27421,24 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$a
 
 10:                                               ; preds = %8
   %trunc.i.i = trunc nuw i64 %3 to i1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %trunc.i.i, label %16, label %13
+  br i1 %trunc.i.i, label %16, label %11
 
-13:                                               ; preds = %10
-  %14 = icmp eq i64 %3, 0
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call noundef zeroext i1 @"_ZN77_$LT$typst..foundations..content..Content$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb8fbde024badb170E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+11:                                               ; preds = %10
+  %12 = icmp eq i64 %3, 0
+  tail call void @llvm.assume(i1 %12)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = tail call noundef zeroext i1 @"_ZN77_$LT$typst..foundations..content..Content$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb8fbde024badb170E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
   br label %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h85f7721f0d330670E.llvm.3683678558897460461.exit"
 
 16:                                               ; preds = %10
-  %17 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %17)
-  %18 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18)
   br label %"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h85f7721f0d330670E.llvm.3683678558897460461.exit"
 
-"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h85f7721f0d330670E.llvm.3683678558897460461.exit": ; preds = %6, %8, %13, %16
-  %.0.shrunk.i = phi i1 [ %7, %6 ], [ false, %8 ], [ %18, %16 ], [ %15, %13 ]
+"_ZN55_$LT$T$u20$as$u20$core..option..SpecOptionPartialEq$GT$2eq17h85f7721f0d330670E.llvm.3683678558897460461.exit": ; preds = %6, %8, %11, %16
+  %.0.shrunk.i = phi i1 [ %7, %6 ], [ false, %8 ], [ %19, %16 ], [ %15, %11 ]
   ret i1 %.0.shrunk.i
 }
 
@@ -143961,8 +143961,8 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$typst..foundations..auto..Smart$LT$
   %brmerge.demorgan = and i1 %4, %6
   br i1 %brmerge.demorgan, label %9, label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8071a3c56276dfcfE.llvm.3683678558897460461.exit"
 
-"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8071a3c56276dfcfE.llvm.3683678558897460461.exit": ; preds = %21, %18, %13, %11, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %8 ], [ %12, %11 ], [ false, %13 ], [ %23, %21 ], [ %20, %18 ]
+"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8071a3c56276dfcfE.llvm.3683678558897460461.exit": ; preds = %21, %16, %13, %11, %8, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %8 ], [ %12, %11 ], [ false, %13 ], [ %24, %21 ], [ %20, %16 ]
   ret i1 %.0
 
 9:                                                ; preds = %8
@@ -143979,20 +143979,20 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$typst..foundations..auto..Smart$LT$
 
 15:                                               ; preds = %13
   %trunc.i.i.i = trunc nuw i64 %3 to i1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %trunc.i.i.i, label %21, label %18
+  br i1 %trunc.i.i.i, label %21, label %16
 
-18:                                               ; preds = %15
-  %19 = icmp eq i64 %3, 0
-  tail call void @llvm.assume(i1 %19)
-  %20 = tail call noundef zeroext i1 @"_ZN77_$LT$typst..foundations..content..Content$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb8fbde024badb170E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
+16:                                               ; preds = %15
+  %17 = icmp eq i64 %3, 0
+  tail call void @llvm.assume(i1 %17)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = tail call noundef zeroext i1 @"_ZN77_$LT$typst..foundations..content..Content$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb8fbde024badb170E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
   br label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8071a3c56276dfcfE.llvm.3683678558897460461.exit"
 
 21:                                               ; preds = %15
-  %22 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %22)
-  %23 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
   br label %"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8071a3c56276dfcfE.llvm.3683678558897460461.exit"
 }
 
@@ -151516,16 +151516,16 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$typst..layout..spacing..Spacing$u20
 
 10:                                               ; preds = %2
   %trunc = trunc nuw i64 %7 to i1
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %trunc, label %54, label %12
+  br i1 %trunc, label %54, label %11
 
 "_ZN73_$LT$typst..layout..rel..Rel$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he225eaeac69358efE.llvm.3683678558897460461.exit": ; preds = %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit1.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i", %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i", %2, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit"
   %.0.shrunk = phi i1 [ %67, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit" ], [ false, %2 ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i" ], [ %53, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit1.i.i" ], [ false, %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i.i" ]
   ret i1 %.0.shrunk
 
-12:                                               ; preds = %10
-  %13 = icmp eq i64 %7, 0
-  tail call void @llvm.assume(i1 %13)
+11:                                               ; preds = %10
+  %12 = icmp eq i64 %7, 0
+  tail call void @llvm.assume(i1 %12)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27028)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27031)
@@ -151536,13 +151536,13 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$typst..layout..spacing..Spacing$u20
   %17 = fcmp uno double %16, 0.000000e+00
   br i1 %17, label %22, label %18
 
-18:                                               ; preds = %12
+18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load double, ptr %19, align 8, !alias.scope !27039, !noalias !27038, !noundef !7
   %21 = fcmp uno double %20, 0.000000e+00
   br i1 %21, label %22, label %"_ZN68_$LT$typst..util..scalar..Scalar$u20$as$u20$core..cmp..PartialEq$GT$2eq17h0ccd3eefeec065a8E.exit.i"
 
-22:                                               ; preds = %18, %12
+22:                                               ; preds = %18, %11
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !27040
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %6, align 8, !noalias !27040
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -151565,7 +151565,7 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$typst..layout..spacing..Spacing$u20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27044)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27046)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27049)
-  %29 = load double, ptr %11, align 8, !alias.scope !27051, !noalias !27052, !noundef !7
+  %29 = load double, ptr %13, align 8, !alias.scope !27051, !noalias !27052, !noundef !7
   %30 = fcmp uno double %29, 0.000000e+00
   br i1 %30, label %34, label %31
 
@@ -151625,11 +151625,10 @@ define hidden noundef zeroext i1 @"_ZN72_$LT$typst..layout..spacing..Spacing$u20
   br label %"_ZN73_$LT$typst..layout..rel..Rel$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17he225eaeac69358efE.llvm.3683678558897460461.exit"
 
 54:                                               ; preds = %10
-  %55 = icmp ne i64 %7, 0
-  tail call void @llvm.assume(i1 %55)
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27062)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27065)
-  %56 = load double, ptr %11, align 8, !alias.scope !27062, !noalias !27065, !noundef !7
+  %56 = load double, ptr %55, align 8, !alias.scope !27062, !noalias !27065, !noundef !7
   %57 = fcmp uno double %56, 0.000000e+00
   br i1 %57, label %62, label %58
 
@@ -158178,8 +158177,8 @@ define noundef zeroext i1 @"_ZN5typst5model9reference1_83_$LT$impl$u20$core..cmp
   %.mux = and i1 %11, %14
   br i1 %brmerge, label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1082fda4cfd31a7E.llvm.3683678558897460461.exit", label %15
 
-"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1082fda4cfd31a7E.llvm.3683678558897460461.exit": ; preds = %8, %32, %29, %24, %22, %19, %15, %2
-  %.0.shrunk = phi i1 [ false, %2 ], [ false, %15 ], [ true, %19 ], [ %23, %22 ], [ false, %24 ], [ %34, %32 ], [ %31, %29 ], [ %.mux, %8 ]
+"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1082fda4cfd31a7E.llvm.3683678558897460461.exit": ; preds = %8, %32, %27, %24, %22, %19, %15, %2
+  %.0.shrunk = phi i1 [ false, %2 ], [ false, %15 ], [ true, %19 ], [ %23, %22 ], [ false, %24 ], [ %35, %32 ], [ %31, %27 ], [ %.mux, %8 ]
   ret i1 %.0.shrunk
 
 15:                                               ; preds = %8
@@ -158206,20 +158205,20 @@ define noundef zeroext i1 @"_ZN5typst5model9reference1_83_$LT$impl$u20$core..cmp
 
 26:                                               ; preds = %24
   %trunc.i.i.i.i = trunc nuw i64 %10 to i1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  br i1 %trunc.i.i.i.i, label %32, label %29
+  br i1 %trunc.i.i.i.i, label %32, label %27
 
-29:                                               ; preds = %26
-  %30 = icmp eq i64 %10, 0
-  tail call void @llvm.assume(i1 %30)
-  %31 = tail call noundef zeroext i1 @"_ZN77_$LT$typst..foundations..content..Content$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb8fbde024badb170E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
+27:                                               ; preds = %26
+  %28 = icmp eq i64 %10, 0
+  tail call void @llvm.assume(i1 %28)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %31 = tail call noundef zeroext i1 @"_ZN77_$LT$typst..foundations..content..Content$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb8fbde024badb170E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %30)
   br label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1082fda4cfd31a7E.llvm.3683678558897460461.exit"
 
 32:                                               ; preds = %26
-  %33 = icmp ne i64 %10, 0
-  tail call void @llvm.assume(i1 %33)
-  %34 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %28)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %35 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %34)
   br label %"_ZN81_$LT$typst..foundations..auto..Smart$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc1082fda4cfd31a7E.llvm.3683678558897460461.exit"
 }
 
@@ -158401,29 +158400,29 @@ define hidden noundef zeroext i1 @"_ZN76_$LT$typst..model..reference..Supplement
   %3 = load i64, ptr %0, align 8, !range !1084, !noundef !7
   %4 = load i64, ptr %1, align 8, !range !1084, !noundef !7
   %5 = icmp eq i64 %3, %4
-  br i1 %5, label %6, label %9
+  br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
   %trunc = trunc nuw i64 %3 to i1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %trunc, label %13, label %10
+  br i1 %trunc, label %13, label %8
 
-9:                                                ; preds = %2, %13, %10
-  %.0.shrunk = phi i1 [ %15, %13 ], [ %12, %10 ], [ false, %2 ]
+7:                                                ; preds = %2, %13, %8
+  %.0.shrunk = phi i1 [ %16, %13 ], [ %12, %8 ], [ false, %2 ]
   ret i1 %.0.shrunk
 
-10:                                               ; preds = %6
-  %11 = icmp eq i64 %3, 0
-  tail call void @llvm.assume(i1 %11)
-  %12 = tail call noundef zeroext i1 @"_ZN77_$LT$typst..foundations..content..Content$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb8fbde024badb170E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
-  br label %9
+8:                                                ; preds = %6
+  %9 = icmp eq i64 %3, 0
+  tail call void @llvm.assume(i1 %9)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = tail call noundef zeroext i1 @"_ZN77_$LT$typst..foundations..content..Content$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb8fbde024badb170E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  br label %7
 
 13:                                               ; preds = %6
-  %14 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
-  br label %9
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = tail call noundef zeroext i1 @"_ZN71_$LT$typst..foundations..func..Repr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h496b6faee83779ceE.llvm.12850028421071809815"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
+  br label %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

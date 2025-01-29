@@ -54,27 +54,27 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
           cleanup
   br label %.thread
 
-.loopexit.split-lp:                               ; preds = %38, %42, %43, %135
+.loopexit.split-lp:                               ; preds = %38, %42, %43, %136
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 28:                                               ; preds = %27
   invoke void @"_ZN3syn4item7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..item..ItemUse$GT$5parse17h85b2e3fea84aa8ecE"(ptr nonnull sret({ i64, [18 x i64] }) align 8 %22, ptr nonnull align 8 %23)
-          to label %30 unwind label %.loopexit194
+          to label %30 unwind label %.loopexit195
 
-.loopexit194:                                     ; preds = %28, %32, %34, %37
-  %lpad.loopexit196 = landingpad { ptr, i32 }
+.loopexit195:                                     ; preds = %28, %32, %34, %37
+  %lpad.loopexit197 = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-.loopexit.split-lp195:                            ; preds = %33
-  %lpad.loopexit.split-lp197 = landingpad { ptr, i32 }
+.loopexit.split-lp196:                            ; preds = %33
+  %lpad.loopexit.split-lp198 = landingpad { ptr, i32 }
           cleanup
   br label %29
 
-29:                                               ; preds = %.loopexit.split-lp195, %.loopexit194
-  %lpad.phi198 = phi { ptr, i32 } [ %lpad.loopexit196, %.loopexit194 ], [ %lpad.loopexit.split-lp197, %.loopexit.split-lp195 ]
+29:                                               ; preds = %.loopexit.split-lp196, %.loopexit195
+  %lpad.phi199 = phi { ptr, i32 } [ %lpad.loopexit197, %.loopexit195 ], [ %lpad.loopexit.split-lp198, %.loopexit.split-lp196 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr nonnull align 8 %23) #4
           to label %.thread unwind label %126
 
@@ -85,15 +85,15 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 
 32:                                               ; preds = %30
   invoke void @"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$syn..item..ItemUse$C$syn..error..Error$GT$$GT$17h92a057fa54b41a9fE"(ptr nonnull align 8 %22)
-          to label %34 unwind label %.loopexit194
+          to label %34 unwind label %.loopexit195
 
 33:                                               ; preds = %30
   invoke void @"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$syn..item..ItemUse$C$syn..error..Error$GT$$GT$17h92a057fa54b41a9fE"(ptr nonnull align 8 %22)
-          to label %42 unwind label %.loopexit.split-lp195
+          to label %42 unwind label %.loopexit.split-lp196
 
 34:                                               ; preds = %32
   invoke void @"_ZN3syn4item7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..item..ItemUse$GT$5parse17h85b2e3fea84aa8ecE"(ptr nonnull sret({ i64, [18 x i64] }) align 8 %21, ptr align 8 %1)
-          to label %35 unwind label %.loopexit194
+          to label %35 unwind label %.loopexit195
 
 35:                                               ; preds = %34
   %36 = load i64, ptr %21, align 8, !range !3, !noundef !4
@@ -105,7 +105,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   store i64 %36, ptr %20, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx2, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.247.0..sroa_idx, i64 24, i1 false)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hacab200d8e89dafcE"(ptr nonnull align 8 %24, ptr nonnull align 8 %20)
-          to label %40 unwind label %.loopexit194
+          to label %40 unwind label %.loopexit195
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -118,7 +118,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr nonnull align 8 %23)
           to label %27 unwind label %.loopexit
 
-41:                                               ; preds = %135, %49, %38
+41:                                               ; preds = %136, %49, %38
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$syn..item..ItemUse$GT$$GT$17hcc74d761130ecf7eE"(ptr nonnull align 8 %24)
   br label %123
 
@@ -151,7 +151,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   %.1110 = phi i8 [ %.0109, %53 ], [ %.2111, %56 ]
   %.pn142 = phi { ptr, i32 } [ %54, %53 ], [ %.pn138.pn.pn, %56 ]
   %52 = trunc nuw i8 %.1110 to i1
-  br i1 %52, label %136, label %137
+  br i1 %52, label %137, label %138
 
 53:                                               ; preds = %122, %70, %48
   %.0109 = phi i8 [ 0, %122 ], [ 1, %70 ], [ 1, %48 ]
@@ -163,13 +163,13 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   invoke void @_ZN25diesel_table_macro_syntax23parse_table_with_schema17h6604c15ba41dd5e2E(ptr nonnull sret({ i64, [8 x i64] }) align 8 %14, ptr nonnull align 8 %17)
           to label %59 unwind label %57
 
-56:                                               ; preds = %76, %.thread200, %57
-  %.2111 = phi i8 [ %.2106192, %.thread200 ], [ 1, %57 ], [ %.1102, %76 ]
-  %.pn138.pn.pn = phi { ptr, i32 } [ %.pn138.pn193, %.thread200 ], [ %58, %57 ], [ %.pn138, %76 ]
+56:                                               ; preds = %76, %.thread190, %57
+  %.2111 = phi i8 [ 1, %.thread190 ], [ 1, %57 ], [ %.1102, %76 ]
+  %.pn138.pn.pn = phi { ptr, i32 } [ %.pn138.pn194, %.thread190 ], [ %58, %57 ], [ %.pn138, %76 ]
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr nonnull align 8 %17) #4
           to label %51 unwind label %126
 
-57:                                               ; preds = %133, %71, %63, %62, %61, %55
+57:                                               ; preds = %134, %71, %63, %62, %61, %55
   %58 = landingpad { ptr, i32 }
           cleanup
   br label %56
@@ -222,15 +222,15 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
           to label %80 unwind label %78
 
 .sink.split:                                      ; preds = %64, %72
-  %.sink201 = phi ptr [ %74, %72 ], [ %66, %64 ]
+  %.sink200 = phi ptr [ %74, %72 ], [ %66, %64 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) %.sink201, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, ptr noundef nonnull align 8 dereferenceable(24) %.sink200, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   br label %70
 
-70:                                               ; preds = %.sink.split, %133
+70:                                               ; preds = %.sink.split, %134
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr nonnull align 8 %17)
-          to label %135 unwind label %53
+          to label %136 unwind label %53
 
 71:                                               ; preds = %62
   invoke void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$proc_macro2..Ident$GT$5parse17hb4074eb879d2535cE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %12, ptr align 8 %1)
@@ -250,7 +250,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   %.1102 = phi i8 [ %.0101, %78 ], [ %.2103, %81 ]
   %.pn138 = phi { ptr, i32 } [ %79, %78 ], [ %.pn135.pn, %81 ]
   %77 = trunc nuw i8 %.1102 to i1
-  br i1 %77, label %134, label %56
+  br i1 %77, label %135, label %56
 
 78:                                               ; preds = %121, %96, %68
   %.0101 = phi i8 [ 0, %121 ], [ 1, %96 ], [ 1, %68 ]
@@ -427,7 +427,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   store i64 -9223372036854775808, ptr %0, align 8
   br label %128
 
-126:                                              ; preds = %.thread, %136, %.thread200, %134, %.thread180, %.thread167, %110, %81, %56, %29
+126:                                              ; preds = %.thread, %137, %.thread190, %135, %.thread180, %.thread167, %110, %81, %56, %29
   %127 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #5
@@ -448,14 +448,14 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 
 131:                                              ; preds = %96
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hd77a02f7128d44e3E"(ptr nonnull align 8 %15)
-          to label %133 unwind label %.thread189
+          to label %134 unwind label %132
 
-.thread189:                                       ; preds = %131
-  %132 = landingpad { ptr, i32 }
+132:                                              ; preds = %131
+  %133 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread200
+  br label %.thread190
 
-133:                                              ; preds = %131
+134:                                              ; preds = %131
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$17he1765364b70bc707E"(ptr nonnull align 8 %16)
           to label %70 unwind label %57
 
@@ -469,32 +469,31 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   invoke void @"_ZN4core3ptr86drop_in_place$LT$core..option..Option$LT$diesel_table_macro_syntax..PrimaryKey$GT$$GT$17h817316a4c1ff7760E"(ptr nonnull align 8 %10) #4
           to label %81 unwind label %126
 
-134:                                              ; preds = %76
+135:                                              ; preds = %76
   invoke void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17hd77a02f7128d44e3E"(ptr nonnull align 8 %15) #4
-          to label %.thread200 unwind label %126
+          to label %.thread190 unwind label %126
 
-.thread200:                                       ; preds = %134, %.thread189
-  %.pn138.pn193 = phi { ptr, i32 } [ %132, %.thread189 ], [ %.pn138, %134 ]
-  %.2106192 = phi i8 [ 1, %.thread189 ], [ %.1102, %134 ]
+.thread190:                                       ; preds = %132, %135
+  %.pn138.pn194 = phi { ptr, i32 } [ %133, %132 ], [ %.pn138, %135 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$proc_macro2..Ident$GT$$GT$17he1765364b70bc707E"(ptr nonnull align 8 %16) #4
           to label %56 unwind label %126
 
-135:                                              ; preds = %70
+136:                                              ; preds = %70
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$syn..attr..Attribute$GT$$GT$17h78578bc7b7ee0514E"(ptr nonnull align 8 %19)
           to label %41 unwind label %.loopexit.split-lp
 
-136:                                              ; preds = %51
+137:                                              ; preds = %51
   invoke void @"_ZN4core3ptr64drop_in_place$LT$alloc..vec..Vec$LT$syn..attr..Attribute$GT$$GT$17h78578bc7b7ee0514E"(ptr nonnull align 8 %19) #4
           to label %.thread unwind label %126
 
-137:                                              ; preds = %51, %.thread
+138:                                              ; preds = %51, %.thread
   %.pn146150 = phi { ptr, i32 } [ %.pn146151, %.thread ], [ %.pn142, %51 ]
   resume { ptr, i32 } %.pn146150
 
-.thread:                                          ; preds = %136, %.loopexit, %.loopexit.split-lp, %29
-  %.pn146151 = phi { ptr, i32 } [ %lpad.phi198, %29 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %.pn142, %136 ]
+.thread:                                          ; preds = %.loopexit, %.loopexit.split-lp, %137, %29
+  %.pn146151 = phi { ptr, i32 } [ %.pn142, %137 ], [ %lpad.phi199, %29 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$syn..item..ItemUse$GT$$GT$17hcc74d761130ecf7eE"(ptr nonnull align 8 %24) #4
-          to label %137 unwind label %126
+          to label %138 unwind label %126
 }
 
 ; Function Attrs: nonlazybind uwtable

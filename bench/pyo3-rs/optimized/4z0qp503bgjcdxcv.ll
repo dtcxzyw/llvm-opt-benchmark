@@ -2522,7 +2522,7 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
   %59 = invoke { ptr, ptr } @_ZN3syn8generics8Generics9lifetimes17hf564824de648d700E(ptr nonnull align 8 %58)
           to label %63 unwind label %61
 
-60:                                               ; preds = %.loopexit51
+60:                                               ; preds = %.loopexit47
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %54
@@ -2575,9 +2575,9 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
           to label %79 unwind label %61
 
 .sink.split:                                      ; preds = %187, %128, %121, %116, %104
-  %.sink65 = phi ptr [ %107, %104 ], [ %119, %116 ], [ %19, %121 ], [ %18, %128 ], [ %23, %187 ]
+  %.sink61 = phi ptr [ %107, %104 ], [ %119, %116 ], [ %19, %121 ], [ %18, %128 ], [ %23, %187 ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %.sink65, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %.sink61, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   br label %79
 
@@ -2648,7 +2648,7 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
   %110 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %111 = load i32, ptr %110, align 8
   %112 = icmp eq i32 %111, 1
-  br i1 %112, label %134, label %.loopexit55
+  br i1 %112, label %134, label %.loopexit51
 
 113:                                              ; preds = %94
   %114 = extractvalue { ptr, ptr } %96, 0
@@ -2698,11 +2698,11 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
   %137 = invoke { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h31d2120fbf7e91caE"(ptr nonnull align 8 %22)
           to label %141 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.loopexit55:                                      ; preds = %147, %109
+.loopexit51:                                      ; preds = %147, %109
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %139 = load i32, ptr %138, align 8
   %140 = icmp eq i32 %139, 1
-  br i1 %140, label %160, label %.loopexit51
+  br i1 %140, label %160, label %.loopexit47
 
 141:                                              ; preds = %134
   %142 = extractvalue { ptr, ptr } %137, 0
@@ -2718,7 +2718,7 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
 
 147:                                              ; preds = %145
   %148 = icmp eq ptr %146, null
-  br i1 %148, label %.loopexit55, label %149
+  br i1 %148, label %.loopexit51, label %149
 
 149:                                              ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 8
@@ -2742,20 +2742,20 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
           to label %158 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 158:                                              ; preds = %157, %181
-  %.sink66 = phi ptr [ %12, %181 ], [ %15, %157 ]
+  %.sink62 = phi ptr [ %12, %181 ], [ %15, %157 ]
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %.sink66, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, ptr noundef nonnull align 8 dereferenceable(24) %.sink62, i64 24, i1 false)
   store i64 -9223372036854775807, ptr %0, align 8
   invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$$GT$17h0f9c144e860dd2bbE"(ptr nonnull align 8 %22)
           to label %79 unwind label %61
 
-160:                                              ; preds = %.loopexit55
+160:                                              ; preds = %.loopexit51
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 188
   %162 = load i32, ptr %161, align 4
   %163 = invoke { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h31d2120fbf7e91caE"(ptr nonnull align 8 %22)
           to label %165 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.loopexit51:                                      ; preds = %171, %.loopexit55
+.loopexit47:                                      ; preds = %171, %.loopexit51
   %164 = getelementptr inbounds nuw i8, ptr %1, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %27, i64 72, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
@@ -2776,7 +2776,7 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
 
 171:                                              ; preds = %169
   %172 = icmp eq ptr %170, null
-  br i1 %172, label %.loopexit51, label %173
+  br i1 %172, label %.loopexit47, label %173
 
 173:                                              ; preds = %171
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 16
@@ -2809,17 +2809,17 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %145
-  %lpad.loopexit52 = landingpad { ptr, i32 }
+  %lpad.loopexit48 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %181, %178, %160, %157, %154, %134
-  %lpad.loopexit.split-lp53 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp49 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit52, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp53, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit48, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr121drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$syn..data..Field$C$pyo3_macros_backend..pyclass..FieldPyO3Options$RP$$GT$$GT$17h0f9c144e860dd2bbE"(ptr nonnull align 8 %22) #14
           to label %.thread unwind label %183
 
@@ -2837,12 +2837,12 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
   invoke void @_ZN3syn5error5Error3new17h0915185c7da90245E(ptr nonnull sret([24 x i8]) align 8 %23, i32 %186, ptr nonnull align 1 @anon.16a1457f15a8bdd65dd860daa07f2c8d.30, i64 122)
           to label %.sink.split unwind label %61
 
-.invoke:                                          ; preds = %79, %.loopexit51
+.invoke:                                          ; preds = %79, %.loopexit47
   invoke void @"_ZN4core3ptr52drop_in_place$LT$pyo3_macros_backend..utils..Ctx$GT$17hccc8b41e50c8ff50E"(ptr nonnull align 8 %28)
           to label %182 unwind label %41
 
 .thread:                                          ; preds = %.loopexit.split-lp, %68, %61
-  %.pn41 = phi { ptr, i32 } [ %69, %68 ], [ %62, %61 ], [ %lpad.phi, %.loopexit.split-lp ]
+  %.pn41 = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %69, %68 ], [ %62, %61 ]
   invoke void @"_ZN4core3ptr58drop_in_place$LT$pyo3_macros_backend..utils..PythonDoc$GT$17h7e63866d37bbf73dE"(ptr nonnull align 8 %27) #14
           to label %54 unwind label %183
 
@@ -6599,12 +6599,11 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
   br i1 %718, label %720, label %719
 
 719:                                              ; preds = %720, %717
-  %.sroa.041.23.i.i = phi i8 [ %.sroa.041.14.i.i, %720 ], [ %.sroa.041.22.i.i, %717 ]
+  %.sroa.041.23.i.i = phi i8 [ 1, %720 ], [ %.sroa.041.22.i.i, %717 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$syn..item..ImplItemFn$GT$17ha2b11de006741d53E"(ptr nonnull align 8 %80)
           to label %725 unwind label %368, !noalias !33
 
 720:                                              ; preds = %717, %605
-  %.sroa.041.14.i.i = phi i8 [ %.sroa.041.22.i.i, %717 ], [ 1, %605 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..pymethod..MethodAndSlotDef$GT$17ha60d4368f5a57fd3E"(ptr nonnull align 8 %79)
           to label %719 unwind label %723, !noalias !33
 
@@ -6613,8 +6612,8 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
           to label %714 unwind label %708, !noalias !33
 
 722:                                              ; preds = %.body117.thread.i.i, %723, %.body117.i.i
-  %.sroa.039.4.i.i = phi i8 [ %.sroa.039.3171.i.i, %.body117.thread.i.i ], [ %.sroa.039.3.i.i, %.body117.i.i ], [ %.sroa.041.14.i.i, %723 ]
-  %.sroa.041.12.i.i = phi i8 [ %.sroa.041.11172.i.i, %.body117.thread.i.i ], [ %.sroa.041.11.i.i, %.body117.i.i ], [ %.sroa.041.14.i.i, %723 ]
+  %.sroa.039.4.i.i = phi i8 [ 1, %.body117.thread.i.i ], [ %.sroa.039.3.i.i, %.body117.i.i ], [ 1, %723 ]
+  %.sroa.041.12.i.i = phi i8 [ %.sroa.041.11172.i.i, %.body117.thread.i.i ], [ %.sroa.041.11.i.i, %.body117.i.i ], [ 1, %723 ]
   %.pn91.pn.i.i = phi { ptr, i32 } [ %.pn91173.i.i, %.body117.thread.i.i ], [ %.pn91.i.i, %.body117.i.i ], [ %724, %723 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$syn..item..ImplItemFn$GT$17ha2b11de006741d53E"(ptr nonnull align 8 %80) #14
           to label %366 unwind label %708, !noalias !33
@@ -6637,7 +6636,7 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
           to label %727 unwind label %730, !noalias !33
 
 729:                                              ; preds = %.thread129.i.i, %730, %366
-  %.sroa.041.9.i.i = phi i8 [ %.sroa.041.8133.i.i, %.thread129.i.i ], [ %.sroa.041.8.i.i, %366 ], [ %.sroa.041.23.i.i, %730 ]
+  %.sroa.041.9.i.i = phi i8 [ %.sroa.041.8133.i.i, %.thread129.i.i ], [ %.sroa.041.8.i.i, %366 ], [ 1, %730 ]
   %.pn94.pn.i.i = phi { ptr, i32 } [ %.pn94134.i.i, %.thread129.i.i ], [ %.pn94.i.i, %366 ], [ %731, %730 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$syn..item..ImplItemFn$GT$17ha2b11de006741d53E"(ptr nonnull align 8 %96) #14
           to label %299 unwind label %708, !noalias !33
@@ -6655,7 +6654,6 @@ _ZN19pyo3_macros_backend7pyclass19PyClassImplsBuilder3doc17h25ee8c37c895cbd4E.ex
 .body117.thread.i.i:                              ; preds = %.body117.i.i, %433
   %.pn91173.i.i = phi { ptr, i32 } [ %.pn91.i.i, %.body117.i.i ], [ %.pn38.i.i.i, %433 ]
   %.sroa.041.11172.i.i = phi i8 [ %.sroa.041.11.i.i, %.body117.i.i ], [ 1, %433 ]
-  %.sroa.039.3171.i.i = phi i8 [ %.sroa.039.3.i.i, %.body117.i.i ], [ 1, %433 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$pyo3_macros_backend..pymethod..MethodAndSlotDef$GT$17ha60d4368f5a57fd3E"(ptr nonnull align 8 %79) #14
           to label %722 unwind label %708, !noalias !33
 
@@ -12812,7 +12810,7 @@ _ZN19pyo3_macros_backend7pyclass36impl_complex_enum_struct_variant_cls17h006e09e
           to label %492 unwind label %612, !noalias !72
 
 .body.i:                                          ; preds = %959, %937, %624, %619
-  %.sroa.020.0.i = phi i8 [ %.sroa.020.4.i, %959 ], [ %.sroa.020.4.i, %937 ], [ 1, %619 ], [ 1, %624 ]
+  %.sroa.020.0.i = phi i8 [ 1, %959 ], [ %.sroa.020.4.i, %937 ], [ 1, %619 ], [ 1, %624 ]
   %.pn65.pn.i = phi { ptr, i32 } [ %.pn65.i, %959 ], [ %.pn65.i, %937 ], [ %.pn46.pn.pn.pn.i.i, %619 ], [ %625, %624 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$alloc..vec..Vec$LT$syn..ty..Type$GT$$GT$17h27e10c2f9cf3a112E"(ptr nonnull align 8 %107) #14
           to label %942 unwind label %950, !noalias !69

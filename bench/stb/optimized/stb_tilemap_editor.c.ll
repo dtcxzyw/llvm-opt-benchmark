@@ -11017,8 +11017,8 @@ for.body149:                                      ; preds = %for.cond144.prehead
 if.end157:                                        ; preds = %for.body149, %if.end14, %for.cond144.preheader, %if.end115
   %cmp159282 = icmp slt i32 %spec.store.select1, %j1.0
   %cmp162280 = icmp slt i32 %spec.store.select, %spec.select
-  %or.cond323 = select i1 %cmp159282, i1 %cmp162280, i1 false
-  br i1 %or.cond323, label %for.cond161.preheader.us, label %for.end181
+  %or.cond326 = select i1 %cmp159282, i1 %cmp162280, i1 false
+  br i1 %or.cond326, label %for.cond161.preheader.us, label %for.end181
 
 for.cond161.preheader.us:                         ; preds = %if.end157, %for.cond161.for.inc179_crit_edge.us
   %j.3283.us = phi i32 [ %inc180.us, %for.cond161.for.inc179_crit_edge.us ], [ %spec.store.select1, %if.end157 ]
@@ -11288,7 +11288,7 @@ for.body293:                                      ; preds = %for.body293.prehead
 
 if.then314:                                       ; preds = %for.body293
   %trunc = trunc nuw i32 %j.4285 to i1
-  br i1 %trunc, label %sw.bb319, label %sw.bb315
+  br i1 %trunc, label %for.inc323.thread, label %sw.bb315
 
 sw.bb315:                                         ; preds = %if.then314
   %cmp316 = icmp slt i32 %call312, 1
@@ -11296,16 +11296,16 @@ sw.bb315:                                         ; preds = %if.then314
   store i32 %cond317, ptr %side318, align 8
   br label %for.inc323
 
-sw.bb319:                                         ; preds = %if.then314
+for.inc323.thread:                                ; preds = %if.then314
   %161 = load i32, ptr %delta_height, align 4
   %add320 = add nsw i32 %161, %call312
   store i32 %add320, ptr %delta_height, align 4
-  br label %for.inc323
+  br label %for.inc326
 
-for.inc323:                                       ; preds = %for.body293, %sw.bb319, %sw.bb315
+for.inc323:                                       ; preds = %for.body293, %sw.bb315
   br i1 %cmp292, label %for.body293, label %for.inc326, !llvm.loop !71
 
-for.inc326:                                       ; preds = %for.inc323, %sw.epilog
+for.inc326:                                       ; preds = %for.inc323, %for.inc323.thread, %sw.epilog
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond300.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond300.not, label %for.end328, label %for.body214, !llvm.loop !72

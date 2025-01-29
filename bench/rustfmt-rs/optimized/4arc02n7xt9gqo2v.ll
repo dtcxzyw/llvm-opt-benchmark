@@ -47505,42 +47505,45 @@ define hidden void @"_ZN15rustfmt_nightly7visitor10FmtVisitor10visit_stmt28_$u7b
   br i1 %17, label %18, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i
 
 18:                                               ; preds = %15
-  %19 = load i64, ptr %.pre5.i, align 8, !range !1215, !noalias !8622, !noundef !10
+  %19 = load i64, ptr %.pre5.i, align 8, !range !1215, !noalias !8608, !noundef !10
   %20 = icmp eq i64 %19, 2
-  br i1 %20, label %21, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i
+  br i1 %20, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.thread, label %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit"
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %.pre5.i, i64 8
-  %23 = load ptr, ptr %22, align 8, !noalias !8622, !nonnull !10, !align !11, !noundef !10
-  %24 = load i8, ptr %23, align 8, !range !8623, !noalias !8622, !noundef !10
-  %25 = add nsw i8 %24, -32
-  %switch.i.i = icmp ult i8 %25, -3
-  br label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i
+_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.thread: ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %.pre5.i, i64 8
+  %22 = load ptr, ptr %21, align 8, !noalias !8622, !nonnull !10, !align !11, !noundef !10
+  %23 = load i8, ptr %22, align 8, !range !8623, !noalias !8622, !noundef !10
+  %24 = add nsw i8 %23, -32
+  %switch.i.i = icmp ult i8 %24, -3
+  br label %29
 
-_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i: ; preds = %21, %18, %15, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i
-  %26 = phi i8 [ %.pre6.i, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i ], [ %16, %15 ], [ %16, %21 ], [ %16, %18 ]
-  %27 = phi ptr [ %.pre.i, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i ], [ %.pre5.i, %15 ], [ %.pre5.i, %21 ], [ %.pre5.i, %18 ]
-  %.0.i = phi i1 [ false, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i ], [ false, %15 ], [ %switch.i.i, %21 ], [ false, %18 ]
+_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i: ; preds = %15, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i
+  %25 = phi i8 [ %.pre6.i, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i ], [ %16, %15 ]
+  %26 = phi ptr [ %.pre.i, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i ], [ %.pre5.i, %15 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8624)
-  %28 = trunc nuw i8 %26 to i1
+  %27 = trunc nuw i8 %25 to i1
+  br i1 %27, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i, label %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit"
+
+_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i: ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i
+  %.pr.pre = load i64, ptr %26, align 8, !noalias !8625
+  %28 = icmp eq i64 %.pr.pre, 2
   br i1 %28, label %29, label %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit"
 
-29:                                               ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i
-  %30 = load i64, ptr %27, align 8, !range !1215, !noalias !8625, !noundef !10
-  %31 = icmp eq i64 %30, 2
-  br i1 %31, label %32, label %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit"
-
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %34 = load ptr, ptr %33, align 8, !noalias !8625, !nonnull !10, !align !11, !noundef !10
-  %35 = load i8, ptr %34, align 8, !range !8623, !noalias !8625, !noundef !10
-  %36 = add nsw i8 %35, -32
-  %switch.i3.i = icmp ult i8 %36, -3
+29:                                               ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.thread, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i
+  %30 = phi ptr [ %.pre5.i, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.thread ], [ %26, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i ]
+  %.09.i3 = phi i1 [ %switch.i.i, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.thread ], [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8, !noalias !8625, !nonnull !10, !align !11, !noundef !10
+  %33 = load i8, ptr %32, align 8, !range !8623, !noalias !8625, !noundef !10
+  %34 = add nsw i8 %33, -32
+  %switch.i3.i = icmp ult i8 %34, -3
   br label %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit"
 
-"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit": ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i, %29, %32
-  %.0.i2.i = phi i1 [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i ], [ %switch.i3.i, %32 ], [ false, %29 ]
-  call void @_ZN15rustfmt_nightly4stmt11format_stmt17hc1e4420385e2f2e2E.llvm.9097680112167513710(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %27, i1 noundef zeroext %.0.i, i1 noundef zeroext %.0.i2.i), !noalias !8605
+"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit": ; preds = %18, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i, %29
+  %.08.i = phi i1 [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i ], [ %.09.i3, %29 ], [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i ], [ false, %18 ]
+  %35 = phi ptr [ %26, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i ], [ %30, %29 ], [ %26, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i ], [ %.pre5.i, %18 ]
+  %.0.i2.i = phi i1 [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i ], [ %switch.i3.i, %29 ], [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i ], [ false, %18 ]
+  call void @_ZN15rustfmt_nightly4stmt11format_stmt17hc1e4420385e2f2e2E.llvm.9097680112167513710(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %35, i1 noundef zeroext %.08.i, i1 noundef zeroext %.0.i2.i), !noalias !8605
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   ret void
 }
@@ -47885,67 +47888,74 @@ define hidden void @_ZN15rustfmt_nightly7visitor10FmtVisitor12with_context17hfee
   br i1 %16, label %17, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i
 
 17:                                               ; preds = %14
-  %18 = load i64, ptr %.pre5.i.i, align 8, !range !1215, !noalias !8686, !noundef !10
+  %18 = load i64, ptr %.pre5.i.i, align 8, !range !1215, !noalias !8672, !noundef !10
   %19 = icmp eq i64 %18, 2
-  br i1 %19, label %20, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i
+  br i1 %19, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.thread.i, label %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i"
 
-20:                                               ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %.pre5.i.i, i64 8
-  %22 = load ptr, ptr %21, align 8, !noalias !8686, !nonnull !10, !align !11, !noundef !10
-  %23 = load i8, ptr %22, align 8, !range !8623, !noalias !8686, !noundef !10
-  %24 = add nsw i8 %23, -32
-  %switch.i.i.i = icmp ult i8 %24, -3
-  br label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i
+_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.thread.i: ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %.pre5.i.i, i64 8
+  %21 = load ptr, ptr %20, align 8, !noalias !8686, !nonnull !10, !align !11, !noundef !10
+  %22 = load i8, ptr %21, align 8, !range !8623, !noalias !8686, !noundef !10
+  %23 = add nsw i8 %22, -32
+  %switch.i.i.i = icmp ult i8 %23, -3
+  br label %28
 
-_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i: ; preds = %20, %17, %14, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i.i
-  %25 = phi i8 [ %.pre6.i.i, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i.i ], [ %15, %14 ], [ %15, %20 ], [ %15, %17 ]
-  %26 = phi ptr [ %.pre.i.i, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i.i ], [ %.pre5.i.i, %14 ], [ %.pre5.i.i, %20 ], [ %.pre5.i.i, %17 ]
-  %.0.i.i = phi i1 [ false, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i.i ], [ false, %14 ], [ %switch.i.i.i, %20 ], [ false, %17 ]
+_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i: ; preds = %14, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i.i
+  %24 = phi i8 [ %.pre6.i.i, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i.i ], [ %15, %14 ]
+  %25 = phi ptr [ %.pre.i.i, %._ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit_crit_edge.i.i ], [ %.pre5.i.i, %14 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8687)
-  %27 = trunc nuw i8 %25 to i1
-  br i1 %27, label %28, label %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i"
+  %26 = trunc nuw i8 %24 to i1
+  br i1 %26, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i, label %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i"
 
-28:                                               ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i
-  %29 = load i64, ptr %26, align 8, !range !1215, !noalias !8688, !noundef !10
-  %30 = icmp eq i64 %29, 2
-  br i1 %30, label %31, label %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i"
+_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i: ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i
+  %.pr.pre.i = load i64, ptr %25, align 8, !noalias !8688
+  %27 = icmp eq i64 %.pr.pre.i, 2
+  br i1 %27, label %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i._crit_edge, label %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i"
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %33 = load ptr, ptr %32, align 8, !noalias !8688, !nonnull !10, !align !11, !noundef !10
-  %34 = load i8, ptr %33, align 8, !range !8623, !noalias !8688, !noundef !10
-  %35 = add nsw i8 %34, -32
-  %switch.i3.i.i = icmp ult i8 %35, -3
+_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i._crit_edge: ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !noalias !8688
+  %.pre2 = load i8, ptr %.pre, align 8, !range !8623, !noalias !8688
+  %.pre3 = add nsw i8 %.pre2, -32
+  br label %28
+
+28:                                               ; preds = %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i._crit_edge, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.thread.i
+  %.pre-phi = phi i8 [ %.pre3, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i._crit_edge ], [ %23, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.thread.i ]
+  %29 = phi ptr [ %25, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i._crit_edge ], [ %.pre5.i.i, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.thread.i ]
+  %.09.i3.i = phi i1 [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i._crit_edge ], [ %switch.i.i.i, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.thread.i ]
+  %switch.i3.i.i = icmp ult i8 %.pre-phi, -3
   br label %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i"
 
-"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i": ; preds = %31, %28, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i
-  %.0.i2.i.i = phi i1 [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i ], [ %switch.i3.i.i, %31 ], [ false, %28 ]
-  invoke void @_ZN15rustfmt_nightly4stmt11format_stmt17hc1e4420385e2f2e2E.llvm.9097680112167513710(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %26, i1 noundef zeroext %.0.i.i, i1 noundef zeroext %.0.i2.i.i)
-          to label %39 unwind label %37
+"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i": ; preds = %28, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i, %17
+  %.08.i.i = phi i1 [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i ], [ %.09.i3.i, %28 ], [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i ], [ false, %17 ]
+  %30 = phi ptr [ %25, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i ], [ %29, %28 ], [ %25, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i ], [ %.pre5.i.i, %17 ]
+  %.0.i2.i.i = phi i1 [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.i.i ], [ %switch.i3.i.i, %28 ], [ false, %_ZN15rustfmt_nightly4stmt4Stmt12is_last_expr17hd216f52d6ab5a39cE.llvm.9097680112167513710.exit.thread.i.i ], [ false, %17 ]
+  invoke void @_ZN15rustfmt_nightly4stmt11format_stmt17hc1e4420385e2f2e2E.llvm.9097680112167513710(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %30, i1 noundef zeroext %.08.i.i, i1 noundef zeroext %.0.i2.i.i)
+          to label %34 unwind label %32
 
-36:                                               ; preds = %37
-  resume { ptr, i32 } %38
+31:                                               ; preds = %32
+  resume { ptr, i32 } %33
 
-37:                                               ; preds = %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i"
-  %38 = landingpad { ptr, i32 }
+32:                                               ; preds = %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i"
+  %33 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$rustfmt_nightly..rewrite..RewriteContext$GT$17h033ebb771f32e928E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6) #45
-          to label %36 unwind label %45
+          to label %31 unwind label %40
 
-39:                                               ; preds = %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i"
+34:                                               ; preds = %"_ZN81_$LT$rustfmt_nightly..stmt..Stmt$u20$as$u20$rustfmt_nightly..rewrite..Rewrite$GT$7rewrite17hcc2beb9823139d46E.exit.i"
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !8665
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 172
-  %41 = load i8, ptr %40, align 4, !range !80, !noundef !10
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 221
-  %43 = load i8, ptr %42, align 1, !range !80, !noundef !10
-  %44 = or i8 %43, %41
-  store i8 %44, ptr %42, align 1
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 172
+  %36 = load i8, ptr %35, align 4, !range !80, !noundef !10
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 221
+  %38 = load i8, ptr %37, align 1, !range !80, !noundef !10
+  %39 = or i8 %38, %36
+  store i8 %39, ptr %37, align 1
   call void @"_ZN4core3ptr61drop_in_place$LT$rustfmt_nightly..rewrite..RewriteContext$GT$17h033ebb771f32e928E"(ptr noalias noundef nonnull align 8 dereferenceable(176) %6)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %6)
   ret void
 
-45:                                               ; preds = %37
-  %46 = landingpad { ptr, i32 }
+40:                                               ; preds = %32
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7bbd4fcd6f160435E() #46
   unreachable

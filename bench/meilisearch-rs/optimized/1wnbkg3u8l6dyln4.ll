@@ -50024,154 +50024,160 @@ define hidden void @"_ZN11meilisearch12search_queue11SearchQueue3run28_$u7b$$u7b
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %11
 
-10:                                               ; preds = %36
-  br i1 %.sroa.013.1, label %18, label %17
+10:                                               ; preds = %35
+  br i1 %.sroa.013.1, label %.thread.thread, label %17
 
-11:                                               ; preds = %3, %36
-  %12 = phi i1 [ true, %3 ], [ false, %36 ]
-  %.sroa.018.071 = phi i32 [ 0, %3 ], [ 1, %36 ]
-  %.sroa.013.070 = phi i1 [ false, %3 ], [ %.sroa.013.1, %36 ]
+11:                                               ; preds = %3, %35
+  %12 = phi i1 [ true, %3 ], [ false, %35 ]
+  %.sroa.018.071 = phi i32 [ 0, %3 ], [ 1, %35 ]
+  %.sroa.013.070 = phi i1 [ false, %3 ], [ %.sroa.013.1, %35 ]
   %trunc = trunc nuw i32 %.sroa.018.071 to i1
   %13 = trunc nuw nsw i32 %.sroa.018.071 to i8
   %14 = shl nuw nsw i8 1, %13
   %15 = load i8, ptr %4, align 1, !noundef !7
   %16 = and i8 %15, %14
   %.not = icmp eq i8 %16, 0
-  br i1 %trunc, label %21, label %20
+  br i1 %trunc, label %20, label %19
 
-17:                                               ; preds = %10
+17:                                               ; preds = %.thread, %10
   store i64 4, ptr %0, align 8
-  br label %19
+  br label %18
 
-18:                                               ; preds = %10
+.thread.thread:                                   ; preds = %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit", %.thread, %10
   store i64 5, ptr %0, align 8
-  br label %19
+  br label %18
 
-19:                                               ; preds = %33, %49, %18, %17
+18:                                               ; preds = %32, %48, %.thread.thread, %17
   ret void
 
+19:                                               ; preds = %11
+  br i1 %.not, label %21, label %35
+
 20:                                               ; preds = %11
-  br i1 %.not, label %22, label %36
+  br i1 %.not, label %36, label %.thread
 
-21:                                               ; preds = %11
-  br i1 %.not, label %37, label %36
-
-22:                                               ; preds = %20
-  %23 = load i8, ptr %7, align 8, !range !1190, !noalias !8139, !noundef !7
-  switch i8 %23, label %default.unreachable [
-    i8 0, label %24
-    i8 1, label %26
-    i8 2, label %27
+21:                                               ; preds = %19
+  %22 = load i8, ptr %7, align 8, !range !1190, !noalias !8139, !noundef !7
+  switch i8 %22, label %.unreachabledefault [
+    i8 0, label %23
+    i8 1, label %25
+    i8 2, label %26
     i8 3, label %._crit_edge.i
   ]
 
-._crit_edge.i:                                    ; preds = %22
+._crit_edge.i:                                    ; preds = %21
   %.val.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !noalias !8139
-  br label %28
+  br label %27
 
-default.unreachable:                              ; preds = %37, %22
+.unreachabledefault:                              ; preds = %21
   unreachable
 
-24:                                               ; preds = %22
-  %25 = load ptr, ptr %6, align 8, !noalias !8139, !nonnull !7, !align !1202, !noundef !7
-  store ptr %25, ptr %.phi.trans.insert.i, align 8, !noalias !8139
-  br label %28
+default.unreachable:                              ; preds = %36
+  unreachable
 
-26:                                               ; preds = %22
+23:                                               ; preds = %21
+  %24 = load ptr, ptr %6, align 8, !noalias !8139, !nonnull !7, !align !1202, !noundef !7
+  store ptr %24, ptr %.phi.trans.insert.i, align 8, !noalias !8139
+  br label %27
+
+25:                                               ; preds = %21
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17hc58cbb670ca18f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.22b8788852e0b7971c9c7c884072fc21.381) #54, !noalias !8139
   unreachable
 
-27:                                               ; preds = %22
+26:                                               ; preds = %21
   tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17hed37460786e569beE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.22b8788852e0b7971c9c7c884072fc21.381) #54, !noalias !8139
   unreachable
 
-28:                                               ; preds = %24, %._crit_edge.i
-  %.val.i = phi ptr [ %.val.pre.i, %._crit_edge.i ], [ %25, %24 ]
-  %29 = invoke noundef range(i8 0, 3) i8 @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h1da8f7cb018569c4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-          to label %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h7828f84a7efc92ceE.exit" unwind label %30
+27:                                               ; preds = %23, %._crit_edge.i
+  %.val.i = phi ptr [ %.val.pre.i, %._crit_edge.i ], [ %24, %23 ]
+  %28 = invoke noundef range(i8 0, 3) i8 @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h1da8f7cb018569c4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
+          to label %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h7828f84a7efc92ceE.exit" unwind label %29
 
-common.resume:                                    ; preds = %45, %30
-  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %46, %45 ]
+common.resume:                                    ; preds = %44, %29
+  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %45, %44 ]
   resume { ptr, i32 } %common.resume.op
 
-30:                                               ; preds = %28
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %27
+  %30 = landingpad { ptr, i32 }
           cleanup
   store i8 2, ptr %7, align 8, !noalias !8139
   br label %common.resume
 
-"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h7828f84a7efc92ceE.exit": ; preds = %28
-  %32 = icmp eq i8 %29, 2
-  %storemerge.i = select i1 %32, i8 3, i8 1
+"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h7828f84a7efc92ceE.exit": ; preds = %27
+  %31 = icmp eq i8 %28, 2
+  %storemerge.i = select i1 %31, i8 3, i8 1
   store i8 %storemerge.i, ptr %7, align 8, !noalias !8139
-  br i1 %32, label %36, label %33
+  br i1 %31, label %35, label %32
 
-33:                                               ; preds = %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h7828f84a7efc92ceE.exit"
-  %34 = load i8, ptr %4, align 1, !noundef !7
-  %35 = or i8 %34, %14
-  store i8 %35, ptr %4, align 1
+32:                                               ; preds = %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h7828f84a7efc92ceE.exit"
+  %33 = load i8, ptr %4, align 1, !noundef !7
+  %34 = or i8 %33, %14
+  store i8 %34, ptr %4, align 1
   store i64 2, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %29, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %19
+  store i8 %28, ptr %.sroa.4.0..sroa_idx, align 8
+  br label %18
 
-36:                                               ; preds = %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit", %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h7828f84a7efc92ceE.exit", %21, %20
-  %.sroa.013.1 = phi i1 [ %.sroa.013.070, %21 ], [ %.sroa.013.070, %20 ], [ true, %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h7828f84a7efc92ceE.exit" ], [ true, %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit" ]
+.thread:                                          ; preds = %20
+  br i1 %.sroa.013.070, label %.thread.thread, label %17
+
+35:                                               ; preds = %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h7828f84a7efc92ceE.exit", %19
+  %.sroa.013.1 = phi i1 [ %.sroa.013.070, %19 ], [ true, %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h7828f84a7efc92ceE.exit" ]
   br i1 %12, label %11, label %10
 
-37:                                               ; preds = %21
-  %38 = load i8, ptr %8, align 8, !range !1190, !noalias !8142, !noundef !7
-  switch i8 %38, label %default.unreachable [
-    i8 0, label %39
-    i8 1, label %41
-    i8 2, label %42
+36:                                               ; preds = %20
+  %37 = load i8, ptr %8, align 8, !range !1190, !noalias !8142, !noundef !7
+  switch i8 %37, label %default.unreachable [
+    i8 0, label %38
+    i8 1, label %40
+    i8 2, label %41
     i8 3, label %._crit_edge.i24
   ]
 
-._crit_edge.i24:                                  ; preds = %37
+._crit_edge.i24:                                  ; preds = %36
   %.val.pre.i26 = load ptr, ptr %.phi.trans.insert.i25, align 8, !noalias !8142
-  br label %43
+  br label %42
 
-39:                                               ; preds = %37
-  %40 = load ptr, ptr %9, align 8, !noalias !8142, !nonnull !7, !align !1202, !noundef !7
-  store ptr %40, ptr %.phi.trans.insert.i25, align 8, !noalias !8142
-  br label %43
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %9, align 8, !noalias !8142, !nonnull !7, !align !1202, !noundef !7
+  store ptr %39, ptr %.phi.trans.insert.i25, align 8, !noalias !8142
+  br label %42
 
-41:                                               ; preds = %37
+40:                                               ; preds = %36
   tail call void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17hc58cbb670ca18f94E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.22b8788852e0b7971c9c7c884072fc21.381) #54, !noalias !8142
   unreachable
 
-42:                                               ; preds = %37
+41:                                               ; preds = %36
   tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17hed37460786e569beE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.22b8788852e0b7971c9c7c884072fc21.381) #54, !noalias !8142
   unreachable
 
-43:                                               ; preds = %39, %._crit_edge.i24
-  %.val.i27 = phi ptr [ %.val.pre.i26, %._crit_edge.i24 ], [ %40, %39 ]
-  %44 = invoke { i64, ptr } @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17hb11ed6ff2a090116E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val.i27, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
-          to label %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit" unwind label %45
+42:                                               ; preds = %38, %._crit_edge.i24
+  %.val.i27 = phi ptr [ %.val.pre.i26, %._crit_edge.i24 ], [ %39, %38 ]
+  %43 = invoke { i64, ptr } @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17hb11ed6ff2a090116E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val.i27, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
+          to label %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit" unwind label %44
 
-45:                                               ; preds = %43
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %42
+  %45 = landingpad { ptr, i32 }
           cleanup
   store i8 2, ptr %8, align 8, !noalias !8142
   br label %common.resume
 
-"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit": ; preds = %43
-  %47 = extractvalue { i64, ptr } %44, 0
-  %48 = icmp eq i64 %47, 2
-  %..i = select i1 %48, i8 3, i8 1
+"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit": ; preds = %42
+  %46 = extractvalue { i64, ptr } %43, 0
+  %47 = icmp eq i64 %46, 2
+  %..i = select i1 %47, i8 3, i8 1
   store i8 %..i, ptr %8, align 8, !noalias !8142
-  br i1 %48, label %36, label %49
+  br i1 %47, label %.thread.thread, label %48
 
-49:                                               ; preds = %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit"
-  %50 = extractvalue { i64, ptr } %44, 1
-  %51 = load i8, ptr %4, align 1, !noundef !7
-  %52 = or i8 %51, %14
-  store i8 %52, ptr %4, align 1
-  store i64 %47, ptr %0, align 8
+48:                                               ; preds = %"_ZN5tokio4sync4mpsc7bounded17Receiver$LT$T$GT$4recv28_$u7b$$u7b$closure$u7d$$u7d$17h24bbd9f90c59d547E.exit"
+  %49 = extractvalue { i64, ptr } %43, 1
+  %50 = load i8, ptr %4, align 1, !noundef !7
+  %51 = or i8 %50, %14
+  store i8 %51, ptr %4, align 1
+  store i64 %46, ptr %0, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %50, ptr %.sroa.412.0..sroa_idx, align 8
-  br label %19
+  store ptr %49, ptr %.sroa.412.0..sroa_idx, align 8
+  br label %18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

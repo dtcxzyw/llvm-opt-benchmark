@@ -194,8 +194,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit: ; preds = %2, %18
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %27 = load double, ptr %26, align 8
   %28 = fcmp oeq double %27, 1.000000e+00
-  %or.cond33 = select i1 %25, i1 %28, i1 false
-  br i1 %or.cond33, label %29, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit15
+  %or.cond36 = select i1 %25, i1 %28, i1 false
+  br i1 %or.cond36, label %29, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit15
 
 29:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -218,8 +218,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit15: ; preds = %_ZNK32
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load double, ptr %44, align 8
   %46 = fcmp oeq double %45, 0.000000e+00
-  %or.cond36 = select i1 %43, i1 %46, i1 false
-  br i1 %or.cond36, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit16
+  %or.cond39 = select i1 %43, i1 %46, i1 false
+  br i1 %or.cond39, label %47, label %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit16
 
 47:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit15
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -248,7 +248,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit16: ; preds = %_ZNK32
 
 61:                                               ; preds = %52, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit16
   %.0 = phi i8 [ 1, %52 ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit16 ]
-  br i1 %33, label %62, label %124
+  br i1 %33, label %62, label %119
 
 62:                                               ; preds = %61
   %63 = trunc nuw i8 %.0 to i1
@@ -275,7 +275,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit16: ; preds = %_ZNK32
   %77 = fadd double %76, -1.000000e+00
   %78 = call double @llvm.fabs.f64(double %77)
   %79 = fcmp olt double %78, 1.000000e-10
-  br i1 %79, label %.thread40, label %80
+  br i1 %79, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit, label %80
 
 80:                                               ; preds = %65
   %sqrt.i.i.i.i.i = call noundef double @llvm.sqrt.f64(double %76)
@@ -288,12 +288,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit16: ; preds = %_ZNK32
   store double %85, ptr %70, align 8, !alias.scope !10
   %86 = fmul double %75, %83
   store double %86, ptr %74, align 8, !alias.scope !10
-  br label %.thread40
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit
 
-.thread40:                                        ; preds = %80, %65
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit: ; preds = %65, %80
   %87 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
   %88 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %4)
-  br label %114
+  br label %.thread
 
 89:                                               ; preds = %64
   call void @llvm.experimental.noalias.scope.decl(metadata !13)
@@ -313,7 +313,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit16: ; preds = %_ZNK32
   %101 = fadd double %100, -1.000000e+00
   %102 = call double @llvm.fabs.f64(double %101)
   %103 = fcmp olt double %102, 1.000000e-10
-  br i1 %103, label %.thread, label %104
+  br i1 %103, label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit18, label %104
 
 104:                                              ; preds = %89
   %sqrt.i.i.i.i.i17 = call noundef double @llvm.sqrt.f64(double %100)
@@ -326,97 +326,88 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7GfVec3dneERKS0_.exit16: ; preds = %_ZNK32
   store double %109, ptr %94, align 8, !alias.scope !13
   %110 = fmul double %99, %107
   store double %110, ptr %98, align 8, !alias.scope !13
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit18
+
+_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit18: ; preds = %89, %104
+  %111 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
   br label %.thread
 
-.thread:                                          ; preds = %104, %89
-  %111 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  br label %114
-
 112:                                              ; preds = %62
-  br i1 %63, label %114, label %.thread42
+  br i1 %63, label %.thread, label %.thread27
 
-.thread42:                                        ; preds = %112
+.thread27:                                        ; preds = %112
   %113 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8SetScaleERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(24) %23)
-  br label %124
+  br label %119
 
-114:                                              ; preds = %112, %.thread, %.thread40
-  %.226 = phi i8 [ 1, %.thread ], [ %.0, %112 ], [ %.0, %.thread40 ]
-  %115 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8SetScaleERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(24) %23)
-  %116 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %7)
-  br i1 %37, label %117, label %124
+.thread:                                          ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit18, %_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit, %112
+  %114 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8SetScaleERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %7, ptr noundef nonnull align 8 dereferenceable(24) %23)
+  %115 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %7)
+  br i1 %37, label %116, label %119
 
-117:                                              ; preds = %114
-  %118 = trunc nuw i8 %.226 to i1
-  br i1 %118, label %119, label %122
+116:                                              ; preds = %.thread
+  %117 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(32) %34)
+  %118 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %8)
+  br label %119
 
-119:                                              ; preds = %117
-  %120 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(32) %34)
-  %121 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %8)
-  br label %124
+119:                                              ; preds = %.thread27, %.thread, %116, %61
+  %.1 = phi i8 [ 1, %116 ], [ 1, %.thread ], [ %.0, %61 ], [ 1, %.thread27 ]
+  br i1 %41, label %120, label %127
 
-122:                                              ; preds = %117
-  %123 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %34)
-  br label %124
+120:                                              ; preds = %119
+  %121 = trunc nuw i8 %.1 to i1
+  br i1 %121, label %122, label %125
 
-124:                                              ; preds = %.thread42, %114, %122, %119, %61
-  %.1 = phi i8 [ %.226, %119 ], [ 1, %122 ], [ %.226, %114 ], [ %.0, %61 ], [ 1, %.thread42 ]
-  br i1 %41, label %125, label %132
+122:                                              ; preds = %120
+  %123 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  %124 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %9)
+  br label %127
 
-125:                                              ; preds = %124
-  %126 = trunc nuw i8 %.1 to i1
-  br i1 %126, label %127, label %130
+125:                                              ; preds = %120
+  %126 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  br label %127
 
-127:                                              ; preds = %125
-  %128 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr noundef nonnull align 8 dereferenceable(32) %38)
-  %129 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %9)
-  br label %132
+127:                                              ; preds = %122, %125, %119
+  %.4 = phi i8 [ 1, %122 ], [ 1, %125 ], [ %.1, %119 ]
+  br i1 %22, label %128, label %135
 
-130:                                              ; preds = %125
-  %131 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %38)
-  br label %132
+128:                                              ; preds = %127
+  %129 = trunc nuw i8 %.4 to i1
+  br i1 %129, label %130, label %133
 
-132:                                              ; preds = %127, %130, %124
-  %.4 = phi i8 [ %.1, %127 ], [ 1, %130 ], [ %.1, %124 ]
-  br i1 %22, label %133, label %140
+130:                                              ; preds = %128
+  %131 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
+  %132 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %10)
+  br label %135
 
-133:                                              ; preds = %132
-  %134 = trunc nuw i8 %.4 to i1
-  br i1 %134, label %135, label %138
+133:                                              ; preds = %128
+  %134 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(24) %12)
+  br label %135
 
-135:                                              ; preds = %133
-  %136 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
-  %137 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %10)
-  br label %140
+135:                                              ; preds = %130, %133, %127
+  %.5 = phi i8 [ 1, %130 ], [ 1, %133 ], [ %.4, %127 ]
+  %136 = trunc nuw i8 %.5 to i1
+  br i1 %51, label %137, label %143
 
-138:                                              ; preds = %133
-  %139 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(24) %12)
-  br label %140
+137:                                              ; preds = %135
+  br i1 %136, label %138, label %141
 
-140:                                              ; preds = %135, %138, %132
-  %.5 = phi i8 [ %.4, %135 ], [ 1, %138 ], [ %.4, %132 ]
-  %141 = trunc nuw i8 %.5 to i1
-  br i1 %51, label %142, label %146
+138:                                              ; preds = %137
+  %139 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  %140 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %11)
+  br label %.thread30
 
-142:                                              ; preds = %140
-  br i1 %141, label %.thread44, label %.thread27
+141:                                              ; preds = %137
+  %142 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
+  br label %.thread30
 
-.thread44:                                        ; preds = %142
-  %143 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  %144 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dmLERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %11)
-  br label %149
+143:                                              ; preds = %135
+  br i1 %136, label %.thread30, label %144
 
-.thread27:                                        ; preds = %142
-  %145 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  br label %149
+144:                                              ; preds = %143
+  %145 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %0, double noundef 1.000000e+00)
+  br label %.thread30
 
-146:                                              ; preds = %140
-  br i1 %141, label %149, label %147
-
-147:                                              ; preds = %146
-  %148 = call noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull align 8 dereferenceable(128) %0, double noundef 1.000000e+00)
-  br label %149
-
-149:                                              ; preds = %.thread44, %.thread27, %147, %146
+.thread30:                                        ; preds = %141, %138, %144, %143
   ret void
 }
 

@@ -34960,9 +34960,9 @@ nrvo.unused124:                                   ; preds = %invoke.cont116
 land.lhs.true135:                                 ; preds = %nrvo.unused124
   %call.i95 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %functionname, ptr noundef nonnull @.str.146) #30
   %cmp.i96 = icmp eq i32 %call.i95, 0
-  br i1 %cmp.i96, label %if.end141.thread, label %land.lhs.true143
+  br i1 %cmp.i96, label %if.then138, label %land.lhs.true143
 
-if.end141.thread:                                 ; preds = %land.lhs.true135
+if.then138:                                       ; preds = %land.lhs.true135
   %mul139 = fmul double %28, 0x400921FB54442D18
   %div140 = fdiv double %mul139, 1.800000e+02
   br label %if.end234
@@ -35172,8 +35172,8 @@ ehcleanup233:                                     ; preds = %ehcleanup232, %lpad
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp192) #30
   br label %ehcleanup241
 
-if.end234:                                        ; preds = %nrvo.unused124, %if.end141.thread, %if.then146, %if.then153, %if.then160, %if.then167, %if.then174, %if.then181
-  %y.7155 = phi double [ %call182, %if.then181 ], [ %call175, %if.then174 ], [ %call168, %if.then167 ], [ %call161, %if.then160 ], [ %call154, %if.then153 ], [ %div140, %if.end141.thread ], [ %call147, %if.then146 ], [ %mul, %nrvo.unused124 ]
+if.end234:                                        ; preds = %if.then138, %nrvo.unused124, %if.then146, %if.then153, %if.then160, %if.then167, %if.then174, %if.then181
+  %y.7155 = phi double [ %call182, %if.then181 ], [ %call175, %if.then174 ], [ %call168, %if.then167 ], [ %call161, %if.then160 ], [ %call154, %if.then153 ], [ %call147, %if.then146 ], [ %div140, %if.then138 ], [ %mul, %nrvo.unused124 ]
   invoke void @_ZN11flatbuffers13FloatToStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_i(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp235, double noundef %y.7155, i32 noundef 12)
           to label %invoke.cont236 unwind label %lpad5
 

@@ -5073,9 +5073,7 @@ _ZNK4llvm21BranchProbabilityInfo22getEstimatedEdgeWeightERKSt4pairIRKNS0_9LoopBl
   %279 = trunc nuw i8 %.sroa.312.025.i to i1
   %280 = icmp uge i32 %.sroa.010.026.i, %.sroa.0.0.extract.trunc.i
   %or.cond.not.i = select i1 %279, i1 %280, i1 false
-  %.sroa.312.0.extract.shift.i = lshr i64 %.sroa.04.0.i, 32
-  %.sroa.312.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.312.0.extract.shift.i to i8
-  %.sroa.312.1.i = select i1 %or.cond.not.i, i8 %.sroa.312.025.i, i8 %.sroa.312.0.extract.trunc.i
+  %.sroa.312.1.i = select i1 %or.cond.not.i, i8 %.sroa.312.025.i, i8 1
   %.sroa.010.1.i = select i1 %or.cond.not.i, i32 %.sroa.010.026.i, i32 %.sroa.0.0.extract.trunc.i
   %281 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   %.not.i24 = icmp eq ptr %281, %176
@@ -5606,10 +5604,8 @@ _ZNK4llvm21BranchProbabilityInfo22getEstimatedEdgeWeightERKSt4pairIRKNS0_9LoopBl
   %561 = trunc nuw i8 %.sroa.321.033.i to i1
   %562 = icmp uge i32 %.sroa.019.032.i, %.sroa.0.0.extract.trunc.i35
   %or.cond.not.i36 = select i1 %561, i1 %562, i1 false
-  %.sroa.321.0.extract.shift.i = lshr i64 %.sroa.04.0.i81, 32
-  %.sroa.321.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.321.0.extract.shift.i to i8
   %.sroa.019.1.i = select i1 %or.cond.not.i36, i32 %.sroa.019.032.i, i32 %.sroa.0.0.extract.trunc.i35
-  %.sroa.321.1.i = select i1 %or.cond.not.i36, i8 %.sroa.321.033.i, i8 %.sroa.321.0.extract.trunc.i
+  %.sroa.321.1.i = select i1 %or.cond.not.i36, i8 %.sroa.321.033.i, i8 1
   %563 = add nuw nsw i32 %.sroa.2.031.i, 1
   %.not25.i = icmp eq i32 %563, %456
   br i1 %.not25.i, label %._crit_edge.loopexit.i37, label %.lr.ph.i33
@@ -6364,7 +6360,7 @@ _ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES
 
 .critedge:                                        ; preds = %303, %309, %_ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread
   %.sroa.087.0 = phi i32 [ %.sroa.087.0.extract.trunc89, %309 ], [ 0, %_ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread ], [ %.sroa.087.0.extract.trunc, %303 ]
-  %.sroa.8.0 = phi i8 [ 1, %309 ], [ %.sroa.8.0.extract.trunc, %_ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread ], [ %.sroa.8.0.extract.trunc, %303 ]
+  %.sroa.8.0 = phi i8 [ 1, %309 ], [ 1, %_ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread ], [ %.sroa.8.0.extract.trunc, %303 ]
   %312 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %312, null
   br i1 %.not, label %.critedge2, label %313

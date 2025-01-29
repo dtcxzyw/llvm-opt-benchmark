@@ -3618,59 +3618,39 @@ define hidden void @"_ZN8sum_tree16SumTree$LT$T$GT$4push17h3a6f46fce73de1c9E"(pt
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 dereferenceable_or_null(72) ptr @"_ZN8sum_tree16SumTree$LT$T$GT$5first17h6046c64819a8a6aeE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
-  %2 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !979)
-  %3 = load ptr, ptr %0, align 8, !alias.scope !979, !nonnull !5, !noundef !5
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %5 = load i8, ptr %4, align 8, !range !36, !noalias !979, !noundef !5
-  %trunc3.i = trunc nuw i8 %5 to i1
+  %2 = load ptr, ptr %0, align 8, !alias.scope !979, !nonnull !5, !noundef !5
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %4 = load i8, ptr %3, align 8, !range !36, !noalias !979, !noundef !5
+  %trunc3.i = trunc nuw i8 %4 to i1
   br i1 %trunc3.i, label %"_ZN8sum_tree16SumTree$LT$T$GT$13leftmost_leaf17h9b9456a6f13d0f14E.llvm.8892032343851396646.exit", label %.lr.ph.i
 
 tailrecurse.i:                                    ; preds = %.lr.ph.i
-  %6 = getelementptr inbounds nuw i8, ptr %10, i64 352
-  %7 = load ptr, ptr %6, align 8, !noalias !979, !nonnull !5, !noundef !5
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load i8, ptr %8, align 8, !range !36, !noalias !979, !noundef !5
-  %trunc.i = trunc nuw i8 %9 to i1
+  %5 = getelementptr inbounds nuw i8, ptr %9, i64 352
+  %6 = load ptr, ptr %5, align 8, !noalias !979, !nonnull !5, !noundef !5
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %8 = load i8, ptr %7, align 8, !range !36, !noalias !979, !noundef !5
+  %trunc.i = trunc nuw i8 %8 to i1
   br i1 %trunc.i, label %"_ZN8sum_tree16SumTree$LT$T$GT$13leftmost_leaf17h9b9456a6f13d0f14E.llvm.8892032343851396646.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %tailrecurse.i
-  %10 = phi ptr [ %7, %tailrecurse.i ], [ %3, %1 ]
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 344
-  %12 = load i32, ptr %11, align 8, !noalias !979, !noundef !5
-  %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %13, label %tailrecurse.i
+  %9 = phi ptr [ %6, %tailrecurse.i ], [ %2, %1 ]
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 344
+  %11 = load i32, ptr %10, align 8, !noalias !979, !noundef !5
+  %.not.i = icmp eq i32 %11, 0
+  br i1 %.not.i, label %12, label %tailrecurse.i
 
-13:                                               ; preds = %.lr.ph.i
+12:                                               ; preds = %.lr.ph.i
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.189432bcf7ed89cde280d69cc1f6d297.56.llvm.8892032343851396646) #26, !noalias !979
   unreachable
 
 "_ZN8sum_tree16SumTree$LT$T$GT$13leftmost_leaf17h9b9456a6f13d0f14E.llvm.8892032343851396646.exit": ; preds = %tailrecurse.i, %1
-  %14 = phi i8 [ %5, %1 ], [ %9, %tailrecurse.i ]
-  %15 = phi ptr [ %3, %1 ], [ %7, %tailrecurse.i ]
-  %trunc = trunc nuw i8 %14 to i1
-  br i1 %trunc, label %21, label %16
-
-16:                                               ; preds = %"_ZN8sum_tree16SumTree$LT$T$GT$13leftmost_leaf17h9b9456a6f13d0f14E.llvm.8892032343851396646.exit"
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
-  store ptr @anon.189432bcf7ed89cde280d69cc1f6d297.76.llvm.8892032343851396646, ptr %2, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 1, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %19, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 0, ptr %20, align 8
-  call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.189432bcf7ed89cde280d69cc1f6d297.77.llvm.8892032343851396646) #26
-  unreachable
-
-21:                                               ; preds = %"_ZN8sum_tree16SumTree$LT$T$GT$13leftmost_leaf17h9b9456a6f13d0f14E.llvm.8892032343851396646.exit"
-  %22 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %23 = load i32, ptr %22, align 8, !noundef !5
-  %.not = icmp eq i32 %23, 0
-  %24 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.sroa.0.0 = select i1 %.not, ptr null, ptr %24
+  %13 = phi ptr [ %2, %1 ], [ %6, %tailrecurse.i ]
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %15 = load i32, ptr %14, align 8, !noundef !5
+  %.not = icmp eq i32 %15, 0
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %.sroa.0.0 = select i1 %.not, ptr null, ptr %16
   ret ptr %.sroa.0.0
 }
 

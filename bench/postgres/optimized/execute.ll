@@ -790,7 +790,7 @@ ecpg_is_type_an_array.exit:                       ; preds = %330, %ecpg_type_inf
 ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %286, %278, %270, %262, %254, %246, %238, %230, %222, %214, %206, %198, %190, %182, %174, %166, %158, %150, %142, %134, %126, %118, %110, %102, %94, %86, %78, %70, %62, %54, %46, %38, %30, %22, %15, %12, %350, %337, %333, %ecpg_is_type_an_array.exit
   %381 = load i32, ptr %2, align 8
   tail call void @ecpg_raise(i32 noundef %381, i32 noundef -12, ptr noundef nonnull @.str, ptr noundef null) #14
-  br label %575
+  br label %.loopexit
 
 382:                                              ; preds = %ecpg_is_type_an_array.exit
   %383 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -819,7 +819,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   %399 = icmp ult i32 %398, 2
   %400 = select i1 %399, i32 -284, i32 -203
   tail call void @ecpg_raise(i32 noundef %395, i32 noundef %400, ptr noundef nonnull @.str.2, ptr noundef null) #14
-  br label %575
+  br label %.loopexit
 
 401:                                              ; preds = %ecpg_is_type_an_array.exit
   %402 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -834,7 +834,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
 406:                                              ; preds = %401
   %407 = load i32, ptr %2, align 8
   tail call void @ecpg_raise(i32 noundef %407, i32 noundef -214, ptr noundef nonnull @.str.3, ptr noundef null) #14
-  br label %575
+  br label %.loopexit
 
 408:                                              ; preds = %388
   %409 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -980,7 +980,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   %480 = tail call ptr @ecpg_auto_alloc(i64 noundef %478, i32 noundef %479) #14
   store ptr %480, ptr %418, align 8
   %.not164 = icmp eq ptr %480, null
-  br i1 %.not164, label %575, label %481
+  br i1 %.not164, label %.loopexit, label %481
 
 481:                                              ; preds = %.loopexit175
   %482 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1023,7 +1023,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   %507 = tail call ptr @ecpg_auto_alloc(i64 noundef %505, i32 noundef %506) #14
   store ptr %507, ptr %494, align 8
   %.not166 = icmp eq ptr %507, null
-  br i1 %.not166, label %575, label %508
+  br i1 %.not166, label %.loopexit, label %508
 
 508:                                              ; preds = %500
   %509 = load ptr, ptr %498, align 8
@@ -1095,7 +1095,7 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   br i1 %547, label %529, label %._crit_edge192, !llvm.loop !9
 
 ._crit_edge192:                                   ; preds = %529, %543, %517
-  %.0144.lcssa = phi i8 [ 1, %517 ], [ 0, %529 ], [ 1, %543 ]
+  %.0144.lcssa = phi i1 [ true, %517 ], [ %542, %543 ], [ %542, %529 ]
   %.0140.lcssa = phi ptr [ %519, %517 ], [ %.0140188, %529 ], [ %545, %543 ]
   store ptr null, ptr %.0140.lcssa, align 8
   br label %.loopexit
@@ -1116,7 +1116,6 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
 
 557:                                              ; preds = %.lr.ph198, %557
   %.4196 = phi i32 [ 0, %.lr.ph198 ], [ %570, %557 ]
-  %.3147195 = phi i8 [ 1, %.lr.ph198 ], [ %spec.select, %557 ]
   %558 = load i32, ptr %2, align 8
   %559 = load i32, ptr %3, align 8
   %560 = load i32, ptr %550, align 8
@@ -1129,20 +1128,13 @@ ecpg_is_type_an_array.exit.thread:                ; preds = %310, %302, %294, %2
   %567 = load i8, ptr %556, align 4
   %568 = trunc i8 %567 to i1
   %569 = tail call zeroext i1 @ecpg_get_data(ptr noundef %0, i32 noundef %.4196, i32 noundef %1, i32 noundef %558, i32 noundef %559, i32 noundef %560, ptr noundef %561, ptr noundef %562, i64 noundef %563, i64 noundef %564, i64 noundef %565, i32 noundef %.0112.i, i32 noundef %566, i1 noundef zeroext %568) #14
-  %spec.select = select i1 %569, i8 %.3147195, i8 0
   %570 = add nuw nsw i32 %.4196, 1
   %571 = icmp slt i32 %570, %5
-  %572 = trunc nuw i8 %spec.select to i1
-  %573 = select i1 %571, i1 %572, i1 false
-  br i1 %573, label %557, label %.loopexit, !llvm.loop !10
+  %572 = select i1 %571, i1 %569, i1 false
+  br i1 %572, label %557, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %557, %548, %._crit_edge192
-  %.2146 = phi i8 [ %.0144.lcssa, %._crit_edge192 ], [ 1, %548 ], [ %spec.select, %557 ]
-  %574 = trunc nuw i8 %.2146 to i1
-  br label %575
-
-575:                                              ; preds = %500, %.loopexit175, %.loopexit, %406, %393, %ecpg_is_type_an_array.exit.thread
-  %.0 = phi i1 [ false, %ecpg_is_type_an_array.exit.thread ], [ false, %393 ], [ %574, %.loopexit ], [ false, %406 ], [ false, %.loopexit175 ], [ false, %500 ]
+.loopexit:                                        ; preds = %557, %._crit_edge192, %548, %500, %.loopexit175, %406, %393, %ecpg_is_type_an_array.exit.thread
+  %.0 = phi i1 [ false, %ecpg_is_type_an_array.exit.thread ], [ false, %393 ], [ false, %406 ], [ false, %.loopexit175 ], [ false, %500 ], [ %.0144.lcssa, %._crit_edge192 ], [ true, %548 ], [ %569, %557 ]
   ret i1 %.0
 }
 

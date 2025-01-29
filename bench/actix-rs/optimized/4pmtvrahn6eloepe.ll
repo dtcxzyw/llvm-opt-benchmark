@@ -9799,7 +9799,7 @@ define hidden void @"_ZN6brotli3enc6writer64CompressorWriterCustomIo$LT$ErrType$
 
 16:                                               ; preds = %12
   invoke void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha467eeae9528831cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
-          to label %"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$brotli_decompressor..io_wrappers..IntoIoWriter$LT$actix_http..encoding..Writer$GT$$GT$$GT$17hdf47ee8631e6c537E.exit" unwind label %37
+          to label %"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$brotli_decompressor..io_wrappers..IntoIoWriter$LT$actix_http..encoding..Writer$GT$$GT$$GT$17hdf47ee8631e6c537E.exit" unwind label %36
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 5592
@@ -9820,59 +9820,55 @@ define hidden void @"_ZN6brotli3enc6writer64CompressorWriterCustomIo$LT$ErrType$
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 5579
   %25 = load i8, ptr %24, align 1, !range !617, !alias.scope !1025, !noundef !13
   %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit, label %27
+  br i1 %26, label %_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit5, label %27
 
 27:                                               ; preds = %17
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %29 = invoke noundef i32 @_ZN6brotli3enc6encode13set_parameter17h6672fa74cdecd6e9E(ptr noalias noundef nonnull align 8 dereferenceable(112) %28, i32 noundef 1, i32 noundef %5)
-          to label %._ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit_crit_edge unwind label %30
+          to label %_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit unwind label %30
 
-._ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit_crit_edge: ; preds = %27
-  %.pre = load i8, ptr %24, align 1, !range !617, !alias.scope !1028
-  br label %_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit
-
-30:                                               ; preds = %34, %27
+30:                                               ; preds = %33, %27
   %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr267drop_in_place$LT$brotli..enc..writer..CompressorWriterCustomIo$LT$std..io..error..Error$C$brotli_decompressor..io_wrappers..IntoIoWriter$LT$actix_http..encoding..Writer$GT$$C$alloc_stdlib..heap_alloc..WrapBox$LT$u8$GT$$C$alloc_stdlib..std_alloc..StandardAlloc$GT$$GT$17h43cb033ac16bc87fE"(ptr noalias noundef nonnull align 8 dereferenceable(5648) %10) #33
-          to label %40 unwind label %37
+          to label %39 unwind label %36
 
-_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit: ; preds = %._ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit_crit_edge, %17
-  %32 = phi i8 [ %.pre, %._ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit_crit_edge ], [ %25, %17 ]
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit5, label %34
+_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit: ; preds = %27
+  %.pre = load i8, ptr %24, align 1, !range !617, !alias.scope !1028
+  %32 = trunc nuw i8 %.pre to i1
+  br i1 %32, label %_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit5, label %33
 
-34:                                               ; preds = %_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit
-  %35 = getelementptr inbounds nuw i8, ptr %10, i64 144
-  %36 = invoke noundef i32 @_ZN6brotli3enc6encode13set_parameter17h6672fa74cdecd6e9E(ptr noalias noundef nonnull align 8 dereferenceable(112) %35, i32 noundef 2, i32 noundef %6)
+33:                                               ; preds = %_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 144
+  %35 = invoke noundef i32 @_ZN6brotli3enc6encode13set_parameter17h6672fa74cdecd6e9E(ptr noalias noundef nonnull align 8 dereferenceable(112) %34, i32 noundef 2, i32 noundef %6)
           to label %_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit5 unwind label %30
 
-_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit5: ; preds = %_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit, %34
+_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit5: ; preds = %17, %_ZN6brotli3enc6encode25BrotliEncoderSetParameter17h1c2e2834920a22acE.exit, %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5648) %0, ptr noundef nonnull align 8 dereferenceable(5648) %10, i64 5648, i1 false)
   call void @llvm.lifetime.end.p0(i64 5648, ptr nonnull %10)
   ret void
 
-37:                                               ; preds = %16, %.thread, %30
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %16, %.thread, %30
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #34
   unreachable
 
 "_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$brotli_decompressor..io_wrappers..IntoIoWriter$LT$actix_http..encoding..Writer$GT$$GT$$GT$17hdf47ee8631e6c537E.exit": ; preds = %12, %16
-  %39 = icmp eq i64 %3, 0
-  br i1 %39, label %.thread, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i"
+  %38 = icmp eq i64 %3, 0
+  br i1 %38, label %.thread, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i": ; preds = %"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$brotli_decompressor..io_wrappers..IntoIoWriter$LT$actix_http..encoding..Writer$GT$$GT$$GT$17hdf47ee8631e6c537E.exit"
   call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %3, i64 noundef 1) #32, !noalias !1031
   br label %.thread
 
-40:                                               ; preds = %30, %.thread
+39:                                               ; preds = %30, %.thread
   %.pn10 = phi { ptr, i32 } [ %13, %.thread ], [ %31, %30 ]
   resume { ptr, i32 } %.pn10
 
 .thread:                                          ; preds = %"_ZN4core3ptr131drop_in_place$LT$core..option..Option$LT$brotli_decompressor..io_wrappers..IntoIoWriter$LT$actix_http..encoding..Writer$GT$$GT$$GT$17hdf47ee8631e6c537E.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.14998522591088738574.exit.i.i.i"
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5ad080ef8b5853c3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11) #33
-          to label %40 unwind label %37
+          to label %39 unwind label %36
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -77114,151 +77114,111 @@ define hidden void @"_ZN5tokio4task8join_set16JoinSet$LT$T$GT$14poll_join_next17
   store ptr %5, ptr %4, align 8, !noalias !8883
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 40
   invoke void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h07d94104f7717904E"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [12 x i64] }) align 8 dereferenceable(112) %7, ptr noalias noundef nonnull align 8 dereferenceable(8) %24, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %29 unwind label %27
+          to label %27 unwind label %25
 
-"_ZN4core3ptr276drop_in_place$LT$tokio..util..idle_notified_set..EntryInOneOfTheLists$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$17hfba3a103a9a6ea40E.exit": ; preds = %55, %57, %61, %.thread21, %13
+"_ZN4core3ptr276drop_in_place$LT$tokio..util..idle_notified_set..EntryInOneOfTheLists$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$17hfba3a103a9a6ea40E.exit": ; preds = %.thread25, %52, %.thread36, %13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   ret void
 
-25:                                               ; preds = %64, %62, %45, %27
-  %.1 = phi i8 [ %.08, %27 ], [ %.2, %64 ], [ %.2, %62 ], [ %.2, %45 ]
-  %.pn14 = phi { ptr, i32 } [ %28, %27 ], [ %.pn, %64 ], [ %.pn, %62 ], [ %.pn, %45 ]
-  %26 = trunc nuw i8 %.1 to i1
-  br i1 %26, label %66, label %65
-
-27:                                               ; preds = %18, %56
-  %.08 = phi i8 [ %.3, %56 ], [ 1, %18 ]
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %18, %48
+  %26 = landingpad { ptr, i32 }
           cleanup
-  br label %25
+  br label %.thread
 
-29:                                               ; preds = %18
+27:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !8883
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !8883
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %31 = load i64, ptr %30, align 8, !range !38, !noundef !16
-  %.not = icmp eq i64 %31, -9223372036854775788
-  br i1 %.not, label %34, label %32
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %29 = load i64, ptr %28, align 8, !range !38, !noundef !16
+  %.not.not = icmp eq i64 %29, -9223372036854775788
+  br i1 %.not.not, label %32, label %30
 
-32:                                               ; preds = %29
+30:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull align 8 dereferenceable(112) %7, i64 112, i1 false)
-  %33 = invoke noundef nonnull ptr @"_ZN5tokio4util17idle_notified_set29EntryInOneOfTheLists$LT$T$GT$6remove17h83e42606fc1ee714E"(ptr noundef nonnull %11, ptr noalias noundef nonnull align 8 dereferenceable(16) %19)
-          to label %40 unwind label %47
+  %31 = invoke noundef nonnull ptr @"_ZN5tokio4util17idle_notified_set29EntryInOneOfTheLists$LT$T$GT$6remove17h83e42606fc1ee714E"(ptr noundef nonnull %11, ptr noalias noundef nonnull align 8 dereferenceable(16) %19)
+          to label %.noexc unwind label %45
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %9, align 8, !nonnull !16, !align !365, !noundef !16
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8, !nonnull !16, !noundef !16
-  %38 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %39 = load ptr, ptr %38, align 8, !noundef !16
-  invoke void %37(ptr noundef %39)
-          to label %52 unwind label %50
+32:                                               ; preds = %27
+  %33 = load ptr, ptr %9, align 8, !nonnull !16, !align !365, !noundef !16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load ptr, ptr %34, align 8, !nonnull !16, !noundef !16
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %37 = load ptr, ptr %36, align 8, !noundef !16
+  invoke void %35(ptr noundef %37)
+          to label %40 unwind label %.thread26
 
-.thread:                                          ; preds = %40, %42
-  %lpad.thr_comm = landingpad { ptr, i32 }
-          cleanup
-  br label %45
+.noexc:                                           ; preds = %30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %6, i64 112, i1 false)
+  %38 = call noundef zeroext i1 @_ZN5tokio7runtime4task5state5State21drop_join_handle_fast17h1721eeb79c95030bE(ptr noundef nonnull align 8 %31)
+  br i1 %38, label %39, label %.thread36
+
+39:                                               ; preds = %.noexc
+  call void @_ZN5tokio7runtime4task3raw7RawTask21drop_join_handle_slow17ha4fc8de09d20bf2fE(ptr noundef nonnull %31)
+  br label %.thread36
+
+.thread36:                                        ; preds = %39, %.noexc
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7)
+  br label %"_ZN4core3ptr276drop_in_place$LT$tokio..util..idle_notified_set..EntryInOneOfTheLists$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$17hfba3a103a9a6ea40E.exit"
 
 40:                                               ; preds = %32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %6, i64 112, i1 false)
-  %41 = invoke noundef zeroext i1 @_ZN5tokio7runtime4task5state5State21drop_join_handle_fast17h1721eeb79c95030bE(ptr noundef nonnull align 8 %33)
-          to label %.noexc unwind label %.thread
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 -9223372036854775787, ptr %41, align 8
+  %42 = load i64, ptr %28, align 8, !range !38, !noundef !16
+  %.not13 = icmp eq i64 %42, -9223372036854775788
+  br i1 %.not13, label %.thread25, label %48
 
-.noexc:                                           ; preds = %40
-  br i1 %41, label %42, label %"_ZN4core3ptr216drop_in_place$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$17h996cc847f855eeb9E.exit"
+.thread26:                                        ; preds = %32
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = load i64, ptr %28, align 8, !range !38, !noundef !16
+  %.not1228 = icmp eq i64 %44, -9223372036854775788
+  br i1 %.not1228, label %.thread, label %.thread37
 
-42:                                               ; preds = %.noexc
-  invoke void @_ZN5tokio7runtime4task3raw7RawTask21drop_join_handle_slow17ha4fc8de09d20bf2fE(ptr noundef nonnull %33)
-          to label %"_ZN4core3ptr216drop_in_place$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$17h996cc847f855eeb9E.exit" unwind label %.thread
-
-"_ZN4core3ptr216drop_in_place$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$17h996cc847f855eeb9E.exit": ; preds = %.noexc, %42
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6)
-  br label %43
-
-43:                                               ; preds = %52, %"_ZN4core3ptr216drop_in_place$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$17h996cc847f855eeb9E.exit"
-  %.3 = phi i8 [ 0, %"_ZN4core3ptr216drop_in_place$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$17h996cc847f855eeb9E.exit" ], [ 1, %52 ]
-  %44 = load i64, ptr %30, align 8, !range !38, !noundef !16
-  %.not13 = icmp eq i64 %44, -9223372036854775788
-  %.pre = trunc nuw i8 %.3 to i1
-  br i1 %.not13, label %55, label %54
-
-45:                                               ; preds = %.thread, %50, %47
-  %.2 = phi i8 [ 0, %47 ], [ 1, %50 ], [ 0, %.thread ]
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %47 ], [ %51, %50 ], [ %lpad.thr_comm, %.thread ]
-  %46 = load i64, ptr %30, align 8, !range !38, !noundef !16
-  %.not12 = icmp eq i64 %46, -9223372036854775788
-  br i1 %.not12, label %25, label %62
-
-47:                                               ; preds = %32
+45:                                               ; preds = %30
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr239drop_in_place$LT$core..result..Result$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h885f523d04c15bc5E"(ptr noalias noundef align 8 dereferenceable(112) %6) #40
-          to label %45 unwind label %48
+          to label %.critedge unwind label %46
 
-48:                                               ; preds = %66, %64, %47
-  %49 = landingpad { ptr, i32 }
+46:                                               ; preds = %.thread, %.thread37, %45
+  %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #41
   unreachable
 
-50:                                               ; preds = %34
-  %51 = landingpad { ptr, i32 }
-          cleanup
-  br label %45
-
-52:                                               ; preds = %34
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -9223372036854775787, ptr %53, align 8
-  br label %43
-
-54:                                               ; preds = %43
-  br i1 %.pre, label %56, label %.thread21
-
-.thread21:                                        ; preds = %54
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7)
-  br label %"_ZN4core3ptr276drop_in_place$LT$tokio..util..idle_notified_set..EntryInOneOfTheLists$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$17hfba3a103a9a6ea40E.exit"
-
-55:                                               ; preds = %43
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7)
-  br i1 %.pre, label %57, label %"_ZN4core3ptr276drop_in_place$LT$tokio..util..idle_notified_set..EntryInOneOfTheLists$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$17hfba3a103a9a6ea40E.exit"
-
-56:                                               ; preds = %54
+48:                                               ; preds = %40
   invoke fastcc void @"_ZN4core3ptr239drop_in_place$LT$core..result..Result$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h885f523d04c15bc5E"(ptr noalias noundef align 8 dereferenceable(112) %7)
-          to label %.thread19 unwind label %27
+          to label %.thread25 unwind label %25
 
-.thread19:                                        ; preds = %56
+.thread25:                                        ; preds = %48, %40
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7)
-  br label %57
-
-57:                                               ; preds = %.thread19, %55
   call void @llvm.experimental.noalias.scope.decl(metadata !8887)
   call void @llvm.experimental.noalias.scope.decl(metadata !8890)
   call void @llvm.experimental.noalias.scope.decl(metadata !8893)
-  %58 = load ptr, ptr %8, align 8, !alias.scope !8896, !nonnull !16, !noundef !16
-  %59 = atomicrmw sub ptr %58, i64 1 release, align 8, !noalias !8896
-  %60 = icmp eq i64 %59, 1
-  br i1 %60, label %61, label %"_ZN4core3ptr276drop_in_place$LT$tokio..util..idle_notified_set..EntryInOneOfTheLists$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$17hfba3a103a9a6ea40E.exit"
+  %49 = load ptr, ptr %8, align 8, !alias.scope !8896, !nonnull !16, !noundef !16
+  %50 = atomicrmw sub ptr %49, i64 1 release, align 8, !noalias !8896
+  %51 = icmp eq i64 %50, 1
+  br i1 %51, label %52, label %"_ZN4core3ptr276drop_in_place$LT$tokio..util..idle_notified_set..EntryInOneOfTheLists$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$17hfba3a103a9a6ea40E.exit"
 
-61:                                               ; preds = %57
+52:                                               ; preds = %.thread25
   call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.4057250340930679409(i8 noundef 2), !noalias !8896
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h8f1dded62ca51e58E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
   br label %"_ZN4core3ptr276drop_in_place$LT$tokio..util..idle_notified_set..EntryInOneOfTheLists$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$17hfba3a103a9a6ea40E.exit"
 
-62:                                               ; preds = %45
-  %63 = trunc nuw i8 %.2 to i1
-  br i1 %63, label %64, label %25
-
-64:                                               ; preds = %62
+.thread37:                                        ; preds = %.thread26
   invoke fastcc void @"_ZN4core3ptr239drop_in_place$LT$core..result..Result$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h885f523d04c15bc5E"(ptr noalias noundef align 8 dereferenceable(112) %7) #40
-          to label %25 unwind label %48
+          to label %.thread unwind label %46
 
-65:                                               ; preds = %66, %25
-  resume { ptr, i32 } %.pn14
+.critedge:                                        ; preds = %45, %.thread
+  %.pn1419 = phi { ptr, i32 } [ %.pn1420, %.thread ], [ %lpad.thr_comm.split-lp, %45 ]
+  resume { ptr, i32 } %.pn1419
 
-66:                                               ; preds = %25
+.thread:                                          ; preds = %.thread26, %.thread37, %25
+  %.pn1420 = phi { ptr, i32 } [ %43, %.thread37 ], [ %26, %25 ], [ %43, %.thread26 ]
   invoke void @"_ZN4core3ptr276drop_in_place$LT$tokio..util..idle_notified_set..EntryInOneOfTheLists$LT$tokio..runtime..task..join..JoinHandle$LT$$LP$usize$C$core..result..Result$LT$alloc..vec..Vec$LT$arrow_array..record_batch..RecordBatch$GT$$C$datafusion_common..error..DataFusionError$GT$$RP$$GT$$GT$$GT$17hfba3a103a9a6ea40E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #40
-          to label %65 unwind label %48
+          to label %.critedge unwind label %46
 }
 
 ; Function Attrs: nonlazybind uwtable

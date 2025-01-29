@@ -2994,10 +2994,9 @@ define hidden void @"_ZN243_$LT$$LT$meilisearch_types..keys.._..$LT$impl$u20$ser
   br label %10
 
 10:                                               ; preds = %9, %8
-  %.sink = phi i8 [ 1, %9 ], [ %5, %8 ]
   store ptr %7, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %.sink, ptr %11, align 1
+  store i8 %5, ptr %11, align 1
   ret void
 }
 
@@ -3028,10 +3027,9 @@ define hidden void @"_ZN243_$LT$$LT$meilisearch_types..keys.._..$LT$impl$u20$ser
   br label %10
 
 10:                                               ; preds = %9, %8
-  %.sink = phi i8 [ 1, %9 ], [ %5, %8 ]
   store ptr %7, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %.sink, ptr %11, align 1
+  store i8 %5, ptr %11, align 1
   ret void
 }
 
@@ -3062,10 +3060,9 @@ define hidden void @"_ZN243_$LT$$LT$meilisearch_types..keys.._..$LT$impl$u20$ser
   br label %10
 
 10:                                               ; preds = %9, %8
-  %.sink = phi i8 [ 1, %9 ], [ %5, %8 ]
   store ptr %7, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %.sink, ptr %11, align 1
+  store i8 %5, ptr %11, align 1
   ret void
 }
 
@@ -3223,10 +3220,9 @@ define hidden void @"_ZN243_$LT$$LT$meilisearch_types..keys.._..$LT$impl$u20$ser
   br label %10
 
 10:                                               ; preds = %9, %8
-  %.sink = phi i8 [ 1, %9 ], [ %5, %8 ]
   store ptr %7, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  store i8 %.sink, ptr %11, align 1
+  store i8 %5, ptr %11, align 1
   ret void
 }
 

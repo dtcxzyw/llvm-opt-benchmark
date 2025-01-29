@@ -15577,28 +15577,19 @@ do.body:                                          ; preds = %do.cond, %cond.end
 
 do.cond:                                          ; preds = %do.body
   %cmp.not = icmp eq i32 %call5, 0
-  br i1 %cmp.not, label %for.body, label %do.body, !llvm.loop !218
+  br i1 %cmp.not, label %sw.epilog, label %do.body, !llvm.loop !218
 
-for.body:                                         ; preds = %do.cond, %sw.epilog
-  %i.0204 = phi i1 [ true, %sw.epilog ], [ false, %do.cond ]
-  br i1 %i.0204, label %sw.bb19, label %sw.bb
-
-sw.bb:                                            ; preds = %for.body
+sw.epilog:                                        ; preds = %do.cond
   %call18 = tail call noundef i32 @_ZN4cvc58internal6theory2uf11HoExtension19checkExtensionalityEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(376) %this, ptr noundef null)
-  br label %sw.epilog
+  %cmp21.not.not = icmp eq i32 %call18, 0
+  br i1 %cmp21.not.not, label %sw.epilog.thread, label %return
 
-sw.bb19:                                          ; preds = %for.body
+sw.epilog.thread:                                 ; preds = %sw.epilog
   %call20 = tail call noundef i32 @_ZN4cvc58internal6theory2uf11HoExtension15checkLazyLambdaEv(ptr noundef nonnull align 8 dereferenceable(376) %this)
-  br label %sw.epilog
+  br label %return
 
-sw.epilog:                                        ; preds = %sw.bb19, %sw.bb
-  %storemerge = phi i32 [ %call20, %sw.bb19 ], [ %call18, %sw.bb ]
-  %cmp21.not = icmp ne i32 %storemerge, 0
-  %brmerge = or i1 %cmp21.not, %i.0204
-  br i1 %brmerge, label %return, label %for.body
-
-return:                                           ; preds = %do.body, %sw.epilog
-  %retval.0 = phi i32 [ %storemerge, %sw.epilog ], [ 1, %do.body ]
+return:                                           ; preds = %do.body, %sw.epilog, %sw.epilog.thread
+  %retval.0 = phi i32 [ %call20, %sw.epilog.thread ], [ %call18, %sw.epilog ], [ 1, %do.body ]
   ret i32 %retval.0
 }
 

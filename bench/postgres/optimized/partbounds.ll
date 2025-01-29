@@ -229,6 +229,8 @@ define internal fastcc ptr @get_qual_for_list(ptr noundef %0, ptr nocapture noun
   %.not92 = icmp ne i32 %36, -1
   %37 = icmp ne i32 %34, 0
   %brmerge = select i1 %37, i1 true, i1 %.not92
+  %not. = xor i1 %37, true
+  %.not92.mux = select i1 %not., i1 true, i1 %.not92
   br i1 %brmerge, label %.preheader, label %.thread102
 
 .preheader:                                       ; preds = %32
@@ -316,10 +318,10 @@ define internal fastcc ptr @get_qual_for_list(ptr noundef %0, ptr nocapture noun
   br i1 %88, label %.lr.ph123, label %.thread105
 
 .thread105.thread:                                ; preds = %.preheader
-  br i1 %.not92, label %101, label %.thread105.thread.thread
+  br i1 %.not92.mux, label %101, label %.thread105.thread.thread
 
 .thread105:                                       ; preds = %85, %45
-  %.182 = phi i1 [ %.not92, %45 ], [ %.384, %85 ]
+  %.182 = phi i1 [ %.not92.mux, %45 ], [ %.384, %85 ]
   %.180 = phi ptr [ %67, %45 ], [ %.3, %85 ]
   %.not93 = icmp eq ptr %.180, null
   br i1 %.not93, label %91, label %89

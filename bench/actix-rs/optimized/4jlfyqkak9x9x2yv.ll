@@ -3489,19 +3489,19 @@ define noundef zeroext i1 @"_ZN76_$LT$actix_router..resource..ResourceDef$u20$as
 
 6:                                                ; preds = %2
   %trunc.i = trunc nuw i64 %3 to i1
-  br i1 %trunc.i, label %15, label %7
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br i1 %trunc.i, label %15, label %8
 
-7:                                                ; preds = %6
-  %8 = icmp eq i64 %3, 0
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val3.i = load i64, ptr %9, align 8, !alias.scope !446, !noalias !449, !noundef !5
+8:                                                ; preds = %6
+  %9 = icmp eq i64 %3, 0
+  tail call void @llvm.assume(i1 %9)
+  %.val3.i = load i64, ptr %7, align 8, !alias.scope !446, !noalias !449, !noundef !5
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val5.i = load i64, ptr %10, align 8, !alias.scope !449, !noalias !446, !noundef !5
   %.not.i.i.i = icmp eq i64 %.val3.i, %.val5.i
   br i1 %.not.i.i.i, label %11, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit"
 
-11:                                               ; preds = %7
+11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val4.i = load ptr, ptr %12, align 8, !alias.scope !449, !noalias !446, !nonnull !5, !noundef !5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3511,38 +3511,35 @@ define noundef zeroext i1 @"_ZN76_$LT$actix_router..resource..ResourceDef$u20$as
   br label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit"
 
 15:                                               ; preds = %6
-  %16 = icmp ne i64 %3, 0
-  tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val6.i = load ptr, ptr %17, align 8, !alias.scope !446, !noalias !449, !nonnull !5, !noundef !5
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val7.i = load i64, ptr %18, align 8, !alias.scope !446, !noalias !449, !noundef !5
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val8.i = load ptr, ptr %19, align 8, !alias.scope !449, !noalias !446, !nonnull !5, !noundef !5
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val9.i = load i64, ptr %20, align 8, !alias.scope !449, !noalias !446, !noundef !5
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val6.i = load ptr, ptr %16, align 8, !alias.scope !446, !noalias !449, !nonnull !5, !noundef !5
+  %.val7.i = load i64, ptr %7, align 8, !alias.scope !446, !noalias !449, !noundef !5
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val8.i = load ptr, ptr %17, align 8, !alias.scope !449, !noalias !446, !nonnull !5, !noundef !5
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val9.i = load i64, ptr %18, align 8, !alias.scope !449, !noalias !446, !noundef !5
   %.not.i.i10.i = icmp eq i64 %.val7.i, %.val9.i
   br i1 %.not.i.i10.i, label %.preheader.split.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit"
 
-.preheader.split.i.i.i:                           ; preds = %15, %21
-  %.sroa.01.0.i.i.i = phi i64 [ %22, %21 ], [ 0, %15 ]
+.preheader.split.i.i.i:                           ; preds = %15, %19
+  %.sroa.01.0.i.i.i = phi i64 [ %20, %19 ], [ 0, %15 ]
   %exitcond.not.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i, %.val7.i
-  br i1 %exitcond.not.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit", label %21
+  br i1 %exitcond.not.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit", label %19
 
-21:                                               ; preds = %.preheader.split.i.i.i
-  %22 = add i64 %.sroa.01.0.i.i.i, 1
-  %23 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val6.i, i64 0, i64 %.sroa.01.0.i.i.i
-  %24 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val8.i, i64 0, i64 %.sroa.01.0.i.i.i
-  %25 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h5101c8de422f1c19E.llvm.3646540950948783737"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24), !noalias !455
-  br i1 %25, label %.preheader.split.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit"
+19:                                               ; preds = %.preheader.split.i.i.i
+  %20 = add i64 %.sroa.01.0.i.i.i, 1
+  %21 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val6.i, i64 0, i64 %.sroa.01.0.i.i.i
+  %22 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val8.i, i64 0, i64 %.sroa.01.0.i.i.i
+  %23 = tail call noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h5101c8de422f1c19E.llvm.3646540950948783737"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %22), !noalias !455
+  br i1 %23, label %.preheader.split.i.i.i, label %"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit"
 
-"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit": ; preds = %.preheader.split.i.i.i, %21, %2, %7, %11, %15
-  %.0.shrunk.i = phi i1 [ false, %2 ], [ %14, %11 ], [ false, %7 ], [ false, %15 ], [ %exitcond.not.i.i.i, %21 ], [ %exitcond.not.i.i.i, %.preheader.split.i.i.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 146
+"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17h658df384a9a5d314E.exit": ; preds = %.preheader.split.i.i.i, %19, %2, %8, %11, %15
+  %.0.shrunk.i = phi i1 [ false, %2 ], [ %14, %11 ], [ false, %8 ], [ false, %15 ], [ %exitcond.not.i.i.i, %19 ], [ %exitcond.not.i.i.i, %.preheader.split.i.i.i ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 146
+  %25 = load i8, ptr %24, align 2, !range !127
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 146
   %27 = load i8, ptr %26, align 2, !range !127
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 146
-  %29 = load i8, ptr %28, align 2, !range !127
-  %.not = icmp eq i8 %27, %29
+  %.not = icmp eq i8 %25, %27
   %.0 = select i1 %.0.shrunk.i, i1 %.not, i1 false
   ret i1 %.0
 }

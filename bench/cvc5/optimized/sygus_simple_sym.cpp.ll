@@ -5126,7 +5126,6 @@ if.end102:                                        ; preds = %if.then13.i.i866, %
   br i1 %tobool, label %if.then103, label %if.end263
 
 if.then103:                                       ; preds = %if.then, %if.end102
-  %ret.11428 = phi i8 [ %ret.1, %if.end102 ], [ 1, %if.then ]
   call void @_ZN4cvc58internal6theory9datatypes7ReqTrieC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %rt)
   invoke void @_ZNK4cvc58internal12NodeTemplateILb1EE7getTypeEb(ptr nonnull sret(%"class.cvc5::internal::TypeNode") align 8 %agg.tmp104, ptr noundef nonnull align 8 dereferenceable(8) %c, i1 noundef zeroext false)
           to label %invoke.cont106 unwind label %lpad105
@@ -5668,7 +5667,7 @@ terminate.lpad.i1033:                             ; preds = %if.then13.i.i1032
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit1034:          ; preds = %invoke.cont206, %if.then.i.i1026, %if.then13.i.i1032
-  %spec.select1430 = select i1 %call207, i8 0, i8 %ret.11428
+  %not.call207 = xor i1 %call207, true
   br label %if.end258
 
 lpad205:                                          ; preds = %invoke.cont204
@@ -5678,7 +5677,7 @@ lpad205:                                          ; preds = %invoke.cont204
   br label %ehcleanup259
 
 if.end258:                                        ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit1034, %invoke.cont199
-  %ret.4 = phi i8 [ %ret.11428, %invoke.cont199 ], [ %spec.select1430, %_ZN4cvc58internal8TypeNodeD2Ev.exit1034 ]
+  %ret.4 = phi i1 [ true, %invoke.cont199 ], [ %not.call207, %_ZN4cvc58internal8TypeNodeD2Ev.exit1034 ]
   %106 = load ptr, ptr %one_c, align 8
   %bf.load.i.i1321 = load i64, ptr %106, align 8
   %107 = and i64 %bf.load.i.i1321, 1152920405095219200
@@ -5761,7 +5760,6 @@ terminate.lpad.i1352:                             ; preds = %if.then13.i.i1351
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1353: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1342, %if.then.i.i1345, %if.then13.i.i1351
   call void @_ZN4cvc58internal6theory9datatypes7ReqTrieD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %rt) #17
-  %.pre = trunc nuw i8 %ret.4 to i1
   br label %if.end263
 
 ehcleanup259:                                     ; preds = %lpad205, %lpad188, %lpad174, %lpad125
@@ -5785,7 +5783,7 @@ ehcleanup262:                                     ; preds = %ehcleanup261, %lpad
   br label %eh.resume
 
 if.end263:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1353, %if.end102
-  %tobool264.pre-phi = phi i1 [ %.pre, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1353 ], [ false, %if.end102 ]
+  %tobool264.pre-phi = phi i1 [ %ret.4, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1353 ], [ false, %if.end102 ]
   ret i1 %tobool264.pre-phi
 
 eh.resume:                                        ; preds = %ehcleanup262, %ehcleanup, %lpad57, %lpad14, %lpad

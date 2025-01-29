@@ -2822,7 +2822,7 @@ if.end84:                                         ; preds = %for.body.i103, %inv
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %new_limit) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %new_start) #30
   %tobool85 = trunc nuw i8 %expand_inputs.1 to i1
-  br i1 %tobool85, label %if.end108, label %if.then86
+  br i1 %tobool85, label %if.then110, label %if.then86
 
 if.then86:                                        ; preds = %for.body.i84, %land.lhs.true53, %invoke.cont43, %land.lhs.true, %if.end84
   %expand_inputs.0185 = phi i8 [ %expand_inputs.1, %if.end84 ], [ 0, %land.lhs.true ], [ 0, %invoke.cont43 ], [ 0, %land.lhs.true53 ], [ 0, %for.body.i84 ]
@@ -2881,14 +2881,12 @@ for.body.i145:                                    ; preds = %for.cond.i150, %for
   %tobool.i149 = trunc i8 %35 to i1
   br i1 %tobool.i149, label %if.end108, label %for.cond.i150
 
-if.end108:                                        ; preds = %for.body.i145, %land.lhs.true97, %invoke.cont90, %if.end84
-  %expand_inputs.2 = phi i8 [ %expand_inputs.1, %if.end84 ], [ %expand_inputs.0185, %invoke.cont90 ], [ %expand_inputs.0185, %land.lhs.true97 ], [ %expand_inputs.0185, %for.body.i145 ]
-  %expanded_inputs_size.0 = phi i64 [ %call42, %if.end84 ], [ %call91, %invoke.cont90 ], [ %call91, %land.lhs.true97 ], [ %call91, %for.body.i145 ]
-  %tobool109 = trunc nuw i8 %expand_inputs.2 to i1
+if.end108:                                        ; preds = %for.body.i145, %land.lhs.true97, %invoke.cont90
+  %tobool109 = trunc nuw i8 %expand_inputs.0185 to i1
   br i1 %tobool109, label %if.then110, label %if.end127
 
-if.then110:                                       ; preds = %for.cond.i150, %land.lhs.true103, %if.end108
-  %expanded_inputs_size.0190 = phi i64 [ %expanded_inputs_size.0, %if.end108 ], [ %call91, %land.lhs.true103 ], [ %call91, %for.cond.i150 ]
+if.then110:                                       ; preds = %for.cond.i150, %land.lhs.true103, %if.end84, %if.end108
+  %expanded_inputs_size.0190 = phi i64 [ %call91, %if.end108 ], [ %call42, %if.end84 ], [ %call91, %land.lhs.true103 ], [ %call91, %for.cond.i150 ]
   %ioptions_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %36 = load ptr, ptr %ioptions_, align 8
   %logger = getelementptr inbounds nuw i8, ptr %36, i64 544

@@ -106612,7 +106612,7 @@ _ZN14deltalake_core7storage9factories17h058b76954b9f05c7E.exit: ; preds = %"_ZN3
   br i1 %.not, label %"_ZN4core3ptr168drop_in_place$LT$core..option..Option$LT$dashmap..mapref..one..Ref$LT$url..Url$C$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$GT$17h97279dec2bac242bE.exit", label %118
 
 .body:                                            ; preds = %278, %281, %.thread282, %204, %116, %268, %240
-  %.7 = phi i8 [ %.0104, %268 ], [ 1, %240 ], [ 1, %116 ], [ 1, %204 ], [ 0, %.thread282 ], [ %.0104, %281 ], [ %.0104, %278 ]
+  %.7 = phi i8 [ %.0104, %268 ], [ 1, %240 ], [ 1, %116 ], [ 1, %204 ], [ 0, %.thread282 ], [ 1, %281 ], [ 1, %278 ]
   %.pn126 = phi { ptr, i32 } [ %258, %268 ], [ %241, %240 ], [ %117, %116 ], [ %205, %204 ], [ %270, %.thread282 ], [ %258, %281 ], [ %258, %278 ]
   %113 = atomicrmw sub ptr %112, i64 4 release, align 8, !noalias !26086
   %114 = icmp eq i64 %113, 6
@@ -107223,7 +107223,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br i1 %315, label %333, label %332
 
 316:                                              ; preds = %.noexc194, %322, %.noexc191, %312
-  %.12 = phi i8 [ 0, %312 ], [ 0, %.noexc191 ], [ %.11287, %322 ], [ %.11287, %.noexc194 ]
+  %.12 = phi i8 [ 0, %312 ], [ 0, %.noexc191 ], [ 1, %322 ], [ 1, %.noexc194 ]
   %317 = landingpad { ptr, i32 }
           cleanup
   br label %314
@@ -107238,7 +107238,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   br label %318
 
 318:                                              ; preds = %.thread285, %294
-  %.11287 = phi i8 [ 1, %.thread285 ], [ %.10, %294 ]
   %319 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %320 = load i64, ptr %319, align 8, !alias.scope !26240, !noalias !26253, !noundef !12
   %321 = icmp eq i64 %320, 0
@@ -108338,7 +108337,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit221
           to label %"_ZN4core3ptr60drop_in_place$LT$deltalake_core..storage..StorageOptions$GT$17h7ab1df7824d9fdbdE.exit251" unwind label %386
 
 385:                                              ; preds = %.thread, %386, %72
-  %.2 = phi i8 [ 1, %386 ], [ %.1129355, %.thread ], [ %.1129, %72 ]
+  %.2 = phi i8 [ 1, %386 ], [ 1, %.thread ], [ %.1129, %72 ]
   %.pn156 = phi { ptr, i32 } [ %387, %386 ], [ %.pn154356, %.thread ], [ %.pn154, %72 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17hcd91649e58ba1c65E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %3) #47
           to label %396 unwind label %263
@@ -108463,7 +108462,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit221
 
 .thread:                                          ; preds = %85, %72
   %.pn154356 = phi { ptr, i32 } [ %.pn154, %72 ], [ %86, %85 ]
-  %.1129355 = phi i8 [ %.1129, %72 ], [ 1, %85 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$deltalake_core..storage..StorageOptions$GT$17h7ab1df7824d9fdbdE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %4) #47
           to label %385 unwind label %263
 
@@ -110046,7 +110044,7 @@ _ZN14deltalake_core7storage9factories17h058b76954b9f05c7E.exit.i: ; preds = %"_Z
   br i1 %.not.i, label %"_ZN4core3ptr168drop_in_place$LT$core..option..Option$LT$dashmap..mapref..one..Ref$LT$url..Url$C$alloc..sync..Arc$LT$dyn$u20$deltalake_core..storage..ObjectStoreFactory$GT$$GT$$GT$$GT$17h97279dec2bac242bE.exit.i", label %355
 
 .body.i:                                          ; preds = %895, %891, %.thread287.i, %881, %477, %441, %353
-  %.7.i = phi i8 [ %.0104.lpad-body.i, %881 ], [ 1, %477 ], [ 1, %353 ], [ 1, %441 ], [ 0, %.thread287.i ], [ %.0104.lpad-body.i, %895 ], [ %.0104.lpad-body.i, %891 ]
+  %.7.i = phi i8 [ %.0104.lpad-body.i, %881 ], [ 1, %477 ], [ 1, %353 ], [ 1, %441 ], [ 0, %.thread287.i ], [ 1, %895 ], [ 1, %891 ]
   %.pn126.i = phi { ptr, i32 } [ %eh.lpad-body182.i, %881 ], [ %478, %477 ], [ %354, %353 ], [ %442, %441 ], [ %883, %.thread287.i ], [ %eh.lpad-body182.i, %895 ], [ %eh.lpad-body182.i, %891 ]
   %350 = atomicrmw sub ptr %349, i64 4 release, align 8, !noalias !26859
   %351 = icmp eq i64 %350, 6
@@ -111476,7 +111474,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit221
           to label %"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17haf363ba8a503ae5eE.exit.i.i" unwind label %826, !noalias !26997
 
 825:                                              ; preds = %.thread.i.i, %826, %512
-  %.2.i.i = phi i8 [ 1, %826 ], [ %.1129354.i.i, %.thread.i.i ], [ %.1129.i.i, %512 ]
+  %.2.i.i = phi i8 [ 1, %826 ], [ 1, %.thread.i.i ], [ %.1129.i.i, %512 ]
   %.pn156.i.i = phi { ptr, i32 } [ %827, %826 ], [ %.pn154355.i.i, %.thread.i.i ], [ %.pn154.i.i, %512 ]
   invoke void @"_ZN4core3ptr29drop_in_place$LT$url..Url$GT$17hcd91649e58ba1c65E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %138) #47
           to label %836 unwind label %703, !noalias !26997
@@ -111598,7 +111596,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit221
 
 .thread.i.i:                                      ; preds = %525, %512
   %.pn154355.i.i = phi { ptr, i32 } [ %.pn154.i.i, %512 ], [ %526, %525 ]
-  %.1129354.i.i = phi i8 [ %.1129.i.i, %512 ], [ 1, %525 ]
   invoke void @"_ZN4core3ptr110drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..string..String$C$alloc..string..String$GT$$GT$17haf363ba8a503ae5eE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %137) #47
           to label %825 unwind label %703, !noalias !26997
 
@@ -111796,7 +111793,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit221
   br i1 %929, label %946, label %947
 
 930:                                              ; preds = %.noexc199.i, %936, %.noexc197.i, %926
-  %.12.i = phi i8 [ 0, %926 ], [ 0, %.noexc197.i ], [ %.11292.i, %936 ], [ %.11292.i, %.noexc199.i ]
+  %.12.i = phi i8 [ 0, %926 ], [ 0, %.noexc197.i ], [ 1, %936 ], [ 1, %.noexc199.i ]
   %931 = landingpad { ptr, i32 }
           cleanup
   br label %928
@@ -111808,7 +111805,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit221
   br label %932
 
 932:                                              ; preds = %.thread290.i, %908
-  %.11292.i = phi i8 [ 1, %.thread290.i ], [ %.10.i, %908 ]
   %933 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %934 = load i64, ptr %933, align 8, !alias.scope !27291, !noalias !27302, !noundef !12
   %935 = icmp eq i64 %934, 0

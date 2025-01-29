@@ -6390,7 +6390,7 @@ define noundef zeroext i1 @"_ZN69_$LT$rustls..key_log_file..KeyLogFile$u20$as$u2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %13, align 8
   %14 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
-          to label %51 unwind label %44
+          to label %.thread unwind label %44
 
 15:                                               ; preds = %17
   %16 = landingpad { ptr, i32 }
@@ -6398,7 +6398,7 @@ define noundef zeroext i1 @"_ZN69_$LT$rustls..key_log_file..KeyLogFile$u20$as$u2
   %.val6 = load ptr, ptr %6, align 8, !nonnull !4, !align !6, !noundef !4
   %.val7 = load i8, ptr %22, align 8, !range !256, !noundef !4
   invoke fastcc void @"_ZN4core3ptr94drop_in_place$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$17he11d5345cec3d6bdE"(ptr nonnull %.val6, i8 %.val7) #38
-          to label %41 unwind label %49
+          to label %41 unwind label %48
 
 17:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
@@ -6455,17 +6455,17 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i: ; 
 _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %37, %.noexc, %32, %29
   %38 = atomicrmw xchg ptr %.val, i32 0 release, align 4
   %39 = icmp eq i32 %38, 2
-  br i1 %39, label %40, label %"_ZN4core3ptr94drop_in_place$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$17he11d5345cec3d6bdE.exit"
+  br i1 %39, label %40, label %46
 
 40:                                               ; preds = %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i
   invoke void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4wake17hb07a3d057da5ea39E(ptr noundef nonnull align 4 %.val)
-          to label %"_ZN4core3ptr94drop_in_place$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$17he11d5345cec3d6bdE.exit" unwind label %44
+          to label %46 unwind label %44
 
 41:                                               ; preds = %15, %44
   %42 = phi i64 [ %.pre, %44 ], [ %8, %15 ]
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %16, %15 ]
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %54, label %55
+  br i1 %43, label %52, label %53
 
 44:                                               ; preds = %40, %_ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.exit.i.i.i, %9
   %45 = landingpad { ptr, i32 }
@@ -6473,41 +6473,38 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i: ; preds = %37, %.noe
   %.pre = load i64, ptr %7, align 8, !range !56
   br label %41
 
-"_ZN4core3ptr94drop_in_place$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$17he11d5345cec3d6bdE.exit": ; preds = %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i, %40
+46:                                               ; preds = %40, %_ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %.pre9 = load i64, ptr %7, align 8, !range !56
-  br label %46
+  %47 = icmp eq i64 %.pre9, 0
+  br i1 %47, label %50, label %51
 
-46:                                               ; preds = %51, %"_ZN4core3ptr94drop_in_place$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$17he11d5345cec3d6bdE.exit"
-  %47 = phi i64 [ %8, %51 ], [ %.pre9, %"_ZN4core3ptr94drop_in_place$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$17he11d5345cec3d6bdE.exit" ]
-  %.0.in = phi i1 [ %14, %51 ], [ %28, %"_ZN4core3ptr94drop_in_place$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$17he11d5345cec3d6bdE.exit" ]
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %52, label %53
-
-49:                                               ; preds = %15, %55
-  %50 = landingpad { ptr, i32 }
+48:                                               ; preds = %15, %53
+  %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #37
   unreachable
 
-51:                                               ; preds = %9
+.thread:                                          ; preds = %9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
-  br label %46
+  br label %51
 
-52:                                               ; preds = %53, %46
+50:                                               ; preds = %51, %46
+  %.0.in12 = phi i1 [ %.0.in11, %51 ], [ %28, %46 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  ret i1 %.0.in
+  ret i1 %.0.in12
 
-53:                                               ; preds = %46
+51:                                               ; preds = %.thread, %46
+  %.0.in11 = phi i1 [ %14, %.thread ], [ %28, %46 ]
   call fastcc void @"_ZN4core3ptr237drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$$GT$$GT$17h22211966169db7acE"(ptr noalias noundef align 8 dereferenceable(24) %7)
-  br label %52
+  br label %50
 
-54:                                               ; preds = %55, %41
+52:                                               ; preds = %53, %41
   resume { ptr, i32 } %.pn
 
-55:                                               ; preds = %41
+53:                                               ; preds = %41
   invoke fastcc void @"_ZN4core3ptr237drop_in_place$LT$core..result..Result$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$C$std..sync..poison..TryLockError$LT$std..sync..mutex..MutexGuard$LT$rustls..key_log_file..KeyLogFileInner$GT$$GT$$GT$$GT$17h22211966169db7acE"(ptr noalias noundef align 8 dereferenceable(24) %7) #38
-          to label %54 unwind label %49
+          to label %52 unwind label %48
 }
 
 ; Function Attrs: cold noreturn nonlazybind uwtable

@@ -19684,27 +19684,24 @@ if.end24:                                         ; preds = %lor.lhs.false21
   %tobool25.not = icmp eq ptr %5, null
   %spec.store.select = select i1 %tobool25.not, ptr @.str.16420, ptr %5
   %call30 = call ptr @hi_sdsnew(ptr noundef nonnull %spec.store.select) #22
-  br i1 %i.051, label %sw.bb29, label %sw.bb
+  br i1 %i.051, label %for.inc.thread, label %for.inc
 
-sw.bb:                                            ; preds = %if.end24
-  store ptr %call30, ptr %call, align 8
-  br label %for.inc
-
-sw.bb29:                                          ; preds = %if.end24
+for.inc.thread:                                   ; preds = %if.end24
   store ptr %call30, ptr %appendonly, align 8
-  br label %for.inc
+  br label %for.end
 
-for.inc:                                          ; preds = %sw.bb, %sw.bb29
+for.inc:                                          ; preds = %if.end24
+  store ptr %call30, ptr %call, align 8
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !24
 
-for.end:                                          ; preds = %for.inc
+for.end:                                          ; preds = %for.inc, %for.inc.thread
   call void @freeReplyObject(ptr noundef nonnull %0) #22
   call void @redisFree(ptr noundef nonnull %call1) #22
   br label %return
 
 fail:                                             ; preds = %if.end10
-  %tobool31.not73 = icmp ne ptr %0, null
-  %tobool31.not.not = select i1 %cmp11, i1 %tobool31.not73, i1 false
+  %tobool31.not79 = icmp ne ptr %0, null
+  %tobool31.not.not = select i1 %cmp11, i1 %tobool31.not79, i1 false
   br i1 %tobool31.not.not, label %fail.land.lhs.truethread-pre-split_crit_edge, label %if.end49.critedge
 
 fail.land.lhs.truethread-pre-split_crit_edge:     ; preds = %fail

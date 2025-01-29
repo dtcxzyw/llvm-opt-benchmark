@@ -175,7 +175,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i30:            ; preds = %_ZN4llvm12StringSwi
   br i1 %14, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93.sink.split, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit34
 
 _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit34: ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit25, %_ZN4llvmeqENS_9StringRefES0_.exit.i30
-  br i1 %12, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E5CasesENS_13StringLiteralES3_S3_S3_S1_.exit, label %15
+  br i1 %12, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93, label %15
 
 15:                                               ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit34
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E5CasesENS_13StringLiteralES3_S3_S3_S1_.exit [
@@ -237,27 +237,24 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i15.i.i.i:      ; preds = %_ZN4llvmeqENS_9Stri
   %24 = icmp eq i32 %bcmp.i.i16.i.i.i, 0
   br i1 %24, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit.i71
 
-_ZN4llvm12StringSwitchINS_9StringRefES1_E5CasesENS_13StringLiteralES3_S3_S3_S1_.exit: ; preds = %15, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit34, %_ZN4llvm12StringSwitchINS_9StringRefES1_E5CasesENS_13StringLiteralES3_S1_.exit
-  %or.cond467.not = or i1 %.not.i.i11474, %12
-  br i1 %or.cond467.not, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit75, label %_ZN4llvmeqENS_9StringRefES0_.exit.i71
+_ZN4llvm12StringSwitchINS_9StringRefES1_E5CasesENS_13StringLiteralES3_S3_S3_S1_.exit: ; preds = %15, %_ZN4llvm12StringSwitchINS_9StringRefES1_E5CasesENS_13StringLiteralES3_S1_.exit
+  br i1 %.not.i.i11474, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit84, label %_ZN4llvmeqENS_9StringRefES0_.exit.i71
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i71:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i15.i.i.i, %_ZN4llvm12StringSwitchINS_9StringRefES1_E5CasesENS_13StringLiteralES3_S3_S3_S1_.exit
   %bcmp.i.i72 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.20, i64 3)
   %25 = icmp eq i32 %bcmp.i.i72, 0
   br i1 %25, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93.sink.split, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit75
 
-_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit75: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i65, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %_ZN4llvm12StringSwitchINS_9StringRefES1_E5CasesENS_13StringLiteralES3_S3_S3_S1_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.i71
-  %or.cond469.not = or i1 %.not.i.i11474, %12
-  br i1 %or.cond469.not, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit84, label %_ZN4llvmeqENS_9StringRefES0_.exit.i80
+_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit75: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i65, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i71
+  br i1 %.not.i.i11474, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit84, label %_ZN4llvmeqENS_9StringRefES0_.exit.i80
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i80:            ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit75
   %bcmp.i.i81 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.22, i64 3)
   %26 = icmp eq i32 %bcmp.i.i81, 0
   br i1 %26, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93.sink.split, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit84
 
-_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit84: ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit75, %_ZN4llvmeqENS_9StringRefES0_.exit.i80
-  %or.cond471.not = or i1 %.not.i.i29, %12
-  br i1 %or.cond471.not, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93, label %_ZN4llvmeqENS_9StringRefES0_.exit.i89
+_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit84: ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E5CasesENS_13StringLiteralES3_S3_S3_S1_.exit, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit75, %_ZN4llvmeqENS_9StringRefES0_.exit.i80
+  br i1 %.not.i.i29, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93, label %_ZN4llvmeqENS_9StringRefES0_.exit.i89
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i89:            ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit84
   %bcmp.i.i90 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.24, i64 4)
@@ -273,7 +270,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93.sin
   store i8 1, ptr %8, align 8
   br label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93
 
-_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93: ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93.sink.split, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit84, %_ZN4llvmeqENS_9StringRefES0_.exit.i89
+_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93: ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit93.sink.split, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit34, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit84, %_ZN4llvmeqENS_9StringRefES0_.exit.i89
   store ptr @.str.28, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 3, ptr %28, align 8
@@ -603,10 +600,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i270:           ; preds = %92
 
 _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit274.sink.split: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i270, %_ZN4llvmeqENS_9StringRefES0_.exit.i261, %_ZN4llvmeqENS_9StringRefES0_.exit.i252, %_ZN4llvmeqENS_9StringRefES0_.exit.i243, %_ZN4llvmeqENS_9StringRefES0_.exit.i234, %_ZN4llvmeqENS_9StringRefES0_.exit.i225, %_ZN4llvmeqENS_9StringRefES0_.exit.i216, %_ZN4llvmeqENS_9StringRefES0_.exit.i207, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i200, %_ZN4llvmeqENS_9StringRefES0_.exit.i15.i196, %_ZN4llvmeqENS_9StringRefES0_.exit.i179, %_ZN4llvmeqENS_9StringRefES0_.exit.i170, %_ZN4llvmeqENS_9StringRefES0_.exit.i161, %_ZN4llvmeqENS_9StringRefES0_.exit.i152, %_ZN4llvmeqENS_9StringRefES0_.exit.i143, %_ZN4llvmeqENS_9StringRefES0_.exit.i134, %_ZN4llvmeqENS_9StringRefES0_.exit.i125, %_ZN4llvmeqENS_9StringRefES0_.exit.i116, %_ZN4llvmeqENS_9StringRefES0_.exit.i107, %_ZN4llvmeqENS_9StringRefES0_.exit.i98
   %.str.33.sink = phi ptr [ @.str.33, %_ZN4llvmeqENS_9StringRefES0_.exit.i98 ], [ @.str.35, %_ZN4llvmeqENS_9StringRefES0_.exit.i107 ], [ @.str.37, %_ZN4llvmeqENS_9StringRefES0_.exit.i116 ], [ @.str.39, %_ZN4llvmeqENS_9StringRefES0_.exit.i125 ], [ @.str.41, %_ZN4llvmeqENS_9StringRefES0_.exit.i134 ], [ @.str.43, %_ZN4llvmeqENS_9StringRefES0_.exit.i143 ], [ @.str.45, %_ZN4llvmeqENS_9StringRefES0_.exit.i152 ], [ @.str.47, %_ZN4llvmeqENS_9StringRefES0_.exit.i161 ], [ @.str.49, %_ZN4llvmeqENS_9StringRefES0_.exit.i170 ], [ @.str.51, %_ZN4llvmeqENS_9StringRefES0_.exit.i179 ], [ @.str.54, %_ZN4llvmeqENS_9StringRefES0_.exit.i15.i196 ], [ @.str.54, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i200 ], [ @.str.56, %_ZN4llvmeqENS_9StringRefES0_.exit.i207 ], [ @.str.58, %_ZN4llvmeqENS_9StringRefES0_.exit.i216 ], [ @.str.60, %_ZN4llvmeqENS_9StringRefES0_.exit.i225 ], [ @.str.62, %_ZN4llvmeqENS_9StringRefES0_.exit.i234 ], [ @.str.64, %_ZN4llvmeqENS_9StringRefES0_.exit.i243 ], [ @.str.66, %_ZN4llvmeqENS_9StringRefES0_.exit.i252 ], [ @.str.68, %_ZN4llvmeqENS_9StringRefES0_.exit.i261 ], [ @.str.70, %_ZN4llvmeqENS_9StringRefES0_.exit.i270 ]
-  %.sink515 = phi i64 [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i98 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i107 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i116 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i125 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i134 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i143 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i152 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i161 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i170 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i179 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i15.i196 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i200 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i207 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i216 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i225 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i234 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i243 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit.i252 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit.i261 ], [ 11, %_ZN4llvmeqENS_9StringRefES0_.exit.i270 ]
+  %.sink520 = phi i64 [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i98 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i107 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i116 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i125 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i134 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i143 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i152 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i161 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i170 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i179 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i15.i196 ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i200 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i207 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i216 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i225 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i234 ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i243 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit.i252 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit.i261 ], [ 11, %_ZN4llvmeqENS_9StringRefES0_.exit.i270 ]
   store ptr %.str.33.sink, ptr %33, align 8
   %.sroa.2.0..sroa_idx.i101 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store i64 %.sink515, ptr %.sroa.2.0..sroa_idx.i101, align 8
+  store i64 %.sink520, ptr %.sroa.2.0..sroa_idx.i101, align 8
   store i8 1, ptr %34, align 8
   br label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit274
 

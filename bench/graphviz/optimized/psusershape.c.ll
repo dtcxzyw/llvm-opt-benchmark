@@ -322,93 +322,85 @@ define void @cat_libfile(ptr noundef %0, ptr noundef readonly %1, ptr nocapture 
 
 .preheader45:                                     ; preds = %3, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %3 ]
-  %.147 = phi i8 [ %spec.select, %7 ], [ 1, %3 ]
   %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not37 = icmp eq ptr %6, null
-  br i1 %.not37, label %.critedge, label %7
+  br i1 %.not37, label %.preheader43, label %7
 
 7:                                                ; preds = %.preheader45
   %8 = load i8, ptr %6, align 1
-  %9 = icmp eq i8 %8, 0
-  %spec.select = select i1 %9, i8 0, i8 %.147
+  %.not57 = icmp eq i8 %8, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = trunc nuw i8 %spec.select to i1
-  br i1 %10, label %.preheader45, label %.critedge
+  br i1 %.not57, label %.loopexit44, label %.preheader45
 
-.critedge:                                        ; preds = %.preheader45, %7
-  %.0.ph = phi i8 [ %.147, %.preheader45 ], [ %spec.select, %7 ]
-  %11 = trunc nuw i8 %.0.ph to i1
-  br i1 %11, label %.preheader43, label %.loopexit44
-
-.preheader43:                                     ; preds = %3, %.critedge
-  %12 = load ptr, ptr %2, align 8
-  %.not3848 = icmp eq ptr %12, null
+.preheader43:                                     ; preds = %.preheader45, %3
+  %9 = load ptr, ptr %2, align 8
+  %.not3848 = icmp eq ptr %9, null
   br i1 %.not3848, label %.loopexit44, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader43, %.lr.ph
-  %13 = phi ptr [ %17, %.lr.ph ], [ %12, %.preheader43 ]
-  %.02949 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader43 ]
-  %14 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull %13) #15
-  %15 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.2) #15
-  %16 = getelementptr inbounds nuw i8, ptr %.02949, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %.not38 = icmp eq ptr %17, null
+  %10 = phi ptr [ %14, %.lr.ph ], [ %9, %.preheader43 ]
+  %.02949 = phi ptr [ %13, %.lr.ph ], [ %2, %.preheader43 ]
+  %11 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull %10) #15
+  %12 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.2) #15
+  %13 = getelementptr inbounds nuw i8, ptr %.02949, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %.not38 = icmp eq ptr %14, null
   br i1 %.not38, label %.loopexit44, label %.lr.ph
 
-.loopexit44:                                      ; preds = %.lr.ph, %.preheader43, %.critedge
+.loopexit44:                                      ; preds = %.lr.ph, %7, %.preheader43
   br i1 %.not, label %.loopexit, label %.preheader42
 
 .preheader42:                                     ; preds = %.loopexit44
-  %18 = load ptr, ptr %1, align 8
-  %.not3950 = icmp eq ptr %18, null
+  %15 = load ptr, ptr %1, align 8
+  %.not3950 = icmp eq ptr %15, null
   br i1 %.not3950, label %.loopexit, label %.lr.ph52
 
-.lr.ph52:                                         ; preds = %.preheader42, %36
-  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %36 ], [ 0, %.preheader42 ]
-  %19 = phi ptr [ %38, %36 ], [ %18, %.preheader42 ]
-  %20 = load i8, ptr %19, align 1
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %36, label %22
+.lr.ph52:                                         ; preds = %.preheader42, %33
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %33 ], [ 0, %.preheader42 ]
+  %16 = phi ptr [ %35, %33 ], [ %15, %.preheader42 ]
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %33, label %19
 
-22:                                               ; preds = %.lr.ph52
-  %23 = call ptr @safefile(ptr noundef nonnull %19) #15
-  %.not40 = icmp eq ptr %23, null
-  br i1 %.not40, label %24, label %26
+19:                                               ; preds = %.lr.ph52
+  %20 = call ptr @safefile(ptr noundef nonnull %16) #15
+  %.not40 = icmp eq ptr %20, null
+  br i1 %.not40, label %21, label %23
 
-24:                                               ; preds = %22
-  %25 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %19) #15
-  br label %36
+21:                                               ; preds = %19
+  %22 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %16) #15
+  br label %33
 
-26:                                               ; preds = %22
-  %27 = call noalias ptr @fopen(ptr noundef nonnull %23, ptr noundef nonnull @.str.4)
-  %.not41 = icmp eq ptr %27, null
-  br i1 %.not41, label %34, label %.preheader
+23:                                               ; preds = %19
+  %24 = call noalias ptr @fopen(ptr noundef nonnull %20, ptr noundef nonnull @.str.4)
+  %.not41 = icmp eq ptr %24, null
+  br i1 %.not41, label %31, label %.preheader
 
-.preheader:                                       ; preds = %26, %.preheader
+.preheader:                                       ; preds = %23, %.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8192) %4, i8 0, i64 8192, i1 false)
-  %28 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %27)
-  %29 = call i64 @gvwrite(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %28) #15
-  %30 = icmp ult i64 %28, 8192
-  br i1 %30, label %31, label %.preheader
+  %25 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %24)
+  %26 = call i64 @gvwrite(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %25) #15
+  %27 = icmp ult i64 %25, 8192
+  br i1 %27, label %28, label %.preheader
 
-31:                                               ; preds = %.preheader
-  %32 = call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.2) #15
-  %33 = call i32 @fclose(ptr noundef nonnull %27)
-  br label %36
+28:                                               ; preds = %.preheader
+  %29 = call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.2) #15
+  %30 = call i32 @fclose(ptr noundef nonnull %24)
+  br label %33
 
-34:                                               ; preds = %26
-  %35 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %23) #15
-  br label %36
+31:                                               ; preds = %23
+  %32 = call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull %20) #15
+  br label %33
 
-36:                                               ; preds = %24, %34, %31, %.lr.ph52
+33:                                               ; preds = %21, %31, %28, %.lr.ph52
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next54
-  %38 = load ptr, ptr %37, align 8
-  %.not39 = icmp eq ptr %38, null
+  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next54
+  %35 = load ptr, ptr %34, align 8
+  %.not39 = icmp eq ptr %35, null
   br i1 %.not39, label %.loopexit, label %.lr.ph52
 
-.loopexit:                                        ; preds = %36, %.preheader42, %.loopexit44
+.loopexit:                                        ; preds = %33, %.preheader42, %.loopexit44
   ret void
 }
 

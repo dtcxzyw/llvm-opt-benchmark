@@ -7640,7 +7640,7 @@ _ZN12clap_builder5error6format21write_dynamic_context17h87a10de77816625dE.exit: 
   br label %789
 
 787:                                              ; preds = %805, %781
-  %.1 = phi i8 [ %.2, %805 ], [ %.0, %781 ]
+  %.1 = phi i8 [ 1, %805 ], [ %.0, %781 ]
   %788 = invoke noundef align 8 dereferenceable_or_null(32) ptr @"_ZN12clap_builder5error14Error$LT$F$GT$3get17h38f9c2490293ae7cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i8 noundef 12)
           to label %806 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7679,7 +7679,6 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   br label %805
 
 805:                                              ; preds = %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit116, %789
-  %.2 = phi i8 [ %.0, %789 ], [ 1, %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit116 ]
   invoke fastcc void @_ZN12clap_builder5error6format12did_you_mean17h40f8da9e36e564a6E(ptr noalias noundef align 8 dereferenceable(24) %140, ptr noalias noundef readonly align 2 dereferenceable(98) %142, ptr noalias noundef nonnull readonly align 1 @anon.85f68effae4436bb4f25a144403dc49c.51, i64 noundef 8, ptr noalias noundef readonly align 8 dereferenceable(32) %765)
           to label %787 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7702,7 +7701,7 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   br label %814
 
 812:                                              ; preds = %830, %806
-  %.3 = phi i8 [ %.4, %830 ], [ %.1, %806 ]
+  %.3 = phi i8 [ 1, %830 ], [ %.1, %806 ]
   %813 = invoke noundef align 8 dereferenceable_or_null(32) ptr @"_ZN12clap_builder5error14Error$LT$F$GT$3get17h38f9c2490293ae7cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1, i8 noundef 14)
           to label %831 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7741,7 +7740,6 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   br label %830
 
 830:                                              ; preds = %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit122, %814
-  %.4 = phi i8 [ %.1, %814 ], [ 1, %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit122 ]
   invoke fastcc void @_ZN12clap_builder5error6format12did_you_mean17h40f8da9e36e564a6E(ptr noalias noundef align 8 dereferenceable(24) %140, ptr noalias noundef readonly align 2 dereferenceable(98) %142, ptr noalias noundef nonnull readonly align 1 @anon.85f68effae4436bb4f25a144403dc49c.52, i64 noundef 5, ptr noalias noundef readonly align 8 dereferenceable(32) %788)
           to label %812 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

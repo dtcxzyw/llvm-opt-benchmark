@@ -71512,7 +71512,7 @@ land.lhs.true105.us:                              ; preds = %land.lhs.true102.us
   br label %if.end111.us
 
 if.end111.us:                                     ; preds = %land.lhs.true105.us, %land.lhs.true102.us, %while.end.us
-  %isNumber.3.us = phi i8 [ %spec.select64.us, %land.lhs.true102.us ], [ %spec.select64.us, %while.end.us ], [ %spec.select65.us, %land.lhs.true105.us ]
+  %isNumber.3.us = phi i8 [ %isNumber.0.lcssa.us, %land.lhs.true102.us ], [ %spec.select64.us, %while.end.us ], [ %spec.select65.us, %land.lhs.true105.us ]
   %tobool112.us = trunc nuw i8 %isNumber.3.us to i1
   br i1 %tobool112.us, label %for.cond114.preheader.us, label %if.end131.us
 
@@ -71760,7 +71760,7 @@ land.lhs.true105:                                 ; preds = %land.lhs.true102
   br label %if.end111
 
 if.end111:                                        ; preds = %land.lhs.true105, %land.lhs.true102, %while.end
-  %isNumber.3 = phi i8 [ %spec.select64, %land.lhs.true102 ], [ %spec.select64, %while.end ], [ %spec.select65, %land.lhs.true105 ]
+  %isNumber.3 = phi i8 [ %isNumber.0.lcssa, %land.lhs.true102 ], [ %spec.select64, %while.end ], [ %spec.select65, %land.lhs.true105 ]
   %tobool112 = trunc nuw i8 %isNumber.3 to i1
   br i1 %tobool112, label %for.cond114.preheader, label %if.end131
 

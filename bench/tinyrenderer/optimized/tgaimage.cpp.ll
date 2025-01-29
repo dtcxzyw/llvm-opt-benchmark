@@ -884,7 +884,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
 
 18:                                               ; preds = %..critedge_crit_edge.us
   %brmerge48.us = or i1 %29, %35
-  br i1 %brmerge48.us, label %19, label %.loopexit.loopexit87.split.loop.exit96
+  br i1 %brmerge48.us, label %19, label %.loopexit.loopexit87.split.loop.exit97
 
 19:                                               ; preds = %18
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
@@ -928,7 +928,7 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
 
 .split.us:                                        ; preds = %..critedge_crit_edge.us, %.preheader
   %.us-phi.in = phi i64 [ %indvars.iv82, %.preheader ], [ %indvars.iv79, %..critedge_crit_edge.us ]
-  %.us-phi62 = phi i8 [ %.2, %.preheader ], [ %.2.us, %..critedge_crit_edge.us ]
+  %.us-phi62 = phi i8 [ %.03856, %.preheader ], [ %.2.us, %..critedge_crit_edge.us ]
   %.us-phi = trunc i64 %.us-phi.in to i8
   %38 = add nsw i8 %.us-phi, -1
   br label %.loopexit
@@ -942,13 +942,13 @@ define dso_local noundef zeroext i1 @_ZNK8TGAImage15unload_rle_dataERSt14basic_o
   %44 = and i1 %43, %41
   br i1 %44, label %.preheader, label %.loopexit, !llvm.loop !19
 
-.loopexit.loopexit87.split.loop.exit96:           ; preds = %18
+.loopexit.loopexit87.split.loop.exit97:           ; preds = %18
   %45 = trunc nuw nsw i64 %indvars.iv79 to i8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %19, %39, %.loopexit.loopexit87.split.loop.exit96, %11, %.split.us
-  %.140 = phi i8 [ %38, %.split.us ], [ 1, %11 ], [ %45, %.loopexit.loopexit87.split.loop.exit96 ], [ %42, %39 ], [ %indvars, %19 ]
-  %.1 = phi i8 [ %.us-phi62, %.split.us ], [ 1, %11 ], [ %.2.us, %.loopexit.loopexit87.split.loop.exit96 ], [ %.2, %39 ], [ %.2.us, %19 ]
+.loopexit:                                        ; preds = %19, %39, %.loopexit.loopexit87.split.loop.exit97, %11, %.split.us
+  %.140 = phi i8 [ %38, %.split.us ], [ 1, %11 ], [ %45, %.loopexit.loopexit87.split.loop.exit97 ], [ %42, %39 ], [ %indvars, %19 ]
+  %.1 = phi i8 [ %.us-phi62, %.split.us ], [ 1, %11 ], [ %.2.us, %.loopexit.loopexit87.split.loop.exit97 ], [ %.2, %39 ], [ %.2.us, %19 ]
   %46 = trunc nuw i8 %.1 to i1
   %.v = select i1 %46, i8 -1, i8 127
   %47 = add i8 %.v, %.140

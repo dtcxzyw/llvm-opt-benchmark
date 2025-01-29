@@ -40638,7 +40638,7 @@ _ZL32isImpliedCondCommonOperandWithCRN4llvm7CmpInst9PredicateERKNS_13ConstantRan
   br label %.critedge6.i
 
 .critedge6.i:                                     ; preds = %174, %171, %169, %161, %156, %154, %146, %_ZL32isImpliedCondCommonOperandWithCRN4llvm7CmpInst9PredicateERKNS_13ConstantRangeES1_S4_.exit.i
-  %.sroa.7.0.i = phi i8 [ %.sroa.3.0.i.i, %_ZL32isImpliedCondCommonOperandWithCRN4llvm7CmpInst9PredicateERKNS_13ConstantRangeES1_S4_.exit.i ], [ 0, %174 ], [ %.sroa.3.0.i.i, %146 ], [ %.sroa.3.0.i.i, %156 ], [ %.sroa.3.0.i.i, %154 ], [ %.sroa.3.0.i.i, %161 ], [ %.sroa.3.0.i.i, %171 ], [ %.sroa.3.0.i.i, %169 ]
+  %.sroa.7.0.i = phi i8 [ 1, %_ZL32isImpliedCondCommonOperandWithCRN4llvm7CmpInst9PredicateERKNS_13ConstantRangeES1_S4_.exit.i ], [ 0, %174 ], [ %.sroa.3.0.i.i, %146 ], [ %.sroa.3.0.i.i, %156 ], [ %.sroa.3.0.i.i, %154 ], [ %.sroa.3.0.i.i, %161 ], [ %.sroa.3.0.i.i, %171 ], [ %.sroa.3.0.i.i, %169 ]
   %switch.i = phi i1 [ false, %_ZL32isImpliedCondCommonOperandWithCRN4llvm7CmpInst9PredicateERKNS_13ConstantRangeES1_S4_.exit.i ], [ false, %174 ], [ true, %146 ], [ true, %156 ], [ true, %154 ], [ true, %161 ], [ true, %171 ], [ true, %169 ]
   %175 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %176 = load i32, ptr %175, align 8
@@ -41044,30 +41044,28 @@ _ZL18isImpliedCondICmpsPKN4llvm8ICmpInstENS_7CmpInst9PredicateEPKNS_5ValueES7_RK
   %337 = load ptr, ptr %8, align 8
   %338 = add i32 %6, 1
   %339 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueENS_7CmpInst9PredicateES2_S2_RKNS_10DataLayoutEbj(ptr noundef %337, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(512) %4, i1 noundef zeroext %56, i32 noundef %338)
-  %.sroa.5.0.extract.shift = lshr i16 %339, 8
-  %340 = trunc nuw i16 %.sroa.5.0.extract.shift to i1
-  br i1 %340, label %_ZL18isImpliedCondAndOrPKN4llvm11InstructionENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEbj.exit, label %341
+  %.not47 = icmp samesign ult i16 %339, 256
+  br i1 %.not47, label %340, label %_ZL18isImpliedCondAndOrPKN4llvm11InstructionENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEbj.exit
 
-341:                                              ; preds = %.critedge.i27
-  %342 = load ptr, ptr %9, align 8
-  %343 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueENS_7CmpInst9PredicateES2_S2_RKNS_10DataLayoutEbj(ptr noundef %342, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(512) %4, i1 noundef zeroext %56, i32 noundef %338)
-  %.not46 = icmp samesign ugt i16 %343, 255
-  %spec.select = zext i1 %.not46 to i16
+340:                                              ; preds = %.critedge.i27
+  %341 = load ptr, ptr %9, align 8
+  %342 = call i16 @_ZN4llvm18isImpliedConditionEPKNS_5ValueENS_7CmpInst9PredicateES2_S2_RKNS_10DataLayoutEbj(ptr noundef %341, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(512) %4, i1 noundef zeroext %56, i32 noundef %338)
+  %.not46 = icmp samesign ugt i16 %342, 255
+  %343 = zext i1 %.not46 to i8
   br label %_ZL18isImpliedCondAndOrPKN4llvm11InstructionENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEbj.exit
 
-_ZL18isImpliedCondAndOrPKN4llvm11InstructionENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEbj.exit: ; preds = %341, %.critedge18.i, %332, %.critedge.i27
-  %.sroa.038.0 = phi i16 [ %339, %.critedge.i27 ], [ 0, %332 ], [ 0, %.critedge18.i ], [ %343, %341 ]
-  %.sroa.5.0 = phi i16 [ %.sroa.5.0.extract.shift, %.critedge.i27 ], [ 0, %332 ], [ 0, %.critedge18.i ], [ %spec.select, %341 ]
+_ZL18isImpliedCondAndOrPKN4llvm11InstructionENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEbj.exit: ; preds = %340, %.critedge18.i, %332, %.critedge.i27
+  %.sroa.038.0 = phi i16 [ %339, %.critedge.i27 ], [ 0, %332 ], [ 0, %.critedge18.i ], [ %342, %340 ]
+  %.sroa.5.0 = phi i8 [ 1, %.critedge.i27 ], [ 0, %332 ], [ 0, %.critedge18.i ], [ %343, %340 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %.sroa.030.0.extract.trunc31 = trunc i16 %.sroa.038.0 to i8
-  %.sroa.3.0.extract.trunc33 = trunc nuw nsw i16 %.sroa.5.0 to i8
   br label %344
 
 344:                                              ; preds = %330, %328, %20, %7, %_ZL18isImpliedCondAndOrPKN4llvm11InstructionENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEbj.exit, %_ZL18isImpliedCondICmpsPKN4llvm8ICmpInstENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEb.exit
-  %.sroa.3.0 = phi i8 [ %.sroa.3.0.extract.trunc33, %_ZL18isImpliedCondAndOrPKN4llvm11InstructionENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEbj.exit ], [ %.sroa.7.1.i, %_ZL18isImpliedCondICmpsPKN4llvm8ICmpInstENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEb.exit ], [ 0, %7 ], [ 0, %20 ], [ 0, %328 ], [ 0, %330 ]
+  %.sroa.3.0 = phi i8 [ %.sroa.5.0, %_ZL18isImpliedCondAndOrPKN4llvm11InstructionENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEbj.exit ], [ %.sroa.7.1.i, %_ZL18isImpliedCondICmpsPKN4llvm8ICmpInstENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEb.exit ], [ 0, %7 ], [ 0, %20 ], [ 0, %328 ], [ 0, %330 ]
   %.sroa.030.0 = phi i8 [ %.sroa.030.0.extract.trunc31, %_ZL18isImpliedCondAndOrPKN4llvm11InstructionENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEbj.exit ], [ %.sroa.071.1.i, %_ZL18isImpliedCondICmpsPKN4llvm8ICmpInstENS_7CmpInst9PredicateEPKNS_5ValueES7_RKNS_10DataLayoutEb.exit ], [ undef, %7 ], [ undef, %20 ], [ undef, %328 ], [ undef, %330 ]
   %.sroa.3.0.insert.ext = zext nneg i8 %.sroa.3.0 to i16
   %.sroa.3.0.insert.shift = shl nuw nsw i16 %.sroa.3.0.insert.ext, 8

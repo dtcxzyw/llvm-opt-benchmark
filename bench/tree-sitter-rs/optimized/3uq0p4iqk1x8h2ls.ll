@@ -1192,7 +1192,7 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   %8 = load i64, ptr %0, align 8, !range !203, !noundef !4
   %trunc = trunc nuw i64 %8 to i1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %trunc, label %56, label %10
+  br i1 %trunc, label %53, label %10
 
 10:                                               ; preds = %2
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
@@ -1275,21 +1275,22 @@ common.resume:                                    ; preds = %27, %47
 
 40:                                               ; preds = %"_ZN18tree_sitter_loader6Loader15language_for_id28_$u7b$$u7b$closure$u7d$$u7d$17hb8728e6eb644fdc9E.exit"
   %41 = icmp ne ptr %.fca.1.extract, null
-  br label %.sink.split
+  call void @llvm.assume(i1 %41)
+  br label %53
 
 42:                                               ; preds = %"_ZN18tree_sitter_loader6Loader15language_for_id28_$u7b$$u7b$closure$u7d$$u7d$17hb8728e6eb644fdc9E.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %43 = load i64, ptr %0, align 8, !range !203, !noalias !339, !noundef !4
   %trunc.i.i = trunc nuw i64 %43 to i1
-  br i1 %trunc.i.i, label %"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit", label %44
+  br i1 %trunc.i.i, label %"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit.thread", label %44
 
 44:                                               ; preds = %42
   %45 = icmp eq i64 %43, 0
-  br i1 %45, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$tree_sitter..Language$GT$$GT$17h5b67fa6ac2dd2723E.exit.i.i", label %46
+  br i1 %45, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit", label %46
 
 46:                                               ; preds = %44
   invoke void @"_ZN63_$LT$tree_sitter..Language$u20$as$u20$core..ops..drop..Drop$GT$4drop17h16817d4e8c1c3e09E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$tree_sitter..Language$GT$$GT$17h5b67fa6ac2dd2723E.exit.i.i" unwind label %47, !noalias !339
+          to label %"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit" unwind label %47, !noalias !339
 
 47:                                               ; preds = %46
   %48 = landingpad { ptr, i32 }
@@ -1298,53 +1299,42 @@ common.resume:                                    ; preds = %27, %47
   store ptr %.fca.1.extract, ptr %9, align 8, !noalias !339
   br label %common.resume
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$tree_sitter..Language$GT$$GT$17h5b67fa6ac2dd2723E.exit.i.i": ; preds = %46, %44
+"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit": ; preds = %46
   store i64 1, ptr %0, align 8, !noalias !339
   store ptr %.fca.1.extract, ptr %9, align 8, !noalias !339
-  br label %"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit"
+  br label %"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit.thread"
 
-"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit": ; preds = %42, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$tree_sitter..Language$GT$$GT$17h5b67fa6ac2dd2723E.exit.i.i"
-  %49 = phi i64 [ %43, %42 ], [ 1, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$tree_sitter..Language$GT$$GT$17h5b67fa6ac2dd2723E.exit.i.i" ]
+"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit": ; preds = %44
+  store i64 1, ptr %0, align 8, !noalias !339
+  store ptr %.fca.1.extract, ptr %9, align 8, !noalias !339
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
+  br label %53
+
+"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit.thread": ; preds = %42, %"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit"
   store i64 %43, ptr %7, align 8
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
-  %50 = icmp eq i64 %43, 0
-  br i1 %50, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit", label %51
-
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit": ; preds = %"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit"
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %trunc16 = trunc nuw i64 %49 to i1
-  br label %.sink.split
-
-51:                                               ; preds = %"_ZN9once_cell6unsync17OnceCell$LT$T$GT$3set17h826f7d00fd8cb77eE.exit"
   call fastcc void @"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE"(ptr noalias noundef align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   store ptr @anon.5797861c9b37489455df470e033f6d21.34, ptr %6, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %53, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr @anon.5797861c9b37489455df470e033f6d21.3, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %55, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr @anon.5797861c9b37489455df470e033f6d21.3, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %52, align 8
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5797861c9b37489455df470e033f6d21.36) #23
   unreachable
 
-.sink.split:                                      ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit", %40
-  %.sink = phi i1 [ %41, %40 ], [ %trunc16, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ]
-  %.sroa.4.0.ph = phi ptr [ %.fca.1.extract, %40 ], [ %9, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ]
-  %.sroa.0.0.ph = phi i64 [ 1, %40 ], [ 0, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ]
-  call void @llvm.assume(i1 %.sink)
-  br label %56
-
-56:                                               ; preds = %.sink.split, %2
-  %.sroa.4.0 = phi ptr [ %9, %2 ], [ %.sroa.4.0.ph, %.sink.split ]
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ %.sroa.0.0.ph, %.sink.split ]
-  %57 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %58 = insertvalue { i64, ptr } %57, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %58
+53:                                               ; preds = %40, %2, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit"
+  %.sroa.4.0 = phi ptr [ %9, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ], [ %9, %2 ], [ %.fca.1.extract, %40 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ], [ 0, %2 ], [ 1, %40 ]
+  %54 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %55 = insertvalue { i64, ptr } %54, ptr %.sroa.4.0, 1
+  ret { i64, ptr } %55
 }
 
 ; Function Attrs: nonlazybind uwtable
