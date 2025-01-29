@@ -508,13 +508,13 @@ vector.ph:                                        ; preds = %vector.main.loop.it
   %.splat37 = shufflevector <16 x i8> %.splatinsert36, <16 x i8> poison, <16 x i32> zeroinitializer
   %8 = mul <16 x i8> %.splat37, <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15>
   %induction = add <16 x i8> %8, %.splat
-  %9 = shl i8 %6, 4
-  %.splatinsert38 = insertelement <16 x i8> poison, i8 %9, i64 0
+  %9 = shl i8 %6, 5
   %.cast = trunc i64 %n.vec to i8
   %10 = mul i8 %.cast, %6
-  %11 = add <16 x i8> %.splatinsert38, %.splatinsert36
+  %.scalar3 = mul i8 %6, 17
+  %11 = insertelement <16 x i8> poison, i8 %.scalar3, i64 0
   %invariant.op = shufflevector <16 x i8> %11, <16 x i8> poison, <16 x i32> zeroinitializer
-  %12 = shl <16 x i8> %.splatinsert38, splat (i8 1)
+  %12 = insertelement <16 x i8> poison, i8 %9, i64 0
   %invariant.op2 = shufflevector <16 x i8> %12, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %vector.body
 
