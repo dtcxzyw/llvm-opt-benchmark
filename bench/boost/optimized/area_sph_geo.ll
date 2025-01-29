@@ -183294,14 +183294,14 @@ _ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123.sink.split: ; p
   br label %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123
 
 _ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123: ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123.sink.split, %173
-  %179 = call double @llvm.fabs.f64(double %69)
+  %179 = call noundef double @llvm.fabs.f64(double %69)
   %180 = fcmp ogt double %179, 9.000000e+01
   %.sroa.speculated222 = select i1 %180, double 9.000000e+01, double %69
   %181 = fcmp oeq double %.sroa.speculated222, 0.000000e+00
   br i1 %181, label %_ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit, label %182
 
 182:                                              ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123
-  %183 = select i1 %180, double 9.000000e+01, double %179
+  %183 = call noundef double @llvm.fabs.f64(double %.sroa.speculated222)
   %184 = fcmp olt double %183, 6.250000e-02
   %185 = fadd double %183, -6.250000e-02
   %186 = fadd double %185, 6.250000e-02
@@ -183313,14 +183313,14 @@ _ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123: ; preds = %_ZN
 
 _ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit: ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123, %182
   %.0.i = phi double [ %190, %182 ], [ 0.000000e+00, %_ZN5boost8geometry4math15sin_cos_degreesIdEEvRKT_RS3_S6_.exit123 ]
-  %191 = call double @llvm.fabs.f64(double %71)
+  %191 = call noundef double @llvm.fabs.f64(double %71)
   %192 = fcmp ogt double %191, 9.000000e+01
   %.sroa.speculated212 = select i1 %192, double 9.000000e+01, double %71
   %193 = fcmp oeq double %.sroa.speculated212, 0.000000e+00
   br i1 %193, label %_ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit125, label %194
 
 194:                                              ; preds = %_ZN5boost8geometry4math11round_angleIdEET_RKS3_.exit
-  %195 = select i1 %192, double 9.000000e+01, double %191
+  %195 = call noundef double @llvm.fabs.f64(double %.sroa.speculated212)
   %196 = fcmp olt double %195, 6.250000e-02
   %197 = fadd double %195, -6.250000e-02
   %198 = fadd double %197, 6.250000e-02
@@ -192373,14 +192373,14 @@ _ZN5boost8geometry4math15sin_cos_degreesIeEEvRKT_RS3_S6_.exit132.sink.split: ; p
   br label %_ZN5boost8geometry4math15sin_cos_degreesIeEEvRKT_RS3_S6_.exit132
 
 _ZN5boost8geometry4math15sin_cos_degreesIeEEvRKT_RS3_S6_.exit132: ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIeEEvRKT_RS3_S6_.exit132.sink.split, %189
-  %195 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %72)
+  %195 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %72)
   %196 = fcmp ogt x86_fp80 %195, 0xK4005B400000000000000
   %197 = select i1 %196, x86_fp80 0xK4005B400000000000000, x86_fp80 %72
   %198 = fcmp oeq x86_fp80 %197, 0xK00000000000000000000
   br i1 %198, label %_ZN5boost8geometry4math11round_angleIeEET_RKS3_.exit, label %199
 
 199:                                              ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIeEEvRKT_RS3_S6_.exit132
-  %200 = select i1 %196, x86_fp80 0xK4005B400000000000000, x86_fp80 %195
+  %200 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %197)
   %201 = fcmp olt x86_fp80 %200, 0xK3FFB8000000000000000
   %202 = fadd x86_fp80 %200, 0xKBFFB8000000000000000
   %203 = fadd x86_fp80 %202, 0xK3FFB8000000000000000
@@ -192392,14 +192392,14 @@ _ZN5boost8geometry4math15sin_cos_degreesIeEEvRKT_RS3_S6_.exit132: ; preds = %_ZN
 
 _ZN5boost8geometry4math11round_angleIeEET_RKS3_.exit: ; preds = %_ZN5boost8geometry4math15sin_cos_degreesIeEEvRKT_RS3_S6_.exit132, %199
   %.0.i = phi x86_fp80 [ %207, %199 ], [ 0xK00000000000000000000, %_ZN5boost8geometry4math15sin_cos_degreesIeEEvRKT_RS3_S6_.exit132 ]
-  %208 = call x86_fp80 @llvm.fabs.f80(x86_fp80 %74)
+  %208 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %74)
   %209 = fcmp ogt x86_fp80 %208, 0xK4005B400000000000000
   %210 = select i1 %209, x86_fp80 0xK4005B400000000000000, x86_fp80 %74
   %211 = fcmp oeq x86_fp80 %210, 0xK00000000000000000000
   br i1 %211, label %_ZN5boost8geometry4math11round_angleIeEET_RKS3_.exit134, label %212
 
 212:                                              ; preds = %_ZN5boost8geometry4math11round_angleIeEET_RKS3_.exit
-  %213 = select i1 %209, x86_fp80 0xK4005B400000000000000, x86_fp80 %208
+  %213 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %210)
   %214 = fcmp olt x86_fp80 %213, 0xK3FFB8000000000000000
   %215 = fadd x86_fp80 %213, 0xKBFFB8000000000000000
   %216 = fadd x86_fp80 %215, 0xK3FFB8000000000000000

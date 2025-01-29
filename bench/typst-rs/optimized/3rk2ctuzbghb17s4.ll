@@ -99272,33 +99272,33 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0163, i64 8
   %58 = load double, ptr %57, align 8, !noundef !12
   %59 = fmul double %56, %.0.i.i.i.i.i.i.i72
-  %.0.i.inv.i.i.i.i.i = fcmp uno double %59, 0.000000e+00
-  %60 = call double @llvm.fabs.f64(double %59)
+  %.0.i.inv.i.i.i.i.i = fcmp ord double %59, 0.000000e+00
+  %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %59, double 0.000000e+00
+  %60 = call double @llvm.fabs.f64(double %.0.i.i.i.i.i)
   %61 = fcmp one double %60, 0x7FF0000000000000
-  %.0.i.i.i.i.i = select i1 %61, double %59, double 0.000000e+00
-  %.0.i.i = select i1 %.0.i.inv.i.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i.i
+  %.0.i.i = select i1 %61, double %.0.i.i.i.i.i, double 0.000000e+00
   %62 = fmul double %58, %.0.i.i.i.i.i.i2.i
-  %.0.i.inv.i.i.i.i25.i = fcmp uno double %62, 0.000000e+00
-  %63 = call double @llvm.fabs.f64(double %62)
+  %.0.i.inv.i.i.i.i25.i = fcmp ord double %62, 0.000000e+00
+  %.0.i.i.i.i26.i = select i1 %.0.i.inv.i.i.i.i25.i, double %62, double 0.000000e+00
+  %63 = call double @llvm.fabs.f64(double %.0.i.i.i.i26.i)
   %64 = fcmp one double %63, 0x7FF0000000000000
-  %.0.i.i.i.i26.i = select i1 %64, double %62, double 0.000000e+00
-  %.0.i27.i = select i1 %.0.i.inv.i.i.i.i25.i, double 0.000000e+00, double %.0.i.i.i.i26.i
+  %.0.i27.i = select i1 %64, double %.0.i.i.i.i26.i, double 0.000000e+00
   %65 = fadd double %.0.i.i, %.0.i27.i
   %66 = fadd double %.sroa.7132.0.copyload, %65
   %.0.i.inv.i.i.i30.i = fcmp ord double %66, 0.000000e+00
   %.0.i.i.i31.i = select i1 %.0.i.inv.i.i.i30.i, double %66, double 0.000000e+00
   %67 = fmul double %56, %.0.i.i.i.i.i.i7.i
-  %.0.i.inv.i.i.i.i34.i = fcmp uno double %67, 0.000000e+00
-  %68 = call double @llvm.fabs.f64(double %67)
+  %.0.i.inv.i.i.i.i34.i = fcmp ord double %67, 0.000000e+00
+  %.0.i.i.i.i35.i = select i1 %.0.i.inv.i.i.i.i34.i, double %67, double 0.000000e+00
+  %68 = call double @llvm.fabs.f64(double %.0.i.i.i.i35.i)
   %69 = fcmp one double %68, 0x7FF0000000000000
-  %.0.i.i.i.i35.i = select i1 %69, double %67, double 0.000000e+00
-  %.0.i36.i = select i1 %.0.i.inv.i.i.i.i34.i, double 0.000000e+00, double %.0.i.i.i.i35.i
+  %.0.i36.i = select i1 %69, double %.0.i.i.i.i35.i, double 0.000000e+00
   %70 = fmul double %58, %.0.i.i.i.i.i.i12.i
-  %.0.i.inv.i.i.i.i39.i = fcmp uno double %70, 0.000000e+00
-  %71 = call double @llvm.fabs.f64(double %70)
+  %.0.i.inv.i.i.i.i39.i = fcmp ord double %70, 0.000000e+00
+  %.0.i.i.i.i40.i = select i1 %.0.i.inv.i.i.i.i39.i, double %70, double 0.000000e+00
+  %71 = call double @llvm.fabs.f64(double %.0.i.i.i.i40.i)
   %72 = fcmp one double %71, 0x7FF0000000000000
-  %.0.i.i.i.i40.i = select i1 %72, double %70, double 0.000000e+00
-  %.0.i41.i = select i1 %.0.i.inv.i.i.i.i39.i, double 0.000000e+00, double %.0.i.i.i.i40.i
+  %.0.i41.i = select i1 %72, double %.0.i.i.i.i40.i, double 0.000000e+00
   %73 = fadd double %.0.i36.i, %.0.i41.i
   %74 = fadd double %.sroa.8133.0.copyload, %73
   %.0.i.inv.i.i.i44.i = fcmp ord double %74, 0.000000e+00
@@ -99353,33 +99353,33 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   %.0.i.inv.i.i.i21.i45 = fcmp ord double %88, 0.000000e+00
   %.0.i.i.i22.i46 = select i1 %.0.i.inv.i.i.i21.i45, double %88, double 0.000000e+00
   %89 = fmul double %.0.i.i.i4.i, %.sroa.792.0.copyload
-  %.0.i.inv.i.i.i.i.i49 = fcmp uno double %89, 0.000000e+00
-  %90 = call double @llvm.fabs.f64(double %89)
+  %.0.i.inv.i.i.i.i.i49 = fcmp ord double %89, 0.000000e+00
+  %.0.i.i.i.i.i50 = select i1 %.0.i.inv.i.i.i.i.i49, double %89, double 0.000000e+00
+  %90 = call double @llvm.fabs.f64(double %.0.i.i.i.i.i50)
   %91 = fcmp one double %90, 0x7FF0000000000000
-  %.0.i.i.i.i.i50 = select i1 %91, double %89, double 0.000000e+00
-  %.0.i.i51 = select i1 %.0.i.inv.i.i.i.i.i49, double 0.000000e+00, double %.0.i.i.i.i.i50
+  %.0.i.i51 = select i1 %91, double %.0.i.i.i.i.i50, double 0.000000e+00
   %92 = fmul double %.0.i.i.i16.i, %.sroa.893.0.copyload
-  %.0.i.inv.i.i.i.i25.i54 = fcmp uno double %92, 0.000000e+00
-  %93 = call double @llvm.fabs.f64(double %92)
+  %.0.i.inv.i.i.i.i25.i54 = fcmp ord double %92, 0.000000e+00
+  %.0.i.i.i.i26.i55 = select i1 %.0.i.inv.i.i.i.i25.i54, double %92, double 0.000000e+00
+  %93 = call double @llvm.fabs.f64(double %.0.i.i.i.i26.i55)
   %94 = fcmp one double %93, 0x7FF0000000000000
-  %.0.i.i.i.i26.i55 = select i1 %94, double %92, double 0.000000e+00
-  %.0.i27.i56 = select i1 %.0.i.inv.i.i.i.i25.i54, double 0.000000e+00, double %.0.i.i.i.i26.i55
+  %.0.i27.i56 = select i1 %94, double %.0.i.i.i.i26.i55, double 0.000000e+00
   %95 = fadd double %.0.i.i51, %.0.i27.i56
   %96 = fadd double %.0.i.i.i31.i, %95
   %.0.i.inv.i.i.i30.i57 = fcmp ord double %96, 0.000000e+00
   %.0.i.i.i31.i58 = select i1 %.0.i.inv.i.i.i30.i57, double %96, double 0.000000e+00
   %97 = fmul double %.0.i.i.i10.i, %.sroa.792.0.copyload
-  %.0.i.inv.i.i.i.i34.i61 = fcmp uno double %97, 0.000000e+00
-  %98 = call double @llvm.fabs.f64(double %97)
+  %.0.i.inv.i.i.i.i34.i61 = fcmp ord double %97, 0.000000e+00
+  %.0.i.i.i.i35.i62 = select i1 %.0.i.inv.i.i.i.i34.i61, double %97, double 0.000000e+00
+  %98 = call double @llvm.fabs.f64(double %.0.i.i.i.i35.i62)
   %99 = fcmp one double %98, 0x7FF0000000000000
-  %.0.i.i.i.i35.i62 = select i1 %99, double %97, double 0.000000e+00
-  %.0.i36.i63 = select i1 %.0.i.inv.i.i.i.i34.i61, double 0.000000e+00, double %.0.i.i.i.i35.i62
+  %.0.i36.i63 = select i1 %99, double %.0.i.i.i.i35.i62, double 0.000000e+00
   %100 = fmul double %.0.i.i.i22.i, %.sroa.893.0.copyload
-  %.0.i.inv.i.i.i.i39.i66 = fcmp uno double %100, 0.000000e+00
-  %101 = call double @llvm.fabs.f64(double %100)
+  %.0.i.inv.i.i.i.i39.i66 = fcmp ord double %100, 0.000000e+00
+  %.0.i.i.i.i40.i67 = select i1 %.0.i.inv.i.i.i.i39.i66, double %100, double 0.000000e+00
+  %101 = call double @llvm.fabs.f64(double %.0.i.i.i.i40.i67)
   %102 = fcmp one double %101, 0x7FF0000000000000
-  %.0.i.i.i.i40.i67 = select i1 %102, double %100, double 0.000000e+00
-  %.0.i41.i68 = select i1 %.0.i.inv.i.i.i.i39.i66, double 0.000000e+00, double %.0.i.i.i.i40.i67
+  %.0.i41.i68 = select i1 %102, double %.0.i.i.i.i40.i67, double 0.000000e+00
   %103 = fadd double %.0.i36.i63, %.0.i41.i68
   %104 = fadd double %.0.i.i.i45.i, %103
   %.0.i.inv.i.i.i44.i69 = fcmp ord double %104, 0.000000e+00
@@ -99435,33 +99435,33 @@ define internal fastcc void @_ZN5typst13introspection12introspector12Introspecto
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.0.0163, i64 8
   %129 = load double, ptr %128, align 8, !noundef !12
   %130 = fmul double %127, %.0.i.i.i.i.i.i.i72
-  %.0.i.inv.i.i.i.i.i73 = fcmp uno double %130, 0.000000e+00
-  %131 = call double @llvm.fabs.f64(double %130)
+  %.0.i.inv.i.i.i.i.i73 = fcmp ord double %130, 0.000000e+00
+  %.0.i.i.i.i.i74 = select i1 %.0.i.inv.i.i.i.i.i73, double %130, double 0.000000e+00
+  %131 = call double @llvm.fabs.f64(double %.0.i.i.i.i.i74)
   %132 = fcmp one double %131, 0x7FF0000000000000
-  %.0.i.i.i.i.i74 = select i1 %132, double %130, double 0.000000e+00
-  %.0.i.i75 = select i1 %.0.i.inv.i.i.i.i.i73, double 0.000000e+00, double %.0.i.i.i.i.i74
+  %.0.i.i75 = select i1 %132, double %.0.i.i.i.i.i74, double 0.000000e+00
   %133 = fmul double %129, %.0.i.i.i.i.i.i2.i
-  %.0.i.inv.i.i.i.i3.i = fcmp uno double %133, 0.000000e+00
-  %134 = call double @llvm.fabs.f64(double %133)
+  %.0.i.inv.i.i.i.i3.i = fcmp ord double %133, 0.000000e+00
+  %.0.i.i.i.i4.i = select i1 %.0.i.inv.i.i.i.i3.i, double %133, double 0.000000e+00
+  %134 = call double @llvm.fabs.f64(double %.0.i.i.i.i4.i)
   %135 = fcmp one double %134, 0x7FF0000000000000
-  %.0.i.i.i.i4.i = select i1 %135, double %133, double 0.000000e+00
-  %.0.i5.i = select i1 %.0.i.inv.i.i.i.i3.i, double 0.000000e+00, double %.0.i.i.i.i4.i
+  %.0.i5.i = select i1 %135, double %.0.i.i.i.i4.i, double 0.000000e+00
   %136 = fadd double %.0.i.i75, %.0.i5.i
   %137 = fadd double %.sroa.7132.0.copyload, %136
   %.0.i.inv.i.i.i.i76 = fcmp ord double %137, 0.000000e+00
   %.0.i.i.i.i77 = select i1 %.0.i.inv.i.i.i.i76, double %137, double 0.000000e+00
   %138 = fmul double %127, %.0.i.i.i.i.i.i7.i
-  %.0.i.inv.i.i.i.i8.i = fcmp uno double %138, 0.000000e+00
-  %139 = call double @llvm.fabs.f64(double %138)
+  %.0.i.inv.i.i.i.i8.i = fcmp ord double %138, 0.000000e+00
+  %.0.i.i.i.i9.i = select i1 %.0.i.inv.i.i.i.i8.i, double %138, double 0.000000e+00
+  %139 = call double @llvm.fabs.f64(double %.0.i.i.i.i9.i)
   %140 = fcmp one double %139, 0x7FF0000000000000
-  %.0.i.i.i.i9.i = select i1 %140, double %138, double 0.000000e+00
-  %.0.i10.i = select i1 %.0.i.inv.i.i.i.i8.i, double 0.000000e+00, double %.0.i.i.i.i9.i
+  %.0.i10.i = select i1 %140, double %.0.i.i.i.i9.i, double 0.000000e+00
   %141 = fmul double %129, %.0.i.i.i.i.i.i12.i
-  %.0.i.inv.i.i.i.i13.i = fcmp uno double %141, 0.000000e+00
-  %142 = call double @llvm.fabs.f64(double %141)
+  %.0.i.inv.i.i.i.i13.i = fcmp ord double %141, 0.000000e+00
+  %.0.i.i.i.i14.i = select i1 %.0.i.inv.i.i.i.i13.i, double %141, double 0.000000e+00
+  %142 = call double @llvm.fabs.f64(double %.0.i.i.i.i14.i)
   %143 = fcmp one double %142, 0x7FF0000000000000
-  %.0.i.i.i.i14.i = select i1 %143, double %141, double 0.000000e+00
-  %.0.i15.i = select i1 %.0.i.inv.i.i.i.i13.i, double 0.000000e+00, double %.0.i.i.i.i14.i
+  %.0.i15.i = select i1 %143, double %.0.i.i.i.i14.i, double 0.000000e+00
   %144 = fadd double %.0.i10.i, %.0.i15.i
   %145 = fadd double %.sroa.8133.0.copyload, %144
   %.0.i.inv.i.i.i18.i = fcmp ord double %145, 0.000000e+00
@@ -103088,11 +103088,11 @@ define noundef double @_ZN5typst6layout6length6Length2at17hceec87c6a828e39cE(dou
   %.0.i.inv.i.i.i.i.i.i = fcmp ord double %1, 0.000000e+00
   %.0.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i, double %1, double 0.000000e+00
   %4 = fmul double %2, %.0.i.i.i.i.i.i
-  %.0.i.inv.i.i.i.i = fcmp uno double %4, 0.000000e+00
-  %5 = tail call double @llvm.fabs.f64(double %4)
+  %.0.i.inv.i.i.i.i = fcmp ord double %4, 0.000000e+00
+  %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %4, double 0.000000e+00
+  %5 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i)
   %6 = fcmp one double %5, 0x7FF0000000000000
-  %.0.i.i.i.i = select i1 %6, double %4, double 0.000000e+00
-  %.0.i = select i1 %.0.i.inv.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i
+  %.0.i = select i1 %6, double %.0.i.i.i.i, double 0.000000e+00
   %7 = fadd double %0, %.0.i
   %.0.i.inv.i.i.i = fcmp ord double %7, 0.000000e+00
   %.0.i.i.i = select i1 %.0.i.inv.i.i.i, double %7, double 0.000000e+00
@@ -104054,11 +104054,11 @@ _ZN5typst4util7Numeric7is_zero17h8b8e138031b37f84E.exit: ; preds = %3
   %18 = extractvalue { double, double } %16, 1
   %19 = call noundef double @"_ZN85_$LT$typst..layout..length..Length$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17hd2482b2e081d5c8fE"(double noundef %17, double noundef %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2)
   %20 = fmul double %1, %19
-  %.0.i.inv.i.i.i.i = fcmp uno double %20, 0.000000e+00
-  %21 = call double @llvm.fabs.f64(double %20)
+  %.0.i.inv.i.i.i.i = fcmp ord double %20, 0.000000e+00
+  %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %20, double 0.000000e+00
+  %21 = call double @llvm.fabs.f64(double %.0.i.i.i.i)
   %22 = fcmp one double %21, 0x7FF0000000000000
-  %.0.i.i.i.i = select i1 %22, double %20, double 0.000000e+00
-  %.0.i1 = select i1 %.0.i.inv.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i
+  %.0.i1 = select i1 %22, double %.0.i.i.i.i, double 0.000000e+00
   br label %"_ZN77_$LT$typst..layout..em..Em$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17haa3a83699951ea91E.exit"
 
 "_ZN77_$LT$typst..layout..em..Em$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17haa3a83699951ea91E.exit": ; preds = %_ZN5typst4util7Numeric7is_zero17h8b8e138031b37f84E.exit, %15
@@ -104354,21 +104354,21 @@ define void @_ZN5typst6layout9transform9Transform10pre_concat17h3557677b4d525aca
   %.0.i.inv.i.i.i.i.i.i = fcmp ord double %4, 0.000000e+00
   %.0.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i, double %4, double 0.000000e+00
   %32 = fmul double %.0.i.i.i.i.i.i, %31
-  %.0.i.inv.i.i.i.i = fcmp uno double %32, 0.000000e+00
-  %33 = tail call double @llvm.fabs.f64(double %32)
+  %.0.i.inv.i.i.i.i = fcmp ord double %32, 0.000000e+00
+  %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %32, double 0.000000e+00
+  %33 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i)
   %34 = fcmp one double %33, 0x7FF0000000000000
-  %.0.i.i.i.i = select i1 %34, double %32, double 0.000000e+00
-  %.0.i = select i1 %.0.i.inv.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i
+  %.0.i = select i1 %34, double %.0.i.i.i.i, double 0.000000e+00
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %36 = load double, ptr %35, align 8, !noundef !12
   %.0.i.inv.i.i.i.i.i.i23 = fcmp ord double %8, 0.000000e+00
   %.0.i.i.i.i.i.i24 = select i1 %.0.i.inv.i.i.i.i.i.i23, double %8, double 0.000000e+00
   %37 = fmul double %.0.i.i.i.i.i.i24, %36
-  %.0.i.inv.i.i.i.i25 = fcmp uno double %37, 0.000000e+00
-  %38 = tail call double @llvm.fabs.f64(double %37)
+  %.0.i.inv.i.i.i.i25 = fcmp ord double %37, 0.000000e+00
+  %.0.i.i.i.i26 = select i1 %.0.i.inv.i.i.i.i25, double %37, double 0.000000e+00
+  %38 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i26)
   %39 = fcmp one double %38, 0x7FF0000000000000
-  %.0.i.i.i.i26 = select i1 %39, double %37, double 0.000000e+00
-  %.0.i27 = select i1 %.0.i.inv.i.i.i.i25, double 0.000000e+00, double %.0.i.i.i.i26
+  %.0.i27 = select i1 %39, double %.0.i.i.i.i26, double 0.000000e+00
   %40 = fadd double %.0.i, %.0.i27
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = load double, ptr %41, align 8, !noundef !12
@@ -104378,19 +104378,19 @@ define void @_ZN5typst6layout9transform9Transform10pre_concat17h3557677b4d525aca
   %.0.i.inv.i.i.i.i.i.i32 = fcmp ord double %14, 0.000000e+00
   %.0.i.i.i.i.i.i33 = select i1 %.0.i.inv.i.i.i.i.i.i32, double %14, double 0.000000e+00
   %44 = fmul double %.0.i.i.i.i.i.i33, %31
-  %.0.i.inv.i.i.i.i34 = fcmp uno double %44, 0.000000e+00
-  %45 = tail call double @llvm.fabs.f64(double %44)
+  %.0.i.inv.i.i.i.i34 = fcmp ord double %44, 0.000000e+00
+  %.0.i.i.i.i35 = select i1 %.0.i.inv.i.i.i.i34, double %44, double 0.000000e+00
+  %45 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i35)
   %46 = fcmp one double %45, 0x7FF0000000000000
-  %.0.i.i.i.i35 = select i1 %46, double %44, double 0.000000e+00
-  %.0.i36 = select i1 %.0.i.inv.i.i.i.i34, double 0.000000e+00, double %.0.i.i.i.i35
+  %.0.i36 = select i1 %46, double %.0.i.i.i.i35, double 0.000000e+00
   %.0.i.inv.i.i.i.i.i.i37 = fcmp ord double %17, 0.000000e+00
   %.0.i.i.i.i.i.i38 = select i1 %.0.i.inv.i.i.i.i.i.i37, double %17, double 0.000000e+00
   %47 = fmul double %.0.i.i.i.i.i.i38, %36
-  %.0.i.inv.i.i.i.i39 = fcmp uno double %47, 0.000000e+00
-  %48 = tail call double @llvm.fabs.f64(double %47)
+  %.0.i.inv.i.i.i.i39 = fcmp ord double %47, 0.000000e+00
+  %.0.i.i.i.i40 = select i1 %.0.i.inv.i.i.i.i39, double %47, double 0.000000e+00
+  %48 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i40)
   %49 = fcmp one double %48, 0x7FF0000000000000
-  %.0.i.i.i.i40 = select i1 %49, double %47, double 0.000000e+00
-  %.0.i41 = select i1 %.0.i.inv.i.i.i.i39, double 0.000000e+00, double %.0.i.i.i.i40
+  %.0.i41 = select i1 %49, double %.0.i.i.i.i40, double 0.000000e+00
   %50 = fadd double %.0.i36, %.0.i41
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %52 = load double, ptr %51, align 8, !noundef !12
@@ -104450,12 +104450,12 @@ _ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit: ; preds = %8
   %16 = fcmp oeq double %10, 0.000000e+00
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load double, ptr %17, align 8
-  br i1 %16, label %31, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge
+  br i1 %16, label %30, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge
 
 19:                                               ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  br label %67
+  br label %66
 
 _ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge: ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit, %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit10
   %21 = load double, ptr %1, align 8, !noundef !12
@@ -104469,93 +104469,93 @@ _ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge: ; pred
   %.neg = fneg double %25
   %26 = select i1 %.0.i.inv.i.i.i7, double %.neg, double -0.000000e+00
   %27 = fadd double %.0.i.i.i, %26
-  %.0.i.inv.i.i.i1.i = fcmp uno double %27, 0.000000e+00
-  %28 = tail call double @llvm.fabs.f64(double %27)
+  %.0.i.inv.i.i.i1.i = fcmp ord double %27, 0.000000e+00
+  %.0.i.i.i2.i = select i1 %.0.i.inv.i.i.i1.i, double %27, double 0.000000e+00
+  %28 = tail call double @llvm.fabs.f64(double %.0.i.i.i2.i)
   %29 = fcmp olt double %28, 0x3D719799812DEA11
-  %30 = or i1 %.0.i.inv.i.i.i1.i, %29
-  br i1 %30, label %67, label %46
+  br i1 %29, label %66, label %45
 
-31:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit
+30:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit
   %or.cond.i.i9 = fcmp uno double %18, 0.000000e+00
-  br i1 %or.cond.i.i9, label %32, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit10
+  br i1 %or.cond.i.i9, label %31, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit10
 
-32:                                               ; preds = %31
+31:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !25510
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %5, align 8, !noalias !25510
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 1, ptr %33, align 8, !noalias !25510
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %34, align 8, !noalias !25510
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %35, align 8, !noalias !25510
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 0, ptr %36, align 8, !noalias !25510
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 1, ptr %32, align 8, !noalias !25510
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr null, ptr %33, align 8, !noalias !25510
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %34, align 8, !noalias !25510
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i64 0, ptr %35, align 8, !noalias !25510
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #81, !noalias !25510
   unreachable
 
-_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit10: ; preds = %31
-  %37 = fcmp oeq double %18, 0.000000e+00
-  br i1 %37, label %38, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge
+_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit10: ; preds = %30
+  %36 = fcmp oeq double %18, 0.000000e+00
+  br i1 %36, label %37, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge
 
-38:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit10
-  %39 = load double, ptr %1, align 8, !noundef !12
-  %or.cond.i.i11 = fcmp uno double %39, 0.000000e+00
-  br i1 %or.cond.i.i11, label %40, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit12
+37:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit10
+  %38 = load double, ptr %1, align 8, !noundef !12
+  %or.cond.i.i11 = fcmp uno double %38, 0.000000e+00
+  br i1 %or.cond.i.i11, label %39, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit12
 
-40:                                               ; preds = %38
+39:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !25517
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %4, align 8, !noalias !25517
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %41, align 8, !noalias !25517
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %42, align 8, !noalias !25517
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %43, align 8, !noalias !25517
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %44, align 8, !noalias !25517
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %40, align 8, !noalias !25517
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %41, align 8, !noalias !25517
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %42, align 8, !noalias !25517
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 0, ptr %43, align 8, !noalias !25517
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #81, !noalias !25517
   unreachable
 
-_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit12: ; preds = %38
-  %45 = fcmp oeq double %39, 0.000000e+00
-  br i1 %45, label %77, label %68
+_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit12: ; preds = %37
+  %44 = fcmp oeq double %38, 0.000000e+00
+  br i1 %44, label %76, label %67
 
-46:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge
-  %47 = fdiv double 1.000000e+00, %27
-  %48 = fmul double %23, %47
-  %.0.i.inv.i.i.i13 = fcmp ord double %48, 0.000000e+00
-  %.0.i.i.i14 = select i1 %.0.i.inv.i.i.i13, double %48, double 0.000000e+00
-  %49 = fneg double %18
+45:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge
+  %46 = fdiv double 1.000000e+00, %.0.i.i.i2.i
+  %47 = fmul double %23, %46
+  %.0.i.inv.i.i.i13 = fcmp ord double %47, 0.000000e+00
+  %.0.i.i.i14 = select i1 %.0.i.inv.i.i.i13, double %47, double 0.000000e+00
+  %48 = fneg double %18
   %.0.i.inv.i.i.i15 = fcmp ord double %18, 0.000000e+00
-  %.0.i.i.i16 = select i1 %.0.i.inv.i.i.i15, double %49, double 0.000000e+00
-  %50 = fmul double %.0.i.i.i16, %47
-  %.0.i.inv.i.i.i17 = fcmp ord double %50, 0.000000e+00
-  %.0.i.i.i18 = select i1 %.0.i.inv.i.i.i17, double %50, double 0.000000e+00
-  %51 = fneg double %10
-  %52 = fmul double %47, %51
-  %.0.i.inv.i.i.i21 = fcmp ord double %52, 0.000000e+00
-  %.0.i.i.i22 = select i1 %.0.i.inv.i.i.i21, double %52, double 0.000000e+00
-  %53 = fmul double %21, %47
-  %.0.i.inv.i.i.i23 = fcmp ord double %53, 0.000000e+00
-  %.0.i.i.i24 = select i1 %.0.i.inv.i.i.i23, double %53, double 0.000000e+00
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %55 = load double, ptr %54, align 8, !noundef !12
-  %56 = fmul double %10, %55
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %58 = load double, ptr %57, align 8, !noundef !12
-  %59 = fmul double %23, %58
-  %60 = fsub double %56, %59
-  %61 = fmul double %47, %60
-  %.0.i.inv.i.i.i25 = fcmp ord double %61, 0.000000e+00
-  %.0.i1.i.i = select i1 %.0.i.inv.i.i.i25, double %61, double 0.000000e+00
-  %62 = fmul double %18, %58
-  %63 = fmul double %21, %55
-  %64 = fsub double %62, %63
-  %65 = fmul double %47, %64
-  %.0.i.inv.i.i.i26 = fcmp ord double %65, 0.000000e+00
-  %.0.i1.i.i27 = select i1 %.0.i.inv.i.i.i26, double %65, double 0.000000e+00
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %.0.i.i.i14, ptr %66, align 8
+  %.0.i.i.i16 = select i1 %.0.i.inv.i.i.i15, double %48, double 0.000000e+00
+  %49 = fmul double %.0.i.i.i16, %46
+  %.0.i.inv.i.i.i17 = fcmp ord double %49, 0.000000e+00
+  %.0.i.i.i18 = select i1 %.0.i.inv.i.i.i17, double %49, double 0.000000e+00
+  %50 = fneg double %10
+  %51 = fmul double %46, %50
+  %.0.i.inv.i.i.i21 = fcmp ord double %51, 0.000000e+00
+  %.0.i.i.i22 = select i1 %.0.i.inv.i.i.i21, double %51, double 0.000000e+00
+  %52 = fmul double %21, %46
+  %.0.i.inv.i.i.i23 = fcmp ord double %52, 0.000000e+00
+  %.0.i.i.i24 = select i1 %.0.i.inv.i.i.i23, double %52, double 0.000000e+00
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %54 = load double, ptr %53, align 8, !noundef !12
+  %55 = fmul double %10, %54
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %57 = load double, ptr %56, align 8, !noundef !12
+  %58 = fmul double %23, %57
+  %59 = fsub double %55, %58
+  %60 = fmul double %46, %59
+  %.0.i.inv.i.i.i25 = fcmp ord double %60, 0.000000e+00
+  %.0.i1.i.i = select i1 %.0.i.inv.i.i.i25, double %60, double 0.000000e+00
+  %61 = fmul double %18, %57
+  %62 = fmul double %21, %54
+  %63 = fsub double %61, %62
+  %64 = fmul double %46, %63
+  %.0.i.inv.i.i.i26 = fcmp ord double %64, 0.000000e+00
+  %.0.i1.i.i27 = select i1 %.0.i.inv.i.i.i26, double %64, double 0.000000e+00
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %.0.i.i.i14, ptr %65, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.0.i.i.i18, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -104566,50 +104566,50 @@ _ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit12: ; preds = %38
   store double %.0.i1.i.i, ptr %.sroa.75.0..sroa_idx, align 8
   %.sroa.86.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %.0.i1.i.i27, ptr %.sroa.86.0..sroa_idx, align 8
-  br label %67
+  br label %66
 
-67:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge, %77, %85, %46, %19
-  %.sink = phi i64 [ 1, %77 ], [ 1, %85 ], [ 1, %46 ], [ 1, %19 ], [ 0, %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge ]
+66:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge, %76, %84, %45, %19
+  %.sink = phi i64 [ 1, %76 ], [ 1, %84 ], [ 1, %45 ], [ 1, %19 ], [ 0, %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-68:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit12
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %70 = load double, ptr %69, align 8, !noundef !12
-  %or.cond.i.i28 = fcmp uno double %70, 0.000000e+00
-  br i1 %or.cond.i.i28, label %71, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit29
+67:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit12
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %69 = load double, ptr %68, align 8, !noundef !12
+  %or.cond.i.i28 = fcmp uno double %69, 0.000000e+00
+  br i1 %or.cond.i.i28, label %70, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit29
 
-71:                                               ; preds = %68
+70:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !25524
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %3, align 8, !noalias !25524
-  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %72, align 8, !noalias !25524
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %73, align 8, !noalias !25524
-  %74 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %74, align 8, !noalias !25524
-  %75 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 0, ptr %75, align 8, !noalias !25524
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %71, align 8, !noalias !25524
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %72, align 8, !noalias !25524
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %73, align 8, !noalias !25524
+  %74 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 0, ptr %74, align 8, !noalias !25524
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #81, !noalias !25524
   unreachable
 
-_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit29: ; preds = %68
-  %76 = fcmp oeq double %70, 0.000000e+00
-  br i1 %76, label %77, label %85
+_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit29: ; preds = %67
+  %75 = fcmp oeq double %69, 0.000000e+00
+  br i1 %75, label %76, label %84
 
-77:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit29, %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit12
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %79 = load double, ptr %78, align 8, !noundef !12
-  %80 = fneg double %79
-  %.0.i.inv.i.i.i30 = fcmp ord double %79, 0.000000e+00
-  %.0.i.i.i31 = select i1 %.0.i.inv.i.i.i30, double %80, double 0.000000e+00
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %82 = load double, ptr %81, align 8, !noundef !12
-  %83 = fneg double %82
-  %.0.i.inv.i.i.i32 = fcmp ord double %82, 0.000000e+00
-  %.0.i.i.i33 = select i1 %.0.i.inv.i.i.i32, double %83, double 0.000000e+00
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double 1.000000e+00, ptr %84, align 8
+76:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit29, %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit12
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %78 = load double, ptr %77, align 8, !noundef !12
+  %79 = fneg double %78
+  %.0.i.inv.i.i.i30 = fcmp ord double %78, 0.000000e+00
+  %.0.i.i.i31 = select i1 %.0.i.inv.i.i.i30, double %79, double 0.000000e+00
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %81 = load double, ptr %80, align 8, !noundef !12
+  %82 = fneg double %81
+  %.0.i.inv.i.i.i32 = fcmp ord double %81, 0.000000e+00
+  %.0.i.i.i33 = select i1 %.0.i.inv.i.i.i32, double %82, double 0.000000e+00
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double 1.000000e+00, ptr %83, align 8
   %.sroa.4.0..sroa_idx46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx46, i8 0, i64 16, i1 false)
   %.sroa.5.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -104618,38 +104618,38 @@ _ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit29: ; preds = %68
   store double %.0.i.i.i31, ptr %.sroa.6.0..sroa_idx48, align 8
   %.sroa.7.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %.0.i.i.i33, ptr %.sroa.7.0..sroa_idx49, align 8
-  br label %67
+  br label %66
 
-85:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit29
-  %86 = fdiv double 1.000000e+00, %39
-  %87 = fdiv double 1.000000e+00, %70
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %89 = load double, ptr %88, align 8, !noundef !12
-  %90 = fneg double %89
-  %.0.i.inv.i.i.i36 = fcmp ord double %89, 0.000000e+00
-  %.0.i.i.i37 = select i1 %.0.i.inv.i.i.i36, double %90, double 0.000000e+00
-  %91 = fmul double %86, %.0.i.i.i37
-  %.0.i.inv.i.i.i38 = fcmp ord double %91, 0.000000e+00
-  %.0.i.i.i39 = select i1 %.0.i.inv.i.i.i38, double %91, double 0.000000e+00
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %93 = load double, ptr %92, align 8, !noundef !12
-  %94 = fneg double %93
-  %.0.i.inv.i.i.i40 = fcmp ord double %93, 0.000000e+00
-  %.0.i.i.i41 = select i1 %.0.i.inv.i.i.i40, double %94, double 0.000000e+00
-  %95 = fmul double %87, %.0.i.i.i41
-  %.0.i.inv.i.i.i44 = fcmp ord double %95, 0.000000e+00
-  %.0.i.i.i45 = select i1 %.0.i.inv.i.i.i44, double %95, double 0.000000e+00
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %86, ptr %96, align 8
+84:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit29
+  %85 = fdiv double 1.000000e+00, %38
+  %86 = fdiv double 1.000000e+00, %69
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %88 = load double, ptr %87, align 8, !noundef !12
+  %89 = fneg double %88
+  %.0.i.inv.i.i.i36 = fcmp ord double %88, 0.000000e+00
+  %.0.i.i.i37 = select i1 %.0.i.inv.i.i.i36, double %89, double 0.000000e+00
+  %90 = fmul double %85, %.0.i.i.i37
+  %.0.i.inv.i.i.i38 = fcmp ord double %90, 0.000000e+00
+  %.0.i.i.i39 = select i1 %.0.i.inv.i.i.i38, double %90, double 0.000000e+00
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %92 = load double, ptr %91, align 8, !noundef !12
+  %93 = fneg double %92
+  %.0.i.inv.i.i.i40 = fcmp ord double %92, 0.000000e+00
+  %.0.i.i.i41 = select i1 %.0.i.inv.i.i.i40, double %93, double 0.000000e+00
+  %94 = fmul double %86, %.0.i.i.i41
+  %.0.i.inv.i.i.i44 = fcmp ord double %94, 0.000000e+00
+  %.0.i.i.i45 = select i1 %.0.i.inv.i.i.i44, double %94, double 0.000000e+00
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %85, ptr %95, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
-  store double %87, ptr %.sroa.6.0..sroa_idx, align 8
+  store double %86, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %.0.i.i.i39, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %.0.i.i.i45, ptr %.sroa.8.0..sroa_idx, align 8
-  br label %67
+  br label %66
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -104852,34 +104852,34 @@ _ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.245604466996101609
   %.0.i.i.i22.i = select i1 %.0.i.inv.i.i.i21.i, double %91, double 0.000000e+00
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %93 = load double, ptr %92, align 8, !alias.scope !25543, !noalias !25546, !noundef !12
-  %.0.i.inv.i.i.i.i.i = fcmp uno double %93, 0.000000e+00
-  %94 = tail call double @llvm.fabs.f64(double %93)
+  %.0.i.inv.i.i.i.i.i = fcmp ord double %93, 0.000000e+00
+  %.0.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i, double %93, double 0.000000e+00
+  %94 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i)
   %95 = fcmp one double %94, 0x7FF0000000000000
-  %.0.i.i.i.i.i = select i1 %95, double %93, double 0.000000e+00
-  %.0.i.i = select i1 %.0.i.inv.i.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i.i
+  %.0.i.i = select i1 %95, double %.0.i.i.i.i.i, double 0.000000e+00
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %97 = load double, ptr %96, align 8, !alias.scope !25543, !noalias !25546, !noundef !12
   %98 = fmul double %97, 0.000000e+00
-  %.0.i.inv.i.i.i.i25.i = fcmp uno double %98, 0.000000e+00
-  %99 = tail call double @llvm.fabs.f64(double %98)
+  %.0.i.inv.i.i.i.i25.i = fcmp ord double %98, 0.000000e+00
+  %.0.i.i.i.i26.i = select i1 %.0.i.inv.i.i.i.i25.i, double %98, double 0.000000e+00
+  %99 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i26.i)
   %100 = fcmp one double %99, 0x7FF0000000000000
-  %.0.i.i.i.i26.i = select i1 %100, double %98, double 0.000000e+00
-  %.0.i27.i = select i1 %.0.i.inv.i.i.i.i25.i, double 0.000000e+00, double %.0.i.i.i.i26.i
+  %.0.i27.i = select i1 %100, double %.0.i.i.i.i26.i, double 0.000000e+00
   %101 = fadd double %.0.i.i, %.0.i27.i
   %102 = fadd double %.0.i.i.i, %101
   %.0.i.inv.i.i.i30.i = fcmp ord double %102, 0.000000e+00
   %.0.i.i.i31.i = select i1 %.0.i.inv.i.i.i30.i, double %102, double 0.000000e+00
   %103 = fmul double %93, 0.000000e+00
-  %.0.i.inv.i.i.i.i34.i = fcmp uno double %103, 0.000000e+00
-  %104 = tail call double @llvm.fabs.f64(double %103)
+  %.0.i.inv.i.i.i.i34.i = fcmp ord double %103, 0.000000e+00
+  %.0.i.i.i.i35.i = select i1 %.0.i.inv.i.i.i.i34.i, double %103, double 0.000000e+00
+  %104 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i35.i)
   %105 = fcmp one double %104, 0x7FF0000000000000
-  %.0.i.i.i.i35.i = select i1 %105, double %103, double 0.000000e+00
-  %.0.i36.i = select i1 %.0.i.inv.i.i.i.i34.i, double 0.000000e+00, double %.0.i.i.i.i35.i
-  %.0.i.inv.i.i.i.i39.i = fcmp uno double %97, 0.000000e+00
-  %106 = tail call double @llvm.fabs.f64(double %97)
+  %.0.i36.i = select i1 %105, double %.0.i.i.i.i35.i, double 0.000000e+00
+  %.0.i.inv.i.i.i.i39.i = fcmp ord double %97, 0.000000e+00
+  %.0.i.i.i.i40.i = select i1 %.0.i.inv.i.i.i.i39.i, double %97, double 0.000000e+00
+  %106 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i40.i)
   %107 = fcmp one double %106, 0x7FF0000000000000
-  %.0.i.i.i.i40.i = select i1 %107, double %97, double 0.000000e+00
-  %.0.i41.i = select i1 %.0.i.inv.i.i.i.i39.i, double 0.000000e+00, double %.0.i.i.i.i40.i
+  %.0.i41.i = select i1 %107, double %.0.i.i.i.i40.i, double 0.000000e+00
   %108 = fadd double %.0.i36.i, %.0.i41.i
   %109 = fadd double %.0.i.i12.i, %108
   %.0.i.inv.i.i.i44.i = fcmp ord double %109, 0.000000e+00
@@ -104915,33 +104915,33 @@ _ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.245604466996101609
   %.0.i.inv.i.i.i21.i71 = fcmp ord double %119, 0.000000e+00
   %.0.i.i.i22.i72 = select i1 %.0.i.inv.i.i.i21.i71, double %119, double 0.000000e+00
   %120 = fmul double %.0.i.i.i46, %.0.i.i.i4.i
-  %.0.i.inv.i.i.i.i.i75 = fcmp uno double %120, 0.000000e+00
-  %121 = tail call double @llvm.fabs.f64(double %120)
+  %.0.i.inv.i.i.i.i.i75 = fcmp ord double %120, 0.000000e+00
+  %.0.i.i.i.i.i76 = select i1 %.0.i.inv.i.i.i.i.i75, double %120, double 0.000000e+00
+  %121 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i76)
   %122 = fcmp one double %121, 0x7FF0000000000000
-  %.0.i.i.i.i.i76 = select i1 %122, double %120, double 0.000000e+00
-  %.0.i.i77 = select i1 %.0.i.inv.i.i.i.i.i75, double 0.000000e+00, double %.0.i.i.i.i.i76
+  %.0.i.i77 = select i1 %122, double %.0.i.i.i.i.i76, double 0.000000e+00
   %123 = fmul double %.0.i.i.i48, %.0.i.i.i16.i
-  %.0.i.inv.i.i.i.i25.i80 = fcmp uno double %123, 0.000000e+00
-  %124 = tail call double @llvm.fabs.f64(double %123)
+  %.0.i.inv.i.i.i.i25.i80 = fcmp ord double %123, 0.000000e+00
+  %.0.i.i.i.i26.i81 = select i1 %.0.i.inv.i.i.i.i25.i80, double %123, double 0.000000e+00
+  %124 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i26.i81)
   %125 = fcmp one double %124, 0x7FF0000000000000
-  %.0.i.i.i.i26.i81 = select i1 %125, double %123, double 0.000000e+00
-  %.0.i27.i82 = select i1 %.0.i.inv.i.i.i.i25.i80, double 0.000000e+00, double %.0.i.i.i.i26.i81
+  %.0.i27.i82 = select i1 %125, double %.0.i.i.i.i26.i81, double 0.000000e+00
   %126 = fadd double %.0.i.i77, %.0.i27.i82
   %127 = fadd double %.0.i.i.i31.i, %126
   %.0.i.inv.i.i.i30.i83 = fcmp ord double %127, 0.000000e+00
   %.0.i.i.i31.i84 = select i1 %.0.i.inv.i.i.i30.i83, double %127, double 0.000000e+00
   %128 = fmul double %.0.i.i.i46, %.0.i.i.i10.i
-  %.0.i.inv.i.i.i.i34.i87 = fcmp uno double %128, 0.000000e+00
-  %129 = tail call double @llvm.fabs.f64(double %128)
+  %.0.i.inv.i.i.i.i34.i87 = fcmp ord double %128, 0.000000e+00
+  %.0.i.i.i.i35.i88 = select i1 %.0.i.inv.i.i.i.i34.i87, double %128, double 0.000000e+00
+  %129 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i35.i88)
   %130 = fcmp one double %129, 0x7FF0000000000000
-  %.0.i.i.i.i35.i88 = select i1 %130, double %128, double 0.000000e+00
-  %.0.i36.i89 = select i1 %.0.i.inv.i.i.i.i34.i87, double 0.000000e+00, double %.0.i.i.i.i35.i88
+  %.0.i36.i89 = select i1 %130, double %.0.i.i.i.i35.i88, double 0.000000e+00
   %131 = fmul double %.0.i.i.i48, %.0.i.i.i22.i
-  %.0.i.inv.i.i.i.i39.i92 = fcmp uno double %131, 0.000000e+00
-  %132 = tail call double @llvm.fabs.f64(double %131)
+  %.0.i.inv.i.i.i.i39.i92 = fcmp ord double %131, 0.000000e+00
+  %.0.i.i.i.i40.i93 = select i1 %.0.i.inv.i.i.i.i39.i92, double %131, double 0.000000e+00
+  %132 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i40.i93)
   %133 = fcmp one double %132, 0x7FF0000000000000
-  %.0.i.i.i.i40.i93 = select i1 %133, double %131, double 0.000000e+00
-  %.0.i41.i94 = select i1 %.0.i.inv.i.i.i.i39.i92, double 0.000000e+00, double %.0.i.i.i.i40.i93
+  %.0.i41.i94 = select i1 %133, double %.0.i.i.i.i40.i93, double 0.000000e+00
   %134 = fadd double %.0.i36.i89, %.0.i41.i94
   %135 = fadd double %.0.i.i.i45.i, %134
   %.0.i.inv.i.i.i44.i95 = fcmp ord double %135, 0.000000e+00
@@ -105174,34 +105174,34 @@ _ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.245604466996101609
   %.0.i.i.i22.i128 = select i1 %.0.i.inv.i.i.i21.i127, double %217, double 0.000000e+00
   %218 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %219 = load double, ptr %218, align 8, !alias.scope !25584, !noalias !25587, !noundef !12
-  %.0.i.inv.i.i.i.i.i131 = fcmp uno double %219, 0.000000e+00
-  %220 = tail call double @llvm.fabs.f64(double %219)
+  %.0.i.inv.i.i.i.i.i131 = fcmp ord double %219, 0.000000e+00
+  %.0.i.i.i.i.i132 = select i1 %.0.i.inv.i.i.i.i.i131, double %219, double 0.000000e+00
+  %220 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i132)
   %221 = fcmp one double %220, 0x7FF0000000000000
-  %.0.i.i.i.i.i132 = select i1 %221, double %219, double 0.000000e+00
-  %.0.i.i133 = select i1 %.0.i.inv.i.i.i.i.i131, double 0.000000e+00, double %.0.i.i.i.i.i132
+  %.0.i.i133 = select i1 %221, double %.0.i.i.i.i.i132, double 0.000000e+00
   %222 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %223 = load double, ptr %222, align 8, !alias.scope !25584, !noalias !25587, !noundef !12
   %224 = fmul double %223, 0.000000e+00
-  %.0.i.inv.i.i.i.i25.i136 = fcmp uno double %224, 0.000000e+00
-  %225 = tail call double @llvm.fabs.f64(double %224)
+  %.0.i.inv.i.i.i.i25.i136 = fcmp ord double %224, 0.000000e+00
+  %.0.i.i.i.i26.i137 = select i1 %.0.i.inv.i.i.i.i25.i136, double %224, double 0.000000e+00
+  %225 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i26.i137)
   %226 = fcmp one double %225, 0x7FF0000000000000
-  %.0.i.i.i.i26.i137 = select i1 %226, double %224, double 0.000000e+00
-  %.0.i27.i138 = select i1 %.0.i.inv.i.i.i.i25.i136, double 0.000000e+00, double %.0.i.i.i.i26.i137
+  %.0.i27.i138 = select i1 %226, double %.0.i.i.i.i26.i137, double 0.000000e+00
   %227 = fadd double %.0.i.i133, %.0.i27.i138
   %228 = fadd double %.0.i.i.i98, %227
   %.0.i.inv.i.i.i30.i139 = fcmp ord double %228, 0.000000e+00
   %.0.i.i.i31.i140 = select i1 %.0.i.inv.i.i.i30.i139, double %228, double 0.000000e+00
   %229 = fmul double %219, 0.000000e+00
-  %.0.i.inv.i.i.i.i34.i143 = fcmp uno double %229, 0.000000e+00
-  %230 = tail call double @llvm.fabs.f64(double %229)
+  %.0.i.inv.i.i.i.i34.i143 = fcmp ord double %229, 0.000000e+00
+  %.0.i.i.i.i35.i144 = select i1 %.0.i.inv.i.i.i.i34.i143, double %229, double 0.000000e+00
+  %230 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i35.i144)
   %231 = fcmp one double %230, 0x7FF0000000000000
-  %.0.i.i.i.i35.i144 = select i1 %231, double %229, double 0.000000e+00
-  %.0.i36.i145 = select i1 %.0.i.inv.i.i.i.i34.i143, double 0.000000e+00, double %.0.i.i.i.i35.i144
-  %.0.i.inv.i.i.i.i39.i148 = fcmp uno double %223, 0.000000e+00
-  %232 = tail call double @llvm.fabs.f64(double %223)
+  %.0.i36.i145 = select i1 %231, double %.0.i.i.i.i35.i144, double 0.000000e+00
+  %.0.i.inv.i.i.i.i39.i148 = fcmp ord double %223, 0.000000e+00
+  %.0.i.i.i.i40.i149 = select i1 %.0.i.inv.i.i.i.i39.i148, double %223, double 0.000000e+00
+  %232 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i40.i149)
   %233 = fcmp one double %232, 0x7FF0000000000000
-  %.0.i.i.i.i40.i149 = select i1 %233, double %223, double 0.000000e+00
-  %.0.i41.i150 = select i1 %.0.i.inv.i.i.i.i39.i148, double 0.000000e+00, double %.0.i.i.i.i40.i149
+  %.0.i41.i150 = select i1 %233, double %.0.i.i.i.i40.i149, double 0.000000e+00
   %234 = fadd double %.0.i36.i145, %.0.i41.i150
   %235 = fadd double %.0.i.i12.i99, %234
   %.0.i.inv.i.i.i44.i151 = fcmp ord double %235, 0.000000e+00
@@ -105237,33 +105237,33 @@ _ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.245604466996101609
   %.0.i.inv.i.i.i21.i179 = fcmp ord double %245, 0.000000e+00
   %.0.i.i.i22.i180 = select i1 %.0.i.inv.i.i.i21.i179, double %245, double 0.000000e+00
   %246 = fmul double %.0.i.i.i154, %.0.i.i.i4.i110
-  %.0.i.inv.i.i.i.i.i183 = fcmp uno double %246, 0.000000e+00
-  %247 = tail call double @llvm.fabs.f64(double %246)
+  %.0.i.inv.i.i.i.i.i183 = fcmp ord double %246, 0.000000e+00
+  %.0.i.i.i.i.i184 = select i1 %.0.i.inv.i.i.i.i.i183, double %246, double 0.000000e+00
+  %247 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i184)
   %248 = fcmp one double %247, 0x7FF0000000000000
-  %.0.i.i.i.i.i184 = select i1 %248, double %246, double 0.000000e+00
-  %.0.i.i185 = select i1 %.0.i.inv.i.i.i.i.i183, double 0.000000e+00, double %.0.i.i.i.i.i184
+  %.0.i.i185 = select i1 %248, double %.0.i.i.i.i.i184, double 0.000000e+00
   %249 = fmul double %.0.i.i.i156, %.0.i.i.i16.i122
-  %.0.i.inv.i.i.i.i25.i188 = fcmp uno double %249, 0.000000e+00
-  %250 = tail call double @llvm.fabs.f64(double %249)
+  %.0.i.inv.i.i.i.i25.i188 = fcmp ord double %249, 0.000000e+00
+  %.0.i.i.i.i26.i189 = select i1 %.0.i.inv.i.i.i.i25.i188, double %249, double 0.000000e+00
+  %250 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i26.i189)
   %251 = fcmp one double %250, 0x7FF0000000000000
-  %.0.i.i.i.i26.i189 = select i1 %251, double %249, double 0.000000e+00
-  %.0.i27.i190 = select i1 %.0.i.inv.i.i.i.i25.i188, double 0.000000e+00, double %.0.i.i.i.i26.i189
+  %.0.i27.i190 = select i1 %251, double %.0.i.i.i.i26.i189, double 0.000000e+00
   %252 = fadd double %.0.i.i185, %.0.i27.i190
   %253 = fadd double %.0.i.i.i31.i140, %252
   %.0.i.inv.i.i.i30.i191 = fcmp ord double %253, 0.000000e+00
   %.0.i.i.i31.i192 = select i1 %.0.i.inv.i.i.i30.i191, double %253, double 0.000000e+00
   %254 = fmul double %.0.i.i.i154, %.0.i.i.i10.i116
-  %.0.i.inv.i.i.i.i34.i195 = fcmp uno double %254, 0.000000e+00
-  %255 = tail call double @llvm.fabs.f64(double %254)
+  %.0.i.inv.i.i.i.i34.i195 = fcmp ord double %254, 0.000000e+00
+  %.0.i.i.i.i35.i196 = select i1 %.0.i.inv.i.i.i.i34.i195, double %254, double 0.000000e+00
+  %255 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i35.i196)
   %256 = fcmp one double %255, 0x7FF0000000000000
-  %.0.i.i.i.i35.i196 = select i1 %256, double %254, double 0.000000e+00
-  %.0.i36.i197 = select i1 %.0.i.inv.i.i.i.i34.i195, double 0.000000e+00, double %.0.i.i.i.i35.i196
+  %.0.i36.i197 = select i1 %256, double %.0.i.i.i.i35.i196, double 0.000000e+00
   %257 = fmul double %.0.i.i.i156, %.0.i.i.i22.i128
-  %.0.i.inv.i.i.i.i39.i200 = fcmp uno double %257, 0.000000e+00
-  %258 = tail call double @llvm.fabs.f64(double %257)
+  %.0.i.inv.i.i.i.i39.i200 = fcmp ord double %257, 0.000000e+00
+  %.0.i.i.i.i40.i201 = select i1 %.0.i.inv.i.i.i.i39.i200, double %257, double 0.000000e+00
+  %258 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i40.i201)
   %259 = fcmp one double %258, 0x7FF0000000000000
-  %.0.i.i.i.i40.i201 = select i1 %259, double %257, double 0.000000e+00
-  %.0.i41.i202 = select i1 %.0.i.inv.i.i.i.i39.i200, double 0.000000e+00, double %.0.i.i.i.i40.i201
+  %.0.i41.i202 = select i1 %259, double %.0.i.i.i.i40.i201, double 0.000000e+00
   %260 = fadd double %.0.i36.i197, %.0.i41.i202
   %261 = fadd double %.0.i.i.i45.i152, %260
   %.0.i.inv.i.i.i44.i203 = fcmp ord double %261, 0.000000e+00

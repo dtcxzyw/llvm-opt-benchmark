@@ -91157,11 +91157,11 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %.0.i.inv.i.i.i.i = fcmp ord double %255, 0.000000e+00
   %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %255, double 0.000000e+00
   %256 = fmul double %.0.i.i.i.i.i, %.0.i.i.i.i
-  %.0.i.inv.i.i.i.i.i148 = fcmp uno double %256, 0.000000e+00
-  %257 = call double @llvm.fabs.f64(double %256)
+  %.0.i.inv.i.i.i.i.i148 = fcmp ord double %256, 0.000000e+00
+  %.0.i.i.i.i.i149 = select i1 %.0.i.inv.i.i.i.i.i148, double %256, double 0.000000e+00
+  %257 = call double @llvm.fabs.f64(double %.0.i.i.i.i.i149)
   %258 = fcmp one double %257, 0x7FF0000000000000
-  %.0.i.i.i.i.i149 = select i1 %258, double %256, double 0.000000e+00
-  %.0.i.i150 = select i1 %.0.i.inv.i.i.i.i.i148, double 0.000000e+00, double %.0.i.i.i.i.i149
+  %.0.i.i150 = select i1 %258, double %.0.i.i.i.i.i149, double 0.000000e+00
   %259 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %260 = load double, ptr %259, align 16, !alias.scope !24037, !noundef !4
   %261 = getelementptr inbounds nuw i8, ptr %57, i64 88
@@ -91247,11 +91247,11 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %.0.i.inv.i.i.i.i.i.i = fcmp ord double %293, 0.000000e+00
   %.0.i.i.i.i.i.i = select i1 %.0.i.inv.i.i.i.i.i.i, double %293, double 0.000000e+00
   %294 = fmul double %287, %.0.i.i.i.i.i.i
-  %.0.i.inv.i.i.i.i.i.i.i157 = fcmp uno double %294, 0.000000e+00
-  %295 = call double @llvm.fabs.f64(double %294)
+  %.0.i.inv.i.i.i.i.i.i.i157 = fcmp ord double %294, 0.000000e+00
+  %.0.i.i.i.i.i.i.i158 = select i1 %.0.i.inv.i.i.i.i.i.i.i157, double %294, double 0.000000e+00
+  %295 = call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i158)
   %296 = fcmp one double %295, 0x7FF0000000000000
-  %.0.i.i.i.i.i.i.i158 = select i1 %296, double %294, double 0.000000e+00
-  %.0.i.i.i.i159 = select i1 %.0.i.inv.i.i.i.i.i.i.i157, double 0.000000e+00, double %.0.i.i.i.i.i.i.i158
+  %.0.i.i.i.i159 = select i1 %296, double %.0.i.i.i.i.i.i.i158, double 0.000000e+00
   %297 = fmul double %271, 5.000000e-01
   %.0.i.inv.i.i.i.i160 = fcmp ord double %297, 0.000000e+00
   %.0.i.i.i1.i = select i1 %.0.i.inv.i.i.i.i160, double %297, double 0.000000e+00
@@ -92044,11 +92044,11 @@ _ZN5typst4math8fragment19script_alternatives17h3f13278ce2573cd8E.llvm.5857379167
   %.0.i.inv.i.i.i.i.i210 = fcmp ord double %615, 0.000000e+00
   %.0.i.i.i.i.i211 = select i1 %.0.i.inv.i.i.i.i.i210, double %615, double 0.000000e+00
   %616 = fmul double %.0.i.i.i.i.i203, %.0.i.i.i.i.i211
-  %.0.i.inv.i.i.i.i.i.i212 = fcmp uno double %616, 0.000000e+00
-  %617 = call double @llvm.fabs.f64(double %616)
+  %.0.i.inv.i.i.i.i.i.i212 = fcmp ord double %616, 0.000000e+00
+  %.0.i.i.i.i.i.i213 = select i1 %.0.i.inv.i.i.i.i.i.i212, double %616, double 0.000000e+00
+  %617 = call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i213)
   %618 = fcmp one double %617, 0x7FF0000000000000
-  %.0.i.i.i.i.i.i213 = select i1 %618, double %616, double 0.000000e+00
-  %.0.i.i.i214 = select i1 %.0.i.inv.i.i.i.i.i.i212, double 0.000000e+00, double %.0.i.i.i.i.i.i213
+  %.0.i.i.i214 = select i1 %618, double %.0.i.i.i.i.i.i213, double 0.000000e+00
   %619 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %620 = load double, ptr %619, align 8, !alias.scope !24265, !noundef !4
   %621 = fmul double %620, 5.000000e-01
@@ -92942,11 +92942,11 @@ define noundef double @"_ZN48_$LT$i16$u20$as$u20$typst..math..ctx..Scaled$GT$6sc
   %.0.i.inv.i.i.i = fcmp ord double %10, 0.000000e+00
   %.0.i.i.i = select i1 %.0.i.inv.i.i.i, double %10, double 0.000000e+00
   %11 = fmul double %2, %.0.i.i.i
-  %.0.i.inv.i.i.i.i = fcmp uno double %11, 0.000000e+00
-  %12 = tail call double @llvm.fabs.f64(double %11)
+  %.0.i.inv.i.i.i.i = fcmp ord double %11, 0.000000e+00
+  %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %11, double 0.000000e+00
+  %12 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i)
   %13 = fcmp one double %12, 0x7FF0000000000000
-  %.0.i.i.i.i = select i1 %13, double %11, double 0.000000e+00
-  %.0.i = select i1 %.0.i.inv.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i
+  %.0.i = select i1 %13, double %.0.i.i.i.i, double 0.000000e+00
   ret double %.0.i
 }
 
@@ -92964,11 +92964,11 @@ define noundef double @"_ZN48_$LT$u16$u20$as$u20$typst..math..ctx..Scaled$GT$6sc
   %.0.i.inv.i.i.i = fcmp ord double %10, 0.000000e+00
   %.0.i.i.i = select i1 %.0.i.inv.i.i.i, double %10, double 0.000000e+00
   %11 = fmul double %2, %.0.i.i.i
-  %.0.i.inv.i.i.i.i = fcmp uno double %11, 0.000000e+00
-  %12 = tail call double @llvm.fabs.f64(double %11)
+  %.0.i.inv.i.i.i.i = fcmp ord double %11, 0.000000e+00
+  %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %11, double 0.000000e+00
+  %12 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i)
   %13 = fcmp one double %12, 0x7FF0000000000000
-  %.0.i.i.i.i = select i1 %13, double %11, double 0.000000e+00
-  %.0.i = select i1 %.0.i.inv.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i
+  %.0.i = select i1 %13, double %.0.i.i.i.i, double 0.000000e+00
   ret double %.0.i
 }
 

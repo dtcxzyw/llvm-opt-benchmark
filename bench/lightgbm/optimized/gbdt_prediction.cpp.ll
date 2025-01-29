@@ -66,16 +66,16 @@ define void @_ZNK8LightGBM4GBDT10PredictRawEPKdPdPKNS_27PredictionEarlyStopInsta
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %296
-  %.01654 = phi i32 [ %12, %.preheader.lr.ph ], [ %297, %296 ]
-  %.01753 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1, %296 ]
+.preheader:                                       ; preds = %.preheader.lr.ph, %292
+  %.01654 = phi i32 [ %12, %.preheader.lr.ph ], [ %293, %292 ]
+  %.01753 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1, %292 ]
   %21 = load i32, ptr %7, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %_ZNK8LightGBM4Tree7PredictEPKd.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK8LightGBM4Tree7PredictEPKd.exit ], [ 0, %.preheader ]
-  %23 = phi i32 [ %285, %_ZNK8LightGBM4Tree7PredictEPKd.exit ], [ %21, %.preheader ]
+  %23 = phi i32 [ %281, %_ZNK8LightGBM4Tree7PredictEPKd.exit ], [ %21, %.preheader ]
   %24 = mul nsw i32 %23, %.01654
   %25 = trunc nuw nsw i64 %indvars.iv to i32
   %26 = add nsw i32 %24, %25
@@ -89,10 +89,10 @@ define void @_ZNK8LightGBM4GBDT10PredictRawEPKdPdPKNS_27PredictionEarlyStopInsta
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = icmp sgt i32 %35, 1
-  br i1 %33, label %37, label %174
+  br i1 %33, label %37, label %172
 
 37:                                               ; preds = %.lr.ph
-  br i1 %36, label %38, label %137
+  br i1 %36, label %38, label %135
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 160
@@ -172,392 +172,388 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i36: ; preds = %_Z
   %90 = icmp ne i8 %88, 2
   %or.cond.i.i.i42 = and i1 %89, %90
   %.017.i.i.i43 = select i1 %or.cond.i.i.i42, double 0.000000e+00, double %58
-  switch i8 %88, label %99 [
+  switch i8 %88, label %98 [
     i8 1, label %91
-    i8 2, label %95
+    i8 2, label %94
   ]
 
 91:                                               ; preds = %86
-  %92 = call double @llvm.fabs.f64(double %58)
-  %93 = fcmp ole double %92, 0x38AA95A5C0000000
-  %94 = or i1 %93, %or.cond.i.i.i42
-  br i1 %94, label %97, label %99
+  %92 = call double @llvm.fabs.f64(double %.017.i.i.i43)
+  %93 = fcmp ugt double %92, 0x38AA95A5C0000000
+  br i1 %93, label %98, label %96
 
-95:                                               ; preds = %86
-  %96 = fcmp uno double %.017.i.i.i43, 0.000000e+00
-  br i1 %96, label %97, label %99
+94:                                               ; preds = %86
+  %95 = fcmp uno double %.017.i.i.i43, 0.000000e+00
+  br i1 %95, label %96, label %98
 
-97:                                               ; preds = %95, %91
-  %98 = and i8 %60, 2
-  %.not.i7.i.i47 = icmp eq i8 %98, 0
+96:                                               ; preds = %94, %91
+  %97 = and i8 %60, 2
+  %.not.i7.i.i47 = icmp eq i8 %97, 0
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i44
 
-99:                                               ; preds = %95, %91, %86
-  %100 = getelementptr inbounds nuw double, ptr %47, i64 %53
-  %101 = load double, ptr %100, align 8
-  %102 = fcmp ugt double %.017.i.i.i43, %101
+98:                                               ; preds = %94, %91, %86
+  %99 = getelementptr inbounds nuw double, ptr %47, i64 %53
+  %100 = load double, ptr %99, align 8
+  %101 = fcmp ugt double %.017.i.i.i43, %100
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i44
 
-_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i44: ; preds = %99, %97
-  %.sink20.i.i.i45 = phi i1 [ %102, %99 ], [ %.not.i7.i.i47, %97 ]
+_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i44: ; preds = %98, %96
+  %.sink20.i.i.i45 = phi i1 [ %101, %98 ], [ %.not.i7.i.i47, %96 ]
   %.19.i.i.i46 = select i1 %.sink20.i.i.i45, i64 40, i64 16
   br label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i37
 
 _ZNK8LightGBM4Tree8DecisionEdi.exit.i37:          ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i44, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i36, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i40, %64, %62
   %.sink.i.i38 = phi i64 [ 40, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i36 ], [ %.19.i.i.i46, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i44 ], [ 40, %62 ], [ 40, %64 ], [ 16, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i40 ]
-  %103 = getelementptr inbounds nuw i8, ptr %30, i64 %.sink.i.i38
-  %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %53
-  %.0.i.i39 = load i32, ptr %105, align 4
-  %106 = icmp sgt i32 %.0.i.i39, -1
-  br i1 %106, label %52, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit48, !llvm.loop !5
+  %102 = getelementptr inbounds nuw i8, ptr %30, i64 %.sink.i.i38
+  %103 = load ptr, ptr %102, align 8
+  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %53
+  %.0.i.i39 = load i32, ptr %104, align 4
+  %105 = icmp sgt i32 %.0.i.i39, -1
+  br i1 %105, label %52, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit48, !llvm.loop !5
 
 .preheader11.i22:                                 ; preds = %38, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26
   %.213.i23 = phi i32 [ %.0.i9.i29, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26 ], [ 0, %38 ]
-  %107 = zext nneg i32 %.213.i23 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %43, i64 %107
-  %109 = load i32, ptr %108, align 4
-  %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds double, ptr %1, i64 %110
-  %112 = load double, ptr %111, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %45, i64 %107
-  %114 = load i8, ptr %113, align 1
-  %115 = lshr i8 %114, 2
-  %116 = and i8 %115, 3
-  %117 = fcmp uno double %112, 0.000000e+00
-  %118 = icmp ne i8 %116, 2
-  %or.cond.i.i24 = and i1 %117, %118
-  %.017.i.i25 = select i1 %or.cond.i.i24, double 0.000000e+00, double %112
-  switch i8 %116, label %127 [
-    i8 1, label %119
-    i8 2, label %123
+  %106 = zext nneg i32 %.213.i23 to i64
+  %107 = getelementptr inbounds nuw i32, ptr %43, i64 %106
+  %108 = load i32, ptr %107, align 4
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds double, ptr %1, i64 %109
+  %111 = load double, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %45, i64 %106
+  %113 = load i8, ptr %112, align 1
+  %114 = lshr i8 %113, 2
+  %115 = and i8 %114, 3
+  %116 = fcmp uno double %111, 0.000000e+00
+  %117 = icmp ne i8 %115, 2
+  %or.cond.i.i24 = and i1 %116, %117
+  %.017.i.i25 = select i1 %or.cond.i.i24, double 0.000000e+00, double %111
+  switch i8 %115, label %125 [
+    i8 1, label %118
+    i8 2, label %121
   ]
 
-119:                                              ; preds = %.preheader11.i22
-  %120 = call double @llvm.fabs.f64(double %112)
-  %121 = fcmp ole double %120, 0x38AA95A5C0000000
-  %122 = or i1 %121, %or.cond.i.i24
-  br i1 %122, label %125, label %127
+118:                                              ; preds = %.preheader11.i22
+  %119 = call double @llvm.fabs.f64(double %.017.i.i25)
+  %120 = fcmp ugt double %119, 0x38AA95A5C0000000
+  br i1 %120, label %125, label %123
 
-123:                                              ; preds = %.preheader11.i22
-  %124 = fcmp uno double %.017.i.i25, 0.000000e+00
-  br i1 %124, label %125, label %127
+121:                                              ; preds = %.preheader11.i22
+  %122 = fcmp uno double %.017.i.i25, 0.000000e+00
+  br i1 %122, label %123, label %125
 
-125:                                              ; preds = %123, %119
-  %126 = and i8 %114, 2
-  %.not.i10.i31 = icmp eq i8 %126, 0
+123:                                              ; preds = %121, %118
+  %124 = and i8 %113, 2
+  %.not.i10.i31 = icmp eq i8 %124, 0
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26
 
-127:                                              ; preds = %123, %119, %.preheader11.i22
-  %128 = getelementptr inbounds nuw double, ptr %47, i64 %107
-  %129 = load double, ptr %128, align 8
-  %130 = fcmp ugt double %.017.i.i25, %129
+125:                                              ; preds = %121, %118, %.preheader11.i22
+  %126 = getelementptr inbounds nuw double, ptr %47, i64 %106
+  %127 = load double, ptr %126, align 8
+  %128 = fcmp ugt double %.017.i.i25, %127
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26
 
-_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26: ; preds = %127, %125
-  %.sink20.i.i27 = phi i1 [ %130, %127 ], [ %.not.i10.i31, %125 ]
+_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26: ; preds = %125, %123
+  %.sink20.i.i27 = phi i1 [ %128, %125 ], [ %.not.i10.i31, %123 ]
   %.19.i.i28 = select i1 %.sink20.i.i27, i64 40, i64 16
-  %131 = getelementptr inbounds nuw i8, ptr %30, i64 %.19.i.i28
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i32, ptr %132, i64 %107
-  %.0.i9.i29 = load i32, ptr %133, align 4
-  %134 = icmp sgt i32 %.0.i9.i29, -1
-  br i1 %134, label %.preheader11.i22, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit48, !llvm.loop !7
+  %129 = getelementptr inbounds nuw i8, ptr %30, i64 %.19.i.i28
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %106
+  %.0.i9.i29 = load i32, ptr %131, align 4
+  %132 = icmp sgt i32 %.0.i9.i29, -1
+  br i1 %132, label %.preheader11.i22, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit48, !llvm.loop !7
 
 _ZNK8LightGBM4Tree7GetLeafEPKd.exit48:            ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i37
   %.1.i30 = phi i32 [ %.0.i.i39, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i37 ], [ %.0.i9.i29, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i26 ]
-  %135 = xor i32 %.1.i30, -1
-  %136 = zext nneg i32 %135 to i64
-  br label %137
+  %133 = xor i32 %.1.i30, -1
+  %134 = zext nneg i32 %133 to i64
+  br label %135
 
-137:                                              ; preds = %_ZNK8LightGBM4Tree7GetLeafEPKd.exit48, %37
-  %138 = phi i64 [ %136, %_ZNK8LightGBM4Tree7GetLeafEPKd.exit48 ], [ 0, %37 ]
-  %139 = getelementptr inbounds nuw i8, ptr %30, i64 576
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds nuw double, ptr %140, i64 %138
-  %142 = load double, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %30, i64 600
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds nuw %"class.std::vector.91", ptr %144, i64 %138
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %147 = load ptr, ptr %146, align 8
-  %148 = load ptr, ptr %145, align 8
-  %.not.i = icmp eq ptr %147, %148
+135:                                              ; preds = %_ZNK8LightGBM4Tree7GetLeafEPKd.exit48, %37
+  %136 = phi i64 [ %134, %_ZNK8LightGBM4Tree7GetLeafEPKd.exit48 ], [ 0, %37 ]
+  %137 = getelementptr inbounds nuw i8, ptr %30, i64 576
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds nuw double, ptr %138, i64 %136
+  %140 = load double, ptr %139, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %30, i64 600
+  %142 = load ptr, ptr %141, align 8
+  %143 = getelementptr inbounds nuw %"class.std::vector.91", ptr %142, i64 %136
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %145 = load ptr, ptr %144, align 8
+  %146 = load ptr, ptr %143, align 8
+  %.not.i = icmp eq ptr %145, %146
   br i1 %.not.i, label %_ZNK8LightGBM4Tree7PredictEPKd.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %137
-  %149 = ptrtoint ptr %147 to i64
-  %150 = ptrtoint ptr %148 to i64
-  %151 = sub i64 %149, %150
-  %152 = ashr exact i64 %151, 2
-  %153 = getelementptr inbounds nuw i8, ptr %30, i64 552
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds nuw %"class.std::vector.101", ptr %154, i64 %138
-  %umax.i = call i64 @llvm.umax.i64(i64 %152, i64 1)
-  br label %156
+.lr.ph.i:                                         ; preds = %135
+  %147 = ptrtoint ptr %145 to i64
+  %148 = ptrtoint ptr %146 to i64
+  %149 = sub i64 %147, %148
+  %150 = ashr exact i64 %149, 2
+  %151 = getelementptr inbounds nuw i8, ptr %30, i64 552
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds nuw %"class.std::vector.101", ptr %152, i64 %136
+  %umax.i = call i64 @llvm.umax.i64(i64 %150, i64 1)
+  br label %154
 
-156:                                              ; preds = %163, %.lr.ph.i
-  %.02025.i = phi double [ %142, %.lr.ph.i ], [ %167, %163 ]
-  %.02224.i = phi i64 [ 0, %.lr.ph.i ], [ %168, %163 ]
-  %157 = getelementptr inbounds i32, ptr %148, i64 %.02224.i
-  %158 = load i32, ptr %157, align 4
-  %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds double, ptr %1, i64 %159
-  %161 = load double, ptr %160, align 8
-  %162 = fcmp uno double %161, 0.000000e+00
-  br i1 %162, label %169, label %163
+154:                                              ; preds = %161, %.lr.ph.i
+  %.02025.i = phi double [ %140, %.lr.ph.i ], [ %165, %161 ]
+  %.02224.i = phi i64 [ 0, %.lr.ph.i ], [ %166, %161 ]
+  %155 = getelementptr inbounds i32, ptr %146, i64 %.02224.i
+  %156 = load i32, ptr %155, align 4
+  %157 = sext i32 %156 to i64
+  %158 = getelementptr inbounds double, ptr %1, i64 %157
+  %159 = load double, ptr %158, align 8
+  %160 = fcmp uno double %159, 0.000000e+00
+  br i1 %160, label %167, label %161
 
-163:                                              ; preds = %156
-  %164 = load ptr, ptr %155, align 8
-  %165 = getelementptr inbounds double, ptr %164, i64 %.02224.i
-  %166 = load double, ptr %165, align 8
-  %167 = call double @llvm.fmuladd.f64(double %166, double %161, double %.02025.i)
-  %168 = add nuw i64 %.02224.i, 1
-  %exitcond.not.i = icmp eq i64 %168, %umax.i
-  br i1 %exitcond.not.i, label %_ZNK8LightGBM4Tree7PredictEPKd.exit, label %156, !llvm.loop !8
+161:                                              ; preds = %154
+  %162 = load ptr, ptr %153, align 8
+  %163 = getelementptr inbounds double, ptr %162, i64 %.02224.i
+  %164 = load double, ptr %163, align 8
+  %165 = call double @llvm.fmuladd.f64(double %164, double %159, double %.02025.i)
+  %166 = add nuw i64 %.02224.i, 1
+  %exitcond.not.i = icmp eq i64 %166, %umax.i
+  br i1 %exitcond.not.i, label %_ZNK8LightGBM4Tree7PredictEPKd.exit, label %154, !llvm.loop !8
 
-169:                                              ; preds = %156
-  %170 = getelementptr inbounds nuw i8, ptr %30, i64 336
-  %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds nuw double, ptr %171, i64 %138
-  %173 = load double, ptr %172, align 8
+167:                                              ; preds = %154
+  %168 = getelementptr inbounds nuw i8, ptr %30, i64 336
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds nuw double, ptr %169, i64 %136
+  %171 = load double, ptr %170, align 8
   br label %_ZNK8LightGBM4Tree7PredictEPKd.exit
 
-174:                                              ; preds = %.lr.ph
-  br i1 %36, label %175, label %278
+172:                                              ; preds = %.lr.ph
+  br i1 %36, label %173, label %274
 
-175:                                              ; preds = %174
-  %176 = getelementptr inbounds nuw i8, ptr %30, i64 160
-  %177 = load i32, ptr %176, align 8
-  %178 = icmp sgt i32 %177, 0
-  %179 = getelementptr inbounds nuw i8, ptr %30, i64 88
+173:                                              ; preds = %172
+  %174 = getelementptr inbounds nuw i8, ptr %30, i64 160
+  %175 = load i32, ptr %174, align 8
+  %176 = icmp sgt i32 %175, 0
+  %177 = getelementptr inbounds nuw i8, ptr %30, i64 88
+  %178 = load ptr, ptr %177, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %30, i64 264
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %30, i64 264
+  %181 = getelementptr inbounds nuw i8, ptr %30, i64 136
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds nuw i8, ptr %30, i64 136
+  br i1 %176, label %.preheader.i, label %.preheader11.i
+
+.preheader.i:                                     ; preds = %173
+  %183 = getelementptr inbounds nuw i8, ptr %30, i64 216
   %184 = load ptr, ptr %183, align 8
-  br i1 %178, label %.preheader.i, label %.preheader11.i
-
-.preheader.i:                                     ; preds = %175
-  %185 = getelementptr inbounds nuw i8, ptr %30, i64 216
+  %185 = getelementptr inbounds nuw i8, ptr %30, i64 240
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %30, i64 240
-  %188 = load ptr, ptr %187, align 8
-  br label %189
+  br label %187
 
-189:                                              ; preds = %_ZNK8LightGBM4Tree8DecisionEdi.exit.i, %.preheader.i
+187:                                              ; preds = %_ZNK8LightGBM4Tree8DecisionEdi.exit.i, %.preheader.i
   %.014.i = phi i32 [ 0, %.preheader.i ], [ %.0.i.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i ]
-  %190 = zext nneg i32 %.014.i to i64
-  %191 = getelementptr inbounds nuw i32, ptr %180, i64 %190
-  %192 = load i32, ptr %191, align 4
-  %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds double, ptr %1, i64 %193
-  %195 = load double, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %182, i64 %190
-  %197 = load i8, ptr %196, align 1
-  %198 = and i8 %197, 1
-  %.not.i.i21 = icmp eq i8 %198, 0
-  br i1 %.not.i.i21, label %223, label %199
+  %188 = zext nneg i32 %.014.i to i64
+  %189 = getelementptr inbounds nuw i32, ptr %178, i64 %188
+  %190 = load i32, ptr %189, align 4
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds double, ptr %1, i64 %191
+  %193 = load double, ptr %192, align 8
+  %194 = getelementptr inbounds nuw i8, ptr %180, i64 %188
+  %195 = load i8, ptr %194, align 1
+  %196 = and i8 %195, 1
+  %.not.i.i21 = icmp eq i8 %196, 0
+  br i1 %.not.i.i21, label %221, label %197
 
-199:                                              ; preds = %189
-  %200 = fcmp uno double %195, 0.000000e+00
-  br i1 %200, label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i, label %201
+197:                                              ; preds = %187
+  %198 = fcmp uno double %193, 0.000000e+00
+  br i1 %198, label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i, label %199
 
-201:                                              ; preds = %199
-  %202 = fptosi double %195 to i32
-  %203 = icmp slt i32 %202, 0
-  br i1 %203, label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i, label %204
+199:                                              ; preds = %197
+  %200 = fptosi double %193 to i32
+  %201 = icmp slt i32 %200, 0
+  br i1 %201, label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i, label %202
 
-204:                                              ; preds = %201
-  %205 = getelementptr inbounds nuw double, ptr %184, i64 %190
-  %206 = load double, ptr %205, align 8
-  %207 = fptosi double %206 to i32
-  %208 = sext i32 %207 to i64
-  %209 = getelementptr i32, ptr %186, i64 %208
+202:                                              ; preds = %199
+  %203 = getelementptr inbounds nuw double, ptr %182, i64 %188
+  %204 = load double, ptr %203, align 8
+  %205 = fptosi double %204 to i32
+  %206 = sext i32 %205 to i64
+  %207 = getelementptr i32, ptr %184, i64 %206
+  %208 = load i32, ptr %207, align 4
+  %209 = getelementptr i8, ptr %207, i64 4
   %210 = load i32, ptr %209, align 4
-  %211 = getelementptr i8, ptr %209, i64 4
-  %212 = load i32, ptr %211, align 4
-  %213 = sub nsw i32 %212, %210
-  %214 = lshr i32 %202, 5
-  %.not.i.i.i.i = icmp slt i32 %214, %213
+  %211 = sub nsw i32 %210, %208
+  %212 = lshr i32 %200, 5
+  %.not.i.i.i.i = icmp slt i32 %212, %211
   br i1 %.not.i.i.i.i, label %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i, label %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i
 
-_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i: ; preds = %204
-  %215 = sext i32 %210 to i64
-  %216 = getelementptr inbounds i32, ptr %188, i64 %215
-  %217 = and i32 %202, 31
-  %218 = zext nneg i32 %214 to i64
-  %219 = getelementptr inbounds nuw i32, ptr %216, i64 %218
-  %220 = load i32, ptr %219, align 4
-  %221 = shl nuw i32 1, %217
-  %222 = and i32 %220, %221
-  %.not.i.i.i = icmp eq i32 %222, 0
+_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i: ; preds = %202
+  %213 = sext i32 %208 to i64
+  %214 = getelementptr inbounds i32, ptr %186, i64 %213
+  %215 = and i32 %200, 31
+  %216 = zext nneg i32 %212 to i64
+  %217 = getelementptr inbounds nuw i32, ptr %214, i64 %216
+  %218 = load i32, ptr %217, align 4
+  %219 = shl nuw i32 1, %215
+  %220 = and i32 %218, %219
+  %.not.i.i.i = icmp eq i32 %220, 0
   br i1 %.not.i.i.i, label %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i, label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i
 
-_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i, %204
+_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i: ; preds = %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i, %202
   br label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i
 
-223:                                              ; preds = %189
-  %224 = lshr i8 %197, 2
-  %225 = and i8 %224, 3
-  %226 = fcmp uno double %195, 0.000000e+00
-  %227 = icmp ne i8 %225, 2
-  %or.cond.i.i.i = and i1 %226, %227
-  %.017.i.i.i = select i1 %or.cond.i.i.i, double 0.000000e+00, double %195
-  switch i8 %225, label %236 [
-    i8 1, label %228
-    i8 2, label %232
+221:                                              ; preds = %187
+  %222 = lshr i8 %195, 2
+  %223 = and i8 %222, 3
+  %224 = fcmp uno double %193, 0.000000e+00
+  %225 = icmp ne i8 %223, 2
+  %or.cond.i.i.i = and i1 %224, %225
+  %.017.i.i.i = select i1 %or.cond.i.i.i, double 0.000000e+00, double %193
+  switch i8 %223, label %233 [
+    i8 1, label %226
+    i8 2, label %229
   ]
 
-228:                                              ; preds = %223
-  %229 = call double @llvm.fabs.f64(double %195)
-  %230 = fcmp ole double %229, 0x38AA95A5C0000000
-  %231 = or i1 %230, %or.cond.i.i.i
-  br i1 %231, label %234, label %236
+226:                                              ; preds = %221
+  %227 = call double @llvm.fabs.f64(double %.017.i.i.i)
+  %228 = fcmp ugt double %227, 0x38AA95A5C0000000
+  br i1 %228, label %233, label %231
 
-232:                                              ; preds = %223
-  %233 = fcmp uno double %.017.i.i.i, 0.000000e+00
-  br i1 %233, label %234, label %236
+229:                                              ; preds = %221
+  %230 = fcmp uno double %.017.i.i.i, 0.000000e+00
+  br i1 %230, label %231, label %233
 
-234:                                              ; preds = %232, %228
-  %235 = and i8 %197, 2
-  %.not.i7.i.i = icmp eq i8 %235, 0
+231:                                              ; preds = %229, %226
+  %232 = and i8 %195, 2
+  %.not.i7.i.i = icmp eq i8 %232, 0
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i
 
-236:                                              ; preds = %232, %228, %223
-  %237 = getelementptr inbounds nuw double, ptr %184, i64 %190
-  %238 = load double, ptr %237, align 8
-  %239 = fcmp ugt double %.017.i.i.i, %238
+233:                                              ; preds = %229, %226, %221
+  %234 = getelementptr inbounds nuw double, ptr %182, i64 %188
+  %235 = load double, ptr %234, align 8
+  %236 = fcmp ugt double %.017.i.i.i, %235
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i
 
-_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i: ; preds = %236, %234
-  %.sink20.i.i.i = phi i1 [ %239, %236 ], [ %.not.i7.i.i, %234 ]
+_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i: ; preds = %233, %231
+  %.sink20.i.i.i = phi i1 [ %236, %233 ], [ %.not.i7.i.i, %231 ]
   %.19.i.i.i = select i1 %.sink20.i.i.i, i64 40, i64 16
   br label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i
 
-_ZNK8LightGBM4Tree8DecisionEdi.exit.i:            ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i, %201, %199
-  %.sink.i.i = phi i64 [ 40, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i ], [ %.19.i.i.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i ], [ 40, %199 ], [ 40, %201 ], [ 16, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i ]
-  %240 = getelementptr inbounds nuw i8, ptr %30, i64 %.sink.i.i
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds nuw i32, ptr %241, i64 %190
-  %.0.i.i = load i32, ptr %242, align 4
-  %243 = icmp sgt i32 %.0.i.i, -1
-  br i1 %243, label %189, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit, !llvm.loop !5
+_ZNK8LightGBM4Tree8DecisionEdi.exit.i:            ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i, %199, %197
+  %.sink.i.i = phi i64 [ 40, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i ], [ %.19.i.i.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i ], [ 40, %197 ], [ 40, %199 ], [ 16, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i ]
+  %237 = getelementptr inbounds nuw i8, ptr %30, i64 %.sink.i.i
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds nuw i32, ptr %238, i64 %188
+  %.0.i.i = load i32, ptr %239, align 4
+  %240 = icmp sgt i32 %.0.i.i, -1
+  br i1 %240, label %187, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit, !llvm.loop !5
 
-.preheader11.i:                                   ; preds = %175, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
-  %.213.i = phi i32 [ %.0.i9.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ], [ 0, %175 ]
-  %244 = zext nneg i32 %.213.i to i64
-  %245 = getelementptr inbounds nuw i32, ptr %180, i64 %244
-  %246 = load i32, ptr %245, align 4
-  %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds double, ptr %1, i64 %247
-  %249 = load double, ptr %248, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %182, i64 %244
-  %251 = load i8, ptr %250, align 1
-  %252 = lshr i8 %251, 2
-  %253 = and i8 %252, 3
-  %254 = fcmp uno double %249, 0.000000e+00
-  %255 = icmp ne i8 %253, 2
-  %or.cond.i.i = and i1 %254, %255
-  %.017.i.i = select i1 %or.cond.i.i, double 0.000000e+00, double %249
-  switch i8 %253, label %264 [
-    i8 1, label %256
-    i8 2, label %260
+.preheader11.i:                                   ; preds = %173, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
+  %.213.i = phi i32 [ %.0.i9.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ], [ 0, %173 ]
+  %241 = zext nneg i32 %.213.i to i64
+  %242 = getelementptr inbounds nuw i32, ptr %178, i64 %241
+  %243 = load i32, ptr %242, align 4
+  %244 = sext i32 %243 to i64
+  %245 = getelementptr inbounds double, ptr %1, i64 %244
+  %246 = load double, ptr %245, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %180, i64 %241
+  %248 = load i8, ptr %247, align 1
+  %249 = lshr i8 %248, 2
+  %250 = and i8 %249, 3
+  %251 = fcmp uno double %246, 0.000000e+00
+  %252 = icmp ne i8 %250, 2
+  %or.cond.i.i = and i1 %251, %252
+  %.017.i.i = select i1 %or.cond.i.i, double 0.000000e+00, double %246
+  switch i8 %250, label %260 [
+    i8 1, label %253
+    i8 2, label %256
   ]
 
+253:                                              ; preds = %.preheader11.i
+  %254 = call double @llvm.fabs.f64(double %.017.i.i)
+  %255 = fcmp ugt double %254, 0x38AA95A5C0000000
+  br i1 %255, label %260, label %258
+
 256:                                              ; preds = %.preheader11.i
-  %257 = call double @llvm.fabs.f64(double %249)
-  %258 = fcmp ole double %257, 0x38AA95A5C0000000
-  %259 = or i1 %258, %or.cond.i.i
-  br i1 %259, label %262, label %264
+  %257 = fcmp uno double %.017.i.i, 0.000000e+00
+  br i1 %257, label %258, label %260
 
-260:                                              ; preds = %.preheader11.i
-  %261 = fcmp uno double %.017.i.i, 0.000000e+00
-  br i1 %261, label %262, label %264
-
-262:                                              ; preds = %260, %256
-  %263 = and i8 %251, 2
-  %.not.i10.i = icmp eq i8 %263, 0
+258:                                              ; preds = %256, %253
+  %259 = and i8 %248, 2
+  %.not.i10.i = icmp eq i8 %259, 0
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
-264:                                              ; preds = %260, %256, %.preheader11.i
-  %265 = getelementptr inbounds nuw double, ptr %184, i64 %244
-  %266 = load double, ptr %265, align 8
-  %267 = fcmp ugt double %.017.i.i, %266
+260:                                              ; preds = %256, %253, %.preheader11.i
+  %261 = getelementptr inbounds nuw double, ptr %182, i64 %241
+  %262 = load double, ptr %261, align 8
+  %263 = fcmp ugt double %.017.i.i, %262
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
-_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i:  ; preds = %264, %262
-  %.sink20.i.i = phi i1 [ %267, %264 ], [ %.not.i10.i, %262 ]
+_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i:  ; preds = %260, %258
+  %.sink20.i.i = phi i1 [ %263, %260 ], [ %.not.i10.i, %258 ]
   %.19.i.i = select i1 %.sink20.i.i, i64 40, i64 16
-  %268 = getelementptr inbounds nuw i8, ptr %30, i64 %.19.i.i
-  %269 = load ptr, ptr %268, align 8
-  %270 = getelementptr inbounds nuw i32, ptr %269, i64 %244
-  %.0.i9.i = load i32, ptr %270, align 4
-  %271 = icmp sgt i32 %.0.i9.i, -1
-  br i1 %271, label %.preheader11.i, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit, !llvm.loop !7
+  %264 = getelementptr inbounds nuw i8, ptr %30, i64 %.19.i.i
+  %265 = load ptr, ptr %264, align 8
+  %266 = getelementptr inbounds nuw i32, ptr %265, i64 %241
+  %.0.i9.i = load i32, ptr %266, align 4
+  %267 = icmp sgt i32 %.0.i9.i, -1
+  br i1 %267, label %.preheader11.i, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit, !llvm.loop !7
 
 _ZNK8LightGBM4Tree7GetLeafEPKd.exit:              ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i
   %.1.i = phi i32 [ %.0.i.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i ], [ %.0.i9.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ]
-  %272 = xor i32 %.1.i, -1
-  %273 = getelementptr inbounds nuw i8, ptr %30, i64 336
-  %274 = zext nneg i32 %272 to i64
-  %275 = load ptr, ptr %273, align 8
-  %276 = getelementptr inbounds nuw double, ptr %275, i64 %274
+  %268 = xor i32 %.1.i, -1
+  %269 = getelementptr inbounds nuw i8, ptr %30, i64 336
+  %270 = zext nneg i32 %268 to i64
+  %271 = load ptr, ptr %269, align 8
+  %272 = getelementptr inbounds nuw double, ptr %271, i64 %270
+  %273 = load double, ptr %272, align 8
+  br label %_ZNK8LightGBM4Tree7PredictEPKd.exit
+
+274:                                              ; preds = %172
+  %275 = getelementptr inbounds nuw i8, ptr %30, i64 336
+  %276 = load ptr, ptr %275, align 8
   %277 = load double, ptr %276, align 8
   br label %_ZNK8LightGBM4Tree7PredictEPKd.exit
 
-278:                                              ; preds = %174
-  %279 = getelementptr inbounds nuw i8, ptr %30, i64 336
-  %280 = load ptr, ptr %279, align 8
-  %281 = load double, ptr %280, align 8
-  br label %_ZNK8LightGBM4Tree7PredictEPKd.exit
-
-_ZNK8LightGBM4Tree7PredictEPKd.exit:              ; preds = %163, %137, %169, %_ZNK8LightGBM4Tree7GetLeafEPKd.exit, %278
-  %.0.i = phi double [ %173, %169 ], [ %277, %_ZNK8LightGBM4Tree7GetLeafEPKd.exit ], [ %281, %278 ], [ %142, %137 ], [ %167, %163 ]
-  %282 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %283 = load double, ptr %282, align 8
-  %284 = fadd double %.0.i, %283
-  store double %284, ptr %282, align 8
+_ZNK8LightGBM4Tree7PredictEPKd.exit:              ; preds = %161, %135, %167, %_ZNK8LightGBM4Tree7GetLeafEPKd.exit, %274
+  %.0.i = phi double [ %171, %167 ], [ %273, %_ZNK8LightGBM4Tree7GetLeafEPKd.exit ], [ %277, %274 ], [ %140, %135 ], [ %165, %161 ]
+  %278 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %279 = load double, ptr %278, align 8
+  %280 = fadd double %.0.i, %279
+  store double %280, ptr %278, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %285 = load i32, ptr %7, align 8
-  %286 = sext i32 %285 to i64
-  %287 = icmp slt i64 %indvars.iv.next, %286
-  br i1 %287, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  %281 = load i32, ptr %7, align 8
+  %282 = sext i32 %281 to i64
+  %283 = icmp slt i64 %indvars.iv.next, %282
+  br i1 %283, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZNK8LightGBM4Tree7PredictEPKd.exit, %.preheader
-  %.lcssa51 = phi i32 [ %21, %.preheader ], [ %285, %_ZNK8LightGBM4Tree7PredictEPKd.exit ]
-  %288 = add nsw i32 %.01753, 1
-  %289 = load i32, ptr %18, align 8
-  %290 = icmp eq i32 %289, %288
-  br i1 %290, label %291, label %296
+  %.lcssa51 = phi i32 [ %21, %.preheader ], [ %281, %_ZNK8LightGBM4Tree7PredictEPKd.exit ]
+  %284 = add nsw i32 %.01753, 1
+  %285 = load i32, ptr %18, align 8
+  %286 = icmp eq i32 %285, %284
+  br i1 %286, label %287, label %292
 
-291:                                              ; preds = %._crit_edge
+287:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store ptr %2, ptr %5, align 8
   store i32 %.lcssa51, ptr %6, align 4
-  %292 = load ptr, ptr %19, align 8
-  %.not.i.i = icmp eq ptr %292, null
-  br i1 %.not.i.i, label %293, label %_ZNKSt8functionIFbPKdiEEclES1_i.exit
+  %288 = load ptr, ptr %19, align 8
+  %.not.i.i = icmp eq ptr %288, null
+  br i1 %.not.i.i, label %289, label %_ZNKSt8functionIFbPKdiEEclES1_i.exit
 
-293:                                              ; preds = %291
+289:                                              ; preds = %287
   call void @_ZSt25__throw_bad_function_callv() #11
   unreachable
 
-_ZNKSt8functionIFbPKdiEEclES1_i.exit:             ; preds = %291
-  %294 = load ptr, ptr %20, align 8
-  %295 = call noundef zeroext i1 %294(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
+_ZNKSt8functionIFbPKdiEEclES1_i.exit:             ; preds = %287
+  %290 = load ptr, ptr %20, align 8
+  %291 = call noundef zeroext i1 %290(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br i1 %295, label %_ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge, label %296
+  br i1 %291, label %_ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge, label %292
 
-296:                                              ; preds = %_ZNKSt8functionIFbPKdiEEclES1_i.exit, %._crit_edge
-  %.1 = phi i32 [ %288, %._crit_edge ], [ 0, %_ZNKSt8functionIFbPKdiEEclES1_i.exit ]
-  %297 = add nsw i32 %.01654, 1
-  %298 = icmp slt i32 %297, %15
-  br i1 %298, label %.preheader, label %_ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge, !llvm.loop !10
+292:                                              ; preds = %_ZNKSt8functionIFbPKdiEEclES1_i.exit, %._crit_edge
+  %.1 = phi i32 [ %284, %._crit_edge ], [ 0, %_ZNKSt8functionIFbPKdiEEclES1_i.exit ]
+  %293 = add nsw i32 %.01654, 1
+  %294 = icmp slt i32 %293, %15
+  br i1 %294, label %.preheader, label %_ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge, !llvm.loop !10
 
-_ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge:  ; preds = %296, %_ZNKSt8functionIFbPKdiEEclES1_i.exit, %4
+_ZNKSt8functionIFbPKdiEEclES1_i.exit._crit_edge:  ; preds = %292, %_ZNKSt8functionIFbPKdiEEclES1_i.exit, %4
   ret void
 }
 
@@ -643,102 +639,100 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i: ; preds = %_ZN8Li
   %54 = icmp ne i8 %52, 2
   %or.cond.i.i = and i1 %53, %54
   %.017.i.i = select i1 %or.cond.i.i, double 0.000000e+00, double %22
-  switch i8 %52, label %63 [
+  switch i8 %52, label %62 [
     i8 1, label %55
-    i8 2, label %59
+    i8 2, label %58
   ]
 
 55:                                               ; preds = %50
-  %56 = tail call double @llvm.fabs.f64(double %22)
-  %57 = fcmp ole double %56, 0x38AA95A5C0000000
-  %58 = or i1 %57, %or.cond.i.i
-  br i1 %58, label %61, label %63
+  %56 = tail call double @llvm.fabs.f64(double %.017.i.i)
+  %57 = fcmp ugt double %56, 0x38AA95A5C0000000
+  br i1 %57, label %62, label %60
 
-59:                                               ; preds = %50
-  %60 = fcmp uno double %.017.i.i, 0.000000e+00
-  br i1 %60, label %61, label %63
+58:                                               ; preds = %50
+  %59 = fcmp uno double %.017.i.i, 0.000000e+00
+  br i1 %59, label %60, label %62
 
-61:                                               ; preds = %59, %55
-  %62 = and i8 %24, 2
-  %.not.i7.i = icmp eq i8 %62, 0
+60:                                               ; preds = %58, %55
+  %61 = and i8 %24, 2
+  %.not.i7.i = icmp eq i8 %61, 0
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
-63:                                               ; preds = %59, %55, %50
-  %64 = getelementptr inbounds nuw double, ptr %11, i64 %17
-  %65 = load double, ptr %64, align 8
-  %66 = fcmp ugt double %.017.i.i, %65
+62:                                               ; preds = %58, %55, %50
+  %63 = getelementptr inbounds nuw double, ptr %11, i64 %17
+  %64 = load double, ptr %63, align 8
+  %65 = fcmp ugt double %.017.i.i, %64
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
-_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i:  ; preds = %63, %61
-  %.sink20.i.i = phi i1 [ %66, %63 ], [ %.not.i7.i, %61 ]
+_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i:  ; preds = %62, %60
+  %.sink20.i.i = phi i1 [ %65, %62 ], [ %.not.i7.i, %60 ]
   %.19.i.i = select i1 %.sink20.i.i, i64 40, i64 16
   br label %_ZNK8LightGBM4Tree8DecisionEdi.exit
 
 _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %26, %28, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
   %.sink.i = phi i64 [ 40, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i ], [ %.19.i.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ], [ 40, %26 ], [ 40, %28 ], [ 16, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i ]
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %17
-  %.0.i = load i32, ptr %69, align 4
-  %70 = icmp sgt i32 %.0.i, -1
-  br i1 %70, label %16, label %.loopexit, !llvm.loop !5
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %17
+  %.0.i = load i32, ptr %68, align 4
+  %69 = icmp sgt i32 %.0.i, -1
+  br i1 %69, label %16, label %.loopexit, !llvm.loop !5
 
 .preheader11:                                     ; preds = %2, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
   %.213 = phi i32 [ %.0.i9, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ], [ 0, %2 ]
-  %71 = zext nneg i32 %.213 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %7, i64 %71
-  %73 = load i32, ptr %72, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds double, ptr %1, i64 %74
-  %76 = load double, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %9, i64 %71
-  %78 = load i8, ptr %77, align 1
-  %79 = lshr i8 %78, 2
-  %80 = and i8 %79, 3
-  %81 = fcmp uno double %76, 0.000000e+00
-  %82 = icmp ne i8 %80, 2
-  %or.cond.i = and i1 %81, %82
-  %.017.i = select i1 %or.cond.i, double 0.000000e+00, double %76
-  switch i8 %80, label %91 [
-    i8 1, label %83
-    i8 2, label %87
+  %70 = zext nneg i32 %.213 to i64
+  %71 = getelementptr inbounds nuw i32, ptr %7, i64 %70
+  %72 = load i32, ptr %71, align 4
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds double, ptr %1, i64 %73
+  %75 = load double, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 %70
+  %77 = load i8, ptr %76, align 1
+  %78 = lshr i8 %77, 2
+  %79 = and i8 %78, 3
+  %80 = fcmp uno double %75, 0.000000e+00
+  %81 = icmp ne i8 %79, 2
+  %or.cond.i = and i1 %80, %81
+  %.017.i = select i1 %or.cond.i, double 0.000000e+00, double %75
+  switch i8 %79, label %89 [
+    i8 1, label %82
+    i8 2, label %85
   ]
 
-83:                                               ; preds = %.preheader11
-  %84 = tail call double @llvm.fabs.f64(double %76)
-  %85 = fcmp ole double %84, 0x38AA95A5C0000000
-  %86 = or i1 %85, %or.cond.i
-  br i1 %86, label %89, label %91
+82:                                               ; preds = %.preheader11
+  %83 = tail call double @llvm.fabs.f64(double %.017.i)
+  %84 = fcmp ugt double %83, 0x38AA95A5C0000000
+  br i1 %84, label %89, label %87
 
-87:                                               ; preds = %.preheader11
-  %88 = fcmp uno double %.017.i, 0.000000e+00
-  br i1 %88, label %89, label %91
+85:                                               ; preds = %.preheader11
+  %86 = fcmp uno double %.017.i, 0.000000e+00
+  br i1 %86, label %87, label %89
 
-89:                                               ; preds = %87, %83
-  %90 = and i8 %78, 2
-  %.not.i10 = icmp eq i8 %90, 0
+87:                                               ; preds = %85, %82
+  %88 = and i8 %77, 2
+  %.not.i10 = icmp eq i8 %88, 0
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
 
-91:                                               ; preds = %87, %83, %.preheader11
-  %92 = getelementptr inbounds nuw double, ptr %11, i64 %71
-  %93 = load double, ptr %92, align 8
-  %94 = fcmp ugt double %.017.i, %93
+89:                                               ; preds = %85, %82, %.preheader11
+  %90 = getelementptr inbounds nuw double, ptr %11, i64 %70
+  %91 = load double, ptr %90, align 8
+  %92 = fcmp ugt double %.017.i, %91
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
 
-_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit:    ; preds = %89, %91
-  %.sink20.i = phi i1 [ %94, %91 ], [ %.not.i10, %89 ]
+_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit:    ; preds = %87, %89
+  %.sink20.i = phi i1 [ %92, %89 ], [ %.not.i10, %87 ]
   %.19.i = select i1 %.sink20.i, i64 40, i64 16
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 %.19.i
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %71
-  %.0.i9 = load i32, ptr %97, align 4
-  %98 = icmp sgt i32 %.0.i9, -1
-  br i1 %98, label %.preheader11, label %.loopexit, !llvm.loop !7
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 %.19.i
+  %94 = load ptr, ptr %93, align 8
+  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %70
+  %.0.i9 = load i32, ptr %95, align 4
+  %96 = icmp sgt i32 %.0.i9, -1
+  br i1 %96, label %.preheader11, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit, %_ZNK8LightGBM4Tree8DecisionEdi.exit
   %.1 = phi i32 [ %.0.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit ], [ %.0.i9, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ]
-  %99 = xor i32 %.1, -1
-  ret i32 %99
+  %97 = xor i32 %.1, -1
+  ret i32 %97
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1206,210 +1200,208 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i: ; preds = %_ZN8Li
   %105 = icmp ne i8 %103, 2
   %or.cond.i.i = and i1 %104, %105
   %.017.i.i = select i1 %or.cond.i.i, double 0.000000e+00, double %101
-  switch i8 %103, label %114 [
+  switch i8 %103, label %113 [
     i8 1, label %106
-    i8 2, label %110
+    i8 2, label %109
   ]
 
 106:                                              ; preds = %99
-  %107 = tail call double @llvm.fabs.f64(double %101)
-  %108 = fcmp ole double %107, 0x38AA95A5C0000000
-  %109 = or i1 %108, %or.cond.i.i
-  br i1 %109, label %112, label %114
+  %107 = tail call double @llvm.fabs.f64(double %.017.i.i)
+  %108 = fcmp ugt double %107, 0x38AA95A5C0000000
+  br i1 %108, label %113, label %111
 
-110:                                              ; preds = %99
-  %111 = fcmp uno double %.017.i.i, 0.000000e+00
-  br i1 %111, label %112, label %114
+109:                                              ; preds = %99
+  %110 = fcmp uno double %.017.i.i, 0.000000e+00
+  br i1 %110, label %111, label %113
 
-112:                                              ; preds = %110, %106
-  %113 = and i8 %100, 2
-  %.not.i7.i = icmp eq i8 %113, 0
+111:                                              ; preds = %109, %106
+  %112 = and i8 %100, 2
+  %.not.i7.i = icmp eq i8 %112, 0
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
-114:                                              ; preds = %110, %106, %99
-  %115 = getelementptr inbounds nuw double, ptr %17, i64 %23
-  %116 = load double, ptr %115, align 8
-  %117 = fcmp ugt double %.017.i.i, %116
+113:                                              ; preds = %109, %106, %99
+  %114 = getelementptr inbounds nuw double, ptr %17, i64 %23
+  %115 = load double, ptr %114, align 8
+  %116 = fcmp ugt double %.017.i.i, %115
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
-_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i:  ; preds = %114, %112
-  %.sink20.i.i = phi i1 [ %117, %114 ], [ %.not.i7.i, %112 ]
+_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i:  ; preds = %113, %111
+  %.sink20.i.i = phi i1 [ %116, %113 ], [ %.not.i7.i, %111 ]
   %.19.i.i = select i1 %.sink20.i.i, i64 40, i64 16
   br label %_ZNK8LightGBM4Tree8DecisionEdi.exit
 
 _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread62, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
   %.sink.i = phi i64 [ 40, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i ], [ %.19.i.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ], [ 40, %75 ], [ 40, %.thread62 ], [ 16, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i ]
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds nuw i32, ptr %119, i64 %23
-  %.0.i = load i32, ptr %120, align 4
-  %121 = icmp sgt i32 %.0.i, -1
-  br i1 %121, label %22, label %.loopexit76, !llvm.loop !16
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %23
+  %.0.i = load i32, ptr %119, align 4
+  %120 = icmp sgt i32 %.0.i, -1
+  br i1 %120, label %22, label %.loopexit76, !llvm.loop !16
 
 .preheader83:                                     ; preds = %2, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
   %.296 = phi i32 [ %.0.i51, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ], [ 0, %2 ]
-  %122 = zext nneg i32 %.296 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %7, i64 %122
-  %124 = load i32, ptr %123, align 4
-  br i1 %.not.not.i.i.i, label %.preheader146, label %129
+  %121 = zext nneg i32 %.296 to i64
+  %122 = getelementptr inbounds nuw i32, ptr %7, i64 %121
+  %123 = load i32, ptr %122, align 4
+  br i1 %.not.not.i.i.i, label %.preheader146, label %128
 
-.preheader146:                                    ; preds = %.preheader83, %125
-  %.sroa.06.0.in.i.i.i35 = phi ptr [ %.sroa.06.0.i.i.i36, %125 ], [ %13, %.preheader83 ]
+.preheader146:                                    ; preds = %.preheader83, %124
+  %.sroa.06.0.in.i.i.i35 = phi ptr [ %.sroa.06.0.i.i.i36, %124 ], [ %13, %.preheader83 ]
   %.sroa.06.0.i.i.i36 = load ptr, ptr %.sroa.06.0.in.i.i.i35, align 8
   %.not.i.i.i37 = icmp eq ptr %.sroa.06.0.i.i.i36, null
-  br i1 %.not.i.i.i37, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread, label %125
+  br i1 %.not.i.i.i37, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread, label %124
 
-125:                                              ; preds = %.preheader146
-  %126 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i36, i64 8
-  %127 = load i32, ptr %126, align 4
-  %128 = icmp eq i32 %124, %127
-  br i1 %128, label %.loopexit80, label %.preheader146, !llvm.loop !11
+124:                                              ; preds = %.preheader146
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i36, i64 8
+  %126 = load i32, ptr %125, align 4
+  %127 = icmp eq i32 %123, %126
+  br i1 %127, label %.loopexit80, label %.preheader146, !llvm.loop !11
 
-129:                                              ; preds = %.preheader83
-  %130 = sext i32 %124 to i64
-  %131 = urem i64 %130, %11
-  %132 = getelementptr inbounds ptr, ptr %12, i64 %131
-  %133 = load ptr, ptr %132, align 8
-  %.not.i.i.i.i.i27 = icmp eq ptr %133, null
-  br i1 %.not.i.i.i.i.i27, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread, label %134
+128:                                              ; preds = %.preheader83
+  %129 = sext i32 %123 to i64
+  %130 = urem i64 %129, %11
+  %131 = getelementptr inbounds ptr, ptr %12, i64 %130
+  %132 = load ptr, ptr %131, align 8
+  %.not.i.i.i.i.i27 = icmp eq ptr %132, null
+  br i1 %.not.i.i.i.i.i27, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread, label %133
 
-134:                                              ; preds = %129
-  %135 = load ptr, ptr %133, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %137 = load i32, ptr %136, align 4
-  %138 = icmp eq i32 %124, %137
-  br i1 %138, label %.thread67, label %.lr.ph.i.i.i.i.i28
+133:                                              ; preds = %128
+  %134 = load ptr, ptr %132, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
+  %136 = load i32, ptr %135, align 4
+  %137 = icmp eq i32 %123, %136
+  br i1 %137, label %.thread67, label %.lr.ph.i.i.i.i.i28
 
-139:                                              ; preds = %142
-  %140 = icmp eq i32 %124, %144
-  br i1 %140, label %.loopexit80, label %.lr.ph.i.i.i.i.i28, !llvm.loop !13
+138:                                              ; preds = %141
+  %139 = icmp eq i32 %123, %143
+  br i1 %139, label %.loopexit80, label %.lr.ph.i.i.i.i.i28, !llvm.loop !13
 
-.lr.ph.i.i.i.i.i28:                               ; preds = %134, %139
-  %.018.i.i.i.i.i29 = phi ptr [ %141, %139 ], [ %135, %134 ]
-  %141 = load ptr, ptr %.018.i.i.i.i.i29, align 8
-  %.not16.i.i.i.i.i30 = icmp eq ptr %141, null
-  br i1 %.not16.i.i.i.i.i30, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread, label %142
+.lr.ph.i.i.i.i.i28:                               ; preds = %133, %138
+  %.018.i.i.i.i.i29 = phi ptr [ %140, %138 ], [ %134, %133 ]
+  %140 = load ptr, ptr %.018.i.i.i.i.i29, align 8
+  %.not16.i.i.i.i.i30 = icmp eq ptr %140, null
+  br i1 %.not16.i.i.i.i.i30, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread, label %141
 
-142:                                              ; preds = %.lr.ph.i.i.i.i.i28
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %144 = load i32, ptr %143, align 4
-  %145 = sext i32 %144 to i64
-  %146 = urem i64 %145, %11
-  %.not17.i.i.i.i.i31 = icmp eq i64 %146, %131
-  br i1 %.not17.i.i.i.i.i31, label %139, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread, !llvm.loop !13
+141:                                              ; preds = %.lr.ph.i.i.i.i.i28
+  %142 = getelementptr inbounds nuw i8, ptr %140, i64 8
+  %143 = load i32, ptr %142, align 4
+  %144 = sext i32 %143 to i64
+  %145 = urem i64 %144, %11
+  %.not17.i.i.i.i.i31 = icmp eq i64 %145, %130
+  br i1 %.not17.i.i.i.i.i31, label %138, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread, !llvm.loop !13
 
-.loopexit80:                                      ; preds = %139, %125
+.loopexit80:                                      ; preds = %138, %124
   br i1 %.not.not.i.i.i, label %.preheader143, label %.loopexit80..thread67_crit_edge
 
 .loopexit80..thread67_crit_edge:                  ; preds = %.loopexit80
-  %.pre117 = sext i32 %124 to i64
+  %.pre117 = sext i32 %123 to i64
   %.pre119 = urem i64 %.pre117, %11
   br label %.thread67
 
-.preheader143:                                    ; preds = %.loopexit80, %147
-  %.sroa.06.0.in.i.i.i47 = phi ptr [ %.sroa.06.0.i.i.i48, %147 ], [ %13, %.loopexit80 ]
+.preheader143:                                    ; preds = %.loopexit80, %146
+  %.sroa.06.0.in.i.i.i47 = phi ptr [ %.sroa.06.0.i.i.i48, %146 ], [ %13, %.loopexit80 ]
   %.sroa.06.0.i.i.i48 = load ptr, ptr %.sroa.06.0.in.i.i.i47, align 8
   %.not.i.i.i49 = icmp eq ptr %.sroa.06.0.i.i.i48, null
-  br i1 %.not.i.i.i49, label %.loopexit.i.i45, label %147
+  br i1 %.not.i.i.i49, label %.loopexit.i.i45, label %146
 
-147:                                              ; preds = %.preheader143
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i48, i64 8
-  %149 = load i32, ptr %148, align 4
-  %150 = icmp eq i32 %124, %149
-  br i1 %150, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50, label %.preheader143, !llvm.loop !11
+146:                                              ; preds = %.preheader143
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i48, i64 8
+  %148 = load i32, ptr %147, align 4
+  %149 = icmp eq i32 %123, %148
+  br i1 %149, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50, label %.preheader143, !llvm.loop !11
 
-.thread67:                                        ; preds = %.loopexit80..thread67_crit_edge, %134
-  %.pre-phi120 = phi i64 [ %.pre119, %.loopexit80..thread67_crit_edge ], [ %131, %134 ]
-  %151 = getelementptr inbounds ptr, ptr %12, i64 %.pre-phi120
-  %152 = load ptr, ptr %151, align 8
-  %.not.i.i.i.i.i40 = icmp eq ptr %152, null
-  br i1 %.not.i.i.i.i.i40, label %.loopexit.i.i45, label %153
+.thread67:                                        ; preds = %.loopexit80..thread67_crit_edge, %133
+  %.pre-phi120 = phi i64 [ %.pre119, %.loopexit80..thread67_crit_edge ], [ %130, %133 ]
+  %150 = getelementptr inbounds ptr, ptr %12, i64 %.pre-phi120
+  %151 = load ptr, ptr %150, align 8
+  %.not.i.i.i.i.i40 = icmp eq ptr %151, null
+  br i1 %.not.i.i.i.i.i40, label %.loopexit.i.i45, label %152
 
-153:                                              ; preds = %.thread67
-  %154 = load ptr, ptr %152, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %156 = load i32, ptr %155, align 4
-  %157 = icmp eq i32 %124, %156
-  br i1 %157, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50, label %.lr.ph.i.i.i.i.i41
+152:                                              ; preds = %.thread67
+  %153 = load ptr, ptr %151, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
+  %155 = load i32, ptr %154, align 4
+  %156 = icmp eq i32 %123, %155
+  br i1 %156, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50, label %.lr.ph.i.i.i.i.i41
 
-158:                                              ; preds = %161
-  %159 = icmp eq i32 %124, %163
-  br i1 %159, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50, label %.lr.ph.i.i.i.i.i41, !llvm.loop !13
+157:                                              ; preds = %160
+  %158 = icmp eq i32 %123, %162
+  br i1 %158, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50, label %.lr.ph.i.i.i.i.i41, !llvm.loop !13
 
-.lr.ph.i.i.i.i.i41:                               ; preds = %153, %158
-  %.018.i.i.i.i.i42 = phi ptr [ %160, %158 ], [ %154, %153 ]
-  %160 = load ptr, ptr %.018.i.i.i.i.i42, align 8
-  %.not16.i.i.i.i.i43 = icmp eq ptr %160, null
-  br i1 %.not16.i.i.i.i.i43, label %.loopexit.i.i45, label %161
+.lr.ph.i.i.i.i.i41:                               ; preds = %152, %157
+  %.018.i.i.i.i.i42 = phi ptr [ %159, %157 ], [ %153, %152 ]
+  %159 = load ptr, ptr %.018.i.i.i.i.i42, align 8
+  %.not16.i.i.i.i.i43 = icmp eq ptr %159, null
+  br i1 %.not16.i.i.i.i.i43, label %.loopexit.i.i45, label %160
 
-161:                                              ; preds = %.lr.ph.i.i.i.i.i41
-  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %163 = load i32, ptr %162, align 4
-  %164 = sext i32 %163 to i64
-  %165 = urem i64 %164, %11
-  %.not17.i.i.i.i.i44 = icmp eq i64 %165, %.pre-phi120
-  br i1 %.not17.i.i.i.i.i44, label %158, label %.loopexit.i.i45, !llvm.loop !13
+160:                                              ; preds = %.lr.ph.i.i.i.i.i41
+  %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  %162 = load i32, ptr %161, align 4
+  %163 = sext i32 %162 to i64
+  %164 = urem i64 %163, %11
+  %.not17.i.i.i.i.i44 = icmp eq i64 %164, %.pre-phi120
+  br i1 %.not17.i.i.i.i.i44, label %157, label %.loopexit.i.i45, !llvm.loop !13
 
-.loopexit.i.i45:                                  ; preds = %.thread67, %161, %.lr.ph.i.i.i.i.i41, %.preheader143
+.loopexit.i.i45:                                  ; preds = %.thread67, %160, %.lr.ph.i.i.i.i.i41, %.preheader143
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str) #11
   unreachable
 
-_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50: ; preds = %158, %147, %153
-  %.sroa.06.1.i.i.i46 = phi ptr [ %154, %153 ], [ %.sroa.06.0.i.i.i48, %147 ], [ %160, %158 ]
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i46, i64 16
-  %167 = load double, ptr %166, align 8
+_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50: ; preds = %157, %146, %152
+  %.sroa.06.1.i.i.i46 = phi ptr [ %153, %152 ], [ %.sroa.06.0.i.i.i48, %146 ], [ %159, %157 ]
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i46, i64 16
+  %166 = load double, ptr %165, align 8
   br label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread
 
-_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread: ; preds = %142, %.lr.ph.i.i.i.i.i28, %.preheader146, %129, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50
-  %168 = phi double [ %167, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50 ], [ 0.000000e+00, %129 ], [ 0.000000e+00, %.preheader146 ], [ 0.000000e+00, %.lr.ph.i.i.i.i.i28 ], [ 0.000000e+00, %142 ]
-  %169 = getelementptr inbounds nuw i8, ptr %15, i64 %122
-  %170 = load i8, ptr %169, align 1
-  %171 = lshr i8 %170, 2
-  %172 = and i8 %171, 3
-  %173 = fcmp uno double %168, 0.000000e+00
-  %174 = icmp ne i8 %172, 2
-  %or.cond.i = and i1 %173, %174
-  %.017.i = select i1 %or.cond.i, double 0.000000e+00, double %168
-  switch i8 %172, label %183 [
-    i8 1, label %175
-    i8 2, label %179
+_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread: ; preds = %141, %.lr.ph.i.i.i.i.i28, %.preheader146, %128, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50
+  %167 = phi double [ %166, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE2atERS5_.exit50 ], [ 0.000000e+00, %128 ], [ 0.000000e+00, %.preheader146 ], [ 0.000000e+00, %.lr.ph.i.i.i.i.i28 ], [ 0.000000e+00, %141 ]
+  %168 = getelementptr inbounds nuw i8, ptr %15, i64 %121
+  %169 = load i8, ptr %168, align 1
+  %170 = lshr i8 %169, 2
+  %171 = and i8 %170, 3
+  %172 = fcmp uno double %167, 0.000000e+00
+  %173 = icmp ne i8 %171, 2
+  %or.cond.i = and i1 %172, %173
+  %.017.i = select i1 %or.cond.i, double 0.000000e+00, double %167
+  switch i8 %171, label %181 [
+    i8 1, label %174
+    i8 2, label %177
   ]
 
-175:                                              ; preds = %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread
-  %176 = tail call double @llvm.fabs.f64(double %168)
-  %177 = fcmp ole double %176, 0x38AA95A5C0000000
-  %178 = or i1 %177, %or.cond.i
-  br i1 %178, label %181, label %183
+174:                                              ; preds = %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread
+  %175 = tail call double @llvm.fabs.f64(double %.017.i)
+  %176 = fcmp ugt double %175, 0x38AA95A5C0000000
+  br i1 %176, label %181, label %179
 
-179:                                              ; preds = %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread
-  %180 = fcmp uno double %.017.i, 0.000000e+00
-  br i1 %180, label %181, label %183
+177:                                              ; preds = %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread
+  %178 = fcmp uno double %.017.i, 0.000000e+00
+  br i1 %178, label %179, label %181
 
-181:                                              ; preds = %179, %175
-  %182 = and i8 %170, 2
-  %.not.i52 = icmp eq i8 %182, 0
+179:                                              ; preds = %177, %174
+  %180 = and i8 %169, 2
+  %.not.i52 = icmp eq i8 %180, 0
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
 
-183:                                              ; preds = %179, %175, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread
-  %184 = getelementptr inbounds nuw double, ptr %17, i64 %122
-  %185 = load double, ptr %184, align 8
-  %186 = fcmp ugt double %.017.i, %185
+181:                                              ; preds = %177, %174, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit38.thread
+  %182 = getelementptr inbounds nuw double, ptr %17, i64 %121
+  %183 = load double, ptr %182, align 8
+  %184 = fcmp ugt double %.017.i, %183
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
 
-_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit:    ; preds = %181, %183
-  %.sink20.i = phi i1 [ %186, %183 ], [ %.not.i52, %181 ]
+_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit:    ; preds = %179, %181
+  %.sink20.i = phi i1 [ %184, %181 ], [ %.not.i52, %179 ]
   %.19.i = select i1 %.sink20.i, i64 40, i64 16
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 %.19.i
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds nuw i32, ptr %188, i64 %122
-  %.0.i51 = load i32, ptr %189, align 4
-  %190 = icmp sgt i32 %.0.i51, -1
-  br i1 %190, label %.preheader83, label %.loopexit76, !llvm.loop !17
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 %.19.i
+  %186 = load ptr, ptr %185, align 8
+  %187 = getelementptr inbounds nuw i32, ptr %186, i64 %121
+  %.0.i51 = load i32, ptr %187, align 4
+  %188 = icmp sgt i32 %.0.i51, -1
+  br i1 %188, label %.preheader83, label %.loopexit76, !llvm.loop !17
 
 .loopexit76:                                      ; preds = %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit, %_ZNK8LightGBM4Tree8DecisionEdi.exit
   %.1 = phi i32 [ %.0.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit ], [ %.0.i51, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ]
-  %191 = xor i32 %.1, -1
-  ret i32 %191
+  %189 = xor i32 %.1, -1
+  ret i32 %189
 }
 
 declare i32 @__gxx_personality_v0(...)

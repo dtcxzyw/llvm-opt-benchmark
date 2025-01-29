@@ -18681,9 +18681,8 @@ if.then16:                                        ; preds = %_Z14boxVectorUnionR
   %29 = tail call nsz float @llvm.fabs.f32(float %half_processed.sroa.8.3)
   %30 = tail call nsz float @llvm.fabs.f32(float %half_processed.sroa.14.3)
   %31 = tail call nsz float @llvm.fabs.f32(float %half_processed.sroa.20.3)
-  %32 = tail call float @llvm.fabs.f32(float %half_processed.sroa.26.3)
-  %33 = select nsz i1 %cmp, float 5.000000e+00, float %32
-  %34 = tail call nsz float @llvm.fabs.f32(float %half_processed.sroa.33.3)
+  %32 = tail call nsz float @llvm.fabs.f32(float %half_processed.sroa.26.4)
+  %33 = tail call nsz float @llvm.fabs.f32(float %half_processed.sroa.33.3)
   %cmp32 = fcmp nsz ogt float %28, 0.000000e+00
   %max.1 = select i1 %cmp32, float %28, float 0.000000e+00
   %cmp32.1 = fcmp nsz olt float %max.1, %29
@@ -18692,14 +18691,14 @@ if.then16:                                        ; preds = %_Z14boxVectorUnionR
   %max.1.2 = select i1 %cmp32.2, float %30, float %max.1.1
   %cmp32.3 = fcmp nsz olt float %max.1.2, %31
   %max.1.3 = select i1 %cmp32.3, float %31, float %max.1.2
-  %cmp32.4 = fcmp nsz olt float %max.1.3, %33
-  %max.1.4 = select i1 %cmp32.4, float %33, float %max.1.3
-  %cmp32.5 = fcmp nsz olt float %max.1.4, %34
-  %max.1.5 = select i1 %cmp32.5, float %34, float %max.1.4
+  %cmp32.4 = fcmp nsz olt float %max.1.3, %32
+  %max.1.4 = select i1 %cmp32.4, float %32, float %max.1.3
+  %cmp32.5 = fcmp nsz olt float %max.1.4, %33
+  %max.1.5 = select i1 %cmp32.5, float %33, float %max.1.4
   %fneg = fneg nsz float %max.1.5
   %MaxEdge.i150 = getelementptr inbounds nuw i8, ptr %box_union, i64 12
-  %35 = load float, ptr %MaxEdge.i150, align 4, !tbaa !405
-  %cmp.i = fcmp nsz olt float %35, %fneg
+  %34 = load float, ptr %MaxEdge.i150, align 4, !tbaa !405
+  %cmp.i = fcmp nsz olt float %34, %fneg
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then16
@@ -18707,10 +18706,10 @@ if.then.i:                                        ; preds = %if.then16
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.then16
-  %36 = phi float [ %fneg, %if.then.i ], [ %35, %if.then16 ]
+  %35 = phi float [ %fneg, %if.then.i ], [ %34, %if.then16 ]
   %Y.i = getelementptr inbounds nuw i8, ptr %box_union, i64 16
-  %37 = load float, ptr %Y.i, align 4, !tbaa !406
-  %cmp5.i = fcmp nsz olt float %37, %fneg
+  %36 = load float, ptr %Y.i, align 4, !tbaa !406
+  %cmp5.i = fcmp nsz olt float %36, %fneg
   br i1 %cmp5.i, label %if.then6.i, label %if.end9.i
 
 if.then6.i:                                       ; preds = %if.end.i
@@ -18718,10 +18717,10 @@ if.then6.i:                                       ; preds = %if.end.i
   br label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.then6.i, %if.end.i
-  %38 = phi float [ %fneg, %if.then6.i ], [ %37, %if.end.i ]
+  %37 = phi float [ %fneg, %if.then6.i ], [ %36, %if.end.i ]
   %Z.i = getelementptr inbounds nuw i8, ptr %box_union, i64 20
-  %39 = load float, ptr %Z.i, align 4, !tbaa !407
-  %cmp11.i = fcmp nsz olt float %39, %fneg
+  %38 = load float, ptr %Z.i, align 4, !tbaa !407
+  %cmp11.i = fcmp nsz olt float %38, %fneg
   br i1 %cmp11.i, label %if.then12.i, label %if.end15.i
 
 if.then12.i:                                      ; preds = %if.end9.i
@@ -18729,9 +18728,9 @@ if.then12.i:                                      ; preds = %if.end9.i
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.then12.i, %if.end9.i
-  %40 = phi float [ %fneg, %if.then12.i ], [ %39, %if.end9.i ]
-  %41 = load float, ptr %box_union, align 4, !tbaa !408
-  %cmp17.i = fcmp nsz ogt float %41, %fneg
+  %39 = phi float [ %fneg, %if.then12.i ], [ %38, %if.end9.i ]
+  %40 = load float, ptr %box_union, align 4, !tbaa !408
+  %cmp17.i = fcmp nsz ogt float %40, %fneg
   br i1 %cmp17.i, label %if.then18.i, label %if.end21.i
 
 if.then18.i:                                      ; preds = %if.end15.i
@@ -18739,10 +18738,10 @@ if.then18.i:                                      ; preds = %if.end15.i
   br label %if.end21.i
 
 if.end21.i:                                       ; preds = %if.then18.i, %if.end15.i
-  %42 = phi float [ %fneg, %if.then18.i ], [ %41, %if.end15.i ]
+  %41 = phi float [ %fneg, %if.then18.i ], [ %40, %if.end15.i ]
   %Y23.i = getelementptr inbounds nuw i8, ptr %box_union, i64 4
-  %43 = load float, ptr %Y23.i, align 4, !tbaa !409
-  %cmp24.i = fcmp nsz ogt float %43, %fneg
+  %42 = load float, ptr %Y23.i, align 4, !tbaa !409
+  %cmp24.i = fcmp nsz ogt float %42, %fneg
   br i1 %cmp24.i, label %if.then25.i, label %if.end28.i
 
 if.then25.i:                                      ; preds = %if.end21.i
@@ -18750,10 +18749,10 @@ if.then25.i:                                      ; preds = %if.end21.i
   br label %if.end28.i
 
 if.end28.i:                                       ; preds = %if.then25.i, %if.end21.i
-  %44 = phi float [ %fneg, %if.then25.i ], [ %43, %if.end21.i ]
+  %43 = phi float [ %fneg, %if.then25.i ], [ %42, %if.end21.i ]
   %Z30.i = getelementptr inbounds nuw i8, ptr %box_union, i64 8
-  %45 = load float, ptr %Z30.i, align 4, !tbaa !410
-  %cmp31.i = fcmp nsz ogt float %45, %fneg
+  %44 = load float, ptr %Z30.i, align 4, !tbaa !410
+  %cmp31.i = fcmp nsz ogt float %44, %fneg
   br i1 %cmp31.i, label %if.then32.i, label %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit
 
 if.then32.i:                                      ; preds = %if.end28.i
@@ -18761,8 +18760,8 @@ if.then32.i:                                      ; preds = %if.end28.i
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit: ; preds = %if.then32.i, %if.end28.i
-  %46 = phi float [ %45, %if.end28.i ], [ %fneg, %if.then32.i ]
-  %cmp.i152 = fcmp nsz olt float %36, %max.1.5
+  %45 = phi float [ %44, %if.end28.i ], [ %fneg, %if.then32.i ]
+  %cmp.i152 = fcmp nsz olt float %35, %max.1.5
   br i1 %cmp.i152, label %if.then.i172, label %if.end.i153
 
 if.then.i172:                                     ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit
@@ -18770,7 +18769,7 @@ if.then.i172:                                     ; preds = %_ZN3irr4core8aabbox
   br label %if.end.i153
 
 if.end.i153:                                      ; preds = %if.then.i172, %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit
-  %cmp5.i155 = fcmp nsz olt float %38, %max.1.5
+  %cmp5.i155 = fcmp nsz olt float %37, %max.1.5
   br i1 %cmp5.i155, label %if.then6.i171, label %if.end9.i156
 
 if.then6.i171:                                    ; preds = %if.end.i153
@@ -18778,7 +18777,7 @@ if.then6.i171:                                    ; preds = %if.end.i153
   br label %if.end9.i156
 
 if.end9.i156:                                     ; preds = %if.then6.i171, %if.end.i153
-  %cmp11.i158 = fcmp nsz olt float %40, %max.1.5
+  %cmp11.i158 = fcmp nsz olt float %39, %max.1.5
   br i1 %cmp11.i158, label %if.then12.i170, label %if.end15.i159
 
 if.then12.i170:                                   ; preds = %if.end9.i156
@@ -18786,7 +18785,7 @@ if.then12.i170:                                   ; preds = %if.end9.i156
   br label %if.end15.i159
 
 if.end15.i159:                                    ; preds = %if.then12.i170, %if.end9.i156
-  %cmp17.i160 = fcmp nsz ogt float %42, %max.1.5
+  %cmp17.i160 = fcmp nsz ogt float %41, %max.1.5
   br i1 %cmp17.i160, label %if.then18.i169, label %if.end21.i161
 
 if.then18.i169:                                   ; preds = %if.end15.i159
@@ -18794,7 +18793,7 @@ if.then18.i169:                                   ; preds = %if.end15.i159
   br label %if.end21.i161
 
 if.end21.i161:                                    ; preds = %if.then18.i169, %if.end15.i159
-  %cmp24.i163 = fcmp nsz ogt float %44, %max.1.5
+  %cmp24.i163 = fcmp nsz ogt float %43, %max.1.5
   br i1 %cmp24.i163, label %if.then25.i168, label %if.end28.i164
 
 if.then25.i168:                                   ; preds = %if.end21.i161
@@ -18802,7 +18801,7 @@ if.then25.i168:                                   ; preds = %if.end21.i161
   br label %if.end28.i164
 
 if.end28.i164:                                    ; preds = %if.then25.i168, %if.end21.i161
-  %cmp31.i166 = fcmp nsz ogt float %46, %max.1.5
+  %cmp31.i166 = fcmp nsz ogt float %45, %max.1.5
   br i1 %cmp31.i166, label %if.then32.i167, label %sw.epilog
 
 if.then32.i167:                                   ; preds = %if.end28.i164
@@ -18811,8 +18810,8 @@ if.then32.i167:                                   ; preds = %if.end28.i164
 
 if.else:                                          ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit
   %MaxEdge.i.i.i = getelementptr inbounds nuw i8, ptr %box_union, i64 12
-  %47 = load float, ptr %MaxEdge.i.i.i, align 4, !tbaa !405
-  %cmp.i.i.i = fcmp nsz olt float %47, %half_processed.sroa.20.3
+  %46 = load float, ptr %MaxEdge.i.i.i, align 4, !tbaa !405
+  %cmp.i.i.i = fcmp nsz olt float %46, %half_processed.sroa.20.3
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else
@@ -18820,10 +18819,10 @@ if.then.i.i.i:                                    ; preds = %if.else
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.else
-  %48 = phi float [ %half_processed.sroa.20.3, %if.then.i.i.i ], [ %47, %if.else ]
+  %47 = phi float [ %half_processed.sroa.20.3, %if.then.i.i.i ], [ %46, %if.else ]
   %Y.i.i.i177 = getelementptr inbounds nuw i8, ptr %box_union, i64 16
-  %49 = load float, ptr %Y.i.i.i177, align 4, !tbaa !406
-  %cmp5.i.i.i = fcmp nsz olt float %49, %half_processed.sroa.26.4
+  %48 = load float, ptr %Y.i.i.i177, align 4, !tbaa !406
+  %cmp5.i.i.i = fcmp nsz olt float %48, %half_processed.sroa.26.4
   br i1 %cmp5.i.i.i, label %if.then6.i.i.i, label %if.end9.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
@@ -18831,10 +18830,10 @@ if.then6.i.i.i:                                   ; preds = %if.end.i.i.i
   br label %if.end9.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.then6.i.i.i, %if.end.i.i.i
-  %50 = phi float [ %half_processed.sroa.26.4, %if.then6.i.i.i ], [ %49, %if.end.i.i.i ]
+  %49 = phi float [ %half_processed.sroa.26.4, %if.then6.i.i.i ], [ %48, %if.end.i.i.i ]
   %Z.i.i.i178 = getelementptr inbounds nuw i8, ptr %box_union, i64 20
-  %51 = load float, ptr %Z.i.i.i178, align 4, !tbaa !407
-  %cmp11.i.i.i = fcmp nsz olt float %51, %half_processed.sroa.33.3
+  %50 = load float, ptr %Z.i.i.i178, align 4, !tbaa !407
+  %cmp11.i.i.i = fcmp nsz olt float %50, %half_processed.sroa.33.3
   br i1 %cmp11.i.i.i, label %if.then12.i.i.i, label %if.end15.i.i.i
 
 if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
@@ -18842,9 +18841,9 @@ if.then12.i.i.i:                                  ; preds = %if.end9.i.i.i
   br label %if.end15.i.i.i
 
 if.end15.i.i.i:                                   ; preds = %if.then12.i.i.i, %if.end9.i.i.i
-  %52 = phi float [ %half_processed.sroa.33.3, %if.then12.i.i.i ], [ %51, %if.end9.i.i.i ]
-  %53 = load float, ptr %box_union, align 4, !tbaa !408
-  %cmp17.i.i.i = fcmp nsz ogt float %53, %half_processed.sroa.20.3
+  %51 = phi float [ %half_processed.sroa.33.3, %if.then12.i.i.i ], [ %50, %if.end9.i.i.i ]
+  %52 = load float, ptr %box_union, align 4, !tbaa !408
+  %cmp17.i.i.i = fcmp nsz ogt float %52, %half_processed.sroa.20.3
   br i1 %cmp17.i.i.i, label %if.then18.i.i.i, label %if.end21.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %if.end15.i.i.i
@@ -18852,10 +18851,10 @@ if.then18.i.i.i:                                  ; preds = %if.end15.i.i.i
   br label %if.end21.i.i.i
 
 if.end21.i.i.i:                                   ; preds = %if.then18.i.i.i, %if.end15.i.i.i
-  %54 = phi float [ %half_processed.sroa.20.3, %if.then18.i.i.i ], [ %53, %if.end15.i.i.i ]
+  %53 = phi float [ %half_processed.sroa.20.3, %if.then18.i.i.i ], [ %52, %if.end15.i.i.i ]
   %Y23.i.i.i = getelementptr inbounds nuw i8, ptr %box_union, i64 4
-  %55 = load float, ptr %Y23.i.i.i, align 4, !tbaa !409
-  %cmp24.i.i.i = fcmp nsz ogt float %55, %half_processed.sroa.26.4
+  %54 = load float, ptr %Y23.i.i.i, align 4, !tbaa !409
+  %cmp24.i.i.i = fcmp nsz ogt float %54, %half_processed.sroa.26.4
   br i1 %cmp24.i.i.i, label %if.then25.i.i.i, label %if.end28.i.i.i
 
 if.then25.i.i.i:                                  ; preds = %if.end21.i.i.i
@@ -18863,10 +18862,10 @@ if.then25.i.i.i:                                  ; preds = %if.end21.i.i.i
   br label %if.end28.i.i.i
 
 if.end28.i.i.i:                                   ; preds = %if.then25.i.i.i, %if.end21.i.i.i
-  %56 = phi float [ %half_processed.sroa.26.4, %if.then25.i.i.i ], [ %55, %if.end21.i.i.i ]
+  %55 = phi float [ %half_processed.sroa.26.4, %if.then25.i.i.i ], [ %54, %if.end21.i.i.i ]
   %Z30.i.i.i = getelementptr inbounds nuw i8, ptr %box_union, i64 8
-  %57 = load float, ptr %Z30.i.i.i, align 4, !tbaa !410
-  %cmp31.i.i.i = fcmp nsz ogt float %57, %half_processed.sroa.33.3
+  %56 = load float, ptr %Z30.i.i.i, align 4, !tbaa !410
+  %cmp31.i.i.i = fcmp nsz ogt float %56, %half_processed.sroa.33.3
   br i1 %cmp31.i.i.i, label %if.then32.i.i.i, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i
 
 if.then32.i.i.i:                                  ; preds = %if.end28.i.i.i
@@ -18874,8 +18873,8 @@ if.then32.i.i.i:                                  ; preds = %if.end28.i.i.i
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i: ; preds = %if.then32.i.i.i, %if.end28.i.i.i
-  %58 = phi float [ %57, %if.end28.i.i.i ], [ %half_processed.sroa.33.3, %if.then32.i.i.i ]
-  %cmp.i.i6.i = fcmp nsz olt float %48, %half_processed.sroa.0.3
+  %57 = phi float [ %56, %if.end28.i.i.i ], [ %half_processed.sroa.33.3, %if.then32.i.i.i ]
+  %cmp.i.i6.i = fcmp nsz olt float %47, %half_processed.sroa.0.3
   br i1 %cmp.i.i6.i, label %if.then.i.i26.i, label %if.end.i.i7.i
 
 if.then.i.i26.i:                                  ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i
@@ -18883,7 +18882,7 @@ if.then.i.i26.i:                                  ; preds = %_ZN3irr4core8aabbox
   br label %if.end.i.i7.i
 
 if.end.i.i7.i:                                    ; preds = %if.then.i.i26.i, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i
-  %cmp5.i.i9.i = fcmp nsz olt float %50, %half_processed.sroa.8.3
+  %cmp5.i.i9.i = fcmp nsz olt float %49, %half_processed.sroa.8.3
   br i1 %cmp5.i.i9.i, label %if.then6.i.i25.i, label %if.end9.i.i10.i
 
 if.then6.i.i25.i:                                 ; preds = %if.end.i.i7.i
@@ -18891,7 +18890,7 @@ if.then6.i.i25.i:                                 ; preds = %if.end.i.i7.i
   br label %if.end9.i.i10.i
 
 if.end9.i.i10.i:                                  ; preds = %if.then6.i.i25.i, %if.end.i.i7.i
-  %cmp11.i.i12.i = fcmp nsz olt float %52, %half_processed.sroa.14.3
+  %cmp11.i.i12.i = fcmp nsz olt float %51, %half_processed.sroa.14.3
   br i1 %cmp11.i.i12.i, label %if.then12.i.i24.i, label %if.end15.i.i13.i
 
 if.then12.i.i24.i:                                ; preds = %if.end9.i.i10.i
@@ -18899,7 +18898,7 @@ if.then12.i.i24.i:                                ; preds = %if.end9.i.i10.i
   br label %if.end15.i.i13.i
 
 if.end15.i.i13.i:                                 ; preds = %if.then12.i.i24.i, %if.end9.i.i10.i
-  %cmp17.i.i14.i = fcmp nsz ogt float %54, %half_processed.sroa.0.3
+  %cmp17.i.i14.i = fcmp nsz ogt float %53, %half_processed.sroa.0.3
   br i1 %cmp17.i.i14.i, label %if.then18.i.i23.i, label %if.end21.i.i15.i
 
 if.then18.i.i23.i:                                ; preds = %if.end15.i.i13.i
@@ -18907,7 +18906,7 @@ if.then18.i.i23.i:                                ; preds = %if.end15.i.i13.i
   br label %if.end21.i.i15.i
 
 if.end21.i.i15.i:                                 ; preds = %if.then18.i.i23.i, %if.end15.i.i13.i
-  %cmp24.i.i17.i = fcmp nsz ogt float %56, %half_processed.sroa.8.3
+  %cmp24.i.i17.i = fcmp nsz ogt float %55, %half_processed.sroa.8.3
   br i1 %cmp24.i.i17.i, label %if.then25.i.i22.i, label %if.end28.i.i18.i
 
 if.then25.i.i22.i:                                ; preds = %if.end21.i.i15.i
@@ -18915,7 +18914,7 @@ if.then25.i.i22.i:                                ; preds = %if.end21.i.i15.i
   br label %if.end28.i.i18.i
 
 if.end28.i.i18.i:                                 ; preds = %if.then25.i.i22.i, %if.end21.i.i15.i
-  %cmp31.i.i20.i = fcmp nsz ogt float %58, %half_processed.sroa.14.3
+  %cmp31.i.i20.i = fcmp nsz ogt float %57, %half_processed.sroa.14.3
   br i1 %cmp31.i.i20.i, label %if.then32.i.i21.i, label %sw.epilog
 
 if.then32.i.i21.i:                                ; preds = %if.end28.i.i18.i
@@ -18925,279 +18924,279 @@ if.then32.i.i21.i:                                ; preds = %if.end28.i.i18.i
 sw.bb38:                                          ; preds = %entry
   %wall_top = getelementptr inbounds nuw i8, ptr %nodebox, i64 32
   %MaxEdge.i179 = getelementptr inbounds nuw i8, ptr %nodebox, i64 44
-  %59 = load float, ptr %MaxEdge.i179, align 4, !tbaa !411
+  %58 = load float, ptr %MaxEdge.i179, align 4, !tbaa !411
   %Y.i.i180 = getelementptr inbounds nuw i8, ptr %nodebox, i64 48
-  %60 = load float, ptr %Y.i.i180, align 8, !tbaa !412
+  %59 = load float, ptr %Y.i.i180, align 8, !tbaa !412
   %Z.i.i181 = getelementptr inbounds nuw i8, ptr %nodebox, i64 52
-  %61 = load float, ptr %Z.i.i181, align 4, !tbaa !390
+  %60 = load float, ptr %Z.i.i181, align 4, !tbaa !390
   %MaxEdge.i.i.i182 = getelementptr inbounds nuw i8, ptr %box_union, i64 12
-  %62 = load float, ptr %MaxEdge.i.i.i182, align 4, !tbaa !405
-  %cmp.i.i.i183 = fcmp nsz olt float %62, %59
+  %61 = load float, ptr %MaxEdge.i.i.i182, align 4, !tbaa !405
+  %cmp.i.i.i183 = fcmp nsz olt float %61, %58
   br i1 %cmp.i.i.i183, label %if.then.i.i.i223, label %if.end.i.i.i184
 
 if.then.i.i.i223:                                 ; preds = %sw.bb38
-  store float %59, ptr %MaxEdge.i.i.i182, align 4, !tbaa !405
+  store float %58, ptr %MaxEdge.i.i.i182, align 4, !tbaa !405
   br label %if.end.i.i.i184
 
 if.end.i.i.i184:                                  ; preds = %if.then.i.i.i223, %sw.bb38
-  %63 = phi float [ %59, %if.then.i.i.i223 ], [ %62, %sw.bb38 ]
+  %62 = phi float [ %58, %if.then.i.i.i223 ], [ %61, %sw.bb38 ]
   %Y.i.i.i185 = getelementptr inbounds nuw i8, ptr %box_union, i64 16
-  %64 = load float, ptr %Y.i.i.i185, align 4, !tbaa !406
-  %cmp5.i.i.i186 = fcmp nsz olt float %64, %60
+  %63 = load float, ptr %Y.i.i.i185, align 4, !tbaa !406
+  %cmp5.i.i.i186 = fcmp nsz olt float %63, %59
   br i1 %cmp5.i.i.i186, label %if.then6.i.i.i222, label %if.end9.i.i.i187
 
 if.then6.i.i.i222:                                ; preds = %if.end.i.i.i184
-  store float %60, ptr %Y.i.i.i185, align 4, !tbaa !406
+  store float %59, ptr %Y.i.i.i185, align 4, !tbaa !406
   br label %if.end9.i.i.i187
 
 if.end9.i.i.i187:                                 ; preds = %if.then6.i.i.i222, %if.end.i.i.i184
-  %65 = phi float [ %60, %if.then6.i.i.i222 ], [ %64, %if.end.i.i.i184 ]
+  %64 = phi float [ %59, %if.then6.i.i.i222 ], [ %63, %if.end.i.i.i184 ]
   %Z.i.i.i188 = getelementptr inbounds nuw i8, ptr %box_union, i64 20
-  %66 = load float, ptr %Z.i.i.i188, align 4, !tbaa !407
-  %cmp11.i.i.i189 = fcmp nsz olt float %66, %61
+  %65 = load float, ptr %Z.i.i.i188, align 4, !tbaa !407
+  %cmp11.i.i.i189 = fcmp nsz olt float %65, %60
   br i1 %cmp11.i.i.i189, label %if.then12.i.i.i221, label %if.end15.i.i.i190
 
 if.then12.i.i.i221:                               ; preds = %if.end9.i.i.i187
-  store float %61, ptr %Z.i.i.i188, align 4, !tbaa !407
+  store float %60, ptr %Z.i.i.i188, align 4, !tbaa !407
   br label %if.end15.i.i.i190
 
 if.end15.i.i.i190:                                ; preds = %if.then12.i.i.i221, %if.end9.i.i.i187
-  %67 = phi float [ %61, %if.then12.i.i.i221 ], [ %66, %if.end9.i.i.i187 ]
-  %68 = load float, ptr %box_union, align 4, !tbaa !408
-  %cmp17.i.i.i191 = fcmp nsz ogt float %68, %59
+  %66 = phi float [ %60, %if.then12.i.i.i221 ], [ %65, %if.end9.i.i.i187 ]
+  %67 = load float, ptr %box_union, align 4, !tbaa !408
+  %cmp17.i.i.i191 = fcmp nsz ogt float %67, %58
   br i1 %cmp17.i.i.i191, label %if.then18.i.i.i220, label %if.end21.i.i.i192
 
 if.then18.i.i.i220:                               ; preds = %if.end15.i.i.i190
-  store float %59, ptr %box_union, align 4, !tbaa !408
+  store float %58, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i192
 
 if.end21.i.i.i192:                                ; preds = %if.then18.i.i.i220, %if.end15.i.i.i190
-  %69 = phi float [ %59, %if.then18.i.i.i220 ], [ %68, %if.end15.i.i.i190 ]
+  %68 = phi float [ %58, %if.then18.i.i.i220 ], [ %67, %if.end15.i.i.i190 ]
   %Y23.i.i.i193 = getelementptr inbounds nuw i8, ptr %box_union, i64 4
-  %70 = load float, ptr %Y23.i.i.i193, align 4, !tbaa !409
-  %cmp24.i.i.i194 = fcmp nsz ogt float %70, %60
+  %69 = load float, ptr %Y23.i.i.i193, align 4, !tbaa !409
+  %cmp24.i.i.i194 = fcmp nsz ogt float %69, %59
   br i1 %cmp24.i.i.i194, label %if.then25.i.i.i219, label %if.end28.i.i.i195
 
 if.then25.i.i.i219:                               ; preds = %if.end21.i.i.i192
-  store float %60, ptr %Y23.i.i.i193, align 4, !tbaa !409
+  store float %59, ptr %Y23.i.i.i193, align 4, !tbaa !409
   br label %if.end28.i.i.i195
 
 if.end28.i.i.i195:                                ; preds = %if.then25.i.i.i219, %if.end21.i.i.i192
-  %71 = phi float [ %60, %if.then25.i.i.i219 ], [ %70, %if.end21.i.i.i192 ]
+  %70 = phi float [ %59, %if.then25.i.i.i219 ], [ %69, %if.end21.i.i.i192 ]
   %Z30.i.i.i196 = getelementptr inbounds nuw i8, ptr %box_union, i64 8
-  %72 = load float, ptr %Z30.i.i.i196, align 4, !tbaa !410
-  %cmp31.i.i.i197 = fcmp nsz ogt float %72, %61
+  %71 = load float, ptr %Z30.i.i.i196, align 4, !tbaa !410
+  %cmp31.i.i.i197 = fcmp nsz ogt float %71, %60
   br i1 %cmp31.i.i.i197, label %if.then32.i.i.i218, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i198
 
 if.then32.i.i.i218:                               ; preds = %if.end28.i.i.i195
-  store float %61, ptr %Z30.i.i.i196, align 4, !tbaa !410
+  store float %60, ptr %Z30.i.i.i196, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i198
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i198: ; preds = %if.then32.i.i.i218, %if.end28.i.i.i195
-  %73 = phi float [ %72, %if.end28.i.i.i195 ], [ %61, %if.then32.i.i.i218 ]
-  %74 = load float, ptr %wall_top, align 8, !tbaa !411
+  %72 = phi float [ %71, %if.end28.i.i.i195 ], [ %60, %if.then32.i.i.i218 ]
+  %73 = load float, ptr %wall_top, align 8, !tbaa !411
   %Y.i3.i199 = getelementptr inbounds nuw i8, ptr %nodebox, i64 36
-  %75 = load float, ptr %Y.i3.i199, align 4, !tbaa !412
+  %74 = load float, ptr %Y.i3.i199, align 4, !tbaa !412
   %Z.i4.i200 = getelementptr inbounds nuw i8, ptr %nodebox, i64 40
-  %76 = load float, ptr %Z.i4.i200, align 8, !tbaa !390
-  %cmp.i.i6.i201 = fcmp nsz olt float %63, %74
+  %75 = load float, ptr %Z.i4.i200, align 8, !tbaa !390
+  %cmp.i.i6.i201 = fcmp nsz olt float %62, %73
   br i1 %cmp.i.i6.i201, label %if.then.i.i26.i217, label %if.end.i.i7.i202
 
 if.then.i.i26.i217:                               ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i198
-  store float %74, ptr %MaxEdge.i.i.i182, align 4, !tbaa !405
+  store float %73, ptr %MaxEdge.i.i.i182, align 4, !tbaa !405
   br label %if.end.i.i7.i202
 
 if.end.i.i7.i202:                                 ; preds = %if.then.i.i26.i217, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i198
-  %77 = phi float [ %74, %if.then.i.i26.i217 ], [ %63, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i198 ]
-  %cmp5.i.i9.i203 = fcmp nsz olt float %65, %75
+  %76 = phi float [ %73, %if.then.i.i26.i217 ], [ %62, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i198 ]
+  %cmp5.i.i9.i203 = fcmp nsz olt float %64, %74
   br i1 %cmp5.i.i9.i203, label %if.then6.i.i25.i216, label %if.end9.i.i10.i204
 
 if.then6.i.i25.i216:                              ; preds = %if.end.i.i7.i202
-  store float %75, ptr %Y.i.i.i185, align 4, !tbaa !406
+  store float %74, ptr %Y.i.i.i185, align 4, !tbaa !406
   br label %if.end9.i.i10.i204
 
 if.end9.i.i10.i204:                               ; preds = %if.then6.i.i25.i216, %if.end.i.i7.i202
-  %78 = phi float [ %75, %if.then6.i.i25.i216 ], [ %65, %if.end.i.i7.i202 ]
-  %cmp11.i.i12.i205 = fcmp nsz olt float %67, %76
+  %77 = phi float [ %74, %if.then6.i.i25.i216 ], [ %64, %if.end.i.i7.i202 ]
+  %cmp11.i.i12.i205 = fcmp nsz olt float %66, %75
   br i1 %cmp11.i.i12.i205, label %if.then12.i.i24.i215, label %if.end15.i.i13.i206
 
 if.then12.i.i24.i215:                             ; preds = %if.end9.i.i10.i204
-  store float %76, ptr %Z.i.i.i188, align 4, !tbaa !407
+  store float %75, ptr %Z.i.i.i188, align 4, !tbaa !407
   br label %if.end15.i.i13.i206
 
 if.end15.i.i13.i206:                              ; preds = %if.then12.i.i24.i215, %if.end9.i.i10.i204
-  %79 = phi float [ %76, %if.then12.i.i24.i215 ], [ %67, %if.end9.i.i10.i204 ]
-  %cmp17.i.i14.i207 = fcmp nsz ogt float %69, %74
+  %78 = phi float [ %75, %if.then12.i.i24.i215 ], [ %66, %if.end9.i.i10.i204 ]
+  %cmp17.i.i14.i207 = fcmp nsz ogt float %68, %73
   br i1 %cmp17.i.i14.i207, label %if.then18.i.i23.i214, label %if.end21.i.i15.i208
 
 if.then18.i.i23.i214:                             ; preds = %if.end15.i.i13.i206
-  store float %74, ptr %box_union, align 4, !tbaa !408
+  store float %73, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i208
 
 if.end21.i.i15.i208:                              ; preds = %if.then18.i.i23.i214, %if.end15.i.i13.i206
-  %80 = phi float [ %74, %if.then18.i.i23.i214 ], [ %69, %if.end15.i.i13.i206 ]
-  %cmp24.i.i17.i209 = fcmp nsz ogt float %71, %75
+  %79 = phi float [ %73, %if.then18.i.i23.i214 ], [ %68, %if.end15.i.i13.i206 ]
+  %cmp24.i.i17.i209 = fcmp nsz ogt float %70, %74
   br i1 %cmp24.i.i17.i209, label %if.then25.i.i22.i213, label %if.end28.i.i18.i210
 
 if.then25.i.i22.i213:                             ; preds = %if.end21.i.i15.i208
-  store float %75, ptr %Y23.i.i.i193, align 4, !tbaa !409
+  store float %74, ptr %Y23.i.i.i193, align 4, !tbaa !409
   br label %if.end28.i.i18.i210
 
 if.end28.i.i18.i210:                              ; preds = %if.then25.i.i22.i213, %if.end21.i.i15.i208
-  %81 = phi float [ %75, %if.then25.i.i22.i213 ], [ %71, %if.end21.i.i15.i208 ]
-  %cmp31.i.i20.i211 = fcmp nsz ogt float %73, %76
+  %80 = phi float [ %74, %if.then25.i.i22.i213 ], [ %70, %if.end21.i.i15.i208 ]
+  %cmp31.i.i20.i211 = fcmp nsz ogt float %72, %75
   br i1 %cmp31.i.i20.i211, label %if.then32.i.i21.i212, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit224
 
 if.then32.i.i21.i212:                             ; preds = %if.end28.i.i18.i210
-  store float %76, ptr %Z30.i.i.i196, align 4, !tbaa !410
+  store float %75, ptr %Z30.i.i.i196, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit224
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit224: ; preds = %if.then32.i.i21.i212, %if.end28.i.i18.i210
-  %82 = phi float [ %73, %if.end28.i.i18.i210 ], [ %76, %if.then32.i.i21.i212 ]
+  %81 = phi float [ %72, %if.end28.i.i18.i210 ], [ %75, %if.then32.i.i21.i212 ]
   %wall_bottom = getelementptr inbounds nuw i8, ptr %nodebox, i64 56
   %MaxEdge.i225 = getelementptr inbounds nuw i8, ptr %nodebox, i64 68
-  %83 = load float, ptr %MaxEdge.i225, align 4, !tbaa !411
+  %82 = load float, ptr %MaxEdge.i225, align 4, !tbaa !411
   %Y.i.i226 = getelementptr inbounds nuw i8, ptr %nodebox, i64 72
-  %84 = load float, ptr %Y.i.i226, align 8, !tbaa !412
+  %83 = load float, ptr %Y.i.i226, align 8, !tbaa !412
   %Z.i.i227 = getelementptr inbounds nuw i8, ptr %nodebox, i64 76
-  %85 = load float, ptr %Z.i.i227, align 4, !tbaa !390
-  %cmp.i.i.i229 = fcmp nsz olt float %77, %83
+  %84 = load float, ptr %Z.i.i227, align 4, !tbaa !390
+  %cmp.i.i.i229 = fcmp nsz olt float %76, %82
   br i1 %cmp.i.i.i229, label %if.then.i.i.i269, label %if.end.i.i.i230
 
 if.then.i.i.i269:                                 ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit224
-  store float %83, ptr %MaxEdge.i.i.i182, align 4, !tbaa !405
+  store float %82, ptr %MaxEdge.i.i.i182, align 4, !tbaa !405
   br label %if.end.i.i.i230
 
 if.end.i.i.i230:                                  ; preds = %if.then.i.i.i269, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit224
-  %86 = phi float [ %83, %if.then.i.i.i269 ], [ %77, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit224 ]
-  %cmp5.i.i.i232 = fcmp nsz olt float %78, %84
+  %85 = phi float [ %82, %if.then.i.i.i269 ], [ %76, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit224 ]
+  %cmp5.i.i.i232 = fcmp nsz olt float %77, %83
   br i1 %cmp5.i.i.i232, label %if.then6.i.i.i268, label %if.end9.i.i.i233
 
 if.then6.i.i.i268:                                ; preds = %if.end.i.i.i230
-  store float %84, ptr %Y.i.i.i185, align 4, !tbaa !406
+  store float %83, ptr %Y.i.i.i185, align 4, !tbaa !406
   br label %if.end9.i.i.i233
 
 if.end9.i.i.i233:                                 ; preds = %if.then6.i.i.i268, %if.end.i.i.i230
-  %87 = phi float [ %84, %if.then6.i.i.i268 ], [ %78, %if.end.i.i.i230 ]
-  %cmp11.i.i.i235 = fcmp nsz olt float %79, %85
+  %86 = phi float [ %83, %if.then6.i.i.i268 ], [ %77, %if.end.i.i.i230 ]
+  %cmp11.i.i.i235 = fcmp nsz olt float %78, %84
   br i1 %cmp11.i.i.i235, label %if.then12.i.i.i267, label %if.end15.i.i.i236
 
 if.then12.i.i.i267:                               ; preds = %if.end9.i.i.i233
-  store float %85, ptr %Z.i.i.i188, align 4, !tbaa !407
+  store float %84, ptr %Z.i.i.i188, align 4, !tbaa !407
   br label %if.end15.i.i.i236
 
 if.end15.i.i.i236:                                ; preds = %if.then12.i.i.i267, %if.end9.i.i.i233
-  %88 = phi float [ %85, %if.then12.i.i.i267 ], [ %79, %if.end9.i.i.i233 ]
-  %cmp17.i.i.i237 = fcmp nsz ogt float %80, %83
+  %87 = phi float [ %84, %if.then12.i.i.i267 ], [ %78, %if.end9.i.i.i233 ]
+  %cmp17.i.i.i237 = fcmp nsz ogt float %79, %82
   br i1 %cmp17.i.i.i237, label %if.then18.i.i.i266, label %if.end21.i.i.i238
 
 if.then18.i.i.i266:                               ; preds = %if.end15.i.i.i236
-  store float %83, ptr %box_union, align 4, !tbaa !408
+  store float %82, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i238
 
 if.end21.i.i.i238:                                ; preds = %if.then18.i.i.i266, %if.end15.i.i.i236
-  %89 = phi float [ %83, %if.then18.i.i.i266 ], [ %80, %if.end15.i.i.i236 ]
-  %cmp24.i.i.i240 = fcmp nsz ogt float %81, %84
+  %88 = phi float [ %82, %if.then18.i.i.i266 ], [ %79, %if.end15.i.i.i236 ]
+  %cmp24.i.i.i240 = fcmp nsz ogt float %80, %83
   br i1 %cmp24.i.i.i240, label %if.then25.i.i.i265, label %if.end28.i.i.i241
 
 if.then25.i.i.i265:                               ; preds = %if.end21.i.i.i238
-  store float %84, ptr %Y23.i.i.i193, align 4, !tbaa !409
+  store float %83, ptr %Y23.i.i.i193, align 4, !tbaa !409
   br label %if.end28.i.i.i241
 
 if.end28.i.i.i241:                                ; preds = %if.then25.i.i.i265, %if.end21.i.i.i238
-  %90 = phi float [ %84, %if.then25.i.i.i265 ], [ %81, %if.end21.i.i.i238 ]
-  %cmp31.i.i.i243 = fcmp nsz ogt float %82, %85
+  %89 = phi float [ %83, %if.then25.i.i.i265 ], [ %80, %if.end21.i.i.i238 ]
+  %cmp31.i.i.i243 = fcmp nsz ogt float %81, %84
   br i1 %cmp31.i.i.i243, label %if.then32.i.i.i264, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i244
 
 if.then32.i.i.i264:                               ; preds = %if.end28.i.i.i241
-  store float %85, ptr %Z30.i.i.i196, align 4, !tbaa !410
+  store float %84, ptr %Z30.i.i.i196, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i244
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i244: ; preds = %if.then32.i.i.i264, %if.end28.i.i.i241
-  %91 = phi float [ %82, %if.end28.i.i.i241 ], [ %85, %if.then32.i.i.i264 ]
-  %92 = load float, ptr %wall_bottom, align 8, !tbaa !411
+  %90 = phi float [ %81, %if.end28.i.i.i241 ], [ %84, %if.then32.i.i.i264 ]
+  %91 = load float, ptr %wall_bottom, align 8, !tbaa !411
   %Y.i3.i245 = getelementptr inbounds nuw i8, ptr %nodebox, i64 60
-  %93 = load float, ptr %Y.i3.i245, align 4, !tbaa !412
+  %92 = load float, ptr %Y.i3.i245, align 4, !tbaa !412
   %Z.i4.i246 = getelementptr inbounds nuw i8, ptr %nodebox, i64 64
-  %94 = load float, ptr %Z.i4.i246, align 8, !tbaa !390
-  %cmp.i.i6.i247 = fcmp nsz olt float %86, %92
+  %93 = load float, ptr %Z.i4.i246, align 8, !tbaa !390
+  %cmp.i.i6.i247 = fcmp nsz olt float %85, %91
   br i1 %cmp.i.i6.i247, label %if.then.i.i26.i263, label %if.end.i.i7.i248
 
 if.then.i.i26.i263:                               ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i244
-  store float %92, ptr %MaxEdge.i.i.i182, align 4, !tbaa !405
+  store float %91, ptr %MaxEdge.i.i.i182, align 4, !tbaa !405
   br label %if.end.i.i7.i248
 
 if.end.i.i7.i248:                                 ; preds = %if.then.i.i26.i263, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i244
-  %95 = phi float [ %92, %if.then.i.i26.i263 ], [ %86, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i244 ]
-  %cmp5.i.i9.i249 = fcmp nsz olt float %87, %93
+  %94 = phi float [ %91, %if.then.i.i26.i263 ], [ %85, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i244 ]
+  %cmp5.i.i9.i249 = fcmp nsz olt float %86, %92
   br i1 %cmp5.i.i9.i249, label %if.then6.i.i25.i262, label %if.end9.i.i10.i250
 
 if.then6.i.i25.i262:                              ; preds = %if.end.i.i7.i248
-  store float %93, ptr %Y.i.i.i185, align 4, !tbaa !406
+  store float %92, ptr %Y.i.i.i185, align 4, !tbaa !406
   br label %if.end9.i.i10.i250
 
 if.end9.i.i10.i250:                               ; preds = %if.then6.i.i25.i262, %if.end.i.i7.i248
-  %96 = phi float [ %93, %if.then6.i.i25.i262 ], [ %87, %if.end.i.i7.i248 ]
-  %cmp11.i.i12.i251 = fcmp nsz olt float %88, %94
+  %95 = phi float [ %92, %if.then6.i.i25.i262 ], [ %86, %if.end.i.i7.i248 ]
+  %cmp11.i.i12.i251 = fcmp nsz olt float %87, %93
   br i1 %cmp11.i.i12.i251, label %if.then12.i.i24.i261, label %if.end15.i.i13.i252
 
 if.then12.i.i24.i261:                             ; preds = %if.end9.i.i10.i250
-  store float %94, ptr %Z.i.i.i188, align 4, !tbaa !407
+  store float %93, ptr %Z.i.i.i188, align 4, !tbaa !407
   br label %if.end15.i.i13.i252
 
 if.end15.i.i13.i252:                              ; preds = %if.then12.i.i24.i261, %if.end9.i.i10.i250
-  %97 = phi float [ %94, %if.then12.i.i24.i261 ], [ %88, %if.end9.i.i10.i250 ]
-  %cmp17.i.i14.i253 = fcmp nsz ogt float %89, %92
+  %96 = phi float [ %93, %if.then12.i.i24.i261 ], [ %87, %if.end9.i.i10.i250 ]
+  %cmp17.i.i14.i253 = fcmp nsz ogt float %88, %91
   br i1 %cmp17.i.i14.i253, label %if.then18.i.i23.i260, label %if.end21.i.i15.i254
 
 if.then18.i.i23.i260:                             ; preds = %if.end15.i.i13.i252
-  store float %92, ptr %box_union, align 4, !tbaa !408
+  store float %91, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i254
 
 if.end21.i.i15.i254:                              ; preds = %if.then18.i.i23.i260, %if.end15.i.i13.i252
-  %98 = phi float [ %92, %if.then18.i.i23.i260 ], [ %89, %if.end15.i.i13.i252 ]
-  %cmp24.i.i17.i255 = fcmp nsz ogt float %90, %93
+  %97 = phi float [ %91, %if.then18.i.i23.i260 ], [ %88, %if.end15.i.i13.i252 ]
+  %cmp24.i.i17.i255 = fcmp nsz ogt float %89, %92
   br i1 %cmp24.i.i17.i255, label %if.then25.i.i22.i259, label %if.end28.i.i18.i256
 
 if.then25.i.i22.i259:                             ; preds = %if.end21.i.i15.i254
-  store float %93, ptr %Y23.i.i.i193, align 4, !tbaa !409
+  store float %92, ptr %Y23.i.i.i193, align 4, !tbaa !409
   br label %if.end28.i.i18.i256
 
 if.end28.i.i18.i256:                              ; preds = %if.then25.i.i22.i259, %if.end21.i.i15.i254
-  %99 = phi float [ %93, %if.then25.i.i22.i259 ], [ %90, %if.end21.i.i15.i254 ]
-  %cmp31.i.i20.i257 = fcmp nsz ogt float %91, %94
+  %98 = phi float [ %92, %if.then25.i.i22.i259 ], [ %89, %if.end21.i.i15.i254 ]
+  %cmp31.i.i20.i257 = fcmp nsz ogt float %90, %93
   br i1 %cmp31.i.i20.i257, label %if.then32.i.i21.i258, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit270
 
 if.then32.i.i21.i258:                             ; preds = %if.end28.i.i18.i256
-  store float %94, ptr %Z30.i.i.i196, align 4, !tbaa !410
+  store float %93, ptr %Z30.i.i.i196, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit270
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit270: ; preds = %if.then32.i.i21.i258, %if.end28.i.i18.i256
-  %100 = phi float [ %91, %if.end28.i.i18.i256 ], [ %94, %if.then32.i.i21.i258 ]
+  %99 = phi float [ %90, %if.end28.i.i18.i256 ], [ %93, %if.then32.i.i21.i258 ]
   %wall_side = getelementptr inbounds nuw i8, ptr %nodebox, i64 80
-  %101 = load float, ptr %wall_side, align 8, !tbaa !413
-  %102 = tail call nsz float @llvm.fabs.f32(float %101)
+  %100 = load float, ptr %wall_side, align 8, !tbaa !413
+  %101 = tail call nsz float @llvm.fabs.f32(float %100)
   %Z46 = getelementptr inbounds nuw i8, ptr %nodebox, i64 88
-  %103 = load float, ptr %Z46, align 8, !tbaa !414
-  %104 = tail call nsz float @llvm.fabs.f32(float %103)
+  %102 = load float, ptr %Z46, align 8, !tbaa !414
+  %103 = tail call nsz float @llvm.fabs.f32(float %102)
   %MaxEdge49 = getelementptr inbounds nuw i8, ptr %nodebox, i64 92
-  %105 = load float, ptr %MaxEdge49, align 4, !tbaa !415
-  %106 = tail call nsz float @llvm.fabs.f32(float %105)
+  %104 = load float, ptr %MaxEdge49, align 4, !tbaa !415
+  %105 = tail call nsz float @llvm.fabs.f32(float %104)
   %Z54 = getelementptr inbounds nuw i8, ptr %nodebox, i64 100
-  %107 = load float, ptr %Z54, align 4, !tbaa !416
-  %108 = tail call nsz float @llvm.fabs.f32(float %107)
-  %cmp64 = fcmp nsz ogt float %102, 0.000000e+00
-  %max55.1 = select i1 %cmp64, float %102, float 0.000000e+00
-  %cmp64.1 = fcmp nsz olt float %max55.1, %104
-  %max55.1.1 = select i1 %cmp64.1, float %104, float %max55.1
-  %cmp64.2 = fcmp nsz olt float %max55.1.1, %106
-  %max55.1.2 = select i1 %cmp64.2, float %106, float %max55.1.1
-  %cmp64.3 = fcmp nsz olt float %max55.1.2, %108
-  %max55.1.3 = select i1 %cmp64.3, float %108, float %max55.1.2
+  %106 = load float, ptr %Z54, align 4, !tbaa !416
+  %107 = tail call nsz float @llvm.fabs.f32(float %106)
+  %cmp64 = fcmp nsz ogt float %101, 0.000000e+00
+  %max55.1 = select i1 %cmp64, float %101, float 0.000000e+00
+  %cmp64.1 = fcmp nsz olt float %max55.1, %103
+  %max55.1.1 = select i1 %cmp64.1, float %103, float %max55.1
+  %cmp64.2 = fcmp nsz olt float %max55.1.1, %105
+  %max55.1.2 = select i1 %cmp64.2, float %105, float %max55.1.1
+  %cmp64.3 = fcmp nsz olt float %max55.1.2, %107
+  %max55.1.3 = select i1 %cmp64.3, float %107, float %max55.1.2
   %fneg70 = fneg nsz float %max55.1.3
   %Y73 = getelementptr inbounds nuw i8, ptr %nodebox, i64 84
-  %109 = load float, ptr %Y73, align 4, !tbaa !417
-  %cmp.i272 = fcmp nsz olt float %95, %fneg70
+  %108 = load float, ptr %Y73, align 4, !tbaa !417
+  %cmp.i272 = fcmp nsz olt float %94, %fneg70
   br i1 %cmp.i272, label %if.then.i292, label %if.end.i273
 
 if.then.i292:                                     ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit270
@@ -19205,17 +19204,17 @@ if.then.i292:                                     ; preds = %_ZN3irr4core8aabbox
   br label %if.end.i273
 
 if.end.i273:                                      ; preds = %if.then.i292, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit270
-  %110 = phi float [ %fneg70, %if.then.i292 ], [ %95, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit270 ]
-  %cmp5.i275 = fcmp nsz olt float %96, %109
+  %109 = phi float [ %fneg70, %if.then.i292 ], [ %94, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit270 ]
+  %cmp5.i275 = fcmp nsz olt float %95, %108
   br i1 %cmp5.i275, label %if.then6.i291, label %if.end9.i276
 
 if.then6.i291:                                    ; preds = %if.end.i273
-  store float %109, ptr %Y.i.i.i185, align 4, !tbaa !406
+  store float %108, ptr %Y.i.i.i185, align 4, !tbaa !406
   br label %if.end9.i276
 
 if.end9.i276:                                     ; preds = %if.then6.i291, %if.end.i273
-  %111 = phi float [ %109, %if.then6.i291 ], [ %96, %if.end.i273 ]
-  %cmp11.i278 = fcmp nsz olt float %97, %fneg70
+  %110 = phi float [ %108, %if.then6.i291 ], [ %95, %if.end.i273 ]
+  %cmp11.i278 = fcmp nsz olt float %96, %fneg70
   br i1 %cmp11.i278, label %if.then12.i290, label %if.end15.i279
 
 if.then12.i290:                                   ; preds = %if.end9.i276
@@ -19223,8 +19222,8 @@ if.then12.i290:                                   ; preds = %if.end9.i276
   br label %if.end15.i279
 
 if.end15.i279:                                    ; preds = %if.then12.i290, %if.end9.i276
-  %112 = phi float [ %fneg70, %if.then12.i290 ], [ %97, %if.end9.i276 ]
-  %cmp17.i280 = fcmp nsz ogt float %98, %fneg70
+  %111 = phi float [ %fneg70, %if.then12.i290 ], [ %96, %if.end9.i276 ]
+  %cmp17.i280 = fcmp nsz ogt float %97, %fneg70
   br i1 %cmp17.i280, label %if.then18.i289, label %if.end21.i281
 
 if.then18.i289:                                   ; preds = %if.end15.i279
@@ -19232,17 +19231,17 @@ if.then18.i289:                                   ; preds = %if.end15.i279
   br label %if.end21.i281
 
 if.end21.i281:                                    ; preds = %if.then18.i289, %if.end15.i279
-  %113 = phi float [ %fneg70, %if.then18.i289 ], [ %98, %if.end15.i279 ]
-  %cmp24.i283 = fcmp nsz ogt float %99, %109
+  %112 = phi float [ %fneg70, %if.then18.i289 ], [ %97, %if.end15.i279 ]
+  %cmp24.i283 = fcmp nsz ogt float %98, %108
   br i1 %cmp24.i283, label %if.then25.i288, label %if.end28.i284
 
 if.then25.i288:                                   ; preds = %if.end21.i281
-  store float %109, ptr %Y23.i.i.i193, align 4, !tbaa !409
+  store float %108, ptr %Y23.i.i.i193, align 4, !tbaa !409
   br label %if.end28.i284
 
 if.end28.i284:                                    ; preds = %if.then25.i288, %if.end21.i281
-  %114 = phi float [ %109, %if.then25.i288 ], [ %99, %if.end21.i281 ]
-  %cmp31.i286 = fcmp nsz ogt float %100, %fneg70
+  %113 = phi float [ %108, %if.then25.i288 ], [ %98, %if.end21.i281 ]
+  %cmp31.i286 = fcmp nsz ogt float %99, %fneg70
   br i1 %cmp31.i286, label %if.then32.i287, label %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit293
 
 if.then32.i287:                                   ; preds = %if.end28.i284
@@ -19250,10 +19249,10 @@ if.then32.i287:                                   ; preds = %if.end28.i284
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit293
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit293: ; preds = %if.then32.i287, %if.end28.i284
-  %115 = phi float [ %100, %if.end28.i284 ], [ %fneg70, %if.then32.i287 ]
+  %114 = phi float [ %99, %if.end28.i284 ], [ %fneg70, %if.then32.i287 ]
   %Y77 = getelementptr inbounds nuw i8, ptr %nodebox, i64 96
-  %116 = load float, ptr %Y77, align 8, !tbaa !418
-  %cmp.i295 = fcmp nsz olt float %110, %max55.1.3
+  %115 = load float, ptr %Y77, align 8, !tbaa !418
+  %cmp.i295 = fcmp nsz olt float %109, %max55.1.3
   br i1 %cmp.i295, label %if.then.i315, label %if.end.i296
 
 if.then.i315:                                     ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit293
@@ -19261,15 +19260,15 @@ if.then.i315:                                     ; preds = %_ZN3irr4core8aabbox
   br label %if.end.i296
 
 if.end.i296:                                      ; preds = %if.then.i315, %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit293
-  %cmp5.i298 = fcmp nsz olt float %111, %116
+  %cmp5.i298 = fcmp nsz olt float %110, %115
   br i1 %cmp5.i298, label %if.then6.i314, label %if.end9.i299
 
 if.then6.i314:                                    ; preds = %if.end.i296
-  store float %116, ptr %Y.i.i.i185, align 4, !tbaa !406
+  store float %115, ptr %Y.i.i.i185, align 4, !tbaa !406
   br label %if.end9.i299
 
 if.end9.i299:                                     ; preds = %if.then6.i314, %if.end.i296
-  %cmp11.i301 = fcmp nsz olt float %112, %max55.1.3
+  %cmp11.i301 = fcmp nsz olt float %111, %max55.1.3
   br i1 %cmp11.i301, label %if.then12.i313, label %if.end15.i302
 
 if.then12.i313:                                   ; preds = %if.end9.i299
@@ -19277,7 +19276,7 @@ if.then12.i313:                                   ; preds = %if.end9.i299
   br label %if.end15.i302
 
 if.end15.i302:                                    ; preds = %if.then12.i313, %if.end9.i299
-  %cmp17.i303 = fcmp nsz ogt float %113, %max55.1.3
+  %cmp17.i303 = fcmp nsz ogt float %112, %max55.1.3
   br i1 %cmp17.i303, label %if.then18.i312, label %if.end21.i304
 
 if.then18.i312:                                   ; preds = %if.end15.i302
@@ -19285,15 +19284,15 @@ if.then18.i312:                                   ; preds = %if.end15.i302
   br label %if.end21.i304
 
 if.end21.i304:                                    ; preds = %if.then18.i312, %if.end15.i302
-  %cmp24.i306 = fcmp nsz ogt float %114, %116
+  %cmp24.i306 = fcmp nsz ogt float %113, %115
   br i1 %cmp24.i306, label %if.then25.i311, label %if.end28.i307
 
 if.then25.i311:                                   ; preds = %if.end21.i304
-  store float %116, ptr %Y23.i.i.i193, align 4, !tbaa !409
+  store float %115, ptr %Y23.i.i.i193, align 4, !tbaa !409
   br label %if.end28.i307
 
 if.end28.i307:                                    ; preds = %if.then25.i311, %if.end21.i304
-  %cmp31.i309 = fcmp nsz ogt float %115, %max55.1.3
+  %cmp31.i309 = fcmp nsz ogt float %114, %max55.1.3
   br i1 %cmp31.i309, label %if.then32.i310, label %sw.epilog
 
 if.then32.i310:                                   ; preds = %if.end28.i307
@@ -19302,12 +19301,12 @@ if.then32.i310:                                   ; preds = %if.end28.i307
 
 sw.bb78:                                          ; preds = %entry
   %connected.i = getelementptr inbounds nuw i8, ptr %nodebox, i64 104
-  %117 = load ptr, ptr %connected.i, align 8, !tbaa !42
+  %116 = load ptr, ptr %connected.i, align 8, !tbaa !42
   %fixed79 = getelementptr inbounds nuw i8, ptr %nodebox, i64 8
-  %118 = load ptr, ptr %fixed79, align 8, !tbaa !31
+  %117 = load ptr, ptr %fixed79, align 8, !tbaa !31
   %_M_finish.i.i317 = getelementptr inbounds nuw i8, ptr %nodebox, i64 16
-  %119 = load ptr, ptr %_M_finish.i.i317, align 8, !tbaa !31
-  %cmp.i.not9.i318 = icmp eq ptr %118, %119
+  %118 = load ptr, ptr %_M_finish.i.i317, align 8, !tbaa !31
+  %cmp.i.not9.i318 = icmp eq ptr %117, %118
   br i1 %cmp.i.not9.i318, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit376, label %for.body.lr.ph.i319
 
 for.body.lr.ph.i319:                              ; preds = %sw.bb78
@@ -19325,141 +19324,141 @@ for.body.lr.ph.i319:                              ; preds = %sw.bb78
   br label %for.body.i331
 
 for.body.i331:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361, %for.body.lr.ph.i319
-  %120 = phi float [ %Z30.i.i.i.promoted.i330, %for.body.lr.ph.i319 ], [ %143, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
-  %121 = phi float [ %Y23.i.i.i.promoted.i329, %for.body.lr.ph.i319 ], [ %142, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
-  %122 = phi float [ %box_union.promoted.i328, %for.body.lr.ph.i319 ], [ %141, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
-  %123 = phi float [ %Z.i.i.i.promoted.i327, %for.body.lr.ph.i319 ], [ %140, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
-  %124 = phi float [ %Y.i.i.i.promoted.i326, %for.body.lr.ph.i319 ], [ %139, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
-  %125 = phi float [ %MaxEdge.i.i.i.promoted.i325, %for.body.lr.ph.i319 ], [ %138, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
-  %__begin1.sroa.0.010.i332 = phi ptr [ %118, %for.body.lr.ph.i319 ], [ %incdec.ptr.i.i362, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
+  %119 = phi float [ %Z30.i.i.i.promoted.i330, %for.body.lr.ph.i319 ], [ %142, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
+  %120 = phi float [ %Y23.i.i.i.promoted.i329, %for.body.lr.ph.i319 ], [ %141, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
+  %121 = phi float [ %box_union.promoted.i328, %for.body.lr.ph.i319 ], [ %140, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
+  %122 = phi float [ %Z.i.i.i.promoted.i327, %for.body.lr.ph.i319 ], [ %139, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
+  %123 = phi float [ %Y.i.i.i.promoted.i326, %for.body.lr.ph.i319 ], [ %138, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
+  %124 = phi float [ %MaxEdge.i.i.i.promoted.i325, %for.body.lr.ph.i319 ], [ %137, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
+  %__begin1.sroa.0.010.i332 = phi ptr [ %117, %for.body.lr.ph.i319 ], [ %incdec.ptr.i.i362, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361 ]
   %MaxEdge.i.i333 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i332, i64 12
-  %126 = load float, ptr %MaxEdge.i.i333, align 4, !tbaa !411
+  %125 = load float, ptr %MaxEdge.i.i333, align 4, !tbaa !411
   %Y.i.i.i334 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i332, i64 16
-  %127 = load float, ptr %Y.i.i.i334, align 4, !tbaa !412
+  %126 = load float, ptr %Y.i.i.i334, align 4, !tbaa !412
   %Z.i.i.i335 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i332, i64 20
-  %128 = load float, ptr %Z.i.i.i335, align 4, !tbaa !390
-  %cmp.i.i.i.i336 = fcmp nsz olt float %125, %126
+  %127 = load float, ptr %Z.i.i.i335, align 4, !tbaa !390
+  %cmp.i.i.i.i336 = fcmp nsz olt float %124, %125
   br i1 %cmp.i.i.i.i336, label %if.then.i.i.i.i375, label %if.end.i.i.i.i337
 
 if.then.i.i.i.i375:                               ; preds = %for.body.i331
-  store float %126, ptr %MaxEdge.i.i.i.i320, align 4, !tbaa !405
+  store float %125, ptr %MaxEdge.i.i.i.i320, align 4, !tbaa !405
   br label %if.end.i.i.i.i337
 
 if.end.i.i.i.i337:                                ; preds = %if.then.i.i.i.i375, %for.body.i331
-  %129 = phi float [ %126, %if.then.i.i.i.i375 ], [ %125, %for.body.i331 ]
-  %cmp5.i.i.i.i338 = fcmp nsz olt float %124, %127
+  %128 = phi float [ %125, %if.then.i.i.i.i375 ], [ %124, %for.body.i331 ]
+  %cmp5.i.i.i.i338 = fcmp nsz olt float %123, %126
   br i1 %cmp5.i.i.i.i338, label %if.then6.i.i.i.i374, label %if.end9.i.i.i.i339
 
 if.then6.i.i.i.i374:                              ; preds = %if.end.i.i.i.i337
-  store float %127, ptr %Y.i.i.i.i321, align 4, !tbaa !406
+  store float %126, ptr %Y.i.i.i.i321, align 4, !tbaa !406
   br label %if.end9.i.i.i.i339
 
 if.end9.i.i.i.i339:                               ; preds = %if.then6.i.i.i.i374, %if.end.i.i.i.i337
-  %130 = phi float [ %127, %if.then6.i.i.i.i374 ], [ %124, %if.end.i.i.i.i337 ]
-  %cmp11.i.i.i.i340 = fcmp nsz olt float %123, %128
+  %129 = phi float [ %126, %if.then6.i.i.i.i374 ], [ %123, %if.end.i.i.i.i337 ]
+  %cmp11.i.i.i.i340 = fcmp nsz olt float %122, %127
   br i1 %cmp11.i.i.i.i340, label %if.then12.i.i.i.i373, label %if.end15.i.i.i.i341
 
 if.then12.i.i.i.i373:                             ; preds = %if.end9.i.i.i.i339
-  store float %128, ptr %Z.i.i.i.i322, align 4, !tbaa !407
+  store float %127, ptr %Z.i.i.i.i322, align 4, !tbaa !407
   br label %if.end15.i.i.i.i341
 
 if.end15.i.i.i.i341:                              ; preds = %if.then12.i.i.i.i373, %if.end9.i.i.i.i339
-  %131 = phi float [ %128, %if.then12.i.i.i.i373 ], [ %123, %if.end9.i.i.i.i339 ]
-  %cmp17.i.i.i.i342 = fcmp nsz ogt float %122, %126
+  %130 = phi float [ %127, %if.then12.i.i.i.i373 ], [ %122, %if.end9.i.i.i.i339 ]
+  %cmp17.i.i.i.i342 = fcmp nsz ogt float %121, %125
   br i1 %cmp17.i.i.i.i342, label %if.then18.i.i.i.i372, label %if.end21.i.i.i.i343
 
 if.then18.i.i.i.i372:                             ; preds = %if.end15.i.i.i.i341
-  store float %126, ptr %box_union, align 4, !tbaa !408
+  store float %125, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i343
 
 if.end21.i.i.i.i343:                              ; preds = %if.then18.i.i.i.i372, %if.end15.i.i.i.i341
-  %132 = phi float [ %126, %if.then18.i.i.i.i372 ], [ %122, %if.end15.i.i.i.i341 ]
-  %cmp24.i.i.i.i344 = fcmp nsz ogt float %121, %127
+  %131 = phi float [ %125, %if.then18.i.i.i.i372 ], [ %121, %if.end15.i.i.i.i341 ]
+  %cmp24.i.i.i.i344 = fcmp nsz ogt float %120, %126
   br i1 %cmp24.i.i.i.i344, label %if.then25.i.i.i.i371, label %if.end28.i.i.i.i345
 
 if.then25.i.i.i.i371:                             ; preds = %if.end21.i.i.i.i343
-  store float %127, ptr %Y23.i.i.i.i323, align 4, !tbaa !409
+  store float %126, ptr %Y23.i.i.i.i323, align 4, !tbaa !409
   br label %if.end28.i.i.i.i345
 
 if.end28.i.i.i.i345:                              ; preds = %if.then25.i.i.i.i371, %if.end21.i.i.i.i343
-  %133 = phi float [ %127, %if.then25.i.i.i.i371 ], [ %121, %if.end21.i.i.i.i343 ]
-  %cmp31.i.i.i.i346 = fcmp nsz ogt float %120, %128
+  %132 = phi float [ %126, %if.then25.i.i.i.i371 ], [ %120, %if.end21.i.i.i.i343 ]
+  %cmp31.i.i.i.i346 = fcmp nsz ogt float %119, %127
   br i1 %cmp31.i.i.i.i346, label %if.then32.i.i.i.i370, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i347
 
 if.then32.i.i.i.i370:                             ; preds = %if.end28.i.i.i.i345
-  store float %128, ptr %Z30.i.i.i.i324, align 4, !tbaa !410
+  store float %127, ptr %Z30.i.i.i.i324, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i347
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i347: ; preds = %if.then32.i.i.i.i370, %if.end28.i.i.i.i345
-  %134 = phi float [ %120, %if.end28.i.i.i.i345 ], [ %128, %if.then32.i.i.i.i370 ]
-  %135 = load float, ptr %__begin1.sroa.0.010.i332, align 4, !tbaa !411
+  %133 = phi float [ %119, %if.end28.i.i.i.i345 ], [ %127, %if.then32.i.i.i.i370 ]
+  %134 = load float, ptr %__begin1.sroa.0.010.i332, align 4, !tbaa !411
   %Y.i3.i.i348 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i332, i64 4
-  %136 = load float, ptr %Y.i3.i.i348, align 4, !tbaa !412
+  %135 = load float, ptr %Y.i3.i.i348, align 4, !tbaa !412
   %Z.i4.i.i349 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i332, i64 8
-  %137 = load float, ptr %Z.i4.i.i349, align 4, !tbaa !390
-  %cmp.i.i6.i.i350 = fcmp nsz olt float %129, %135
+  %136 = load float, ptr %Z.i4.i.i349, align 4, !tbaa !390
+  %cmp.i.i6.i.i350 = fcmp nsz olt float %128, %134
   br i1 %cmp.i.i6.i.i350, label %if.then.i.i26.i.i369, label %if.end.i.i7.i.i351
 
 if.then.i.i26.i.i369:                             ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i347
-  store float %135, ptr %MaxEdge.i.i.i.i320, align 4, !tbaa !405
+  store float %134, ptr %MaxEdge.i.i.i.i320, align 4, !tbaa !405
   br label %if.end.i.i7.i.i351
 
 if.end.i.i7.i.i351:                               ; preds = %if.then.i.i26.i.i369, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i347
-  %138 = phi float [ %135, %if.then.i.i26.i.i369 ], [ %129, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i347 ]
-  %cmp5.i.i9.i.i352 = fcmp nsz olt float %130, %136
+  %137 = phi float [ %134, %if.then.i.i26.i.i369 ], [ %128, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i347 ]
+  %cmp5.i.i9.i.i352 = fcmp nsz olt float %129, %135
   br i1 %cmp5.i.i9.i.i352, label %if.then6.i.i25.i.i368, label %if.end9.i.i10.i.i353
 
 if.then6.i.i25.i.i368:                            ; preds = %if.end.i.i7.i.i351
-  store float %136, ptr %Y.i.i.i.i321, align 4, !tbaa !406
+  store float %135, ptr %Y.i.i.i.i321, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i353
 
 if.end9.i.i10.i.i353:                             ; preds = %if.then6.i.i25.i.i368, %if.end.i.i7.i.i351
-  %139 = phi float [ %136, %if.then6.i.i25.i.i368 ], [ %130, %if.end.i.i7.i.i351 ]
-  %cmp11.i.i12.i.i354 = fcmp nsz olt float %131, %137
+  %138 = phi float [ %135, %if.then6.i.i25.i.i368 ], [ %129, %if.end.i.i7.i.i351 ]
+  %cmp11.i.i12.i.i354 = fcmp nsz olt float %130, %136
   br i1 %cmp11.i.i12.i.i354, label %if.then12.i.i24.i.i367, label %if.end15.i.i13.i.i355
 
 if.then12.i.i24.i.i367:                           ; preds = %if.end9.i.i10.i.i353
-  store float %137, ptr %Z.i.i.i.i322, align 4, !tbaa !407
+  store float %136, ptr %Z.i.i.i.i322, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i355
 
 if.end15.i.i13.i.i355:                            ; preds = %if.then12.i.i24.i.i367, %if.end9.i.i10.i.i353
-  %140 = phi float [ %137, %if.then12.i.i24.i.i367 ], [ %131, %if.end9.i.i10.i.i353 ]
-  %cmp17.i.i14.i.i356 = fcmp nsz ogt float %132, %135
+  %139 = phi float [ %136, %if.then12.i.i24.i.i367 ], [ %130, %if.end9.i.i10.i.i353 ]
+  %cmp17.i.i14.i.i356 = fcmp nsz ogt float %131, %134
   br i1 %cmp17.i.i14.i.i356, label %if.then18.i.i23.i.i366, label %if.end21.i.i15.i.i357
 
 if.then18.i.i23.i.i366:                           ; preds = %if.end15.i.i13.i.i355
-  store float %135, ptr %box_union, align 4, !tbaa !408
+  store float %134, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i357
 
 if.end21.i.i15.i.i357:                            ; preds = %if.then18.i.i23.i.i366, %if.end15.i.i13.i.i355
-  %141 = phi float [ %135, %if.then18.i.i23.i.i366 ], [ %132, %if.end15.i.i13.i.i355 ]
-  %cmp24.i.i17.i.i358 = fcmp nsz ogt float %133, %136
+  %140 = phi float [ %134, %if.then18.i.i23.i.i366 ], [ %131, %if.end15.i.i13.i.i355 ]
+  %cmp24.i.i17.i.i358 = fcmp nsz ogt float %132, %135
   br i1 %cmp24.i.i17.i.i358, label %if.then25.i.i22.i.i365, label %if.end28.i.i18.i.i359
 
 if.then25.i.i22.i.i365:                           ; preds = %if.end21.i.i15.i.i357
-  store float %136, ptr %Y23.i.i.i.i323, align 4, !tbaa !409
+  store float %135, ptr %Y23.i.i.i.i323, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i359
 
 if.end28.i.i18.i.i359:                            ; preds = %if.then25.i.i22.i.i365, %if.end21.i.i15.i.i357
-  %142 = phi float [ %136, %if.then25.i.i22.i.i365 ], [ %133, %if.end21.i.i15.i.i357 ]
-  %cmp31.i.i20.i.i360 = fcmp nsz ogt float %134, %137
+  %141 = phi float [ %135, %if.then25.i.i22.i.i365 ], [ %132, %if.end21.i.i15.i.i357 ]
+  %cmp31.i.i20.i.i360 = fcmp nsz ogt float %133, %136
   br i1 %cmp31.i.i20.i.i360, label %if.then32.i.i21.i.i364, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361
 
 if.then32.i.i21.i.i364:                           ; preds = %if.end28.i.i18.i.i359
-  store float %137, ptr %Z30.i.i.i.i324, align 4, !tbaa !410
+  store float %136, ptr %Z30.i.i.i.i324, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361: ; preds = %if.then32.i.i21.i.i364, %if.end28.i.i18.i.i359
-  %143 = phi float [ %134, %if.end28.i.i18.i.i359 ], [ %137, %if.then32.i.i21.i.i364 ]
+  %142 = phi float [ %133, %if.end28.i.i18.i.i359 ], [ %136, %if.then32.i.i21.i.i364 ]
   %incdec.ptr.i.i362 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i332, i64 24
-  %cmp.i.not.i363 = icmp eq ptr %incdec.ptr.i.i362, %119
+  %cmp.i.not.i363 = icmp eq ptr %incdec.ptr.i.i362, %118
   br i1 %cmp.i.not.i363, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit376, label %for.body.i331
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit376: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i361, %sw.bb78
-  %144 = load ptr, ptr %117, align 8, !tbaa !31
-  %_M_finish.i.i377 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %145 = load ptr, ptr %_M_finish.i.i377, align 8, !tbaa !31
-  %cmp.i.not9.i378 = icmp eq ptr %144, %145
+  %143 = load ptr, ptr %116, align 8, !tbaa !31
+  %_M_finish.i.i377 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %144 = load ptr, ptr %_M_finish.i.i377, align 8, !tbaa !31
+  %cmp.i.not9.i378 = icmp eq ptr %143, %144
   br i1 %cmp.i.not9.i378, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit436, label %for.body.lr.ph.i379
 
 for.body.lr.ph.i379:                              ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit376
@@ -19477,142 +19476,142 @@ for.body.lr.ph.i379:                              ; preds = %_Z14boxVectorUnionR
   br label %for.body.i391
 
 for.body.i391:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421, %for.body.lr.ph.i379
-  %146 = phi float [ %Z30.i.i.i.promoted.i390, %for.body.lr.ph.i379 ], [ %169, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
-  %147 = phi float [ %Y23.i.i.i.promoted.i389, %for.body.lr.ph.i379 ], [ %168, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
-  %148 = phi float [ %box_union.promoted.i388, %for.body.lr.ph.i379 ], [ %167, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
-  %149 = phi float [ %Z.i.i.i.promoted.i387, %for.body.lr.ph.i379 ], [ %166, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
-  %150 = phi float [ %Y.i.i.i.promoted.i386, %for.body.lr.ph.i379 ], [ %165, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
-  %151 = phi float [ %MaxEdge.i.i.i.promoted.i385, %for.body.lr.ph.i379 ], [ %164, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
-  %__begin1.sroa.0.010.i392 = phi ptr [ %144, %for.body.lr.ph.i379 ], [ %incdec.ptr.i.i422, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
+  %145 = phi float [ %Z30.i.i.i.promoted.i390, %for.body.lr.ph.i379 ], [ %168, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
+  %146 = phi float [ %Y23.i.i.i.promoted.i389, %for.body.lr.ph.i379 ], [ %167, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
+  %147 = phi float [ %box_union.promoted.i388, %for.body.lr.ph.i379 ], [ %166, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
+  %148 = phi float [ %Z.i.i.i.promoted.i387, %for.body.lr.ph.i379 ], [ %165, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
+  %149 = phi float [ %Y.i.i.i.promoted.i386, %for.body.lr.ph.i379 ], [ %164, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
+  %150 = phi float [ %MaxEdge.i.i.i.promoted.i385, %for.body.lr.ph.i379 ], [ %163, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
+  %__begin1.sroa.0.010.i392 = phi ptr [ %143, %for.body.lr.ph.i379 ], [ %incdec.ptr.i.i422, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421 ]
   %MaxEdge.i.i393 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i392, i64 12
-  %152 = load float, ptr %MaxEdge.i.i393, align 4, !tbaa !411
+  %151 = load float, ptr %MaxEdge.i.i393, align 4, !tbaa !411
   %Y.i.i.i394 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i392, i64 16
-  %153 = load float, ptr %Y.i.i.i394, align 4, !tbaa !412
+  %152 = load float, ptr %Y.i.i.i394, align 4, !tbaa !412
   %Z.i.i.i395 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i392, i64 20
-  %154 = load float, ptr %Z.i.i.i395, align 4, !tbaa !390
-  %cmp.i.i.i.i396 = fcmp nsz olt float %151, %152
+  %153 = load float, ptr %Z.i.i.i395, align 4, !tbaa !390
+  %cmp.i.i.i.i396 = fcmp nsz olt float %150, %151
   br i1 %cmp.i.i.i.i396, label %if.then.i.i.i.i435, label %if.end.i.i.i.i397
 
 if.then.i.i.i.i435:                               ; preds = %for.body.i391
-  store float %152, ptr %MaxEdge.i.i.i.i380, align 4, !tbaa !405
+  store float %151, ptr %MaxEdge.i.i.i.i380, align 4, !tbaa !405
   br label %if.end.i.i.i.i397
 
 if.end.i.i.i.i397:                                ; preds = %if.then.i.i.i.i435, %for.body.i391
-  %155 = phi float [ %152, %if.then.i.i.i.i435 ], [ %151, %for.body.i391 ]
-  %cmp5.i.i.i.i398 = fcmp nsz olt float %150, %153
+  %154 = phi float [ %151, %if.then.i.i.i.i435 ], [ %150, %for.body.i391 ]
+  %cmp5.i.i.i.i398 = fcmp nsz olt float %149, %152
   br i1 %cmp5.i.i.i.i398, label %if.then6.i.i.i.i434, label %if.end9.i.i.i.i399
 
 if.then6.i.i.i.i434:                              ; preds = %if.end.i.i.i.i397
-  store float %153, ptr %Y.i.i.i.i381, align 4, !tbaa !406
+  store float %152, ptr %Y.i.i.i.i381, align 4, !tbaa !406
   br label %if.end9.i.i.i.i399
 
 if.end9.i.i.i.i399:                               ; preds = %if.then6.i.i.i.i434, %if.end.i.i.i.i397
-  %156 = phi float [ %153, %if.then6.i.i.i.i434 ], [ %150, %if.end.i.i.i.i397 ]
-  %cmp11.i.i.i.i400 = fcmp nsz olt float %149, %154
+  %155 = phi float [ %152, %if.then6.i.i.i.i434 ], [ %149, %if.end.i.i.i.i397 ]
+  %cmp11.i.i.i.i400 = fcmp nsz olt float %148, %153
   br i1 %cmp11.i.i.i.i400, label %if.then12.i.i.i.i433, label %if.end15.i.i.i.i401
 
 if.then12.i.i.i.i433:                             ; preds = %if.end9.i.i.i.i399
-  store float %154, ptr %Z.i.i.i.i382, align 4, !tbaa !407
+  store float %153, ptr %Z.i.i.i.i382, align 4, !tbaa !407
   br label %if.end15.i.i.i.i401
 
 if.end15.i.i.i.i401:                              ; preds = %if.then12.i.i.i.i433, %if.end9.i.i.i.i399
-  %157 = phi float [ %154, %if.then12.i.i.i.i433 ], [ %149, %if.end9.i.i.i.i399 ]
-  %cmp17.i.i.i.i402 = fcmp nsz ogt float %148, %152
+  %156 = phi float [ %153, %if.then12.i.i.i.i433 ], [ %148, %if.end9.i.i.i.i399 ]
+  %cmp17.i.i.i.i402 = fcmp nsz ogt float %147, %151
   br i1 %cmp17.i.i.i.i402, label %if.then18.i.i.i.i432, label %if.end21.i.i.i.i403
 
 if.then18.i.i.i.i432:                             ; preds = %if.end15.i.i.i.i401
-  store float %152, ptr %box_union, align 4, !tbaa !408
+  store float %151, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i403
 
 if.end21.i.i.i.i403:                              ; preds = %if.then18.i.i.i.i432, %if.end15.i.i.i.i401
-  %158 = phi float [ %152, %if.then18.i.i.i.i432 ], [ %148, %if.end15.i.i.i.i401 ]
-  %cmp24.i.i.i.i404 = fcmp nsz ogt float %147, %153
+  %157 = phi float [ %151, %if.then18.i.i.i.i432 ], [ %147, %if.end15.i.i.i.i401 ]
+  %cmp24.i.i.i.i404 = fcmp nsz ogt float %146, %152
   br i1 %cmp24.i.i.i.i404, label %if.then25.i.i.i.i431, label %if.end28.i.i.i.i405
 
 if.then25.i.i.i.i431:                             ; preds = %if.end21.i.i.i.i403
-  store float %153, ptr %Y23.i.i.i.i383, align 4, !tbaa !409
+  store float %152, ptr %Y23.i.i.i.i383, align 4, !tbaa !409
   br label %if.end28.i.i.i.i405
 
 if.end28.i.i.i.i405:                              ; preds = %if.then25.i.i.i.i431, %if.end21.i.i.i.i403
-  %159 = phi float [ %153, %if.then25.i.i.i.i431 ], [ %147, %if.end21.i.i.i.i403 ]
-  %cmp31.i.i.i.i406 = fcmp nsz ogt float %146, %154
+  %158 = phi float [ %152, %if.then25.i.i.i.i431 ], [ %146, %if.end21.i.i.i.i403 ]
+  %cmp31.i.i.i.i406 = fcmp nsz ogt float %145, %153
   br i1 %cmp31.i.i.i.i406, label %if.then32.i.i.i.i430, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i407
 
 if.then32.i.i.i.i430:                             ; preds = %if.end28.i.i.i.i405
-  store float %154, ptr %Z30.i.i.i.i384, align 4, !tbaa !410
+  store float %153, ptr %Z30.i.i.i.i384, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i407
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i407: ; preds = %if.then32.i.i.i.i430, %if.end28.i.i.i.i405
-  %160 = phi float [ %146, %if.end28.i.i.i.i405 ], [ %154, %if.then32.i.i.i.i430 ]
-  %161 = load float, ptr %__begin1.sroa.0.010.i392, align 4, !tbaa !411
+  %159 = phi float [ %145, %if.end28.i.i.i.i405 ], [ %153, %if.then32.i.i.i.i430 ]
+  %160 = load float, ptr %__begin1.sroa.0.010.i392, align 4, !tbaa !411
   %Y.i3.i.i408 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i392, i64 4
-  %162 = load float, ptr %Y.i3.i.i408, align 4, !tbaa !412
+  %161 = load float, ptr %Y.i3.i.i408, align 4, !tbaa !412
   %Z.i4.i.i409 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i392, i64 8
-  %163 = load float, ptr %Z.i4.i.i409, align 4, !tbaa !390
-  %cmp.i.i6.i.i410 = fcmp nsz olt float %155, %161
+  %162 = load float, ptr %Z.i4.i.i409, align 4, !tbaa !390
+  %cmp.i.i6.i.i410 = fcmp nsz olt float %154, %160
   br i1 %cmp.i.i6.i.i410, label %if.then.i.i26.i.i429, label %if.end.i.i7.i.i411
 
 if.then.i.i26.i.i429:                             ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i407
-  store float %161, ptr %MaxEdge.i.i.i.i380, align 4, !tbaa !405
+  store float %160, ptr %MaxEdge.i.i.i.i380, align 4, !tbaa !405
   br label %if.end.i.i7.i.i411
 
 if.end.i.i7.i.i411:                               ; preds = %if.then.i.i26.i.i429, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i407
-  %164 = phi float [ %161, %if.then.i.i26.i.i429 ], [ %155, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i407 ]
-  %cmp5.i.i9.i.i412 = fcmp nsz olt float %156, %162
+  %163 = phi float [ %160, %if.then.i.i26.i.i429 ], [ %154, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i407 ]
+  %cmp5.i.i9.i.i412 = fcmp nsz olt float %155, %161
   br i1 %cmp5.i.i9.i.i412, label %if.then6.i.i25.i.i428, label %if.end9.i.i10.i.i413
 
 if.then6.i.i25.i.i428:                            ; preds = %if.end.i.i7.i.i411
-  store float %162, ptr %Y.i.i.i.i381, align 4, !tbaa !406
+  store float %161, ptr %Y.i.i.i.i381, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i413
 
 if.end9.i.i10.i.i413:                             ; preds = %if.then6.i.i25.i.i428, %if.end.i.i7.i.i411
-  %165 = phi float [ %162, %if.then6.i.i25.i.i428 ], [ %156, %if.end.i.i7.i.i411 ]
-  %cmp11.i.i12.i.i414 = fcmp nsz olt float %157, %163
+  %164 = phi float [ %161, %if.then6.i.i25.i.i428 ], [ %155, %if.end.i.i7.i.i411 ]
+  %cmp11.i.i12.i.i414 = fcmp nsz olt float %156, %162
   br i1 %cmp11.i.i12.i.i414, label %if.then12.i.i24.i.i427, label %if.end15.i.i13.i.i415
 
 if.then12.i.i24.i.i427:                           ; preds = %if.end9.i.i10.i.i413
-  store float %163, ptr %Z.i.i.i.i382, align 4, !tbaa !407
+  store float %162, ptr %Z.i.i.i.i382, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i415
 
 if.end15.i.i13.i.i415:                            ; preds = %if.then12.i.i24.i.i427, %if.end9.i.i10.i.i413
-  %166 = phi float [ %163, %if.then12.i.i24.i.i427 ], [ %157, %if.end9.i.i10.i.i413 ]
-  %cmp17.i.i14.i.i416 = fcmp nsz ogt float %158, %161
+  %165 = phi float [ %162, %if.then12.i.i24.i.i427 ], [ %156, %if.end9.i.i10.i.i413 ]
+  %cmp17.i.i14.i.i416 = fcmp nsz ogt float %157, %160
   br i1 %cmp17.i.i14.i.i416, label %if.then18.i.i23.i.i426, label %if.end21.i.i15.i.i417
 
 if.then18.i.i23.i.i426:                           ; preds = %if.end15.i.i13.i.i415
-  store float %161, ptr %box_union, align 4, !tbaa !408
+  store float %160, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i417
 
 if.end21.i.i15.i.i417:                            ; preds = %if.then18.i.i23.i.i426, %if.end15.i.i13.i.i415
-  %167 = phi float [ %161, %if.then18.i.i23.i.i426 ], [ %158, %if.end15.i.i13.i.i415 ]
-  %cmp24.i.i17.i.i418 = fcmp nsz ogt float %159, %162
+  %166 = phi float [ %160, %if.then18.i.i23.i.i426 ], [ %157, %if.end15.i.i13.i.i415 ]
+  %cmp24.i.i17.i.i418 = fcmp nsz ogt float %158, %161
   br i1 %cmp24.i.i17.i.i418, label %if.then25.i.i22.i.i425, label %if.end28.i.i18.i.i419
 
 if.then25.i.i22.i.i425:                           ; preds = %if.end21.i.i15.i.i417
-  store float %162, ptr %Y23.i.i.i.i383, align 4, !tbaa !409
+  store float %161, ptr %Y23.i.i.i.i383, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i419
 
 if.end28.i.i18.i.i419:                            ; preds = %if.then25.i.i22.i.i425, %if.end21.i.i15.i.i417
-  %168 = phi float [ %162, %if.then25.i.i22.i.i425 ], [ %159, %if.end21.i.i15.i.i417 ]
-  %cmp31.i.i20.i.i420 = fcmp nsz ogt float %160, %163
+  %167 = phi float [ %161, %if.then25.i.i22.i.i425 ], [ %158, %if.end21.i.i15.i.i417 ]
+  %cmp31.i.i20.i.i420 = fcmp nsz ogt float %159, %162
   br i1 %cmp31.i.i20.i.i420, label %if.then32.i.i21.i.i424, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421
 
 if.then32.i.i21.i.i424:                           ; preds = %if.end28.i.i18.i.i419
-  store float %163, ptr %Z30.i.i.i.i384, align 4, !tbaa !410
+  store float %162, ptr %Z30.i.i.i.i384, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421: ; preds = %if.then32.i.i21.i.i424, %if.end28.i.i18.i.i419
-  %169 = phi float [ %160, %if.end28.i.i18.i.i419 ], [ %163, %if.then32.i.i21.i.i424 ]
+  %168 = phi float [ %159, %if.end28.i.i18.i.i419 ], [ %162, %if.then32.i.i21.i.i424 ]
   %incdec.ptr.i.i422 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i392, i64 24
-  %cmp.i.not.i423 = icmp eq ptr %incdec.ptr.i.i422, %145
+  %cmp.i.not.i423 = icmp eq ptr %incdec.ptr.i.i422, %144
   br i1 %cmp.i.not.i423, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit436, label %for.body.i391
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit436: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i421, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit376
-  %connect_bottom = getelementptr inbounds nuw i8, ptr %117, i64 24
-  %170 = load ptr, ptr %connect_bottom, align 8, !tbaa !31
-  %_M_finish.i.i437 = getelementptr inbounds nuw i8, ptr %117, i64 32
-  %171 = load ptr, ptr %_M_finish.i.i437, align 8, !tbaa !31
-  %cmp.i.not9.i438 = icmp eq ptr %170, %171
+  %connect_bottom = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %169 = load ptr, ptr %connect_bottom, align 8, !tbaa !31
+  %_M_finish.i.i437 = getelementptr inbounds nuw i8, ptr %116, i64 32
+  %170 = load ptr, ptr %_M_finish.i.i437, align 8, !tbaa !31
+  %cmp.i.not9.i438 = icmp eq ptr %169, %170
   br i1 %cmp.i.not9.i438, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit496, label %for.body.lr.ph.i439
 
 for.body.lr.ph.i439:                              ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit436
@@ -19630,142 +19629,142 @@ for.body.lr.ph.i439:                              ; preds = %_Z14boxVectorUnionR
   br label %for.body.i451
 
 for.body.i451:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481, %for.body.lr.ph.i439
-  %172 = phi float [ %Z30.i.i.i.promoted.i450, %for.body.lr.ph.i439 ], [ %195, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
-  %173 = phi float [ %Y23.i.i.i.promoted.i449, %for.body.lr.ph.i439 ], [ %194, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
-  %174 = phi float [ %box_union.promoted.i448, %for.body.lr.ph.i439 ], [ %193, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
-  %175 = phi float [ %Z.i.i.i.promoted.i447, %for.body.lr.ph.i439 ], [ %192, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
-  %176 = phi float [ %Y.i.i.i.promoted.i446, %for.body.lr.ph.i439 ], [ %191, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
-  %177 = phi float [ %MaxEdge.i.i.i.promoted.i445, %for.body.lr.ph.i439 ], [ %190, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
-  %__begin1.sroa.0.010.i452 = phi ptr [ %170, %for.body.lr.ph.i439 ], [ %incdec.ptr.i.i482, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
+  %171 = phi float [ %Z30.i.i.i.promoted.i450, %for.body.lr.ph.i439 ], [ %194, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
+  %172 = phi float [ %Y23.i.i.i.promoted.i449, %for.body.lr.ph.i439 ], [ %193, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
+  %173 = phi float [ %box_union.promoted.i448, %for.body.lr.ph.i439 ], [ %192, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
+  %174 = phi float [ %Z.i.i.i.promoted.i447, %for.body.lr.ph.i439 ], [ %191, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
+  %175 = phi float [ %Y.i.i.i.promoted.i446, %for.body.lr.ph.i439 ], [ %190, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
+  %176 = phi float [ %MaxEdge.i.i.i.promoted.i445, %for.body.lr.ph.i439 ], [ %189, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
+  %__begin1.sroa.0.010.i452 = phi ptr [ %169, %for.body.lr.ph.i439 ], [ %incdec.ptr.i.i482, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481 ]
   %MaxEdge.i.i453 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i452, i64 12
-  %178 = load float, ptr %MaxEdge.i.i453, align 4, !tbaa !411
+  %177 = load float, ptr %MaxEdge.i.i453, align 4, !tbaa !411
   %Y.i.i.i454 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i452, i64 16
-  %179 = load float, ptr %Y.i.i.i454, align 4, !tbaa !412
+  %178 = load float, ptr %Y.i.i.i454, align 4, !tbaa !412
   %Z.i.i.i455 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i452, i64 20
-  %180 = load float, ptr %Z.i.i.i455, align 4, !tbaa !390
-  %cmp.i.i.i.i456 = fcmp nsz olt float %177, %178
+  %179 = load float, ptr %Z.i.i.i455, align 4, !tbaa !390
+  %cmp.i.i.i.i456 = fcmp nsz olt float %176, %177
   br i1 %cmp.i.i.i.i456, label %if.then.i.i.i.i495, label %if.end.i.i.i.i457
 
 if.then.i.i.i.i495:                               ; preds = %for.body.i451
-  store float %178, ptr %MaxEdge.i.i.i.i440, align 4, !tbaa !405
+  store float %177, ptr %MaxEdge.i.i.i.i440, align 4, !tbaa !405
   br label %if.end.i.i.i.i457
 
 if.end.i.i.i.i457:                                ; preds = %if.then.i.i.i.i495, %for.body.i451
-  %181 = phi float [ %178, %if.then.i.i.i.i495 ], [ %177, %for.body.i451 ]
-  %cmp5.i.i.i.i458 = fcmp nsz olt float %176, %179
+  %180 = phi float [ %177, %if.then.i.i.i.i495 ], [ %176, %for.body.i451 ]
+  %cmp5.i.i.i.i458 = fcmp nsz olt float %175, %178
   br i1 %cmp5.i.i.i.i458, label %if.then6.i.i.i.i494, label %if.end9.i.i.i.i459
 
 if.then6.i.i.i.i494:                              ; preds = %if.end.i.i.i.i457
-  store float %179, ptr %Y.i.i.i.i441, align 4, !tbaa !406
+  store float %178, ptr %Y.i.i.i.i441, align 4, !tbaa !406
   br label %if.end9.i.i.i.i459
 
 if.end9.i.i.i.i459:                               ; preds = %if.then6.i.i.i.i494, %if.end.i.i.i.i457
-  %182 = phi float [ %179, %if.then6.i.i.i.i494 ], [ %176, %if.end.i.i.i.i457 ]
-  %cmp11.i.i.i.i460 = fcmp nsz olt float %175, %180
+  %181 = phi float [ %178, %if.then6.i.i.i.i494 ], [ %175, %if.end.i.i.i.i457 ]
+  %cmp11.i.i.i.i460 = fcmp nsz olt float %174, %179
   br i1 %cmp11.i.i.i.i460, label %if.then12.i.i.i.i493, label %if.end15.i.i.i.i461
 
 if.then12.i.i.i.i493:                             ; preds = %if.end9.i.i.i.i459
-  store float %180, ptr %Z.i.i.i.i442, align 4, !tbaa !407
+  store float %179, ptr %Z.i.i.i.i442, align 4, !tbaa !407
   br label %if.end15.i.i.i.i461
 
 if.end15.i.i.i.i461:                              ; preds = %if.then12.i.i.i.i493, %if.end9.i.i.i.i459
-  %183 = phi float [ %180, %if.then12.i.i.i.i493 ], [ %175, %if.end9.i.i.i.i459 ]
-  %cmp17.i.i.i.i462 = fcmp nsz ogt float %174, %178
+  %182 = phi float [ %179, %if.then12.i.i.i.i493 ], [ %174, %if.end9.i.i.i.i459 ]
+  %cmp17.i.i.i.i462 = fcmp nsz ogt float %173, %177
   br i1 %cmp17.i.i.i.i462, label %if.then18.i.i.i.i492, label %if.end21.i.i.i.i463
 
 if.then18.i.i.i.i492:                             ; preds = %if.end15.i.i.i.i461
-  store float %178, ptr %box_union, align 4, !tbaa !408
+  store float %177, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i463
 
 if.end21.i.i.i.i463:                              ; preds = %if.then18.i.i.i.i492, %if.end15.i.i.i.i461
-  %184 = phi float [ %178, %if.then18.i.i.i.i492 ], [ %174, %if.end15.i.i.i.i461 ]
-  %cmp24.i.i.i.i464 = fcmp nsz ogt float %173, %179
+  %183 = phi float [ %177, %if.then18.i.i.i.i492 ], [ %173, %if.end15.i.i.i.i461 ]
+  %cmp24.i.i.i.i464 = fcmp nsz ogt float %172, %178
   br i1 %cmp24.i.i.i.i464, label %if.then25.i.i.i.i491, label %if.end28.i.i.i.i465
 
 if.then25.i.i.i.i491:                             ; preds = %if.end21.i.i.i.i463
-  store float %179, ptr %Y23.i.i.i.i443, align 4, !tbaa !409
+  store float %178, ptr %Y23.i.i.i.i443, align 4, !tbaa !409
   br label %if.end28.i.i.i.i465
 
 if.end28.i.i.i.i465:                              ; preds = %if.then25.i.i.i.i491, %if.end21.i.i.i.i463
-  %185 = phi float [ %179, %if.then25.i.i.i.i491 ], [ %173, %if.end21.i.i.i.i463 ]
-  %cmp31.i.i.i.i466 = fcmp nsz ogt float %172, %180
+  %184 = phi float [ %178, %if.then25.i.i.i.i491 ], [ %172, %if.end21.i.i.i.i463 ]
+  %cmp31.i.i.i.i466 = fcmp nsz ogt float %171, %179
   br i1 %cmp31.i.i.i.i466, label %if.then32.i.i.i.i490, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i467
 
 if.then32.i.i.i.i490:                             ; preds = %if.end28.i.i.i.i465
-  store float %180, ptr %Z30.i.i.i.i444, align 4, !tbaa !410
+  store float %179, ptr %Z30.i.i.i.i444, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i467
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i467: ; preds = %if.then32.i.i.i.i490, %if.end28.i.i.i.i465
-  %186 = phi float [ %172, %if.end28.i.i.i.i465 ], [ %180, %if.then32.i.i.i.i490 ]
-  %187 = load float, ptr %__begin1.sroa.0.010.i452, align 4, !tbaa !411
+  %185 = phi float [ %171, %if.end28.i.i.i.i465 ], [ %179, %if.then32.i.i.i.i490 ]
+  %186 = load float, ptr %__begin1.sroa.0.010.i452, align 4, !tbaa !411
   %Y.i3.i.i468 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i452, i64 4
-  %188 = load float, ptr %Y.i3.i.i468, align 4, !tbaa !412
+  %187 = load float, ptr %Y.i3.i.i468, align 4, !tbaa !412
   %Z.i4.i.i469 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i452, i64 8
-  %189 = load float, ptr %Z.i4.i.i469, align 4, !tbaa !390
-  %cmp.i.i6.i.i470 = fcmp nsz olt float %181, %187
+  %188 = load float, ptr %Z.i4.i.i469, align 4, !tbaa !390
+  %cmp.i.i6.i.i470 = fcmp nsz olt float %180, %186
   br i1 %cmp.i.i6.i.i470, label %if.then.i.i26.i.i489, label %if.end.i.i7.i.i471
 
 if.then.i.i26.i.i489:                             ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i467
-  store float %187, ptr %MaxEdge.i.i.i.i440, align 4, !tbaa !405
+  store float %186, ptr %MaxEdge.i.i.i.i440, align 4, !tbaa !405
   br label %if.end.i.i7.i.i471
 
 if.end.i.i7.i.i471:                               ; preds = %if.then.i.i26.i.i489, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i467
-  %190 = phi float [ %187, %if.then.i.i26.i.i489 ], [ %181, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i467 ]
-  %cmp5.i.i9.i.i472 = fcmp nsz olt float %182, %188
+  %189 = phi float [ %186, %if.then.i.i26.i.i489 ], [ %180, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i467 ]
+  %cmp5.i.i9.i.i472 = fcmp nsz olt float %181, %187
   br i1 %cmp5.i.i9.i.i472, label %if.then6.i.i25.i.i488, label %if.end9.i.i10.i.i473
 
 if.then6.i.i25.i.i488:                            ; preds = %if.end.i.i7.i.i471
-  store float %188, ptr %Y.i.i.i.i441, align 4, !tbaa !406
+  store float %187, ptr %Y.i.i.i.i441, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i473
 
 if.end9.i.i10.i.i473:                             ; preds = %if.then6.i.i25.i.i488, %if.end.i.i7.i.i471
-  %191 = phi float [ %188, %if.then6.i.i25.i.i488 ], [ %182, %if.end.i.i7.i.i471 ]
-  %cmp11.i.i12.i.i474 = fcmp nsz olt float %183, %189
+  %190 = phi float [ %187, %if.then6.i.i25.i.i488 ], [ %181, %if.end.i.i7.i.i471 ]
+  %cmp11.i.i12.i.i474 = fcmp nsz olt float %182, %188
   br i1 %cmp11.i.i12.i.i474, label %if.then12.i.i24.i.i487, label %if.end15.i.i13.i.i475
 
 if.then12.i.i24.i.i487:                           ; preds = %if.end9.i.i10.i.i473
-  store float %189, ptr %Z.i.i.i.i442, align 4, !tbaa !407
+  store float %188, ptr %Z.i.i.i.i442, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i475
 
 if.end15.i.i13.i.i475:                            ; preds = %if.then12.i.i24.i.i487, %if.end9.i.i10.i.i473
-  %192 = phi float [ %189, %if.then12.i.i24.i.i487 ], [ %183, %if.end9.i.i10.i.i473 ]
-  %cmp17.i.i14.i.i476 = fcmp nsz ogt float %184, %187
+  %191 = phi float [ %188, %if.then12.i.i24.i.i487 ], [ %182, %if.end9.i.i10.i.i473 ]
+  %cmp17.i.i14.i.i476 = fcmp nsz ogt float %183, %186
   br i1 %cmp17.i.i14.i.i476, label %if.then18.i.i23.i.i486, label %if.end21.i.i15.i.i477
 
 if.then18.i.i23.i.i486:                           ; preds = %if.end15.i.i13.i.i475
-  store float %187, ptr %box_union, align 4, !tbaa !408
+  store float %186, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i477
 
 if.end21.i.i15.i.i477:                            ; preds = %if.then18.i.i23.i.i486, %if.end15.i.i13.i.i475
-  %193 = phi float [ %187, %if.then18.i.i23.i.i486 ], [ %184, %if.end15.i.i13.i.i475 ]
-  %cmp24.i.i17.i.i478 = fcmp nsz ogt float %185, %188
+  %192 = phi float [ %186, %if.then18.i.i23.i.i486 ], [ %183, %if.end15.i.i13.i.i475 ]
+  %cmp24.i.i17.i.i478 = fcmp nsz ogt float %184, %187
   br i1 %cmp24.i.i17.i.i478, label %if.then25.i.i22.i.i485, label %if.end28.i.i18.i.i479
 
 if.then25.i.i22.i.i485:                           ; preds = %if.end21.i.i15.i.i477
-  store float %188, ptr %Y23.i.i.i.i443, align 4, !tbaa !409
+  store float %187, ptr %Y23.i.i.i.i443, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i479
 
 if.end28.i.i18.i.i479:                            ; preds = %if.then25.i.i22.i.i485, %if.end21.i.i15.i.i477
-  %194 = phi float [ %188, %if.then25.i.i22.i.i485 ], [ %185, %if.end21.i.i15.i.i477 ]
-  %cmp31.i.i20.i.i480 = fcmp nsz ogt float %186, %189
+  %193 = phi float [ %187, %if.then25.i.i22.i.i485 ], [ %184, %if.end21.i.i15.i.i477 ]
+  %cmp31.i.i20.i.i480 = fcmp nsz ogt float %185, %188
   br i1 %cmp31.i.i20.i.i480, label %if.then32.i.i21.i.i484, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481
 
 if.then32.i.i21.i.i484:                           ; preds = %if.end28.i.i18.i.i479
-  store float %189, ptr %Z30.i.i.i.i444, align 4, !tbaa !410
+  store float %188, ptr %Z30.i.i.i.i444, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481: ; preds = %if.then32.i.i21.i.i484, %if.end28.i.i18.i.i479
-  %195 = phi float [ %186, %if.end28.i.i18.i.i479 ], [ %189, %if.then32.i.i21.i.i484 ]
+  %194 = phi float [ %185, %if.end28.i.i18.i.i479 ], [ %188, %if.then32.i.i21.i.i484 ]
   %incdec.ptr.i.i482 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i452, i64 24
-  %cmp.i.not.i483 = icmp eq ptr %incdec.ptr.i.i482, %171
+  %cmp.i.not.i483 = icmp eq ptr %incdec.ptr.i.i482, %170
   br i1 %cmp.i.not.i483, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit496, label %for.body.i451
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit496: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i481, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit436
-  %connect_front = getelementptr inbounds nuw i8, ptr %117, i64 48
-  %196 = load ptr, ptr %connect_front, align 8, !tbaa !31
-  %_M_finish.i.i497 = getelementptr inbounds nuw i8, ptr %117, i64 56
-  %197 = load ptr, ptr %_M_finish.i.i497, align 8, !tbaa !31
-  %cmp.i.not9.i498 = icmp eq ptr %196, %197
+  %connect_front = getelementptr inbounds nuw i8, ptr %116, i64 48
+  %195 = load ptr, ptr %connect_front, align 8, !tbaa !31
+  %_M_finish.i.i497 = getelementptr inbounds nuw i8, ptr %116, i64 56
+  %196 = load ptr, ptr %_M_finish.i.i497, align 8, !tbaa !31
+  %cmp.i.not9.i498 = icmp eq ptr %195, %196
   br i1 %cmp.i.not9.i498, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit556, label %for.body.lr.ph.i499
 
 for.body.lr.ph.i499:                              ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit496
@@ -19783,142 +19782,142 @@ for.body.lr.ph.i499:                              ; preds = %_Z14boxVectorUnionR
   br label %for.body.i511
 
 for.body.i511:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541, %for.body.lr.ph.i499
-  %198 = phi float [ %Z30.i.i.i.promoted.i510, %for.body.lr.ph.i499 ], [ %221, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
-  %199 = phi float [ %Y23.i.i.i.promoted.i509, %for.body.lr.ph.i499 ], [ %220, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
-  %200 = phi float [ %box_union.promoted.i508, %for.body.lr.ph.i499 ], [ %219, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
-  %201 = phi float [ %Z.i.i.i.promoted.i507, %for.body.lr.ph.i499 ], [ %218, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
-  %202 = phi float [ %Y.i.i.i.promoted.i506, %for.body.lr.ph.i499 ], [ %217, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
-  %203 = phi float [ %MaxEdge.i.i.i.promoted.i505, %for.body.lr.ph.i499 ], [ %216, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
-  %__begin1.sroa.0.010.i512 = phi ptr [ %196, %for.body.lr.ph.i499 ], [ %incdec.ptr.i.i542, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
+  %197 = phi float [ %Z30.i.i.i.promoted.i510, %for.body.lr.ph.i499 ], [ %220, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
+  %198 = phi float [ %Y23.i.i.i.promoted.i509, %for.body.lr.ph.i499 ], [ %219, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
+  %199 = phi float [ %box_union.promoted.i508, %for.body.lr.ph.i499 ], [ %218, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
+  %200 = phi float [ %Z.i.i.i.promoted.i507, %for.body.lr.ph.i499 ], [ %217, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
+  %201 = phi float [ %Y.i.i.i.promoted.i506, %for.body.lr.ph.i499 ], [ %216, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
+  %202 = phi float [ %MaxEdge.i.i.i.promoted.i505, %for.body.lr.ph.i499 ], [ %215, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
+  %__begin1.sroa.0.010.i512 = phi ptr [ %195, %for.body.lr.ph.i499 ], [ %incdec.ptr.i.i542, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541 ]
   %MaxEdge.i.i513 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i512, i64 12
-  %204 = load float, ptr %MaxEdge.i.i513, align 4, !tbaa !411
+  %203 = load float, ptr %MaxEdge.i.i513, align 4, !tbaa !411
   %Y.i.i.i514 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i512, i64 16
-  %205 = load float, ptr %Y.i.i.i514, align 4, !tbaa !412
+  %204 = load float, ptr %Y.i.i.i514, align 4, !tbaa !412
   %Z.i.i.i515 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i512, i64 20
-  %206 = load float, ptr %Z.i.i.i515, align 4, !tbaa !390
-  %cmp.i.i.i.i516 = fcmp nsz olt float %203, %204
+  %205 = load float, ptr %Z.i.i.i515, align 4, !tbaa !390
+  %cmp.i.i.i.i516 = fcmp nsz olt float %202, %203
   br i1 %cmp.i.i.i.i516, label %if.then.i.i.i.i555, label %if.end.i.i.i.i517
 
 if.then.i.i.i.i555:                               ; preds = %for.body.i511
-  store float %204, ptr %MaxEdge.i.i.i.i500, align 4, !tbaa !405
+  store float %203, ptr %MaxEdge.i.i.i.i500, align 4, !tbaa !405
   br label %if.end.i.i.i.i517
 
 if.end.i.i.i.i517:                                ; preds = %if.then.i.i.i.i555, %for.body.i511
-  %207 = phi float [ %204, %if.then.i.i.i.i555 ], [ %203, %for.body.i511 ]
-  %cmp5.i.i.i.i518 = fcmp nsz olt float %202, %205
+  %206 = phi float [ %203, %if.then.i.i.i.i555 ], [ %202, %for.body.i511 ]
+  %cmp5.i.i.i.i518 = fcmp nsz olt float %201, %204
   br i1 %cmp5.i.i.i.i518, label %if.then6.i.i.i.i554, label %if.end9.i.i.i.i519
 
 if.then6.i.i.i.i554:                              ; preds = %if.end.i.i.i.i517
-  store float %205, ptr %Y.i.i.i.i501, align 4, !tbaa !406
+  store float %204, ptr %Y.i.i.i.i501, align 4, !tbaa !406
   br label %if.end9.i.i.i.i519
 
 if.end9.i.i.i.i519:                               ; preds = %if.then6.i.i.i.i554, %if.end.i.i.i.i517
-  %208 = phi float [ %205, %if.then6.i.i.i.i554 ], [ %202, %if.end.i.i.i.i517 ]
-  %cmp11.i.i.i.i520 = fcmp nsz olt float %201, %206
+  %207 = phi float [ %204, %if.then6.i.i.i.i554 ], [ %201, %if.end.i.i.i.i517 ]
+  %cmp11.i.i.i.i520 = fcmp nsz olt float %200, %205
   br i1 %cmp11.i.i.i.i520, label %if.then12.i.i.i.i553, label %if.end15.i.i.i.i521
 
 if.then12.i.i.i.i553:                             ; preds = %if.end9.i.i.i.i519
-  store float %206, ptr %Z.i.i.i.i502, align 4, !tbaa !407
+  store float %205, ptr %Z.i.i.i.i502, align 4, !tbaa !407
   br label %if.end15.i.i.i.i521
 
 if.end15.i.i.i.i521:                              ; preds = %if.then12.i.i.i.i553, %if.end9.i.i.i.i519
-  %209 = phi float [ %206, %if.then12.i.i.i.i553 ], [ %201, %if.end9.i.i.i.i519 ]
-  %cmp17.i.i.i.i522 = fcmp nsz ogt float %200, %204
+  %208 = phi float [ %205, %if.then12.i.i.i.i553 ], [ %200, %if.end9.i.i.i.i519 ]
+  %cmp17.i.i.i.i522 = fcmp nsz ogt float %199, %203
   br i1 %cmp17.i.i.i.i522, label %if.then18.i.i.i.i552, label %if.end21.i.i.i.i523
 
 if.then18.i.i.i.i552:                             ; preds = %if.end15.i.i.i.i521
-  store float %204, ptr %box_union, align 4, !tbaa !408
+  store float %203, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i523
 
 if.end21.i.i.i.i523:                              ; preds = %if.then18.i.i.i.i552, %if.end15.i.i.i.i521
-  %210 = phi float [ %204, %if.then18.i.i.i.i552 ], [ %200, %if.end15.i.i.i.i521 ]
-  %cmp24.i.i.i.i524 = fcmp nsz ogt float %199, %205
+  %209 = phi float [ %203, %if.then18.i.i.i.i552 ], [ %199, %if.end15.i.i.i.i521 ]
+  %cmp24.i.i.i.i524 = fcmp nsz ogt float %198, %204
   br i1 %cmp24.i.i.i.i524, label %if.then25.i.i.i.i551, label %if.end28.i.i.i.i525
 
 if.then25.i.i.i.i551:                             ; preds = %if.end21.i.i.i.i523
-  store float %205, ptr %Y23.i.i.i.i503, align 4, !tbaa !409
+  store float %204, ptr %Y23.i.i.i.i503, align 4, !tbaa !409
   br label %if.end28.i.i.i.i525
 
 if.end28.i.i.i.i525:                              ; preds = %if.then25.i.i.i.i551, %if.end21.i.i.i.i523
-  %211 = phi float [ %205, %if.then25.i.i.i.i551 ], [ %199, %if.end21.i.i.i.i523 ]
-  %cmp31.i.i.i.i526 = fcmp nsz ogt float %198, %206
+  %210 = phi float [ %204, %if.then25.i.i.i.i551 ], [ %198, %if.end21.i.i.i.i523 ]
+  %cmp31.i.i.i.i526 = fcmp nsz ogt float %197, %205
   br i1 %cmp31.i.i.i.i526, label %if.then32.i.i.i.i550, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i527
 
 if.then32.i.i.i.i550:                             ; preds = %if.end28.i.i.i.i525
-  store float %206, ptr %Z30.i.i.i.i504, align 4, !tbaa !410
+  store float %205, ptr %Z30.i.i.i.i504, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i527
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i527: ; preds = %if.then32.i.i.i.i550, %if.end28.i.i.i.i525
-  %212 = phi float [ %198, %if.end28.i.i.i.i525 ], [ %206, %if.then32.i.i.i.i550 ]
-  %213 = load float, ptr %__begin1.sroa.0.010.i512, align 4, !tbaa !411
+  %211 = phi float [ %197, %if.end28.i.i.i.i525 ], [ %205, %if.then32.i.i.i.i550 ]
+  %212 = load float, ptr %__begin1.sroa.0.010.i512, align 4, !tbaa !411
   %Y.i3.i.i528 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i512, i64 4
-  %214 = load float, ptr %Y.i3.i.i528, align 4, !tbaa !412
+  %213 = load float, ptr %Y.i3.i.i528, align 4, !tbaa !412
   %Z.i4.i.i529 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i512, i64 8
-  %215 = load float, ptr %Z.i4.i.i529, align 4, !tbaa !390
-  %cmp.i.i6.i.i530 = fcmp nsz olt float %207, %213
+  %214 = load float, ptr %Z.i4.i.i529, align 4, !tbaa !390
+  %cmp.i.i6.i.i530 = fcmp nsz olt float %206, %212
   br i1 %cmp.i.i6.i.i530, label %if.then.i.i26.i.i549, label %if.end.i.i7.i.i531
 
 if.then.i.i26.i.i549:                             ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i527
-  store float %213, ptr %MaxEdge.i.i.i.i500, align 4, !tbaa !405
+  store float %212, ptr %MaxEdge.i.i.i.i500, align 4, !tbaa !405
   br label %if.end.i.i7.i.i531
 
 if.end.i.i7.i.i531:                               ; preds = %if.then.i.i26.i.i549, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i527
-  %216 = phi float [ %213, %if.then.i.i26.i.i549 ], [ %207, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i527 ]
-  %cmp5.i.i9.i.i532 = fcmp nsz olt float %208, %214
+  %215 = phi float [ %212, %if.then.i.i26.i.i549 ], [ %206, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i527 ]
+  %cmp5.i.i9.i.i532 = fcmp nsz olt float %207, %213
   br i1 %cmp5.i.i9.i.i532, label %if.then6.i.i25.i.i548, label %if.end9.i.i10.i.i533
 
 if.then6.i.i25.i.i548:                            ; preds = %if.end.i.i7.i.i531
-  store float %214, ptr %Y.i.i.i.i501, align 4, !tbaa !406
+  store float %213, ptr %Y.i.i.i.i501, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i533
 
 if.end9.i.i10.i.i533:                             ; preds = %if.then6.i.i25.i.i548, %if.end.i.i7.i.i531
-  %217 = phi float [ %214, %if.then6.i.i25.i.i548 ], [ %208, %if.end.i.i7.i.i531 ]
-  %cmp11.i.i12.i.i534 = fcmp nsz olt float %209, %215
+  %216 = phi float [ %213, %if.then6.i.i25.i.i548 ], [ %207, %if.end.i.i7.i.i531 ]
+  %cmp11.i.i12.i.i534 = fcmp nsz olt float %208, %214
   br i1 %cmp11.i.i12.i.i534, label %if.then12.i.i24.i.i547, label %if.end15.i.i13.i.i535
 
 if.then12.i.i24.i.i547:                           ; preds = %if.end9.i.i10.i.i533
-  store float %215, ptr %Z.i.i.i.i502, align 4, !tbaa !407
+  store float %214, ptr %Z.i.i.i.i502, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i535
 
 if.end15.i.i13.i.i535:                            ; preds = %if.then12.i.i24.i.i547, %if.end9.i.i10.i.i533
-  %218 = phi float [ %215, %if.then12.i.i24.i.i547 ], [ %209, %if.end9.i.i10.i.i533 ]
-  %cmp17.i.i14.i.i536 = fcmp nsz ogt float %210, %213
+  %217 = phi float [ %214, %if.then12.i.i24.i.i547 ], [ %208, %if.end9.i.i10.i.i533 ]
+  %cmp17.i.i14.i.i536 = fcmp nsz ogt float %209, %212
   br i1 %cmp17.i.i14.i.i536, label %if.then18.i.i23.i.i546, label %if.end21.i.i15.i.i537
 
 if.then18.i.i23.i.i546:                           ; preds = %if.end15.i.i13.i.i535
-  store float %213, ptr %box_union, align 4, !tbaa !408
+  store float %212, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i537
 
 if.end21.i.i15.i.i537:                            ; preds = %if.then18.i.i23.i.i546, %if.end15.i.i13.i.i535
-  %219 = phi float [ %213, %if.then18.i.i23.i.i546 ], [ %210, %if.end15.i.i13.i.i535 ]
-  %cmp24.i.i17.i.i538 = fcmp nsz ogt float %211, %214
+  %218 = phi float [ %212, %if.then18.i.i23.i.i546 ], [ %209, %if.end15.i.i13.i.i535 ]
+  %cmp24.i.i17.i.i538 = fcmp nsz ogt float %210, %213
   br i1 %cmp24.i.i17.i.i538, label %if.then25.i.i22.i.i545, label %if.end28.i.i18.i.i539
 
 if.then25.i.i22.i.i545:                           ; preds = %if.end21.i.i15.i.i537
-  store float %214, ptr %Y23.i.i.i.i503, align 4, !tbaa !409
+  store float %213, ptr %Y23.i.i.i.i503, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i539
 
 if.end28.i.i18.i.i539:                            ; preds = %if.then25.i.i22.i.i545, %if.end21.i.i15.i.i537
-  %220 = phi float [ %214, %if.then25.i.i22.i.i545 ], [ %211, %if.end21.i.i15.i.i537 ]
-  %cmp31.i.i20.i.i540 = fcmp nsz ogt float %212, %215
+  %219 = phi float [ %213, %if.then25.i.i22.i.i545 ], [ %210, %if.end21.i.i15.i.i537 ]
+  %cmp31.i.i20.i.i540 = fcmp nsz ogt float %211, %214
   br i1 %cmp31.i.i20.i.i540, label %if.then32.i.i21.i.i544, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541
 
 if.then32.i.i21.i.i544:                           ; preds = %if.end28.i.i18.i.i539
-  store float %215, ptr %Z30.i.i.i.i504, align 4, !tbaa !410
+  store float %214, ptr %Z30.i.i.i.i504, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541: ; preds = %if.then32.i.i21.i.i544, %if.end28.i.i18.i.i539
-  %221 = phi float [ %212, %if.end28.i.i18.i.i539 ], [ %215, %if.then32.i.i21.i.i544 ]
+  %220 = phi float [ %211, %if.end28.i.i18.i.i539 ], [ %214, %if.then32.i.i21.i.i544 ]
   %incdec.ptr.i.i542 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i512, i64 24
-  %cmp.i.not.i543 = icmp eq ptr %incdec.ptr.i.i542, %197
+  %cmp.i.not.i543 = icmp eq ptr %incdec.ptr.i.i542, %196
   br i1 %cmp.i.not.i543, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit556, label %for.body.i511
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit556: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i541, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit496
-  %connect_left = getelementptr inbounds nuw i8, ptr %117, i64 72
-  %222 = load ptr, ptr %connect_left, align 8, !tbaa !31
-  %_M_finish.i.i557 = getelementptr inbounds nuw i8, ptr %117, i64 80
-  %223 = load ptr, ptr %_M_finish.i.i557, align 8, !tbaa !31
-  %cmp.i.not9.i558 = icmp eq ptr %222, %223
+  %connect_left = getelementptr inbounds nuw i8, ptr %116, i64 72
+  %221 = load ptr, ptr %connect_left, align 8, !tbaa !31
+  %_M_finish.i.i557 = getelementptr inbounds nuw i8, ptr %116, i64 80
+  %222 = load ptr, ptr %_M_finish.i.i557, align 8, !tbaa !31
+  %cmp.i.not9.i558 = icmp eq ptr %221, %222
   br i1 %cmp.i.not9.i558, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit616, label %for.body.lr.ph.i559
 
 for.body.lr.ph.i559:                              ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit556
@@ -19936,142 +19935,142 @@ for.body.lr.ph.i559:                              ; preds = %_Z14boxVectorUnionR
   br label %for.body.i571
 
 for.body.i571:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601, %for.body.lr.ph.i559
-  %224 = phi float [ %Z30.i.i.i.promoted.i570, %for.body.lr.ph.i559 ], [ %247, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
-  %225 = phi float [ %Y23.i.i.i.promoted.i569, %for.body.lr.ph.i559 ], [ %246, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
-  %226 = phi float [ %box_union.promoted.i568, %for.body.lr.ph.i559 ], [ %245, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
-  %227 = phi float [ %Z.i.i.i.promoted.i567, %for.body.lr.ph.i559 ], [ %244, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
-  %228 = phi float [ %Y.i.i.i.promoted.i566, %for.body.lr.ph.i559 ], [ %243, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
-  %229 = phi float [ %MaxEdge.i.i.i.promoted.i565, %for.body.lr.ph.i559 ], [ %242, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
-  %__begin1.sroa.0.010.i572 = phi ptr [ %222, %for.body.lr.ph.i559 ], [ %incdec.ptr.i.i602, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
+  %223 = phi float [ %Z30.i.i.i.promoted.i570, %for.body.lr.ph.i559 ], [ %246, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
+  %224 = phi float [ %Y23.i.i.i.promoted.i569, %for.body.lr.ph.i559 ], [ %245, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
+  %225 = phi float [ %box_union.promoted.i568, %for.body.lr.ph.i559 ], [ %244, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
+  %226 = phi float [ %Z.i.i.i.promoted.i567, %for.body.lr.ph.i559 ], [ %243, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
+  %227 = phi float [ %Y.i.i.i.promoted.i566, %for.body.lr.ph.i559 ], [ %242, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
+  %228 = phi float [ %MaxEdge.i.i.i.promoted.i565, %for.body.lr.ph.i559 ], [ %241, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
+  %__begin1.sroa.0.010.i572 = phi ptr [ %221, %for.body.lr.ph.i559 ], [ %incdec.ptr.i.i602, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601 ]
   %MaxEdge.i.i573 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i572, i64 12
-  %230 = load float, ptr %MaxEdge.i.i573, align 4, !tbaa !411
+  %229 = load float, ptr %MaxEdge.i.i573, align 4, !tbaa !411
   %Y.i.i.i574 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i572, i64 16
-  %231 = load float, ptr %Y.i.i.i574, align 4, !tbaa !412
+  %230 = load float, ptr %Y.i.i.i574, align 4, !tbaa !412
   %Z.i.i.i575 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i572, i64 20
-  %232 = load float, ptr %Z.i.i.i575, align 4, !tbaa !390
-  %cmp.i.i.i.i576 = fcmp nsz olt float %229, %230
+  %231 = load float, ptr %Z.i.i.i575, align 4, !tbaa !390
+  %cmp.i.i.i.i576 = fcmp nsz olt float %228, %229
   br i1 %cmp.i.i.i.i576, label %if.then.i.i.i.i615, label %if.end.i.i.i.i577
 
 if.then.i.i.i.i615:                               ; preds = %for.body.i571
-  store float %230, ptr %MaxEdge.i.i.i.i560, align 4, !tbaa !405
+  store float %229, ptr %MaxEdge.i.i.i.i560, align 4, !tbaa !405
   br label %if.end.i.i.i.i577
 
 if.end.i.i.i.i577:                                ; preds = %if.then.i.i.i.i615, %for.body.i571
-  %233 = phi float [ %230, %if.then.i.i.i.i615 ], [ %229, %for.body.i571 ]
-  %cmp5.i.i.i.i578 = fcmp nsz olt float %228, %231
+  %232 = phi float [ %229, %if.then.i.i.i.i615 ], [ %228, %for.body.i571 ]
+  %cmp5.i.i.i.i578 = fcmp nsz olt float %227, %230
   br i1 %cmp5.i.i.i.i578, label %if.then6.i.i.i.i614, label %if.end9.i.i.i.i579
 
 if.then6.i.i.i.i614:                              ; preds = %if.end.i.i.i.i577
-  store float %231, ptr %Y.i.i.i.i561, align 4, !tbaa !406
+  store float %230, ptr %Y.i.i.i.i561, align 4, !tbaa !406
   br label %if.end9.i.i.i.i579
 
 if.end9.i.i.i.i579:                               ; preds = %if.then6.i.i.i.i614, %if.end.i.i.i.i577
-  %234 = phi float [ %231, %if.then6.i.i.i.i614 ], [ %228, %if.end.i.i.i.i577 ]
-  %cmp11.i.i.i.i580 = fcmp nsz olt float %227, %232
+  %233 = phi float [ %230, %if.then6.i.i.i.i614 ], [ %227, %if.end.i.i.i.i577 ]
+  %cmp11.i.i.i.i580 = fcmp nsz olt float %226, %231
   br i1 %cmp11.i.i.i.i580, label %if.then12.i.i.i.i613, label %if.end15.i.i.i.i581
 
 if.then12.i.i.i.i613:                             ; preds = %if.end9.i.i.i.i579
-  store float %232, ptr %Z.i.i.i.i562, align 4, !tbaa !407
+  store float %231, ptr %Z.i.i.i.i562, align 4, !tbaa !407
   br label %if.end15.i.i.i.i581
 
 if.end15.i.i.i.i581:                              ; preds = %if.then12.i.i.i.i613, %if.end9.i.i.i.i579
-  %235 = phi float [ %232, %if.then12.i.i.i.i613 ], [ %227, %if.end9.i.i.i.i579 ]
-  %cmp17.i.i.i.i582 = fcmp nsz ogt float %226, %230
+  %234 = phi float [ %231, %if.then12.i.i.i.i613 ], [ %226, %if.end9.i.i.i.i579 ]
+  %cmp17.i.i.i.i582 = fcmp nsz ogt float %225, %229
   br i1 %cmp17.i.i.i.i582, label %if.then18.i.i.i.i612, label %if.end21.i.i.i.i583
 
 if.then18.i.i.i.i612:                             ; preds = %if.end15.i.i.i.i581
-  store float %230, ptr %box_union, align 4, !tbaa !408
+  store float %229, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i583
 
 if.end21.i.i.i.i583:                              ; preds = %if.then18.i.i.i.i612, %if.end15.i.i.i.i581
-  %236 = phi float [ %230, %if.then18.i.i.i.i612 ], [ %226, %if.end15.i.i.i.i581 ]
-  %cmp24.i.i.i.i584 = fcmp nsz ogt float %225, %231
+  %235 = phi float [ %229, %if.then18.i.i.i.i612 ], [ %225, %if.end15.i.i.i.i581 ]
+  %cmp24.i.i.i.i584 = fcmp nsz ogt float %224, %230
   br i1 %cmp24.i.i.i.i584, label %if.then25.i.i.i.i611, label %if.end28.i.i.i.i585
 
 if.then25.i.i.i.i611:                             ; preds = %if.end21.i.i.i.i583
-  store float %231, ptr %Y23.i.i.i.i563, align 4, !tbaa !409
+  store float %230, ptr %Y23.i.i.i.i563, align 4, !tbaa !409
   br label %if.end28.i.i.i.i585
 
 if.end28.i.i.i.i585:                              ; preds = %if.then25.i.i.i.i611, %if.end21.i.i.i.i583
-  %237 = phi float [ %231, %if.then25.i.i.i.i611 ], [ %225, %if.end21.i.i.i.i583 ]
-  %cmp31.i.i.i.i586 = fcmp nsz ogt float %224, %232
+  %236 = phi float [ %230, %if.then25.i.i.i.i611 ], [ %224, %if.end21.i.i.i.i583 ]
+  %cmp31.i.i.i.i586 = fcmp nsz ogt float %223, %231
   br i1 %cmp31.i.i.i.i586, label %if.then32.i.i.i.i610, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i587
 
 if.then32.i.i.i.i610:                             ; preds = %if.end28.i.i.i.i585
-  store float %232, ptr %Z30.i.i.i.i564, align 4, !tbaa !410
+  store float %231, ptr %Z30.i.i.i.i564, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i587
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i587: ; preds = %if.then32.i.i.i.i610, %if.end28.i.i.i.i585
-  %238 = phi float [ %224, %if.end28.i.i.i.i585 ], [ %232, %if.then32.i.i.i.i610 ]
-  %239 = load float, ptr %__begin1.sroa.0.010.i572, align 4, !tbaa !411
+  %237 = phi float [ %223, %if.end28.i.i.i.i585 ], [ %231, %if.then32.i.i.i.i610 ]
+  %238 = load float, ptr %__begin1.sroa.0.010.i572, align 4, !tbaa !411
   %Y.i3.i.i588 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i572, i64 4
-  %240 = load float, ptr %Y.i3.i.i588, align 4, !tbaa !412
+  %239 = load float, ptr %Y.i3.i.i588, align 4, !tbaa !412
   %Z.i4.i.i589 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i572, i64 8
-  %241 = load float, ptr %Z.i4.i.i589, align 4, !tbaa !390
-  %cmp.i.i6.i.i590 = fcmp nsz olt float %233, %239
+  %240 = load float, ptr %Z.i4.i.i589, align 4, !tbaa !390
+  %cmp.i.i6.i.i590 = fcmp nsz olt float %232, %238
   br i1 %cmp.i.i6.i.i590, label %if.then.i.i26.i.i609, label %if.end.i.i7.i.i591
 
 if.then.i.i26.i.i609:                             ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i587
-  store float %239, ptr %MaxEdge.i.i.i.i560, align 4, !tbaa !405
+  store float %238, ptr %MaxEdge.i.i.i.i560, align 4, !tbaa !405
   br label %if.end.i.i7.i.i591
 
 if.end.i.i7.i.i591:                               ; preds = %if.then.i.i26.i.i609, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i587
-  %242 = phi float [ %239, %if.then.i.i26.i.i609 ], [ %233, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i587 ]
-  %cmp5.i.i9.i.i592 = fcmp nsz olt float %234, %240
+  %241 = phi float [ %238, %if.then.i.i26.i.i609 ], [ %232, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i587 ]
+  %cmp5.i.i9.i.i592 = fcmp nsz olt float %233, %239
   br i1 %cmp5.i.i9.i.i592, label %if.then6.i.i25.i.i608, label %if.end9.i.i10.i.i593
 
 if.then6.i.i25.i.i608:                            ; preds = %if.end.i.i7.i.i591
-  store float %240, ptr %Y.i.i.i.i561, align 4, !tbaa !406
+  store float %239, ptr %Y.i.i.i.i561, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i593
 
 if.end9.i.i10.i.i593:                             ; preds = %if.then6.i.i25.i.i608, %if.end.i.i7.i.i591
-  %243 = phi float [ %240, %if.then6.i.i25.i.i608 ], [ %234, %if.end.i.i7.i.i591 ]
-  %cmp11.i.i12.i.i594 = fcmp nsz olt float %235, %241
+  %242 = phi float [ %239, %if.then6.i.i25.i.i608 ], [ %233, %if.end.i.i7.i.i591 ]
+  %cmp11.i.i12.i.i594 = fcmp nsz olt float %234, %240
   br i1 %cmp11.i.i12.i.i594, label %if.then12.i.i24.i.i607, label %if.end15.i.i13.i.i595
 
 if.then12.i.i24.i.i607:                           ; preds = %if.end9.i.i10.i.i593
-  store float %241, ptr %Z.i.i.i.i562, align 4, !tbaa !407
+  store float %240, ptr %Z.i.i.i.i562, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i595
 
 if.end15.i.i13.i.i595:                            ; preds = %if.then12.i.i24.i.i607, %if.end9.i.i10.i.i593
-  %244 = phi float [ %241, %if.then12.i.i24.i.i607 ], [ %235, %if.end9.i.i10.i.i593 ]
-  %cmp17.i.i14.i.i596 = fcmp nsz ogt float %236, %239
+  %243 = phi float [ %240, %if.then12.i.i24.i.i607 ], [ %234, %if.end9.i.i10.i.i593 ]
+  %cmp17.i.i14.i.i596 = fcmp nsz ogt float %235, %238
   br i1 %cmp17.i.i14.i.i596, label %if.then18.i.i23.i.i606, label %if.end21.i.i15.i.i597
 
 if.then18.i.i23.i.i606:                           ; preds = %if.end15.i.i13.i.i595
-  store float %239, ptr %box_union, align 4, !tbaa !408
+  store float %238, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i597
 
 if.end21.i.i15.i.i597:                            ; preds = %if.then18.i.i23.i.i606, %if.end15.i.i13.i.i595
-  %245 = phi float [ %239, %if.then18.i.i23.i.i606 ], [ %236, %if.end15.i.i13.i.i595 ]
-  %cmp24.i.i17.i.i598 = fcmp nsz ogt float %237, %240
+  %244 = phi float [ %238, %if.then18.i.i23.i.i606 ], [ %235, %if.end15.i.i13.i.i595 ]
+  %cmp24.i.i17.i.i598 = fcmp nsz ogt float %236, %239
   br i1 %cmp24.i.i17.i.i598, label %if.then25.i.i22.i.i605, label %if.end28.i.i18.i.i599
 
 if.then25.i.i22.i.i605:                           ; preds = %if.end21.i.i15.i.i597
-  store float %240, ptr %Y23.i.i.i.i563, align 4, !tbaa !409
+  store float %239, ptr %Y23.i.i.i.i563, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i599
 
 if.end28.i.i18.i.i599:                            ; preds = %if.then25.i.i22.i.i605, %if.end21.i.i15.i.i597
-  %246 = phi float [ %240, %if.then25.i.i22.i.i605 ], [ %237, %if.end21.i.i15.i.i597 ]
-  %cmp31.i.i20.i.i600 = fcmp nsz ogt float %238, %241
+  %245 = phi float [ %239, %if.then25.i.i22.i.i605 ], [ %236, %if.end21.i.i15.i.i597 ]
+  %cmp31.i.i20.i.i600 = fcmp nsz ogt float %237, %240
   br i1 %cmp31.i.i20.i.i600, label %if.then32.i.i21.i.i604, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601
 
 if.then32.i.i21.i.i604:                           ; preds = %if.end28.i.i18.i.i599
-  store float %241, ptr %Z30.i.i.i.i564, align 4, !tbaa !410
+  store float %240, ptr %Z30.i.i.i.i564, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601: ; preds = %if.then32.i.i21.i.i604, %if.end28.i.i18.i.i599
-  %247 = phi float [ %238, %if.end28.i.i18.i.i599 ], [ %241, %if.then32.i.i21.i.i604 ]
+  %246 = phi float [ %237, %if.end28.i.i18.i.i599 ], [ %240, %if.then32.i.i21.i.i604 ]
   %incdec.ptr.i.i602 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i572, i64 24
-  %cmp.i.not.i603 = icmp eq ptr %incdec.ptr.i.i602, %223
+  %cmp.i.not.i603 = icmp eq ptr %incdec.ptr.i.i602, %222
   br i1 %cmp.i.not.i603, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit616, label %for.body.i571
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit616: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i601, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit556
-  %connect_back = getelementptr inbounds nuw i8, ptr %117, i64 96
-  %248 = load ptr, ptr %connect_back, align 8, !tbaa !31
-  %_M_finish.i.i617 = getelementptr inbounds nuw i8, ptr %117, i64 104
-  %249 = load ptr, ptr %_M_finish.i.i617, align 8, !tbaa !31
-  %cmp.i.not9.i618 = icmp eq ptr %248, %249
+  %connect_back = getelementptr inbounds nuw i8, ptr %116, i64 96
+  %247 = load ptr, ptr %connect_back, align 8, !tbaa !31
+  %_M_finish.i.i617 = getelementptr inbounds nuw i8, ptr %116, i64 104
+  %248 = load ptr, ptr %_M_finish.i.i617, align 8, !tbaa !31
+  %cmp.i.not9.i618 = icmp eq ptr %247, %248
   br i1 %cmp.i.not9.i618, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit676, label %for.body.lr.ph.i619
 
 for.body.lr.ph.i619:                              ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit616
@@ -20089,142 +20088,142 @@ for.body.lr.ph.i619:                              ; preds = %_Z14boxVectorUnionR
   br label %for.body.i631
 
 for.body.i631:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661, %for.body.lr.ph.i619
-  %250 = phi float [ %Z30.i.i.i.promoted.i630, %for.body.lr.ph.i619 ], [ %273, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
-  %251 = phi float [ %Y23.i.i.i.promoted.i629, %for.body.lr.ph.i619 ], [ %272, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
-  %252 = phi float [ %box_union.promoted.i628, %for.body.lr.ph.i619 ], [ %271, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
-  %253 = phi float [ %Z.i.i.i.promoted.i627, %for.body.lr.ph.i619 ], [ %270, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
-  %254 = phi float [ %Y.i.i.i.promoted.i626, %for.body.lr.ph.i619 ], [ %269, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
-  %255 = phi float [ %MaxEdge.i.i.i.promoted.i625, %for.body.lr.ph.i619 ], [ %268, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
-  %__begin1.sroa.0.010.i632 = phi ptr [ %248, %for.body.lr.ph.i619 ], [ %incdec.ptr.i.i662, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
+  %249 = phi float [ %Z30.i.i.i.promoted.i630, %for.body.lr.ph.i619 ], [ %272, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
+  %250 = phi float [ %Y23.i.i.i.promoted.i629, %for.body.lr.ph.i619 ], [ %271, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
+  %251 = phi float [ %box_union.promoted.i628, %for.body.lr.ph.i619 ], [ %270, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
+  %252 = phi float [ %Z.i.i.i.promoted.i627, %for.body.lr.ph.i619 ], [ %269, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
+  %253 = phi float [ %Y.i.i.i.promoted.i626, %for.body.lr.ph.i619 ], [ %268, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
+  %254 = phi float [ %MaxEdge.i.i.i.promoted.i625, %for.body.lr.ph.i619 ], [ %267, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
+  %__begin1.sroa.0.010.i632 = phi ptr [ %247, %for.body.lr.ph.i619 ], [ %incdec.ptr.i.i662, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661 ]
   %MaxEdge.i.i633 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i632, i64 12
-  %256 = load float, ptr %MaxEdge.i.i633, align 4, !tbaa !411
+  %255 = load float, ptr %MaxEdge.i.i633, align 4, !tbaa !411
   %Y.i.i.i634 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i632, i64 16
-  %257 = load float, ptr %Y.i.i.i634, align 4, !tbaa !412
+  %256 = load float, ptr %Y.i.i.i634, align 4, !tbaa !412
   %Z.i.i.i635 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i632, i64 20
-  %258 = load float, ptr %Z.i.i.i635, align 4, !tbaa !390
-  %cmp.i.i.i.i636 = fcmp nsz olt float %255, %256
+  %257 = load float, ptr %Z.i.i.i635, align 4, !tbaa !390
+  %cmp.i.i.i.i636 = fcmp nsz olt float %254, %255
   br i1 %cmp.i.i.i.i636, label %if.then.i.i.i.i675, label %if.end.i.i.i.i637
 
 if.then.i.i.i.i675:                               ; preds = %for.body.i631
-  store float %256, ptr %MaxEdge.i.i.i.i620, align 4, !tbaa !405
+  store float %255, ptr %MaxEdge.i.i.i.i620, align 4, !tbaa !405
   br label %if.end.i.i.i.i637
 
 if.end.i.i.i.i637:                                ; preds = %if.then.i.i.i.i675, %for.body.i631
-  %259 = phi float [ %256, %if.then.i.i.i.i675 ], [ %255, %for.body.i631 ]
-  %cmp5.i.i.i.i638 = fcmp nsz olt float %254, %257
+  %258 = phi float [ %255, %if.then.i.i.i.i675 ], [ %254, %for.body.i631 ]
+  %cmp5.i.i.i.i638 = fcmp nsz olt float %253, %256
   br i1 %cmp5.i.i.i.i638, label %if.then6.i.i.i.i674, label %if.end9.i.i.i.i639
 
 if.then6.i.i.i.i674:                              ; preds = %if.end.i.i.i.i637
-  store float %257, ptr %Y.i.i.i.i621, align 4, !tbaa !406
+  store float %256, ptr %Y.i.i.i.i621, align 4, !tbaa !406
   br label %if.end9.i.i.i.i639
 
 if.end9.i.i.i.i639:                               ; preds = %if.then6.i.i.i.i674, %if.end.i.i.i.i637
-  %260 = phi float [ %257, %if.then6.i.i.i.i674 ], [ %254, %if.end.i.i.i.i637 ]
-  %cmp11.i.i.i.i640 = fcmp nsz olt float %253, %258
+  %259 = phi float [ %256, %if.then6.i.i.i.i674 ], [ %253, %if.end.i.i.i.i637 ]
+  %cmp11.i.i.i.i640 = fcmp nsz olt float %252, %257
   br i1 %cmp11.i.i.i.i640, label %if.then12.i.i.i.i673, label %if.end15.i.i.i.i641
 
 if.then12.i.i.i.i673:                             ; preds = %if.end9.i.i.i.i639
-  store float %258, ptr %Z.i.i.i.i622, align 4, !tbaa !407
+  store float %257, ptr %Z.i.i.i.i622, align 4, !tbaa !407
   br label %if.end15.i.i.i.i641
 
 if.end15.i.i.i.i641:                              ; preds = %if.then12.i.i.i.i673, %if.end9.i.i.i.i639
-  %261 = phi float [ %258, %if.then12.i.i.i.i673 ], [ %253, %if.end9.i.i.i.i639 ]
-  %cmp17.i.i.i.i642 = fcmp nsz ogt float %252, %256
+  %260 = phi float [ %257, %if.then12.i.i.i.i673 ], [ %252, %if.end9.i.i.i.i639 ]
+  %cmp17.i.i.i.i642 = fcmp nsz ogt float %251, %255
   br i1 %cmp17.i.i.i.i642, label %if.then18.i.i.i.i672, label %if.end21.i.i.i.i643
 
 if.then18.i.i.i.i672:                             ; preds = %if.end15.i.i.i.i641
-  store float %256, ptr %box_union, align 4, !tbaa !408
+  store float %255, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i643
 
 if.end21.i.i.i.i643:                              ; preds = %if.then18.i.i.i.i672, %if.end15.i.i.i.i641
-  %262 = phi float [ %256, %if.then18.i.i.i.i672 ], [ %252, %if.end15.i.i.i.i641 ]
-  %cmp24.i.i.i.i644 = fcmp nsz ogt float %251, %257
+  %261 = phi float [ %255, %if.then18.i.i.i.i672 ], [ %251, %if.end15.i.i.i.i641 ]
+  %cmp24.i.i.i.i644 = fcmp nsz ogt float %250, %256
   br i1 %cmp24.i.i.i.i644, label %if.then25.i.i.i.i671, label %if.end28.i.i.i.i645
 
 if.then25.i.i.i.i671:                             ; preds = %if.end21.i.i.i.i643
-  store float %257, ptr %Y23.i.i.i.i623, align 4, !tbaa !409
+  store float %256, ptr %Y23.i.i.i.i623, align 4, !tbaa !409
   br label %if.end28.i.i.i.i645
 
 if.end28.i.i.i.i645:                              ; preds = %if.then25.i.i.i.i671, %if.end21.i.i.i.i643
-  %263 = phi float [ %257, %if.then25.i.i.i.i671 ], [ %251, %if.end21.i.i.i.i643 ]
-  %cmp31.i.i.i.i646 = fcmp nsz ogt float %250, %258
+  %262 = phi float [ %256, %if.then25.i.i.i.i671 ], [ %250, %if.end21.i.i.i.i643 ]
+  %cmp31.i.i.i.i646 = fcmp nsz ogt float %249, %257
   br i1 %cmp31.i.i.i.i646, label %if.then32.i.i.i.i670, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i647
 
 if.then32.i.i.i.i670:                             ; preds = %if.end28.i.i.i.i645
-  store float %258, ptr %Z30.i.i.i.i624, align 4, !tbaa !410
+  store float %257, ptr %Z30.i.i.i.i624, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i647
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i647: ; preds = %if.then32.i.i.i.i670, %if.end28.i.i.i.i645
-  %264 = phi float [ %250, %if.end28.i.i.i.i645 ], [ %258, %if.then32.i.i.i.i670 ]
-  %265 = load float, ptr %__begin1.sroa.0.010.i632, align 4, !tbaa !411
+  %263 = phi float [ %249, %if.end28.i.i.i.i645 ], [ %257, %if.then32.i.i.i.i670 ]
+  %264 = load float, ptr %__begin1.sroa.0.010.i632, align 4, !tbaa !411
   %Y.i3.i.i648 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i632, i64 4
-  %266 = load float, ptr %Y.i3.i.i648, align 4, !tbaa !412
+  %265 = load float, ptr %Y.i3.i.i648, align 4, !tbaa !412
   %Z.i4.i.i649 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i632, i64 8
-  %267 = load float, ptr %Z.i4.i.i649, align 4, !tbaa !390
-  %cmp.i.i6.i.i650 = fcmp nsz olt float %259, %265
+  %266 = load float, ptr %Z.i4.i.i649, align 4, !tbaa !390
+  %cmp.i.i6.i.i650 = fcmp nsz olt float %258, %264
   br i1 %cmp.i.i6.i.i650, label %if.then.i.i26.i.i669, label %if.end.i.i7.i.i651
 
 if.then.i.i26.i.i669:                             ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i647
-  store float %265, ptr %MaxEdge.i.i.i.i620, align 4, !tbaa !405
+  store float %264, ptr %MaxEdge.i.i.i.i620, align 4, !tbaa !405
   br label %if.end.i.i7.i.i651
 
 if.end.i.i7.i.i651:                               ; preds = %if.then.i.i26.i.i669, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i647
-  %268 = phi float [ %265, %if.then.i.i26.i.i669 ], [ %259, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i647 ]
-  %cmp5.i.i9.i.i652 = fcmp nsz olt float %260, %266
+  %267 = phi float [ %264, %if.then.i.i26.i.i669 ], [ %258, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i647 ]
+  %cmp5.i.i9.i.i652 = fcmp nsz olt float %259, %265
   br i1 %cmp5.i.i9.i.i652, label %if.then6.i.i25.i.i668, label %if.end9.i.i10.i.i653
 
 if.then6.i.i25.i.i668:                            ; preds = %if.end.i.i7.i.i651
-  store float %266, ptr %Y.i.i.i.i621, align 4, !tbaa !406
+  store float %265, ptr %Y.i.i.i.i621, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i653
 
 if.end9.i.i10.i.i653:                             ; preds = %if.then6.i.i25.i.i668, %if.end.i.i7.i.i651
-  %269 = phi float [ %266, %if.then6.i.i25.i.i668 ], [ %260, %if.end.i.i7.i.i651 ]
-  %cmp11.i.i12.i.i654 = fcmp nsz olt float %261, %267
+  %268 = phi float [ %265, %if.then6.i.i25.i.i668 ], [ %259, %if.end.i.i7.i.i651 ]
+  %cmp11.i.i12.i.i654 = fcmp nsz olt float %260, %266
   br i1 %cmp11.i.i12.i.i654, label %if.then12.i.i24.i.i667, label %if.end15.i.i13.i.i655
 
 if.then12.i.i24.i.i667:                           ; preds = %if.end9.i.i10.i.i653
-  store float %267, ptr %Z.i.i.i.i622, align 4, !tbaa !407
+  store float %266, ptr %Z.i.i.i.i622, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i655
 
 if.end15.i.i13.i.i655:                            ; preds = %if.then12.i.i24.i.i667, %if.end9.i.i10.i.i653
-  %270 = phi float [ %267, %if.then12.i.i24.i.i667 ], [ %261, %if.end9.i.i10.i.i653 ]
-  %cmp17.i.i14.i.i656 = fcmp nsz ogt float %262, %265
+  %269 = phi float [ %266, %if.then12.i.i24.i.i667 ], [ %260, %if.end9.i.i10.i.i653 ]
+  %cmp17.i.i14.i.i656 = fcmp nsz ogt float %261, %264
   br i1 %cmp17.i.i14.i.i656, label %if.then18.i.i23.i.i666, label %if.end21.i.i15.i.i657
 
 if.then18.i.i23.i.i666:                           ; preds = %if.end15.i.i13.i.i655
-  store float %265, ptr %box_union, align 4, !tbaa !408
+  store float %264, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i657
 
 if.end21.i.i15.i.i657:                            ; preds = %if.then18.i.i23.i.i666, %if.end15.i.i13.i.i655
-  %271 = phi float [ %265, %if.then18.i.i23.i.i666 ], [ %262, %if.end15.i.i13.i.i655 ]
-  %cmp24.i.i17.i.i658 = fcmp nsz ogt float %263, %266
+  %270 = phi float [ %264, %if.then18.i.i23.i.i666 ], [ %261, %if.end15.i.i13.i.i655 ]
+  %cmp24.i.i17.i.i658 = fcmp nsz ogt float %262, %265
   br i1 %cmp24.i.i17.i.i658, label %if.then25.i.i22.i.i665, label %if.end28.i.i18.i.i659
 
 if.then25.i.i22.i.i665:                           ; preds = %if.end21.i.i15.i.i657
-  store float %266, ptr %Y23.i.i.i.i623, align 4, !tbaa !409
+  store float %265, ptr %Y23.i.i.i.i623, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i659
 
 if.end28.i.i18.i.i659:                            ; preds = %if.then25.i.i22.i.i665, %if.end21.i.i15.i.i657
-  %272 = phi float [ %266, %if.then25.i.i22.i.i665 ], [ %263, %if.end21.i.i15.i.i657 ]
-  %cmp31.i.i20.i.i660 = fcmp nsz ogt float %264, %267
+  %271 = phi float [ %265, %if.then25.i.i22.i.i665 ], [ %262, %if.end21.i.i15.i.i657 ]
+  %cmp31.i.i20.i.i660 = fcmp nsz ogt float %263, %266
   br i1 %cmp31.i.i20.i.i660, label %if.then32.i.i21.i.i664, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661
 
 if.then32.i.i21.i.i664:                           ; preds = %if.end28.i.i18.i.i659
-  store float %267, ptr %Z30.i.i.i.i624, align 4, !tbaa !410
+  store float %266, ptr %Z30.i.i.i.i624, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661: ; preds = %if.then32.i.i21.i.i664, %if.end28.i.i18.i.i659
-  %273 = phi float [ %264, %if.end28.i.i18.i.i659 ], [ %267, %if.then32.i.i21.i.i664 ]
+  %272 = phi float [ %263, %if.end28.i.i18.i.i659 ], [ %266, %if.then32.i.i21.i.i664 ]
   %incdec.ptr.i.i662 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i632, i64 24
-  %cmp.i.not.i663 = icmp eq ptr %incdec.ptr.i.i662, %249
+  %cmp.i.not.i663 = icmp eq ptr %incdec.ptr.i.i662, %248
   br i1 %cmp.i.not.i663, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit676, label %for.body.i631
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit676: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i661, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit616
-  %connect_right = getelementptr inbounds nuw i8, ptr %117, i64 120
-  %274 = load ptr, ptr %connect_right, align 8, !tbaa !31
-  %_M_finish.i.i677 = getelementptr inbounds nuw i8, ptr %117, i64 128
-  %275 = load ptr, ptr %_M_finish.i.i677, align 8, !tbaa !31
-  %cmp.i.not9.i678 = icmp eq ptr %274, %275
+  %connect_right = getelementptr inbounds nuw i8, ptr %116, i64 120
+  %273 = load ptr, ptr %connect_right, align 8, !tbaa !31
+  %_M_finish.i.i677 = getelementptr inbounds nuw i8, ptr %116, i64 128
+  %274 = load ptr, ptr %_M_finish.i.i677, align 8, !tbaa !31
+  %cmp.i.not9.i678 = icmp eq ptr %273, %274
   br i1 %cmp.i.not9.i678, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit736, label %for.body.lr.ph.i679
 
 for.body.lr.ph.i679:                              ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit676
@@ -20242,142 +20241,142 @@ for.body.lr.ph.i679:                              ; preds = %_Z14boxVectorUnionR
   br label %for.body.i691
 
 for.body.i691:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721, %for.body.lr.ph.i679
-  %276 = phi float [ %Z30.i.i.i.promoted.i690, %for.body.lr.ph.i679 ], [ %299, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
-  %277 = phi float [ %Y23.i.i.i.promoted.i689, %for.body.lr.ph.i679 ], [ %298, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
-  %278 = phi float [ %box_union.promoted.i688, %for.body.lr.ph.i679 ], [ %297, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
-  %279 = phi float [ %Z.i.i.i.promoted.i687, %for.body.lr.ph.i679 ], [ %296, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
-  %280 = phi float [ %Y.i.i.i.promoted.i686, %for.body.lr.ph.i679 ], [ %295, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
-  %281 = phi float [ %MaxEdge.i.i.i.promoted.i685, %for.body.lr.ph.i679 ], [ %294, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
-  %__begin1.sroa.0.010.i692 = phi ptr [ %274, %for.body.lr.ph.i679 ], [ %incdec.ptr.i.i722, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
+  %275 = phi float [ %Z30.i.i.i.promoted.i690, %for.body.lr.ph.i679 ], [ %298, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
+  %276 = phi float [ %Y23.i.i.i.promoted.i689, %for.body.lr.ph.i679 ], [ %297, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
+  %277 = phi float [ %box_union.promoted.i688, %for.body.lr.ph.i679 ], [ %296, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
+  %278 = phi float [ %Z.i.i.i.promoted.i687, %for.body.lr.ph.i679 ], [ %295, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
+  %279 = phi float [ %Y.i.i.i.promoted.i686, %for.body.lr.ph.i679 ], [ %294, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
+  %280 = phi float [ %MaxEdge.i.i.i.promoted.i685, %for.body.lr.ph.i679 ], [ %293, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
+  %__begin1.sroa.0.010.i692 = phi ptr [ %273, %for.body.lr.ph.i679 ], [ %incdec.ptr.i.i722, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721 ]
   %MaxEdge.i.i693 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i692, i64 12
-  %282 = load float, ptr %MaxEdge.i.i693, align 4, !tbaa !411
+  %281 = load float, ptr %MaxEdge.i.i693, align 4, !tbaa !411
   %Y.i.i.i694 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i692, i64 16
-  %283 = load float, ptr %Y.i.i.i694, align 4, !tbaa !412
+  %282 = load float, ptr %Y.i.i.i694, align 4, !tbaa !412
   %Z.i.i.i695 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i692, i64 20
-  %284 = load float, ptr %Z.i.i.i695, align 4, !tbaa !390
-  %cmp.i.i.i.i696 = fcmp nsz olt float %281, %282
+  %283 = load float, ptr %Z.i.i.i695, align 4, !tbaa !390
+  %cmp.i.i.i.i696 = fcmp nsz olt float %280, %281
   br i1 %cmp.i.i.i.i696, label %if.then.i.i.i.i735, label %if.end.i.i.i.i697
 
 if.then.i.i.i.i735:                               ; preds = %for.body.i691
-  store float %282, ptr %MaxEdge.i.i.i.i680, align 4, !tbaa !405
+  store float %281, ptr %MaxEdge.i.i.i.i680, align 4, !tbaa !405
   br label %if.end.i.i.i.i697
 
 if.end.i.i.i.i697:                                ; preds = %if.then.i.i.i.i735, %for.body.i691
-  %285 = phi float [ %282, %if.then.i.i.i.i735 ], [ %281, %for.body.i691 ]
-  %cmp5.i.i.i.i698 = fcmp nsz olt float %280, %283
+  %284 = phi float [ %281, %if.then.i.i.i.i735 ], [ %280, %for.body.i691 ]
+  %cmp5.i.i.i.i698 = fcmp nsz olt float %279, %282
   br i1 %cmp5.i.i.i.i698, label %if.then6.i.i.i.i734, label %if.end9.i.i.i.i699
 
 if.then6.i.i.i.i734:                              ; preds = %if.end.i.i.i.i697
-  store float %283, ptr %Y.i.i.i.i681, align 4, !tbaa !406
+  store float %282, ptr %Y.i.i.i.i681, align 4, !tbaa !406
   br label %if.end9.i.i.i.i699
 
 if.end9.i.i.i.i699:                               ; preds = %if.then6.i.i.i.i734, %if.end.i.i.i.i697
-  %286 = phi float [ %283, %if.then6.i.i.i.i734 ], [ %280, %if.end.i.i.i.i697 ]
-  %cmp11.i.i.i.i700 = fcmp nsz olt float %279, %284
+  %285 = phi float [ %282, %if.then6.i.i.i.i734 ], [ %279, %if.end.i.i.i.i697 ]
+  %cmp11.i.i.i.i700 = fcmp nsz olt float %278, %283
   br i1 %cmp11.i.i.i.i700, label %if.then12.i.i.i.i733, label %if.end15.i.i.i.i701
 
 if.then12.i.i.i.i733:                             ; preds = %if.end9.i.i.i.i699
-  store float %284, ptr %Z.i.i.i.i682, align 4, !tbaa !407
+  store float %283, ptr %Z.i.i.i.i682, align 4, !tbaa !407
   br label %if.end15.i.i.i.i701
 
 if.end15.i.i.i.i701:                              ; preds = %if.then12.i.i.i.i733, %if.end9.i.i.i.i699
-  %287 = phi float [ %284, %if.then12.i.i.i.i733 ], [ %279, %if.end9.i.i.i.i699 ]
-  %cmp17.i.i.i.i702 = fcmp nsz ogt float %278, %282
+  %286 = phi float [ %283, %if.then12.i.i.i.i733 ], [ %278, %if.end9.i.i.i.i699 ]
+  %cmp17.i.i.i.i702 = fcmp nsz ogt float %277, %281
   br i1 %cmp17.i.i.i.i702, label %if.then18.i.i.i.i732, label %if.end21.i.i.i.i703
 
 if.then18.i.i.i.i732:                             ; preds = %if.end15.i.i.i.i701
-  store float %282, ptr %box_union, align 4, !tbaa !408
+  store float %281, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i703
 
 if.end21.i.i.i.i703:                              ; preds = %if.then18.i.i.i.i732, %if.end15.i.i.i.i701
-  %288 = phi float [ %282, %if.then18.i.i.i.i732 ], [ %278, %if.end15.i.i.i.i701 ]
-  %cmp24.i.i.i.i704 = fcmp nsz ogt float %277, %283
+  %287 = phi float [ %281, %if.then18.i.i.i.i732 ], [ %277, %if.end15.i.i.i.i701 ]
+  %cmp24.i.i.i.i704 = fcmp nsz ogt float %276, %282
   br i1 %cmp24.i.i.i.i704, label %if.then25.i.i.i.i731, label %if.end28.i.i.i.i705
 
 if.then25.i.i.i.i731:                             ; preds = %if.end21.i.i.i.i703
-  store float %283, ptr %Y23.i.i.i.i683, align 4, !tbaa !409
+  store float %282, ptr %Y23.i.i.i.i683, align 4, !tbaa !409
   br label %if.end28.i.i.i.i705
 
 if.end28.i.i.i.i705:                              ; preds = %if.then25.i.i.i.i731, %if.end21.i.i.i.i703
-  %289 = phi float [ %283, %if.then25.i.i.i.i731 ], [ %277, %if.end21.i.i.i.i703 ]
-  %cmp31.i.i.i.i706 = fcmp nsz ogt float %276, %284
+  %288 = phi float [ %282, %if.then25.i.i.i.i731 ], [ %276, %if.end21.i.i.i.i703 ]
+  %cmp31.i.i.i.i706 = fcmp nsz ogt float %275, %283
   br i1 %cmp31.i.i.i.i706, label %if.then32.i.i.i.i730, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i707
 
 if.then32.i.i.i.i730:                             ; preds = %if.end28.i.i.i.i705
-  store float %284, ptr %Z30.i.i.i.i684, align 4, !tbaa !410
+  store float %283, ptr %Z30.i.i.i.i684, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i707
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i707: ; preds = %if.then32.i.i.i.i730, %if.end28.i.i.i.i705
-  %290 = phi float [ %276, %if.end28.i.i.i.i705 ], [ %284, %if.then32.i.i.i.i730 ]
-  %291 = load float, ptr %__begin1.sroa.0.010.i692, align 4, !tbaa !411
+  %289 = phi float [ %275, %if.end28.i.i.i.i705 ], [ %283, %if.then32.i.i.i.i730 ]
+  %290 = load float, ptr %__begin1.sroa.0.010.i692, align 4, !tbaa !411
   %Y.i3.i.i708 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i692, i64 4
-  %292 = load float, ptr %Y.i3.i.i708, align 4, !tbaa !412
+  %291 = load float, ptr %Y.i3.i.i708, align 4, !tbaa !412
   %Z.i4.i.i709 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i692, i64 8
-  %293 = load float, ptr %Z.i4.i.i709, align 4, !tbaa !390
-  %cmp.i.i6.i.i710 = fcmp nsz olt float %285, %291
+  %292 = load float, ptr %Z.i4.i.i709, align 4, !tbaa !390
+  %cmp.i.i6.i.i710 = fcmp nsz olt float %284, %290
   br i1 %cmp.i.i6.i.i710, label %if.then.i.i26.i.i729, label %if.end.i.i7.i.i711
 
 if.then.i.i26.i.i729:                             ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i707
-  store float %291, ptr %MaxEdge.i.i.i.i680, align 4, !tbaa !405
+  store float %290, ptr %MaxEdge.i.i.i.i680, align 4, !tbaa !405
   br label %if.end.i.i7.i.i711
 
 if.end.i.i7.i.i711:                               ; preds = %if.then.i.i26.i.i729, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i707
-  %294 = phi float [ %291, %if.then.i.i26.i.i729 ], [ %285, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i707 ]
-  %cmp5.i.i9.i.i712 = fcmp nsz olt float %286, %292
+  %293 = phi float [ %290, %if.then.i.i26.i.i729 ], [ %284, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i707 ]
+  %cmp5.i.i9.i.i712 = fcmp nsz olt float %285, %291
   br i1 %cmp5.i.i9.i.i712, label %if.then6.i.i25.i.i728, label %if.end9.i.i10.i.i713
 
 if.then6.i.i25.i.i728:                            ; preds = %if.end.i.i7.i.i711
-  store float %292, ptr %Y.i.i.i.i681, align 4, !tbaa !406
+  store float %291, ptr %Y.i.i.i.i681, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i713
 
 if.end9.i.i10.i.i713:                             ; preds = %if.then6.i.i25.i.i728, %if.end.i.i7.i.i711
-  %295 = phi float [ %292, %if.then6.i.i25.i.i728 ], [ %286, %if.end.i.i7.i.i711 ]
-  %cmp11.i.i12.i.i714 = fcmp nsz olt float %287, %293
+  %294 = phi float [ %291, %if.then6.i.i25.i.i728 ], [ %285, %if.end.i.i7.i.i711 ]
+  %cmp11.i.i12.i.i714 = fcmp nsz olt float %286, %292
   br i1 %cmp11.i.i12.i.i714, label %if.then12.i.i24.i.i727, label %if.end15.i.i13.i.i715
 
 if.then12.i.i24.i.i727:                           ; preds = %if.end9.i.i10.i.i713
-  store float %293, ptr %Z.i.i.i.i682, align 4, !tbaa !407
+  store float %292, ptr %Z.i.i.i.i682, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i715
 
 if.end15.i.i13.i.i715:                            ; preds = %if.then12.i.i24.i.i727, %if.end9.i.i10.i.i713
-  %296 = phi float [ %293, %if.then12.i.i24.i.i727 ], [ %287, %if.end9.i.i10.i.i713 ]
-  %cmp17.i.i14.i.i716 = fcmp nsz ogt float %288, %291
+  %295 = phi float [ %292, %if.then12.i.i24.i.i727 ], [ %286, %if.end9.i.i10.i.i713 ]
+  %cmp17.i.i14.i.i716 = fcmp nsz ogt float %287, %290
   br i1 %cmp17.i.i14.i.i716, label %if.then18.i.i23.i.i726, label %if.end21.i.i15.i.i717
 
 if.then18.i.i23.i.i726:                           ; preds = %if.end15.i.i13.i.i715
-  store float %291, ptr %box_union, align 4, !tbaa !408
+  store float %290, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i717
 
 if.end21.i.i15.i.i717:                            ; preds = %if.then18.i.i23.i.i726, %if.end15.i.i13.i.i715
-  %297 = phi float [ %291, %if.then18.i.i23.i.i726 ], [ %288, %if.end15.i.i13.i.i715 ]
-  %cmp24.i.i17.i.i718 = fcmp nsz ogt float %289, %292
+  %296 = phi float [ %290, %if.then18.i.i23.i.i726 ], [ %287, %if.end15.i.i13.i.i715 ]
+  %cmp24.i.i17.i.i718 = fcmp nsz ogt float %288, %291
   br i1 %cmp24.i.i17.i.i718, label %if.then25.i.i22.i.i725, label %if.end28.i.i18.i.i719
 
 if.then25.i.i22.i.i725:                           ; preds = %if.end21.i.i15.i.i717
-  store float %292, ptr %Y23.i.i.i.i683, align 4, !tbaa !409
+  store float %291, ptr %Y23.i.i.i.i683, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i719
 
 if.end28.i.i18.i.i719:                            ; preds = %if.then25.i.i22.i.i725, %if.end21.i.i15.i.i717
-  %298 = phi float [ %292, %if.then25.i.i22.i.i725 ], [ %289, %if.end21.i.i15.i.i717 ]
-  %cmp31.i.i20.i.i720 = fcmp nsz ogt float %290, %293
+  %297 = phi float [ %291, %if.then25.i.i22.i.i725 ], [ %288, %if.end21.i.i15.i.i717 ]
+  %cmp31.i.i20.i.i720 = fcmp nsz ogt float %289, %292
   br i1 %cmp31.i.i20.i.i720, label %if.then32.i.i21.i.i724, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721
 
 if.then32.i.i21.i.i724:                           ; preds = %if.end28.i.i18.i.i719
-  store float %293, ptr %Z30.i.i.i.i684, align 4, !tbaa !410
+  store float %292, ptr %Z30.i.i.i.i684, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721: ; preds = %if.then32.i.i21.i.i724, %if.end28.i.i18.i.i719
-  %299 = phi float [ %290, %if.end28.i.i18.i.i719 ], [ %293, %if.then32.i.i21.i.i724 ]
+  %298 = phi float [ %289, %if.end28.i.i18.i.i719 ], [ %292, %if.then32.i.i21.i.i724 ]
   %incdec.ptr.i.i722 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i692, i64 24
-  %cmp.i.not.i723 = icmp eq ptr %incdec.ptr.i.i722, %275
+  %cmp.i.not.i723 = icmp eq ptr %incdec.ptr.i.i722, %274
   br i1 %cmp.i.not.i723, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit736, label %for.body.i691
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit736: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i721, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit676
-  %disconnected_top = getelementptr inbounds nuw i8, ptr %117, i64 144
-  %300 = load ptr, ptr %disconnected_top, align 8, !tbaa !31
-  %_M_finish.i.i737 = getelementptr inbounds nuw i8, ptr %117, i64 152
-  %301 = load ptr, ptr %_M_finish.i.i737, align 8, !tbaa !31
-  %cmp.i.not9.i738 = icmp eq ptr %300, %301
+  %disconnected_top = getelementptr inbounds nuw i8, ptr %116, i64 144
+  %299 = load ptr, ptr %disconnected_top, align 8, !tbaa !31
+  %_M_finish.i.i737 = getelementptr inbounds nuw i8, ptr %116, i64 152
+  %300 = load ptr, ptr %_M_finish.i.i737, align 8, !tbaa !31
+  %cmp.i.not9.i738 = icmp eq ptr %299, %300
   br i1 %cmp.i.not9.i738, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit796, label %for.body.lr.ph.i739
 
 for.body.lr.ph.i739:                              ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit736
@@ -20395,142 +20394,142 @@ for.body.lr.ph.i739:                              ; preds = %_Z14boxVectorUnionR
   br label %for.body.i751
 
 for.body.i751:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781, %for.body.lr.ph.i739
-  %302 = phi float [ %Z30.i.i.i.promoted.i750, %for.body.lr.ph.i739 ], [ %325, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
-  %303 = phi float [ %Y23.i.i.i.promoted.i749, %for.body.lr.ph.i739 ], [ %324, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
-  %304 = phi float [ %box_union.promoted.i748, %for.body.lr.ph.i739 ], [ %323, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
-  %305 = phi float [ %Z.i.i.i.promoted.i747, %for.body.lr.ph.i739 ], [ %322, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
-  %306 = phi float [ %Y.i.i.i.promoted.i746, %for.body.lr.ph.i739 ], [ %321, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
-  %307 = phi float [ %MaxEdge.i.i.i.promoted.i745, %for.body.lr.ph.i739 ], [ %320, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
-  %__begin1.sroa.0.010.i752 = phi ptr [ %300, %for.body.lr.ph.i739 ], [ %incdec.ptr.i.i782, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
+  %301 = phi float [ %Z30.i.i.i.promoted.i750, %for.body.lr.ph.i739 ], [ %324, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
+  %302 = phi float [ %Y23.i.i.i.promoted.i749, %for.body.lr.ph.i739 ], [ %323, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
+  %303 = phi float [ %box_union.promoted.i748, %for.body.lr.ph.i739 ], [ %322, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
+  %304 = phi float [ %Z.i.i.i.promoted.i747, %for.body.lr.ph.i739 ], [ %321, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
+  %305 = phi float [ %Y.i.i.i.promoted.i746, %for.body.lr.ph.i739 ], [ %320, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
+  %306 = phi float [ %MaxEdge.i.i.i.promoted.i745, %for.body.lr.ph.i739 ], [ %319, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
+  %__begin1.sroa.0.010.i752 = phi ptr [ %299, %for.body.lr.ph.i739 ], [ %incdec.ptr.i.i782, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781 ]
   %MaxEdge.i.i753 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i752, i64 12
-  %308 = load float, ptr %MaxEdge.i.i753, align 4, !tbaa !411
+  %307 = load float, ptr %MaxEdge.i.i753, align 4, !tbaa !411
   %Y.i.i.i754 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i752, i64 16
-  %309 = load float, ptr %Y.i.i.i754, align 4, !tbaa !412
+  %308 = load float, ptr %Y.i.i.i754, align 4, !tbaa !412
   %Z.i.i.i755 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i752, i64 20
-  %310 = load float, ptr %Z.i.i.i755, align 4, !tbaa !390
-  %cmp.i.i.i.i756 = fcmp nsz olt float %307, %308
+  %309 = load float, ptr %Z.i.i.i755, align 4, !tbaa !390
+  %cmp.i.i.i.i756 = fcmp nsz olt float %306, %307
   br i1 %cmp.i.i.i.i756, label %if.then.i.i.i.i795, label %if.end.i.i.i.i757
 
 if.then.i.i.i.i795:                               ; preds = %for.body.i751
-  store float %308, ptr %MaxEdge.i.i.i.i740, align 4, !tbaa !405
+  store float %307, ptr %MaxEdge.i.i.i.i740, align 4, !tbaa !405
   br label %if.end.i.i.i.i757
 
 if.end.i.i.i.i757:                                ; preds = %if.then.i.i.i.i795, %for.body.i751
-  %311 = phi float [ %308, %if.then.i.i.i.i795 ], [ %307, %for.body.i751 ]
-  %cmp5.i.i.i.i758 = fcmp nsz olt float %306, %309
+  %310 = phi float [ %307, %if.then.i.i.i.i795 ], [ %306, %for.body.i751 ]
+  %cmp5.i.i.i.i758 = fcmp nsz olt float %305, %308
   br i1 %cmp5.i.i.i.i758, label %if.then6.i.i.i.i794, label %if.end9.i.i.i.i759
 
 if.then6.i.i.i.i794:                              ; preds = %if.end.i.i.i.i757
-  store float %309, ptr %Y.i.i.i.i741, align 4, !tbaa !406
+  store float %308, ptr %Y.i.i.i.i741, align 4, !tbaa !406
   br label %if.end9.i.i.i.i759
 
 if.end9.i.i.i.i759:                               ; preds = %if.then6.i.i.i.i794, %if.end.i.i.i.i757
-  %312 = phi float [ %309, %if.then6.i.i.i.i794 ], [ %306, %if.end.i.i.i.i757 ]
-  %cmp11.i.i.i.i760 = fcmp nsz olt float %305, %310
+  %311 = phi float [ %308, %if.then6.i.i.i.i794 ], [ %305, %if.end.i.i.i.i757 ]
+  %cmp11.i.i.i.i760 = fcmp nsz olt float %304, %309
   br i1 %cmp11.i.i.i.i760, label %if.then12.i.i.i.i793, label %if.end15.i.i.i.i761
 
 if.then12.i.i.i.i793:                             ; preds = %if.end9.i.i.i.i759
-  store float %310, ptr %Z.i.i.i.i742, align 4, !tbaa !407
+  store float %309, ptr %Z.i.i.i.i742, align 4, !tbaa !407
   br label %if.end15.i.i.i.i761
 
 if.end15.i.i.i.i761:                              ; preds = %if.then12.i.i.i.i793, %if.end9.i.i.i.i759
-  %313 = phi float [ %310, %if.then12.i.i.i.i793 ], [ %305, %if.end9.i.i.i.i759 ]
-  %cmp17.i.i.i.i762 = fcmp nsz ogt float %304, %308
+  %312 = phi float [ %309, %if.then12.i.i.i.i793 ], [ %304, %if.end9.i.i.i.i759 ]
+  %cmp17.i.i.i.i762 = fcmp nsz ogt float %303, %307
   br i1 %cmp17.i.i.i.i762, label %if.then18.i.i.i.i792, label %if.end21.i.i.i.i763
 
 if.then18.i.i.i.i792:                             ; preds = %if.end15.i.i.i.i761
-  store float %308, ptr %box_union, align 4, !tbaa !408
+  store float %307, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i763
 
 if.end21.i.i.i.i763:                              ; preds = %if.then18.i.i.i.i792, %if.end15.i.i.i.i761
-  %314 = phi float [ %308, %if.then18.i.i.i.i792 ], [ %304, %if.end15.i.i.i.i761 ]
-  %cmp24.i.i.i.i764 = fcmp nsz ogt float %303, %309
+  %313 = phi float [ %307, %if.then18.i.i.i.i792 ], [ %303, %if.end15.i.i.i.i761 ]
+  %cmp24.i.i.i.i764 = fcmp nsz ogt float %302, %308
   br i1 %cmp24.i.i.i.i764, label %if.then25.i.i.i.i791, label %if.end28.i.i.i.i765
 
 if.then25.i.i.i.i791:                             ; preds = %if.end21.i.i.i.i763
-  store float %309, ptr %Y23.i.i.i.i743, align 4, !tbaa !409
+  store float %308, ptr %Y23.i.i.i.i743, align 4, !tbaa !409
   br label %if.end28.i.i.i.i765
 
 if.end28.i.i.i.i765:                              ; preds = %if.then25.i.i.i.i791, %if.end21.i.i.i.i763
-  %315 = phi float [ %309, %if.then25.i.i.i.i791 ], [ %303, %if.end21.i.i.i.i763 ]
-  %cmp31.i.i.i.i766 = fcmp nsz ogt float %302, %310
+  %314 = phi float [ %308, %if.then25.i.i.i.i791 ], [ %302, %if.end21.i.i.i.i763 ]
+  %cmp31.i.i.i.i766 = fcmp nsz ogt float %301, %309
   br i1 %cmp31.i.i.i.i766, label %if.then32.i.i.i.i790, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i767
 
 if.then32.i.i.i.i790:                             ; preds = %if.end28.i.i.i.i765
-  store float %310, ptr %Z30.i.i.i.i744, align 4, !tbaa !410
+  store float %309, ptr %Z30.i.i.i.i744, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i767
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i767: ; preds = %if.then32.i.i.i.i790, %if.end28.i.i.i.i765
-  %316 = phi float [ %302, %if.end28.i.i.i.i765 ], [ %310, %if.then32.i.i.i.i790 ]
-  %317 = load float, ptr %__begin1.sroa.0.010.i752, align 4, !tbaa !411
+  %315 = phi float [ %301, %if.end28.i.i.i.i765 ], [ %309, %if.then32.i.i.i.i790 ]
+  %316 = load float, ptr %__begin1.sroa.0.010.i752, align 4, !tbaa !411
   %Y.i3.i.i768 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i752, i64 4
-  %318 = load float, ptr %Y.i3.i.i768, align 4, !tbaa !412
+  %317 = load float, ptr %Y.i3.i.i768, align 4, !tbaa !412
   %Z.i4.i.i769 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i752, i64 8
-  %319 = load float, ptr %Z.i4.i.i769, align 4, !tbaa !390
-  %cmp.i.i6.i.i770 = fcmp nsz olt float %311, %317
+  %318 = load float, ptr %Z.i4.i.i769, align 4, !tbaa !390
+  %cmp.i.i6.i.i770 = fcmp nsz olt float %310, %316
   br i1 %cmp.i.i6.i.i770, label %if.then.i.i26.i.i789, label %if.end.i.i7.i.i771
 
 if.then.i.i26.i.i789:                             ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i767
-  store float %317, ptr %MaxEdge.i.i.i.i740, align 4, !tbaa !405
+  store float %316, ptr %MaxEdge.i.i.i.i740, align 4, !tbaa !405
   br label %if.end.i.i7.i.i771
 
 if.end.i.i7.i.i771:                               ; preds = %if.then.i.i26.i.i789, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i767
-  %320 = phi float [ %317, %if.then.i.i26.i.i789 ], [ %311, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i767 ]
-  %cmp5.i.i9.i.i772 = fcmp nsz olt float %312, %318
+  %319 = phi float [ %316, %if.then.i.i26.i.i789 ], [ %310, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i767 ]
+  %cmp5.i.i9.i.i772 = fcmp nsz olt float %311, %317
   br i1 %cmp5.i.i9.i.i772, label %if.then6.i.i25.i.i788, label %if.end9.i.i10.i.i773
 
 if.then6.i.i25.i.i788:                            ; preds = %if.end.i.i7.i.i771
-  store float %318, ptr %Y.i.i.i.i741, align 4, !tbaa !406
+  store float %317, ptr %Y.i.i.i.i741, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i773
 
 if.end9.i.i10.i.i773:                             ; preds = %if.then6.i.i25.i.i788, %if.end.i.i7.i.i771
-  %321 = phi float [ %318, %if.then6.i.i25.i.i788 ], [ %312, %if.end.i.i7.i.i771 ]
-  %cmp11.i.i12.i.i774 = fcmp nsz olt float %313, %319
+  %320 = phi float [ %317, %if.then6.i.i25.i.i788 ], [ %311, %if.end.i.i7.i.i771 ]
+  %cmp11.i.i12.i.i774 = fcmp nsz olt float %312, %318
   br i1 %cmp11.i.i12.i.i774, label %if.then12.i.i24.i.i787, label %if.end15.i.i13.i.i775
 
 if.then12.i.i24.i.i787:                           ; preds = %if.end9.i.i10.i.i773
-  store float %319, ptr %Z.i.i.i.i742, align 4, !tbaa !407
+  store float %318, ptr %Z.i.i.i.i742, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i775
 
 if.end15.i.i13.i.i775:                            ; preds = %if.then12.i.i24.i.i787, %if.end9.i.i10.i.i773
-  %322 = phi float [ %319, %if.then12.i.i24.i.i787 ], [ %313, %if.end9.i.i10.i.i773 ]
-  %cmp17.i.i14.i.i776 = fcmp nsz ogt float %314, %317
+  %321 = phi float [ %318, %if.then12.i.i24.i.i787 ], [ %312, %if.end9.i.i10.i.i773 ]
+  %cmp17.i.i14.i.i776 = fcmp nsz ogt float %313, %316
   br i1 %cmp17.i.i14.i.i776, label %if.then18.i.i23.i.i786, label %if.end21.i.i15.i.i777
 
 if.then18.i.i23.i.i786:                           ; preds = %if.end15.i.i13.i.i775
-  store float %317, ptr %box_union, align 4, !tbaa !408
+  store float %316, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i777
 
 if.end21.i.i15.i.i777:                            ; preds = %if.then18.i.i23.i.i786, %if.end15.i.i13.i.i775
-  %323 = phi float [ %317, %if.then18.i.i23.i.i786 ], [ %314, %if.end15.i.i13.i.i775 ]
-  %cmp24.i.i17.i.i778 = fcmp nsz ogt float %315, %318
+  %322 = phi float [ %316, %if.then18.i.i23.i.i786 ], [ %313, %if.end15.i.i13.i.i775 ]
+  %cmp24.i.i17.i.i778 = fcmp nsz ogt float %314, %317
   br i1 %cmp24.i.i17.i.i778, label %if.then25.i.i22.i.i785, label %if.end28.i.i18.i.i779
 
 if.then25.i.i22.i.i785:                           ; preds = %if.end21.i.i15.i.i777
-  store float %318, ptr %Y23.i.i.i.i743, align 4, !tbaa !409
+  store float %317, ptr %Y23.i.i.i.i743, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i779
 
 if.end28.i.i18.i.i779:                            ; preds = %if.then25.i.i22.i.i785, %if.end21.i.i15.i.i777
-  %324 = phi float [ %318, %if.then25.i.i22.i.i785 ], [ %315, %if.end21.i.i15.i.i777 ]
-  %cmp31.i.i20.i.i780 = fcmp nsz ogt float %316, %319
+  %323 = phi float [ %317, %if.then25.i.i22.i.i785 ], [ %314, %if.end21.i.i15.i.i777 ]
+  %cmp31.i.i20.i.i780 = fcmp nsz ogt float %315, %318
   br i1 %cmp31.i.i20.i.i780, label %if.then32.i.i21.i.i784, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781
 
 if.then32.i.i21.i.i784:                           ; preds = %if.end28.i.i18.i.i779
-  store float %319, ptr %Z30.i.i.i.i744, align 4, !tbaa !410
+  store float %318, ptr %Z30.i.i.i.i744, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781: ; preds = %if.then32.i.i21.i.i784, %if.end28.i.i18.i.i779
-  %325 = phi float [ %316, %if.end28.i.i18.i.i779 ], [ %319, %if.then32.i.i21.i.i784 ]
+  %324 = phi float [ %315, %if.end28.i.i18.i.i779 ], [ %318, %if.then32.i.i21.i.i784 ]
   %incdec.ptr.i.i782 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i752, i64 24
-  %cmp.i.not.i783 = icmp eq ptr %incdec.ptr.i.i782, %301
+  %cmp.i.not.i783 = icmp eq ptr %incdec.ptr.i.i782, %300
   br i1 %cmp.i.not.i783, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit796, label %for.body.i751
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit796: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i781, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit736
-  %disconnected_bottom = getelementptr inbounds nuw i8, ptr %117, i64 168
-  %326 = load ptr, ptr %disconnected_bottom, align 8, !tbaa !31
-  %_M_finish.i.i797 = getelementptr inbounds nuw i8, ptr %117, i64 176
-  %327 = load ptr, ptr %_M_finish.i.i797, align 8, !tbaa !31
-  %cmp.i.not9.i798 = icmp eq ptr %326, %327
+  %disconnected_bottom = getelementptr inbounds nuw i8, ptr %116, i64 168
+  %325 = load ptr, ptr %disconnected_bottom, align 8, !tbaa !31
+  %_M_finish.i.i797 = getelementptr inbounds nuw i8, ptr %116, i64 176
+  %326 = load ptr, ptr %_M_finish.i.i797, align 8, !tbaa !31
+  %cmp.i.not9.i798 = icmp eq ptr %325, %326
   br i1 %cmp.i.not9.i798, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit856, label %for.body.lr.ph.i799
 
 for.body.lr.ph.i799:                              ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit796
@@ -20548,142 +20547,142 @@ for.body.lr.ph.i799:                              ; preds = %_Z14boxVectorUnionR
   br label %for.body.i811
 
 for.body.i811:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841, %for.body.lr.ph.i799
-  %328 = phi float [ %Z30.i.i.i.promoted.i810, %for.body.lr.ph.i799 ], [ %351, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
-  %329 = phi float [ %Y23.i.i.i.promoted.i809, %for.body.lr.ph.i799 ], [ %350, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
-  %330 = phi float [ %box_union.promoted.i808, %for.body.lr.ph.i799 ], [ %349, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
-  %331 = phi float [ %Z.i.i.i.promoted.i807, %for.body.lr.ph.i799 ], [ %348, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
-  %332 = phi float [ %Y.i.i.i.promoted.i806, %for.body.lr.ph.i799 ], [ %347, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
-  %333 = phi float [ %MaxEdge.i.i.i.promoted.i805, %for.body.lr.ph.i799 ], [ %346, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
-  %__begin1.sroa.0.010.i812 = phi ptr [ %326, %for.body.lr.ph.i799 ], [ %incdec.ptr.i.i842, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
+  %327 = phi float [ %Z30.i.i.i.promoted.i810, %for.body.lr.ph.i799 ], [ %350, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
+  %328 = phi float [ %Y23.i.i.i.promoted.i809, %for.body.lr.ph.i799 ], [ %349, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
+  %329 = phi float [ %box_union.promoted.i808, %for.body.lr.ph.i799 ], [ %348, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
+  %330 = phi float [ %Z.i.i.i.promoted.i807, %for.body.lr.ph.i799 ], [ %347, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
+  %331 = phi float [ %Y.i.i.i.promoted.i806, %for.body.lr.ph.i799 ], [ %346, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
+  %332 = phi float [ %MaxEdge.i.i.i.promoted.i805, %for.body.lr.ph.i799 ], [ %345, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
+  %__begin1.sroa.0.010.i812 = phi ptr [ %325, %for.body.lr.ph.i799 ], [ %incdec.ptr.i.i842, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841 ]
   %MaxEdge.i.i813 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i812, i64 12
-  %334 = load float, ptr %MaxEdge.i.i813, align 4, !tbaa !411
+  %333 = load float, ptr %MaxEdge.i.i813, align 4, !tbaa !411
   %Y.i.i.i814 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i812, i64 16
-  %335 = load float, ptr %Y.i.i.i814, align 4, !tbaa !412
+  %334 = load float, ptr %Y.i.i.i814, align 4, !tbaa !412
   %Z.i.i.i815 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i812, i64 20
-  %336 = load float, ptr %Z.i.i.i815, align 4, !tbaa !390
-  %cmp.i.i.i.i816 = fcmp nsz olt float %333, %334
+  %335 = load float, ptr %Z.i.i.i815, align 4, !tbaa !390
+  %cmp.i.i.i.i816 = fcmp nsz olt float %332, %333
   br i1 %cmp.i.i.i.i816, label %if.then.i.i.i.i855, label %if.end.i.i.i.i817
 
 if.then.i.i.i.i855:                               ; preds = %for.body.i811
-  store float %334, ptr %MaxEdge.i.i.i.i800, align 4, !tbaa !405
+  store float %333, ptr %MaxEdge.i.i.i.i800, align 4, !tbaa !405
   br label %if.end.i.i.i.i817
 
 if.end.i.i.i.i817:                                ; preds = %if.then.i.i.i.i855, %for.body.i811
-  %337 = phi float [ %334, %if.then.i.i.i.i855 ], [ %333, %for.body.i811 ]
-  %cmp5.i.i.i.i818 = fcmp nsz olt float %332, %335
+  %336 = phi float [ %333, %if.then.i.i.i.i855 ], [ %332, %for.body.i811 ]
+  %cmp5.i.i.i.i818 = fcmp nsz olt float %331, %334
   br i1 %cmp5.i.i.i.i818, label %if.then6.i.i.i.i854, label %if.end9.i.i.i.i819
 
 if.then6.i.i.i.i854:                              ; preds = %if.end.i.i.i.i817
-  store float %335, ptr %Y.i.i.i.i801, align 4, !tbaa !406
+  store float %334, ptr %Y.i.i.i.i801, align 4, !tbaa !406
   br label %if.end9.i.i.i.i819
 
 if.end9.i.i.i.i819:                               ; preds = %if.then6.i.i.i.i854, %if.end.i.i.i.i817
-  %338 = phi float [ %335, %if.then6.i.i.i.i854 ], [ %332, %if.end.i.i.i.i817 ]
-  %cmp11.i.i.i.i820 = fcmp nsz olt float %331, %336
+  %337 = phi float [ %334, %if.then6.i.i.i.i854 ], [ %331, %if.end.i.i.i.i817 ]
+  %cmp11.i.i.i.i820 = fcmp nsz olt float %330, %335
   br i1 %cmp11.i.i.i.i820, label %if.then12.i.i.i.i853, label %if.end15.i.i.i.i821
 
 if.then12.i.i.i.i853:                             ; preds = %if.end9.i.i.i.i819
-  store float %336, ptr %Z.i.i.i.i802, align 4, !tbaa !407
+  store float %335, ptr %Z.i.i.i.i802, align 4, !tbaa !407
   br label %if.end15.i.i.i.i821
 
 if.end15.i.i.i.i821:                              ; preds = %if.then12.i.i.i.i853, %if.end9.i.i.i.i819
-  %339 = phi float [ %336, %if.then12.i.i.i.i853 ], [ %331, %if.end9.i.i.i.i819 ]
-  %cmp17.i.i.i.i822 = fcmp nsz ogt float %330, %334
+  %338 = phi float [ %335, %if.then12.i.i.i.i853 ], [ %330, %if.end9.i.i.i.i819 ]
+  %cmp17.i.i.i.i822 = fcmp nsz ogt float %329, %333
   br i1 %cmp17.i.i.i.i822, label %if.then18.i.i.i.i852, label %if.end21.i.i.i.i823
 
 if.then18.i.i.i.i852:                             ; preds = %if.end15.i.i.i.i821
-  store float %334, ptr %box_union, align 4, !tbaa !408
+  store float %333, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i823
 
 if.end21.i.i.i.i823:                              ; preds = %if.then18.i.i.i.i852, %if.end15.i.i.i.i821
-  %340 = phi float [ %334, %if.then18.i.i.i.i852 ], [ %330, %if.end15.i.i.i.i821 ]
-  %cmp24.i.i.i.i824 = fcmp nsz ogt float %329, %335
+  %339 = phi float [ %333, %if.then18.i.i.i.i852 ], [ %329, %if.end15.i.i.i.i821 ]
+  %cmp24.i.i.i.i824 = fcmp nsz ogt float %328, %334
   br i1 %cmp24.i.i.i.i824, label %if.then25.i.i.i.i851, label %if.end28.i.i.i.i825
 
 if.then25.i.i.i.i851:                             ; preds = %if.end21.i.i.i.i823
-  store float %335, ptr %Y23.i.i.i.i803, align 4, !tbaa !409
+  store float %334, ptr %Y23.i.i.i.i803, align 4, !tbaa !409
   br label %if.end28.i.i.i.i825
 
 if.end28.i.i.i.i825:                              ; preds = %if.then25.i.i.i.i851, %if.end21.i.i.i.i823
-  %341 = phi float [ %335, %if.then25.i.i.i.i851 ], [ %329, %if.end21.i.i.i.i823 ]
-  %cmp31.i.i.i.i826 = fcmp nsz ogt float %328, %336
+  %340 = phi float [ %334, %if.then25.i.i.i.i851 ], [ %328, %if.end21.i.i.i.i823 ]
+  %cmp31.i.i.i.i826 = fcmp nsz ogt float %327, %335
   br i1 %cmp31.i.i.i.i826, label %if.then32.i.i.i.i850, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i827
 
 if.then32.i.i.i.i850:                             ; preds = %if.end28.i.i.i.i825
-  store float %336, ptr %Z30.i.i.i.i804, align 4, !tbaa !410
+  store float %335, ptr %Z30.i.i.i.i804, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i827
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i827: ; preds = %if.then32.i.i.i.i850, %if.end28.i.i.i.i825
-  %342 = phi float [ %328, %if.end28.i.i.i.i825 ], [ %336, %if.then32.i.i.i.i850 ]
-  %343 = load float, ptr %__begin1.sroa.0.010.i812, align 4, !tbaa !411
+  %341 = phi float [ %327, %if.end28.i.i.i.i825 ], [ %335, %if.then32.i.i.i.i850 ]
+  %342 = load float, ptr %__begin1.sroa.0.010.i812, align 4, !tbaa !411
   %Y.i3.i.i828 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i812, i64 4
-  %344 = load float, ptr %Y.i3.i.i828, align 4, !tbaa !412
+  %343 = load float, ptr %Y.i3.i.i828, align 4, !tbaa !412
   %Z.i4.i.i829 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i812, i64 8
-  %345 = load float, ptr %Z.i4.i.i829, align 4, !tbaa !390
-  %cmp.i.i6.i.i830 = fcmp nsz olt float %337, %343
+  %344 = load float, ptr %Z.i4.i.i829, align 4, !tbaa !390
+  %cmp.i.i6.i.i830 = fcmp nsz olt float %336, %342
   br i1 %cmp.i.i6.i.i830, label %if.then.i.i26.i.i849, label %if.end.i.i7.i.i831
 
 if.then.i.i26.i.i849:                             ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i827
-  store float %343, ptr %MaxEdge.i.i.i.i800, align 4, !tbaa !405
+  store float %342, ptr %MaxEdge.i.i.i.i800, align 4, !tbaa !405
   br label %if.end.i.i7.i.i831
 
 if.end.i.i7.i.i831:                               ; preds = %if.then.i.i26.i.i849, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i827
-  %346 = phi float [ %343, %if.then.i.i26.i.i849 ], [ %337, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i827 ]
-  %cmp5.i.i9.i.i832 = fcmp nsz olt float %338, %344
+  %345 = phi float [ %342, %if.then.i.i26.i.i849 ], [ %336, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i827 ]
+  %cmp5.i.i9.i.i832 = fcmp nsz olt float %337, %343
   br i1 %cmp5.i.i9.i.i832, label %if.then6.i.i25.i.i848, label %if.end9.i.i10.i.i833
 
 if.then6.i.i25.i.i848:                            ; preds = %if.end.i.i7.i.i831
-  store float %344, ptr %Y.i.i.i.i801, align 4, !tbaa !406
+  store float %343, ptr %Y.i.i.i.i801, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i833
 
 if.end9.i.i10.i.i833:                             ; preds = %if.then6.i.i25.i.i848, %if.end.i.i7.i.i831
-  %347 = phi float [ %344, %if.then6.i.i25.i.i848 ], [ %338, %if.end.i.i7.i.i831 ]
-  %cmp11.i.i12.i.i834 = fcmp nsz olt float %339, %345
+  %346 = phi float [ %343, %if.then6.i.i25.i.i848 ], [ %337, %if.end.i.i7.i.i831 ]
+  %cmp11.i.i12.i.i834 = fcmp nsz olt float %338, %344
   br i1 %cmp11.i.i12.i.i834, label %if.then12.i.i24.i.i847, label %if.end15.i.i13.i.i835
 
 if.then12.i.i24.i.i847:                           ; preds = %if.end9.i.i10.i.i833
-  store float %345, ptr %Z.i.i.i.i802, align 4, !tbaa !407
+  store float %344, ptr %Z.i.i.i.i802, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i835
 
 if.end15.i.i13.i.i835:                            ; preds = %if.then12.i.i24.i.i847, %if.end9.i.i10.i.i833
-  %348 = phi float [ %345, %if.then12.i.i24.i.i847 ], [ %339, %if.end9.i.i10.i.i833 ]
-  %cmp17.i.i14.i.i836 = fcmp nsz ogt float %340, %343
+  %347 = phi float [ %344, %if.then12.i.i24.i.i847 ], [ %338, %if.end9.i.i10.i.i833 ]
+  %cmp17.i.i14.i.i836 = fcmp nsz ogt float %339, %342
   br i1 %cmp17.i.i14.i.i836, label %if.then18.i.i23.i.i846, label %if.end21.i.i15.i.i837
 
 if.then18.i.i23.i.i846:                           ; preds = %if.end15.i.i13.i.i835
-  store float %343, ptr %box_union, align 4, !tbaa !408
+  store float %342, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i837
 
 if.end21.i.i15.i.i837:                            ; preds = %if.then18.i.i23.i.i846, %if.end15.i.i13.i.i835
-  %349 = phi float [ %343, %if.then18.i.i23.i.i846 ], [ %340, %if.end15.i.i13.i.i835 ]
-  %cmp24.i.i17.i.i838 = fcmp nsz ogt float %341, %344
+  %348 = phi float [ %342, %if.then18.i.i23.i.i846 ], [ %339, %if.end15.i.i13.i.i835 ]
+  %cmp24.i.i17.i.i838 = fcmp nsz ogt float %340, %343
   br i1 %cmp24.i.i17.i.i838, label %if.then25.i.i22.i.i845, label %if.end28.i.i18.i.i839
 
 if.then25.i.i22.i.i845:                           ; preds = %if.end21.i.i15.i.i837
-  store float %344, ptr %Y23.i.i.i.i803, align 4, !tbaa !409
+  store float %343, ptr %Y23.i.i.i.i803, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i839
 
 if.end28.i.i18.i.i839:                            ; preds = %if.then25.i.i22.i.i845, %if.end21.i.i15.i.i837
-  %350 = phi float [ %344, %if.then25.i.i22.i.i845 ], [ %341, %if.end21.i.i15.i.i837 ]
-  %cmp31.i.i20.i.i840 = fcmp nsz ogt float %342, %345
+  %349 = phi float [ %343, %if.then25.i.i22.i.i845 ], [ %340, %if.end21.i.i15.i.i837 ]
+  %cmp31.i.i20.i.i840 = fcmp nsz ogt float %341, %344
   br i1 %cmp31.i.i20.i.i840, label %if.then32.i.i21.i.i844, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841
 
 if.then32.i.i21.i.i844:                           ; preds = %if.end28.i.i18.i.i839
-  store float %345, ptr %Z30.i.i.i.i804, align 4, !tbaa !410
+  store float %344, ptr %Z30.i.i.i.i804, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841: ; preds = %if.then32.i.i21.i.i844, %if.end28.i.i18.i.i839
-  %351 = phi float [ %342, %if.end28.i.i18.i.i839 ], [ %345, %if.then32.i.i21.i.i844 ]
+  %350 = phi float [ %341, %if.end28.i.i18.i.i839 ], [ %344, %if.then32.i.i21.i.i844 ]
   %incdec.ptr.i.i842 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i812, i64 24
-  %cmp.i.not.i843 = icmp eq ptr %incdec.ptr.i.i842, %327
+  %cmp.i.not.i843 = icmp eq ptr %incdec.ptr.i.i842, %326
   br i1 %cmp.i.not.i843, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit856, label %for.body.i811
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit856: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i841, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit796
-  %disconnected_front = getelementptr inbounds nuw i8, ptr %117, i64 192
-  %352 = load ptr, ptr %disconnected_front, align 8, !tbaa !31
-  %_M_finish.i.i857 = getelementptr inbounds nuw i8, ptr %117, i64 200
-  %353 = load ptr, ptr %_M_finish.i.i857, align 8, !tbaa !31
-  %cmp.i.not9.i858 = icmp eq ptr %352, %353
+  %disconnected_front = getelementptr inbounds nuw i8, ptr %116, i64 192
+  %351 = load ptr, ptr %disconnected_front, align 8, !tbaa !31
+  %_M_finish.i.i857 = getelementptr inbounds nuw i8, ptr %116, i64 200
+  %352 = load ptr, ptr %_M_finish.i.i857, align 8, !tbaa !31
+  %cmp.i.not9.i858 = icmp eq ptr %351, %352
   br i1 %cmp.i.not9.i858, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit916, label %for.body.lr.ph.i859
 
 for.body.lr.ph.i859:                              ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit856
@@ -20701,142 +20700,142 @@ for.body.lr.ph.i859:                              ; preds = %_Z14boxVectorUnionR
   br label %for.body.i871
 
 for.body.i871:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901, %for.body.lr.ph.i859
-  %354 = phi float [ %Z30.i.i.i.promoted.i870, %for.body.lr.ph.i859 ], [ %377, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
-  %355 = phi float [ %Y23.i.i.i.promoted.i869, %for.body.lr.ph.i859 ], [ %376, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
-  %356 = phi float [ %box_union.promoted.i868, %for.body.lr.ph.i859 ], [ %375, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
-  %357 = phi float [ %Z.i.i.i.promoted.i867, %for.body.lr.ph.i859 ], [ %374, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
-  %358 = phi float [ %Y.i.i.i.promoted.i866, %for.body.lr.ph.i859 ], [ %373, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
-  %359 = phi float [ %MaxEdge.i.i.i.promoted.i865, %for.body.lr.ph.i859 ], [ %372, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
-  %__begin1.sroa.0.010.i872 = phi ptr [ %352, %for.body.lr.ph.i859 ], [ %incdec.ptr.i.i902, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
+  %353 = phi float [ %Z30.i.i.i.promoted.i870, %for.body.lr.ph.i859 ], [ %376, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
+  %354 = phi float [ %Y23.i.i.i.promoted.i869, %for.body.lr.ph.i859 ], [ %375, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
+  %355 = phi float [ %box_union.promoted.i868, %for.body.lr.ph.i859 ], [ %374, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
+  %356 = phi float [ %Z.i.i.i.promoted.i867, %for.body.lr.ph.i859 ], [ %373, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
+  %357 = phi float [ %Y.i.i.i.promoted.i866, %for.body.lr.ph.i859 ], [ %372, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
+  %358 = phi float [ %MaxEdge.i.i.i.promoted.i865, %for.body.lr.ph.i859 ], [ %371, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
+  %__begin1.sroa.0.010.i872 = phi ptr [ %351, %for.body.lr.ph.i859 ], [ %incdec.ptr.i.i902, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901 ]
   %MaxEdge.i.i873 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i872, i64 12
-  %360 = load float, ptr %MaxEdge.i.i873, align 4, !tbaa !411
+  %359 = load float, ptr %MaxEdge.i.i873, align 4, !tbaa !411
   %Y.i.i.i874 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i872, i64 16
-  %361 = load float, ptr %Y.i.i.i874, align 4, !tbaa !412
+  %360 = load float, ptr %Y.i.i.i874, align 4, !tbaa !412
   %Z.i.i.i875 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i872, i64 20
-  %362 = load float, ptr %Z.i.i.i875, align 4, !tbaa !390
-  %cmp.i.i.i.i876 = fcmp nsz olt float %359, %360
+  %361 = load float, ptr %Z.i.i.i875, align 4, !tbaa !390
+  %cmp.i.i.i.i876 = fcmp nsz olt float %358, %359
   br i1 %cmp.i.i.i.i876, label %if.then.i.i.i.i915, label %if.end.i.i.i.i877
 
 if.then.i.i.i.i915:                               ; preds = %for.body.i871
-  store float %360, ptr %MaxEdge.i.i.i.i860, align 4, !tbaa !405
+  store float %359, ptr %MaxEdge.i.i.i.i860, align 4, !tbaa !405
   br label %if.end.i.i.i.i877
 
 if.end.i.i.i.i877:                                ; preds = %if.then.i.i.i.i915, %for.body.i871
-  %363 = phi float [ %360, %if.then.i.i.i.i915 ], [ %359, %for.body.i871 ]
-  %cmp5.i.i.i.i878 = fcmp nsz olt float %358, %361
+  %362 = phi float [ %359, %if.then.i.i.i.i915 ], [ %358, %for.body.i871 ]
+  %cmp5.i.i.i.i878 = fcmp nsz olt float %357, %360
   br i1 %cmp5.i.i.i.i878, label %if.then6.i.i.i.i914, label %if.end9.i.i.i.i879
 
 if.then6.i.i.i.i914:                              ; preds = %if.end.i.i.i.i877
-  store float %361, ptr %Y.i.i.i.i861, align 4, !tbaa !406
+  store float %360, ptr %Y.i.i.i.i861, align 4, !tbaa !406
   br label %if.end9.i.i.i.i879
 
 if.end9.i.i.i.i879:                               ; preds = %if.then6.i.i.i.i914, %if.end.i.i.i.i877
-  %364 = phi float [ %361, %if.then6.i.i.i.i914 ], [ %358, %if.end.i.i.i.i877 ]
-  %cmp11.i.i.i.i880 = fcmp nsz olt float %357, %362
+  %363 = phi float [ %360, %if.then6.i.i.i.i914 ], [ %357, %if.end.i.i.i.i877 ]
+  %cmp11.i.i.i.i880 = fcmp nsz olt float %356, %361
   br i1 %cmp11.i.i.i.i880, label %if.then12.i.i.i.i913, label %if.end15.i.i.i.i881
 
 if.then12.i.i.i.i913:                             ; preds = %if.end9.i.i.i.i879
-  store float %362, ptr %Z.i.i.i.i862, align 4, !tbaa !407
+  store float %361, ptr %Z.i.i.i.i862, align 4, !tbaa !407
   br label %if.end15.i.i.i.i881
 
 if.end15.i.i.i.i881:                              ; preds = %if.then12.i.i.i.i913, %if.end9.i.i.i.i879
-  %365 = phi float [ %362, %if.then12.i.i.i.i913 ], [ %357, %if.end9.i.i.i.i879 ]
-  %cmp17.i.i.i.i882 = fcmp nsz ogt float %356, %360
+  %364 = phi float [ %361, %if.then12.i.i.i.i913 ], [ %356, %if.end9.i.i.i.i879 ]
+  %cmp17.i.i.i.i882 = fcmp nsz ogt float %355, %359
   br i1 %cmp17.i.i.i.i882, label %if.then18.i.i.i.i912, label %if.end21.i.i.i.i883
 
 if.then18.i.i.i.i912:                             ; preds = %if.end15.i.i.i.i881
-  store float %360, ptr %box_union, align 4, !tbaa !408
+  store float %359, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i883
 
 if.end21.i.i.i.i883:                              ; preds = %if.then18.i.i.i.i912, %if.end15.i.i.i.i881
-  %366 = phi float [ %360, %if.then18.i.i.i.i912 ], [ %356, %if.end15.i.i.i.i881 ]
-  %cmp24.i.i.i.i884 = fcmp nsz ogt float %355, %361
+  %365 = phi float [ %359, %if.then18.i.i.i.i912 ], [ %355, %if.end15.i.i.i.i881 ]
+  %cmp24.i.i.i.i884 = fcmp nsz ogt float %354, %360
   br i1 %cmp24.i.i.i.i884, label %if.then25.i.i.i.i911, label %if.end28.i.i.i.i885
 
 if.then25.i.i.i.i911:                             ; preds = %if.end21.i.i.i.i883
-  store float %361, ptr %Y23.i.i.i.i863, align 4, !tbaa !409
+  store float %360, ptr %Y23.i.i.i.i863, align 4, !tbaa !409
   br label %if.end28.i.i.i.i885
 
 if.end28.i.i.i.i885:                              ; preds = %if.then25.i.i.i.i911, %if.end21.i.i.i.i883
-  %367 = phi float [ %361, %if.then25.i.i.i.i911 ], [ %355, %if.end21.i.i.i.i883 ]
-  %cmp31.i.i.i.i886 = fcmp nsz ogt float %354, %362
+  %366 = phi float [ %360, %if.then25.i.i.i.i911 ], [ %354, %if.end21.i.i.i.i883 ]
+  %cmp31.i.i.i.i886 = fcmp nsz ogt float %353, %361
   br i1 %cmp31.i.i.i.i886, label %if.then32.i.i.i.i910, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i887
 
 if.then32.i.i.i.i910:                             ; preds = %if.end28.i.i.i.i885
-  store float %362, ptr %Z30.i.i.i.i864, align 4, !tbaa !410
+  store float %361, ptr %Z30.i.i.i.i864, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i887
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i887: ; preds = %if.then32.i.i.i.i910, %if.end28.i.i.i.i885
-  %368 = phi float [ %354, %if.end28.i.i.i.i885 ], [ %362, %if.then32.i.i.i.i910 ]
-  %369 = load float, ptr %__begin1.sroa.0.010.i872, align 4, !tbaa !411
+  %367 = phi float [ %353, %if.end28.i.i.i.i885 ], [ %361, %if.then32.i.i.i.i910 ]
+  %368 = load float, ptr %__begin1.sroa.0.010.i872, align 4, !tbaa !411
   %Y.i3.i.i888 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i872, i64 4
-  %370 = load float, ptr %Y.i3.i.i888, align 4, !tbaa !412
+  %369 = load float, ptr %Y.i3.i.i888, align 4, !tbaa !412
   %Z.i4.i.i889 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i872, i64 8
-  %371 = load float, ptr %Z.i4.i.i889, align 4, !tbaa !390
-  %cmp.i.i6.i.i890 = fcmp nsz olt float %363, %369
+  %370 = load float, ptr %Z.i4.i.i889, align 4, !tbaa !390
+  %cmp.i.i6.i.i890 = fcmp nsz olt float %362, %368
   br i1 %cmp.i.i6.i.i890, label %if.then.i.i26.i.i909, label %if.end.i.i7.i.i891
 
 if.then.i.i26.i.i909:                             ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i887
-  store float %369, ptr %MaxEdge.i.i.i.i860, align 4, !tbaa !405
+  store float %368, ptr %MaxEdge.i.i.i.i860, align 4, !tbaa !405
   br label %if.end.i.i7.i.i891
 
 if.end.i.i7.i.i891:                               ; preds = %if.then.i.i26.i.i909, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i887
-  %372 = phi float [ %369, %if.then.i.i26.i.i909 ], [ %363, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i887 ]
-  %cmp5.i.i9.i.i892 = fcmp nsz olt float %364, %370
+  %371 = phi float [ %368, %if.then.i.i26.i.i909 ], [ %362, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i887 ]
+  %cmp5.i.i9.i.i892 = fcmp nsz olt float %363, %369
   br i1 %cmp5.i.i9.i.i892, label %if.then6.i.i25.i.i908, label %if.end9.i.i10.i.i893
 
 if.then6.i.i25.i.i908:                            ; preds = %if.end.i.i7.i.i891
-  store float %370, ptr %Y.i.i.i.i861, align 4, !tbaa !406
+  store float %369, ptr %Y.i.i.i.i861, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i893
 
 if.end9.i.i10.i.i893:                             ; preds = %if.then6.i.i25.i.i908, %if.end.i.i7.i.i891
-  %373 = phi float [ %370, %if.then6.i.i25.i.i908 ], [ %364, %if.end.i.i7.i.i891 ]
-  %cmp11.i.i12.i.i894 = fcmp nsz olt float %365, %371
+  %372 = phi float [ %369, %if.then6.i.i25.i.i908 ], [ %363, %if.end.i.i7.i.i891 ]
+  %cmp11.i.i12.i.i894 = fcmp nsz olt float %364, %370
   br i1 %cmp11.i.i12.i.i894, label %if.then12.i.i24.i.i907, label %if.end15.i.i13.i.i895
 
 if.then12.i.i24.i.i907:                           ; preds = %if.end9.i.i10.i.i893
-  store float %371, ptr %Z.i.i.i.i862, align 4, !tbaa !407
+  store float %370, ptr %Z.i.i.i.i862, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i895
 
 if.end15.i.i13.i.i895:                            ; preds = %if.then12.i.i24.i.i907, %if.end9.i.i10.i.i893
-  %374 = phi float [ %371, %if.then12.i.i24.i.i907 ], [ %365, %if.end9.i.i10.i.i893 ]
-  %cmp17.i.i14.i.i896 = fcmp nsz ogt float %366, %369
+  %373 = phi float [ %370, %if.then12.i.i24.i.i907 ], [ %364, %if.end9.i.i10.i.i893 ]
+  %cmp17.i.i14.i.i896 = fcmp nsz ogt float %365, %368
   br i1 %cmp17.i.i14.i.i896, label %if.then18.i.i23.i.i906, label %if.end21.i.i15.i.i897
 
 if.then18.i.i23.i.i906:                           ; preds = %if.end15.i.i13.i.i895
-  store float %369, ptr %box_union, align 4, !tbaa !408
+  store float %368, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i897
 
 if.end21.i.i15.i.i897:                            ; preds = %if.then18.i.i23.i.i906, %if.end15.i.i13.i.i895
-  %375 = phi float [ %369, %if.then18.i.i23.i.i906 ], [ %366, %if.end15.i.i13.i.i895 ]
-  %cmp24.i.i17.i.i898 = fcmp nsz ogt float %367, %370
+  %374 = phi float [ %368, %if.then18.i.i23.i.i906 ], [ %365, %if.end15.i.i13.i.i895 ]
+  %cmp24.i.i17.i.i898 = fcmp nsz ogt float %366, %369
   br i1 %cmp24.i.i17.i.i898, label %if.then25.i.i22.i.i905, label %if.end28.i.i18.i.i899
 
 if.then25.i.i22.i.i905:                           ; preds = %if.end21.i.i15.i.i897
-  store float %370, ptr %Y23.i.i.i.i863, align 4, !tbaa !409
+  store float %369, ptr %Y23.i.i.i.i863, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i899
 
 if.end28.i.i18.i.i899:                            ; preds = %if.then25.i.i22.i.i905, %if.end21.i.i15.i.i897
-  %376 = phi float [ %370, %if.then25.i.i22.i.i905 ], [ %367, %if.end21.i.i15.i.i897 ]
-  %cmp31.i.i20.i.i900 = fcmp nsz ogt float %368, %371
+  %375 = phi float [ %369, %if.then25.i.i22.i.i905 ], [ %366, %if.end21.i.i15.i.i897 ]
+  %cmp31.i.i20.i.i900 = fcmp nsz ogt float %367, %370
   br i1 %cmp31.i.i20.i.i900, label %if.then32.i.i21.i.i904, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901
 
 if.then32.i.i21.i.i904:                           ; preds = %if.end28.i.i18.i.i899
-  store float %371, ptr %Z30.i.i.i.i864, align 4, !tbaa !410
+  store float %370, ptr %Z30.i.i.i.i864, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901: ; preds = %if.then32.i.i21.i.i904, %if.end28.i.i18.i.i899
-  %377 = phi float [ %368, %if.end28.i.i18.i.i899 ], [ %371, %if.then32.i.i21.i.i904 ]
+  %376 = phi float [ %367, %if.end28.i.i18.i.i899 ], [ %370, %if.then32.i.i21.i.i904 ]
   %incdec.ptr.i.i902 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i872, i64 24
-  %cmp.i.not.i903 = icmp eq ptr %incdec.ptr.i.i902, %353
+  %cmp.i.not.i903 = icmp eq ptr %incdec.ptr.i.i902, %352
   br i1 %cmp.i.not.i903, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit916, label %for.body.i871
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit916: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i901, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit856
-  %disconnected_left = getelementptr inbounds nuw i8, ptr %117, i64 216
-  %378 = load ptr, ptr %disconnected_left, align 8, !tbaa !31
-  %_M_finish.i.i917 = getelementptr inbounds nuw i8, ptr %117, i64 224
-  %379 = load ptr, ptr %_M_finish.i.i917, align 8, !tbaa !31
-  %cmp.i.not9.i918 = icmp eq ptr %378, %379
+  %disconnected_left = getelementptr inbounds nuw i8, ptr %116, i64 216
+  %377 = load ptr, ptr %disconnected_left, align 8, !tbaa !31
+  %_M_finish.i.i917 = getelementptr inbounds nuw i8, ptr %116, i64 224
+  %378 = load ptr, ptr %_M_finish.i.i917, align 8, !tbaa !31
+  %cmp.i.not9.i918 = icmp eq ptr %377, %378
   br i1 %cmp.i.not9.i918, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit976, label %for.body.lr.ph.i919
 
 for.body.lr.ph.i919:                              ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit916
@@ -20854,142 +20853,142 @@ for.body.lr.ph.i919:                              ; preds = %_Z14boxVectorUnionR
   br label %for.body.i931
 
 for.body.i931:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961, %for.body.lr.ph.i919
-  %380 = phi float [ %Z30.i.i.i.promoted.i930, %for.body.lr.ph.i919 ], [ %403, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
-  %381 = phi float [ %Y23.i.i.i.promoted.i929, %for.body.lr.ph.i919 ], [ %402, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
-  %382 = phi float [ %box_union.promoted.i928, %for.body.lr.ph.i919 ], [ %401, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
-  %383 = phi float [ %Z.i.i.i.promoted.i927, %for.body.lr.ph.i919 ], [ %400, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
-  %384 = phi float [ %Y.i.i.i.promoted.i926, %for.body.lr.ph.i919 ], [ %399, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
-  %385 = phi float [ %MaxEdge.i.i.i.promoted.i925, %for.body.lr.ph.i919 ], [ %398, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
-  %__begin1.sroa.0.010.i932 = phi ptr [ %378, %for.body.lr.ph.i919 ], [ %incdec.ptr.i.i962, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
+  %379 = phi float [ %Z30.i.i.i.promoted.i930, %for.body.lr.ph.i919 ], [ %402, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
+  %380 = phi float [ %Y23.i.i.i.promoted.i929, %for.body.lr.ph.i919 ], [ %401, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
+  %381 = phi float [ %box_union.promoted.i928, %for.body.lr.ph.i919 ], [ %400, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
+  %382 = phi float [ %Z.i.i.i.promoted.i927, %for.body.lr.ph.i919 ], [ %399, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
+  %383 = phi float [ %Y.i.i.i.promoted.i926, %for.body.lr.ph.i919 ], [ %398, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
+  %384 = phi float [ %MaxEdge.i.i.i.promoted.i925, %for.body.lr.ph.i919 ], [ %397, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
+  %__begin1.sroa.0.010.i932 = phi ptr [ %377, %for.body.lr.ph.i919 ], [ %incdec.ptr.i.i962, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961 ]
   %MaxEdge.i.i933 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i932, i64 12
-  %386 = load float, ptr %MaxEdge.i.i933, align 4, !tbaa !411
+  %385 = load float, ptr %MaxEdge.i.i933, align 4, !tbaa !411
   %Y.i.i.i934 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i932, i64 16
-  %387 = load float, ptr %Y.i.i.i934, align 4, !tbaa !412
+  %386 = load float, ptr %Y.i.i.i934, align 4, !tbaa !412
   %Z.i.i.i935 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i932, i64 20
-  %388 = load float, ptr %Z.i.i.i935, align 4, !tbaa !390
-  %cmp.i.i.i.i936 = fcmp nsz olt float %385, %386
+  %387 = load float, ptr %Z.i.i.i935, align 4, !tbaa !390
+  %cmp.i.i.i.i936 = fcmp nsz olt float %384, %385
   br i1 %cmp.i.i.i.i936, label %if.then.i.i.i.i975, label %if.end.i.i.i.i937
 
 if.then.i.i.i.i975:                               ; preds = %for.body.i931
-  store float %386, ptr %MaxEdge.i.i.i.i920, align 4, !tbaa !405
+  store float %385, ptr %MaxEdge.i.i.i.i920, align 4, !tbaa !405
   br label %if.end.i.i.i.i937
 
 if.end.i.i.i.i937:                                ; preds = %if.then.i.i.i.i975, %for.body.i931
-  %389 = phi float [ %386, %if.then.i.i.i.i975 ], [ %385, %for.body.i931 ]
-  %cmp5.i.i.i.i938 = fcmp nsz olt float %384, %387
+  %388 = phi float [ %385, %if.then.i.i.i.i975 ], [ %384, %for.body.i931 ]
+  %cmp5.i.i.i.i938 = fcmp nsz olt float %383, %386
   br i1 %cmp5.i.i.i.i938, label %if.then6.i.i.i.i974, label %if.end9.i.i.i.i939
 
 if.then6.i.i.i.i974:                              ; preds = %if.end.i.i.i.i937
-  store float %387, ptr %Y.i.i.i.i921, align 4, !tbaa !406
+  store float %386, ptr %Y.i.i.i.i921, align 4, !tbaa !406
   br label %if.end9.i.i.i.i939
 
 if.end9.i.i.i.i939:                               ; preds = %if.then6.i.i.i.i974, %if.end.i.i.i.i937
-  %390 = phi float [ %387, %if.then6.i.i.i.i974 ], [ %384, %if.end.i.i.i.i937 ]
-  %cmp11.i.i.i.i940 = fcmp nsz olt float %383, %388
+  %389 = phi float [ %386, %if.then6.i.i.i.i974 ], [ %383, %if.end.i.i.i.i937 ]
+  %cmp11.i.i.i.i940 = fcmp nsz olt float %382, %387
   br i1 %cmp11.i.i.i.i940, label %if.then12.i.i.i.i973, label %if.end15.i.i.i.i941
 
 if.then12.i.i.i.i973:                             ; preds = %if.end9.i.i.i.i939
-  store float %388, ptr %Z.i.i.i.i922, align 4, !tbaa !407
+  store float %387, ptr %Z.i.i.i.i922, align 4, !tbaa !407
   br label %if.end15.i.i.i.i941
 
 if.end15.i.i.i.i941:                              ; preds = %if.then12.i.i.i.i973, %if.end9.i.i.i.i939
-  %391 = phi float [ %388, %if.then12.i.i.i.i973 ], [ %383, %if.end9.i.i.i.i939 ]
-  %cmp17.i.i.i.i942 = fcmp nsz ogt float %382, %386
+  %390 = phi float [ %387, %if.then12.i.i.i.i973 ], [ %382, %if.end9.i.i.i.i939 ]
+  %cmp17.i.i.i.i942 = fcmp nsz ogt float %381, %385
   br i1 %cmp17.i.i.i.i942, label %if.then18.i.i.i.i972, label %if.end21.i.i.i.i943
 
 if.then18.i.i.i.i972:                             ; preds = %if.end15.i.i.i.i941
-  store float %386, ptr %box_union, align 4, !tbaa !408
+  store float %385, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i943
 
 if.end21.i.i.i.i943:                              ; preds = %if.then18.i.i.i.i972, %if.end15.i.i.i.i941
-  %392 = phi float [ %386, %if.then18.i.i.i.i972 ], [ %382, %if.end15.i.i.i.i941 ]
-  %cmp24.i.i.i.i944 = fcmp nsz ogt float %381, %387
+  %391 = phi float [ %385, %if.then18.i.i.i.i972 ], [ %381, %if.end15.i.i.i.i941 ]
+  %cmp24.i.i.i.i944 = fcmp nsz ogt float %380, %386
   br i1 %cmp24.i.i.i.i944, label %if.then25.i.i.i.i971, label %if.end28.i.i.i.i945
 
 if.then25.i.i.i.i971:                             ; preds = %if.end21.i.i.i.i943
-  store float %387, ptr %Y23.i.i.i.i923, align 4, !tbaa !409
+  store float %386, ptr %Y23.i.i.i.i923, align 4, !tbaa !409
   br label %if.end28.i.i.i.i945
 
 if.end28.i.i.i.i945:                              ; preds = %if.then25.i.i.i.i971, %if.end21.i.i.i.i943
-  %393 = phi float [ %387, %if.then25.i.i.i.i971 ], [ %381, %if.end21.i.i.i.i943 ]
-  %cmp31.i.i.i.i946 = fcmp nsz ogt float %380, %388
+  %392 = phi float [ %386, %if.then25.i.i.i.i971 ], [ %380, %if.end21.i.i.i.i943 ]
+  %cmp31.i.i.i.i946 = fcmp nsz ogt float %379, %387
   br i1 %cmp31.i.i.i.i946, label %if.then32.i.i.i.i970, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i947
 
 if.then32.i.i.i.i970:                             ; preds = %if.end28.i.i.i.i945
-  store float %388, ptr %Z30.i.i.i.i924, align 4, !tbaa !410
+  store float %387, ptr %Z30.i.i.i.i924, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i947
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i947: ; preds = %if.then32.i.i.i.i970, %if.end28.i.i.i.i945
-  %394 = phi float [ %380, %if.end28.i.i.i.i945 ], [ %388, %if.then32.i.i.i.i970 ]
-  %395 = load float, ptr %__begin1.sroa.0.010.i932, align 4, !tbaa !411
+  %393 = phi float [ %379, %if.end28.i.i.i.i945 ], [ %387, %if.then32.i.i.i.i970 ]
+  %394 = load float, ptr %__begin1.sroa.0.010.i932, align 4, !tbaa !411
   %Y.i3.i.i948 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i932, i64 4
-  %396 = load float, ptr %Y.i3.i.i948, align 4, !tbaa !412
+  %395 = load float, ptr %Y.i3.i.i948, align 4, !tbaa !412
   %Z.i4.i.i949 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i932, i64 8
-  %397 = load float, ptr %Z.i4.i.i949, align 4, !tbaa !390
-  %cmp.i.i6.i.i950 = fcmp nsz olt float %389, %395
+  %396 = load float, ptr %Z.i4.i.i949, align 4, !tbaa !390
+  %cmp.i.i6.i.i950 = fcmp nsz olt float %388, %394
   br i1 %cmp.i.i6.i.i950, label %if.then.i.i26.i.i969, label %if.end.i.i7.i.i951
 
 if.then.i.i26.i.i969:                             ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i947
-  store float %395, ptr %MaxEdge.i.i.i.i920, align 4, !tbaa !405
+  store float %394, ptr %MaxEdge.i.i.i.i920, align 4, !tbaa !405
   br label %if.end.i.i7.i.i951
 
 if.end.i.i7.i.i951:                               ; preds = %if.then.i.i26.i.i969, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i947
-  %398 = phi float [ %395, %if.then.i.i26.i.i969 ], [ %389, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i947 ]
-  %cmp5.i.i9.i.i952 = fcmp nsz olt float %390, %396
+  %397 = phi float [ %394, %if.then.i.i26.i.i969 ], [ %388, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i947 ]
+  %cmp5.i.i9.i.i952 = fcmp nsz olt float %389, %395
   br i1 %cmp5.i.i9.i.i952, label %if.then6.i.i25.i.i968, label %if.end9.i.i10.i.i953
 
 if.then6.i.i25.i.i968:                            ; preds = %if.end.i.i7.i.i951
-  store float %396, ptr %Y.i.i.i.i921, align 4, !tbaa !406
+  store float %395, ptr %Y.i.i.i.i921, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i953
 
 if.end9.i.i10.i.i953:                             ; preds = %if.then6.i.i25.i.i968, %if.end.i.i7.i.i951
-  %399 = phi float [ %396, %if.then6.i.i25.i.i968 ], [ %390, %if.end.i.i7.i.i951 ]
-  %cmp11.i.i12.i.i954 = fcmp nsz olt float %391, %397
+  %398 = phi float [ %395, %if.then6.i.i25.i.i968 ], [ %389, %if.end.i.i7.i.i951 ]
+  %cmp11.i.i12.i.i954 = fcmp nsz olt float %390, %396
   br i1 %cmp11.i.i12.i.i954, label %if.then12.i.i24.i.i967, label %if.end15.i.i13.i.i955
 
 if.then12.i.i24.i.i967:                           ; preds = %if.end9.i.i10.i.i953
-  store float %397, ptr %Z.i.i.i.i922, align 4, !tbaa !407
+  store float %396, ptr %Z.i.i.i.i922, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i955
 
 if.end15.i.i13.i.i955:                            ; preds = %if.then12.i.i24.i.i967, %if.end9.i.i10.i.i953
-  %400 = phi float [ %397, %if.then12.i.i24.i.i967 ], [ %391, %if.end9.i.i10.i.i953 ]
-  %cmp17.i.i14.i.i956 = fcmp nsz ogt float %392, %395
+  %399 = phi float [ %396, %if.then12.i.i24.i.i967 ], [ %390, %if.end9.i.i10.i.i953 ]
+  %cmp17.i.i14.i.i956 = fcmp nsz ogt float %391, %394
   br i1 %cmp17.i.i14.i.i956, label %if.then18.i.i23.i.i966, label %if.end21.i.i15.i.i957
 
 if.then18.i.i23.i.i966:                           ; preds = %if.end15.i.i13.i.i955
-  store float %395, ptr %box_union, align 4, !tbaa !408
+  store float %394, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i957
 
 if.end21.i.i15.i.i957:                            ; preds = %if.then18.i.i23.i.i966, %if.end15.i.i13.i.i955
-  %401 = phi float [ %395, %if.then18.i.i23.i.i966 ], [ %392, %if.end15.i.i13.i.i955 ]
-  %cmp24.i.i17.i.i958 = fcmp nsz ogt float %393, %396
+  %400 = phi float [ %394, %if.then18.i.i23.i.i966 ], [ %391, %if.end15.i.i13.i.i955 ]
+  %cmp24.i.i17.i.i958 = fcmp nsz ogt float %392, %395
   br i1 %cmp24.i.i17.i.i958, label %if.then25.i.i22.i.i965, label %if.end28.i.i18.i.i959
 
 if.then25.i.i22.i.i965:                           ; preds = %if.end21.i.i15.i.i957
-  store float %396, ptr %Y23.i.i.i.i923, align 4, !tbaa !409
+  store float %395, ptr %Y23.i.i.i.i923, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i959
 
 if.end28.i.i18.i.i959:                            ; preds = %if.then25.i.i22.i.i965, %if.end21.i.i15.i.i957
-  %402 = phi float [ %396, %if.then25.i.i22.i.i965 ], [ %393, %if.end21.i.i15.i.i957 ]
-  %cmp31.i.i20.i.i960 = fcmp nsz ogt float %394, %397
+  %401 = phi float [ %395, %if.then25.i.i22.i.i965 ], [ %392, %if.end21.i.i15.i.i957 ]
+  %cmp31.i.i20.i.i960 = fcmp nsz ogt float %393, %396
   br i1 %cmp31.i.i20.i.i960, label %if.then32.i.i21.i.i964, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961
 
 if.then32.i.i21.i.i964:                           ; preds = %if.end28.i.i18.i.i959
-  store float %397, ptr %Z30.i.i.i.i924, align 4, !tbaa !410
+  store float %396, ptr %Z30.i.i.i.i924, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961: ; preds = %if.then32.i.i21.i.i964, %if.end28.i.i18.i.i959
-  %403 = phi float [ %394, %if.end28.i.i18.i.i959 ], [ %397, %if.then32.i.i21.i.i964 ]
+  %402 = phi float [ %393, %if.end28.i.i18.i.i959 ], [ %396, %if.then32.i.i21.i.i964 ]
   %incdec.ptr.i.i962 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i932, i64 24
-  %cmp.i.not.i963 = icmp eq ptr %incdec.ptr.i.i962, %379
+  %cmp.i.not.i963 = icmp eq ptr %incdec.ptr.i.i962, %378
   br i1 %cmp.i.not.i963, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit976, label %for.body.i931
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit976: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i961, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit916
-  %disconnected_back = getelementptr inbounds nuw i8, ptr %117, i64 240
-  %404 = load ptr, ptr %disconnected_back, align 8, !tbaa !31
-  %_M_finish.i.i977 = getelementptr inbounds nuw i8, ptr %117, i64 248
-  %405 = load ptr, ptr %_M_finish.i.i977, align 8, !tbaa !31
-  %cmp.i.not9.i978 = icmp eq ptr %404, %405
+  %disconnected_back = getelementptr inbounds nuw i8, ptr %116, i64 240
+  %403 = load ptr, ptr %disconnected_back, align 8, !tbaa !31
+  %_M_finish.i.i977 = getelementptr inbounds nuw i8, ptr %116, i64 248
+  %404 = load ptr, ptr %_M_finish.i.i977, align 8, !tbaa !31
+  %cmp.i.not9.i978 = icmp eq ptr %403, %404
   br i1 %cmp.i.not9.i978, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1036, label %for.body.lr.ph.i979
 
 for.body.lr.ph.i979:                              ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit976
@@ -21007,142 +21006,142 @@ for.body.lr.ph.i979:                              ; preds = %_Z14boxVectorUnionR
   br label %for.body.i991
 
 for.body.i991:                                    ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021, %for.body.lr.ph.i979
-  %406 = phi float [ %Z30.i.i.i.promoted.i990, %for.body.lr.ph.i979 ], [ %429, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
-  %407 = phi float [ %Y23.i.i.i.promoted.i989, %for.body.lr.ph.i979 ], [ %428, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
-  %408 = phi float [ %box_union.promoted.i988, %for.body.lr.ph.i979 ], [ %427, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
-  %409 = phi float [ %Z.i.i.i.promoted.i987, %for.body.lr.ph.i979 ], [ %426, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
-  %410 = phi float [ %Y.i.i.i.promoted.i986, %for.body.lr.ph.i979 ], [ %425, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
-  %411 = phi float [ %MaxEdge.i.i.i.promoted.i985, %for.body.lr.ph.i979 ], [ %424, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
-  %__begin1.sroa.0.010.i992 = phi ptr [ %404, %for.body.lr.ph.i979 ], [ %incdec.ptr.i.i1022, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
+  %405 = phi float [ %Z30.i.i.i.promoted.i990, %for.body.lr.ph.i979 ], [ %428, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
+  %406 = phi float [ %Y23.i.i.i.promoted.i989, %for.body.lr.ph.i979 ], [ %427, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
+  %407 = phi float [ %box_union.promoted.i988, %for.body.lr.ph.i979 ], [ %426, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
+  %408 = phi float [ %Z.i.i.i.promoted.i987, %for.body.lr.ph.i979 ], [ %425, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
+  %409 = phi float [ %Y.i.i.i.promoted.i986, %for.body.lr.ph.i979 ], [ %424, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
+  %410 = phi float [ %MaxEdge.i.i.i.promoted.i985, %for.body.lr.ph.i979 ], [ %423, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
+  %__begin1.sroa.0.010.i992 = phi ptr [ %403, %for.body.lr.ph.i979 ], [ %incdec.ptr.i.i1022, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021 ]
   %MaxEdge.i.i993 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i992, i64 12
-  %412 = load float, ptr %MaxEdge.i.i993, align 4, !tbaa !411
+  %411 = load float, ptr %MaxEdge.i.i993, align 4, !tbaa !411
   %Y.i.i.i994 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i992, i64 16
-  %413 = load float, ptr %Y.i.i.i994, align 4, !tbaa !412
+  %412 = load float, ptr %Y.i.i.i994, align 4, !tbaa !412
   %Z.i.i.i995 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i992, i64 20
-  %414 = load float, ptr %Z.i.i.i995, align 4, !tbaa !390
-  %cmp.i.i.i.i996 = fcmp nsz olt float %411, %412
+  %413 = load float, ptr %Z.i.i.i995, align 4, !tbaa !390
+  %cmp.i.i.i.i996 = fcmp nsz olt float %410, %411
   br i1 %cmp.i.i.i.i996, label %if.then.i.i.i.i1035, label %if.end.i.i.i.i997
 
 if.then.i.i.i.i1035:                              ; preds = %for.body.i991
-  store float %412, ptr %MaxEdge.i.i.i.i980, align 4, !tbaa !405
+  store float %411, ptr %MaxEdge.i.i.i.i980, align 4, !tbaa !405
   br label %if.end.i.i.i.i997
 
 if.end.i.i.i.i997:                                ; preds = %if.then.i.i.i.i1035, %for.body.i991
-  %415 = phi float [ %412, %if.then.i.i.i.i1035 ], [ %411, %for.body.i991 ]
-  %cmp5.i.i.i.i998 = fcmp nsz olt float %410, %413
+  %414 = phi float [ %411, %if.then.i.i.i.i1035 ], [ %410, %for.body.i991 ]
+  %cmp5.i.i.i.i998 = fcmp nsz olt float %409, %412
   br i1 %cmp5.i.i.i.i998, label %if.then6.i.i.i.i1034, label %if.end9.i.i.i.i999
 
 if.then6.i.i.i.i1034:                             ; preds = %if.end.i.i.i.i997
-  store float %413, ptr %Y.i.i.i.i981, align 4, !tbaa !406
+  store float %412, ptr %Y.i.i.i.i981, align 4, !tbaa !406
   br label %if.end9.i.i.i.i999
 
 if.end9.i.i.i.i999:                               ; preds = %if.then6.i.i.i.i1034, %if.end.i.i.i.i997
-  %416 = phi float [ %413, %if.then6.i.i.i.i1034 ], [ %410, %if.end.i.i.i.i997 ]
-  %cmp11.i.i.i.i1000 = fcmp nsz olt float %409, %414
+  %415 = phi float [ %412, %if.then6.i.i.i.i1034 ], [ %409, %if.end.i.i.i.i997 ]
+  %cmp11.i.i.i.i1000 = fcmp nsz olt float %408, %413
   br i1 %cmp11.i.i.i.i1000, label %if.then12.i.i.i.i1033, label %if.end15.i.i.i.i1001
 
 if.then12.i.i.i.i1033:                            ; preds = %if.end9.i.i.i.i999
-  store float %414, ptr %Z.i.i.i.i982, align 4, !tbaa !407
+  store float %413, ptr %Z.i.i.i.i982, align 4, !tbaa !407
   br label %if.end15.i.i.i.i1001
 
 if.end15.i.i.i.i1001:                             ; preds = %if.then12.i.i.i.i1033, %if.end9.i.i.i.i999
-  %417 = phi float [ %414, %if.then12.i.i.i.i1033 ], [ %409, %if.end9.i.i.i.i999 ]
-  %cmp17.i.i.i.i1002 = fcmp nsz ogt float %408, %412
+  %416 = phi float [ %413, %if.then12.i.i.i.i1033 ], [ %408, %if.end9.i.i.i.i999 ]
+  %cmp17.i.i.i.i1002 = fcmp nsz ogt float %407, %411
   br i1 %cmp17.i.i.i.i1002, label %if.then18.i.i.i.i1032, label %if.end21.i.i.i.i1003
 
 if.then18.i.i.i.i1032:                            ; preds = %if.end15.i.i.i.i1001
-  store float %412, ptr %box_union, align 4, !tbaa !408
+  store float %411, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i1003
 
 if.end21.i.i.i.i1003:                             ; preds = %if.then18.i.i.i.i1032, %if.end15.i.i.i.i1001
-  %418 = phi float [ %412, %if.then18.i.i.i.i1032 ], [ %408, %if.end15.i.i.i.i1001 ]
-  %cmp24.i.i.i.i1004 = fcmp nsz ogt float %407, %413
+  %417 = phi float [ %411, %if.then18.i.i.i.i1032 ], [ %407, %if.end15.i.i.i.i1001 ]
+  %cmp24.i.i.i.i1004 = fcmp nsz ogt float %406, %412
   br i1 %cmp24.i.i.i.i1004, label %if.then25.i.i.i.i1031, label %if.end28.i.i.i.i1005
 
 if.then25.i.i.i.i1031:                            ; preds = %if.end21.i.i.i.i1003
-  store float %413, ptr %Y23.i.i.i.i983, align 4, !tbaa !409
+  store float %412, ptr %Y23.i.i.i.i983, align 4, !tbaa !409
   br label %if.end28.i.i.i.i1005
 
 if.end28.i.i.i.i1005:                             ; preds = %if.then25.i.i.i.i1031, %if.end21.i.i.i.i1003
-  %419 = phi float [ %413, %if.then25.i.i.i.i1031 ], [ %407, %if.end21.i.i.i.i1003 ]
-  %cmp31.i.i.i.i1006 = fcmp nsz ogt float %406, %414
+  %418 = phi float [ %412, %if.then25.i.i.i.i1031 ], [ %406, %if.end21.i.i.i.i1003 ]
+  %cmp31.i.i.i.i1006 = fcmp nsz ogt float %405, %413
   br i1 %cmp31.i.i.i.i1006, label %if.then32.i.i.i.i1030, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1007
 
 if.then32.i.i.i.i1030:                            ; preds = %if.end28.i.i.i.i1005
-  store float %414, ptr %Z30.i.i.i.i984, align 4, !tbaa !410
+  store float %413, ptr %Z30.i.i.i.i984, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1007
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1007: ; preds = %if.then32.i.i.i.i1030, %if.end28.i.i.i.i1005
-  %420 = phi float [ %406, %if.end28.i.i.i.i1005 ], [ %414, %if.then32.i.i.i.i1030 ]
-  %421 = load float, ptr %__begin1.sroa.0.010.i992, align 4, !tbaa !411
+  %419 = phi float [ %405, %if.end28.i.i.i.i1005 ], [ %413, %if.then32.i.i.i.i1030 ]
+  %420 = load float, ptr %__begin1.sroa.0.010.i992, align 4, !tbaa !411
   %Y.i3.i.i1008 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i992, i64 4
-  %422 = load float, ptr %Y.i3.i.i1008, align 4, !tbaa !412
+  %421 = load float, ptr %Y.i3.i.i1008, align 4, !tbaa !412
   %Z.i4.i.i1009 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i992, i64 8
-  %423 = load float, ptr %Z.i4.i.i1009, align 4, !tbaa !390
-  %cmp.i.i6.i.i1010 = fcmp nsz olt float %415, %421
+  %422 = load float, ptr %Z.i4.i.i1009, align 4, !tbaa !390
+  %cmp.i.i6.i.i1010 = fcmp nsz olt float %414, %420
   br i1 %cmp.i.i6.i.i1010, label %if.then.i.i26.i.i1029, label %if.end.i.i7.i.i1011
 
 if.then.i.i26.i.i1029:                            ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1007
-  store float %421, ptr %MaxEdge.i.i.i.i980, align 4, !tbaa !405
+  store float %420, ptr %MaxEdge.i.i.i.i980, align 4, !tbaa !405
   br label %if.end.i.i7.i.i1011
 
 if.end.i.i7.i.i1011:                              ; preds = %if.then.i.i26.i.i1029, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1007
-  %424 = phi float [ %421, %if.then.i.i26.i.i1029 ], [ %415, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1007 ]
-  %cmp5.i.i9.i.i1012 = fcmp nsz olt float %416, %422
+  %423 = phi float [ %420, %if.then.i.i26.i.i1029 ], [ %414, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1007 ]
+  %cmp5.i.i9.i.i1012 = fcmp nsz olt float %415, %421
   br i1 %cmp5.i.i9.i.i1012, label %if.then6.i.i25.i.i1028, label %if.end9.i.i10.i.i1013
 
 if.then6.i.i25.i.i1028:                           ; preds = %if.end.i.i7.i.i1011
-  store float %422, ptr %Y.i.i.i.i981, align 4, !tbaa !406
+  store float %421, ptr %Y.i.i.i.i981, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i1013
 
 if.end9.i.i10.i.i1013:                            ; preds = %if.then6.i.i25.i.i1028, %if.end.i.i7.i.i1011
-  %425 = phi float [ %422, %if.then6.i.i25.i.i1028 ], [ %416, %if.end.i.i7.i.i1011 ]
-  %cmp11.i.i12.i.i1014 = fcmp nsz olt float %417, %423
+  %424 = phi float [ %421, %if.then6.i.i25.i.i1028 ], [ %415, %if.end.i.i7.i.i1011 ]
+  %cmp11.i.i12.i.i1014 = fcmp nsz olt float %416, %422
   br i1 %cmp11.i.i12.i.i1014, label %if.then12.i.i24.i.i1027, label %if.end15.i.i13.i.i1015
 
 if.then12.i.i24.i.i1027:                          ; preds = %if.end9.i.i10.i.i1013
-  store float %423, ptr %Z.i.i.i.i982, align 4, !tbaa !407
+  store float %422, ptr %Z.i.i.i.i982, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i1015
 
 if.end15.i.i13.i.i1015:                           ; preds = %if.then12.i.i24.i.i1027, %if.end9.i.i10.i.i1013
-  %426 = phi float [ %423, %if.then12.i.i24.i.i1027 ], [ %417, %if.end9.i.i10.i.i1013 ]
-  %cmp17.i.i14.i.i1016 = fcmp nsz ogt float %418, %421
+  %425 = phi float [ %422, %if.then12.i.i24.i.i1027 ], [ %416, %if.end9.i.i10.i.i1013 ]
+  %cmp17.i.i14.i.i1016 = fcmp nsz ogt float %417, %420
   br i1 %cmp17.i.i14.i.i1016, label %if.then18.i.i23.i.i1026, label %if.end21.i.i15.i.i1017
 
 if.then18.i.i23.i.i1026:                          ; preds = %if.end15.i.i13.i.i1015
-  store float %421, ptr %box_union, align 4, !tbaa !408
+  store float %420, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i1017
 
 if.end21.i.i15.i.i1017:                           ; preds = %if.then18.i.i23.i.i1026, %if.end15.i.i13.i.i1015
-  %427 = phi float [ %421, %if.then18.i.i23.i.i1026 ], [ %418, %if.end15.i.i13.i.i1015 ]
-  %cmp24.i.i17.i.i1018 = fcmp nsz ogt float %419, %422
+  %426 = phi float [ %420, %if.then18.i.i23.i.i1026 ], [ %417, %if.end15.i.i13.i.i1015 ]
+  %cmp24.i.i17.i.i1018 = fcmp nsz ogt float %418, %421
   br i1 %cmp24.i.i17.i.i1018, label %if.then25.i.i22.i.i1025, label %if.end28.i.i18.i.i1019
 
 if.then25.i.i22.i.i1025:                          ; preds = %if.end21.i.i15.i.i1017
-  store float %422, ptr %Y23.i.i.i.i983, align 4, !tbaa !409
+  store float %421, ptr %Y23.i.i.i.i983, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i1019
 
 if.end28.i.i18.i.i1019:                           ; preds = %if.then25.i.i22.i.i1025, %if.end21.i.i15.i.i1017
-  %428 = phi float [ %422, %if.then25.i.i22.i.i1025 ], [ %419, %if.end21.i.i15.i.i1017 ]
-  %cmp31.i.i20.i.i1020 = fcmp nsz ogt float %420, %423
+  %427 = phi float [ %421, %if.then25.i.i22.i.i1025 ], [ %418, %if.end21.i.i15.i.i1017 ]
+  %cmp31.i.i20.i.i1020 = fcmp nsz ogt float %419, %422
   br i1 %cmp31.i.i20.i.i1020, label %if.then32.i.i21.i.i1024, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021
 
 if.then32.i.i21.i.i1024:                          ; preds = %if.end28.i.i18.i.i1019
-  store float %423, ptr %Z30.i.i.i.i984, align 4, !tbaa !410
+  store float %422, ptr %Z30.i.i.i.i984, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021: ; preds = %if.then32.i.i21.i.i1024, %if.end28.i.i18.i.i1019
-  %429 = phi float [ %420, %if.end28.i.i18.i.i1019 ], [ %423, %if.then32.i.i21.i.i1024 ]
+  %428 = phi float [ %419, %if.end28.i.i18.i.i1019 ], [ %422, %if.then32.i.i21.i.i1024 ]
   %incdec.ptr.i.i1022 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i992, i64 24
-  %cmp.i.not.i1023 = icmp eq ptr %incdec.ptr.i.i1022, %405
+  %cmp.i.not.i1023 = icmp eq ptr %incdec.ptr.i.i1022, %404
   br i1 %cmp.i.not.i1023, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1036, label %for.body.i991
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1036: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1021, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit976
-  %disconnected_right = getelementptr inbounds nuw i8, ptr %117, i64 264
-  %430 = load ptr, ptr %disconnected_right, align 8, !tbaa !31
-  %_M_finish.i.i1037 = getelementptr inbounds nuw i8, ptr %117, i64 272
-  %431 = load ptr, ptr %_M_finish.i.i1037, align 8, !tbaa !31
-  %cmp.i.not9.i1038 = icmp eq ptr %430, %431
+  %disconnected_right = getelementptr inbounds nuw i8, ptr %116, i64 264
+  %429 = load ptr, ptr %disconnected_right, align 8, !tbaa !31
+  %_M_finish.i.i1037 = getelementptr inbounds nuw i8, ptr %116, i64 272
+  %430 = load ptr, ptr %_M_finish.i.i1037, align 8, !tbaa !31
+  %cmp.i.not9.i1038 = icmp eq ptr %429, %430
   br i1 %cmp.i.not9.i1038, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1096, label %for.body.lr.ph.i1039
 
 for.body.lr.ph.i1039:                             ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1036
@@ -21160,142 +21159,142 @@ for.body.lr.ph.i1039:                             ; preds = %_Z14boxVectorUnionR
   br label %for.body.i1051
 
 for.body.i1051:                                   ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081, %for.body.lr.ph.i1039
-  %432 = phi float [ %Z30.i.i.i.promoted.i1050, %for.body.lr.ph.i1039 ], [ %455, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
-  %433 = phi float [ %Y23.i.i.i.promoted.i1049, %for.body.lr.ph.i1039 ], [ %454, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
-  %434 = phi float [ %box_union.promoted.i1048, %for.body.lr.ph.i1039 ], [ %453, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
-  %435 = phi float [ %Z.i.i.i.promoted.i1047, %for.body.lr.ph.i1039 ], [ %452, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
-  %436 = phi float [ %Y.i.i.i.promoted.i1046, %for.body.lr.ph.i1039 ], [ %451, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
-  %437 = phi float [ %MaxEdge.i.i.i.promoted.i1045, %for.body.lr.ph.i1039 ], [ %450, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
-  %__begin1.sroa.0.010.i1052 = phi ptr [ %430, %for.body.lr.ph.i1039 ], [ %incdec.ptr.i.i1082, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
+  %431 = phi float [ %Z30.i.i.i.promoted.i1050, %for.body.lr.ph.i1039 ], [ %454, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
+  %432 = phi float [ %Y23.i.i.i.promoted.i1049, %for.body.lr.ph.i1039 ], [ %453, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
+  %433 = phi float [ %box_union.promoted.i1048, %for.body.lr.ph.i1039 ], [ %452, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
+  %434 = phi float [ %Z.i.i.i.promoted.i1047, %for.body.lr.ph.i1039 ], [ %451, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
+  %435 = phi float [ %Y.i.i.i.promoted.i1046, %for.body.lr.ph.i1039 ], [ %450, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
+  %436 = phi float [ %MaxEdge.i.i.i.promoted.i1045, %for.body.lr.ph.i1039 ], [ %449, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
+  %__begin1.sroa.0.010.i1052 = phi ptr [ %429, %for.body.lr.ph.i1039 ], [ %incdec.ptr.i.i1082, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081 ]
   %MaxEdge.i.i1053 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1052, i64 12
-  %438 = load float, ptr %MaxEdge.i.i1053, align 4, !tbaa !411
+  %437 = load float, ptr %MaxEdge.i.i1053, align 4, !tbaa !411
   %Y.i.i.i1054 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1052, i64 16
-  %439 = load float, ptr %Y.i.i.i1054, align 4, !tbaa !412
+  %438 = load float, ptr %Y.i.i.i1054, align 4, !tbaa !412
   %Z.i.i.i1055 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1052, i64 20
-  %440 = load float, ptr %Z.i.i.i1055, align 4, !tbaa !390
-  %cmp.i.i.i.i1056 = fcmp nsz olt float %437, %438
+  %439 = load float, ptr %Z.i.i.i1055, align 4, !tbaa !390
+  %cmp.i.i.i.i1056 = fcmp nsz olt float %436, %437
   br i1 %cmp.i.i.i.i1056, label %if.then.i.i.i.i1095, label %if.end.i.i.i.i1057
 
 if.then.i.i.i.i1095:                              ; preds = %for.body.i1051
-  store float %438, ptr %MaxEdge.i.i.i.i1040, align 4, !tbaa !405
+  store float %437, ptr %MaxEdge.i.i.i.i1040, align 4, !tbaa !405
   br label %if.end.i.i.i.i1057
 
 if.end.i.i.i.i1057:                               ; preds = %if.then.i.i.i.i1095, %for.body.i1051
-  %441 = phi float [ %438, %if.then.i.i.i.i1095 ], [ %437, %for.body.i1051 ]
-  %cmp5.i.i.i.i1058 = fcmp nsz olt float %436, %439
+  %440 = phi float [ %437, %if.then.i.i.i.i1095 ], [ %436, %for.body.i1051 ]
+  %cmp5.i.i.i.i1058 = fcmp nsz olt float %435, %438
   br i1 %cmp5.i.i.i.i1058, label %if.then6.i.i.i.i1094, label %if.end9.i.i.i.i1059
 
 if.then6.i.i.i.i1094:                             ; preds = %if.end.i.i.i.i1057
-  store float %439, ptr %Y.i.i.i.i1041, align 4, !tbaa !406
+  store float %438, ptr %Y.i.i.i.i1041, align 4, !tbaa !406
   br label %if.end9.i.i.i.i1059
 
 if.end9.i.i.i.i1059:                              ; preds = %if.then6.i.i.i.i1094, %if.end.i.i.i.i1057
-  %442 = phi float [ %439, %if.then6.i.i.i.i1094 ], [ %436, %if.end.i.i.i.i1057 ]
-  %cmp11.i.i.i.i1060 = fcmp nsz olt float %435, %440
+  %441 = phi float [ %438, %if.then6.i.i.i.i1094 ], [ %435, %if.end.i.i.i.i1057 ]
+  %cmp11.i.i.i.i1060 = fcmp nsz olt float %434, %439
   br i1 %cmp11.i.i.i.i1060, label %if.then12.i.i.i.i1093, label %if.end15.i.i.i.i1061
 
 if.then12.i.i.i.i1093:                            ; preds = %if.end9.i.i.i.i1059
-  store float %440, ptr %Z.i.i.i.i1042, align 4, !tbaa !407
+  store float %439, ptr %Z.i.i.i.i1042, align 4, !tbaa !407
   br label %if.end15.i.i.i.i1061
 
 if.end15.i.i.i.i1061:                             ; preds = %if.then12.i.i.i.i1093, %if.end9.i.i.i.i1059
-  %443 = phi float [ %440, %if.then12.i.i.i.i1093 ], [ %435, %if.end9.i.i.i.i1059 ]
-  %cmp17.i.i.i.i1062 = fcmp nsz ogt float %434, %438
+  %442 = phi float [ %439, %if.then12.i.i.i.i1093 ], [ %434, %if.end9.i.i.i.i1059 ]
+  %cmp17.i.i.i.i1062 = fcmp nsz ogt float %433, %437
   br i1 %cmp17.i.i.i.i1062, label %if.then18.i.i.i.i1092, label %if.end21.i.i.i.i1063
 
 if.then18.i.i.i.i1092:                            ; preds = %if.end15.i.i.i.i1061
-  store float %438, ptr %box_union, align 4, !tbaa !408
+  store float %437, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i1063
 
 if.end21.i.i.i.i1063:                             ; preds = %if.then18.i.i.i.i1092, %if.end15.i.i.i.i1061
-  %444 = phi float [ %438, %if.then18.i.i.i.i1092 ], [ %434, %if.end15.i.i.i.i1061 ]
-  %cmp24.i.i.i.i1064 = fcmp nsz ogt float %433, %439
+  %443 = phi float [ %437, %if.then18.i.i.i.i1092 ], [ %433, %if.end15.i.i.i.i1061 ]
+  %cmp24.i.i.i.i1064 = fcmp nsz ogt float %432, %438
   br i1 %cmp24.i.i.i.i1064, label %if.then25.i.i.i.i1091, label %if.end28.i.i.i.i1065
 
 if.then25.i.i.i.i1091:                            ; preds = %if.end21.i.i.i.i1063
-  store float %439, ptr %Y23.i.i.i.i1043, align 4, !tbaa !409
+  store float %438, ptr %Y23.i.i.i.i1043, align 4, !tbaa !409
   br label %if.end28.i.i.i.i1065
 
 if.end28.i.i.i.i1065:                             ; preds = %if.then25.i.i.i.i1091, %if.end21.i.i.i.i1063
-  %445 = phi float [ %439, %if.then25.i.i.i.i1091 ], [ %433, %if.end21.i.i.i.i1063 ]
-  %cmp31.i.i.i.i1066 = fcmp nsz ogt float %432, %440
+  %444 = phi float [ %438, %if.then25.i.i.i.i1091 ], [ %432, %if.end21.i.i.i.i1063 ]
+  %cmp31.i.i.i.i1066 = fcmp nsz ogt float %431, %439
   br i1 %cmp31.i.i.i.i1066, label %if.then32.i.i.i.i1090, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1067
 
 if.then32.i.i.i.i1090:                            ; preds = %if.end28.i.i.i.i1065
-  store float %440, ptr %Z30.i.i.i.i1044, align 4, !tbaa !410
+  store float %439, ptr %Z30.i.i.i.i1044, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1067
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1067: ; preds = %if.then32.i.i.i.i1090, %if.end28.i.i.i.i1065
-  %446 = phi float [ %432, %if.end28.i.i.i.i1065 ], [ %440, %if.then32.i.i.i.i1090 ]
-  %447 = load float, ptr %__begin1.sroa.0.010.i1052, align 4, !tbaa !411
+  %445 = phi float [ %431, %if.end28.i.i.i.i1065 ], [ %439, %if.then32.i.i.i.i1090 ]
+  %446 = load float, ptr %__begin1.sroa.0.010.i1052, align 4, !tbaa !411
   %Y.i3.i.i1068 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1052, i64 4
-  %448 = load float, ptr %Y.i3.i.i1068, align 4, !tbaa !412
+  %447 = load float, ptr %Y.i3.i.i1068, align 4, !tbaa !412
   %Z.i4.i.i1069 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1052, i64 8
-  %449 = load float, ptr %Z.i4.i.i1069, align 4, !tbaa !390
-  %cmp.i.i6.i.i1070 = fcmp nsz olt float %441, %447
+  %448 = load float, ptr %Z.i4.i.i1069, align 4, !tbaa !390
+  %cmp.i.i6.i.i1070 = fcmp nsz olt float %440, %446
   br i1 %cmp.i.i6.i.i1070, label %if.then.i.i26.i.i1089, label %if.end.i.i7.i.i1071
 
 if.then.i.i26.i.i1089:                            ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1067
-  store float %447, ptr %MaxEdge.i.i.i.i1040, align 4, !tbaa !405
+  store float %446, ptr %MaxEdge.i.i.i.i1040, align 4, !tbaa !405
   br label %if.end.i.i7.i.i1071
 
 if.end.i.i7.i.i1071:                              ; preds = %if.then.i.i26.i.i1089, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1067
-  %450 = phi float [ %447, %if.then.i.i26.i.i1089 ], [ %441, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1067 ]
-  %cmp5.i.i9.i.i1072 = fcmp nsz olt float %442, %448
+  %449 = phi float [ %446, %if.then.i.i26.i.i1089 ], [ %440, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1067 ]
+  %cmp5.i.i9.i.i1072 = fcmp nsz olt float %441, %447
   br i1 %cmp5.i.i9.i.i1072, label %if.then6.i.i25.i.i1088, label %if.end9.i.i10.i.i1073
 
 if.then6.i.i25.i.i1088:                           ; preds = %if.end.i.i7.i.i1071
-  store float %448, ptr %Y.i.i.i.i1041, align 4, !tbaa !406
+  store float %447, ptr %Y.i.i.i.i1041, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i1073
 
 if.end9.i.i10.i.i1073:                            ; preds = %if.then6.i.i25.i.i1088, %if.end.i.i7.i.i1071
-  %451 = phi float [ %448, %if.then6.i.i25.i.i1088 ], [ %442, %if.end.i.i7.i.i1071 ]
-  %cmp11.i.i12.i.i1074 = fcmp nsz olt float %443, %449
+  %450 = phi float [ %447, %if.then6.i.i25.i.i1088 ], [ %441, %if.end.i.i7.i.i1071 ]
+  %cmp11.i.i12.i.i1074 = fcmp nsz olt float %442, %448
   br i1 %cmp11.i.i12.i.i1074, label %if.then12.i.i24.i.i1087, label %if.end15.i.i13.i.i1075
 
 if.then12.i.i24.i.i1087:                          ; preds = %if.end9.i.i10.i.i1073
-  store float %449, ptr %Z.i.i.i.i1042, align 4, !tbaa !407
+  store float %448, ptr %Z.i.i.i.i1042, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i1075
 
 if.end15.i.i13.i.i1075:                           ; preds = %if.then12.i.i24.i.i1087, %if.end9.i.i10.i.i1073
-  %452 = phi float [ %449, %if.then12.i.i24.i.i1087 ], [ %443, %if.end9.i.i10.i.i1073 ]
-  %cmp17.i.i14.i.i1076 = fcmp nsz ogt float %444, %447
+  %451 = phi float [ %448, %if.then12.i.i24.i.i1087 ], [ %442, %if.end9.i.i10.i.i1073 ]
+  %cmp17.i.i14.i.i1076 = fcmp nsz ogt float %443, %446
   br i1 %cmp17.i.i14.i.i1076, label %if.then18.i.i23.i.i1086, label %if.end21.i.i15.i.i1077
 
 if.then18.i.i23.i.i1086:                          ; preds = %if.end15.i.i13.i.i1075
-  store float %447, ptr %box_union, align 4, !tbaa !408
+  store float %446, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i1077
 
 if.end21.i.i15.i.i1077:                           ; preds = %if.then18.i.i23.i.i1086, %if.end15.i.i13.i.i1075
-  %453 = phi float [ %447, %if.then18.i.i23.i.i1086 ], [ %444, %if.end15.i.i13.i.i1075 ]
-  %cmp24.i.i17.i.i1078 = fcmp nsz ogt float %445, %448
+  %452 = phi float [ %446, %if.then18.i.i23.i.i1086 ], [ %443, %if.end15.i.i13.i.i1075 ]
+  %cmp24.i.i17.i.i1078 = fcmp nsz ogt float %444, %447
   br i1 %cmp24.i.i17.i.i1078, label %if.then25.i.i22.i.i1085, label %if.end28.i.i18.i.i1079
 
 if.then25.i.i22.i.i1085:                          ; preds = %if.end21.i.i15.i.i1077
-  store float %448, ptr %Y23.i.i.i.i1043, align 4, !tbaa !409
+  store float %447, ptr %Y23.i.i.i.i1043, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i1079
 
 if.end28.i.i18.i.i1079:                           ; preds = %if.then25.i.i22.i.i1085, %if.end21.i.i15.i.i1077
-  %454 = phi float [ %448, %if.then25.i.i22.i.i1085 ], [ %445, %if.end21.i.i15.i.i1077 ]
-  %cmp31.i.i20.i.i1080 = fcmp nsz ogt float %446, %449
+  %453 = phi float [ %447, %if.then25.i.i22.i.i1085 ], [ %444, %if.end21.i.i15.i.i1077 ]
+  %cmp31.i.i20.i.i1080 = fcmp nsz ogt float %445, %448
   br i1 %cmp31.i.i20.i.i1080, label %if.then32.i.i21.i.i1084, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081
 
 if.then32.i.i21.i.i1084:                          ; preds = %if.end28.i.i18.i.i1079
-  store float %449, ptr %Z30.i.i.i.i1044, align 4, !tbaa !410
+  store float %448, ptr %Z30.i.i.i.i1044, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081: ; preds = %if.then32.i.i21.i.i1084, %if.end28.i.i18.i.i1079
-  %455 = phi float [ %446, %if.end28.i.i18.i.i1079 ], [ %449, %if.then32.i.i21.i.i1084 ]
+  %454 = phi float [ %445, %if.end28.i.i18.i.i1079 ], [ %448, %if.then32.i.i21.i.i1084 ]
   %incdec.ptr.i.i1082 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1052, i64 24
-  %cmp.i.not.i1083 = icmp eq ptr %incdec.ptr.i.i1082, %431
+  %cmp.i.not.i1083 = icmp eq ptr %incdec.ptr.i.i1082, %430
   br i1 %cmp.i.not.i1083, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1096, label %for.body.i1051
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1096: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1081, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1036
-  %disconnected = getelementptr inbounds nuw i8, ptr %117, i64 288
-  %456 = load ptr, ptr %disconnected, align 8, !tbaa !31
-  %_M_finish.i.i1097 = getelementptr inbounds nuw i8, ptr %117, i64 296
-  %457 = load ptr, ptr %_M_finish.i.i1097, align 8, !tbaa !31
-  %cmp.i.not9.i1098 = icmp eq ptr %456, %457
+  %disconnected = getelementptr inbounds nuw i8, ptr %116, i64 288
+  %455 = load ptr, ptr %disconnected, align 8, !tbaa !31
+  %_M_finish.i.i1097 = getelementptr inbounds nuw i8, ptr %116, i64 296
+  %456 = load ptr, ptr %_M_finish.i.i1097, align 8, !tbaa !31
+  %cmp.i.not9.i1098 = icmp eq ptr %455, %456
   br i1 %cmp.i.not9.i1098, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1156, label %for.body.lr.ph.i1099
 
 for.body.lr.ph.i1099:                             ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1096
@@ -21313,142 +21312,142 @@ for.body.lr.ph.i1099:                             ; preds = %_Z14boxVectorUnionR
   br label %for.body.i1111
 
 for.body.i1111:                                   ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141, %for.body.lr.ph.i1099
-  %458 = phi float [ %Z30.i.i.i.promoted.i1110, %for.body.lr.ph.i1099 ], [ %481, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
-  %459 = phi float [ %Y23.i.i.i.promoted.i1109, %for.body.lr.ph.i1099 ], [ %480, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
-  %460 = phi float [ %box_union.promoted.i1108, %for.body.lr.ph.i1099 ], [ %479, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
-  %461 = phi float [ %Z.i.i.i.promoted.i1107, %for.body.lr.ph.i1099 ], [ %478, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
-  %462 = phi float [ %Y.i.i.i.promoted.i1106, %for.body.lr.ph.i1099 ], [ %477, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
-  %463 = phi float [ %MaxEdge.i.i.i.promoted.i1105, %for.body.lr.ph.i1099 ], [ %476, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
-  %__begin1.sroa.0.010.i1112 = phi ptr [ %456, %for.body.lr.ph.i1099 ], [ %incdec.ptr.i.i1142, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
+  %457 = phi float [ %Z30.i.i.i.promoted.i1110, %for.body.lr.ph.i1099 ], [ %480, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
+  %458 = phi float [ %Y23.i.i.i.promoted.i1109, %for.body.lr.ph.i1099 ], [ %479, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
+  %459 = phi float [ %box_union.promoted.i1108, %for.body.lr.ph.i1099 ], [ %478, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
+  %460 = phi float [ %Z.i.i.i.promoted.i1107, %for.body.lr.ph.i1099 ], [ %477, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
+  %461 = phi float [ %Y.i.i.i.promoted.i1106, %for.body.lr.ph.i1099 ], [ %476, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
+  %462 = phi float [ %MaxEdge.i.i.i.promoted.i1105, %for.body.lr.ph.i1099 ], [ %475, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
+  %__begin1.sroa.0.010.i1112 = phi ptr [ %455, %for.body.lr.ph.i1099 ], [ %incdec.ptr.i.i1142, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141 ]
   %MaxEdge.i.i1113 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1112, i64 12
-  %464 = load float, ptr %MaxEdge.i.i1113, align 4, !tbaa !411
+  %463 = load float, ptr %MaxEdge.i.i1113, align 4, !tbaa !411
   %Y.i.i.i1114 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1112, i64 16
-  %465 = load float, ptr %Y.i.i.i1114, align 4, !tbaa !412
+  %464 = load float, ptr %Y.i.i.i1114, align 4, !tbaa !412
   %Z.i.i.i1115 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1112, i64 20
-  %466 = load float, ptr %Z.i.i.i1115, align 4, !tbaa !390
-  %cmp.i.i.i.i1116 = fcmp nsz olt float %463, %464
+  %465 = load float, ptr %Z.i.i.i1115, align 4, !tbaa !390
+  %cmp.i.i.i.i1116 = fcmp nsz olt float %462, %463
   br i1 %cmp.i.i.i.i1116, label %if.then.i.i.i.i1155, label %if.end.i.i.i.i1117
 
 if.then.i.i.i.i1155:                              ; preds = %for.body.i1111
-  store float %464, ptr %MaxEdge.i.i.i.i1100, align 4, !tbaa !405
+  store float %463, ptr %MaxEdge.i.i.i.i1100, align 4, !tbaa !405
   br label %if.end.i.i.i.i1117
 
 if.end.i.i.i.i1117:                               ; preds = %if.then.i.i.i.i1155, %for.body.i1111
-  %467 = phi float [ %464, %if.then.i.i.i.i1155 ], [ %463, %for.body.i1111 ]
-  %cmp5.i.i.i.i1118 = fcmp nsz olt float %462, %465
+  %466 = phi float [ %463, %if.then.i.i.i.i1155 ], [ %462, %for.body.i1111 ]
+  %cmp5.i.i.i.i1118 = fcmp nsz olt float %461, %464
   br i1 %cmp5.i.i.i.i1118, label %if.then6.i.i.i.i1154, label %if.end9.i.i.i.i1119
 
 if.then6.i.i.i.i1154:                             ; preds = %if.end.i.i.i.i1117
-  store float %465, ptr %Y.i.i.i.i1101, align 4, !tbaa !406
+  store float %464, ptr %Y.i.i.i.i1101, align 4, !tbaa !406
   br label %if.end9.i.i.i.i1119
 
 if.end9.i.i.i.i1119:                              ; preds = %if.then6.i.i.i.i1154, %if.end.i.i.i.i1117
-  %468 = phi float [ %465, %if.then6.i.i.i.i1154 ], [ %462, %if.end.i.i.i.i1117 ]
-  %cmp11.i.i.i.i1120 = fcmp nsz olt float %461, %466
+  %467 = phi float [ %464, %if.then6.i.i.i.i1154 ], [ %461, %if.end.i.i.i.i1117 ]
+  %cmp11.i.i.i.i1120 = fcmp nsz olt float %460, %465
   br i1 %cmp11.i.i.i.i1120, label %if.then12.i.i.i.i1153, label %if.end15.i.i.i.i1121
 
 if.then12.i.i.i.i1153:                            ; preds = %if.end9.i.i.i.i1119
-  store float %466, ptr %Z.i.i.i.i1102, align 4, !tbaa !407
+  store float %465, ptr %Z.i.i.i.i1102, align 4, !tbaa !407
   br label %if.end15.i.i.i.i1121
 
 if.end15.i.i.i.i1121:                             ; preds = %if.then12.i.i.i.i1153, %if.end9.i.i.i.i1119
-  %469 = phi float [ %466, %if.then12.i.i.i.i1153 ], [ %461, %if.end9.i.i.i.i1119 ]
-  %cmp17.i.i.i.i1122 = fcmp nsz ogt float %460, %464
+  %468 = phi float [ %465, %if.then12.i.i.i.i1153 ], [ %460, %if.end9.i.i.i.i1119 ]
+  %cmp17.i.i.i.i1122 = fcmp nsz ogt float %459, %463
   br i1 %cmp17.i.i.i.i1122, label %if.then18.i.i.i.i1152, label %if.end21.i.i.i.i1123
 
 if.then18.i.i.i.i1152:                            ; preds = %if.end15.i.i.i.i1121
-  store float %464, ptr %box_union, align 4, !tbaa !408
+  store float %463, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i1123
 
 if.end21.i.i.i.i1123:                             ; preds = %if.then18.i.i.i.i1152, %if.end15.i.i.i.i1121
-  %470 = phi float [ %464, %if.then18.i.i.i.i1152 ], [ %460, %if.end15.i.i.i.i1121 ]
-  %cmp24.i.i.i.i1124 = fcmp nsz ogt float %459, %465
+  %469 = phi float [ %463, %if.then18.i.i.i.i1152 ], [ %459, %if.end15.i.i.i.i1121 ]
+  %cmp24.i.i.i.i1124 = fcmp nsz ogt float %458, %464
   br i1 %cmp24.i.i.i.i1124, label %if.then25.i.i.i.i1151, label %if.end28.i.i.i.i1125
 
 if.then25.i.i.i.i1151:                            ; preds = %if.end21.i.i.i.i1123
-  store float %465, ptr %Y23.i.i.i.i1103, align 4, !tbaa !409
+  store float %464, ptr %Y23.i.i.i.i1103, align 4, !tbaa !409
   br label %if.end28.i.i.i.i1125
 
 if.end28.i.i.i.i1125:                             ; preds = %if.then25.i.i.i.i1151, %if.end21.i.i.i.i1123
-  %471 = phi float [ %465, %if.then25.i.i.i.i1151 ], [ %459, %if.end21.i.i.i.i1123 ]
-  %cmp31.i.i.i.i1126 = fcmp nsz ogt float %458, %466
+  %470 = phi float [ %464, %if.then25.i.i.i.i1151 ], [ %458, %if.end21.i.i.i.i1123 ]
+  %cmp31.i.i.i.i1126 = fcmp nsz ogt float %457, %465
   br i1 %cmp31.i.i.i.i1126, label %if.then32.i.i.i.i1150, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1127
 
 if.then32.i.i.i.i1150:                            ; preds = %if.end28.i.i.i.i1125
-  store float %466, ptr %Z30.i.i.i.i1104, align 4, !tbaa !410
+  store float %465, ptr %Z30.i.i.i.i1104, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1127
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1127: ; preds = %if.then32.i.i.i.i1150, %if.end28.i.i.i.i1125
-  %472 = phi float [ %458, %if.end28.i.i.i.i1125 ], [ %466, %if.then32.i.i.i.i1150 ]
-  %473 = load float, ptr %__begin1.sroa.0.010.i1112, align 4, !tbaa !411
+  %471 = phi float [ %457, %if.end28.i.i.i.i1125 ], [ %465, %if.then32.i.i.i.i1150 ]
+  %472 = load float, ptr %__begin1.sroa.0.010.i1112, align 4, !tbaa !411
   %Y.i3.i.i1128 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1112, i64 4
-  %474 = load float, ptr %Y.i3.i.i1128, align 4, !tbaa !412
+  %473 = load float, ptr %Y.i3.i.i1128, align 4, !tbaa !412
   %Z.i4.i.i1129 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1112, i64 8
-  %475 = load float, ptr %Z.i4.i.i1129, align 4, !tbaa !390
-  %cmp.i.i6.i.i1130 = fcmp nsz olt float %467, %473
+  %474 = load float, ptr %Z.i4.i.i1129, align 4, !tbaa !390
+  %cmp.i.i6.i.i1130 = fcmp nsz olt float %466, %472
   br i1 %cmp.i.i6.i.i1130, label %if.then.i.i26.i.i1149, label %if.end.i.i7.i.i1131
 
 if.then.i.i26.i.i1149:                            ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1127
-  store float %473, ptr %MaxEdge.i.i.i.i1100, align 4, !tbaa !405
+  store float %472, ptr %MaxEdge.i.i.i.i1100, align 4, !tbaa !405
   br label %if.end.i.i7.i.i1131
 
 if.end.i.i7.i.i1131:                              ; preds = %if.then.i.i26.i.i1149, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1127
-  %476 = phi float [ %473, %if.then.i.i26.i.i1149 ], [ %467, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1127 ]
-  %cmp5.i.i9.i.i1132 = fcmp nsz olt float %468, %474
+  %475 = phi float [ %472, %if.then.i.i26.i.i1149 ], [ %466, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1127 ]
+  %cmp5.i.i9.i.i1132 = fcmp nsz olt float %467, %473
   br i1 %cmp5.i.i9.i.i1132, label %if.then6.i.i25.i.i1148, label %if.end9.i.i10.i.i1133
 
 if.then6.i.i25.i.i1148:                           ; preds = %if.end.i.i7.i.i1131
-  store float %474, ptr %Y.i.i.i.i1101, align 4, !tbaa !406
+  store float %473, ptr %Y.i.i.i.i1101, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i1133
 
 if.end9.i.i10.i.i1133:                            ; preds = %if.then6.i.i25.i.i1148, %if.end.i.i7.i.i1131
-  %477 = phi float [ %474, %if.then6.i.i25.i.i1148 ], [ %468, %if.end.i.i7.i.i1131 ]
-  %cmp11.i.i12.i.i1134 = fcmp nsz olt float %469, %475
+  %476 = phi float [ %473, %if.then6.i.i25.i.i1148 ], [ %467, %if.end.i.i7.i.i1131 ]
+  %cmp11.i.i12.i.i1134 = fcmp nsz olt float %468, %474
   br i1 %cmp11.i.i12.i.i1134, label %if.then12.i.i24.i.i1147, label %if.end15.i.i13.i.i1135
 
 if.then12.i.i24.i.i1147:                          ; preds = %if.end9.i.i10.i.i1133
-  store float %475, ptr %Z.i.i.i.i1102, align 4, !tbaa !407
+  store float %474, ptr %Z.i.i.i.i1102, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i1135
 
 if.end15.i.i13.i.i1135:                           ; preds = %if.then12.i.i24.i.i1147, %if.end9.i.i10.i.i1133
-  %478 = phi float [ %475, %if.then12.i.i24.i.i1147 ], [ %469, %if.end9.i.i10.i.i1133 ]
-  %cmp17.i.i14.i.i1136 = fcmp nsz ogt float %470, %473
+  %477 = phi float [ %474, %if.then12.i.i24.i.i1147 ], [ %468, %if.end9.i.i10.i.i1133 ]
+  %cmp17.i.i14.i.i1136 = fcmp nsz ogt float %469, %472
   br i1 %cmp17.i.i14.i.i1136, label %if.then18.i.i23.i.i1146, label %if.end21.i.i15.i.i1137
 
 if.then18.i.i23.i.i1146:                          ; preds = %if.end15.i.i13.i.i1135
-  store float %473, ptr %box_union, align 4, !tbaa !408
+  store float %472, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i1137
 
 if.end21.i.i15.i.i1137:                           ; preds = %if.then18.i.i23.i.i1146, %if.end15.i.i13.i.i1135
-  %479 = phi float [ %473, %if.then18.i.i23.i.i1146 ], [ %470, %if.end15.i.i13.i.i1135 ]
-  %cmp24.i.i17.i.i1138 = fcmp nsz ogt float %471, %474
+  %478 = phi float [ %472, %if.then18.i.i23.i.i1146 ], [ %469, %if.end15.i.i13.i.i1135 ]
+  %cmp24.i.i17.i.i1138 = fcmp nsz ogt float %470, %473
   br i1 %cmp24.i.i17.i.i1138, label %if.then25.i.i22.i.i1145, label %if.end28.i.i18.i.i1139
 
 if.then25.i.i22.i.i1145:                          ; preds = %if.end21.i.i15.i.i1137
-  store float %474, ptr %Y23.i.i.i.i1103, align 4, !tbaa !409
+  store float %473, ptr %Y23.i.i.i.i1103, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i1139
 
 if.end28.i.i18.i.i1139:                           ; preds = %if.then25.i.i22.i.i1145, %if.end21.i.i15.i.i1137
-  %480 = phi float [ %474, %if.then25.i.i22.i.i1145 ], [ %471, %if.end21.i.i15.i.i1137 ]
-  %cmp31.i.i20.i.i1140 = fcmp nsz ogt float %472, %475
+  %479 = phi float [ %473, %if.then25.i.i22.i.i1145 ], [ %470, %if.end21.i.i15.i.i1137 ]
+  %cmp31.i.i20.i.i1140 = fcmp nsz ogt float %471, %474
   br i1 %cmp31.i.i20.i.i1140, label %if.then32.i.i21.i.i1144, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141
 
 if.then32.i.i21.i.i1144:                          ; preds = %if.end28.i.i18.i.i1139
-  store float %475, ptr %Z30.i.i.i.i1104, align 4, !tbaa !410
+  store float %474, ptr %Z30.i.i.i.i1104, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141: ; preds = %if.then32.i.i21.i.i1144, %if.end28.i.i18.i.i1139
-  %481 = phi float [ %472, %if.end28.i.i18.i.i1139 ], [ %475, %if.then32.i.i21.i.i1144 ]
+  %480 = phi float [ %471, %if.end28.i.i18.i.i1139 ], [ %474, %if.then32.i.i21.i.i1144 ]
   %incdec.ptr.i.i1142 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1112, i64 24
-  %cmp.i.not.i1143 = icmp eq ptr %incdec.ptr.i.i1142, %457
+  %cmp.i.not.i1143 = icmp eq ptr %incdec.ptr.i.i1142, %456
   br i1 %cmp.i.not.i1143, label %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1156, label %for.body.i1111
 
 _Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1156: ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1141, %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1096
-  %disconnected_sides = getelementptr inbounds nuw i8, ptr %117, i64 312
-  %482 = load ptr, ptr %disconnected_sides, align 8, !tbaa !31
-  %_M_finish.i.i1157 = getelementptr inbounds nuw i8, ptr %117, i64 320
-  %483 = load ptr, ptr %_M_finish.i.i1157, align 8, !tbaa !31
-  %cmp.i.not9.i1158 = icmp eq ptr %482, %483
+  %disconnected_sides = getelementptr inbounds nuw i8, ptr %116, i64 312
+  %481 = load ptr, ptr %disconnected_sides, align 8, !tbaa !31
+  %_M_finish.i.i1157 = getelementptr inbounds nuw i8, ptr %116, i64 320
+  %482 = load ptr, ptr %_M_finish.i.i1157, align 8, !tbaa !31
+  %cmp.i.not9.i1158 = icmp eq ptr %481, %482
   br i1 %cmp.i.not9.i1158, label %sw.epilog, label %for.body.lr.ph.i1159
 
 for.body.lr.ph.i1159:                             ; preds = %_Z14boxVectorUnionRKSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EEPS3_.exit1156
@@ -21466,140 +21465,140 @@ for.body.lr.ph.i1159:                             ; preds = %_Z14boxVectorUnionR
   br label %for.body.i1171
 
 for.body.i1171:                                   ; preds = %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201, %for.body.lr.ph.i1159
-  %484 = phi float [ %Z30.i.i.i.promoted.i1170, %for.body.lr.ph.i1159 ], [ %507, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
-  %485 = phi float [ %Y23.i.i.i.promoted.i1169, %for.body.lr.ph.i1159 ], [ %506, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
-  %486 = phi float [ %box_union.promoted.i1168, %for.body.lr.ph.i1159 ], [ %505, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
-  %487 = phi float [ %Z.i.i.i.promoted.i1167, %for.body.lr.ph.i1159 ], [ %504, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
-  %488 = phi float [ %Y.i.i.i.promoted.i1166, %for.body.lr.ph.i1159 ], [ %503, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
-  %489 = phi float [ %MaxEdge.i.i.i.promoted.i1165, %for.body.lr.ph.i1159 ], [ %502, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
-  %__begin1.sroa.0.010.i1172 = phi ptr [ %482, %for.body.lr.ph.i1159 ], [ %incdec.ptr.i.i1202, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
+  %483 = phi float [ %Z30.i.i.i.promoted.i1170, %for.body.lr.ph.i1159 ], [ %506, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
+  %484 = phi float [ %Y23.i.i.i.promoted.i1169, %for.body.lr.ph.i1159 ], [ %505, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
+  %485 = phi float [ %box_union.promoted.i1168, %for.body.lr.ph.i1159 ], [ %504, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
+  %486 = phi float [ %Z.i.i.i.promoted.i1167, %for.body.lr.ph.i1159 ], [ %503, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
+  %487 = phi float [ %Y.i.i.i.promoted.i1166, %for.body.lr.ph.i1159 ], [ %502, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
+  %488 = phi float [ %MaxEdge.i.i.i.promoted.i1165, %for.body.lr.ph.i1159 ], [ %501, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
+  %__begin1.sroa.0.010.i1172 = phi ptr [ %481, %for.body.lr.ph.i1159 ], [ %incdec.ptr.i.i1202, %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201 ]
   %MaxEdge.i.i1173 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1172, i64 12
-  %490 = load float, ptr %MaxEdge.i.i1173, align 4, !tbaa !411
+  %489 = load float, ptr %MaxEdge.i.i1173, align 4, !tbaa !411
   %Y.i.i.i1174 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1172, i64 16
-  %491 = load float, ptr %Y.i.i.i1174, align 4, !tbaa !412
+  %490 = load float, ptr %Y.i.i.i1174, align 4, !tbaa !412
   %Z.i.i.i1175 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1172, i64 20
-  %492 = load float, ptr %Z.i.i.i1175, align 4, !tbaa !390
-  %cmp.i.i.i.i1176 = fcmp nsz olt float %489, %490
+  %491 = load float, ptr %Z.i.i.i1175, align 4, !tbaa !390
+  %cmp.i.i.i.i1176 = fcmp nsz olt float %488, %489
   br i1 %cmp.i.i.i.i1176, label %if.then.i.i.i.i1215, label %if.end.i.i.i.i1177
 
 if.then.i.i.i.i1215:                              ; preds = %for.body.i1171
-  store float %490, ptr %MaxEdge.i.i.i.i1160, align 4, !tbaa !405
+  store float %489, ptr %MaxEdge.i.i.i.i1160, align 4, !tbaa !405
   br label %if.end.i.i.i.i1177
 
 if.end.i.i.i.i1177:                               ; preds = %if.then.i.i.i.i1215, %for.body.i1171
-  %493 = phi float [ %490, %if.then.i.i.i.i1215 ], [ %489, %for.body.i1171 ]
-  %cmp5.i.i.i.i1178 = fcmp nsz olt float %488, %491
+  %492 = phi float [ %489, %if.then.i.i.i.i1215 ], [ %488, %for.body.i1171 ]
+  %cmp5.i.i.i.i1178 = fcmp nsz olt float %487, %490
   br i1 %cmp5.i.i.i.i1178, label %if.then6.i.i.i.i1214, label %if.end9.i.i.i.i1179
 
 if.then6.i.i.i.i1214:                             ; preds = %if.end.i.i.i.i1177
-  store float %491, ptr %Y.i.i.i.i1161, align 4, !tbaa !406
+  store float %490, ptr %Y.i.i.i.i1161, align 4, !tbaa !406
   br label %if.end9.i.i.i.i1179
 
 if.end9.i.i.i.i1179:                              ; preds = %if.then6.i.i.i.i1214, %if.end.i.i.i.i1177
-  %494 = phi float [ %491, %if.then6.i.i.i.i1214 ], [ %488, %if.end.i.i.i.i1177 ]
-  %cmp11.i.i.i.i1180 = fcmp nsz olt float %487, %492
+  %493 = phi float [ %490, %if.then6.i.i.i.i1214 ], [ %487, %if.end.i.i.i.i1177 ]
+  %cmp11.i.i.i.i1180 = fcmp nsz olt float %486, %491
   br i1 %cmp11.i.i.i.i1180, label %if.then12.i.i.i.i1213, label %if.end15.i.i.i.i1181
 
 if.then12.i.i.i.i1213:                            ; preds = %if.end9.i.i.i.i1179
-  store float %492, ptr %Z.i.i.i.i1162, align 4, !tbaa !407
+  store float %491, ptr %Z.i.i.i.i1162, align 4, !tbaa !407
   br label %if.end15.i.i.i.i1181
 
 if.end15.i.i.i.i1181:                             ; preds = %if.then12.i.i.i.i1213, %if.end9.i.i.i.i1179
-  %495 = phi float [ %492, %if.then12.i.i.i.i1213 ], [ %487, %if.end9.i.i.i.i1179 ]
-  %cmp17.i.i.i.i1182 = fcmp nsz ogt float %486, %490
+  %494 = phi float [ %491, %if.then12.i.i.i.i1213 ], [ %486, %if.end9.i.i.i.i1179 ]
+  %cmp17.i.i.i.i1182 = fcmp nsz ogt float %485, %489
   br i1 %cmp17.i.i.i.i1182, label %if.then18.i.i.i.i1212, label %if.end21.i.i.i.i1183
 
 if.then18.i.i.i.i1212:                            ; preds = %if.end15.i.i.i.i1181
-  store float %490, ptr %box_union, align 4, !tbaa !408
+  store float %489, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i.i.i1183
 
 if.end21.i.i.i.i1183:                             ; preds = %if.then18.i.i.i.i1212, %if.end15.i.i.i.i1181
-  %496 = phi float [ %490, %if.then18.i.i.i.i1212 ], [ %486, %if.end15.i.i.i.i1181 ]
-  %cmp24.i.i.i.i1184 = fcmp nsz ogt float %485, %491
+  %495 = phi float [ %489, %if.then18.i.i.i.i1212 ], [ %485, %if.end15.i.i.i.i1181 ]
+  %cmp24.i.i.i.i1184 = fcmp nsz ogt float %484, %490
   br i1 %cmp24.i.i.i.i1184, label %if.then25.i.i.i.i1211, label %if.end28.i.i.i.i1185
 
 if.then25.i.i.i.i1211:                            ; preds = %if.end21.i.i.i.i1183
-  store float %491, ptr %Y23.i.i.i.i1163, align 4, !tbaa !409
+  store float %490, ptr %Y23.i.i.i.i1163, align 4, !tbaa !409
   br label %if.end28.i.i.i.i1185
 
 if.end28.i.i.i.i1185:                             ; preds = %if.then25.i.i.i.i1211, %if.end21.i.i.i.i1183
-  %497 = phi float [ %491, %if.then25.i.i.i.i1211 ], [ %485, %if.end21.i.i.i.i1183 ]
-  %cmp31.i.i.i.i1186 = fcmp nsz ogt float %484, %492
+  %496 = phi float [ %490, %if.then25.i.i.i.i1211 ], [ %484, %if.end21.i.i.i.i1183 ]
+  %cmp31.i.i.i.i1186 = fcmp nsz ogt float %483, %491
   br i1 %cmp31.i.i.i.i1186, label %if.then32.i.i.i.i1210, label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1187
 
 if.then32.i.i.i.i1210:                            ; preds = %if.end28.i.i.i.i1185
-  store float %492, ptr %Z30.i.i.i.i1164, align 4, !tbaa !410
+  store float %491, ptr %Z30.i.i.i.i1164, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1187
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1187: ; preds = %if.then32.i.i.i.i1210, %if.end28.i.i.i.i1185
-  %498 = phi float [ %484, %if.end28.i.i.i.i1185 ], [ %492, %if.then32.i.i.i.i1210 ]
-  %499 = load float, ptr %__begin1.sroa.0.010.i1172, align 4, !tbaa !411
+  %497 = phi float [ %483, %if.end28.i.i.i.i1185 ], [ %491, %if.then32.i.i.i.i1210 ]
+  %498 = load float, ptr %__begin1.sroa.0.010.i1172, align 4, !tbaa !411
   %Y.i3.i.i1188 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1172, i64 4
-  %500 = load float, ptr %Y.i3.i.i1188, align 4, !tbaa !412
+  %499 = load float, ptr %Y.i3.i.i1188, align 4, !tbaa !412
   %Z.i4.i.i1189 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1172, i64 8
-  %501 = load float, ptr %Z.i4.i.i1189, align 4, !tbaa !390
-  %cmp.i.i6.i.i1190 = fcmp nsz olt float %493, %499
+  %500 = load float, ptr %Z.i4.i.i1189, align 4, !tbaa !390
+  %cmp.i.i6.i.i1190 = fcmp nsz olt float %492, %498
   br i1 %cmp.i.i6.i.i1190, label %if.then.i.i26.i.i1209, label %if.end.i.i7.i.i1191
 
 if.then.i.i26.i.i1209:                            ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1187
-  store float %499, ptr %MaxEdge.i.i.i.i1160, align 4, !tbaa !405
+  store float %498, ptr %MaxEdge.i.i.i.i1160, align 4, !tbaa !405
   br label %if.end.i.i7.i.i1191
 
 if.end.i.i7.i.i1191:                              ; preds = %if.then.i.i26.i.i1209, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1187
-  %502 = phi float [ %499, %if.then.i.i26.i.i1209 ], [ %493, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1187 ]
-  %cmp5.i.i9.i.i1192 = fcmp nsz olt float %494, %500
+  %501 = phi float [ %498, %if.then.i.i26.i.i1209 ], [ %492, %_ZN3irr4core8aabbox3dIfE16addInternalPointERKNS0_8vector3dIfEE.exit.i.i1187 ]
+  %cmp5.i.i9.i.i1192 = fcmp nsz olt float %493, %499
   br i1 %cmp5.i.i9.i.i1192, label %if.then6.i.i25.i.i1208, label %if.end9.i.i10.i.i1193
 
 if.then6.i.i25.i.i1208:                           ; preds = %if.end.i.i7.i.i1191
-  store float %500, ptr %Y.i.i.i.i1161, align 4, !tbaa !406
+  store float %499, ptr %Y.i.i.i.i1161, align 4, !tbaa !406
   br label %if.end9.i.i10.i.i1193
 
 if.end9.i.i10.i.i1193:                            ; preds = %if.then6.i.i25.i.i1208, %if.end.i.i7.i.i1191
-  %503 = phi float [ %500, %if.then6.i.i25.i.i1208 ], [ %494, %if.end.i.i7.i.i1191 ]
-  %cmp11.i.i12.i.i1194 = fcmp nsz olt float %495, %501
+  %502 = phi float [ %499, %if.then6.i.i25.i.i1208 ], [ %493, %if.end.i.i7.i.i1191 ]
+  %cmp11.i.i12.i.i1194 = fcmp nsz olt float %494, %500
   br i1 %cmp11.i.i12.i.i1194, label %if.then12.i.i24.i.i1207, label %if.end15.i.i13.i.i1195
 
 if.then12.i.i24.i.i1207:                          ; preds = %if.end9.i.i10.i.i1193
-  store float %501, ptr %Z.i.i.i.i1162, align 4, !tbaa !407
+  store float %500, ptr %Z.i.i.i.i1162, align 4, !tbaa !407
   br label %if.end15.i.i13.i.i1195
 
 if.end15.i.i13.i.i1195:                           ; preds = %if.then12.i.i24.i.i1207, %if.end9.i.i10.i.i1193
-  %504 = phi float [ %501, %if.then12.i.i24.i.i1207 ], [ %495, %if.end9.i.i10.i.i1193 ]
-  %cmp17.i.i14.i.i1196 = fcmp nsz ogt float %496, %499
+  %503 = phi float [ %500, %if.then12.i.i24.i.i1207 ], [ %494, %if.end9.i.i10.i.i1193 ]
+  %cmp17.i.i14.i.i1196 = fcmp nsz ogt float %495, %498
   br i1 %cmp17.i.i14.i.i1196, label %if.then18.i.i23.i.i1206, label %if.end21.i.i15.i.i1197
 
 if.then18.i.i23.i.i1206:                          ; preds = %if.end15.i.i13.i.i1195
-  store float %499, ptr %box_union, align 4, !tbaa !408
+  store float %498, ptr %box_union, align 4, !tbaa !408
   br label %if.end21.i.i15.i.i1197
 
 if.end21.i.i15.i.i1197:                           ; preds = %if.then18.i.i23.i.i1206, %if.end15.i.i13.i.i1195
-  %505 = phi float [ %499, %if.then18.i.i23.i.i1206 ], [ %496, %if.end15.i.i13.i.i1195 ]
-  %cmp24.i.i17.i.i1198 = fcmp nsz ogt float %497, %500
+  %504 = phi float [ %498, %if.then18.i.i23.i.i1206 ], [ %495, %if.end15.i.i13.i.i1195 ]
+  %cmp24.i.i17.i.i1198 = fcmp nsz ogt float %496, %499
   br i1 %cmp24.i.i17.i.i1198, label %if.then25.i.i22.i.i1205, label %if.end28.i.i18.i.i1199
 
 if.then25.i.i22.i.i1205:                          ; preds = %if.end21.i.i15.i.i1197
-  store float %500, ptr %Y23.i.i.i.i1163, align 4, !tbaa !409
+  store float %499, ptr %Y23.i.i.i.i1163, align 4, !tbaa !409
   br label %if.end28.i.i18.i.i1199
 
 if.end28.i.i18.i.i1199:                           ; preds = %if.then25.i.i22.i.i1205, %if.end21.i.i15.i.i1197
-  %506 = phi float [ %500, %if.then25.i.i22.i.i1205 ], [ %497, %if.end21.i.i15.i.i1197 ]
-  %cmp31.i.i20.i.i1200 = fcmp nsz ogt float %498, %501
+  %505 = phi float [ %499, %if.then25.i.i22.i.i1205 ], [ %496, %if.end21.i.i15.i.i1197 ]
+  %cmp31.i.i20.i.i1200 = fcmp nsz ogt float %497, %500
   br i1 %cmp31.i.i20.i.i1200, label %if.then32.i.i21.i.i1204, label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201
 
 if.then32.i.i21.i.i1204:                          ; preds = %if.end28.i.i18.i.i1199
-  store float %501, ptr %Z30.i.i.i.i1164, align 4, !tbaa !410
+  store float %500, ptr %Z30.i.i.i.i1164, align 4, !tbaa !410
   br label %_ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201
 
 _ZN3irr4core8aabbox3dIfE14addInternalBoxERKS2_.exit.i1201: ; preds = %if.then32.i.i21.i.i1204, %if.end28.i.i18.i.i1199
-  %507 = phi float [ %498, %if.end28.i.i18.i.i1199 ], [ %501, %if.then32.i.i21.i.i1204 ]
+  %506 = phi float [ %497, %if.end28.i.i18.i.i1199 ], [ %500, %if.then32.i.i21.i.i1204 ]
   %incdec.ptr.i.i1202 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.010.i1172, i64 24
-  %cmp.i.not.i1203 = icmp eq ptr %incdec.ptr.i.i1202, %483
+  %cmp.i.not.i1203 = icmp eq ptr %incdec.ptr.i.i1202, %482
   br i1 %cmp.i.not.i1203, label %sw.epilog, label %for.body.i1171
 
 sw.default:                                       ; preds = %entry
   %MaxEdge.i1217 = getelementptr inbounds nuw i8, ptr %box_union, i64 12
-  %508 = load float, ptr %MaxEdge.i1217, align 4, !tbaa !405
-  %cmp.i1218 = fcmp nsz olt float %508, -5.000000e+00
+  %507 = load float, ptr %MaxEdge.i1217, align 4, !tbaa !405
+  %cmp.i1218 = fcmp nsz olt float %507, -5.000000e+00
   br i1 %cmp.i1218, label %if.then.i1238, label %if.end.i1219
 
 if.then.i1238:                                    ; preds = %sw.default
@@ -21607,10 +21606,10 @@ if.then.i1238:                                    ; preds = %sw.default
   br label %if.end.i1219
 
 if.end.i1219:                                     ; preds = %if.then.i1238, %sw.default
-  %509 = phi float [ -5.000000e+00, %if.then.i1238 ], [ %508, %sw.default ]
+  %508 = phi float [ -5.000000e+00, %if.then.i1238 ], [ %507, %sw.default ]
   %Y.i1220 = getelementptr inbounds nuw i8, ptr %box_union, i64 16
-  %510 = load float, ptr %Y.i1220, align 4, !tbaa !406
-  %cmp5.i1221 = fcmp nsz olt float %510, -5.000000e+00
+  %509 = load float, ptr %Y.i1220, align 4, !tbaa !406
+  %cmp5.i1221 = fcmp nsz olt float %509, -5.000000e+00
   br i1 %cmp5.i1221, label %if.then6.i1237, label %if.end9.i1222
 
 if.then6.i1237:                                   ; preds = %if.end.i1219
@@ -21618,10 +21617,10 @@ if.then6.i1237:                                   ; preds = %if.end.i1219
   br label %if.end9.i1222
 
 if.end9.i1222:                                    ; preds = %if.then6.i1237, %if.end.i1219
-  %511 = phi float [ -5.000000e+00, %if.then6.i1237 ], [ %510, %if.end.i1219 ]
+  %510 = phi float [ -5.000000e+00, %if.then6.i1237 ], [ %509, %if.end.i1219 ]
   %Z.i1223 = getelementptr inbounds nuw i8, ptr %box_union, i64 20
-  %512 = load float, ptr %Z.i1223, align 4, !tbaa !407
-  %cmp11.i1224 = fcmp nsz olt float %512, -5.000000e+00
+  %511 = load float, ptr %Z.i1223, align 4, !tbaa !407
+  %cmp11.i1224 = fcmp nsz olt float %511, -5.000000e+00
   br i1 %cmp11.i1224, label %if.then12.i1236, label %if.end15.i1225
 
 if.then12.i1236:                                  ; preds = %if.end9.i1222
@@ -21629,9 +21628,9 @@ if.then12.i1236:                                  ; preds = %if.end9.i1222
   br label %if.end15.i1225
 
 if.end15.i1225:                                   ; preds = %if.then12.i1236, %if.end9.i1222
-  %513 = phi float [ -5.000000e+00, %if.then12.i1236 ], [ %512, %if.end9.i1222 ]
-  %514 = load float, ptr %box_union, align 4, !tbaa !408
-  %cmp17.i1226 = fcmp nsz ogt float %514, -5.000000e+00
+  %512 = phi float [ -5.000000e+00, %if.then12.i1236 ], [ %511, %if.end9.i1222 ]
+  %513 = load float, ptr %box_union, align 4, !tbaa !408
+  %cmp17.i1226 = fcmp nsz ogt float %513, -5.000000e+00
   br i1 %cmp17.i1226, label %if.then18.i1235, label %if.end21.i1227
 
 if.then18.i1235:                                  ; preds = %if.end15.i1225
@@ -21639,10 +21638,10 @@ if.then18.i1235:                                  ; preds = %if.end15.i1225
   br label %if.end21.i1227
 
 if.end21.i1227:                                   ; preds = %if.then18.i1235, %if.end15.i1225
-  %515 = phi float [ -5.000000e+00, %if.then18.i1235 ], [ %514, %if.end15.i1225 ]
+  %514 = phi float [ -5.000000e+00, %if.then18.i1235 ], [ %513, %if.end15.i1225 ]
   %Y23.i1228 = getelementptr inbounds nuw i8, ptr %box_union, i64 4
-  %516 = load float, ptr %Y23.i1228, align 4, !tbaa !409
-  %cmp24.i1229 = fcmp nsz ogt float %516, -5.000000e+00
+  %515 = load float, ptr %Y23.i1228, align 4, !tbaa !409
+  %cmp24.i1229 = fcmp nsz ogt float %515, -5.000000e+00
   br i1 %cmp24.i1229, label %if.then25.i1234, label %if.end28.i1230
 
 if.then25.i1234:                                  ; preds = %if.end21.i1227
@@ -21650,10 +21649,10 @@ if.then25.i1234:                                  ; preds = %if.end21.i1227
   br label %if.end28.i1230
 
 if.end28.i1230:                                   ; preds = %if.then25.i1234, %if.end21.i1227
-  %517 = phi float [ -5.000000e+00, %if.then25.i1234 ], [ %516, %if.end21.i1227 ]
+  %516 = phi float [ -5.000000e+00, %if.then25.i1234 ], [ %515, %if.end21.i1227 ]
   %Z30.i1231 = getelementptr inbounds nuw i8, ptr %box_union, i64 8
-  %518 = load float, ptr %Z30.i1231, align 4, !tbaa !410
-  %cmp31.i1232 = fcmp nsz ogt float %518, -5.000000e+00
+  %517 = load float, ptr %Z30.i1231, align 4, !tbaa !410
+  %cmp31.i1232 = fcmp nsz ogt float %517, -5.000000e+00
   br i1 %cmp31.i1232, label %if.then32.i1233, label %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit1239
 
 if.then32.i1233:                                  ; preds = %if.end28.i1230
@@ -21661,8 +21660,8 @@ if.then32.i1233:                                  ; preds = %if.end28.i1230
   br label %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit1239
 
 _ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit1239: ; preds = %if.then32.i1233, %if.end28.i1230
-  %519 = phi float [ %518, %if.end28.i1230 ], [ -5.000000e+00, %if.then32.i1233 ]
-  %cmp.i1241 = fcmp nsz olt float %509, 5.000000e+00
+  %518 = phi float [ %517, %if.end28.i1230 ], [ -5.000000e+00, %if.then32.i1233 ]
+  %cmp.i1241 = fcmp nsz olt float %508, 5.000000e+00
   br i1 %cmp.i1241, label %if.then.i1261, label %if.end.i1242
 
 if.then.i1261:                                    ; preds = %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit1239
@@ -21670,7 +21669,7 @@ if.then.i1261:                                    ; preds = %_ZN3irr4core8aabbox
   br label %if.end.i1242
 
 if.end.i1242:                                     ; preds = %if.then.i1261, %_ZN3irr4core8aabbox3dIfE16addInternalPointEfff.exit1239
-  %cmp5.i1244 = fcmp nsz olt float %511, 5.000000e+00
+  %cmp5.i1244 = fcmp nsz olt float %510, 5.000000e+00
   br i1 %cmp5.i1244, label %if.then6.i1260, label %if.end9.i1245
 
 if.then6.i1260:                                   ; preds = %if.end.i1242
@@ -21678,7 +21677,7 @@ if.then6.i1260:                                   ; preds = %if.end.i1242
   br label %if.end9.i1245
 
 if.end9.i1245:                                    ; preds = %if.then6.i1260, %if.end.i1242
-  %cmp11.i1247 = fcmp nsz olt float %513, 5.000000e+00
+  %cmp11.i1247 = fcmp nsz olt float %512, 5.000000e+00
   br i1 %cmp11.i1247, label %if.then12.i1259, label %if.end15.i1248
 
 if.then12.i1259:                                  ; preds = %if.end9.i1245
@@ -21686,7 +21685,7 @@ if.then12.i1259:                                  ; preds = %if.end9.i1245
   br label %if.end15.i1248
 
 if.end15.i1248:                                   ; preds = %if.then12.i1259, %if.end9.i1245
-  %cmp17.i1249 = fcmp nsz ogt float %515, 5.000000e+00
+  %cmp17.i1249 = fcmp nsz ogt float %514, 5.000000e+00
   br i1 %cmp17.i1249, label %if.then18.i1258, label %if.end21.i1250
 
 if.then18.i1258:                                  ; preds = %if.end15.i1248
@@ -21694,7 +21693,7 @@ if.then18.i1258:                                  ; preds = %if.end15.i1248
   br label %if.end21.i1250
 
 if.end21.i1250:                                   ; preds = %if.then18.i1258, %if.end15.i1248
-  %cmp24.i1252 = fcmp nsz ogt float %517, 5.000000e+00
+  %cmp24.i1252 = fcmp nsz ogt float %516, 5.000000e+00
   br i1 %cmp24.i1252, label %if.then25.i1257, label %if.end28.i1253
 
 if.then25.i1257:                                  ; preds = %if.end21.i1250
@@ -21702,7 +21701,7 @@ if.then25.i1257:                                  ; preds = %if.end21.i1250
   br label %if.end28.i1253
 
 if.end28.i1253:                                   ; preds = %if.then25.i1257, %if.end21.i1250
-  %cmp31.i1255 = fcmp nsz ogt float %519, 5.000000e+00
+  %cmp31.i1255 = fcmp nsz ogt float %518, 5.000000e+00
   br i1 %cmp31.i1255, label %if.then32.i1256, label %sw.epilog
 
 if.then32.i1256:                                  ; preds = %if.end28.i1253

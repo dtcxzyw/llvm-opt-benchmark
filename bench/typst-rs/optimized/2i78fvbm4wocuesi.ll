@@ -116082,11 +116082,11 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
   %134 = load ptr, ptr %133, align 8, !nonnull !4, !align !492, !noundef !4
   %135 = load double, ptr %134, align 8, !noundef !4
   %136 = fmul double %.0.i.i.i, %135
-  %.0.i.inv.i.i.i.i = fcmp uno double %136, 0.000000e+00
-  %137 = call double @llvm.fabs.f64(double %136)
+  %.0.i.inv.i.i.i.i = fcmp ord double %136, 0.000000e+00
+  %.0.i.i.i.i = select i1 %.0.i.inv.i.i.i.i, double %136, double 0.000000e+00
+  %137 = call double @llvm.fabs.f64(double %.0.i.i.i.i)
   %138 = fcmp one double %137, 0x7FF0000000000000
-  %.0.i.i.i.i = select i1 %138, double %136, double 0.000000e+00
-  %.0.i35 = select i1 %.0.i.inv.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i
+  %.0.i35 = select i1 %138, double %.0.i.i.i.i, double 0.000000e+00
   %139 = load double, ptr %132, align 8, !alias.scope !22359, !noundef !4
   %140 = fadd double %139, %.0.i35
   %.0.i.inv.i.i.i.i36 = fcmp ord double %140, 0.000000e+00
