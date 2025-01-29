@@ -8346,10 +8346,6 @@ if.then4:                                         ; preds = %for.body.i.i.i.i, %
   store ptr %e, ptr %agg.result, align 8
   %m_manager.i4 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %17, ptr %m_manager.i4, align 8
-  %tobool.not.i.i5 = icmp eq ptr %e, null
-  br i1 %tobool.not.i.i5, label %return, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i6
-
-_ZN11ast_manager7inc_refEP3ast.exit.i.i6:         ; preds = %if.then4
   %m_ref_count.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %e, i64 8
   %18 = load i32, ptr %m_ref_count.i.i.i.i7, align 4
   %inc.i.i.i.i8 = add i32 %18, 1
@@ -8360,7 +8356,7 @@ if.end6:                                          ; preds = %_ZNK10model_core15g
   call void @_ZNK11func_interp16get_array_interpEP9func_decl(ptr sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef %call2.i)
   br label %return
 
-return:                                           ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i6, %if.then4, %if.end6, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
+return:                                           ; preds = %if.then4, %if.end6, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
   ret void
 }
 

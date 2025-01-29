@@ -46,8 +46,6 @@ define nonnull align 8 ptr @"_ZN105_$LT$cranelift_codegen_meta..error..Error$u20
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h194c53fac8f56a3fE.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %10 = icmp ne ptr %4, null
-  tail call void @llvm.assume(i1 %10)
   ret ptr %4
 }
 

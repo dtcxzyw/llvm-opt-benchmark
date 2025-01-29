@@ -252,7 +252,7 @@ define noundef double @cJSON_SetNumberHelper(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSON_SetValuestring(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #8 {
+define ptr @cJSON_SetValuestring(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %cJSON_strdup.exit.thread, label %4
 
@@ -281,33 +281,29 @@ define ptr @cJSON_SetValuestring(ptr noundef %0, ptr noundef readonly %1) local_
   br label %cJSON_strdup.exit.thread
 
 18:                                               ; preds = %12
-  %19 = icmp eq ptr %1, null
-  br i1 %19, label %cJSON_strdup.exit.thread, label %20
+  %19 = add i64 %13, 1
+  %20 = load ptr, ptr @global_hooks, align 8
+  %21 = tail call ptr %20(i64 noundef %19) #31
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %cJSON_strdup.exit.thread, label %23
 
-20:                                               ; preds = %18
-  %21 = add i64 %13, 1
-  %22 = load ptr, ptr @global_hooks, align 8
-  %23 = tail call ptr %22(i64 noundef %21) #31
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %cJSON_strdup.exit.thread, label %25
+23:                                               ; preds = %18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %1, i64 %19, i1 false)
+  %24 = load ptr, ptr %9, align 8
+  %.not23 = icmp eq ptr %24, null
+  br i1 %.not23, label %27, label %25
 
-25:                                               ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 %21, i1 false)
-  %26 = load ptr, ptr %9, align 8
-  %.not23 = icmp eq ptr %26, null
-  br i1 %.not23, label %29, label %27
+25:                                               ; preds = %23
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
+  tail call void %26(ptr noundef nonnull %24) #31
+  br label %27
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
-  tail call void %28(ptr noundef nonnull %26) #31
-  br label %29
-
-29:                                               ; preds = %27, %25
-  store ptr %23, ptr %9, align 8
+27:                                               ; preds = %25, %23
+  store ptr %21, ptr %9, align 8
   br label %cJSON_strdup.exit.thread
 
-cJSON_strdup.exit.thread:                         ; preds = %20, %18, %8, %2, %4, %29, %15
-  %.0 = phi ptr [ %17, %15 ], [ %23, %29 ], [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %18 ], [ null, %20 ]
+cJSON_strdup.exit.thread:                         ; preds = %18, %8, %2, %4, %27, %15
+  %.0 = phi ptr [ %17, %15 ], [ %21, %27 ], [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %18 ]
   ret ptr %.0
 }
 

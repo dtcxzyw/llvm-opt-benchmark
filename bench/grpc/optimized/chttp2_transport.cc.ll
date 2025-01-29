@@ -5650,13 +5650,9 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 _ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i, %if.then.i.i.i
   %memory_owner = getelementptr inbounds nuw i8, ptr %tp, i64 64
   invoke void @_ZN17grpc_event_engine12experimental15MemoryAllocator5ResetEv(ptr noundef nonnull align 8 dereferenceable(16) %memory_owner)
-          to label %invoke.cont18 unwind label %ehcleanup19
+          to label %if.then.i unwind label %ehcleanup19
 
-invoke.cont18:                                    ; preds = %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit
-  %cmp.not.i = icmp eq ptr %tp, null
-  br i1 %cmp.not.i, label %_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit, label %if.then.i
-
-if.then.i:                                        ; preds = %invoke.cont18
+if.then.i:                                        ; preds = %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %tp, i64 16
   %14 = atomicrmw sub ptr %add.ptr.i, i64 1 acq_rel, align 8
   %cmp.i.i.i10 = icmp eq i64 %14, 1
@@ -5667,7 +5663,7 @@ if.then.i.i11:                                    ; preds = %if.then.i
   call void @_ZdlPv(ptr noundef nonnull %tp) #38
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit
 
-_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit: ; preds = %invoke.cont18, %if.then.i, %if.then.i.i11
+_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit: ; preds = %if.then.i, %if.then.i.i11
   ret void
 
 lpad7:                                            ; preds = %entry
@@ -5699,10 +5695,9 @@ ehcleanup19.thread:                               ; preds = %lpad7, %ehcleanup
 ehcleanup19:                                      ; preds = %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit
   %18 = landingpad { ptr, i32 }
           cleanup
-  %cmp.not.i12 = icmp eq ptr %tp, null
-  br i1 %cmp.not.i12, label %_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit17, label %if.then.i13
+  br label %if.then.i13
 
-if.then.i13:                                      ; preds = %ehcleanup19.thread, %ehcleanup19
+if.then.i13:                                      ; preds = %ehcleanup19, %ehcleanup19.thread
   %.pn325 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup19.thread ], [ %18, %ehcleanup19 ]
   %add.ptr.i14 = getelementptr inbounds nuw i8, ptr %tp, i64 16
   %19 = atomicrmw sub ptr %add.ptr.i14, i64 1 acq_rel, align 8
@@ -5714,9 +5709,8 @@ if.then.i.i16:                                    ; preds = %if.then.i13
   call void @_ZdlPv(ptr noundef nonnull %tp) #38
   br label %_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit17
 
-_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit17: ; preds = %ehcleanup19, %if.then.i13, %if.then.i.i16
-  %.pn326 = phi { ptr, i32 } [ %18, %ehcleanup19 ], [ %.pn325, %if.then.i13 ], [ %.pn325, %if.then.i.i16 ]
-  resume { ptr, i32 } %.pn326
+_ZN9grpc_core13RefCountedPtrI21grpc_chttp2_transportED2Ev.exit17: ; preds = %if.then.i13, %if.then.i.i16
+  resume { ptr, i32 } %.pn325
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -12738,7 +12732,7 @@ if.then.i.i241:                                   ; preds = %for.body48.i
   br label %invoke.cont51.i
 
 invoke.cont51.i:                                  ; preds = %if.then.i.i241, %for.body48.i
-  invoke void @_Z25grpc_chttp2_cancel_streamP21grpc_chttp2_transportP18grpc_chttp2_streamN4absl12lts_202308026StatusEb(ptr noundef %t, ptr noundef %55, ptr noundef nonnull %agg.tmp50.i, i1 noundef zeroext false)
+  invoke void @_Z25grpc_chttp2_cancel_streamP21grpc_chttp2_transportP18grpc_chttp2_streamN4absl12lts_202308026StatusEb(ptr noundef nonnull %t, ptr noundef %55, ptr noundef nonnull %agg.tmp50.i, i1 noundef zeroext false)
           to label %invoke.cont53.i unwind label %lpad52.i
 
 invoke.cont53.i:                                  ; preds = %invoke.cont51.i
@@ -12833,7 +12827,7 @@ if.then.i61:                                      ; preds = %_ZN4absl12lts_20230
 
 .noexc64:                                         ; preds = %if.then.i61
   %call1.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i60) #37
-  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.12, i32 noundef 1757, i32 noundef 1, ptr noundef nonnull @.str.193, ptr noundef %t, ptr noundef %call1.i)
+  invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.12, i32 noundef 1757, i32 noundef 1, ptr noundef nonnull @.str.193, ptr noundef nonnull %t, ptr noundef %call1.i)
           to label %invoke.cont.i63 unwind label %lpad.i62
 
 invoke.cont.i63:                                  ; preds = %.noexc64
@@ -13488,7 +13482,7 @@ if.then.i.i189:                                   ; preds = %while.body
   br label %_Z24grpc_chttp2_stream_unrefP18grpc_chttp2_stream.exit
 
 _Z24grpc_chttp2_stream_unrefP18grpc_chttp2_stream.exit: ; preds = %while.body, %if.then.i.i189
-  %call128 = call noundef zeroext i1 @_Z36grpc_chttp2_list_pop_writable_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr noundef nonnull %s)
+  %call128 = call noundef zeroext i1 @_Z36grpc_chttp2_list_pop_writable_streamP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef nonnull %t, ptr noundef nonnull %s)
   br i1 %call128, label %while.body, label %do.body129, !llvm.loop !192
 
 do.body129:                                       ; preds = %_Z24grpc_chttp2_stream_unrefP18grpc_chttp2_stream.exit, %sw.epilog
@@ -15685,7 +15679,7 @@ if.then.i.i138:                                   ; preds = %if.then81
   br label %invoke.cont83
 
 invoke.cont83:                                    ; preds = %if.then.i.i138, %if.then81
-  invoke void @_Z23grpc_chttp2_fake_statusP21grpc_chttp2_transportP18grpc_chttp2_streamN4absl12lts_202308026StatusE(ptr noundef %t, ptr noundef %s, ptr noundef nonnull %agg.tmp82)
+  invoke void @_Z23grpc_chttp2_fake_statusP21grpc_chttp2_transportP18grpc_chttp2_streamN4absl12lts_202308026StatusE(ptr noundef %t, ptr noundef nonnull %s, ptr noundef nonnull %agg.tmp82)
           to label %invoke.cont85 unwind label %lpad84
 
 invoke.cont85:                                    ; preds = %invoke.cont83
@@ -16749,7 +16743,7 @@ arraydestroy.body26.preheader:                    ; preds = %invoke.cont22, %if.
 
 if.then:                                          ; preds = %invoke.cont16
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %main_error_msg) #37
-  invoke void @_Z18grpc_status_createN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core13DebugLocationEmPNS0_6StatusE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, i32 noundef 2, i64 %call.i.i, ptr %main_error_msg, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18, i64 noundef %nrefs.2, ptr noundef nonnull %refs)
+  invoke void @_Z18grpc_status_createN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKN9grpc_core13DebugLocationEmPNS0_6StatusE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, i32 noundef 2, i64 %call.i.i, ptr nonnull %main_error_msg, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18, i64 noundef %nrefs.2, ptr noundef nonnull %refs)
           to label %invoke.cont22 unwind label %ehcleanup
 
 invoke.cont22:                                    ; preds = %if.then
@@ -19113,7 +19107,7 @@ if.then.i.i.i:                                    ; preds = %for.end.i.i.i.i
   br label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE7emplaceIJRjRS5_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSL_.exit
 
 _ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIjP18grpc_chttp2_streamEENS0_13hash_internal4HashIjEESt8equal_toIjESaISt4pairIKjS5_EEE7emplaceIJRjRS5_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESC_INSG_8iteratorEbEDpOSL_.exit: ; preds = %for.body.i.i.i.i, %if.then.i.i.i
-  call fastcc void @_ZL26post_destructive_reclaimerP21grpc_chttp2_transport(ptr noundef %t)
+  call fastcc void @_ZL26post_destructive_reclaimerP21grpc_chttp2_transport(ptr noundef nonnull %t)
   %40 = load ptr, ptr %s, align 8
   %41 = load i64, ptr %closed_with_error.i, align 8
   %cmp.i.i = icmp eq i64 %41, 0
@@ -19165,7 +19159,7 @@ invoke.cont43:                                    ; preds = %while.body34
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
-  invoke void @_Z25grpc_chttp2_cancel_streamP21grpc_chttp2_transportP18grpc_chttp2_streamN4absl12lts_202308026StatusEb(ptr noundef %t, ptr noundef nonnull %46, ptr noundef nonnull %agg.tmp37, i1 noundef zeroext false)
+  invoke void @_Z25grpc_chttp2_cancel_streamP21grpc_chttp2_transportP18grpc_chttp2_streamN4absl12lts_202308026StatusEb(ptr noundef nonnull %t, ptr noundef nonnull %46, ptr noundef nonnull %agg.tmp37, i1 noundef zeroext false)
           to label %invoke.cont47 unwind label %lpad46
 
 invoke.cont47:                                    ; preds = %invoke.cont45
@@ -19245,7 +19239,7 @@ if.then.i.i.i53:                                  ; preds = %invoke.cont.i52
   br label %_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit: ; preds = %invoke.cont.i52, %if.then.i.i.i53
-  %call33 = call noundef zeroext i1 @_Z44grpc_chttp2_list_pop_waiting_for_concurrencyP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef %t, ptr noundef nonnull %s)
+  %call33 = call noundef zeroext i1 @_Z44grpc_chttp2_list_pop_waiting_for_concurrencyP21grpc_chttp2_transportPP18grpc_chttp2_stream(ptr noundef nonnull %t, ptr noundef nonnull %s)
   br i1 %call33, label %while.body34, label %if.end50, !llvm.loop !281
 
 lpad42:                                           ; preds = %while.body34

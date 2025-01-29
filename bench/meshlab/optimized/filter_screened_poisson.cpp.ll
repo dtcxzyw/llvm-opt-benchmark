@@ -21939,7 +21939,7 @@ define linkonce_odr noundef i32 @_ZN17CoredFileMeshDataI22PlyColorAndValueVertex
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %5 = load ptr, ptr %4, align 8
   %6 = call noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr noundef nonnull align 8 dereferenceable(1064) %5, ptr noundef nonnull %3, i64 noundef 4)
-  br i1 %6, label %7, label %_ZNSt6vectorIiSaIiEED2Ev.exit24
+  br i1 %6, label %7, label %54
 
 7:                                                ; preds = %2
   %8 = load i32, ptr %3, align 4
@@ -21978,7 +21978,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIiSaIiE
           to label %19 unwind label %51
 
 19:                                               ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  br i1 %18, label %20, label %.loopexit
+  br i1 %18, label %20, label %_ZNSt6vectorIiSaIiEED2Ev.exit24
 
 20:                                               ; preds = %19
   %21 = load i32, ptr %3, align 4
@@ -22018,7 +22018,7 @@ _ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit: ; preds = %31, %33, %35, 
   %41 = lshr exact i64 %40, 2
   %42 = trunc i64 %41 to i32
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.lr.ph.preheader, label %.loopexit
+  br i1 %43, label %.lr.ph.preheader, label %_ZNSt6vectorIiSaIiEED2Ev.exit24
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit
   %wide.trip.count = and i64 %41, 2147483647
@@ -22030,17 +22030,17 @@ _ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit: ; preds = %31, %33, %35, 
   %45 = load i32, ptr %44, align 4
   %46 = icmp sgt i32 %45, -1
   %.lobit = ashr i32 %45, 31
-  %.sink41 = xor i32 %45, %.lobit
+  %.sink38 = xor i32 %45, %.lobit
   %.sink = zext i1 %46 to i8
   %47 = load ptr, ptr %1, align 8
   %48 = getelementptr inbounds nuw %struct.CoredVertexIndex, ptr %47, i64 %indvars.iv
-  store i32 %.sink41, ptr %48, align 4
+  store i32 %.sink38, ptr %48, align 4
   %49 = load ptr, ptr %1, align 8
   %50 = getelementptr inbounds nuw %struct.CoredVertexIndex, ptr %49, i64 %indvars.iv, i32 1
   store i8 %.sink, ptr %50, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !274
+  br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %.lr.ph, !llvm.loop !274
 
 51:                                               ; preds = %31, %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
   %52 = landingpad { ptr, i32 }
@@ -22052,18 +22052,13 @@ _ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit: ; preds = %31, %33, %35, 
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #44
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
-.loopexit:                                        ; preds = %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit, %19
-  %.019 = phi i32 [ 0, %19 ], [ 1, %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit ]
-  %.not.i.i.i23 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i23, label %_ZNSt6vectorIiSaIiEED2Ev.exit24, label %.loopexit.thread
-
-.loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
-  %.01938 = phi i32 [ %.019, %.loopexit ], [ 1, %.lr.ph ]
+_ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %.lr.ph, %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit, %19
+  %.019 = phi i32 [ 0, %19 ], [ 1, %_ZNSt6vectorI16CoredVertexIndexSaIS0_EE6resizeEm.exit ], [ 1, %.lr.ph ]
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #44
-  br label %_ZNSt6vectorIiSaIiEED2Ev.exit24
+  br label %54
 
-_ZNSt6vectorIiSaIiEED2Ev.exit24:                  ; preds = %.loopexit.thread, %.loopexit, %2
-  %.1 = phi i32 [ 0, %2 ], [ %.019, %.loopexit ], [ %.01938, %.loopexit.thread ]
+54:                                               ; preds = %2, %_ZNSt6vectorIiSaIiEED2Ev.exit24
+  %.1 = phi i32 [ %.019, %_ZNSt6vectorIiSaIiEED2Ev.exit24 ], [ 0, %2 ]
   ret i32 %.1
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %53, %51
@@ -66012,7 +66007,7 @@ _ZNK6OctreeIfE22_isInteriorlySupportedILi2EEEbPK7OctNodeI12TreeNodeDataE.exit: ;
   br i1 %.not106, label %168, label %159
 
 159:                                              ; preds = %157
-  %160 = invoke { <2 x float>, <2 x float> } @_ZNK6OctreeIfE26_getCornerValueAndGradientILi2EL12BoundaryType2EEESt4pairIf7Point3DIfEERK20ConstPointSupportKeyIXT_EEPK7OctNodeI12TreeNodeDataEiRK13DenseNodeDataIfXT_EESJ_RKNS0_10_EvaluatorIXT_EXT0_EEEb(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef %92, i32 noundef %146, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(4696) %10, i1 noundef zeroext %.0.i)
+  %160 = invoke { <2 x float>, <2 x float> } @_ZNK6OctreeIfE26_getCornerValueAndGradientILi2EL12BoundaryType2EEESt4pairIf7Point3DIfEERK20ConstPointSupportKeyIXT_EEPK7OctNodeI12TreeNodeDataEiRK13DenseNodeDataIfXT_EESJ_RKNS0_10_EvaluatorIXT_EXT0_EEEb(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull %92, i32 noundef %146, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(4696) %10, i1 noundef zeroext %.0.i)
           to label %161 unwind label %.loopexit
 
 161:                                              ; preds = %159
@@ -66031,7 +66026,7 @@ _ZNK6OctreeIfE22_isInteriorlySupportedILi2EEEbPK7OctNodeI12TreeNodeDataE.exit: ;
   br label %173
 
 168:                                              ; preds = %157
-  %169 = invoke noundef float @_ZNK6OctreeIfE15_getCornerValueIfLi2EL12BoundaryType2EEET_RK20ConstPointSupportKeyIXT0_EEPK7OctNodeI12TreeNodeDataEiRK13DenseNodeDataIS3_XT0_EESG_RKNS0_10_EvaluatorIXT0_EXT1_EEEb(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef %92, i32 noundef %146, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(4696) %10, i1 noundef zeroext %.0.i)
+  %169 = invoke noundef float @_ZNK6OctreeIfE15_getCornerValueIfLi2EL12BoundaryType2EEET_RK20ConstPointSupportKeyIXT0_EEPK7OctNodeI12TreeNodeDataEiRK13DenseNodeDataIS3_XT0_EESG_RKNS0_10_EvaluatorIXT0_EXT1_EEEb(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull %92, i32 noundef %146, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(4696) %10, i1 noundef zeroext %.0.i)
           to label %170 unwind label %.loopexit
 
 170:                                              ; preds = %168
@@ -68488,7 +68483,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %98, %117, %_Z
   %172 = load i32, ptr %32, align 8
   %173 = add nsw i32 %172, %171
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18)
-  %174 = invoke noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr noundef readonly %113, i32 noundef %169, i32 noundef %173, ptr noundef nonnull %18)
+  %174 = invoke noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr noundef nonnull readonly %113, i32 noundef %169, i32 noundef %173, ptr noundef nonnull %18)
           to label %175 unwind label %.loopexit.split-lp.loopexit
 
 175:                                              ; preds = %170
@@ -68498,7 +68493,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %98, %117, %_Z
   %178 = load ptr, ptr %11, align 8
   %179 = load float, ptr %13, align 4
   %180 = load i32, ptr %3, align 4
-  %181 = invoke noundef zeroext i1 @_ZN6OctreeIfE13_getIsoVertexILi2ELi1EL12BoundaryType2E22PlyColorAndValueVertexIfEEEbPK11BSplineDataIXT0_EXT1_EEPKNS0_16DensityEstimatorIXT_EEEPK14SparseNodeDataI14ProjectiveDataI7Point3DIfEfEXT0_EEfR20ConstPointSupportKeyIXT_EERSL_IXT0_EEPK7OctNodeI12TreeNodeDataEiiRKNS0_12_SliceValuesIT2_EERSW_(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef %176, ptr noundef %177, ptr noundef %178, float noundef %179, ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef %113, i32 noundef %154, i32 noundef %180, ptr noundef nonnull align 8 dereferenceable(320) %9, ptr noundef nonnull align 4 dereferenceable(20) %23)
+  %181 = invoke noundef zeroext i1 @_ZN6OctreeIfE13_getIsoVertexILi2ELi1EL12BoundaryType2E22PlyColorAndValueVertexIfEEEbPK11BSplineDataIXT0_EXT1_EEPKNS0_16DensityEstimatorIXT_EEEPK14SparseNodeDataI14ProjectiveDataI7Point3DIfEfEXT0_EEfR20ConstPointSupportKeyIXT_EERSL_IXT0_EEPK7OctNodeI12TreeNodeDataEiiRKNS0_12_SliceValuesIT2_EERSW_(ptr noundef nonnull align 8 dereferenceable(76) %4, ptr noundef %176, ptr noundef %177, ptr noundef %178, float noundef %179, ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull %113, i32 noundef %154, i32 noundef %180, ptr noundef nonnull align 8 dereferenceable(320) %9, ptr noundef nonnull align 4 dereferenceable(20) %23)
           to label %182 unwind label %.loopexit.split-lp.loopexit
 
 182:                                              ; preds = %175

@@ -331,8 +331,7 @@ if.else30.i:                                      ; preds = %for.end.i
 
 if.else30.thread.i:                               ; preds = %for.cond.preheader.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %entry31.i, i8 0, i64 40, i1 false)
-  %cmp32.not66.i = icmp eq ptr %retval.0.i.i, null
-  br i1 %cmp32.not66.i, label %if.then52.i, label %if.end40.i
+  br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.else30.thread.i, %if.else30.i
   %path.0.lcssa5569.i = phi ptr [ null, %if.else30.thread.i ], [ %path.1.i, %if.else30.i ]
@@ -358,7 +357,7 @@ if.then43.i:                                      ; preds = %if.end40.thread.i, 
 if.end50.i:                                       ; preds = %if.end40.i
   br i1 %cmp37.i, label %if.then52.i, label %if.then70.i
 
-if.then52.i:                                      ; preds = %if.end50.i, %if.then43.i, %if.end40.thread.i, %if.else30.thread.i
+if.then52.i:                                      ; preds = %if.end50.i, %if.then43.i, %if.end40.thread.i
   %call53.i = call fastcc i32 @provider_conf_params(ptr noundef null, ptr noundef nonnull %entry31.i, ptr noundef null, ptr noundef %1, ptr noundef %cnf)
   %18 = icmp eq i32 %call53.i, 0
   br i1 %18, label %if.then70.i, label %land.lhs.true56.i

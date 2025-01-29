@@ -190,8 +190,6 @@ define nonnull ptr @"_ZN5alloc2rc11Rc$LT$T$GT$3new17h31a9c01c1484946dE"(ptr noca
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h82881bed40837bc6E.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %5, ptr noundef nonnull align 8 dereferenceable(248) %2, i64 248, i1 false)
-  %11 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %11)
   ret ptr %5
 }
 
@@ -223,8 +221,6 @@ define nonnull ptr @"_ZN5alloc2rc11Rc$LT$T$GT$3new17h531ce3b68b62d77cE"(ptr noca
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17hffe78552914be1eeE.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
-  %11 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %11)
   ret ptr %5
 }
 
@@ -256,8 +252,6 @@ define nonnull ptr @"_ZN5alloc2rc11Rc$LT$T$GT$3new17hdfc8b92bdd1c406bE"(ptr noca
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17h690bd27ef543964cE.exit": ; preds = %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %2, i64 208, i1 false)
-  %11 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %11)
   ret ptr %5
 }
 

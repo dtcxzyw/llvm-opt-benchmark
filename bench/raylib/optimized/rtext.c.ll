@@ -8947,7 +8947,7 @@ TextToUpper.exit216:                              ; preds = %.preheader.i208, %1
   %228 = getelementptr i8, ptr %227, i64 17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %228, ptr noundef nonnull align 1 dereferenceable(3) @.str.57, i64 3, i1 false)
   call void @UnloadImage(ptr noundef nonnull byval(%struct.Image) align 8 %4) #41
-  %229 = call zeroext i1 @SaveFileText(ptr noundef %1, ptr noundef %27) #41
+  %229 = call zeroext i1 @SaveFileText(ptr noundef %1, ptr noundef nonnull %27) #41
   call void @free(ptr noundef %27) #41
   br i1 %229, label %230, label %231
 
@@ -10667,7 +10667,7 @@ TextLength.exit67:                                ; preds = %.lr.ph.i62, %.prehe
   %40 = trunc i64 %39 to i32
   %sext = shl i64 %39, 32
   %41 = ashr exact i64 %sext, 32
-  %42 = tail call ptr @strncpy(ptr noundef %.03875, ptr noundef %.04174, i64 noundef %41) #41
+  %42 = tail call ptr @strncpy(ptr noundef %.03875, ptr noundef nonnull %.04174, i64 noundef %41) #41
   %43 = getelementptr inbounds i8, ptr %.03875, i64 %41
   %44 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %2) #41
   %45 = getelementptr inbounds i8, ptr %43, i64 %33
@@ -10968,33 +10968,30 @@ define noundef nonnull ptr @TextSplit(ptr noundef readonly %0, i8 noundef signex
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define void @TextAppend(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #28 {
-  %4 = load i32, ptr %2, align 4
-  %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 %5
-  %7 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %1) #41
-  %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %TextLength.exit, label %.preheader.i
-
-.preheader.i:                                     ; preds = %3
-  %8 = load i8, ptr %1, align 1
-  %.not56.i = icmp eq i8 %8, 0
+define void @TextAppend(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #28 {
+.preheader.i:
+  %3 = load i32, ptr %2, align 4
+  %4 = sext i32 %3 to i64
+  %5 = getelementptr inbounds i8, ptr %0, i64 %4
+  %6 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #41
+  %7 = load i8, ptr %1, align 1
+  %.not56.i = icmp eq i8 %7, 0
   br i1 %.not56.i, label %TextLength.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.18.i = phi i32 [ %10, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %.037.i = phi ptr [ %9, %.lr.ph.i ], [ %1, %.preheader.i ]
-  %9 = getelementptr inbounds nuw i8, ptr %.037.i, i64 1
-  %10 = add i32 %.18.i, 1
-  %11 = load i8, ptr %9, align 1
-  %.not5.i = icmp eq i8 %11, 0
+  %.18.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.037.i = phi ptr [ %8, %.lr.ph.i ], [ %1, %.preheader.i ]
+  %8 = getelementptr inbounds nuw i8, ptr %.037.i, i64 1
+  %9 = add i32 %.18.i, 1
+  %10 = load i8, ptr %8, align 1
+  %.not5.i = icmp eq i8 %10, 0
   br i1 %.not5.i, label %TextLength.exit, label %.lr.ph.i
 
-TextLength.exit:                                  ; preds = %.lr.ph.i, %3, %.preheader.i
-  %.0.i = phi i32 [ 0, %3 ], [ 0, %.preheader.i ], [ %10, %.lr.ph.i ]
-  %12 = load i32, ptr %2, align 4
-  %13 = add i32 %12, %.0.i
-  store i32 %13, ptr %2, align 4
+TextLength.exit:                                  ; preds = %.lr.ph.i, %.preheader.i
+  %.0.i = phi i32 [ 0, %.preheader.i ], [ %9, %.lr.ph.i ]
+  %11 = load i32, ptr %2, align 4
+  %12 = add i32 %11, %.0.i
+  store i32 %12, ptr %2, align 4
   ret void
 }
 

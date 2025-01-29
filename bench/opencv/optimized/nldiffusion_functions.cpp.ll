@@ -1514,12 +1514,12 @@ define hidden void @_ZN2cv26compute_derivative_kernelsERKNS_12_OutputArrayES2_ii
 
 14:                                               ; preds = %5
   invoke void @_ZN2cv15getDerivKernelsERKNS_12_OutputArrayES2_iiibi(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef 0, i1 noundef zeroext true, i32 noundef 5)
-          to label %90 unwind label %15
+          to label %88 unwind label %15
 
 15:                                               ; preds = %25, %22, %19, %18, %17, %14
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %100
+  br label %98
 
 17:                                               ; preds = %5
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %12, i32 noundef 1, i32 noundef 5, i32 noundef -1, i1 noundef zeroext true, i32 noundef 0)
@@ -1666,18 +1666,18 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %_ZNSt6vectorIfSaIfE
 76:                                               ; preds = %31, %28, %_ZNK2cv11_InputArray6getMatEi.exit
   %77 = landingpad { ptr, i32 }
           cleanup
-  br label %99
+  br label %97
 
 .loopexit:                                        ; preds = %81, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i
   %.sroa.0.1.ph = phi ptr [ %.sroa.0.082, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i.i ], [ %.sroa.0.3, %81 ]
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %95
 
 .loopexit.split-lp:                               ; preds = %56
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %97
+  br label %95
 
 78:                                               ; preds = %_ZNSt6vectorIfSaIfEE6assignEmRKf.exit
   br label %.sink.split
@@ -1712,68 +1712,61 @@ _ZNSt6vectorIfSaIfEE6assignEmRKf.exit:            ; preds = %_ZNSt6vectorIfSaIfE
 
 85:                                               ; preds = %84
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #17
-  br i1 %48, label %47, label %88, !llvm.loop !69
+  br i1 %48, label %47, label %_ZNSt6vectorIfSaIfEED2Ev.exit, !llvm.loop !69
 
 86:                                               ; preds = %84
   %87 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #17
-  br label %97
+  br label %95
 
-88:                                               ; preds = %85
-  %.not.i.i.i = icmp eq ptr %.sroa.0.3, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %89
-
-89:                                               ; preds = %88
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %85
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3) #21
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit
-
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %88, %89
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #17
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
-  br label %90
+  br label %88
 
-90:                                               ; preds = %14, %_ZNSt6vectorIfSaIfEED2Ev.exit
-  %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %92 = load i32, ptr %91, align 8
-  %.not.i = icmp eq i32 %92, 0
-  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %93
+88:                                               ; preds = %14, %_ZNSt6vectorIfSaIfEED2Ev.exit
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %90 = load i32, ptr %89, align 8
+  %.not.i = icmp eq i32 %90, 0
+  br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %91
 
-93:                                               ; preds = %90
+91:                                               ; preds = %88
   invoke void @_ZN2cv5utils5trace7details6Region7destroyEv(ptr noundef nonnull align 8 dereferenceable(12) %6)
-          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %94
+          to label %_ZN2cv5utils5trace7details6RegionD2Ev.exit unwind label %92
 
-94:                                               ; preds = %93
-  %95 = landingpad { ptr, i32 }
+92:                                               ; preds = %91
+  %93 = landingpad { ptr, i32 }
           catch ptr null
-  %96 = extractvalue { ptr, i32 } %95, 0
-  call void @__clang_call_terminate(ptr %96) #18
+  %94 = extractvalue { ptr, i32 } %93, 0
+  call void @__clang_call_terminate(ptr %94) #18
   unreachable
 
-_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %90, %93
+_ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %88, %91
   ret void
 
-97:                                               ; preds = %.loopexit, %.loopexit.split-lp, %86
+95:                                               ; preds = %.loopexit, %.loopexit.split-lp, %86
   %.sroa.0.2 = phi ptr [ %.sroa.0.3, %86 ], [ %.sroa.0.1.ph, %.loopexit ], [ %.sroa.0.082, %.loopexit.split-lp ]
   %.pn.pn = phi { ptr, i32 } [ %87, %86 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i54 = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i.i.i54, label %_ZNSt6vectorIfSaIfEED2Ev.exit55, label %98
+  br i1 %.not.i.i.i54, label %_ZNSt6vectorIfSaIfEED2Ev.exit55, label %96
 
-98:                                               ; preds = %97
+96:                                               ; preds = %95
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #21
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit55
 
-_ZNSt6vectorIfSaIfEED2Ev.exit55:                  ; preds = %97, %98
+_ZNSt6vectorIfSaIfEED2Ev.exit55:                  ; preds = %95, %96
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #17
-  br label %99
+  br label %97
 
-99:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit55, %76
+97:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit55, %76
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %_ZNSt6vectorIfSaIfEED2Ev.exit55 ], [ %77, %76 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #17
-  br label %100
+  br label %98
 
-100:                                              ; preds = %99, %15
-  %.pn45 = phi { ptr, i32 } [ %16, %15 ], [ %.pn.pn.pn, %99 ]
+98:                                               ; preds = %97, %15
+  %.pn45 = phi { ptr, i32 } [ %16, %15 ], [ %.pn.pn.pn, %97 ]
   call void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %6) #17
   resume { ptr, i32 } %.pn45
 }

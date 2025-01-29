@@ -1123,24 +1123,24 @@ _ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit:            ; preds = %35, %.thread
 
 43:                                               ; preds = %40
   tail call void @perror(ptr noundef nonnull @.str.19) #24
-  br label %.outer._crit_edge
+  br label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23
 
 44:                                               ; preds = %40
   %45 = load i32, ptr @_ZN13SubprocessSet12interrupted_E, align 4
   %46 = icmp ne i32 %45, 0
-  br label %.outer._crit_edge
+  br label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23
 
 47:                                               ; preds = %38
   tail call void @_ZN13SubprocessSet25HandlePendingInterruptionEv()
   %48 = load i32, ptr @_ZN13SubprocessSet12interrupted_E, align 4
   %.not62 = icmp eq i32 %48, 0
-  br i1 %.not62, label %49, label %.outer._crit_edge
+  br i1 %.not62, label %49, label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %0, align 8
   %51 = load ptr, ptr %4, align 8
   %.not6387 = icmp eq ptr %50, %51
-  br i1 %.not6387, label %.outer._crit_edge, label %.outer.split.lr.ph
+  br i1 %.not6387, label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23, label %.outer.split.lr.ph
 
 .outer.split.lr.ph:                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1263,26 +1263,17 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10SubprocessSt6vectorIS3_SaIS3_EEEES8
   %.pre9296 = phi ptr [ %101, %99 ], [ %.pre92, %102 ]
   %.sroa.025.0.ph.be = phi ptr [ %93, %99 ], [ %103, %102 ]
   %.not63 = icmp eq ptr %.sroa.025.0.ph.be, %.pre9296
-  br i1 %.not63, label %.outer._crit_edge.thread, label %.outer.split, !llvm.loop !10
+  br i1 %.not63, label %.outer._crit_edge.loopexit, label %.outer.split, !llvm.loop !10
 
-.outer._crit_edge.thread:                         ; preds = %.outer.backedge
+.outer._crit_edge.loopexit:                       ; preds = %.outer.backedge
   %.pre93 = load i32, ptr @_ZN13SubprocessSet12interrupted_E, align 4
   %104 = icmp ne i32 %.pre93, 0
-  br label %105
-
-.outer._crit_edge:                                ; preds = %49, %47, %44, %43
-  %.0 = phi i1 [ false, %43 ], [ %46, %44 ], [ true, %47 ], [ false, %49 ]
-  %.not.i.i.i22 = icmp eq ptr %.sroa.051.1, null
-  br i1 %.not.i.i.i22, label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23, label %105
-
-105:                                              ; preds = %.outer._crit_edge.thread, %.outer._crit_edge
-  %.0100 = phi i1 [ %104, %.outer._crit_edge.thread ], [ %.0, %.outer._crit_edge ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.051.1) #25
   br label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23
 
-_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23:          ; preds = %.outer._crit_edge, %105
-  %.0101 = phi i1 [ %.0, %.outer._crit_edge ], [ %.0100, %105 ]
-  ret i1 %.0101
+_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23:          ; preds = %49, %.outer._crit_edge.loopexit, %47, %44, %43
+  %.0 = phi i1 [ false, %43 ], [ %46, %44 ], [ true, %47 ], [ %104, %.outer._crit_edge.loopexit ], [ false, %49 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.051.1) #25
+  ret i1 %.0
 }
 
 declare i32 @ppoll(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

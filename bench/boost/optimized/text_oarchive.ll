@@ -800,7 +800,7 @@ define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveE
   %12 = load i32, ptr %11, align 8, !tbaa !45
   %13 = and i32 %12, 5
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %13, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5boost7archive6detail18interface_oarchiveINS0_13text_oarchiveEElsImEERS3_RKT_.exit, label %14
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, label %14
 
 14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #16
@@ -818,30 +818,12 @@ define weak_odr void @_ZN5boost7archive18text_oarchive_implINS0_13text_oarchiveE
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #16
   resume { ptr, i32 } %17
 
-_ZN5boost7archive6detail18interface_oarchiveINS0_13text_oarchiveEElsImEERS3_RKT_.exit: ; preds = %2
+_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %2
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %4)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_13text_oarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(44) %0)
   %19 = load ptr, ptr %5, align 8, !tbaa !31
-  %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %20, label %28
-
-20:                                               ; preds = %_ZN5boost7archive6detail18interface_oarchiveINS0_13text_oarchiveEElsImEERS3_RKT_.exit
-  %21 = load ptr, ptr %19, align 8, !tbaa !43
-  %22 = getelementptr i8, ptr %21, i64 -24
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load i32, ptr %25, align 8, !tbaa !45
-  %27 = or i32 %26, 1
-  tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %24, i32 noundef %27)
-  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-
-28:                                               ; preds = %_ZN5boost7archive6detail18interface_oarchiveINS0_13text_oarchiveEElsImEERS3_RKT_.exit
-  %29 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
-  %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %1, i64 noundef %29)
-  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-
-_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %28
+  %20 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
+  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %1, i64 noundef %20)
   ret void
 }
 
@@ -1422,8 +1404,6 @@ declare void @_ZN5boost7archive6detail14basic_oarchiveC2Ej(ptr noundef nonnull a
 declare void @_ZN5boost7archive6detail14basic_oarchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #6
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
-
-declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #2
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEs(ptr noundef nonnull align 8 dereferenceable(8), i16 noundef signext) local_unnamed_addr #2
 

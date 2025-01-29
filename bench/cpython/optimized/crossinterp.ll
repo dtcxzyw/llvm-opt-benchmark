@@ -2762,7 +2762,7 @@ if.else:                                          ; preds = %if.end10
 
 for.body28:                                       ; preds = %if.else, %for.inc39
   %i.264 = phi i64 [ %inc40, %for.inc39 ], [ 0, %if.else ]
-  %call30 = call ptr @PySequence_GetItem(ptr noundef %names, i64 noundef %i.264) #13
+  %call30 = call ptr @PySequence_GetItem(ptr noundef nonnull %names, i64 noundef %i.264) #13
   %cmp31 = icmp eq ptr %call30, null
   br i1 %cmp31, label %error, label %if.end33
 
@@ -4178,9 +4178,7 @@ if.end.i:                                         ; preds = %entry
 _excinfo_normalize_type.exit:                     ; preds = %if.end.i
   %call9.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.21) #16
   %cmp10.i = icmp eq i32 %call9.i, 0
-  %cmp1.not22 = icmp eq ptr %1, null
-  %cmp1.not = or i1 %cmp10.i, %cmp1.not22
-  br i1 %cmp1.not, label %if.else7, label %if.then2
+  br i1 %cmp10.i, label %if.else7, label %if.then2
 
 if.then2:                                         ; preds = %_excinfo_normalize_type.exit
   %msg = getelementptr inbounds nuw i8, ptr %info, i64 32

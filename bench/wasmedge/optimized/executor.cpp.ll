@@ -21075,7 +21075,7 @@ _ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presenta
 
 _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit.i: ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit.i
   %307 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0402.0..sroa.0402.0..sroa.0402.0..sroa.0402.0.410) #20
-  %308 = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %.sroa.0.0.copyload.i, ptr %.sroa.0402.0..sroa.0402.0..sroa.0402.0..sroa.0402.0.410, i64 %307, ptr noundef nonnull align 4 dereferenceable(16) %26)
+  %308 = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %.sroa.0.0.copyload.i, ptr nonnull %.sroa.0402.0..sroa.0402.0..sroa.0402.0..sroa.0402.0.410, i64 %307, ptr noundef nonnull align 4 dereferenceable(16) %26)
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_PKT_RKNS0_18basic_format_specsIS5_EENS1_10locale_refE.exit
 
 309:                                              ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit.i
@@ -21344,7 +21344,7 @@ _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffer
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %79
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %82, i64 %66)
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %81, ptr nonnull %0, i64 %..i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %81, ptr nonnull %0, i64 %..i.i.i.i.i.i)
   %84 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %85 = icmp eq i64 %82, %66
   %or.cond.i.i.i.i = and i1 %85, %84
@@ -22278,7 +22278,7 @@ define linkonce_odr hidden void @_ZNK3fmt2v817basic_format_argsINS0_20basic_form
   br i1 %19, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %15
-  %bcmp.i.i = tail call i32 @bcmp(ptr %17, ptr %2, i64 %..i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %17, ptr %2, i64 %..i.i.i)
   %20 = icmp eq i32 %bcmp.i.i, 0
   %21 = icmp eq i64 %18, %3
   %or.cond.i = select i1 %20, i1 %21, i1 false
@@ -30606,25 +30606,18 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit:    ; preds = %.noexc
 34:                                               ; preds = %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance13getModuleNameEv.exit
   %35 = landingpad { ptr, i32 }
           cleanup
-  br label %38
+  br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit8
 
 36:                                               ; preds = %.noexc, %28
   %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
-  br label %38
-
-38:                                               ; preds = %34, %36
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
-  %.not.i.i7 = icmp eq ptr %1, null
-  br i1 %.not.i.i7, label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit8, label %39
-
-39:                                               ; preds = %38
-  %40 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
   br label %_ZNSt11unique_lockISt12shared_mutexED2Ev.exit8
 
-_ZNSt11unique_lockISt12shared_mutexED2Ev.exit8:   ; preds = %38, %39
+_ZNSt11unique_lockISt12shared_mutexED2Ev.exit8:   ; preds = %34, %36
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %35, %34 ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
+  %38 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
   resume { ptr, i32 } %.pn
 }
 

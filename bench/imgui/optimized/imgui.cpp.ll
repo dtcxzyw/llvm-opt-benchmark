@@ -3469,7 +3469,7 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   br label %_ZN5ImGui8MemAllocEm.exit
 
 _ZN5ImGui8MemAllocEm.exit:                        ; preds = %entry, %if.then11.i.i, %if.else.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %str, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr nonnull align 1 %str, i64 %add, i1 false)
   ret ptr %call.i
 }
 
@@ -3690,7 +3690,7 @@ if.then5:                                         ; preds = %_ZN5ImGui8MemAllocE
 
 if.end6:                                          ; preds = %_ZN5ImGui8MemAllocEm.exit, %if.then5, %cond.end
   %dst.addr.0 = phi ptr [ %call.i, %if.then5 ], [ %call.i, %_ZN5ImGui8MemAllocEm.exit ], [ %dst, %cond.end ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.addr.0, ptr align 1 %src, i64 %add2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dst.addr.0, ptr nonnull align 1 %src, i64 %add2, i1 false)
   ret ptr %dst.addr.0
 }
 
@@ -7074,7 +7074,7 @@ if.then9:                                         ; preds = %if.end
 if.end18:                                         ; preds = %if.then9, %if.end
   %2 = phi i32 [ %.pr, %if.then9 ], [ %1, %if.end ]
   %cmp.i = icmp sgt i32 %add, %2
-  br i1 %cmp.i, label %if.then.i, label %_ZN8ImVectorIcE6resizeEi.exit
+  br i1 %cmp.i, label %if.then.i, label %_Z15ImFormatStringVPcmPKcP13__va_list_tag.exit
 
 if.then.i:                                        ; preds = %if.end18
   %tobool.not.i.i = icmp eq i32 %2, 0
@@ -7089,9 +7089,9 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %cond.true.i.i, %if.
   %cond.i.i = phi i32 [ %add.i.i, %cond.true.i.i ], [ 8, %if.then.i ]
   %cond7.i.i = call noundef i32 @llvm.smax.i32(i32 %cond.i.i, i32 %add)
   call void @_ZN8ImVectorIcE7reserveEi(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %cond7.i.i)
-  br label %_ZN8ImVectorIcE6resizeEi.exit
+  br label %_Z15ImFormatStringVPcmPKcP13__va_list_tag.exit
 
-_ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %if.end18, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
+_Z15ImFormatStringVPcmPKcP13__va_list_tag.exit:   ; preds = %if.end18, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
   store i32 %add, ptr %this, align 8
   %Data.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %Data.i, align 8
@@ -7101,10 +7101,6 @@ _ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %if.end18, %_ZNK8ImV
   %narrow = add nuw i32 %call.i, 1
   %add22 = zext i32 %narrow to i64
   %call.i12 = call i32 @vsnprintf(ptr noundef nonnull %arrayidx.i, i64 noundef %add22, ptr noundef readonly %fmt, ptr noundef nonnull %args_copy) #39
-  %cmp.i13 = icmp eq ptr %arrayidx.i, null
-  br i1 %cmp.i13, label %return, label %if.end.i
-
-if.end.i:                                         ; preds = %_ZN8ImVectorIcE6resizeEi.exit
   %cmp1.i = icmp ne i32 %call.i12, -1
   %cmp2.not.i = icmp slt i32 %call.i12, %narrow
   %or.cond.i = and i1 %cmp1.i, %cmp2.not.i
@@ -7114,7 +7110,7 @@ if.end.i:                                         ; preds = %_ZN8ImVectorIcE6res
   store i8 0, ptr %arrayidx.i15, align 1
   br label %return
 
-return:                                           ; preds = %if.end.i, %_ZN8ImVectorIcE6resizeEi.exit, %entry
+return:                                           ; preds = %entry, %_Z15ImFormatStringVPcmPKcP13__va_list_tag.exit
   call void @llvm.va_end.p0(ptr nonnull %args_copy)
   ret void
 }
@@ -14427,7 +14423,7 @@ _ZNK8ImVectorIcE14_grow_capacityEi.exit.i:        ; preds = %cond.true.i.i, %if.
 _ZN8ImVectorIcE6resizeEi.exit:                    ; preds = %_ZN8ImVectorIcE5clearEv.exit, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i
   %11 = phi ptr [ null, %_ZN8ImVectorIcE5clearEv.exit ], [ %.pre, %_ZNK8ImVectorIcE14_grow_capacityEi.exit.i ]
   store i32 %add, ptr %ClipboardHandlerData, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr align 1 %text, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %11, ptr nonnull align 1 %text, i64 %call, i1 false)
   %12 = load ptr, ptr %Data.i, align 8
   %sext = shl i64 %call, 32
   %idxprom.i = ashr exact i64 %sext, 32
@@ -15997,7 +15993,7 @@ if.else.i.i.i:                                    ; preds = %if.end.i.i.i
   br label %invoke.cont27
 
 invoke.cont27:                                    ; preds = %if.else.i.i.i, %if.then11.i.i.i, %call.i.i.noexc
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i23, ptr readonly align 1 %name, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i23, ptr nonnull readonly align 1 %name, i64 %add.i, i1 false)
   %Name = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call.i.i23, ptr %Name, align 8
   %call28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #57
@@ -32396,7 +32392,7 @@ if.then298:                                       ; preds = %land.lhs.true295
   %189 = load i32, ptr %NameBufLen, align 8
   %conv299 = sext i32 %189 to i64
   store i64 %conv299, ptr %buf_len, align 8
-  %call301 = call noundef ptr @_Z11ImStrdupcpyPcPmPKc(ptr noundef %188, ptr noundef nonnull %buf_len, ptr noundef nonnull %name)
+  %call301 = call noundef ptr @_Z11ImStrdupcpyPcPmPKc(ptr noundef nonnull %188, ptr noundef nonnull %buf_len, ptr noundef nonnull %name)
   store ptr %call301, ptr %Name, align 8
   %190 = load i64, ptr %buf_len, align 8
   %conv303 = trunc i64 %190 to i32
@@ -60591,7 +60587,7 @@ _Z9ImHashStrPKcmj.exit:                           ; preds = %if.end.i, %if.end30
   store i32 %not40.i, ptr %add.ptr13.i, align 4
   %add.ptr.i12 = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 20
   %add10 = add i64 %call4, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i12, ptr align 1 %name.addr.0, i64 %add10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i12, ptr nonnull align 1 %name.addr.0, i64 %add10, i1 false)
   ret ptr %add.ptr13.i
 }
 

@@ -13953,7 +13953,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
           to label %9 unwind label %13
 
 9:                                                ; preds = %3
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %6)
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %6)
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
@@ -21811,12 +21811,12 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br i1 %616, label %617, label %618
 
 617:                                              ; preds = %615
-  invoke void @_ZN4Luau14checkNonStrictENS_7NotNullINS_12BuiltinTypesEEENS0_INS_21InternalErrorReporterEEENS0_INS_18UnifierSharedStateEEENS0_IKNS_13DataFlowGraphEEENS0_INS_15TypeCheckLimitsEEERKNS_12SourceModuleEPNS_6ModuleE(ptr %4, ptr %5, ptr nonnull %20, ptr nonnull %19, ptr %11, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull %525)
+  invoke void @_ZN4Luau14checkNonStrictENS_7NotNullINS_12BuiltinTypesEEENS0_INS_21InternalErrorReporterEEENS0_INS_18UnifierSharedStateEEENS0_IKNS_13DataFlowGraphEEENS0_INS_15TypeCheckLimitsEEERKNS_12SourceModuleEPNS_6ModuleE(ptr %4, ptr %5, ptr nonnull %20, ptr nonnull %19, ptr nonnull %11, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull %525)
           to label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit unwind label %.loopexit.split-lp345
 
 618:                                              ; preds = %615
   %619 = load ptr, ptr %15, align 8
-  invoke void @_ZN4Luau5checkENS_7NotNullINS_12BuiltinTypesEEENS0_INS_18UnifierSharedStateEEENS0_INS_15TypeCheckLimitsEEEPNS_9DcrLoggerERKNS_12SourceModuleEPNS_6ModuleE(ptr %4, ptr nonnull %20, ptr %11, ptr noundef %619, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull %525)
+  invoke void @_ZN4Luau5checkENS_7NotNullINS_12BuiltinTypesEEENS0_INS_18UnifierSharedStateEEENS0_INS_15TypeCheckLimitsEEEPNS_9DcrLoggerERKNS_12SourceModuleEPNS_6ModuleE(ptr %4, ptr nonnull %20, ptr nonnull %11, ptr noundef %619, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr noundef nonnull %525)
           to label %_ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit unwind label %.loopexit.split-lp345
 
 _ZNSt10shared_ptrIN4Luau5ScopeEED2Ev.exit:        ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i156, %610, %597, %._crit_edge368, %617, %618
@@ -30812,7 +30812,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i.i: ; preds = %19
   %31 = load ptr, ptr %26, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %32, ptr %26, align 8
-  br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i.i.i.i
+  br label %"_ZSt10__invoke_rIvRZZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS0_15FrontendOptionsEESt8functionIFvS5_IFvvEEEES5_IFvmmEEENK3$_2clEmEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
 33:                                               ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i.i
   %34 = load ptr, ptr %25, align 8
@@ -30824,7 +30824,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i.i.i: ; preds = %19
 
 39:                                               ; preds = %33
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.76) #27
-          to label %.noexc.i.i.i.i unwind label %55
+          to label %.noexc.i.i.i.i unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit10.i.i.i.i
 
 .noexc.i.i.i.i:                                   ; preds = %39
   unreachable
@@ -30840,7 +30840,7 @@ _ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i: ; preds = %33
   call void @llvm.assume(i1 %.not.i.i.i6.i.i.i.i)
   %45 = shl nuw nsw i64 %44, 3
   %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #28
-          to label %.noexc7.i.i.i.i unwind label %55
+          to label %.noexc7.i.i.i.i unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit10.i.i.i.i
 
 .noexc7.i.i.i.i:                                  ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i
   %47 = getelementptr inbounds i8, ptr %46, i64 %37
@@ -30866,33 +30866,19 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   store ptr %50, ptr %26, align 8
   %52 = getelementptr inbounds nuw i64, ptr %46, i64 %44
   store ptr %52, ptr %28, align 8
-  br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i.i.i.i
-
-_ZNSt6vectorImSaImEE9push_backERKm.exit.i.i.i.i:  ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i, %30
-  %.not.i.i8.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i8.i.i.i.i, label %"_ZSt10__invoke_rIvRZZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS0_15FrontendOptionsEESt8functionIFvS5_IFvvEEEES5_IFvmmEEENK3$_2clEmEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %53
-
-53:                                               ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit.i.i.i.i
-  %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %21) #25
   br label %"_ZSt10__invoke_rIvRZZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS0_15FrontendOptionsEESt8functionIFvS5_IFvvEEEES5_IFvmmEEENK3$_2clEmEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit"
 
-55:                                               ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i, %39
-  %56 = landingpad { ptr, i32 }
+_ZNSt11unique_lockISt5mutexED2Ev.exit10.i.i.i.i:  ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i.i.i, %39
+  %53 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i9.i.i.i.i = icmp eq ptr %21, null
-  br i1 %.not.i.i9.i.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit10.i.i.i.i, label %57
+  %54 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %21) #25
+  resume { ptr, i32 } %53
 
-57:                                               ; preds = %55
-  %58 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %21) #25
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit10.i.i.i.i
-
-_ZNSt11unique_lockISt5mutexED2Ev.exit10.i.i.i.i:  ; preds = %57, %55
-  resume { ptr, i32 } %56
-
-"_ZSt10__invoke_rIvRZZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS0_15FrontendOptionsEESt8functionIFvS5_IFvvEEEES5_IFvmmEEENK3$_2clEmEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit.i.i.i.i, %53
-  %59 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %60 = load ptr, ptr %59, align 8
-  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %60) #25
+"_ZSt10__invoke_rIvRZZN4Luau8Frontend18checkQueuedModulesB5cxx11ESt8optionalINS0_15FrontendOptionsEESt8functionIFvS5_IFvvEEEES5_IFvmmEEENK3$_2clEmEUlvE_JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %30, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i.i
+  %55 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %21) #25
+  %56 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  %57 = load ptr, ptr %56, align 8
+  call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %57) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   ret void
 }

@@ -2306,7 +2306,7 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI7QPoi
 54:                                               ; preds = %15, %4
   %55 = landingpad { ptr, i32 }
           cleanup
-  br label %307
+  br label %305
 
 .loopexit:                                        ; preds = %194
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2528,7 +2528,7 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI7QPoi
 157:                                              ; preds = %81, %.loopexit115
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %159 = load i32, ptr %158, align 8
-  switch i32 %159, label %304 [
+  switch i32 %159, label %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit [
     i32 0, label %.preheader
     i32 1, label %.preheader114
   ]
@@ -2662,7 +2662,7 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI7QPoi
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 1224
   %231 = load i32, ptr %230, align 8
   invoke void @_ZN6GLArea15updateSelectionEibb(ptr noundef nonnull align 8 dereferenceable(1676) %2, i32 noundef %231, i1 noundef zeroext %228, i1 noundef zeroext %229)
-          to label %304 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 232:                                              ; preds = %.lr.ph136, %295
   %233 = phi ptr [ %163, %.lr.ph136 ], [ %298, %295 ]
@@ -2788,15 +2788,8 @@ _ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI7QPoi
   %303 = icmp ult i64 %296, %302
   br i1 %303, label %232, label %._crit_edge140.invoke, !llvm.loop !32
 
-304:                                              ; preds = %._crit_edge140.invoke, %157
-  %.not.i.i.i = icmp eq ptr %.sroa.097.0.lcssa, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit, label %305
-
-305:                                              ; preds = %304
+_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit:           ; preds = %._crit_edge140.invoke, %157
   call void @_ZdlPv(ptr noundef nonnull %.sroa.097.0.lcssa) #24
-  br label %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit
-
-_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit:           ; preds = %304, %305
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
   ret void
@@ -2805,17 +2798,17 @@ _ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit:           ; preds = %304, %305
   %.sroa.097.0122 = phi ptr [ %.sroa.097.0.lcssa, %155 ], [ %.sroa.097.0.lcssa, %.loopexit ], [ %.sroa.097.0.lcssa, %.loopexit.split-lp.loopexit ], [ %.sroa.097.0131, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.sroa.097.0126, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.pn = phi { ptr, i32 } [ %156, %155 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit111, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit117, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %.not.i.i.i92 = icmp eq ptr %.sroa.097.0122, null
-  br i1 %.not.i.i.i92, label %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit93, label %306
+  br i1 %.not.i.i.i92, label %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit93, label %304
 
-306:                                              ; preds = %.loopexit.split-lp
+304:                                              ; preds = %.loopexit.split-lp
   call void @_ZdlPv(ptr noundef nonnull %.sroa.097.0122) #24
   br label %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit93
 
-_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit93:         ; preds = %.loopexit.split-lp, %306
+_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit93:         ; preds = %.loopexit.split-lp, %304
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
-  br label %307
+  br label %305
 
-307:                                              ; preds = %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit93, %54
+305:                                              ; preds = %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit93, %54
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorI7QPointFSaIS0_EED2Ev.exit93 ], [ %55, %54 ]
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #25
   resume { ptr, i32 } %.pn.pn

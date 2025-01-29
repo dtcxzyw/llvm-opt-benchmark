@@ -72467,104 +72467,152 @@ if.end68:                                         ; preds = %if.then62
 
 if.end71:                                         ; preds = %if.end68, %if.end54
   %jobQueue = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 664
-  %call74 = call i32 @ma_job_queue_init(ptr noundef nonnull %jobQueueConfig, ptr noundef nonnull %pResourceManager, ptr noundef nonnull %jobQueue)
-  %cmp75.not = icmp eq i32 %call74, 0
-  br i1 %cmp75.not, label %if.end78, label %return
+  %cmp1.i.i.i = icmp eq i32 %24, 0
+  br i1 %cmp1.i.i.i, label %return, label %if.then.i.i
 
-if.end78:                                         ; preds = %if.end71
+if.then.i.i:                                      ; preds = %if.end71
+  %onMalloc.i.i100 = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 8
+  %26 = load ptr, ptr %onMalloc.i.i100, align 8
+  %cmp1.not.i.i = icmp eq ptr %26, null
+  br i1 %cmp1.not.i.i, label %return, label %ma_malloc.exit.i
+
+ma_malloc.exit.i:                                 ; preds = %if.then.i.i
+  %conv10.i.i.i.i.i = zext i32 %24 to i64
+  %mul11.i.i.i.i.i = shl nuw nsw i64 %conv10.i.i.i.i.i, 2
+  %add12.i.i.i.i.i = add nuw nsw i64 %mul11.i.i.i.i.i, 7
+  %and13.i.i.i.i.i = and i64 %add12.i.i.i.i.i, 34359738360
+  %mul.i.i.i = mul nuw nsw i64 %conv10.i.i.i.i.i, 104
+  %add15.i.i.i.i.i = add nuw nsw i64 %and13.i.i.i.i.i, %mul.i.i.i
+  %div.i15.i.i.i.i.i = lshr i32 %24, 5
+  %rem.i.i.i.i.i.i = and i32 %24, 31
+  %cmp.i16.not.i.i.i.i.i = icmp ne i32 %rem.i.i.i.i.i.i, 0
+  %add.i.i.i.i.i.i = zext i1 %cmp.i16.not.i.i.i.i.i to i32
+  %spec.select.i.i.i.i.i = add nuw nsw i32 %div.i15.i.i.i.i.i, %add.i.i.i.i.i.i
+  %27 = shl nuw nsw i32 %spec.select.i.i.i.i.i, 2
+  %narrow.i.i.i.i.i = add nuw nsw i32 %27, 7
+  %28 = and i32 %narrow.i.i.i.i.i, 2147483640
+  %and.i.i.i.i.i = zext nneg i32 %28 to i64
+  %add15.i.i.i = add nuw nsw i64 %add15.i.i.i.i.i, %and.i.i.i.i.i
+  %29 = load ptr, ptr %pResourceManager, align 8
+  %call.i.i = tail call ptr %26(i64 noundef %add15.i.i.i, ptr noundef %29) #64
+  %cmp4.i102 = icmp eq ptr %call.i.i, null
+  br i1 %cmp4.i102, label %return, label %if.end7.i
+
+if.end7.i:                                        ; preds = %ma_malloc.exit.i
+  %call8.i = call i32 @ma_job_queue_init_preallocated(ptr noundef nonnull %jobQueueConfig, ptr noundef nonnull %call.i.i, ptr noundef nonnull %jobQueue)
+  %cmp9.not.i = icmp eq i32 %call8.i, 0
+  br i1 %cmp9.not.i, label %if.end78, label %if.then2.i11.i
+
+if.then2.i11.i:                                   ; preds = %if.end7.i
+  %onFree.i.i103 = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 24
+  %30 = load ptr, ptr %onFree.i.i103, align 8
+  %cmp3.not.i.i = icmp eq ptr %30, null
+  br i1 %cmp3.not.i.i, label %return, label %if.then4.i.i
+
+if.then4.i.i:                                     ; preds = %if.then2.i11.i
+  %31 = load ptr, ptr %pResourceManager, align 8
+  call void %30(ptr noundef nonnull %call.i.i, ptr noundef %31) #64
+  br label %return
+
+if.end78:                                         ; preds = %if.end7.i
+  %_ownsHeap.i = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 848
+  store i32 1, ptr %_ownsHeap.i, align 8
   %ppCustomDecodingBackendVTables = getelementptr inbounds nuw i8, ptr %pConfig, i64 80
-  %26 = load ptr, ptr %ppCustomDecodingBackendVTables, align 8
-  %cmp79.not = icmp eq ptr %26, null
+  %32 = load ptr, ptr %ppCustomDecodingBackendVTables, align 8
+  %cmp79.not = icmp eq ptr %32, null
   br i1 %cmp79.not, label %if.end108, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end78
   %customDecodingBackendCount = getelementptr inbounds nuw i8, ptr %pConfig, i64 88
-  %27 = load i32, ptr %customDecodingBackendCount, align 8
-  %cmp81.not = icmp eq i32 %27, 0
+  %33 = load i32, ptr %customDecodingBackendCount, align 8
+  %cmp81.not = icmp eq i32 %33, 0
   br i1 %cmp81.not, label %if.end108, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true
-  %conv85 = zext i32 %27 to i64
+  %conv85 = zext i32 %33 to i64
   %mul = shl nuw nsw i64 %conv85, 3
-  %onMalloc.i99 = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 8
-  %28 = load ptr, ptr %onMalloc.i99, align 8
-  %cmp1.not.i = icmp eq ptr %28, null
+  %34 = load ptr, ptr %onMalloc.i.i100, align 8
+  %cmp1.not.i = icmp eq ptr %34, null
   br i1 %cmp1.not.i, label %ma_malloc.exit.thread, label %ma_malloc.exit
 
 ma_malloc.exit.thread:                            ; preds = %if.then.i
-  %ppCustomDecodingBackendVTables90108 = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 80
-  store ptr null, ptr %ppCustomDecodingBackendVTables90108, align 8
-  br label %return.sink.split
+  %ppCustomDecodingBackendVTables90118 = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 80
+  store ptr null, ptr %ppCustomDecodingBackendVTables90118, align 8
+  br label %if.then95
 
 ma_malloc.exit:                                   ; preds = %if.then.i
-  %29 = load ptr, ptr %pResourceManager, align 8
-  %call.i = call ptr %28(i64 noundef %mul, ptr noundef %29) #64
+  %35 = load ptr, ptr %pResourceManager, align 8
+  %call.i = call ptr %34(i64 noundef %mul, ptr noundef %35) #64
   %ppCustomDecodingBackendVTables90 = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 80
   store ptr %call.i, ptr %ppCustomDecodingBackendVTables90, align 8
   %cmp93 = icmp eq ptr %call.i, null
-  br i1 %cmp93, label %return.sink.split, label %if.end99
+  br i1 %cmp93, label %if.then95, label %if.end99
+
+if.then95:                                        ; preds = %ma_malloc.exit.thread, %ma_malloc.exit
+  call void @ma_job_queue_uninit(ptr noundef nonnull %jobQueue, ptr noundef nonnull %pResourceManager)
+  br label %return
 
 if.end99:                                         ; preds = %ma_malloc.exit
-  %30 = load ptr, ptr %ppCustomDecodingBackendVTables, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr align 8 %30, i64 %mul, i1 false)
-  %31 = load i32, ptr %customDecodingBackendCount, align 8
+  %36 = load ptr, ptr %ppCustomDecodingBackendVTables, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr align 8 %36, i64 %mul, i1 false)
+  %37 = load i32, ptr %customDecodingBackendCount, align 8
   %customDecodingBackendCount105 = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 88
-  store i32 %31, ptr %customDecodingBackendCount105, align 8
+  store i32 %37, ptr %customDecodingBackendCount105, align 8
   %pCustomDecodingBackendUserData = getelementptr inbounds nuw i8, ptr %pConfig, i64 96
-  %32 = load ptr, ptr %pCustomDecodingBackendUserData, align 8
+  %38 = load ptr, ptr %pCustomDecodingBackendUserData, align 8
   %pCustomDecodingBackendUserData107 = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 96
-  store ptr %32, ptr %pCustomDecodingBackendUserData107, align 8
+  store ptr %38, ptr %pCustomDecodingBackendUserData107, align 8
   br label %if.end108
 
 if.end108:                                        ; preds = %if.end99, %land.lhs.true, %if.end78
   %pResourceManager.val = load i32, ptr %flags, align 4
-  %33 = and i32 %pResourceManager.val, 2
-  %tobool.not.not = icmp eq i32 %33, 0
+  %39 = and i32 %pResourceManager.val, 2
+  %tobool.not.not = icmp eq i32 %39, 0
   br i1 %tobool.not.not, label %if.then110, label %return
 
 if.then110:                                       ; preds = %if.end108
   %dataBufferBSTLock = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 112
   %call111 = call i32 @ma_mutex_init(ptr noundef nonnull %dataBufferBSTLock)
   %cmp112.not = icmp eq i32 %call111, 0
-  br i1 %cmp112.not, label %for.cond.preheader, label %return.sink.split
+  br i1 %cmp112.not, label %for.cond.preheader, label %if.then114
 
 for.cond.preheader:                               ; preds = %if.then110
   %jobThreadCount120 = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 52
-  %34 = load i32, ptr %jobThreadCount120, align 4
-  %cmp121110.not = icmp eq i32 %34, 0
-  br i1 %cmp121110.not, label %return, label %for.body.lr.ph
+  %40 = load i32, ptr %jobThreadCount120, align 4
+  %cmp121120.not = icmp eq i32 %40, 0
+  br i1 %cmp121120.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %jobThreads = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 152
   %jobThreadStackSize = getelementptr inbounds nuw i8, ptr %pResourceManager, i64 56
   br label %for.body
 
+if.then114:                                       ; preds = %if.then110
+  call void @ma_job_queue_uninit(ptr noundef nonnull %jobQueue, ptr noundef nonnull %pResourceManager)
+  br label %return
+
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load i32, ptr %jobThreadCount120, align 4
-  %36 = zext i32 %35 to i64
-  %cmp121 = icmp samesign ult i64 %indvars.iv.next, %36
+  %41 = load i32, ptr %jobThreadCount120, align 4
+  %42 = zext i32 %41 to i64
+  %cmp121 = icmp samesign ult i64 %indvars.iv.next, %42
   br i1 %cmp121, label %for.body, label %return, !llvm.loop !722
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr inbounds nuw [64 x i64], ptr %jobThreads, i64 0, i64 %indvars.iv
-  %37 = load i64, ptr %jobThreadStackSize, align 8
-  %call126 = call fastcc i32 @ma_thread_create(ptr noundef nonnull %arrayidx, i32 noundef -2, i64 noundef %37, ptr noundef nonnull @ma_resource_manager_job_thread, ptr noundef nonnull %pResourceManager, ptr noundef nonnull %pResourceManager)
+  %43 = load i64, ptr %jobThreadStackSize, align 8
+  %call126 = call fastcc i32 @ma_thread_create(ptr noundef nonnull %arrayidx, i32 noundef -2, i64 noundef %43, ptr noundef nonnull @ma_resource_manager_job_thread, ptr noundef nonnull %pResourceManager, ptr noundef nonnull %pResourceManager)
   %cmp127.not = icmp eq i32 %call126, 0
   br i1 %cmp127.not, label %for.cond, label %if.then129
 
 if.then129:                                       ; preds = %for.body
-  %call.i.i104 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %dataBufferBSTLock) #64
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then110, %ma_malloc.exit, %ma_malloc.exit.thread, %if.then129
-  %retval.0.ph = phi i32 [ %call126, %if.then129 ], [ -4, %ma_malloc.exit.thread ], [ -4, %ma_malloc.exit ], [ %call111, %if.then110 ]
+  %call.i.i112 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %dataBufferBSTLock) #64
   call void @ma_job_queue_uninit(ptr noundef nonnull %jobQueue, ptr noundef nonnull %pResourceManager)
   br label %return
 
-return:                                           ; preds = %for.cond, %return.sink.split, %for.cond.preheader, %if.end108, %if.end71, %if.then62, %if.then45, %if.end3, %if.then2.i, %entry
-  %retval.0 = phi i32 [ -2, %entry ], [ -2, %if.then2.i ], [ -2, %if.end3 ], [ -2, %if.then45 ], [ -2, %if.then62 ], [ %call74, %if.end71 ], [ 0, %if.end108 ], [ 0, %for.cond.preheader ], [ %retval.0.ph, %return.sink.split ], [ 0, %for.cond ]
+return:                                           ; preds = %for.cond, %for.cond.preheader, %if.then.i.i, %if.end71, %if.then4.i.i, %if.then2.i11.i, %ma_malloc.exit.i, %if.end108, %if.then62, %if.then45, %if.end3, %if.then2.i, %entry, %if.then129, %if.then114, %if.then95
+  %retval.0 = phi i32 [ -4, %if.then95 ], [ %call111, %if.then114 ], [ %call126, %if.then129 ], [ -2, %entry ], [ -2, %if.then2.i ], [ -2, %if.end3 ], [ -2, %if.then45 ], [ -2, %if.then62 ], [ 0, %if.end108 ], [ -4, %if.then.i.i ], [ -2, %if.end71 ], [ %call8.i, %if.then4.i.i ], [ %call8.i, %if.then2.i11.i ], [ -4, %ma_malloc.exit.i ], [ 0, %for.cond.preheader ], [ 0, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -75219,7 +75267,7 @@ if.else52:                                        ; preds = %if.then44
 
 for.cond:                                         ; preds = %if.else52, %for.cond
   %61 = load ptr, ptr %pDecoder, align 8
-  %call57 = call fastcc i32 @ma_resource_manager_data_buffer_node_decode_next_page(ptr noundef nonnull %pResourceManager, ptr noundef %pDataBufferNode.0, ptr noundef %61)
+  %call57 = call fastcc i32 @ma_resource_manager_data_buffer_node_decode_next_page(ptr noundef nonnull %pResourceManager, ptr noundef nonnull %pDataBufferNode.0, ptr noundef %61)
   %cmp58.not = icmp eq i32 %call57, 0
   br i1 %cmp58.not, label %for.cond, label %for.end
 

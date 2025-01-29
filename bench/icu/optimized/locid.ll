@@ -1291,7 +1291,7 @@ if.end121:                                        ; preds = %if.end117
 
 do.body125:                                       ; preds = %if.end121
   %conv130 = zext nneg i32 %13 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %language, ptr align 1 %9, i64 %conv130, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %language, ptr nonnull align 1 %9, i64 %conv130, i1 false)
   %arrayidx134 = getelementptr inbounds nuw [12 x i8], ptr %language, i64 0, i64 %conv130
   store i8 0, ptr %arrayidx134, align 1
   br label %if.end135
@@ -2169,7 +2169,7 @@ if.then87.invoke:                                 ; preds = %invoke.cont84, %if.
           to label %if.end91 unwind label %lpad22
 
 if.end91:                                         ; preds = %if.then87.invoke, %invoke.cont84
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp92, ptr noundef %newKeywords)
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp92, ptr noundef nonnull %newKeywords)
           to label %invoke.cont93 unwind label %lpad22
 
 invoke.cont93:                                    ; preds = %if.end91
@@ -5185,7 +5185,7 @@ entry:
   %0 = load ptr, ptr %fullName, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %conv = trunc i64 %call to i32
-  %call3 = tail call i32 @ustr_hashCharsN_75(ptr noundef %0, i32 noundef %conv)
+  %call3 = tail call i32 @ustr_hashCharsN_75(ptr noundef nonnull %0, i32 noundef %conv)
   ret i32 %call3
 }
 
@@ -6844,7 +6844,7 @@ if.end15:                                         ; preds = %if.then10
   br i1 %cmp19.not, label %if.end27, label %if.then20
 
 if.then20:                                        ; preds = %if.end15
-  tail call void @uprv_free_75(ptr noundef %5)
+  tail call void @uprv_free_75(ptr noundef nonnull %5)
   %baseName = getelementptr inbounds nuw i8, ptr %this, i64 208
   %6 = load ptr, ptr %baseName, align 8
   %7 = load ptr, ptr %fullName, align 8
@@ -7713,10 +7713,10 @@ land.lhs.true.i:                                  ; preds = %if.end21.i
 
 call24.i.noexc:                                   ; preds = %land.lhs.true.i
   %tobool25.not.i = icmp eq i8 %call24.i35, 0
-  br i1 %tobool25.not.i, label %invoke.cont50, label %if.then26.i
+  br i1 %tobool25.not.i, label %land.lhs.true52, label %if.then26.i
 
 if.then26.i:                                      ; preds = %call24.i.noexc
-  br i1 %cmp18.i, label %invoke.cont50, label %if.end29.i
+  br i1 %cmp18.i, label %land.lhs.true52, label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.then26.i
   %call31.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %call17.i, i32 noundef 95) #24
@@ -7743,11 +7743,11 @@ if.end40.thread10.i:                              ; preds = %if.end29.i
   %call34.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call17.i) #24
   %31 = and i64 %call34.i, -2
   %or.cond14.i = icmp eq i64 %31, 2
-  br i1 %or.cond14.i, label %invoke.cont50, label %if.end58.i
+  br i1 %or.cond14.i, label %land.lhs.true52, label %if.end58.i
 
 if.then44.i:                                      ; preds = %if.end40.i
   %cmp45.i = icmp eq ptr %endOfField.0.i, null
-  br i1 %cmp45.i, label %invoke.cont50, label %if.end47.i
+  br i1 %cmp45.i, label %land.lhs.true52, label %if.end47.i
 
 if.end47.i:                                       ; preds = %if.then44.i
   %call49.i = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %endOfField.0.i, i32 noundef 95) #24
@@ -7772,76 +7772,60 @@ if.end58.i:                                       ; preds = %if.else53.i, %if.th
   %start.1.i = phi ptr [ %call17.i, %if.end40.thread10.i ], [ %endOfField.0.i, %if.then51.i ], [ %endOfField.0.i, %if.else53.i ], [ %start.0.i, %if.end40.i ]
   %len.2.i = phi i64 [ %call34.i, %if.end40.thread10.i ], [ %call52.i, %if.then51.i ], [ %sub.ptr.sub56.i, %if.else53.i ], [ %len.1.i, %if.end40.i ]
   %cmp59.i = icmp ugt i64 %len.2.i, 3
-  %spec.select181 = select i1 %cmp59.i, ptr %start.1.i, ptr null
-  %spec.select182 = select i1 %cmp59.i, ptr %endOfField.1.i, ptr %start.1.i
-  br label %invoke.cont50
+  %spec.select181 = select i1 %cmp59.i, ptr %endOfField.1.i, ptr %start.1.i
+  %spec.select182 = select i1 %cmp59.i, ptr %start.1.i, ptr null
+  br label %land.lhs.true52
 
 _ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread: ; preds = %.noexc34, %if.end49
   %32 = load ptr, ptr %script137, align 8
   %33 = load ptr, ptr %region, align 8
   br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47
 
-invoke.cont50:                                    ; preds = %if.end58.i, %call24.i.noexc, %if.then44.i, %if.then26.i, %if.end40.thread10.i
-  %replacedScript.4 = phi ptr [ %incdec.ptr.i, %if.then26.i ], [ %replacedScript.0, %if.then44.i ], [ %incdec.ptr.i, %if.end40.thread10.i ], [ null, %call24.i.noexc ], [ %replacedScript.1, %if.end58.i ]
-  %replacedRegion.3 = phi ptr [ null, %if.then26.i ], [ %start.0.i, %if.then44.i ], [ %call17.i, %if.end40.thread10.i ], [ null, %call24.i.noexc ], [ %replacedRegion.0, %if.end58.i ]
-  %replacedVariant.1 = phi ptr [ null, %if.then26.i ], [ null, %if.then44.i ], [ null, %if.end40.thread10.i ], [ %incdec.ptr.i, %call24.i.noexc ], [ %spec.select181, %if.end58.i ]
-  %replacedExtensions.0 = phi ptr [ null, %if.then26.i ], [ null, %if.then44.i ], [ null, %if.end40.thread10.i ], [ %call17.i, %call24.i.noexc ], [ %spec.select182, %if.end58.i ]
-  %cmp51.not = icmp eq ptr %28, null
-  br i1 %cmp51.not, label %cond.end58, label %land.lhs.true52
-
-land.lhs.true52:                                  ; preds = %if.end.i31, %invoke.cont50
-  %replacedExtensions.0131 = phi ptr [ %replacedExtensions.0, %invoke.cont50 ], [ null, %if.end.i31 ]
-  %replacedVariant.1130 = phi ptr [ %replacedVariant.1, %invoke.cont50 ], [ null, %if.end.i31 ]
-  %replacedRegion.3129 = phi ptr [ %replacedRegion.3, %invoke.cont50 ], [ null, %if.end.i31 ]
-  %replacedScript.4128 = phi ptr [ %replacedScript.4, %invoke.cont50 ], [ null, %if.end.i31 ]
-  %replacedLanguage.0127 = phi ptr [ %28, %invoke.cont50 ], [ %call.i30, %if.end.i31 ]
+land.lhs.true52:                                  ; preds = %if.end58.i, %if.end40.thread10.i, %if.then26.i, %if.then44.i, %call24.i.noexc, %if.end.i31
+  %replacedExtensions.0131 = phi ptr [ null, %if.end.i31 ], [ null, %if.then26.i ], [ null, %if.then44.i ], [ null, %if.end40.thread10.i ], [ %call17.i, %call24.i.noexc ], [ %spec.select181, %if.end58.i ]
+  %replacedVariant.1130 = phi ptr [ null, %if.end.i31 ], [ null, %if.then26.i ], [ null, %if.then44.i ], [ null, %if.end40.thread10.i ], [ %incdec.ptr.i, %call24.i.noexc ], [ %spec.select182, %if.end58.i ]
+  %replacedRegion.3129 = phi ptr [ null, %if.end.i31 ], [ null, %if.then26.i ], [ %start.0.i, %if.then44.i ], [ %call17.i, %if.end40.thread10.i ], [ null, %call24.i.noexc ], [ %replacedRegion.0, %if.end58.i ]
+  %replacedScript.4128 = phi ptr [ null, %if.end.i31 ], [ %incdec.ptr.i, %if.then26.i ], [ %replacedScript.0, %if.then44.i ], [ %incdec.ptr.i, %if.end40.thread10.i ], [ null, %call24.i.noexc ], [ %replacedScript.1, %if.end58.i ]
+  %replacedLanguage.0127 = phi ptr [ %call.i30, %if.end.i31 ], [ %28, %if.then26.i ], [ %28, %if.then44.i ], [ %28, %if.end40.thread10.i ], [ %28, %call24.i.noexc ], [ %28, %if.end58.i ]
   %call53 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %replacedLanguage.0127, ptr noundef nonnull dereferenceable(4) @.str.190) #24
   %cmp54 = icmp eq i32 %call53, 0
   %cond59.in.sroa.speculate.load.land.lhs.true52 = load ptr, ptr %this, align 8
   %spec.select180 = select i1 %cmp54, ptr %cond59.in.sroa.speculate.load.land.lhs.true52, ptr %replacedLanguage.0127
-  br label %cond.end58
-
-cond.end58:                                       ; preds = %land.lhs.true52, %invoke.cont50
-  %replacedExtensions.0118 = phi ptr [ %replacedExtensions.0, %invoke.cont50 ], [ %replacedExtensions.0131, %land.lhs.true52 ]
-  %replacedVariant.1116 = phi ptr [ %replacedVariant.1, %invoke.cont50 ], [ %replacedVariant.1130, %land.lhs.true52 ]
-  %replacedRegion.3114 = phi ptr [ %replacedRegion.3, %invoke.cont50 ], [ %replacedRegion.3129, %land.lhs.true52 ]
-  %replacedScript.4112 = phi ptr [ %replacedScript.4, %invoke.cont50 ], [ %replacedScript.4128, %land.lhs.true52 ]
-  %cond59.in.sroa.speculated = phi ptr [ null, %invoke.cont50 ], [ %spec.select180, %land.lhs.true52 ]
   %34 = load ptr, ptr %script137, align 8
-  %tobool.not.i.i36 = icmp eq ptr %replacedScript.4112, null
+  %tobool.not.i.i36 = icmp eq ptr %replacedScript.4128, null
   br i1 %tobool.not.i.i36, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i37
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i37: ; preds = %cond.end58
-  %35 = load i8, ptr %replacedScript.4112, align 1
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i37: ; preds = %land.lhs.true52
+  %35 = load i8, ptr %replacedScript.4128, align 1
   %.fr.i = freeze i8 %35
   %cmp.i.not.i38 = icmp eq i8 %.fr.i, 0
   %cmp.i39 = icmp eq ptr %34, null
-  %cond.i = select i1 %cmp.i39, ptr %replacedScript.4112, ptr %34
+  %cond.i = select i1 %cmp.i39, ptr %replacedScript.4128, ptr %34
   %spec.select.i = select i1 %cmp.i.not.i38, ptr %34, ptr %cond.i
   br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit
 
-_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit: ; preds = %cond.end58, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i37
-  %36 = phi ptr [ %spec.select.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i37 ], [ %34, %cond.end58 ]
+_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit: ; preds = %land.lhs.true52, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i37
+  %36 = phi ptr [ %spec.select.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i37 ], [ %34, %land.lhs.true52 ]
   %37 = load ptr, ptr %region, align 8
-  %tobool.not.i.i40 = icmp eq ptr %replacedRegion.3114, null
+  %tobool.not.i.i40 = icmp eq ptr %replacedRegion.3129, null
   br i1 %tobool.not.i.i40, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47, label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41
 
 _ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit
   %38 = phi ptr [ %33, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %37, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
   %39 = phi ptr [ %32, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %36, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
-  %replacedExtensions.0118139162 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %replacedExtensions.0118, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
-  %replacedVariant.1116141160 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %replacedVariant.1116, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
-  %cond59.in.sroa.speculated145158 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %cond59.in.sroa.speculated, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
+  %replacedExtensions.0118139162 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %replacedExtensions.0131, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
+  %replacedVariant.1116141160 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %replacedVariant.1130, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
+  %cond59.in.sroa.speculated145158 = phi ptr [ null, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %spec.select180, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
   %40 = phi ptr [ %32, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit.thread ], [ %34, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit ]
   %cond84.i = select i1 %tobool.not.i.i, ptr %38, ptr null
   br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit48
 
 _ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit
-  %41 = load i8, ptr %replacedRegion.3114, align 1
+  %41 = load i8, ptr %replacedRegion.3129, align 1
   %.fr.i42 = freeze i8 %41
   %cmp.i.not.i43 = icmp eq i8 %.fr.i42, 0
   %cmp.i44 = icmp eq ptr %37, null
-  %cond.i45 = select i1 %cmp.i44, ptr %replacedRegion.3114, ptr %37
+  %cond.i45 = select i1 %cmp.i44, ptr %replacedRegion.3129, ptr %37
   %cond8.i = select i1 %tobool.not.i.i, ptr %37, ptr null
   %spec.select.i46 = select i1 %cmp.i.not.i43, ptr %cond8.i, ptr %cond.i45
   br label %_ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit48
@@ -7849,9 +7833,9 @@ _ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41: ; preds = %_ZN6ic
 _ZN6icu_7512_GLOBAL__N_113AliasReplacer15deleteOrReplaceEPKcS3_S3_.exit48: ; preds = %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41
   %42 = phi ptr [ %38, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %37, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
   %43 = phi ptr [ %39, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %36, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
-  %replacedExtensions.0118139161 = phi ptr [ %replacedExtensions.0118139162, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %replacedExtensions.0118, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
-  %replacedVariant.1116141159 = phi ptr [ %replacedVariant.1116141160, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %replacedVariant.1116, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
-  %cond59.in.sroa.speculated145157 = phi ptr [ %cond59.in.sroa.speculated145158, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %cond59.in.sroa.speculated, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
+  %replacedExtensions.0118139161 = phi ptr [ %replacedExtensions.0118139162, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %replacedExtensions.0131, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
+  %replacedVariant.1116141159 = phi ptr [ %replacedVariant.1116141160, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %replacedVariant.1130, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
+  %cond59.in.sroa.speculated145157 = phi ptr [ %cond59.in.sroa.speculated145158, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %spec.select180, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
   %44 = phi ptr [ %40, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %34, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
   %45 = phi ptr [ %cond84.i, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread.i47 ], [ %spec.select.i46, %_ZN6icu_7512_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.i41 ]
   %tobool.not.i.i49 = icmp eq ptr %replacedVariant.1116141159, null
@@ -8234,7 +8218,7 @@ invoke.cont64:                                    ; preds = %if.end63
 if.end70:                                         ; preds = %invoke.cont64
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %call67, i64 1
   store i8 0, ptr %call67, align 1
-  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp71, ptr noundef %call65)
+  invoke void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %agg.tmp71, ptr noundef nonnull %call65)
           to label %invoke.cont72 unwind label %lpad39.loopexit
 
 invoke.cont72:                                    ; preds = %if.end70
@@ -8248,7 +8232,7 @@ invoke.cont73:                                    ; preds = %invoke.cont72
           to label %invoke.cont75 unwind label %lpad39.loopexit
 
 invoke.cont75:                                    ; preds = %invoke.cont73
-  %call78 = invoke ptr @ulocimp_toBcpType_75(ptr noundef %call65, ptr noundef nonnull %incdec.ptr, ptr noundef null, ptr noundef null)
+  %call78 = invoke ptr @ulocimp_toBcpType_75(ptr noundef nonnull %call65, ptr noundef nonnull %incdec.ptr, ptr noundef null, ptr noundef null)
           to label %invoke.cont77 unwind label %lpad39.loopexit
 
 invoke.cont77:                                    ; preds = %invoke.cont75

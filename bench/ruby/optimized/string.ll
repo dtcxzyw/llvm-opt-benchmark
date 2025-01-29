@@ -1573,9 +1573,63 @@ register_fstring.exit:                            ; preds = %29, %31
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_fstring_cstr(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #32
-  %3 = tail call i64 @rb_fstring_new(ptr noundef %0, i64 noundef %2)
-  ret i64 %3
+setup_fake_str.exit.i:
+  %1 = alloca %struct.fstr_update_arg, align 8
+  %2 = alloca i32, align 4
+  %3 = alloca %struct.RString, align 8
+  %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #32
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  %5 = ptrtoint ptr %3 to i64
+  store i64 3229622277, ptr %3, align 8
+  %6 = load i64, ptr @rb_cString, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %6, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 %4, ptr %8, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %0, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i64 %4, ptr %10, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 0, ptr %11, align 8
+  %12 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i, label %13, label %rb_vm_lock_enter.exit.i.i
+
+13:                                               ; preds = %setup_fake_str.exit.i
+  call void @rb_vm_lock_enter_body(ptr noundef nonnull %2) #28
+  br label %rb_vm_lock_enter.exit.i.i
+
+rb_vm_lock_enter.exit.i.i:                        ; preds = %13, %setup_fake_str.exit.i
+  %14 = call ptr @rb_vm_fstring_table() #32
+  %15 = ptrtoint ptr %1 to i64
+  br label %16
+
+16:                                               ; preds = %16, %rb_vm_lock_enter.exit.i.i
+  store i64 %5, ptr %1, align 8
+  %17 = call i32 @rb_st_update(ptr noundef %14, i64 noundef %5, ptr noundef nonnull @fstr_update_callback, i64 noundef %15) #28
+  %18 = load i64, ptr %1, align 8
+  %19 = icmp eq i64 %18, 36
+  br i1 %19, label %16, label %20, !llvm.loop !19
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr @ruby_single_main_ractor, align 8
+  %.not.i.i3.i.i = icmp eq ptr %21, null
+  br i1 %.not.i.i3.i.i, label %22, label %rb_fstring_new.exit
+
+22:                                               ; preds = %20
+  call void @rb_vm_lock_leave_body(ptr noundef nonnull %2) #28
+  %.pre.i.i = load i64, ptr %1, align 8
+  br label %rb_fstring_new.exit
+
+rb_fstring_new.exit:                              ; preds = %20, %22
+  %23 = phi i64 [ %18, %20 ], [ %.pre.i.i, %22 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
+  ret i64 %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
@@ -1826,7 +1880,7 @@ search_nonascii.exit81.thread:                    ; preds = %93, %._crit_edge.i6
 
 106:                                              ; preds = %.preheader, %search_nonascii.exit95
   %.052 = phi ptr [ %.0.i84, %search_nonascii.exit95 ], [ %.0.i70, %.preheader ]
-  %107 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.052, ptr noundef %1, ptr noundef %2) #28
+  %107 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.052, ptr noundef %1, ptr noundef nonnull %2) #28
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %113, label %109
 
@@ -5512,7 +5566,7 @@ search_nonascii.exit.thread:                      ; preds = %113, %._crit_edge.i
 123:                                              ; preds = %118, %84
   %.187 = phi i64 [ %122, %118 ], [ %.086154, %84 ]
   %.4 = phi ptr [ %.0.i107, %118 ], [ %.3155, %84 ]
-  %124 = tail call i32 @rb_enc_fast_mbclen(ptr noundef nonnull %.4, ptr noundef nonnull %1, ptr noundef %2) #28
+  %124 = tail call i32 @rb_enc_fast_mbclen(ptr noundef nonnull %.4, ptr noundef nonnull %1, ptr noundef nonnull %2) #28
   %125 = sext i32 %124 to i64
   %126 = getelementptr i8, ptr %.4, i64 %125
   %127 = add i64 %.187, 1
@@ -5622,7 +5676,7 @@ search_nonascii.exit122.thread:                   ; preds = %158, %._crit_edge.i
 168:                                              ; preds = %163, %129
   %.490 = phi i64 [ %167, %163 ], [ %.389158, %129 ]
   %.6 = phi ptr [ %.0.i111, %163 ], [ %.5159, %129 ]
-  %169 = tail call i32 @rb_enc_mbclen(ptr noundef nonnull %.6, ptr noundef nonnull %1, ptr noundef %2) #28
+  %169 = tail call i32 @rb_enc_mbclen(ptr noundef nonnull %.6, ptr noundef nonnull %1, ptr noundef nonnull %2) #28
   %170 = sext i32 %169 to i64
   %171 = getelementptr i8, ptr %.6, i64 %170
   %172 = add i64 %.490, 1
@@ -5805,7 +5859,7 @@ search_nonascii.exit.thread:                      ; preds = %58, %._crit_edge.i,
 70:                                               ; preds = %65, %29
   %.160 = phi i64 [ %69, %65 ], [ %.05991, %29 ]
   %.1 = phi ptr [ %.0.i77, %65 ], [ %.05892, %29 ]
-  %71 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.1, ptr noundef nonnull %1, ptr noundef %2) #28
+  %71 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.1, ptr noundef nonnull %1, ptr noundef nonnull %2) #28
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %73, label %77
 
@@ -7713,7 +7767,7 @@ search_nonascii.exit.thread:                      ; preds = %63, %._crit_edge.i,
 70:                                               ; preds = %66, %27
   %.261 = phi i64 [ %69, %66 ], [ %.16096, %27 ]
   %.2 = phi ptr [ %.0.i74, %66 ], [ %.197, %27 ]
-  %71 = tail call i32 @rb_enc_mbclen(ptr noundef nonnull %.2, ptr noundef nonnull %1, ptr noundef %3) #28
+  %71 = tail call i32 @rb_enc_mbclen(ptr noundef nonnull %.2, ptr noundef nonnull %1, ptr noundef nonnull %3) #28
   %72 = sext i32 %71 to i64
   %73 = getelementptr i8, ptr %.2, i64 %72
   %74 = add i64 %.261, -1
@@ -17524,7 +17578,7 @@ RSTRING_PTR.exit.i342:                            ; preds = %352, %rb_enc_str_ne
   unreachable
 
 str_mod_check.exit346:                            ; preds = %353
-  %357 = tail call fastcc i64 @str_compat_and_valid(i64 noundef %349, ptr noundef %0)
+  %357 = tail call fastcc i64 @str_compat_and_valid(i64 noundef %349, ptr noundef nonnull %0)
   %358 = inttoptr i64 %357 to ptr
   %359 = load i64, ptr %358, align 8, !noalias !417
   %360 = and i64 %359, 8192
@@ -17831,7 +17885,7 @@ rb_str_is_ascii_only_p.exit:                      ; preds = %22, %enc_coderange_
   br i1 %.not20, label %44, label %sym_printable.exit
 
 44:                                               ; preds = %42
-  %45 = tail call i32 @rb_enc_symname2_p(ptr noundef %.sroa.2.0.i, i64 noundef %21, ptr noundef %15) #28
+  %45 = tail call i32 @rb_enc_symname2_p(ptr noundef nonnull %.sroa.2.0.i, i64 noundef %21, ptr noundef %15) #28
   %.not21 = icmp eq i32 %45, 0
   br i1 %.not21, label %sym_printable.exit, label %46
 
@@ -26731,7 +26785,7 @@ rb_enc_asciicompat.exit90.thread:                 ; preds = %RSTRING_END.exit85
   br i1 %122, label %151, label %123
 
 123:                                              ; preds = %.lr.ph136.split.us
-  %124 = call i32 @rb_enc_codepoint_len(ptr noundef nonnull %.153134.us, ptr noundef nonnull %117, ptr noundef nonnull %9, ptr noundef %.050.lcssa) #28
+  %124 = call i32 @rb_enc_codepoint_len(ptr noundef nonnull %.153134.us, ptr noundef nonnull %117, ptr noundef nonnull %9, ptr noundef nonnull %.050.lcssa) #28
   %125 = load i64, ptr %5, align 8
   %126 = load i64, ptr %6, align 8
   %127 = icmp ult i32 %124, 256
@@ -29707,7 +29761,7 @@ search_nonascii.exit54:                           ; preds = %56, %67, %69, %72, 
 
 94:                                               ; preds = %.preheader, %search_nonascii.exit68
   %.029 = phi ptr [ %.0.i57, %search_nonascii.exit68 ], [ %.0.i43, %.preheader ]
-  %95 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.029, ptr noundef %4, ptr noundef %2) #28
+  %95 = tail call i32 @rb_enc_precise_mbclen(ptr noundef nonnull %.029, ptr noundef %4, ptr noundef nonnull %2) #28
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %97, label %search_nonascii.exit54.thread
 

@@ -120,7 +120,7 @@ define hidden ptr @scs_subscribe(ptr nocapture noundef readonly %0, ptr noundef 
   %.0 = phi i64 [ 65536, %22 ], [ 16, %11 ], [ 256, %16 ], [ 4096, %18 ], [ 65536, %20 ]
   %24 = call noalias ptr @g_slice_alloc(i64 noundef %.0) #13
   store ptr %24, ptr %3, align 8
-  %25 = call i64 @g_strlcpy(ptr noundef %24, ptr noundef %1, i64 noundef %.0) #12
+  %25 = call i64 @g_strlcpy(ptr noundef %24, ptr noundef nonnull %1, i64 noundef %.0) #12
   %26 = load ptr, ptr %0, align 8
   %27 = load ptr, ptr %3, align 8
   %28 = load ptr, ptr %4, align 8
@@ -181,7 +181,7 @@ define hidden void @scs_unsubscribe(ptr nocapture noundef readonly %0, ptr nound
 
 22:                                               ; preds = %20, %18, %11
   %.0 = phi i64 [ 16, %11 ], [ 256, %18 ], [ %., %20 ]
-  call void @g_slice_free1(i64 noundef %.0, ptr noundef %15) #12
+  call void @g_slice_free1(i64 noundef %.0, ptr noundef nonnull %15) #12
   %23 = load ptr, ptr %4, align 8
   call void @g_slice_free1(i64 noundef 4, ptr noundef %23) #12
   br label %27
@@ -1104,7 +1104,7 @@ define hidden ptr @match_avp(ptr noundef readonly %0, ptr nocapture noundef read
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #14
-  %28 = tail call i32 @strncmp(ptr noundef %24, ptr noundef %26, i64 noundef %27) #14
+  %28 = tail call i32 @strncmp(ptr noundef %24, ptr noundef nonnull %26, i64 noundef %27) #14
   %29 = icmp eq i32 %28, 0
   %30 = select i1 %29, ptr %0, ptr null
   br label %85
@@ -1190,7 +1190,7 @@ define hidden ptr @match_avp(ptr noundef readonly %0, ptr nocapture noundef read
   %72 = sub i64 %64, %68
   %73 = and i64 %72, 4294967295
   %74 = getelementptr i8, ptr %63, i64 %73
-  %75 = tail call i32 @g_str_equal(ptr noundef %74, ptr noundef %67) #12
+  %75 = tail call i32 @g_str_equal(ptr noundef %74, ptr noundef nonnull %67) #12
   %.not54 = icmp eq i32 %75, 0
   %76 = select i1 %.not54, ptr null, ptr %0
   br label %85
@@ -1950,8 +1950,6 @@ define hidden noundef ptr @loal_from_file(ptr noundef %0) local_unnamed_addr #0 
 
 .lr.ph:                                           ; preds = %.preheader
   %19 = getelementptr i8, ptr %10, i64 1
-  %.not.i131 = icmp eq ptr %9, null
-  %.str.6..i = select i1 %.not.i131, ptr @.str.6, ptr %9
   br label %20
 
 default.unreachable196:                           ; preds = %37
@@ -2099,7 +2097,7 @@ default.unreachable196:                           ; preds = %37
   %44 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 8192, ptr noundef nonnull @.str.16, ptr noundef %0, i32 noundef %spec.select) #12
   %45 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
   %46 = load ptr, ptr @avp_strings, align 8
-  %47 = tail call ptr @scs_subscribe(ptr noundef %46, ptr noundef nonnull %.str.6..i)
+  %47 = tail call ptr @scs_subscribe(ptr noundef %46, ptr noundef nonnull %9)
   store ptr %47, ptr %45, align 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 0, ptr %48, align 8

@@ -1557,7 +1557,7 @@ Abc_Clock.exit149:                                ; preds = %552, %556
   %564 = sitofp i64 %563 to double
   %565 = fdiv double %564, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %565)
-  br label %585
+  br label %583
 
 566:                                              ; preds = %447
   %indvars.iv.next201 = add nsw i64 %indvars.iv200, 1
@@ -1592,25 +1592,18 @@ Abc_Clock.exit151:                                ; preds = %._crit_edge, %570
   %580 = icmp samesign ugt i32 %.1172, 99
   %581 = icmp eq i32 %.0117170, %.2120.lcssa
   %or.cond = or i1 %580, %581
-  br i1 %or.cond, label %582, label %.preheader, !llvm.loop !28
+  br i1 %or.cond, label %Vec_IntFree.exit, label %.preheader, !llvm.loop !28
 
-582:                                              ; preds = %Abc_Clock.exit151
-  %.not.i = icmp eq ptr %calloc.i, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %583
-
-583:                                              ; preds = %582
+Vec_IntFree.exit:                                 ; preds = %Abc_Clock.exit151
   call void @free(ptr noundef nonnull %calloc.i) #17
-  br label %Vec_IntFree.exit
-
-Vec_IntFree.exit:                                 ; preds = %582, %583
   %.not124 = icmp eq ptr %8, null
-  br i1 %.not124, label %585, label %584
+  br i1 %.not124, label %583, label %582
 
-584:                                              ; preds = %Vec_IntFree.exit
+582:                                              ; preds = %Vec_IntFree.exit
   call void @free(ptr noundef nonnull %8) #17
-  br label %585
+  br label %583
 
-585:                                              ; preds = %584, %Vec_IntFree.exit, %Abc_Clock.exit149
+583:                                              ; preds = %582, %Vec_IntFree.exit, %Abc_Clock.exit149
   ret void
 }
 
@@ -1651,7 +1644,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #17
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #17
   call void @free(ptr noundef %9) #17
   br label %16
 

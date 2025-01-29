@@ -4663,7 +4663,7 @@ Vec_WecStart.exit:                                ; preds = %Vec_IntAlloc.exit, 
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %35, ptr %42, align 8
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %Vec_MemAllocForTT.exit, label %43
+  br i1 %.not, label %79, label %43
 
 43:                                               ; preds = %Vec_WecStart.exit
   %44 = icmp slt i32 %1, 7
@@ -4722,15 +4722,15 @@ Abc_PrimeCudd.exit.i.i:                           ; preds = %.preheader.i.i.i, %
   store ptr %66, ptr %67, align 8
   store i32 %55, ptr %63, align 4
   %.not.i3.i.i = icmp eq ptr %66, null
-  br i1 %.not.i3.i.i, label %Vec_MemHashAlloc.exit.i, label %68
+  br i1 %.not.i3.i.i, label %Vec_MemAllocForTT.exit, label %68
 
 68:                                               ; preds = %Abc_PrimeCudd.exit.i.i
   %69 = sext i32 %55 to i64
   %70 = shl nsw i64 %69, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %66, i8 -1, i64 %70, i1 false)
-  br label %Vec_MemHashAlloc.exit.i
+  br label %Vec_MemAllocForTT.exit
 
-Vec_MemHashAlloc.exit.i:                          ; preds = %68, %Abc_PrimeCudd.exit.i.i
+Vec_MemAllocForTT.exit:                           ; preds = %Abc_PrimeCudd.exit.i.i, %68
   %71 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store ptr %62, ptr %71, align 8
   %72 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
@@ -4743,18 +4743,14 @@ Vec_MemHashAlloc.exit.i:                          ; preds = %68, %Abc_PrimeCudd.
   %76 = getelementptr inbounds nuw i8, ptr %51, i64 40
   store ptr %72, ptr %76, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, i8 0, i64 %49, i1 false)
-  %77 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %51, ptr noundef %50)
+  %77 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %51, ptr noundef nonnull %50)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %50, i8 -86, i64 %49, i1 false)
-  %78 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %51, ptr noundef %50)
-  %.not.i21 = icmp eq ptr %50, null
-  br i1 %.not.i21, label %Vec_MemAllocForTT.exit, label %79
+  %78 = call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %51, ptr noundef nonnull %50)
+  call void @free(ptr noundef %50) #21
+  br label %79
 
-79:                                               ; preds = %Vec_MemHashAlloc.exit.i
-  call void @free(ptr noundef nonnull %50) #21
-  br label %Vec_MemAllocForTT.exit
-
-Vec_MemAllocForTT.exit:                           ; preds = %79, %Vec_MemHashAlloc.exit.i, %Vec_WecStart.exit
-  %80 = phi ptr [ null, %Vec_WecStart.exit ], [ %51, %Vec_MemHashAlloc.exit.i ], [ %51, %79 ]
+79:                                               ; preds = %Vec_WecStart.exit, %Vec_MemAllocForTT.exit
+  %80 = phi ptr [ %51, %Vec_MemAllocForTT.exit ], [ null, %Vec_WecStart.exit ]
   %81 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %80, ptr %81, align 8
   ret ptr %8
@@ -6098,7 +6094,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #23
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #21
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #21
   call void @free(ptr noundef %9) #21
   br label %16
 

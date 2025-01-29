@@ -3204,7 +3204,7 @@ if.then.i71.i:                                    ; preds = %if.end.i148
   br label %invoke.cont21
 
 if.end.i.i72.i:                                   ; preds = %if.end.i148
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %23, i64 %call.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr nonnull align 1 %23, i64 %call.i.i.i, i1 false)
   br label %invoke.cont21
 
 if.else.i:                                        ; preds = %if.then.i147
@@ -3223,7 +3223,7 @@ if.then.i73.i:                                    ; preds = %if.then18.i
   br label %if.end26.i
 
 if.end.i.i74.i:                                   ; preds = %if.then18.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %26, ptr align 1 %23, i64 %call.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %26, ptr nonnull align 1 %23, i64 %call.i.i.i, i1 false)
   br label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.else.i, %if.then.i73.i, %if.end.i.i74.i
@@ -3266,7 +3266,7 @@ if.then.i85.i:                                    ; preds = %if.else40.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit87.i
 
 if.end.i.i86.i:                                   ; preds = %if.else40.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %26, ptr align 1 %23, i64 %sub.ptr.sub44.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %26, ptr nonnull align 1 %23, i64 %sub.ptr.sub44.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit87.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_moveEPcPKcm.exit87.i: ; preds = %if.end.i.i86.i, %if.then.i85.i, %if.else40.i
@@ -3306,13 +3306,9 @@ if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; preds = %land.lhs.true.i.i
   %call5.i.i.i.i196 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %add.i.i) #33
-          to label %call5.i.i.i.i.noexc unwind label %lpad9.loopexit
+          to label %if.then10.i unwind label %lpad9.loopexit
 
-call5.i.i.i.i.noexc:                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i
-  %tobool8.i.not = icmp eq ptr %23, null
-  br i1 %tobool8.i.not, label %if.end19.i189, label %if.then10.i
-
-if.then10.i:                                      ; preds = %call5.i.i.i.i.noexc
+if.then10.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i
   %cond.i = icmp eq i64 %call.i.i.i, 1
   br i1 %cond.i, label %if.then.i20.i, label %if.end.i.i21.i
 
@@ -3325,7 +3321,7 @@ if.end.i.i21.i:                                   ; preds = %if.then10.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i196, ptr nonnull align 1 %23, i64 %call.i.i.i, i1 false)
   br label %if.end19.i189
 
-if.end19.i189:                                    ; preds = %call5.i.i.i.i.noexc, %if.then.i20.i, %if.end.i.i21.i
+if.end19.i189:                                    ; preds = %if.then.i20.i, %if.end.i.i21.i
   br i1 %cmp.i.i.i146, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i190, label %if.then.i28.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i190: ; preds = %if.end19.i189
@@ -3399,7 +3395,7 @@ if.end56:                                         ; preds = %if.then51
   %40 = load ptr, ptr %arrayidx58, align 8
   %41 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %call.i.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #31
-  %call3.i.i.i55 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %output_dir_.i, i64 noundef 0, i64 noundef %41, ptr noundef %40, i64 noundef %call.i.i.i.i)
+  %call3.i.i.i55 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %output_dir_.i, i64 noundef 0, i64 noundef %41, ptr noundef nonnull %40, i64 noundef %call.i.i.i.i)
           to label %for.inc120 unwind label %lpad9.loopexit
 
 if.else60:                                        ; preds = %if.else46

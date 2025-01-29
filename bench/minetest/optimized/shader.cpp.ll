@@ -11907,23 +11907,16 @@ for.body.i.i.i58:                                 ; preds = %if.else, %for.body.
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(56) %__first.addr.04.i.i.i59) #29
   %incdec.ptr.i.i.i61 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i59, i64 56
   %cmp.not.i.i.i62 = icmp eq ptr %__first.addr.04.i.i.i59, %call.i.i.i.i53
-  br i1 %cmp.not.i.i.i62, label %if.end, label %for.body.i.i.i58, !llvm.loop !74
+  br i1 %cmp.not.i.i.i62, label %if.then.i65, label %for.body.i.i.i58, !llvm.loop !74
 
-lpad19:                                           ; preds = %invoke.cont21
+lpad19:                                           ; preds = %if.then.i65
   %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont22 unwind label %terminate.lpad
 
-if.end:                                           ; preds = %for.body.i.i.i58
-  %tobool.not.i64 = icmp eq ptr %cond.i52, null
-  br i1 %tobool.not.i64, label %invoke.cont21, label %if.then.i65
-
-if.then.i65:                                      ; preds = %if.end, %if.else, %if.then
+if.then.i65:                                      ; preds = %for.body.i.i.i58, %if.else, %if.then
   tail call void @_ZdlPv(ptr noundef nonnull %cond.i52) #31
-  br label %invoke.cont21
-
-invoke.cont21:                                    ; preds = %if.then.i65, %if.end
   invoke void @__cxa_rethrow() #30
           to label %unreachable unwind label %lpad19
 
@@ -11937,7 +11930,7 @@ terminate.lpad:                                   ; preds = %lpad19
   tail call void @__clang_call_terminate(ptr %15) #28
   unreachable
 
-unreachable:                                      ; preds = %invoke.cont21
+unreachable:                                      ; preds = %if.then.i65
   unreachable
 }
 
@@ -12545,7 +12538,7 @@ declare noundef i32 @_ZN7porting11mt_snprintfEPcmPKcz(ptr noundef, i64 noundef, 
 define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %__lhs, ptr noundef nonnull align 8 dereferenceable(32) %__rhs) local_unnamed_addr #14 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__lhs) #29
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__rhs, i64 noundef 0, i64 noundef 0, ptr noundef %__lhs, i64 noundef %call.i.i)
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__rhs, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %__lhs, i64 noundef %call.i.i)
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !15
   %1 = load ptr, ptr %call3.i.i, align 8, !tbaa !17

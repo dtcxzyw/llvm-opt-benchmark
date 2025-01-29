@@ -712,17 +712,17 @@ png_write_chunk_header.exit:                      ; preds = %10, %26
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %44, i64 noundef 4) #12
   store i32 66, ptr %33, align 4, !alias.scope !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %.not40 = icmp eq i32 %2, 0
-  br i1 %.not40, label %png_write_chunk_end.exit, label %png_write_chunk_data.exit.preheader
+  %.not = icmp eq i32 %2, 0
+  br i1 %.not, label %png_write_chunk_end.exit, label %png_write_chunk_data.exit.lr.ph
 
-png_write_chunk_data.exit.preheader:              ; preds = %png_write_chunk_header.exit
+png_write_chunk_data.exit.lr.ph:                  ; preds = %png_write_chunk_header.exit
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %png_write_chunk_data.exit
 
-png_write_chunk_data.exit:                        ; preds = %png_write_chunk_data.exit.preheader, %png_write_chunk_data.exit
-  %.033 = phi ptr [ %57, %png_write_chunk_data.exit ], [ %1, %png_write_chunk_data.exit.preheader ]
-  %.02632 = phi i32 [ %56, %png_write_chunk_data.exit ], [ 0, %png_write_chunk_data.exit.preheader ]
+png_write_chunk_data.exit:                        ; preds = %png_write_chunk_data.exit.lr.ph, %png_write_chunk_data.exit
+  %.033 = phi ptr [ %1, %png_write_chunk_data.exit.lr.ph ], [ %57, %png_write_chunk_data.exit ]
+  %.02632 = phi i32 [ 0, %png_write_chunk_data.exit.lr.ph ], [ %56, %png_write_chunk_data.exit ]
   %51 = load i8, ptr %.033, align 1
   store i8 %51, ptr %6, align 1
   %52 = getelementptr inbounds nuw i8, ptr %.033, i64 1
@@ -2772,15 +2772,15 @@ png_write_chunk_header.exit:                      ; preds = %3
   store i32 66, ptr %13, align 4, !alias.scope !65
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %29 = icmp sgt i32 %2, 0
-  br i1 %29, label %png_write_chunk_data.exit.preheader, label %png_write_chunk_end.exit
+  br i1 %29, label %png_write_chunk_data.exit.lr.ph, label %png_write_chunk_end.exit
 
-png_write_chunk_data.exit.preheader:              ; preds = %png_write_chunk_header.exit
+png_write_chunk_data.exit.lr.ph:                  ; preds = %png_write_chunk_header.exit
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %png_write_chunk_data.exit
 
-png_write_chunk_data.exit:                        ; preds = %png_write_chunk_data.exit.preheader, %png_write_chunk_data.exit
-  %indvars.iv = phi i64 [ 0, %png_write_chunk_data.exit.preheader ], [ %indvars.iv.next, %png_write_chunk_data.exit ]
+png_write_chunk_data.exit:                        ; preds = %png_write_chunk_data.exit.lr.ph, %png_write_chunk_data.exit
+  %indvars.iv = phi i64 [ 0, %png_write_chunk_data.exit.lr.ph ], [ %indvars.iv.next, %png_write_chunk_data.exit ]
   %31 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2
   %33 = lshr i16 %32, 8
@@ -3601,17 +3601,15 @@ png_write_chunk_data.exit:                        ; preds = %png_write_chunk_hea
 png_write_chunk_data.exit53:                      ; preds = %png_write_chunk_data.exit
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef 10) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef 10) #12
-  %65 = icmp ne ptr %6, null
-  %66 = icmp ne i64 %24, 0
-  %or.cond3.i54 = and i1 %65, %66
-  br i1 %or.cond3.i54, label %67, label %png_write_chunk_data.exit55
+  %.not61 = icmp eq i64 %24, 0
+  br i1 %.not61, label %png_write_chunk_data.exit55, label %65
 
-67:                                               ; preds = %png_write_chunk_data.exit53
+65:                                               ; preds = %png_write_chunk_data.exit53
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %24) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %24) #12
   br label %png_write_chunk_data.exit55
 
-png_write_chunk_data.exit55:                      ; preds = %png_write_chunk_data.exit53, %67
+png_write_chunk_data.exit55:                      ; preds = %png_write_chunk_data.exit53, %65
   br i1 %31, label %.lr.ph65.split.preheader, label %._crit_edge66
 
 .lr.ph65.split.preheader:                         ; preds = %png_write_chunk_data.exit55
@@ -3620,21 +3618,21 @@ png_write_chunk_data.exit55:                      ; preds = %png_write_chunk_dat
 
 .lr.ph65.split:                                   ; preds = %.lr.ph65.split.preheader, %png_write_chunk_data.exit58
   %indvars.iv70 = phi i64 [ 0, %.lr.ph65.split.preheader ], [ %indvars.iv.next71, %png_write_chunk_data.exit58 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv70
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv70
-  %71 = load i64, ptr %70, align 8
-  %72 = icmp ne ptr %69, null
-  %73 = icmp ne i64 %71, 0
-  %74 = and i1 %72, %73
-  br i1 %74, label %75, label %png_write_chunk_data.exit58
+  %66 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv70
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv70
+  %69 = load i64, ptr %68, align 8
+  %70 = icmp ne ptr %67, null
+  %71 = icmp ne i64 %69, 0
+  %72 = and i1 %70, %71
+  br i1 %72, label %73, label %png_write_chunk_data.exit58
 
-75:                                               ; preds = %.lr.ph65.split
-  call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %69, i64 noundef %71) #12
-  call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %69, i64 noundef %71) #12
+73:                                               ; preds = %.lr.ph65.split
+  call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %67, i64 noundef %69) #12
+  call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %67, i64 noundef %69) #12
   br label %png_write_chunk_data.exit58
 
-png_write_chunk_data.exit58:                      ; preds = %.lr.ph65.split, %75
+png_write_chunk_data.exit58:                      ; preds = %.lr.ph65.split, %73
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %._crit_edge66, label %.lr.ph65.split, !llvm.loop !102
@@ -3648,24 +3646,24 @@ png_write_chunk_data.exit58:                      ; preds = %.lr.ph65.split, %75
   call void @png_free(ptr noundef nonnull %0, ptr noundef %30) #12
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1140
-  store i32 130, ptr %76, align 4, !alias.scope !103
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  %78 = load i32, ptr %77, align 4, !alias.scope !103
-  %79 = lshr i32 %78, 24
-  %80 = trunc nuw i32 %79 to i8
-  store i8 %80, ptr %9, align 1, !noalias !103
-  %81 = lshr i32 %78, 16
-  %82 = trunc i32 %81 to i8
-  %83 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 %82, ptr %83, align 1, !noalias !103
-  %84 = lshr i32 %78, 8
-  %85 = trunc i32 %84 to i8
-  %86 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1140
+  store i32 130, ptr %74, align 4, !alias.scope !103
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 588
+  %76 = load i32, ptr %75, align 4, !alias.scope !103
+  %77 = lshr i32 %76, 24
+  %78 = trunc nuw i32 %77 to i8
+  store i8 %78, ptr %9, align 1, !noalias !103
+  %79 = lshr i32 %76, 16
+  %80 = trunc i32 %79 to i8
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  store i8 %80, ptr %81, align 1, !noalias !103
+  %82 = lshr i32 %76, 8
+  %83 = trunc i32 %82 to i8
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 2
+  store i8 %83, ptr %84, align 1, !noalias !103
+  %85 = trunc i32 %76 to i8
+  %86 = getelementptr inbounds nuw i8, ptr %9, i64 3
   store i8 %85, ptr %86, align 1, !noalias !103
-  %87 = trunc i32 %78 to i8
-  %88 = getelementptr inbounds nuw i8, ptr %9, i64 3
-  store i8 %87, ptr %88, align 1, !noalias !103
   call void @png_write_data(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 4) #12
   br label %png_write_chunk_end.exit
 
@@ -3693,10 +3691,10 @@ define void @png_write_sCAL_s(ptr noalias noundef %0, i32 noundef %1, ptr nocapt
   store i8 %13, ptr %5, align 16
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %15 = add i64 %6, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr align 1 %2, i64 %15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %14, ptr nonnull align 1 %2, i64 %15, i1 false)
   %16 = getelementptr inbounds i8, ptr %5, i64 %6
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %3, i64 %7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull align 1 %3, i64 %7, i1 false)
   call fastcc void @png_write_complete_chunk(ptr noundef %0, i32 noundef 1933787468, ptr noundef nonnull %5, i64 noundef %9)
   br label %18
 

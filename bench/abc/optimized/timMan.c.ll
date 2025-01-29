@@ -3155,18 +3155,14 @@ Vec_PtrStart.exit:                                ; preds = %Vec_IntAlloc.exit.i
 .critedge2:                                       ; preds = %.lr.ph81, %76
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %53
-  br i1 %exitcond90.not, label %Vec_IntFree.exit, label %.lr.ph81, !llvm.loop !51
+  br i1 %exitcond90.not, label %Vec_PtrFree.exit, label %.lr.ph81, !llvm.loop !51
 
-Vec_IntFree.exit:                                 ; preds = %.critedge2
+Vec_PtrFree.exit:                                 ; preds = %.critedge2
   tail call void @free(ptr noundef nonnull %55) #18
-  %.not.i72 = icmp eq ptr %58, null
-  br i1 %.not.i72, label %Tim_ManBoxNum.exit65.thread, label %88
-
-88:                                               ; preds = %Vec_IntFree.exit
   tail call void @free(ptr noundef nonnull %58) #18
   br label %Tim_ManBoxNum.exit65.thread
 
-Tim_ManBoxNum.exit65.thread:                      ; preds = %88, %Vec_IntFree.exit, %33, %Tim_ManBoxNum.exit65, %2
+Tim_ManBoxNum.exit65.thread:                      ; preds = %33, %Tim_ManBoxNum.exit65, %2, %Vec_PtrFree.exit
   ret void
 }
 
@@ -3189,7 +3185,7 @@ define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #21
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #18
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #18
   call void @free(ptr noundef %9) #18
   br label %16
 

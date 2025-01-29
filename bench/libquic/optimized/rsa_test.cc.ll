@@ -1257,7 +1257,7 @@ if.end9:                                          ; preds = %lor.lhs.false
 
 invoke.cont12:                                    ; preds = %if.end9
   %tobool14.not = icmp eq i32 %call13, 0
-  br i1 %tobool14.not, label %cleanup64, label %if.end16
+  br i1 %tobool14.not, label %cleanup64, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
 
 lpad11:                                           ; preds = %if.end27, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit, %if.end9
   %delete_der.sroa.0.1 = phi ptr [ %5, %if.end27 ], [ %5, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit ], [ %1, %if.end9 ]
@@ -1265,18 +1265,10 @@ lpad11:                                           ; preds = %if.end27, %_ZNSt10u
           cleanup
   br label %ehcleanup
 
-if.end16:                                         ; preds = %invoke.cont12
+_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %invoke.cont12
   %5 = load ptr, ptr %der, align 8
-  %tobool.not.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.end16
   call void @free(ptr noundef nonnull %1) #13
-  %.pre = load ptr, ptr %der, align 8
-  br label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
-
-_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %if.end16, %if.then.i.i
-  %6 = phi ptr [ %5, %if.end16 ], [ %.pre, %if.then.i.i ]
+  %6 = load ptr, ptr %der, align 8
   %7 = load i64, ptr %der_len, align 8
   %call18 = invoke ptr @RSA_public_key_from_bytes(ptr noundef %6, i64 noundef %7)
           to label %invoke.cont17 unwind label %lpad11

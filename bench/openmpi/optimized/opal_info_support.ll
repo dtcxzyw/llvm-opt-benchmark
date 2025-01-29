@@ -782,17 +782,17 @@ define void @opal_info_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   %13 = tail call noalias ptr @strdup(ptr noundef nonnull %12) #17
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #20
   %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %26, label %.preheader110
+  br i1 %.not, label %26, label %.preheader109
 
-.preheader110:                                    ; preds = %9
+.preheader109:                                    ; preds = %9
   %invariant.gep = getelementptr i8, ptr %13, i64 -1
   %15 = tail call ptr @__ctype_b_loc() #23
   %16 = load ptr, ptr %15, align 8
   br label %17
 
-17:                                               ; preds = %.preheader110, %23
-  %.073112 = phi i64 [ %14, %.preheader110 ], [ %24, %23 ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %.073112
+17:                                               ; preds = %.preheader109, %23
+  %.073111 = phi i64 [ %14, %.preheader109 ], [ %24, %23 ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %.073111
   %18 = load i8, ptr %gep, align 1
   %19 = sext i8 %18 to i64
   %20 = getelementptr inbounds i16, ptr %16, i64 %19
@@ -802,12 +802,12 @@ define void @opal_info_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %.not95, label %.critedge, label %23
 
 23:                                               ; preds = %17
-  %24 = add i64 %.073112, -1
+  %24 = add i64 %.073111, -1
   %.not94 = icmp eq i64 %24, 0
   br i1 %.not94, label %.critedge, label %17, !llvm.loop !10
 
 .critedge:                                        ; preds = %23, %17
-  %.073.lcssa = phi i64 [ 0, %23 ], [ %.073112, %17 ]
+  %.073.lcssa = phi i64 [ 0, %23 ], [ %.073111, %17 ]
   %25 = getelementptr inbounds i8, ptr %13, i64 %.073.lcssa
   store i8 0, ptr %25, align 1
   br label %26
@@ -841,18 +841,18 @@ define void @opal_info_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   %.b = load i1, ptr @screen_width, align 4
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #20
   %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
-  %.neg109 = select i1 %.b, i64 2147483645, i64 76
+  %.neg108 = select i1 %.b, i64 2147483645, i64 76
   %43 = add i64 %41, %42
-  %44 = sub i64 %.neg109, %43
+  %44 = sub i64 %.neg108, %43
   %.not100 = icmp eq i64 %42, 0
   br i1 %.not100, label %47, label %45
 
 45:                                               ; preds = %39
-  %46 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.97, ptr noundef %40, ptr noundef nonnull %0) #17
+  %46 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.97, ptr noundef nonnull %40, ptr noundef nonnull %0) #17
   br label %49
 
 47:                                               ; preds = %39
-  %48 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.98, ptr noundef %40) #17
+  %48 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.98, ptr noundef nonnull %40) #17
   br label %49
 
 49:                                               ; preds = %47, %45
@@ -870,30 +870,30 @@ define void @opal_info_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 
 .preheader:                                       ; preds = %52
   %55 = load i8, ptr %.079, align 1
-  %.not101113 = icmp ne i8 %55, 0
-  %or.cond106114 = select i1 %.not101113, i1 %51, i1 false
-  br i1 %or.cond106114, label %.lr.ph, label %.critedge3
+  %.not101112 = icmp ne i8 %55, 0
+  %or.cond105113 = select i1 %.not101112, i1 %51, i1 false
+  br i1 %or.cond105113, label %.lr.ph, label %.critedge3
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %56 = phi i8 [ %63, %.lr.ph ], [ %55, %.preheader ]
-  %.074117 = phi i64 [ %61, %.lr.ph ], [ 0, %.preheader ]
-  %.075116 = phi i64 [ %.1, %.lr.ph ], [ 0, %.preheader ]
-  %.076115 = phi i8 [ %.2, %.lr.ph ], [ 0, %.preheader ]
+  %.074116 = phi i64 [ %61, %.lr.ph ], [ 0, %.preheader ]
+  %.075115 = phi i64 [ %.1, %.lr.ph ], [ 0, %.preheader ]
+  %.076114 = phi i8 [ %.2, %.lr.ph ], [ 0, %.preheader ]
   %57 = icmp eq i8 %56, 27
-  %spec.select = select i1 %57, i8 1, i8 %.076115
+  %spec.select = select i1 %57, i8 1, i8 %.076114
   %58 = and i8 %spec.select, 1
   %59 = zext nneg i8 %58 to i64
-  %.1 = add i64 %.075116, %59
+  %.1 = add i64 %.075115, %59
   %60 = icmp eq i8 %56, 109
   %.2 = select i1 %60, i8 0, i8 %spec.select
-  %61 = add i64 %.074117, 1
+  %61 = add i64 %.074116, 1
   %62 = getelementptr inbounds i8, ptr %.079, i64 %61
   %63 = load i8, ptr %62, align 1
   %.not101 = icmp ne i8 %63, 0
   %64 = sub i64 %61, %.1
   %65 = icmp ult i64 %64, %44
-  %or.cond106 = select i1 %.not101, i1 %65, i1 false
-  br i1 %or.cond106, label %.lr.ph, label %.critedge3, !llvm.loop !11
+  %or.cond105 = select i1 %.not101, i1 %65, i1 false
+  br i1 %or.cond105, label %.lr.ph, label %.critedge3, !llvm.loop !11
 
 .critedge3:                                       ; preds = %.lr.ph, %.preheader
   %.075.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %.lr.ph ]
@@ -937,7 +937,7 @@ define void @opal_info_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 
 85:                                               ; preds = %76, %67
   %86 = load ptr, ptr %5, align 8
-  %87 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.99, ptr noundef %86, ptr noundef %.079)
+  %87 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.99, ptr noundef %86, ptr noundef nonnull %.079)
   %88 = load ptr, ptr %5, align 8
   %.not102 = icmp eq ptr %88, null
   br i1 %.not102, label %90, label %89
@@ -1021,11 +1021,11 @@ define void @opal_info_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 escape_quotes.exit:                               ; preds = %.preheader.i, %.critedge.i, %101
   %.020.i = phi ptr [ null, %.critedge.i ], [ null, %101 ], [ %106, %.preheader.i ]
   %.not98 = icmp eq ptr %.020.i, null
-  %spec.select107 = select i1 %.not98, ptr %spec.store.select, ptr %.020.i
-  %115 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %spec.select107, i32 noundef 58) #20
+  %spec.select106 = select i1 %.not98, ptr %spec.store.select, ptr %.020.i
+  %115 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %spec.select106, i32 noundef 58) #20
   %.not99 = icmp eq ptr %115, null
   %.str.101..str.100 = select i1 %.not99, ptr @.str.101, ptr @.str.100
-  %116 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.101..str.100, ptr noundef nonnull %1, ptr noundef nonnull %spec.select107)
+  %116 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.101..str.100, ptr noundef nonnull %1, ptr noundef nonnull %spec.select106)
   br i1 %.not98, label %119, label %117
 
 117:                                              ; preds = %escape_quotes.exit
@@ -1036,15 +1036,8 @@ escape_quotes.exit:                               ; preds = %.preheader.i, %.cri
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %spec.store.select)
   br label %119
 
-119:                                              ; preds = %118, %117, %escape_quotes.exit, %90, %92
-  %.not104 = icmp eq ptr %13, null
-  br i1 %.not104, label %121, label %120
-
-120:                                              ; preds = %119
-  call void @free(ptr noundef nonnull %13) #17
-  br label %121
-
-121:                                              ; preds = %120, %119
+119:                                              ; preds = %92, %90, %escape_quotes.exit, %117, %118
+  call void @free(ptr noundef %13) #17
   ret void
 }
 
@@ -1405,13 +1398,13 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 226:                                              ; preds = %.lr.ph37
   %227 = load ptr, ptr @opal_install_dirs, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %228 = call noalias ptr @strdup(ptr noundef %223) #17
+  %228 = call noalias ptr @strdup(ptr noundef nonnull %223) #17
   %229 = load i8, ptr %228, align 1
   %230 = sext i8 %229 to i32
   %231 = call i32 @toupper(i32 noundef %230) #20
   %232 = trunc i32 %231 to i8
   store i8 %232, ptr %228, align 1
-  %233 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.80, ptr noundef %223) #17
+  %233 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.80, ptr noundef nonnull %223) #17
   %234 = load ptr, ptr %13, align 8
   call void @opal_info_out(ptr noundef nonnull %228, ptr noundef %234, ptr noundef %227)
   call void @free(ptr noundef %228) #17
@@ -1429,13 +1422,13 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 240:                                              ; preds = %236
   %241 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 16), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  %242 = call noalias ptr @strdup(ptr noundef %237) #17
+  %242 = call noalias ptr @strdup(ptr noundef nonnull %237) #17
   %243 = load i8, ptr %242, align 1
   %244 = sext i8 %243 to i32
   %245 = call i32 @toupper(i32 noundef %244) #20
   %246 = trunc i32 %245 to i8
   store i8 %246, ptr %242, align 1
-  %247 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %12, ptr noundef nonnull @.str.80, ptr noundef %237) #17
+  %247 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %12, ptr noundef nonnull @.str.80, ptr noundef nonnull %237) #17
   %248 = load ptr, ptr %12, align 8
   call void @opal_info_out(ptr noundef nonnull %242, ptr noundef %248, ptr noundef %241)
   call void @free(ptr noundef %242) #17
@@ -1453,13 +1446,13 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 254:                                              ; preds = %250
   %255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 80), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %256 = call noalias ptr @strdup(ptr noundef %251) #17
+  %256 = call noalias ptr @strdup(ptr noundef nonnull %251) #17
   %257 = load i8, ptr %256, align 1
   %258 = sext i8 %257 to i32
   %259 = call i32 @toupper(i32 noundef %258) #20
   %260 = trunc i32 %259 to i8
   store i8 %260, ptr %256, align 1
-  %261 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.80, ptr noundef %251) #17
+  %261 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.80, ptr noundef nonnull %251) #17
   %262 = load ptr, ptr %11, align 8
   call void @opal_info_out(ptr noundef nonnull %256, ptr noundef %262, ptr noundef %255)
   call void @free(ptr noundef %256) #17
@@ -1477,13 +1470,13 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 268:                                              ; preds = %264
   %269 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 88), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  %270 = call noalias ptr @strdup(ptr noundef %265) #17
+  %270 = call noalias ptr @strdup(ptr noundef nonnull %265) #17
   %271 = load i8, ptr %270, align 1
   %272 = sext i8 %271 to i32
   %273 = call i32 @toupper(i32 noundef %272) #20
   %274 = trunc i32 %273 to i8
   store i8 %274, ptr %270, align 1
-  %275 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.80, ptr noundef %265) #17
+  %275 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.80, ptr noundef nonnull %265) #17
   %276 = load ptr, ptr %10, align 8
   call void @opal_info_out(ptr noundef nonnull %270, ptr noundef %276, ptr noundef %269)
   call void @free(ptr noundef %270) #17
@@ -1501,13 +1494,13 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 282:                                              ; preds = %278
   %283 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 104), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  %284 = call noalias ptr @strdup(ptr noundef %279) #17
+  %284 = call noalias ptr @strdup(ptr noundef nonnull %279) #17
   %285 = load i8, ptr %284, align 1
   %286 = sext i8 %285 to i32
   %287 = call i32 @toupper(i32 noundef %286) #20
   %288 = trunc i32 %287 to i8
   store i8 %288, ptr %284, align 1
-  %289 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.80, ptr noundef %279) #17
+  %289 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.80, ptr noundef nonnull %279) #17
   %290 = load ptr, ptr %9, align 8
   call void @opal_info_out(ptr noundef nonnull %284, ptr noundef %290, ptr noundef %283)
   call void @free(ptr noundef %284) #17
@@ -1525,13 +1518,13 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 296:                                              ; preds = %292
   %297 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 120), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %298 = call noalias ptr @strdup(ptr noundef %293) #17
+  %298 = call noalias ptr @strdup(ptr noundef nonnull %293) #17
   %299 = load i8, ptr %298, align 1
   %300 = sext i8 %299 to i32
   %301 = call i32 @toupper(i32 noundef %300) #20
   %302 = trunc i32 %301 to i8
   store i8 %302, ptr %298, align 1
-  %303 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.80, ptr noundef %293) #17
+  %303 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %8, ptr noundef nonnull @.str.80, ptr noundef nonnull %293) #17
   %304 = load ptr, ptr %8, align 8
   call void @opal_info_out(ptr noundef nonnull %298, ptr noundef %304, ptr noundef %297)
   call void @free(ptr noundef %298) #17
@@ -1549,13 +1542,13 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 310:                                              ; preds = %306
   %311 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 56), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %312 = call noalias ptr @strdup(ptr noundef %307) #17
+  %312 = call noalias ptr @strdup(ptr noundef nonnull %307) #17
   %313 = load i8, ptr %312, align 1
   %314 = sext i8 %313 to i32
   %315 = call i32 @toupper(i32 noundef %314) #20
   %316 = trunc i32 %315 to i8
   store i8 %316, ptr %312, align 1
-  %317 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.80, ptr noundef %307) #17
+  %317 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.80, ptr noundef nonnull %307) #17
   %318 = load ptr, ptr %7, align 8
   call void @opal_info_out(ptr noundef nonnull %312, ptr noundef %318, ptr noundef %311)
   call void @free(ptr noundef %312) #17
@@ -1573,13 +1566,13 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 324:                                              ; preds = %320
   %325 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 8), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %326 = call noalias ptr @strdup(ptr noundef %321) #17
+  %326 = call noalias ptr @strdup(ptr noundef nonnull %321) #17
   %327 = load i8, ptr %326, align 1
   %328 = sext i8 %327 to i32
   %329 = call i32 @toupper(i32 noundef %328) #20
   %330 = trunc i32 %329 to i8
   store i8 %330, ptr %326, align 1
-  %331 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.80, ptr noundef %321) #17
+  %331 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.80, ptr noundef nonnull %321) #17
   %332 = load ptr, ptr %6, align 8
   call void @opal_info_out(ptr noundef nonnull %326, ptr noundef %332, ptr noundef %325)
   call void @free(ptr noundef %326) #17
@@ -1597,13 +1590,13 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 338:                                              ; preds = %334
   %339 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 24), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %340 = call noalias ptr @strdup(ptr noundef %335) #17
+  %340 = call noalias ptr @strdup(ptr noundef nonnull %335) #17
   %341 = load i8, ptr %340, align 1
   %342 = sext i8 %341 to i32
   %343 = call i32 @toupper(i32 noundef %342) #20
   %344 = trunc i32 %343 to i8
   store i8 %344, ptr %340, align 1
-  %345 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.80, ptr noundef %335) #17
+  %345 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.80, ptr noundef nonnull %335) #17
   %346 = load ptr, ptr %5, align 8
   call void @opal_info_out(ptr noundef nonnull %340, ptr noundef %346, ptr noundef %339)
   call void @free(ptr noundef %340) #17
@@ -1621,13 +1614,13 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 352:                                              ; preds = %348
   %353 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 32), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %354 = call noalias ptr @strdup(ptr noundef %349) #17
+  %354 = call noalias ptr @strdup(ptr noundef nonnull %349) #17
   %355 = load i8, ptr %354, align 1
   %356 = sext i8 %355 to i32
   %357 = call i32 @toupper(i32 noundef %356) #20
   %358 = trunc i32 %357 to i8
   store i8 %358, ptr %354, align 1
-  %359 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.80, ptr noundef %349) #17
+  %359 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %4, ptr noundef nonnull @.str.80, ptr noundef nonnull %349) #17
   %360 = load ptr, ptr %4, align 8
   call void @opal_info_out(ptr noundef nonnull %354, ptr noundef %360, ptr noundef %353)
   call void @free(ptr noundef %354) #17
@@ -1645,13 +1638,13 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 366:                                              ; preds = %362
   %367 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 40), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %368 = call noalias ptr @strdup(ptr noundef %363) #17
+  %368 = call noalias ptr @strdup(ptr noundef nonnull %363) #17
   %369 = load i8, ptr %368, align 1
   %370 = sext i8 %369 to i32
   %371 = call i32 @toupper(i32 noundef %370) #20
   %372 = trunc i32 %371 to i8
   store i8 %372, ptr %368, align 1
-  %373 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.80, ptr noundef %363) #17
+  %373 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.80, ptr noundef nonnull %363) #17
   %374 = load ptr, ptr %3, align 8
   call void @opal_info_out(ptr noundef nonnull %368, ptr noundef %374, ptr noundef %367)
   call void @free(ptr noundef %368) #17
@@ -1668,7 +1661,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 
 380:                                              ; preds = %376
   %381 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 48), align 8
-  call void @opal_info_show_path(ptr noundef %377, ptr noundef %381)
+  call void @opal_info_show_path(ptr noundef nonnull %377, ptr noundef %381)
   br label %416
 
 382:                                              ; preds = %376
@@ -1679,7 +1672,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 
 386:                                              ; preds = %382
   %387 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 64), align 8
-  call void @opal_info_show_path(ptr noundef %383, ptr noundef %387)
+  call void @opal_info_show_path(ptr noundef nonnull %383, ptr noundef %387)
   br label %416
 
 388:                                              ; preds = %382
@@ -1690,7 +1683,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 
 392:                                              ; preds = %388
   %393 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 72), align 8
-  call void @opal_info_show_path(ptr noundef %389, ptr noundef %393)
+  call void @opal_info_show_path(ptr noundef nonnull %389, ptr noundef %393)
   br label %416
 
 394:                                              ; preds = %388
@@ -1701,7 +1694,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 
 398:                                              ; preds = %394
   %399 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 96), align 8
-  call void @opal_info_show_path(ptr noundef %395, ptr noundef %399)
+  call void @opal_info_show_path(ptr noundef nonnull %395, ptr noundef %399)
   br label %416
 
 400:                                              ; preds = %394
@@ -1712,7 +1705,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 
 404:                                              ; preds = %400
   %405 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 112), align 8
-  call void @opal_info_show_path(ptr noundef %401, ptr noundef %405)
+  call void @opal_info_show_path(ptr noundef nonnull %401, ptr noundef %405)
   br label %416
 
 406:                                              ; preds = %400
@@ -1723,7 +1716,7 @@ define void @opal_info_do_path(i1 noundef zeroext %0, ptr noundef %1) local_unna
 
 410:                                              ; preds = %406
   %411 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_install_dirs, i64 128), align 8
-  call void @opal_info_show_path(ptr noundef %407, ptr noundef %411)
+  call void @opal_info_show_path(ptr noundef nonnull %407, ptr noundef %411)
   br label %416
 
 412:                                              ; preds = %406
@@ -1885,7 +1878,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %57, %63
   br i1 %72, label %opal_info_show_mca_params.exit, label %.sink.split.i
 
 73:                                               ; preds = %66
-  %74 = call i32 @mca_base_var_group_find(ptr noundef nonnull @.str.88, ptr noundef nonnull %61, ptr noundef %67) #17
+  %74 = call i32 @mca_base_var_group_find(ptr noundef nonnull @.str.88, ptr noundef nonnull %61, ptr noundef nonnull %67) #17
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %opal_info_show_mca_params.exit, label %.sink.split.i
 
@@ -1972,19 +1965,19 @@ opal_pointer_array_get_item.exit76:               ; preds = %91, %97
   %112 = trunc nuw nsw i64 %indvars.iv to i32
   %113 = load ptr, ptr @opal_info_ver_full, align 8
   %114 = load ptr, ptr @opal_info_ver_all, align 8
-  call void @opal_info_show_component_version(ptr noundef nonnull %2, ptr noundef %3, ptr noundef %83, ptr noundef %84, ptr noundef %113, ptr noundef %114)
+  call void @opal_info_show_component_version(ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %83, ptr noundef %84, ptr noundef %113, ptr noundef %114)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %115 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(4) @.str.17) #20
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %120
 
 117:                                              ; preds = %111
-  %118 = call i32 @mca_base_var_group_find(ptr noundef nonnull @.str.88, ptr noundef %83, ptr noundef null) #17
+  %118 = call i32 @mca_base_var_group_find(ptr noundef nonnull @.str.88, ptr noundef nonnull %83, ptr noundef null) #17
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %opal_info_show_mca_params.exit79, label %.sink.split.i77
 
 120:                                              ; preds = %111
-  %121 = call i32 @mca_base_var_group_find(ptr noundef nonnull @.str.88, ptr noundef %83, ptr noundef %84) #17
+  %121 = call i32 @mca_base_var_group_find(ptr noundef nonnull @.str.88, ptr noundef nonnull %83, ptr noundef nonnull %84) #17
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %opal_info_show_mca_params.exit79, label %.sink.split.i77
 
@@ -2270,7 +2263,7 @@ define void @opal_info_show_mca_params(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %10, label %16, label %.sink.split
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @mca_base_var_group_find(ptr noundef nonnull @.str.88, ptr noundef %0, ptr noundef %1) #17
+  %12 = tail call i32 @mca_base_var_group_find(ptr noundef nonnull @.str.88, ptr noundef %0, ptr noundef nonnull %1) #17
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %16, label %.sink.split
 
@@ -2358,7 +2351,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %13, %19
   br i1 %37, label %opal_info_show_mca_params.exit, label %.sink.split.i
 
 38:                                               ; preds = %29
-  %39 = tail call i32 @mca_base_var_group_find(ptr noundef nonnull @.str.88, ptr noundef %31, ptr noundef %32) #17
+  %39 = tail call i32 @mca_base_var_group_find(ptr noundef nonnull @.str.88, ptr noundef %31, ptr noundef nonnull %32) #17
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %opal_info_show_mca_params.exit, label %.sink.split.i
 

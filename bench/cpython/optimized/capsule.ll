@@ -492,7 +492,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr align 1 %name, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr nonnull align 1 %name, i64 %add, i1 false)
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end15, %if.end
@@ -567,32 +567,26 @@ land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
 land.rhs.i:                                       ; preds = %land.lhs.true1.i
   %name3.i = getelementptr inbounds nuw i8, ptr %object.0, i64 24
   %5 = load ptr, ptr %name3.i, align 8
-  %tobool.i.i = icmp ne ptr %5, null
-  %tobool1.i.i = icmp ne ptr %name, null
-  %or.cond.i.i = and i1 %tobool1.i.i, %tobool.i.i
-  br i1 %or.cond.i.i, label %if.end.i.i, label %PyCapsule_IsValid.exit
+  %tobool.i.i.not = icmp eq ptr %5, null
+  br i1 %tobool.i.i.not, label %if.then.i.sink.split, label %PyCapsule_IsValid.exit
 
-if.end.i.i:                                       ; preds = %land.rhs.i
+PyCapsule_IsValid.exit:                           ; preds = %land.rhs.i
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %name) #8
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool2.not.i.i, label %if.then.i, label %if.then.i.sink.split
 
-PyCapsule_IsValid.exit:                           ; preds = %land.rhs.i
-  %cmp.i4.i = icmp eq ptr %5, %name
-  br i1 %cmp.i4.i, label %if.then.i, label %if.then.i.sink.split
-
 EXIT:                                             ; preds = %while.end
   %6 = load ptr, ptr @PyExc_AttributeError, align 8
-  %call23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.14, ptr noundef %name) #7
+  %call23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.14, ptr noundef nonnull %name) #7
   br label %Py_XDECREF.exit
 
-if.then.i.sink.split:                             ; preds = %land.lhs.true.i, %land.lhs.true1.i, %PyCapsule_IsValid.exit, %if.end.i.i
+if.then.i.sink.split:                             ; preds = %land.lhs.true.i, %land.lhs.true1.i, %PyCapsule_IsValid.exit, %land.rhs.i
   %7 = load ptr, ptr @PyExc_AttributeError, align 8
-  %call2347 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.14, ptr noundef %name) #7
+  %call2347 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.14, ptr noundef nonnull %name) #7
   br label %if.then.i
 
-if.then.i:                                        ; preds = %if.then.i.sink.split, %PyCapsule_IsValid.exit, %if.end.i.i
-  %return_value.041 = phi ptr [ %4, %if.end.i.i ], [ %4, %PyCapsule_IsValid.exit ], [ null, %if.then.i.sink.split ]
+if.then.i:                                        ; preds = %if.then.i.sink.split, %PyCapsule_IsValid.exit
+  %return_value.041 = phi ptr [ %4, %PyCapsule_IsValid.exit ], [ null, %if.then.i.sink.split ]
   %8 = load i64, ptr %object.0, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i2.not.i = icmp eq i64 %9, 0

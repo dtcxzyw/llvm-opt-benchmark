@@ -167,7 +167,6 @@ $_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 @_ZZN4pbrt12_GLOBAL__N_114ElapsedSecondsEvE5mutex = internal global { %union.pthread_mutex_t } zeroinitializer, align 8
 @_ZZN4pbrt12_GLOBAL__N_114ElapsedSecondsEvE5start.0 = internal unnamed_addr global i64 0, align 8
 @_ZGVZN4pbrt12_GLOBAL__N_114ElapsedSecondsEvE5start = internal global i64 0, align 8
-@.str.15 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.16 = private unnamed_addr constant [115 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/pbrt-v4/pbrt-v4/src/pbrt/util/print.h\00", align 1
 @.str.17 = private unnamed_addr constant [42 x i8] c"Non-integral type provided for %* format.\00", align 1
 @.str.18 = private unnamed_addr constant [39 x i8] c"Non-integral type passed to %d format.\00", align 1
@@ -663,26 +662,15 @@ cleanup.done12:                                   ; preds = %cleanup.action, %cl
 
 call.i.noexc17:                                   ; preds = %cleanup.done12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %shortfile, ptr noundef %call.i18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp20)
-          to label %.noexc19 unwind label %lpad21
+          to label %if.end.i unwind label %lpad21
 
-.noexc19:                                         ; preds = %call.i.noexc17
-  %cmp.i = icmp eq ptr %cond, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %.noexc19
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.15) #19
-          to label %invoke.cont.i unwind label %lpad.i16
-
-invoke.cont.i:                                    ; preds = %if.then.i
-  unreachable
-
-lpad.i16:                                         ; preds = %if.end.i, %if.then.i
+lpad.i16:                                         ; preds = %if.end.i
   %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %shortfile) #18
   br label %lpad21.body
 
-if.end.i:                                         ; preds = %.noexc19
+if.end.i:                                         ; preds = %call.i.noexc17
   %call.i.i14 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond) #18
   %add.ptr.i15 = getelementptr inbounds i8, ptr %cond, i64 %call.i.i14
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %shortfile, ptr noundef nonnull %cond, ptr noundef nonnull %add.ptr.i15)
@@ -704,7 +692,7 @@ invoke.cont29:                                    ; preds = %if.then25
   %conv31 = fpext float %call30 to double
   %call32 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %shortfile) #18
   %call33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %levelString) #18
-  %call35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, i32 noundef %conv.i, double noundef %conv31, ptr noundef %call32, i32 noundef %line, ptr noundef %call33, ptr noundef %s)
+  %call35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.13, i32 noundef %conv.i, double noundef %conv31, ptr noundef %call32, i32 noundef %line, ptr noundef %call33, ptr noundef nonnull %s)
   %4 = load ptr, ptr @_ZN4pbrt7logging7logFileE, align 8
   %call37 = call i32 @fflush(ptr noundef %4)
   br label %if.end47
@@ -752,7 +740,7 @@ invoke.cont40:                                    ; preds = %if.else
   %conv42 = fpext float %call41 to double
   %call43 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %shortfile) #18
   %call44 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %levelString) #18
-  %call46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.13, i32 noundef %conv.i23, double noundef %conv42, ptr noundef %call43, i32 noundef %line, ptr noundef %call44, ptr noundef %s) #22
+  %call46 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.13, i32 noundef %conv.i23, double noundef %conv42, ptr noundef %call43, i32 noundef %line, ptr noundef %call44, ptr noundef nonnull %s) #22
   br label %if.end47
 
 if.end47:                                         ; preds = %invoke.cont40, %invoke.cont29
@@ -852,26 +840,15 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 
 call.i.noexc:                                     ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %shortfile, ptr noundef %call.i4, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %.noexc unwind label %lpad
+          to label %if.end.i unwind label %lpad
 
-.noexc:                                           ; preds = %call.i.noexc
-  %cmp.i = icmp eq ptr %cond, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %.noexc
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.15) #19
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %if.then.i
-  unreachable
-
-lpad.i:                                           ; preds = %if.end.i, %if.then.i
+lpad.i:                                           ; preds = %if.end.i
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %shortfile) #18
   br label %lpad.body
 
-if.end.i:                                         ; preds = %.noexc
+if.end.i:                                         ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond) #18
   %add.ptr.i = getelementptr inbounds i8, ptr %cond, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %shortfile, ptr noundef nonnull %cond, ptr noundef nonnull %add.ptr.i)
@@ -959,9 +936,6 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
-
-; Function Attrs: noreturn
-declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__beg, ptr noundef %__end) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {

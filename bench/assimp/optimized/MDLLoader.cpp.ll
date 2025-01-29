@@ -3780,29 +3780,27 @@ _ZNK6Assimp11MDLImporter10IsPosValidEPKv.exit:    ; preds = %entry
 if.then:                                          ; preds = %entry, %_ZNK6Assimp11MDLImporter10IsPosValidEPKv.exit
   %call2 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %szFile, i32 noundef 92) #31
   %tobool.not = icmp eq ptr %call2, null
-  br i1 %tobool.not, label %if.then3, label %if.end6
+  br i1 %tobool.not, label %if.then3, label %if.then8
 
 if.then3:                                         ; preds = %if.then
   %call4 = tail call noundef ptr @strrchr(ptr noundef nonnull dereferenceable(1) %szFile, i32 noundef 47) #31
   %cmp = icmp eq ptr %call4, null
   %spec.select = select i1 %cmp, ptr %szFile, ptr %call4
-  br label %if.end6
+  br label %if.then8
 
-if.end6:                                          ; preds = %if.then3, %if.then
+if.then8:                                         ; preds = %if.then3, %if.then
   %szFilePtr.0 = phi ptr [ %call2, %if.then ], [ %spec.select, %if.then3 ]
-  %tobool7.not = icmp eq ptr %szFilePtr.0, null
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %szFilePtr.0, i64 1
-  %spec.select7 = select i1 %tobool7.not, ptr null, ptr %incdec.ptr
-  %call10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szBuffer, i64 noundef 1024, ptr noundef nonnull @.str.44, ptr noundef %spec.select7, i32 noundef %iLine) #26
+  %call10 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %szBuffer, i64 noundef 1024, ptr noundef nonnull @.str.44, ptr noundef nonnull %incdec.ptr, i32 noundef %iLine) #26
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #26
   invoke void @_ZN17DeadlyImportErrorC2IJRA1024_cEEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 1 dereferenceable(1024) %szBuffer)
           to label %invoke.cont unwind label %lpad
 
-invoke.cont:                                      ; preds = %if.end6
+invoke.cont:                                      ; preds = %if.then8
   call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #27
   unreachable
 
-lpad:                                             ; preds = %if.end6
+lpad:                                             ; preds = %if.then8
   %2 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception) #26

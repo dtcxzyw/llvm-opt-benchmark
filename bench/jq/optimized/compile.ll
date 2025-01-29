@@ -1667,7 +1667,7 @@ define { ptr, ptr } @gen_function(ptr nocapture noundef readonly %0, ptr %1, ptr
   store ptr %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 96
   store i32 1, ptr %50, align 8
-  %51 = tail call { ptr, ptr } @gen_destructure(ptr %25, ptr %25, ptr %39, ptr %39, ptr %.sroa.022.036, ptr %.sroa.5.037)
+  %51 = tail call { ptr, ptr } @gen_destructure(ptr nonnull %25, ptr nonnull %25, ptr nonnull %39, ptr nonnull %39, ptr %.sroa.022.036, ptr %.sroa.5.037)
   %52 = extractvalue { ptr, ptr } %51, 0
   %53 = extractvalue { ptr, ptr } %51, 1
   br label %54
@@ -1703,7 +1703,7 @@ define { ptr, ptr } @gen_function(ptr nocapture noundef readonly %0, ptr %1, ptr
   %.fca.0.insert.i31 = insertvalue { ptr, ptr } poison, ptr %8, 0
   %.fca.1.insert.i32 = insertvalue { ptr, ptr } %.fca.0.insert.i31, ptr %8, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %62 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %6, ptr %8, ptr %8, i32 noundef 1152, i32 noundef 0)
+  %62 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %6, ptr nonnull %8, ptr nonnull %8, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   ret { ptr, ptr } %.fca.1.insert.i32
 }
@@ -1733,7 +1733,7 @@ define { ptr, ptr } @gen_var_binding(ptr %0, ptr %1, ptr nocapture noundef reado
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 1, ptr %17, align 8
-  %18 = tail call { ptr, ptr } @gen_destructure(ptr %0, ptr %1, ptr %6, ptr %6, ptr %3, ptr %4)
+  %18 = tail call { ptr, ptr } @gen_destructure(ptr %0, ptr %1, ptr nonnull %6, ptr nonnull %6, ptr %3, ptr %4)
   ret { ptr, ptr } %18
 }
 
@@ -1892,7 +1892,7 @@ define { ptr, ptr } @gen_lambda(ptr %0, ptr %1) local_unnamed_addr #1 {
   %.fca.1.insert.i32.i = insertvalue { ptr, ptr } %.fca.0.insert.i31.i, ptr %4, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %17 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %3, ptr %4, ptr %4, i32 noundef 1152, i32 noundef 0)
+  %17 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %3, ptr nonnull %4, ptr nonnull %4, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret { ptr, ptr } %.fca.1.insert.i32.i
 }
@@ -3201,87 +3201,82 @@ block_free.exit:                                  ; preds = %.lr.ph.i116
   br i1 %10, label %block_join.exit125, label %113
 
 113:                                              ; preds = %block_free.exit
-  %.not7.i.i120 = icmp eq ptr %.sroa.3.0.i111, null
-  br i1 %.not7.i.i120, label %block_join.exit125, label %114
-
-114:                                              ; preds = %113
   store ptr %.sroa.0.0.lcssa, ptr %.sroa.3.0.i111, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 8
-  store ptr %.sroa.3.0.i111, ptr %115, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 8
+  store ptr %.sroa.3.0.i111, ptr %114, align 8
   br label %block_join.exit125
 
-block_join.exit125:                               ; preds = %block_free.exit, %113, %114
-  %.sroa.3.0.i121 = phi ptr [ %.sroa.3.0.i111, %block_free.exit ], [ %.sroa.9.0.lcssa, %113 ], [ %.sroa.9.0.lcssa, %114 ]
-  %.sroa.0.1.i122 = phi ptr [ %.sroa.0.1.i105, %block_free.exit ], [ %.sroa.0.0.lcssa, %113 ], [ %.sroa.0.1.i105, %114 ]
+block_join.exit125:                               ; preds = %block_free.exit, %113
+  %.sroa.3.0.i121 = phi ptr [ %.sroa.3.0.i111, %block_free.exit ], [ %.sroa.9.0.lcssa, %113 ]
   %.not.i.i126 = icmp eq ptr %2, null
-  br i1 %.not.i.i126, label %block_join.exit132, label %116
+  br i1 %.not.i.i126, label %block_join.exit132, label %115
 
-116:                                              ; preds = %block_join.exit125
+115:                                              ; preds = %block_join.exit125
   %.not7.i.i127 = icmp eq ptr %.sroa.3.0.i121, null
-  br i1 %.not7.i.i127, label %block_join.exit132, label %117
+  br i1 %.not7.i.i127, label %block_join.exit132, label %116
 
-117:                                              ; preds = %116
+116:                                              ; preds = %115
   store ptr %2, ptr %.sroa.3.0.i121, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.sroa.3.0.i121, ptr %118, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %.sroa.3.0.i121, ptr %117, align 8
   br label %block_join.exit132
 
-block_join.exit132:                               ; preds = %block_join.exit125, %116, %117
-  %.sroa.3.0.i128 = phi ptr [ %.sroa.3.0.i121, %block_join.exit125 ], [ %3, %116 ], [ %3, %117 ]
-  %.sroa.0.1.i129 = phi ptr [ %.sroa.0.1.i122, %block_join.exit125 ], [ %2, %116 ], [ %.sroa.0.1.i122, %117 ]
+block_join.exit132:                               ; preds = %block_join.exit125, %115, %116
+  %.sroa.3.0.i128 = phi ptr [ %.sroa.3.0.i121, %block_join.exit125 ], [ %3, %115 ], [ %3, %116 ]
+  %.sroa.0.1.i129 = phi ptr [ %.sroa.0.1.i105, %block_join.exit125 ], [ %2, %115 ], [ %.sroa.0.1.i105, %116 ]
   %.not18.i133 = icmp eq ptr %.sroa.049.1.lcssa, null
   br i1 %.not18.i133, label %._crit_edge.i138, label %.lr.ph.i134
 
-.lr.ph.i134:                                      ; preds = %block_join.exit132, %126
-  %.019.i135 = phi ptr [ %127, %126 ], [ %.sroa.049.1.lcssa, %block_join.exit132 ]
-  %119 = getelementptr inbounds nuw i8, ptr %.019.i135, i64 16
-  %120 = load i32, ptr %119, align 8
-  switch i32 %120, label %126 [
-    i32 8, label %121
-    i32 41, label %121
+.lr.ph.i134:                                      ; preds = %block_join.exit132, %125
+  %.019.i135 = phi ptr [ %126, %125 ], [ %.sroa.049.1.lcssa, %block_join.exit132 ]
+  %118 = getelementptr inbounds nuw i8, ptr %.019.i135, i64 16
+  %119 = load i32, ptr %118, align 8
+  switch i32 %119, label %125 [
+    i32 8, label %120
+    i32 41, label %120
   ]
 
-121:                                              ; preds = %.lr.ph.i134, %.lr.ph.i134
-  %122 = getelementptr inbounds nuw i8, ptr %.019.i135, i64 80
-  %123 = load ptr, ptr %122, align 8
-  %.not15.i136 = icmp eq ptr %123, null
-  br i1 %.not15.i136, label %124, label %126
+120:                                              ; preds = %.lr.ph.i134, %.lr.ph.i134
+  %121 = getelementptr inbounds nuw i8, ptr %.019.i135, i64 80
+  %122 = load ptr, ptr %121, align 8
+  %.not15.i136 = icmp eq ptr %122, null
+  br i1 %.not15.i136, label %123, label %125
 
-124:                                              ; preds = %121
+123:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %125 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %5, ptr nonnull %.019.i135, ptr %.sroa.0.1.i129, i32 noundef 4, i32 noundef 0)
+  %124 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %5, ptr nonnull %.019.i135, ptr %.sroa.0.1.i129, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %126
+  br label %125
 
-126:                                              ; preds = %124, %121, %.lr.ph.i134
-  %127 = load ptr, ptr %.019.i135, align 8
-  %.not.i137 = icmp eq ptr %127, null
+125:                                              ; preds = %123, %120, %.lr.ph.i134
+  %126 = load ptr, ptr %.019.i135, align 8
+  %.not.i137 = icmp eq ptr %126, null
   br i1 %.not.i137, label %._crit_edge.i138, label %.lr.ph.i134, !llvm.loop !21
 
-._crit_edge.i138:                                 ; preds = %126, %block_join.exit132
+._crit_edge.i138:                                 ; preds = %125, %block_join.exit132
   %.not.i.i.i139 = icmp eq ptr %.sroa.0.1.i129, null
-  br i1 %.not.i.i.i139, label %bind_matcher.exit, label %128
+  br i1 %.not.i.i.i139, label %bind_matcher.exit, label %127
 
-128:                                              ; preds = %._crit_edge.i138
+127:                                              ; preds = %._crit_edge.i138
   %.not7.i.i.i140 = icmp eq ptr %.sroa.451.1.lcssa, null
-  br i1 %.not7.i.i.i140, label %bind_matcher.exit, label %129
+  br i1 %.not7.i.i.i140, label %bind_matcher.exit, label %128
 
-129:                                              ; preds = %128
+128:                                              ; preds = %127
   store ptr %.sroa.0.1.i129, ptr %.sroa.451.1.lcssa, align 8
   br label %bind_matcher.exit.sink.split
 
-bind_matcher.exit.sink.split:                     ; preds = %31, %129
-  %.sroa.0.1.i129.sink = phi ptr [ %.sroa.0.1.i129, %129 ], [ %2, %31 ]
-  %.sroa.451.1.lcssa.sink = phi ptr [ %.sroa.451.1.lcssa, %129 ], [ %.sroa.9.0.lcssa195200, %31 ]
-  %.sroa.0.1.i.i.pn.ph = phi ptr [ %.sroa.049.1.lcssa, %129 ], [ %.sroa.0.0.lcssa194201, %31 ]
-  %.sroa.3.0.i.i.pn.ph = phi ptr [ %.sroa.3.0.i128, %129 ], [ %3, %31 ]
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i129.sink, i64 8
-  store ptr %.sroa.451.1.lcssa.sink, ptr %130, align 8
+bind_matcher.exit.sink.split:                     ; preds = %31, %128
+  %.sroa.0.1.i129.sink = phi ptr [ %.sroa.0.1.i129, %128 ], [ %2, %31 ]
+  %.sroa.451.1.lcssa.sink = phi ptr [ %.sroa.451.1.lcssa, %128 ], [ %.sroa.9.0.lcssa195200, %31 ]
+  %.sroa.0.1.i.i.pn.ph = phi ptr [ %.sroa.049.1.lcssa, %128 ], [ %.sroa.0.0.lcssa194201, %31 ]
+  %.sroa.3.0.i.i.pn.ph = phi ptr [ %.sroa.3.0.i128, %128 ], [ %3, %31 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i129.sink, i64 8
+  store ptr %.sroa.451.1.lcssa.sink, ptr %129, align 8
   br label %bind_matcher.exit
 
-bind_matcher.exit:                                ; preds = %bind_matcher.exit.sink.split, %128, %._crit_edge.i138, %30, %._crit_edge.i
-  %.sroa.0.1.i.i.pn = phi ptr [ %.sroa.0.0.lcssa194201, %._crit_edge.i ], [ %2, %30 ], [ %.sroa.049.1.lcssa, %._crit_edge.i138 ], [ %.sroa.0.1.i129, %128 ], [ %.sroa.0.1.i.i.pn.ph, %bind_matcher.exit.sink.split ]
-  %.sroa.3.0.i.i.pn = phi ptr [ %.sroa.9.0.lcssa195200, %._crit_edge.i ], [ %3, %30 ], [ %.sroa.451.1.lcssa, %._crit_edge.i138 ], [ %.sroa.3.0.i128, %128 ], [ %.sroa.3.0.i.i.pn.ph, %bind_matcher.exit.sink.split ]
+bind_matcher.exit:                                ; preds = %bind_matcher.exit.sink.split, %127, %._crit_edge.i138, %30, %._crit_edge.i
+  %.sroa.0.1.i.i.pn = phi ptr [ %.sroa.0.0.lcssa194201, %._crit_edge.i ], [ %2, %30 ], [ %.sroa.049.1.lcssa, %._crit_edge.i138 ], [ %.sroa.0.1.i129, %127 ], [ %.sroa.0.1.i.i.pn.ph, %bind_matcher.exit.sink.split ]
+  %.sroa.3.0.i.i.pn = phi ptr [ %.sroa.9.0.lcssa195200, %._crit_edge.i ], [ %3, %30 ], [ %.sroa.451.1.lcssa, %._crit_edge.i138 ], [ %.sroa.3.0.i128, %127 ], [ %.sroa.3.0.i.i.pn.ph, %bind_matcher.exit.sink.split ]
   %.fca.0.insert.i16.i.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i.i.pn, 0
   %.pn = insertvalue { ptr, ptr } %.fca.0.insert.i16.i.pn, ptr %.sroa.3.0.i.i.pn, 1
   ret { ptr, ptr } %.pn
@@ -4952,7 +4947,7 @@ define { ptr, ptr } @gen_array_matcher(ptr %0, ptr %1, ptr %2, ptr %3) local_unn
   store i64 %34, ptr %44, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 48
   store ptr %35, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %45 = tail call { ptr, ptr } @gen_subexp(ptr %36, ptr %36)
+  %45 = tail call { ptr, ptr } @gen_subexp(ptr nonnull %36, ptr nonnull %36)
   %46 = extractvalue { ptr, ptr } %45, 0
   %.not.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i, label %50, label %47
@@ -5476,7 +5471,7 @@ block_join.exit:
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %19 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %5, ptr %6, ptr %6, i32 noundef 1152, i32 noundef 0)
+  %19 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %5, ptr nonnull %6, ptr nonnull %6, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %20 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -5530,7 +5525,7 @@ block_join.exit:
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %45 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %4, ptr %32, ptr %32, i32 noundef 1152, i32 noundef 0)
+  %45 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %4, ptr nonnull %32, ptr nonnull %32, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store ptr %32, ptr %6, align 8
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -5667,7 +5662,7 @@ gen_call.exit:                                    ; preds = %64
   %105 = getelementptr inbounds nuw i8, ptr %93, i64 128
   store i32 0, ptr %98, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
-  %106 = tail call { ptr, ptr } @gen_cond(ptr %47, ptr %47, ptr %84, ptr %84, ptr %93, ptr %93)
+  %106 = tail call { ptr, ptr } @gen_cond(ptr nonnull %47, ptr nonnull %47, ptr nonnull %84, ptr nonnull %84, ptr nonnull %93, ptr nonnull %93)
   %107 = extractvalue { ptr, ptr } %106, 0
   %108 = extractvalue { ptr, ptr } %106, 1
   %109 = tail call { ptr, ptr } @gen_try(ptr %1, ptr %2, ptr %107, ptr %108)
@@ -5734,42 +5729,21 @@ block_join.exit.i:                                ; preds = %gen_call.exit, %111
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %block_join.exit.i
   %.0102.i.i.i = phi ptr [ %138, %.lr.ph.i.i.i ], [ %125, %block_join.exit.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %137 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %3, ptr nonnull %.0102.i.i.i, ptr %75, i32 noundef 3076, i32 noundef 0)
+  %137 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %3, ptr nonnull %.0102.i.i.i, ptr nonnull %75, i32 noundef 3076, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %138 = load ptr, ptr %.0102.i.i.i, align 8
   %.not.i.i15.i = icmp eq ptr %138, null
-  br i1 %.not.i.i15.i, label %block_bind_each.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i15.i, label %gen_wildvar_binding.exit, label %.lr.ph.i.i.i, !llvm.loop !26
 
-block_bind_each.exit.i.i:                         ; preds = %.lr.ph.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %75, null
-  br i1 %.not.i.i.i.i, label %block_bind.exit.i, label %block_bind.exit.thread.i
-
-block_bind.exit.thread.i:                         ; preds = %block_bind_each.exit.i.i
+gen_wildvar_binding.exit:                         ; preds = %.lr.ph.i.i.i
   store ptr %75, ptr %125, align 8
   %139 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %125, ptr %139, align 8
-  br label %140
-
-block_bind.exit.i:                                ; preds = %block_bind_each.exit.i.i
-  %.not.i.i18.i = icmp eq ptr %125, null
-  br i1 %.not.i.i18.i, label %gen_wildvar_binding.exit, label %140
-
-140:                                              ; preds = %block_bind.exit.i, %block_bind.exit.thread.i
-  %.sroa.3.0.i.i29.i = phi ptr [ %.sroa.3.0.i48, %block_bind.exit.thread.i ], [ %125, %block_bind.exit.i ]
-  %.not7.i.i19.i = icmp eq ptr %66, null
-  br i1 %.not7.i.i19.i, label %gen_wildvar_binding.exit, label %141
-
-141:                                              ; preds = %140
   store ptr %125, ptr %66, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  store ptr %66, ptr %142, align 8
-  br label %gen_wildvar_binding.exit
-
-gen_wildvar_binding.exit:                         ; preds = %block_bind.exit.i, %140, %141
-  %.sroa.3.0.i20.i = phi ptr [ %66, %block_bind.exit.i ], [ %.sroa.3.0.i.i29.i, %140 ], [ %.sroa.3.0.i.i29.i, %141 ]
-  %.sroa.0.1.i21.i = phi ptr [ %114, %block_bind.exit.i ], [ %125, %140 ], [ %114, %141 ]
-  %.fca.0.insert.i22.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i21.i, 0
-  %.fca.1.insert.i23.i = insertvalue { ptr, ptr } %.fca.0.insert.i22.i, ptr %.sroa.3.0.i20.i, 1
+  %140 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  store ptr %66, ptr %140, align 8
+  %.fca.0.insert.i22.i = insertvalue { ptr, ptr } poison, ptr %114, 0
+  %.fca.1.insert.i23.i = insertvalue { ptr, ptr } %.fca.0.insert.i22.i, ptr %.sroa.3.0.i48, 1
   ret { ptr, ptr } %.fca.1.insert.i23.i
 }
 

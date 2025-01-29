@@ -5955,8 +5955,6 @@ define noundef i64 @_ZN6diesel2pg10connection6result8PgResult13rows_affected17hd
   %4 = load ptr, ptr %0, align 8, !alias.scope !1222, !nonnull !4, !noundef !4
   %5 = tail call noundef ptr @PQcmdTuples(ptr noundef nonnull %4)
   %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5)
-  %7 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %7)
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit.thread"
 
@@ -5964,26 +5962,26 @@ define noundef i64 @_ZN6diesel2pg10connection6result8PgResult13rows_affected17hd
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17h2792cf320b823c7dE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1225)
-  %8 = load i8, ptr %3, align 8, !range !147, !alias.scope !1225, !noalias !1228, !noundef !4
-  %trunc.i = trunc nuw i8 %8 to i1
-  br i1 %trunc.i, label %9, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd7194f7fe7c98ff9E.llvm.11004372083247068700.exit"
+  %7 = load i8, ptr %3, align 8, !range !147, !alias.scope !1225, !noalias !1228, !noundef !4
+  %trunc.i = trunc nuw i8 %7 to i1
+  br i1 %trunc.i, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd7194f7fe7c98ff9E.llvm.11004372083247068700.exit"
 
-9:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit.thread"
+8:                                                ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit.thread"
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2), !noalias !1231
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %11 = load i8, ptr %10, align 1, !range !148, !alias.scope !1225, !noalias !1228, !noundef !4
-  store i8 %11, ptr %2, align 1, !noalias !1231
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %10 = load i8, ptr %9, align 1, !range !148, !alias.scope !1225, !noalias !1228, !noundef !4
+  store i8 %10, ptr %2, align 1, !noalias !1231
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.6616c9a785e1c7a4e8813f8139290c13.54.llvm.11004372083247068700, i64 noundef 46, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6616c9a785e1c7a4e8813f8139290c13.11.llvm.11004372083247068700, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6616c9a785e1c7a4e8813f8139290c13.56.llvm.11004372083247068700) #29, !noalias !1225
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd7194f7fe7c98ff9E.llvm.11004372083247068700.exit": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit.thread"
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load i64, ptr %12, align 8, !alias.scope !1225, !noalias !1228, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = load i64, ptr %11, align 8, !alias.scope !1225, !noalias !1228, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h7aba974cc3962800E.exit": ; preds = %1, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd7194f7fe7c98ff9E.llvm.11004372083247068700.exit"
-  %.0 = phi i64 [ %13, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd7194f7fe7c98ff9E.llvm.11004372083247068700.exit" ], [ 0, %1 ]
+  %.0 = phi i64 [ %12, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hd7194f7fe7c98ff9E.llvm.11004372083247068700.exit" ], [ 0, %1 ]
   ret i64 %.0
 }
 

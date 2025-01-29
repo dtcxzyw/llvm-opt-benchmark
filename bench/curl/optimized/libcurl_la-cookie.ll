@@ -1917,7 +1917,7 @@ if.end:                                           ; preds = %entry
   %add.ptr = getelementptr inbounds i8, ptr %hostname, i64 %call
   %idx.neg = sub i64 0, %cookie_domain_len
   %add.ptr1 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %call2 = tail call i32 @curl_strnequal(ptr noundef %cookie_domain, ptr noundef %add.ptr1, i64 noundef %cookie_domain_len) #12
+  %call2 = tail call i32 @curl_strnequal(ptr noundef %cookie_domain, ptr noundef nonnull %add.ptr1, i64 noundef %cookie_domain_len) #12
   %tobool.not = icmp eq i32 %call2, 0
   br i1 %tobool.not, label %return, label %if.end4
 
@@ -2281,7 +2281,7 @@ if.end.i:                                         ; preds = %land.lhs.true15
   %add.ptr.i = getelementptr inbounds i8, ptr %host, i64 %call.i
   %idx.neg.i = sub i64 0, %call18
   %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idx.neg.i
-  %call2.i = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef %add.ptr1.i, i64 noundef %call18) #12
+  %call2.i = tail call i32 @curl_strnequal(ptr noundef nonnull %2, ptr noundef nonnull %add.ptr1.i, i64 noundef %call18) #12
   %tobool.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool.not.i, label %lor.lhs.false20, label %if.end4.i
 
@@ -3258,23 +3258,19 @@ cookie_output.exit:                               ; preds = %error53.i, %land.lh
   call void %38(ptr noundef %39) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tempstore.i)
-  %tobool7.not = icmp eq ptr %data, null
-  br i1 %tobool7.not, label %if.end17, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %cookie_output.exit
   %verbose = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load = load i64, ptr %verbose, align 2
   %40 = and i64 %bf.load, 536870912
   %tobool9.not = icmp eq i64 %40, 0
   br i1 %tobool9.not, label %if.end17, label %if.then10
 
-if.then10:                                        ; preds = %land.lhs.true
+if.then10:                                        ; preds = %cookie_output.exit
   %41 = load ptr, ptr %arrayidx, align 8
   %call14 = call ptr @curl_easy_strerror(i32 noundef %error.0.i) #12
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.32, ptr noundef %41, ptr noundef %call14) #12
   br label %if.end17
 
-if.end17:                                         ; preds = %entry, %cookie_output.exit.thread, %cookie_output.exit, %land.lhs.true, %if.then10
+if.end17:                                         ; preds = %entry, %cookie_output.exit.thread, %cookie_output.exit, %if.then10
   br i1 %cleanup, label %land.lhs.true19, label %if.end27
 
 land.lhs.true19:                                  ; preds = %if.end17
@@ -3346,7 +3342,7 @@ Curl_cookie_cleanup.exit:                         ; preds = %if.then24, %for.end
   br label %if.end27
 
 if.end27:                                         ; preds = %Curl_cookie_cleanup.exit, %lor.lhs.false, %if.end17
-  %call28 = call i32 @Curl_share_unlock(ptr noundef %data, i32 noundef 2) #12
+  %call28 = call i32 @Curl_share_unlock(ptr noundef nonnull %data, i32 noundef 2) #12
   ret void
 }
 

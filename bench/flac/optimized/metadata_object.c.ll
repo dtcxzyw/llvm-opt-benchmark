@@ -81,10 +81,8 @@ sw.bb8:                                           ; preds = %if.then2
   store i32 %conv, ptr %data, align 8
   %entry13 = getelementptr inbounds nuw i8, ptr %call, i64 24
   %add = add i32 %conv, 1
-  %cmp.i = icmp ne i32 %add, 0
-  %cmp1.i = icmp ne ptr %1, null
-  %or.cond.i = and i1 %cmp1.i, %cmp.i
-  br i1 %or.cond.i, label %if.then.i, label %if.end19
+  %cmp.i.not = icmp eq i32 %add, 0
+  br i1 %cmp.i.not, label %if.end19, label %if.then.i
 
 if.then.i:                                        ; preds = %sw.bb8
   %conv.i = zext i32 %add to i64
@@ -2659,11 +2657,11 @@ safe_malloc_add_4op_.exit:                        ; preds = %if.end.i
   br i1 %cmp, label %return, label %if.end13
 
 if.end13:                                         ; preds = %safe_malloc_add_4op_.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %field_name, i64 %call6, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr nonnull align 1 %field_name, i64 %call6, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i.i, i64 %call6
   store i8 61, ptr %arrayidx, align 1
   %add.ptr17 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr17, ptr align 1 %field_value, i64 %call7, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr17, ptr nonnull align 1 %field_value, i64 %call7, i1 false)
   %idxprom = and i64 %add8, 4294967295
   %arrayidx20 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 %idxprom
   store i8 0, ptr %arrayidx20, align 1
@@ -2813,7 +2811,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %or.cond.i.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit.i, label %for.inc.i
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit.i: ; preds = %for.body.i
-  %call11.i.i = tail call i32 @strncasecmp(ptr noundef readonly %field_name, ptr noundef %5, i64 noundef %conv10.i.i) #26
+  %call11.i.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %field_name, ptr noundef %5, i64 noundef %conv10.i.i) #26
   %cmp12.i.not.i = icmp eq i32 %call11.i.i, 0
   br i1 %cmp12.i.not.i, label %return.loopexit.split.loop.exit11.i, label %for.inc.i
 
@@ -2867,7 +2865,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit, label %for.inc
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %for.body
-  %call11.i = tail call i32 @strncasecmp(ptr noundef readonly %field_name, ptr noundef %4, i64 noundef %conv10.i) #26
+  %call11.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %field_name, ptr noundef %4, i64 noundef %conv10.i) #26
   %cmp12.i.not = icmp eq i32 %call11.i, 0
   br i1 %cmp12.i.not, label %if.then, label %for.inc
 
@@ -2951,7 +2949,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %or.cond.i, label %FLAC__metadata_object_vorbiscomment_entry_matches.exit, label %for.inc
 
 FLAC__metadata_object_vorbiscomment_entry_matches.exit: ; preds = %for.body
-  %call11.i = tail call i32 @strncasecmp(ptr noundef readonly %field_name, ptr noundef %5, i64 noundef %conv10.i) #26
+  %call11.i = tail call i32 @strncasecmp(ptr noundef nonnull readonly %field_name, ptr noundef %5, i64 noundef %conv10.i) #26
   %cmp12.i.not = icmp eq i32 %call11.i, 0
   br i1 %cmp12.i.not, label %if.then, label %for.inc
 
@@ -4003,10 +4001,8 @@ if.then:                                          ; preds = %cond.end
 if.end:                                           ; preds = %if.then
   %2 = trunc i64 %call2 to i32
   %conv = add i32 %2, 1
-  %cmp.i = icmp ne i32 %conv, 0
-  %cmp1.i = icmp ne ptr %mime_type, null
-  %or.cond.i = and i1 %cmp1.i, %cmp.i
-  br i1 %or.cond.i, label %if.then.i, label %if.end13
+  %cmp.i.not = icmp eq i32 %conv, 0
+  br i1 %cmp.i.not, label %if.end13, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %conv.i = zext i32 %conv to i64
@@ -4019,7 +4015,7 @@ if.end.i:                                         ; preds = %if.then.i
   br label %if.end13
 
 if.end13:                                         ; preds = %cond.end.if.end13_crit_edge, %if.end.i, %if.end
-  %.pre-phi = phi i32 [ %.pre, %cond.end.if.end13_crit_edge ], [ %2, %if.end.i ], [ %2, %if.end ]
+  %.pre-phi = phi i32 [ %.pre, %cond.end.if.end13_crit_edge ], [ %2, %if.end.i ], [ -1, %if.end ]
   %storemerge = phi ptr [ %mime_type, %cond.end.if.end13_crit_edge ], [ %call.i.i, %if.end.i ], [ null, %if.end ]
   store ptr %storemerge, ptr %mime_type1, align 8
   tail call void @free(ptr noundef %0) #28
@@ -4065,10 +4061,8 @@ if.then:                                          ; preds = %cond.end
 if.end:                                           ; preds = %if.then
   %2 = trunc i64 %call2 to i32
   %conv = add i32 %2, 1
-  %cmp.i = icmp ne i32 %conv, 0
-  %cmp1.i = icmp ne ptr %description, null
-  %or.cond.i = and i1 %cmp1.i, %cmp.i
-  br i1 %or.cond.i, label %if.then.i, label %if.end13
+  %cmp.i.not = icmp eq i32 %conv, 0
+  br i1 %cmp.i.not, label %if.end13, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
   %conv.i = zext i32 %conv to i64
@@ -4081,7 +4075,7 @@ if.end.i:                                         ; preds = %if.then.i
   br label %if.end13
 
 if.end13:                                         ; preds = %cond.end.if.end13_crit_edge, %if.end.i, %if.end
-  %.pre-phi = phi i32 [ %.pre, %cond.end.if.end13_crit_edge ], [ %2, %if.end.i ], [ %2, %if.end ]
+  %.pre-phi = phi i32 [ %.pre, %cond.end.if.end13_crit_edge ], [ %2, %if.end.i ], [ -1, %if.end ]
   %storemerge = phi ptr [ %description, %cond.end.if.end13_crit_edge ], [ %call.i.i, %if.end.i ], [ null, %if.end ]
   store ptr %storemerge, ptr %description1, align 8
   tail call void @free(ptr noundef %0) #28

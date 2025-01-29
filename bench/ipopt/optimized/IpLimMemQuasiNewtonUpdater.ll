@@ -14618,7 +14618,7 @@ define void @_ZN5Ipopt24LimMemQuasiNewtonUpdater7RecalcYEdRKNS_6VectorERNS_17Mul
 
 _ZNK5Ipopt17MultiVectorMatrix27MultiVectorMatrixOwnerSpaceEv.exit: ; preds = %6, %9
   %13 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24
-          to label %.noexc unwind label %45
+          to label %.noexc unwind label %44
 
 .noexc:                                           ; preds = %_ZNK5Ipopt17MultiVectorMatrix27MultiVectorMatrixOwnerSpaceEv.exit
   invoke void @_ZN5Ipopt17MultiVectorMatrixC1EPKNS_22MultiVectorMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(128) %13, ptr noundef nonnull align 8 dereferenceable(32) %8)
@@ -14660,59 +14660,56 @@ _ZNK5Ipopt22MultiVectorMatrixSpace24MakeNewMultiVectorMatrixEv.exit: ; preds = %
 32:                                               ; preds = %28, %20, %_ZNK5Ipopt22MultiVectorMatrixSpace24MakeNewMultiVectorMatrixEv.exit
   store ptr %13, ptr %5, align 8
   invoke void @_ZN5Ipopt17MultiVectorMatrix23AddOneMultiVectorMatrixEdRKS0_d(ptr noundef nonnull align 8 dereferenceable(128) %13, double noundef %1, ptr noundef nonnull align 8 dereferenceable(128) %3, double noundef 0.000000e+00)
-          to label %33 unwind label %45
+          to label %33 unwind label %44
 
 33:                                               ; preds = %32
   %34 = load ptr, ptr %5, align 8
   invoke void @_ZN5Ipopt17MultiVectorMatrix23AddOneMultiVectorMatrixEdRKS0_d(ptr noundef nonnull align 8 dereferenceable(128) %34, double noundef 1.000000e+00, ptr noundef nonnull align 8 dereferenceable(128) %4, double noundef 1.000000e+00)
-          to label %35 unwind label %45
+          to label %35 unwind label %44
 
 35:                                               ; preds = %33
-  br i1 %.not.i.i.i, label %_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit, label %36
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %37 = load i32, ptr %36, align 8
+  %38 = add nsw i32 %37, -1
+  store i32 %38, ptr %36, align 8
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit
 
-36:                                               ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = add nsw i32 %38, -1
-  store i32 %39, ptr %37, align 8
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit
-
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
+40:                                               ; preds = %35
+  %41 = load ptr, ptr %8, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load ptr, ptr %42, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   br label %_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit
 
-_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit: ; preds = %35, %36, %41
+_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit: ; preds = %35, %40
   ret void
 
-45:                                               ; preds = %_ZNK5Ipopt17MultiVectorMatrix27MultiVectorMatrixOwnerSpaceEv.exit, %33, %32
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %_ZNK5Ipopt17MultiVectorMatrix27MultiVectorMatrixOwnerSpaceEv.exit, %33, %32
+  %45 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %14, %45
-  %eh.lpad-body = phi { ptr, i32 } [ %46, %45 ], [ %15, %14 ]
-  br i1 %.not.i.i.i, label %_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit10, label %47
+.body:                                            ; preds = %14, %44
+  %eh.lpad-body = phi { ptr, i32 } [ %45, %44 ], [ %15, %14 ]
+  br i1 %.not.i.i.i, label %_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit10, label %46
 
-47:                                               ; preds = %.body
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %49 = load i32, ptr %48, align 8
-  %50 = add nsw i32 %49, -1
-  store i32 %50, ptr %48, align 8
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit10
+46:                                               ; preds = %.body
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %48 = load i32, ptr %47, align 8
+  %49 = add nsw i32 %48, -1
+  store i32 %49, ptr %47, align 8
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit10
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
+51:                                               ; preds = %46
+  %52 = load ptr, ptr %8, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load ptr, ptr %53, align 8
+  tail call void %54(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   br label %_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit10
 
-_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit10: ; preds = %.body, %47, %52
+_ZN5Ipopt8SmartPtrIKNS_22MultiVectorMatrixSpaceEED2Ev.exit10: ; preds = %.body, %46, %51
   resume { ptr, i32 } %eh.lpad-body
 }
 

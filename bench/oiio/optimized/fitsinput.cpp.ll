@@ -1358,26 +1358,22 @@ if.then25:                                        ; preds = %if.then21
   %call29 = tail call i64 @ftell(ptr noundef %12)
   store i64 %call29, ptr %ref.tmp26, align 8
   invoke void @_ZNK18OpenImageIO_v2_6_010ImageInput6errorfIJliEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp26, ptr noundef nonnull align 4 dereferenceable(4) %y.addr)
-          to label %cleanup unwind label %lpad10
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit80 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 lpad5:                                            ; preds = %if.then.i.i.i.i.i, %if.then.i.i
   %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-lpad10:                                           ; preds = %if.else, %if.then25
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %if.else, %if.then25
   %14 = landingpad { ptr, i32 }
           cleanup
-  %tobool.not.i.i.i = icmp eq ptr %data_tmp.sroa.0.0, null
-  br i1 %tobool.not.i.i.i, label %ehcleanup, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %lpad10
   call void @_ZdlPv(ptr noundef nonnull %data_tmp.sroa.0.0) #24
   br label %ehcleanup
 
 if.else:                                          ; preds = %if.then21
   invoke void @_ZNK18OpenImageIO_v2_6_010ImageInput6errorfIJEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull @.str.6)
-          to label %cleanup unwind label %lpad10
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit80 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
 if.end33:                                         ; preds = %invoke.cont6
   %format = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1521,18 +1517,14 @@ if.end81:                                         ; preds = %for.body.i.i69, %fo
   %32 = load ptr, ptr %m_fd, align 8
   %m_filepos = getelementptr inbounds nuw i8, ptr %this, i64 264
   %call86 = tail call i32 @fsetpos(ptr noundef %32, ptr noundef nonnull %m_filepos)
-  br label %cleanup
+  br label %_ZNSt6vectorIhSaIhEED2Ev.exit80
 
-cleanup:                                          ; preds = %if.then25, %if.else, %if.end81
-  %tobool.not.i.i.i78 = icmp eq ptr %data_tmp.sroa.0.0, null
-  br i1 %tobool.not.i.i.i78, label %cleanup87, label %if.then.i.i.i79
-
-if.then.i.i.i79:                                  ; preds = %cleanup
+_ZNSt6vectorIhSaIhEED2Ev.exit80:                  ; preds = %if.then25, %if.else, %if.end81
   call void @_ZdlPv(ptr noundef nonnull %data_tmp.sroa.0.0) #24
   br label %cleanup87
 
-cleanup87:                                        ; preds = %lor.lhs.false.i, %entry, %if.then.i.i.i79, %cleanup, %if.end, %invoke.cont
-  %retval.0 = phi i1 [ false, %invoke.cont ], [ true, %if.end ], [ %cmp.not, %cleanup ], [ %cmp.not, %if.then.i.i.i79 ], [ false, %entry ], [ false, %lor.lhs.false.i ]
+cleanup87:                                        ; preds = %lor.lhs.false.i, %entry, %if.end, %invoke.cont, %_ZNSt6vectorIhSaIhEED2Ev.exit80
+  %retval.0 = phi i1 [ %cmp.not, %_ZNSt6vectorIhSaIhEED2Ev.exit80 ], [ false, %invoke.cont ], [ true, %if.end ], [ false, %entry ], [ false, %lor.lhs.false.i ]
   invoke void @_ZNK18OpenImageIO_v2_6_010ImageInput6unlockEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %_ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit unwind label %terminate.lpad.i
 
@@ -1546,8 +1538,8 @@ terminate.lpad.i:                                 ; preds = %cleanup87
 _ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit: ; preds = %cleanup87
   ret i1 %retval.0
 
-ehcleanup:                                        ; preds = %if.then.i.i.i, %lpad10, %lpad5, %lpad
-  %.pn = phi { ptr, i32 } [ %13, %lpad5 ], [ %6, %lpad ], [ %14, %lpad10 ], [ %14, %if.then.i.i.i ]
+ehcleanup:                                        ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %lpad5, %lpad
+  %.pn = phi { ptr, i32 } [ %14, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %13, %lpad5 ], [ %6, %lpad ]
   invoke void @_ZNK18OpenImageIO_v2_6_010ImageInput6unlockEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %_ZNSt10lock_guardIRKN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit82 unwind label %terminate.lpad.i81
 
@@ -27312,7 +27304,7 @@ if.then.i.i:                                      ; preds = %cond.true
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
 
 _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit: ; preds = %cond.true, %if.then.i.i
-  %call.i = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr %s, i64 %call.i5, ptr noundef nonnull align 4 dereferenceable(16) %specs)
+  %call.i = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr nonnull %s, i64 %call.i5, ptr noundef nonnull align 4 dereferenceable(16) %specs)
   br label %cond.end
 
 cond.false:                                       ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit

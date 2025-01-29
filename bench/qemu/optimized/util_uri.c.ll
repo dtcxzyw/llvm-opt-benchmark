@@ -3002,13 +3002,9 @@ if.end275:                                        ; preds = %for.cond253
   %23 = trunc i64 %call272 to i32
   %conv274 = add i32 %23, 1
   %cmp276 = icmp eq i32 %nbslash.4, 0
-  br i1 %cmp276, label %if.then278, label %if.end284
+  br i1 %cmp276, label %if.then281, label %if.end284
 
-if.then278:                                       ; preds = %if.end275
-  %cmp279.not = icmp eq ptr %uptr.2, null
-  br i1 %cmp279.not, label %done, label %if.then281
-
-if.then281:                                       ; preds = %if.then278
+if.then281:                                       ; preds = %if.end275
   %call282 = tail call ptr @uri_string_escape(ptr noundef nonnull %uptr.2, ptr noundef nonnull @.str.4)
   br label %done
 
@@ -3018,7 +3014,7 @@ if.end284:                                        ; preds = %if.end275
   %conv286 = sext i32 %add285 to i64
   %call287 = tail call noalias ptr @g_malloc(i64 noundef %conv286) #15
   %cmp289173 = icmp sgt i32 %nbslash.4, 0
-  br i1 %cmp289173, label %for.body291, label %for.end297
+  br i1 %cmp289173, label %for.body291, label %if.then300
 
 for.body291:                                      ; preds = %if.end284, %for.body291
   %vptr.0175 = phi ptr [ %incdec.ptr294, %for.body291 ], [ %call287, %if.end284 ]
@@ -3031,14 +3027,10 @@ for.body291:                                      ; preds = %if.end284, %for.bod
   store i8 47, ptr %incdec.ptr293, align 1
   %dec296 = add nsw i32 %nbslash.6174, -1
   %cmp289 = icmp samesign ugt i32 %nbslash.6174, 1
-  br i1 %cmp289, label %for.body291, label %for.end297, !llvm.loop !38
+  br i1 %cmp289, label %for.body291, label %if.then300, !llvm.loop !38
 
-for.end297:                                       ; preds = %for.body291, %if.end284
+if.then300:                                       ; preds = %for.body291, %if.end284
   %vptr.0.lcssa = phi ptr [ %call287, %if.end284 ], [ %incdec.ptr294, %for.body291 ]
-  %cmp298.not = icmp eq ptr %uptr.2, null
-  br i1 %cmp298.not, label %if.else329, label %if.then300
-
-if.then300:                                       ; preds = %for.end297
   %cmp301 = icmp ugt ptr %vptr.0.lcssa, %call287
   %cmp304 = icmp ult i32 %23, 2147483647
   %or.cond2 = and i1 %cmp304, %cmp301
@@ -3074,20 +3066,13 @@ if.else323:                                       ; preds = %land.lhs.true311, %
   store i8 0, ptr %arrayidx327, align 1
   br label %if.end333
 
-if.else329:                                       ; preds = %for.end297
-  %sext186 = shl i64 %call272, 32
-  %idxprom331 = ashr exact i64 %sext186, 32
-  %arrayidx332 = getelementptr i8, ptr %vptr.0.lcssa, i64 %idxprom331
-  store i8 0, ptr %arrayidx332, align 1
-  br label %if.end333
-
-if.end333:                                        ; preds = %if.then316, %if.else323, %if.else329
+if.end333:                                        ; preds = %if.then316, %if.else323
   %call334 = tail call ptr @uri_string_escape(ptr noundef %call287, ptr noundef nonnull @.str.4)
   tail call void @g_free(ptr noundef %call287) #14
   br label %done
 
-done:                                             ; preds = %if.then278, %if.then281, %if.end333, %if.then184
-  %val.0 = phi ptr [ %call282, %if.then281 ], [ null, %if.then278 ], [ %call334, %if.end333 ], [ %call185, %if.then184 ]
+done:                                             ; preds = %if.then281, %if.end333, %if.then184
+  %val.0 = phi ptr [ %call282, %if.then281 ], [ %call334, %if.end333 ], [ %call185, %if.then184 ]
   br i1 %cmp335.not, label %if.end339, label %if.then337
 
 if.then337:                                       ; preds = %done

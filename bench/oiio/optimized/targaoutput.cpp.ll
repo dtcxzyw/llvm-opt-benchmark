@@ -1346,7 +1346,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   %call.i2.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt) #21, !noalias !7
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 0, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 0, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -2687,17 +2687,10 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %lpad, %if.then.i.i.
 
 for.end202:                                       ; preds = %for.body192, %_ZNSt6vectorIhSaIhEE6assignIPhvEEvT_S4_.exit149
   %call.i153154 = invoke noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput7iowriteEPKvmm(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull %buf183.sroa.0.1, i64 noundef %conv172, i64 noundef %conv164)
-          to label %cleanup unwind label %lpad
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit157 unwind label %lpad
 
-cleanup:                                          ; preds = %for.end202
-  %tobool.not.i.i.i155 = icmp eq ptr %buf183.sroa.0.1, null
-  br i1 %tobool.not.i.i.i155, label %_ZNSt6vectorIhSaIhEED2Ev.exit157, label %if.then.i.i.i156
-
-if.then.i.i.i156:                                 ; preds = %cleanup
+_ZNSt6vectorIhSaIhEED2Ev.exit157:                 ; preds = %for.end202
   call void @_ZdlPv(ptr noundef nonnull %buf183.sroa.0.1) #22
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit157
-
-_ZNSt6vectorIhSaIhEED2Ev.exit157:                 ; preds = %cleanup, %if.then.i.i.i156
   br i1 %call.i153154, label %if.end210, label %return
 
 if.end210:                                        ; preds = %lor.lhs.false.i87, %if.end.i84, %if.then151, %_ZNSt6vectorIhSaIhEED2Ev.exit157, %if.then177, %if.else153
@@ -25068,7 +25061,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp.i.i.i.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %for.body.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %5, ptr %id.coerce0, i64 %.other.coerce1.i.i.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %5, ptr %id.coerce0, i64 %.other.coerce1.i.i.i.i)
   %cmp6.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   %6 = icmp eq i64 %call.i8.i.i, %id.coerce1
   %or.cond.i.i = select i1 %cmp6.i.i.i.i, i1 %6, i1 false
@@ -26214,7 +26207,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %for.body.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
   %cmp6.i.i.i = icmp eq i32 %bcmp.i.i, 0
   %6 = icmp eq i64 %call.i8.i, %name.coerce1
   %or.cond.i = select i1 %cmp6.i.i.i, i1 %6, i1 false
@@ -34218,7 +34211,7 @@ if.then.i.i:                                      ; preds = %cond.true
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
 
 _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit: ; preds = %cond.true, %if.then.i.i
-  %call.i = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr %s, i64 %call.i5, ptr noundef nonnull align 4 dereferenceable(16) %specs)
+  %call.i = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr nonnull %s, i64 %call.i5, ptr noundef nonnull align 4 dereferenceable(16) %specs)
   br label %cond.end
 
 cond.false:                                       ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit

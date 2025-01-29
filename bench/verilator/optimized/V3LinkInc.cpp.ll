@@ -4073,29 +4073,23 @@ define linkonce_odr dso_local void @_ZN14LinkIncVisitor11insertOnTopEP7AstNode(p
   %18 = tail call noundef ptr @_ZN7AstNode7addNextIS_S_EEPT_S2_PT0_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %17)
   %19 = load ptr, ptr %3, align 8
   %.not12 = icmp eq ptr %19, null
-  br i1 %.not12, label %22, label %20
+  br i1 %.not12, label %20, label %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit
+
+_ZN12AstNodeFTask9addStmtspEP7AstNode.exit:       ; preds = %16
+  tail call void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(240) %19, ptr noundef nonnull %1)
+  br label %23
 
 20:                                               ; preds = %16
-  %.not.i.i = icmp eq ptr %1, null
-  br i1 %.not.i.i, label %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit, label %21
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = load ptr, ptr %21, align 8
+  %.not13 = icmp eq ptr %22, null
+  br i1 %.not13, label %23, label %_ZN13AstNodeModule9addStmtspEP7AstNode.exit
 
-21:                                               ; preds = %20
-  tail call void @_ZN7AstNode7addOp3pEPS_(ptr noundef nonnull align 8 dereferenceable(240) %19, ptr noundef nonnull %1)
-  br label %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit
+_ZN13AstNodeModule9addStmtspEP7AstNode.exit:      ; preds = %20
+  tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(257) %22, ptr noundef nonnull %1)
+  br label %23
 
-22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8
-  %.not13 = icmp eq ptr %24, null
-  %.not.i.i14 = icmp eq ptr %1, null
-  %or.cond = or i1 %.not.i.i14, %.not13
-  br i1 %or.cond, label %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit, label %25
-
-25:                                               ; preds = %22
-  tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(257) %24, ptr noundef nonnull %1)
-  br label %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit
-
-_ZN12AstNodeFTask9addStmtspEP7AstNode.exit:       ; preds = %25, %21, %20, %22
+23:                                               ; preds = %20, %_ZN13AstNodeModule9addStmtspEP7AstNode.exit, %_ZN12AstNodeFTask9addStmtspEP7AstNode.exit
   ret void
 }
 

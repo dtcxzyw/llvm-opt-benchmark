@@ -3613,28 +3613,21 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
 
 if.then:                                          ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   invoke void @_ZN5arrow6Status8FromArgsIJRA45_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(45) @.str.1)
-          to label %if.else.i.i10 unwind label %if.else.i.i.loopexit.split-lp
+          to label %_ZNSt11unique_lockISt5mutexED2Ev.exit14 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit.split-lp
 
-if.else.i.i.loopexit:                             ; preds = %for.body.i
+_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit:   ; preds = %for.body.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %if.else.i.i
-
-if.else.i.i.loopexit.split-lp:                    ; preds = %if.then3, %if.then, %if.then16
-  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
-          cleanup
-  br label %if.else.i.i
-
-if.else.i.i:                                      ; preds = %if.else.i.i.loopexit.split-lp, %if.else.i.i.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %if.else.i.i.loopexit ], [ %lpad.loopexit.split-lp, %if.else.i.i.loopexit.split-lp ]
-  %tobool2.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
-
-if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i6 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #31
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.else.i.i, %if.then3.i.i
+_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit.split-lp: ; preds = %if.then3, %if.then, %if.then16
+  %lpad.loopexit.split-lp = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
+
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit.split-lp, %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit.split-lp ]
+  %call1.i.i.i.i6 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #31
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
@@ -3643,7 +3636,7 @@ if.end:                                           ; preds = %_ZNSt11unique_lockI
 
 if.then3:                                         ; preds = %if.end
   invoke void @_ZN5arrow6Status8FromArgsIJRA32_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(32) @.str.2)
-          to label %if.else.i.i10 unwind label %if.else.i.i.loopexit.split-lp
+          to label %_ZNSt11unique_lockISt5mutexED2Ev.exit14 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit.split-lp
 
 if.end5:                                          ; preds = %if.end
   %finished_workers_.i = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -3656,7 +3649,7 @@ if.end5:                                          ; preds = %if.end
 for.body.i:                                       ; preds = %if.end5, %.noexc
   %__begin2.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %.noexc ], [ %3, %if.end5 ]
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %__begin2.sroa.0.05.i)
-          to label %.noexc unwind label %if.else.i.i.loopexit
+          to label %.noexc unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit
 
 .noexc:                                           ; preds = %for.body.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.05.i, i64 8
@@ -3738,7 +3731,7 @@ invoke.cont6:                                     ; preds = %invoke.cont.i.i.i, 
 
 if.then16:                                        ; preds = %invoke.cont6
   invoke void @_ZN5arrow8internal10ThreadPool21LaunchWorkersUnlockedEi(ptr noundef nonnull align 8 dereferenceable(33) %this, i32 noundef %.sroa.speculated)
-          to label %if.end22 unwind label %if.else.i.i.loopexit.split-lp
+          to label %if.end22 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit.loopexit.split-lp
 
 if.else:                                          ; preds = %invoke.cont6
   %cmp18 = icmp slt i32 %.sroa.speculated, 0
@@ -3751,17 +3744,10 @@ if.then19:                                        ; preds = %if.else
 
 if.end22:                                         ; preds = %if.else, %if.then19, %if.then16
   store ptr null, ptr %agg.result, align 8, !alias.scope !32
-  br label %if.else.i.i10
-
-if.else.i.i10:                                    ; preds = %if.end22, %if.then, %if.then3
-  %tobool2.not.i.i11 = icmp eq ptr %0, null
-  br i1 %tobool2.not.i.i11, label %_ZNSt11unique_lockISt5mutexED2Ev.exit14, label %if.then3.i.i12
-
-if.then3.i.i12:                                   ; preds = %if.else.i.i10
-  %call1.i.i.i.i13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #31
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit14
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit14:          ; preds = %if.else.i.i10, %if.then3.i.i12
+_ZNSt11unique_lockISt5mutexED2Ev.exit14:          ; preds = %if.end22, %if.then, %if.then3
+  %call1.i.i.i.i13 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #31
   ret void
 }
 
@@ -4070,24 +4056,17 @@ entry:
   %0 = load ptr, ptr %state_, align 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #31
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %if.else.i.i, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #32
   unreachable
 
-if.else.i.i:                                      ; preds = %entry
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
   %1 = load ptr, ptr %state_, align 8
   %desired_capacity_ = getelementptr inbounds nuw i8, ptr %1, i64 312
   %2 = load i32, ptr %desired_capacity_, align 8
-  %tobool2.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
-
-if.then3.i.i:                                     ; preds = %if.else.i.i
   %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #31
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
-
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.else.i.i, %if.then3.i.i
   ret i32 %2
 }
 
@@ -4098,24 +4077,17 @@ entry:
   %0 = load ptr, ptr %state_, align 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #31
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %if.else.i.i, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #32
   unreachable
 
-if.else.i.i:                                      ; preds = %entry
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
   %1 = load ptr, ptr %state_, align 8
   %tasks_queued_or_running_ = getelementptr inbounds nuw i8, ptr %1, i64 316
   %2 = load i32, ptr %tasks_queued_or_running_, align 4
-  %tobool2.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
-
-if.then3.i.i:                                     ; preds = %if.else.i.i
   %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #31
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
-
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.else.i.i, %if.then3.i.i
   ret i32 %2
 }
 
@@ -4126,25 +4098,18 @@ entry:
   %0 = load ptr, ptr %state_, align 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #31
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %if.else.i.i, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #32
   unreachable
 
-if.else.i.i:                                      ; preds = %entry
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
   %1 = load ptr, ptr %state_, align 8
   %_M_size.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 200
   %2 = load i64, ptr %_M_size.i.i.i, align 8
-  %tobool2.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
-
-if.then3.i.i:                                     ; preds = %if.else.i.i
-  %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #31
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
-
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.else.i.i, %if.then3.i.i
   %conv = trunc i64 %2 to i32
+  %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #31
   ret i32 %conv
 }
 

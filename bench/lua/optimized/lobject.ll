@@ -590,8 +590,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
 
 l_str2d.exit.thread21:                            ; preds = %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i)
-  call void @llvm.lifetime.end.p0(i64 201, ptr nonnull %buff.i)
-  br label %if.end8
+  br label %if.then3
 
 if.then5.i:                                       ; preds = %while.end.i.i, %if.end.i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i)
@@ -650,14 +649,18 @@ l_str2d.exit:                                     ; preds = %while.end.i25.i
   %sub.ptr.rhs.cast24.i = ptrtoint ptr %buff.i to i64
   %sub.ptr.sub25.i = sub i64 %sub.ptr.lhs.cast23.i, %sub.ptr.rhs.cast24.i
   %add.ptr.i14 = getelementptr inbounds i8, ptr %s, i64 %sub.ptr.sub25.i
-  call void @llvm.lifetime.end.p0(i64 201, ptr nonnull %buff.i)
-  %cmp2.not = icmp eq ptr %s, null
-  br i1 %cmp2.not, label %return, label %if.end8
+  br label %if.then3
 
-if.end8:                                          ; preds = %l_str2d.exit, %l_str2d.exit.thread21, %if.then
-  %storemerge = phi double [ %23, %if.then ], [ %call.i.i, %l_str2d.exit.thread21 ], [ %call.i16.i, %l_str2d.exit ]
-  %.sink = phi i8 [ 3, %if.then ], [ 19, %l_str2d.exit.thread21 ], [ 19, %l_str2d.exit ]
-  %e.0 = phi ptr [ %s.addr.2.i, %if.then ], [ %incdec.ptr4.i.i, %l_str2d.exit.thread21 ], [ %add.ptr.i14, %l_str2d.exit ]
+if.then3:                                         ; preds = %l_str2d.exit, %l_str2d.exit.thread21
+  %retval.0.i1326 = phi ptr [ %incdec.ptr4.i.i, %l_str2d.exit.thread21 ], [ %add.ptr.i14, %l_str2d.exit ]
+  %n.025 = phi double [ %call.i.i, %l_str2d.exit.thread21 ], [ %call.i16.i, %l_str2d.exit ]
+  call void @llvm.lifetime.end.p0(i64 201, ptr nonnull %buff.i)
+  br label %if.end8
+
+if.end8:                                          ; preds = %if.then3, %if.then
+  %storemerge = phi double [ %n.025, %if.then3 ], [ %23, %if.then ]
+  %.sink = phi i8 [ 19, %if.then3 ], [ 3, %if.then ]
+  %e.0 = phi ptr [ %retval.0.i1326, %if.then3 ], [ %s.addr.2.i, %if.then ]
   store double %storemerge, ptr %o, align 8
   %tt_6 = getelementptr inbounds nuw i8, ptr %o, i64 8
   store i8 %.sink, ptr %tt_6, align 8
@@ -667,8 +670,8 @@ if.end8:                                          ; preds = %l_str2d.exit, %l_st
   %add = add i64 %reass.sub, 1
   br label %return
 
-return:                                           ; preds = %l_str2d.exit.thread, %l_str2d.exit, %if.end8
-  %retval.0 = phi i64 [ %add, %if.end8 ], [ 0, %l_str2d.exit ], [ 0, %l_str2d.exit.thread ]
+return:                                           ; preds = %l_str2d.exit.thread, %if.end8
+  %retval.0 = phi i64 [ %add, %if.end8 ], [ 0, %l_str2d.exit.thread ]
   ret i64 %retval.0
 }
 
@@ -799,7 +802,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub.ptr.lhs.cast = ptrtoint ptr %call54 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %fmt.addr.053 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef %fmt.addr.053, i64 noundef %sub.ptr.sub)
+  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef nonnull %fmt.addr.053, i64 noundef %sub.ptr.sub)
   %add.ptr = getelementptr inbounds nuw i8, ptr %call54, i64 1
   %1 = load i8, ptr %add.ptr, align 1
   switch i8 %1, label %sw.default [
@@ -1184,7 +1187,7 @@ sw.epilog:                                        ; preds = %addstr2buff.exit46,
 while.end:                                        ; preds = %sw.epilog, %entry
   %fmt.addr.0.lcssa = phi ptr [ %fmt, %entry ], [ %add.ptr97, %sw.epilog ]
   %call98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt.addr.0.lcssa) #19
-  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef %fmt.addr.0.lcssa, i64 noundef %call98)
+  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef nonnull %fmt.addr.0.lcssa, i64 noundef %call98)
   %space.i47 = getelementptr inbounds nuw i8, ptr %buff, i64 16
   %62 = load i32, ptr %blen, align 4
   %conv.i = sext i32 %62 to i64

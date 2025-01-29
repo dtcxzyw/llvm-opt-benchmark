@@ -18964,26 +18964,15 @@ cond.true:                                        ; preds = %entry
 
 call.i.noexc:                                     ; preds = %cond.true
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %.noexc unwind label %lpad
+          to label %if.end.i unwind label %lpad
 
-.noexc:                                           ; preds = %call.i.noexc
-  %cmp.i = icmp eq ptr %str, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %.noexc
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.117) #35
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %if.then.i
-  unreachable
-
-lpad.i:                                           ; preds = %if.end.i, %if.then.i
+lpad.i:                                           ; preds = %if.end.i
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #33
   br label %eh.resume
 
-if.end.i:                                         ; preds = %.noexc
+if.end.i:                                         ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #33
   %add.ptr.i = getelementptr inbounds i8, ptr %str, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %str, ptr noundef nonnull %add.ptr.i)
@@ -19001,7 +18990,7 @@ call.i.noexc8:                                    ; preds = %cond.false
 .noexc10:                                         ; preds = %call.i.noexc8
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %str, ptr noundef nonnull %call)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %str, ptr noundef nonnull %call)
           to label %cleanup.done10 unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %.noexc10

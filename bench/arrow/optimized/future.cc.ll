@@ -6321,7 +6321,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
   %state_.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
   %4 = load atomic i8, ptr %state_.i.i.i.i seq_cst, align 1
   %cmp.i.i.not.i.i = icmp eq i8 %4, 0
-  br i1 %cmp.i.i.not.i.i, label %if.then4.i.i, label %if.else.i.i.i.i
+  br i1 %cmp.i.i.not.i.i, label %if.then4.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i
 
 if.then4.i.i:                                     ; preds = %invoke.cont.i.i
   %5 = load ptr, ptr %a.val, align 8
@@ -6372,7 +6372,7 @@ lpad4.i.i.i:                                      ; preds = %call.i.noexc.i.i
   %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %call.i11.i.i) #23
-  br label %if.else.i.i17.i.i
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit21.i.i
 
 invoke.cont5.i.i:                                 ; preds = %if.else.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i, %.noexc.i.i.i, %if.then4.i.i
   %cond.i.i.i = phi ptr [ null, %if.then4.i.i ], [ %call.i11.i.i, %.noexc.i.i.i ], [ %call.i11.i.i, %if.then.i.i.i.i.i.i.i.i.i ], [ %call.i11.i.i, %if.else.i.i.i.i.i.i.i.i.i ]
@@ -6383,7 +6383,7 @@ invoke.cont5.i.i:                                 ; preds = %if.else.i.i.i.i.i.i
 invoke.cont7.i.i:                                 ; preds = %invoke.cont5.i.i
   %13 = load ptr, ptr %agg.tmp.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %13, null
-  br i1 %cmp.not.i.i.i, label %if.else.i.i.i.i, label %delete.notnull.i.i.i.i
+  br i1 %cmp.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i, label %delete.notnull.i.i.i.i
 
 delete.notnull.i.i.i.i:                           ; preds = %invoke.cont7.i.i
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 48
@@ -6464,33 +6464,25 @@ _ZN5arrow6Status11DeleteStateEv.exit.i.i.i:       ; preds = %if.end8.sink.split.
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i) #21
   call void @_ZdlPv(ptr noundef nonnull %13) #23
   store ptr null, ptr %agg.tmp.i.i, align 8
-  br label %if.else.i.i.i.i
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i
 
 lpad.i.i:                                         ; preds = %cond.false.i.i.i
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %if.else.i.i17.i.i
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit21.i.i
 
 lpad6.i.i:                                        ; preds = %invoke.cont5.i.i
   %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i) #21
-  br label %if.else.i.i17.i.i
+  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit21.i.i
 
-if.else.i.i.i.i:                                  ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i.i.i, %invoke.cont7.i.i, %invoke.cont.i.i
-  %tobool2.not.i.i.i.i = icmp eq ptr %this.val9.i.i, null
-  br i1 %tobool2.not.i.i.i.i, label %"_ZNO5arrow6FutureINS_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZNS_11AllCompleteERKSt6vectorIS3_SaIS3_EEE3$_0EclERKNS_10FutureImplE.exit", label %if.then3.i.i.i.i
-
-if.then3.i.i.i.i:                                 ; preds = %if.else.i.i.i.i
+_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i:        ; preds = %_ZN5arrow6Status11DeleteStateEv.exit.i.i.i, %invoke.cont7.i.i, %invoke.cont.i.i
   %call1.i.i.i.i14.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this.val9.i.i) #21
   br label %"_ZNO5arrow6FutureINS_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZNS_11AllCompleteERKSt6vectorIS3_SaIS3_EEE3$_0EclERKNS_10FutureImplE.exit"
 
-if.else.i.i17.i.i:                                ; preds = %lpad6.i.i, %lpad.i.i, %lpad4.i.i.i
+_ZNSt11unique_lockISt5mutexED2Ev.exit21.i.i:      ; preds = %lpad6.i.i, %lpad.i.i, %lpad4.i.i.i
   %.pn.i.i = phi { ptr, i32 } [ %26, %lpad6.i.i ], [ %25, %lpad.i.i ], [ %12, %lpad4.i.i.i ]
-  %tobool2.not.i.i18.i.i = icmp eq ptr %this.val9.i.i, null
-  br i1 %tobool2.not.i.i18.i.i, label %eh.resume.i.i, label %if.then3.i.i19.i.i
-
-if.then3.i.i19.i.i:                               ; preds = %if.else.i.i17.i.i
   %call1.i.i.i.i20.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this.val9.i.i) #21
   br label %eh.resume.i.i
 
@@ -6597,11 +6589,11 @@ lpad14.i.i:                                       ; preds = %if.end12.i.i
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp13.i.i) #21
   br label %eh.resume.i.i
 
-eh.resume.i.i:                                    ; preds = %lpad14.i.i, %if.then3.i.i19.i.i, %if.else.i.i17.i.i
-  %.pn7.i.i = phi { ptr, i32 } [ %41, %lpad14.i.i ], [ %.pn.i.i, %if.else.i.i17.i.i ], [ %.pn.i.i, %if.then3.i.i19.i.i ]
+eh.resume.i.i:                                    ; preds = %lpad14.i.i, %_ZNSt11unique_lockISt5mutexED2Ev.exit21.i.i
+  %.pn7.i.i = phi { ptr, i32 } [ %41, %lpad14.i.i ], [ %.pn.i.i, %_ZNSt11unique_lockISt5mutexED2Ev.exit21.i.i ]
   resume { ptr, i32 } %.pn7.i.i
 
-"_ZNO5arrow6FutureINS_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZNS_11AllCompleteERKSt6vectorIS3_SaIS3_EEE3$_0EclERKNS_10FutureImplE.exit": ; preds = %if.else.i.i.i.i, %if.then3.i.i.i.i, %if.end8.i.i, %invoke.cont15.i.i, %_ZN5arrow6Status11DeleteStateEv.exit.i36.i.i
+"_ZNO5arrow6FutureINS_8internal5EmptyEE21WrapStatusyOnComplete8CallbackIZNS_11AllCompleteERKSt6vectorIS3_SaIS3_EEE3$_0EclERKNS_10FutureImplE.exit": ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i, %if.end8.i.i, %invoke.cont15.i.i, %_ZN5arrow6Status11DeleteStateEv.exit.i36.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp13.i.i)
   ret void

@@ -1625,7 +1625,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK5boost6system12system_error4whatE
   %8 = tail call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
   %9 = load i64, ptr %4, align 8
   %10 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #31
-  %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef %9, ptr noundef %8, i64 noundef %10)
+  %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 0, i64 noundef %9, ptr noundef nonnull %8, i64 noundef %10)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %31
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %7
@@ -15670,7 +15670,7 @@ _ZN7msgpack2v16packerINS0_7sbufferEE10pack_falseEv.exit: ; preds = %._crit_edge.
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7msgpack2v17adaptor4packIPKcvEclINS0_7sbufferEEERNS0_6packerIT_EESB_S4_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #40
   %5 = icmp ugt i64 %4, 4294967295
-  br i1 %5, label %6, label %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %3
   %7 = tail call ptr @__cxa_allocate_exception(i64 16) #31
@@ -15687,27 +15687,23 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   tail call void @__cxa_free_exception(ptr %7) #31
   resume { ptr, i32 } %10
 
-_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
-  %11 = trunc nuw i64 %4 to i32
-  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7msgpack2v16packerINS0_7sbufferEE8pack_strEj(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %11)
-  %13 = load ptr, ptr %1, align 8
-  %.not.i.i.i.i = icmp eq ptr %2, null
-  br i1 %.not.i.i.i.i, label %_ZN7msgpack2v16packerINS0_7sbufferEE13pack_str_bodyEPKcj.exit, label %14
-
-14:                                               ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
+11:                                               ; preds = %3
+  %12 = trunc nuw i64 %4 to i32
+  %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7msgpack2v16packerINS0_7sbufferEE8pack_strEj(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %12)
+  %14 = load ptr, ptr %1, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8
-  %17 = load i64, ptr %13, align 8
+  %17 = load i64, ptr %14, align 8
   %18 = sub i64 %16, %17
   %19 = icmp ult i64 %18, %4
   br i1 %19, label %20, label %._crit_edge.i.i.i.i
 
-._crit_edge.i.i.i.i:                              ; preds = %14
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
+._crit_edge.i.i.i.i:                              ; preds = %11
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.pre.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8
-  br label %32
+  br label %_ZN7msgpack2v16packerINS0_7sbufferEE13pack_str_bodyEPKcj.exit
 
-20:                                               ; preds = %14
+20:                                               ; preds = %11
   %.not.i.i.i.i.i = icmp eq i64 %16, 0
   %21 = shl i64 %16, 1
   %spec.select.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 8192, i64 %21
@@ -15727,7 +15723,7 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %24, %.lr.ph.i.i.i.i.i, %20
   %.1.i.i.i.i.i = phi i64 [ %spec.select.i.i.i.i.i, %20 ], [ %25, %24 ], [ %22, %.lr.ph.i.i.i.i.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @realloc(ptr noundef %28, i64 noundef %.1.i.i.i.i.i) #39
   %.not16.i.i.i.i.i = icmp eq ptr %29, null
@@ -15742,20 +15738,17 @@ _ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit: ; preds = %3
 _ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i.i.i.i: ; preds = %._crit_edge.i.i.i.i.i
   store ptr %29, ptr %27, align 8
   store i64 %.1.i.i.i.i.i, ptr %15, align 8
-  %.pre7.i.i.i.i = load i64, ptr %13, align 8
-  br label %32
-
-32:                                               ; preds = %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i.i.i.i, %._crit_edge.i.i.i.i
-  %33 = phi i64 [ %17, %._crit_edge.i.i.i.i ], [ %.pre7.i.i.i.i, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i.i.i.i ]
-  %34 = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %29, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i.i.i.i ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr nonnull align 1 %2, i64 %4, i1 false)
-  %36 = load i64, ptr %13, align 8
-  %37 = add i64 %36, %4
-  store i64 %37, ptr %13, align 8
+  %.pre7.i.i.i.i = load i64, ptr %14, align 8
   br label %_ZN7msgpack2v16packerINS0_7sbufferEE13pack_str_bodyEPKcj.exit
 
-_ZN7msgpack2v16packerINS0_7sbufferEE13pack_str_bodyEPKcj.exit: ; preds = %_ZN7msgpack2v126checked_get_container_sizeImEEjT_.exit, %32
+_ZN7msgpack2v16packerINS0_7sbufferEE13pack_str_bodyEPKcj.exit: ; preds = %._crit_edge.i.i.i.i, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i.i.i.i
+  %32 = phi i64 [ %17, %._crit_edge.i.i.i.i ], [ %.pre7.i.i.i.i, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i.i.i.i ]
+  %33 = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %29, %_ZN7msgpack2v17sbuffer13expand_bufferEm.exit.i.i.i.i ]
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 1 %2, i64 %4, i1 false)
+  %35 = load i64, ptr %14, align 8
+  %36 = add i64 %35, %4
+  store i64 %36, ptr %14, align 8
   ret ptr %1
 }
 

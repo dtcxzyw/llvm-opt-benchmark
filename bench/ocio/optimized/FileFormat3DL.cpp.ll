@@ -2452,7 +2452,7 @@ for.end130:                                       ; preds = %for.inc128
 invoke.cont131:                                   ; preds = %for.end130
   %call.i79 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %formatName, ptr noundef nonnull @.str.2) #25
   %cmp.i80 = icmp eq i32 %call.i79, 0
-  br i1 %cmp.i80, label %if.then135, label %if.end140
+  br i1 %cmp.i80, label %if.then135, label %_ZNSt6vectorIfSaIfEED2Ev.exit83
 
 if.then135:                                       ; preds = %invoke.cont131
   %call137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ostream, ptr noundef nonnull @.str.29)
@@ -2460,17 +2460,10 @@ if.then135:                                       ; preds = %invoke.cont131
 
 invoke.cont136:                                   ; preds = %if.then135
   %call139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %ostream, ptr noundef nonnull @.str.30)
-          to label %if.end140 unwind label %lpad69.loopexit.split-lp.loopexit.split-lp
+          to label %_ZNSt6vectorIfSaIfEED2Ev.exit83 unwind label %lpad69.loopexit.split-lp.loopexit.split-lp
 
-if.end140:                                        ; preds = %invoke.cont136, %invoke.cont131
-  %tobool.not.i.i.i81 = icmp eq ptr %shaperData.sroa.0.0, null
-  br i1 %tobool.not.i.i.i81, label %_ZNSt6vectorIfSaIfEED2Ev.exit83, label %if.then.i.i.i82
-
-if.then.i.i.i82:                                  ; preds = %if.end140
+_ZNSt6vectorIfSaIfEED2Ev.exit83:                  ; preds = %invoke.cont136, %invoke.cont131
   call void @_ZdlPv(ptr noundef nonnull %shaperData.sroa.0.0) #26
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit83
-
-_ZNSt6vectorIfSaIfEED2Ev.exit83:                  ; preds = %if.end140, %if.then.i.i.i82
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %inputToTarget, i64 8
   %23 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %23, null

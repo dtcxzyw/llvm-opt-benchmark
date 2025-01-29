@@ -5892,7 +5892,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %ai.0199 = phi ptr [ %10, %for.cond.preheader ], [ %12, %if.then123 ]
   %11 = load i8, ptr %transport, align 2
   %conv120 = zext i8 %11 to i32
-  %call121 = call i32 @Curl_socket_open(ptr noundef %data, ptr noundef nonnull %ai.0199, ptr noundef null, i32 noundef %conv120, ptr noundef nonnull %portsock) #10
+  %call121 = call i32 @Curl_socket_open(ptr noundef nonnull %data, ptr noundef nonnull %ai.0199, ptr noundef null, i32 noundef %conv120, ptr noundef nonnull %portsock) #10
   %tobool122.not = icmp eq i32 %call121, 0
   br i1 %tobool122.not, label %do.end132, label %if.then123
 
@@ -5906,7 +5906,7 @@ if.then127:                                       ; preds = %if.then123
   %call124 = tail call ptr @__errno_location() #12
   %13 = load i32, ptr %call124, align 4
   %call129 = call ptr @Curl_strerror(i32 noundef %13, ptr noundef nonnull %buffer, i64 noundef 256) #10
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.57, ptr noundef %call129) #10
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.57, ptr noundef %call129) #10
   br label %if.end322
 
 do.end132:                                        ; preds = %for.body
@@ -5920,7 +5920,6 @@ do.end132:                                        ; preds = %for.body
   store i32 %16, ptr %sslen, align 4
   %cmp138.not202 = icmp ugt i16 %port_min.0153, %port_max.0155
   %sin6_port = getelementptr inbounds nuw i8, ptr %ss, i64 2
-  %tobool161.not = icmp eq ptr %data, null
   %verbose = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %sock171 = getelementptr inbounds nuw i8, ptr %0, i64 392
   br i1 %cmp138.not202, label %if.then198, label %for.cond135.outer
@@ -5968,27 +5967,24 @@ if.then152:                                       ; preds = %for.body140
   %call153 = tail call ptr @__errno_location() #12
   %22 = load i32, ptr %call153, align 4
   switch i32 %22, label %if.then186 [
-    i32 99, label %do.body160
+    i32 99, label %land.lhs.true162
     i32 98, label %if.end192
     i32 13, label %if.end192
   ]
 
-do.body160:                                       ; preds = %if.then152
-  %conv136.le200 = zext i16 %port.0203 to i32
-  br i1 %tobool161.not, label %do.end170, label %land.lhs.true162
-
-land.lhs.true162:                                 ; preds = %do.body160
+land.lhs.true162:                                 ; preds = %if.then152
   %bf.load = load i64, ptr %verbose, align 2
   %23 = and i64 %bf.load, 536870912
   %tobool164.not = icmp eq i64 %23, 0
   br i1 %tobool164.not, label %do.end170, label %if.then165
 
 if.then165:                                       ; preds = %land.lhs.true162
+  %conv136.le200 = zext i16 %port.0203 to i32
   %call168 = call ptr @Curl_strerror(i32 noundef 99, ptr noundef nonnull %buffer, i64 noundef 256) #10
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.58, i32 noundef %conv136.le200, ptr noundef %call168) #10
   br label %do.end170
 
-do.end170:                                        ; preds = %do.body160, %land.lhs.true162, %if.then165
+do.end170:                                        ; preds = %land.lhs.true162, %if.then165
   store i32 128, ptr %sslen, align 4
   %24 = load i32, ptr %sock171, align 8
   %call173 = call i32 @getsockname(i32 noundef %24, ptr noundef nonnull %ss, ptr noundef nonnull %sslen) #10
@@ -5998,7 +5994,7 @@ do.end170:                                        ; preds = %do.body160, %land.l
 if.then175:                                       ; preds = %do.end170
   %25 = load i32, ptr %call153, align 4
   %call178 = call ptr @Curl_strerror(i32 noundef %25, ptr noundef nonnull %buffer, i64 noundef 256) #10
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.55, ptr noundef %call178) #10
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.55, ptr noundef %call178) #10
   br label %if.end322
 
 if.then186:                                       ; preds = %if.then152, %if.then152.us
@@ -6006,7 +6002,7 @@ if.then186:                                       ; preds = %if.then152, %if.the
   %.us-phi204 = phi i32 [ %19, %if.then152.us ], [ %22, %if.then152 ]
   %conv136.le = zext i16 %.us-phi to i32
   %call189 = call ptr @Curl_strerror(i32 noundef %.us-phi204, ptr noundef nonnull %buffer, i64 noundef 256) #10
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.59, i32 noundef %conv136.le, ptr noundef %call189) #10
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.59, i32 noundef %conv136.le, ptr noundef %call189) #10
   br label %if.end322
 
 if.end192:                                        ; preds = %if.then152, %if.then152
@@ -6015,7 +6011,7 @@ if.end192:                                        ; preds = %if.then152, %if.the
   br i1 %cmp138.not, label %if.then198, label %for.body140, !llvm.loop !20
 
 if.then198:                                       ; preds = %if.end192, %if.end192.us, %do.end132
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.60) #10
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.60) #10
   br label %if.end322
 
 if.end199:                                        ; preds = %for.body140, %for.body140.us
@@ -6029,7 +6025,7 @@ if.then202:                                       ; preds = %if.end199
   %call203 = tail call ptr @__errno_location() #12
   %27 = load i32, ptr %call203, align 4
   %call205 = call ptr @Curl_strerror(i32 noundef %27, ptr noundef nonnull %buffer, i64 noundef 256) #10
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.55, ptr noundef %call205) #10
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.55, ptr noundef %call205) #10
   br label %if.end322
 
 do.end208:                                        ; preds = %if.end199
@@ -6042,7 +6038,7 @@ if.then211:                                       ; preds = %do.end208
   %call212 = tail call ptr @__errno_location() #12
   %29 = load i32, ptr %call212, align 4
   %call214 = call ptr @Curl_strerror(i32 noundef %29, ptr noundef nonnull %buffer, i64 noundef 256) #10
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.57, ptr noundef %call214) #10
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.57, ptr noundef %call214) #10
   br label %if.end322
 
 do.end217:                                        ; preds = %do.end208
@@ -6108,13 +6104,13 @@ if.then269:                                       ; preds = %sw.epilog266, %sw.e
   %cond = phi i32 [ 1, %sw.epilog266.us ], [ 2, %sw.epilog266 ]
   %call264 = call zeroext i16 @ntohs(i16 noundef zeroext %33) #12
   %conv277 = zext i16 %call264 to i32
-  %call278 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.61, ptr noundef nonnull @ftp_state_use_port.mode, i32 noundef %cond, ptr noundef nonnull %myhost, i32 noundef %conv277) #10
+  %call278 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.61, ptr noundef nonnull @ftp_state_use_port.mode, i32 noundef %cond, ptr noundef nonnull %myhost, i32 noundef %conv277) #10
   %tobool279.not = icmp eq i32 %call278, 0
   br i1 %tobool279.not, label %for.end315, label %if.then280
 
 if.then280:                                       ; preds = %if.then269
   %call281 = call ptr @curl_easy_strerror(i32 noundef %call278) #10
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.62, ptr noundef %call281) #10
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.62, ptr noundef %call281) #10
   br label %if.end322
 
 while.cond.preheader:                             ; preds = %sw.epilog266.us
@@ -6146,13 +6142,13 @@ while.end:                                        ; preds = %while.cond
   %shr = lshr i32 %conv299, 8
   %and = and i32 %conv299, 255
   %call301 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %dest.0, i64 noundef 20, ptr noundef nonnull @.str.63, i32 noundef %shr, i32 noundef %and) #10
-  %call307 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ftp_state_use_port.mode, i64 5), ptr noundef nonnull %target) #10
+  %call307 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %data, ptr noundef nonnull %proto, ptr noundef nonnull @.str.64, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ftp_state_use_port.mode, i64 5), ptr noundef nonnull %target) #10
   %tobool308.not = icmp eq i32 %call307, 0
   br i1 %tobool308.not, label %for.end315, label %if.then309
 
 if.then309:                                       ; preds = %while.end
   %call310 = call ptr @curl_easy_strerror(i32 noundef %call307) #10
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.65, ptr noundef %call310) #10
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.65, ptr noundef %call310) #10
   br label %if.end322
 
 for.inc313:                                       ; preds = %sw.epilog266, %if.end256, %for.body237
@@ -6164,7 +6160,7 @@ for.end315:                                       ; preds = %if.end247, %for.inc
   %fcmd.addr.0189 = phi i32 [ 1, %while.end ], [ 0, %if.then269 ], [ 2, %for.inc313.us ], [ 2, %for.inc313 ], [ 2, %if.end247 ]
   %count1 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   store i32 %fcmd.addr.0189, ptr %count1, align 8
-  %call316 = call i32 @Curl_conn_tcp_listen_set(ptr noundef %data, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %portsock) #10
+  %call316 = call i32 @Curl_conn_tcp_listen_set(ptr noundef nonnull %data, ptr noundef %0, i32 noundef 1, ptr noundef nonnull %portsock) #10
   %tobool317.not = icmp eq i32 %call316, 0
   br i1 %tobool317.not, label %if.end322.thread, label %if.end322
 
@@ -6318,7 +6314,7 @@ if.then8:                                         ; preds = %if.end
 
 if.else:                                          ; preds = %if.end
   %5 = load ptr, ptr @Curl_cfree, align 8
-  call void %5(ptr noundef %4) #10
+  call void %5(ptr noundef nonnull %4) #10
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then8, %if.else, %land.lhs.true, %entry
@@ -7047,7 +7043,7 @@ land.lhs.true57:                                  ; preds = %while.body
 
 if.then66:                                        ; preds = %land.lhs.true57, %while.body
   %compLen.0.ph = phi i64 [ %sub.ptr.sub54, %while.body ], [ 1, %land.lhs.true57 ]
-  %call67 = call ptr @Curl_memdup0(ptr noundef %curPos.075, i64 noundef %compLen.0.ph) #10
+  %call67 = call ptr @Curl_memdup0(ptr noundef nonnull %curPos.075, i64 noundef %compLen.0.ph) #10
   %tobool68.not = icmp eq ptr %call67, null
   br i1 %tobool68.not, label %if.then69, label %if.end70
 

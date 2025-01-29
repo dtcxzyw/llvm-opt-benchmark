@@ -6635,16 +6635,14 @@ define hidden { i64, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfeecd2077f62cb57E.llvm.14675025554980555382.exit": ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a09140a5fa40030E.exit.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !noalias !2376
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !2365
-  %17 = icmp ne ptr %12, null
-  %spec.select5 = zext i1 %17 to i64
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfeecd2077f62cb57E.llvm.14675025554980555382.exit.thread"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfeecd2077f62cb57E.llvm.14675025554980555382.exit.thread": ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfeecd2077f62cb57E.llvm.14675025554980555382.exit", %1
   %.0.i4 = phi ptr [ null, %1 ], [ %12, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfeecd2077f62cb57E.llvm.14675025554980555382.exit" ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ %spec.select5, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfeecd2077f62cb57E.llvm.14675025554980555382.exit" ]
-  %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %19 = insertvalue { i64, ptr } %18, ptr %.0.i4, 1
-  ret { i64, ptr } %19
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 1, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfeecd2077f62cb57E.llvm.14675025554980555382.exit" ]
+  %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %18 = insertvalue { i64, ptr } %17, ptr %.0.i4, 1
+  ret { i64, ptr } %18
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -76521,17 +76519,14 @@ define hidden { i64, ptr } @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$
 17:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a09140a5fa40030E.exit.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false), !noalias !20258
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !20245
-  %18 = icmp ne ptr %12, null
-  %spec.select5.i = zext i1 %18 to i64
-  %19 = insertvalue { i64, ptr } poison, i64 %spec.select5.i, 0
-  %20 = insertvalue { i64, ptr } %19, ptr %12, 1
+  %18 = insertvalue { i64, ptr } { i64 1, ptr poison }, ptr %12, 1
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86a04eca8642aee3E.llvm.14675025554980555382.exit.thread"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86a04eca8642aee3E.llvm.14675025554980555382.exit.thread": ; preds = %1, %17
-  %21 = phi { i64, ptr } [ %20, %17 ], [ zeroinitializer, %1 ]
+  %19 = phi { i64, ptr } [ %18, %17 ], [ zeroinitializer, %1 ]
   %.sroa.3.0 = phi ptr [ %12, %17 ], [ undef, %1 ]
-  %22 = insertvalue { i64, ptr } %21, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %22
+  %20 = insertvalue { i64, ptr } %19, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %20
 }
 
 ; Function Attrs: nonlazybind uwtable

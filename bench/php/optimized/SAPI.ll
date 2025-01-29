@@ -200,7 +200,7 @@ define void @sapi_read_post_data() local_unnamed_addr #0 {
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 64), align 8
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %3 = and i64 %2, 4294967295
-  %4 = tail call noalias ptr @_estrndup(ptr noundef %1, i64 noundef %3) #18
+  %4 = tail call noalias ptr @_estrndup(ptr noundef nonnull %1, i64 noundef %3) #18
   %.not50 = icmp eq i64 %3, 0
   br i1 %.not50, label %._crit_edge, label %.lr.ph
 
@@ -1164,7 +1164,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br i1 %.not231, label %67, label %65
 
 65:                                               ; preds = %63
-  tail call void @_efree(ptr noundef %31) #18
+  tail call void @_efree(ptr noundef nonnull %31) #18
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 80), align 8
   tail call void (i32, ptr, ...) %66(i32 noundef 2, ptr noundef nonnull @.str.14) #18
   br label %sapi_update_response_code.exit
@@ -1203,7 +1203,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br i1 %83, label %84, label %100
 
 84:                                               ; preds = %79
-  %85 = call i32 @strncasecmp(ptr noundef nonnull %80, ptr noundef readonly %31, i64 noundef %.0185266) #19
+  %85 = call i32 @strncasecmp(ptr noundef nonnull %80, ptr noundef nonnull readonly %31, i64 noundef %.0185266) #19
   %.not27.i = icmp eq i32 %85, 0
   br i1 %.not27.i, label %86, label %100
 
@@ -1249,7 +1249,7 @@ define range(i32 -1, 1) i32 @sapi_header_op(i32 noundef %0, ptr noundef %1) loca
   br i1 %.not.i234, label %sapi_remove_header.exit, label %.lr.ph.i
 
 sapi_remove_header.exit:                          ; preds = %100, %72
-  call void @_efree(ptr noundef %31) #18
+  call void @_efree(ptr noundef nonnull %31) #18
   br label %sapi_update_response_code.exit
 
 .lr.ph:                                           ; preds = %.preheader, %108
@@ -1338,7 +1338,7 @@ sapi_update_response_code.exit236:                ; preds = %117
 
 128:                                              ; preds = %125
   store i8 0, ptr %127, align 1
-  %129 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.18) #19
+  %129 = tail call i32 @strcasecmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.18) #19
   %.not218 = icmp eq i32 %129, 0
   br i1 %.not218, label %130, label %159
 
@@ -1399,7 +1399,7 @@ sapi_update_response_code.exit236:                ; preds = %117
   store ptr %150, ptr %3, align 8
   %156 = and i64 %152, 4294967295
   store i64 %156, ptr %126, align 8
-  tail call void @_efree(ptr noundef %31) #18
+  tail call void @_efree(ptr noundef nonnull %31) #18
   br label %157
 
 157:                                              ; preds = %._crit_edge263, %148
@@ -1409,7 +1409,7 @@ sapi_update_response_code.exit236:                ; preds = %117
   br label %sapi_update_response_code.exit238
 
 159:                                              ; preds = %128
-  %160 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.19) #19
+  %160 = tail call i32 @strcasecmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.19) #19
   %.not221 = icmp eq i32 %160, 0
   br i1 %.not221, label %161, label %177
 
@@ -1446,7 +1446,7 @@ sapi_update_response_code.exit236:                ; preds = %117
   br label %sapi_update_response_code.exit238
 
 177:                                              ; preds = %159
-  %178 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.22) #19
+  %178 = tail call i32 @strcasecmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.22) #19
   %.not223 = icmp eq i32 %178, 0
   br i1 %.not223, label %179, label %204
 
@@ -1529,7 +1529,7 @@ sapi_update_response_code.exit242:                ; preds = %201, %203
   br label %sapi_update_response_code.exit238
 
 204:                                              ; preds = %177
-  %205 = tail call i32 @strcasecmp(ptr noundef %31, ptr noundef nonnull @.str.24) #19
+  %205 = tail call i32 @strcasecmp(ptr noundef nonnull %31, ptr noundef nonnull @.str.24) #19
   %.not229 = icmp ne i32 %205, 0
   %206 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 216), align 8
   %207 = icmp eq i32 %206, 401
@@ -1691,7 +1691,7 @@ define internal fastcc void @sapi_header_add_op(i32 noundef range(i32 3, 2) %0, 
   br i1 %26, label %27, label %43
 
 27:                                               ; preds = %22
-  %28 = tail call i32 @strncasecmp(ptr noundef nonnull %23, ptr noundef readonly %14, i64 noundef %15) #19
+  %28 = tail call i32 @strncasecmp(ptr noundef nonnull %23, ptr noundef nonnull readonly %14, i64 noundef %15) #19
   %.not27.i = icmp eq i32 %28, 0
   br i1 %.not27.i, label %29, label %43
 
@@ -2010,7 +2010,7 @@ define range(i32 -1, 1) i32 @sapi_register_post_entry(ptr nocapture noundef read
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %.not = icmp ne ptr %5, null
   %or.cond.not = select i1 %4, i1 %.not, i1 false
-  br i1 %or.cond.not, label %41, label %6
+  br i1 %or.cond.not, label %39, label %6
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
@@ -2036,7 +2036,7 @@ define range(i32 -1, 1) i32 @sapi_register_post_entry(ptr nocapture noundef read
   store i32 13, ptr %19, align 8
   %20 = call ptr @zend_hash_add(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 448), ptr noundef nonnull %13, ptr noundef nonnull %2) #18
   %.not117 = icmp eq ptr %20, null
-  br i1 %.not117, label %32, label %21
+  br i1 %.not117, label %30, label %21
 
 21:                                               ; preds = %6
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 452), align 4
@@ -2056,32 +2056,30 @@ define range(i32 -1, 1) i32 @sapi_register_post_entry(ptr nocapture noundef read
   %29 = phi ptr [ %25, %24 ], [ %27, %26 ]
   store ptr %29, ptr %20, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %29, ptr noundef nonnull align 1 dereferenceable(32) %0, i64 32, i1 false)
-  %30 = icmp eq ptr %29, null
-  %31 = sext i1 %30 to i32
-  br label %32
+  br label %30
 
-32:                                               ; preds = %6, %28
-  %.0 = phi i32 [ %31, %28 ], [ -1, %6 ]
-  %33 = load i32, ptr %14, align 4
-  %34 = and i32 %33, 64
-  %.not120 = icmp eq i32 %34, 0
-  br i1 %.not120, label %35, label %41
+30:                                               ; preds = %6, %28
+  %.0 = phi i32 [ 0, %28 ], [ -1, %6 ]
+  %31 = load i32, ptr %14, align 4
+  %32 = and i32 %31, 64
+  %.not120 = icmp eq i32 %32, 0
+  br i1 %.not120, label %33, label %39
 
-35:                                               ; preds = %32
-  %36 = load i32, ptr %13, align 4
-  %37 = icmp ne i32 %36, 0
-  call void @llvm.assume(i1 %37)
-  %38 = add i32 %36, -1
-  store i32 %38, ptr %13, align 4
-  %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %41
+33:                                               ; preds = %30
+  %34 = load i32, ptr %13, align 4
+  %35 = icmp ne i32 %34, 0
+  call void @llvm.assume(i1 %35)
+  %36 = add i32 %34, -1
+  store i32 %36, ptr %13, align 4
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %38, label %39
 
-40:                                               ; preds = %35
+38:                                               ; preds = %33
   call void @free(ptr noundef nonnull %13) #18
-  br label %41
+  br label %39
 
-41:                                               ; preds = %32, %40, %35, %1
-  %.0114 = phi i32 [ -1, %1 ], [ %.0, %35 ], [ %.0, %40 ], [ %.0, %32 ]
+39:                                               ; preds = %30, %38, %33, %1
+  %.0114 = phi i32 [ -1, %1 ], [ %.0, %33 ], [ %.0, %38 ], [ %.0, %30 ]
   ret i32 %.0114
 }
 

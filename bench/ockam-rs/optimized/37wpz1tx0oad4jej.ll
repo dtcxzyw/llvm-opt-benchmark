@@ -820,7 +820,7 @@ define hidden { i64, ptr } @"_ZN10ockam_core5error1_77_$LT$impl$u20$serde..de..D
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 101
   %5 = load i8, ptr %4, align 1, !range !29, !alias.scope !26, !noalias !21, !noundef !5
   %6 = icmp eq i8 %5, 14
-  br i1 %6, label %16, label %7
+  br i1 %6, label %15, label %7
 
 7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2), !noalias !30
@@ -846,21 +846,18 @@ define hidden { i64, ptr } @"_ZN10ockam_core5error1_77_$LT$impl$u20$serde..de..D
 14:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef nonnull align 8 dereferenceable(104) %3, i64 104, i1 false)
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %2), !noalias !30
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !21
-  %15 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %15)
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$26deserialize_newtype_struct17hf986a60b96ab3231E.exit"
 
-16:                                               ; preds = %1
-  %17 = load ptr, ptr %3, align 8, !alias.scope !26, !noalias !21, !nonnull !5, !align !9, !noundef !5
-  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !21
+15:                                               ; preds = %1
+  %16 = load ptr, ptr %3, align 8, !alias.scope !26, !noalias !21, !nonnull !5, !align !9, !noundef !5
   br label %"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$26deserialize_newtype_struct17hf986a60b96ab3231E.exit"
 
-"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$26deserialize_newtype_struct17hf986a60b96ab3231E.exit": ; preds = %14, %16
-  %.pn.i.i = phi { i64, ptr } [ { i64 0, ptr poison }, %14 ], [ { i64 1, ptr poison }, %16 ]
-  %.pn12.i.i = phi ptr [ %8, %14 ], [ %17, %16 ]
-  %18 = insertvalue { i64, ptr } %.pn.i.i, ptr %.pn12.i.i, 1
-  ret { i64, ptr } %18
+"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$$u20$as$u20$serde..de..Deserializer$GT$26deserialize_newtype_struct17hf986a60b96ab3231E.exit": ; preds = %14, %15
+  %.pn.i.i = phi { i64, ptr } [ { i64 0, ptr poison }, %14 ], [ { i64 1, ptr poison }, %15 ]
+  %.pn11.i.i = phi ptr [ %8, %14 ], [ %16, %15 ]
+  call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3), !noalias !21
+  %17 = insertvalue { i64, ptr } %.pn.i.i, ptr %.pn11.i.i, 1
+  ret { i64, ptr } %17
 }
 
 ; Function Attrs: cold nonlazybind uwtable

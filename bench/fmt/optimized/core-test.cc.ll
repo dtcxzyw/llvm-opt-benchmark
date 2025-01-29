@@ -8300,13 +8300,13 @@ _ZNKSt8equal_toIN3fmt3v1017basic_string_viewIcEEEclERKS3_S6_.exit.thread: ; pred
   br label %if.then.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %for.body3
-  %bcmp = call i32 @bcmp(ptr %0, ptr %1, i64 %.other.coerce1.i)
+  %bcmp = call i32 @bcmp(ptr nonnull %0, ptr nonnull %1, i64 %.other.coerce1.i)
   %cmp6.i = icmp eq i32 %bcmp, 0
   %cmp.i = icmp eq i64 %call.i10, %call.i
   %narrow = and i1 %cmp6.i, %cmp.i
   %frombool26 = zext i1 %narrow to i8
   store i8 %frombool26, ptr %ref.tmp, align 1
-  %bcmp.i.i = call i32 @bcmp(ptr %0, ptr %1, i64 %.other.coerce1.i)
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull %0, ptr nonnull %1, i64 %.other.coerce1.i)
   %cmp6.i.i.i = icmp eq i32 %bcmp.i.i, 0
   %narrow37 = and i1 %cmp6.i.i.i, %cmp.i
   %spec.select = zext i1 %narrow37 to i8
@@ -8464,13 +8464,13 @@ _ZNKSt12not_equal_toIN3fmt3v1017basic_string_viewIcEEEclERKS3_S6_.exit.thread: ;
   br label %if.then.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %for.body3
-  %bcmp = call i32 @bcmp(ptr %0, ptr %1, i64 %.other.coerce1.i)
+  %bcmp = call i32 @bcmp(ptr nonnull %0, ptr nonnull %1, i64 %.other.coerce1.i)
   %cmp6.i = icmp ne i32 %bcmp, 0
   %cmp.i = icmp ne i64 %call.i10, %call.i
   %narrow = or i1 %cmp6.i, %cmp.i
   %frombool26 = zext i1 %narrow to i8
   store i8 %frombool26, ptr %ref.tmp, align 1
-  %bcmp.i.i = call i32 @bcmp(ptr %0, ptr %1, i64 %.other.coerce1.i)
+  %bcmp.i.i = call i32 @bcmp(ptr nonnull %0, ptr nonnull %1, i64 %.other.coerce1.i)
   %cmp6.i.i.i = icmp ne i32 %bcmp.i.i, 0
   %narrow37 = or i1 %cmp6.i.i.i, %cmp.i
   %spec.select = zext i1 %narrow37 to i8
@@ -8627,7 +8627,7 @@ _ZNK3fmt3v1017basic_string_viewIcE7compareES2_.exit.thread28: ; preds = %for.bod
   br label %if.then.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %for.body3
-  %call.i.i = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %.other.coerce1.i) #25
+  %call.i.i = call i32 @memcmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.other.coerce1.i) #25
   %cmp6.i = icmp eq i32 %call.i.i, 0
   %call.i.i.lobit = lshr i32 %call.i.i, 31
   %frombool24 = trunc nuw nsw i32 %call.i.i.lobit to i8
@@ -8635,7 +8635,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %for.body3
   %frombool = zext i1 %cmp.i to i8
   %frombool27 = select i1 %cmp6.i, i8 %frombool, i8 %frombool24
   store i8 %frombool27, ptr %ref.tmp, align 1
-  %call.i.i.i.i = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %.other.coerce1.i) #25
+  %call.i.i.i.i = call i32 @memcmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.other.coerce1.i) #25
   %cmp6.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp6.i.i.i, label %if.then.i.i.i, label %_ZNKSt4lessIN3fmt3v1017basic_string_viewIcEEEclERKS3_S6_.exit
 
@@ -8802,14 +8802,14 @@ _ZNK3fmt3v1017basic_string_viewIcE7compareES2_.exit.thread28: ; preds = %for.bod
   br label %if.then.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %for.body3
-  %call.i.i = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %.other.coerce1.i) #25
+  %call.i.i = call i32 @memcmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.other.coerce1.i) #25
   %cmp6.i = icmp eq i32 %call.i.i, 0
   %cmp.i23 = icmp slt i32 %call.i.i, 1
   %cmp.i = icmp ule i64 %call.i10, %call.i
   %frombool27.in = select i1 %cmp6.i, i1 %cmp.i, i1 %cmp.i23
   %frombool27 = zext i1 %frombool27.in to i8
   store i8 %frombool27, ptr %ref.tmp, align 1
-  %call.i.i.i.i = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %.other.coerce1.i) #25
+  %call.i.i.i.i = call i32 @memcmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.other.coerce1.i) #25
   %cmp6.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp6.i.i.i, label %if.then.i.i.i, label %_ZNKSt10less_equalIN3fmt3v1017basic_string_viewIcEEEclERKS3_S6_.exit
 
@@ -8976,14 +8976,14 @@ _ZNK3fmt3v1017basic_string_viewIcE7compareES2_.exit.thread28: ; preds = %for.bod
   br label %if.then.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %for.body3
-  %call.i.i = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %.other.coerce1.i) #25
+  %call.i.i = call i32 @memcmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.other.coerce1.i) #25
   %cmp6.i = icmp eq i32 %call.i.i, 0
   %cmp.i23 = icmp sgt i32 %call.i.i, 0
   %cmp.i = icmp ugt i64 %call.i10, %call.i
   %frombool27.in = select i1 %cmp6.i, i1 %cmp.i, i1 %cmp.i23
   %frombool27 = zext i1 %frombool27.in to i8
   store i8 %frombool27, ptr %ref.tmp, align 1
-  %call.i.i.i.i = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %.other.coerce1.i) #25
+  %call.i.i.i.i = call i32 @memcmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.other.coerce1.i) #25
   %cmp6.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp6.i.i.i, label %if.then.i.i.i, label %_ZNKSt7greaterIN3fmt3v1017basic_string_viewIcEEEclERKS3_S6_.exit
 
@@ -9150,14 +9150,14 @@ _ZNK3fmt3v1017basic_string_viewIcE7compareES2_.exit.thread28: ; preds = %for.bod
   br label %if.then.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i:     ; preds = %for.body3
-  %call.i.i = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %.other.coerce1.i) #25
+  %call.i.i = call i32 @memcmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.other.coerce1.i) #25
   %cmp6.i = icmp eq i32 %call.i.i, 0
   %cmp.i23 = icmp sgt i32 %call.i.i, -1
   %cmp.i = icmp uge i64 %call.i10, %call.i
   %frombool27.in = select i1 %cmp6.i, i1 %cmp.i, i1 %cmp.i23
   %frombool27 = zext i1 %frombool27.in to i8
   store i8 %frombool27, ptr %ref.tmp, align 1
-  %call.i.i.i.i = call i32 @memcmp(ptr noundef %0, ptr noundef %1, i64 noundef %.other.coerce1.i) #25
+  %call.i.i.i.i = call i32 @memcmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.other.coerce1.i) #25
   %cmp6.i.i.i = icmp eq i32 %call.i.i.i.i, 0
   br i1 %cmp6.i.i.i, label %if.then.i.i.i, label %_ZNKSt13greater_equalIN3fmt3v1017basic_string_viewIcEEEclERKS3_S6_.exit
 
@@ -34452,26 +34452,15 @@ cond.true:                                        ; preds = %entry
 
 call.i.noexc:                                     ; preds = %cond.true
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %.noexc unwind label %lpad
+          to label %if.end.i unwind label %lpad
 
-.noexc:                                           ; preds = %call.i.noexc
-  %cmp.i = icmp eq ptr %str, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %.noexc
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.208) #29
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %if.then.i
-  unreachable
-
-lpad.i:                                           ; preds = %if.end.i, %if.then.i
+lpad.i:                                           ; preds = %if.end.i
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #25
   br label %eh.resume
 
-if.end.i:                                         ; preds = %.noexc
+if.end.i:                                         ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #25
   %add.ptr.i = getelementptr inbounds i8, ptr %str, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %str, ptr noundef nonnull %add.ptr.i)
@@ -34489,7 +34478,7 @@ call.i.noexc8:                                    ; preds = %cond.false
 .noexc10:                                         ; preds = %call.i.noexc8
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %str, ptr noundef nonnull %call)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %str, ptr noundef nonnull %call)
           to label %cleanup.done10 unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %.noexc10

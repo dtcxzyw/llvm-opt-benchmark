@@ -297,7 +297,7 @@ if.then89:                                        ; preds = %if.else84
 
 if.else94:                                        ; preds = %if.then89
   %conv96 = trunc i64 %call90 to i32
-  %call97 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call, ptr noundef %spec.addr.2116125, i32 noundef %conv96, i32 noundef 1) #11
+  %call97 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call, ptr noundef nonnull %spec.addr.2116125, i32 noundef %conv96, i32 noundef 1) #11
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %if.then151.sink.split, label %if.else100
 
@@ -493,7 +493,7 @@ return:                                           ; preds = %if.else50, %if.end2
 declare void @FLAC__metadata_object_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__picture_from_specification(i32 noundef %type, ptr noundef readonly %mime_type_in, ptr noundef %description, ptr noundef readonly %res, ptr noundef %filepath, ptr noundef %error_message) local_unnamed_addr #0 {
+define dso_local ptr @grabbag__picture_from_specification(i32 noundef %type, ptr nocapture noundef readonly %mime_type_in, ptr noundef %description, ptr noundef readonly %res, ptr noundef %filepath, ptr noundef %error_message) local_unnamed_addr #0 {
 entry:
   %mime_type = alloca [64 x i8], align 16
   %cmp = icmp eq ptr %error_message, null
@@ -506,21 +506,17 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %error_message, align 8
   %call1 = call ptr @FLAC__metadata_object_new(i32 noundef 6) #11
   %cmp2 = icmp eq ptr %call1, null
-  br i1 %cmp2, label %if.then3, label %if.end4
+  br i1 %cmp2, label %if.then3, label %land.lhs.true
 
 if.then3:                                         ; preds = %if.end
   store ptr @.str.3, ptr %error_message, align 8
   br label %return
 
-if.end4:                                          ; preds = %if.end
+land.lhs.true:                                    ; preds = %if.end
   %cmp5 = icmp sgt i32 %type, -1
   %cond = select i1 %cmp5, i32 %type, i32 3
   %data = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store i32 %cond, ptr %data, align 8
-  %tobool.not = icmp eq ptr %mime_type_in, null
-  br i1 %tobool.not, label %if.end11, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.end4
   %call8 = call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %call1, ptr noundef nonnull %mime_type, i32 noundef 1) #11
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %if.end11
@@ -529,7 +525,7 @@ if.then10:                                        ; preds = %land.lhs.true
   store ptr @.str.3, ptr %error_message, align 8
   br label %return
 
-if.end11:                                         ; preds = %land.lhs.true, %if.end4
+if.end11:                                         ; preds = %land.lhs.true
   %tobool12.not = icmp eq ptr %description, null
   br i1 %tobool12.not, label %if.end17, label %land.lhs.true13
 
@@ -584,7 +580,7 @@ if.end36:                                         ; preds = %if.else, %if.then19
 if.then41:                                        ; preds = %if.end36
   %call42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filepath) #12
   %conv = trunc i64 %call42 to i32
-  %call43 = call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call1, ptr noundef %filepath, i32 noundef %conv, i32 noundef 1) #11
+  %call43 = call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call1, ptr noundef nonnull %filepath, i32 noundef %conv, i32 noundef 1) #11
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %if.then99.sink.split, label %if.else46
 

@@ -168,7 +168,7 @@ st_add.exit9:                                     ; preds = %st_add.exit
   %add.i7 = add nuw i64 %call, 49
   %call3 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef %add.i7) #12
   %name = getelementptr inbounds nuw i8, ptr %call3, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %name, ptr align 1 %refname, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %name, ptr nonnull align 1 %refname, i64 %call, i1 false)
   %u = getelementptr inbounds nuw i8, ptr %call3, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %u, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
   %algo.i = getelementptr inbounds nuw i8, ptr %oid, i64 32
@@ -480,15 +480,11 @@ entry:
   %key.i = alloca %struct.string_slice, align 8
   %call = tail call fastcc ptr @find_containing_dir(ptr noundef %dir, ptr noundef %refname)
   %tobool.not = icmp eq ptr %call, null
-  br i1 %tobool.not, label %return, label %if.end
+  br i1 %tobool.not, label %return, label %lor.lhs.false.i
 
-if.end:                                           ; preds = %entry
+lor.lhs.false.i:                                  ; preds = %entry
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %refname) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i)
-  %cmp.i = icmp eq ptr %refname, null
-  br i1 %cmp.i, label %search_ref_dir.exit.thread, label %lor.lhs.false.i
-
-lor.lhs.false.i:                                  ; preds = %if.end
   %0 = load i32, ptr %call, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %search_ref_dir.exit.thread, label %if.end.i
@@ -506,7 +502,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   %tobool3.not.i = icmp eq ptr %call.i, null
   br i1 %tobool3.not.i, label %search_ref_dir.exit.thread, label %search_ref_dir.exit
 
-search_ref_dir.exit.thread:                       ; preds = %lor.lhs.false.i, %if.end, %if.end.i
+search_ref_dir.exit.thread:                       ; preds = %lor.lhs.false.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i)
   br label %return
 
@@ -542,27 +538,22 @@ entry:
   %key.i.i = alloca %struct.string_slice, align 8
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %refname, i32 noundef 47) #13
   %tobool.not9 = icmp eq ptr %call, null
-  br i1 %tobool.not9, label %for.end, label %for.body.lr.ph
+  br i1 %tobool.not9, label %for.end, label %lor.lhs.false.i.i.lr.ph
 
-for.body.lr.ph:                                   ; preds = %entry
+lor.lhs.false.i.i.lr.ph:                          ; preds = %entry
   %sub.ptr.rhs.cast = ptrtoint ptr %refname to i64
-  %cmp.i.i = icmp eq ptr %refname, null
   %str.i.i = getelementptr inbounds nuw i8, ptr %key.i.i, i64 8
-  br i1 %cmp.i.i, label %for.body.us, label %for.body
+  br label %lor.lhs.false.i.i
 
-for.body.us:                                      ; preds = %for.body.lr.ph
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
-  br label %search_ref_dir.exit.thread.i
-
-for.body:                                         ; preds = %for.body.lr.ph, %if.end
-  %dir.addr.011 = phi ptr [ %u.i.i, %if.end ], [ %dir, %for.body.lr.ph ]
-  %slash.010 = phi ptr [ %call3, %if.end ], [ %call, %for.body.lr.ph ]
+lor.lhs.false.i.i:                                ; preds = %lor.lhs.false.i.i.lr.ph, %if.end
+  %dir.addr.011 = phi ptr [ %dir, %lor.lhs.false.i.i.lr.ph ], [ %u.i.i, %if.end ]
+  %slash.010 = phi ptr [ %call, %lor.lhs.false.i.i.lr.ph ], [ %call3, %if.end ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
   %0 = load i32, ptr %dir.addr.011, align 8
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %search_ref_dir.exit.thread.i, label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %for.body
+if.end.i.i:                                       ; preds = %lor.lhs.false.i.i
   %sub.ptr.lhs.cast = ptrtoint ptr %slash.010 to i64
   %reass.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %add = add i64 %reass.sub, 1
@@ -577,7 +568,7 @@ if.end.i.i:                                       ; preds = %for.body
   %tobool3.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool3.not.i.i, label %search_ref_dir.exit.thread.i, label %search_ref_dir.exit.i
 
-search_ref_dir.exit.thread.i:                     ; preds = %for.body, %if.end.i.i, %for.body.us
+search_ref_dir.exit.thread.i:                     ; preds = %if.end.i.i, %lor.lhs.false.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %key.i.i)
   br label %for.end
 
@@ -628,7 +619,7 @@ if.end:                                           ; preds = %if.end.i4.i, %if.en
   %add.ptr = getelementptr inbounds nuw i8, ptr %slash.010, i64 1
   %call3 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr, i32 noundef 47) #13
   %tobool.not = icmp eq ptr %call3, null
-  br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %tobool.not, label %for.end, label %lor.lhs.false.i.i, !llvm.loop !8
 
 for.end:                                          ; preds = %if.end, %search_ref_dir.exit.i, %entry, %search_ref_dir.exit.thread.i
   %dir.addr.1 = phi ptr [ null, %search_ref_dir.exit.thread.i ], [ %dir, %entry ], [ %u.i.i, %if.end ], [ null, %search_ref_dir.exit.i ]

@@ -665,7 +665,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #13
-  tail call void @strbuf_add(ptr noundef nonnull %base, ptr noundef %path, i64 noundef %call.i) #12
+  tail call void @strbuf_add(ptr noundef nonnull %base, ptr noundef nonnull %path, i64 noundef %call.i) #12
   tail call void @strbuf_add(ptr noundef nonnull %base, ptr noundef nonnull @.str.20, i64 noundef 2) #12
   %buf = getelementptr inbounds nuw i8, ptr %base, i64 16
   %2 = load ptr, ptr %buf, align 8
@@ -718,7 +718,7 @@ if.then4.i26:                                     ; preds = %if.end.i22
 
 if.else:                                          ; preds = %entry
   %call.i30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #13
-  tail call void @strbuf_add(ptr noundef nonnull %base, ptr noundef %path, i64 noundef %call.i30) #12
+  tail call void @strbuf_add(ptr noundef nonnull %base, ptr noundef nonnull %path, i64 noundef %call.i30) #12
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then4.i26, %if.end.i22, %if.else
@@ -1079,19 +1079,11 @@ if.end11:                                         ; preds = %while.body
   %9 = load ptr, ptr %buf.i, align 8
   %10 = load i64, ptr %len.i, align 8
   %conv13 = trunc i64 %10 to i32
-  %call14 = call ptr @index_file_exists(ptr noundef %istate, ptr noundef %9, i32 noundef %conv13, i32 noundef %icase) #12
+  %call14 = call ptr @index_file_exists(ptr noundef nonnull %istate, ptr noundef %9, i32 noundef %conv13, i32 noundef %icase) #12
   %tobool15.not = icmp eq ptr %call14, null
-  br i1 %tobool15.not, label %if.end17, label %if.then16
+  br i1 %tobool15.not, label %if.end17, label %ensure_full_index.exit
 
-if.then16:                                        ; preds = %if.end11
-  %tobool.not.i14 = icmp eq ptr %istate, null
-  br i1 %tobool.not.i14, label %if.then.i15, label %ensure_full_index.exit
-
-if.then.i15:                                      ; preds = %if.then16
-  call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.5, i32 noundef 426, ptr noundef nonnull @.str.12) #14
-  unreachable
-
-ensure_full_index.exit:                           ; preds = %if.then16
+ensure_full_index.exit:                           ; preds = %if.end11
   call void @expand_index(ptr noundef nonnull %istate, ptr noundef null)
   br label %cleanup
 

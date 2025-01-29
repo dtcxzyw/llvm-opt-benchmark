@@ -416,13 +416,9 @@ terminate.lpad.i:                                 ; preds = %lpad7
 for.end:                                          ; preds = %for.inc, %invoke.cont3
   %10 = phi ptr [ null, %invoke.cont3 ], [ %3, %for.inc ]
   invoke void @_ZN24btConstraintSolverPoolMt4initEPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull %10, i32 noundef %numSolvers)
-          to label %invoke.cont12 unwind label %lpad4.loopexit.split-lp
+          to label %if.then3.i.i.i33 unwind label %lpad4.loopexit.split-lp
 
-invoke.cont12:                                    ; preds = %for.end
-  %tobool.not.i.i.i29 = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i.i29, label %_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit, label %if.then3.i.i.i33
-
-if.then3.i.i.i33:                                 ; preds = %invoke.cont12
+if.then3.i.i.i33:                                 ; preds = %for.end
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %10)
           to label %_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit unwind label %terminate.lpad.i34
 
@@ -433,7 +429,7 @@ terminate.lpad.i34:                               ; preds = %if.then3.i.i.i33
   tail call void @__clang_call_terminate(ptr %12) #9
   unreachable
 
-_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit: ; preds = %invoke.cont12, %if.then3.i.i.i33
+_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit: ; preds = %if.then3.i.i.i33
   ret void
 
 ehcleanup:                                        ; preds = %lpad4.loopexit, %lpad4.loopexit.split-lp, %lpad7

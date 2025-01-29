@@ -2346,10 +2346,8 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %rng.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %out.i)
   store i8 0, ptr %out.i, align 1
-  %cmp.i = icmp ne ptr %tmpDir, null
-  %cmp3.i = icmp ne i32 %len, 7
-  %or.cond1.not13.i = and i1 %cmp.i, %cmp3.i
-  br i1 %or.cond1.not13.i, label %if.end.i, label %if.then.i
+  %cmp3.i.not = icmp eq i32 %len, 7
+  br i1 %cmp3.i.not, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %0 = load ptr, ptr @stderr, align 8
@@ -4560,8 +4558,8 @@ do.body.preheader:                                ; preds = %if.then71, %land.lh
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
-  %call74 = call i32 @wolfSSL_negotiate(ptr noundef %call42) #25
-  %call75 = call i32 @wolfSSL_get_error(ptr noundef %call42, i32 noundef 0) #25
+  %call74 = call i32 @wolfSSL_negotiate(ptr noundef nonnull %call42) #25
+  %call75 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call42, i32 noundef 0) #25
   %cmp76 = icmp eq i32 %call75, -108
   br i1 %cmp76, label %do.body, label %do.end, !llvm.loop !11
 
@@ -4577,8 +4575,8 @@ if.then80:                                        ; preds = %do.end
   br label %done
 
 if.end85:                                         ; preds = %do.end
-  %call86 = call i32 @wolfSSL_get_current_cipher_suite(ptr noundef %call42) #25
-  %call87 = call ptr @wolfSSL_get_cipher_name(ptr noundef %call42) #25
+  %call86 = call i32 @wolfSSL_get_current_cipher_suite(ptr noundef nonnull %call42) #25
+  %call87 = call ptr @wolfSSL_get_cipher_name(ptr noundef nonnull %call42) #25
   %shr = lshr i32 %call86, 8
   %conv88 = trunc i32 %shr to i8
   %conv89 = trunc i32 %call86 to i8
@@ -4609,9 +4607,9 @@ do.body99:                                        ; preds = %if.end85, %cond.tru
   unreachable
 
 do.end111:                                        ; preds = %cond.true
-  %call112 = call ptr @wolfSSL_get_current_cipher(ptr noundef %call42) #25
+  %call112 = call ptr @wolfSSL_get_current_cipher(ptr noundef nonnull %call42) #25
   %call113 = call ptr @wolfSSL_CIPHER_get_name(ptr noundef %call112) #25
-  %call114 = call ptr @wolfSSL_get_cipher(ptr noundef %call42) #25
+  %call114 = call ptr @wolfSSL_get_cipher(ptr noundef nonnull %call42) #25
   %tobool119 = icmp ne ptr %call113, null
   %tobool121 = icmp ne ptr %call114, null
   %or.cond1 = select i1 %tobool119, i1 %tobool121, i1 false
@@ -4667,16 +4665,16 @@ do.end175:                                        ; preds = %cond.true155
   br i1 %cmp176.not, label %if.end180, label %if.then178
 
 if.then178:                                       ; preds = %do.end175
-  %call179 = call i32 %cb(ptr noundef %call883, ptr noundef %call42) #25
+  %call179 = call i32 %cb(ptr noundef %call883, ptr noundef nonnull %call42) #25
   br label %if.end180
 
 if.end180:                                        ; preds = %if.then178, %do.end175
-  %call182 = call i32 @wolfSSL_write(ptr noundef %call42, ptr noundef nonnull %msg, i32 noundef %conv) #25
+  %call182 = call i32 @wolfSSL_write(ptr noundef nonnull %call42, ptr noundef nonnull %msg, i32 noundef %conv) #25
   %cmp183.not = icmp eq i32 %call182, %conv
   br i1 %cmp183.not, label %if.end186, label %done
 
 if.end186:                                        ; preds = %if.end180
-  %call188 = call i32 @wolfSSL_read(ptr noundef %call42, ptr noundef nonnull %reply, i32 noundef 1023) #25
+  %call188 = call i32 @wolfSSL_read(ptr noundef nonnull %call42, ptr noundef nonnull %reply, i32 noundef 1023) #25
   %cmp189 = icmp sgt i32 %call188, 0
   br i1 %cmp189, label %if.then191, label %if.end194
 
@@ -4698,7 +4696,7 @@ land.lhs.true197:                                 ; preds = %if.end194
   br i1 %cmp198.not, label %if.end202, label %if.then200
 
 if.then200:                                       ; preds = %land.lhs.true197
-  call void %41(ptr noundef %call42) #25
+  call void %41(ptr noundef nonnull %call42) #25
   br label %if.end202
 
 if.end202:                                        ; preds = %if.then200, %land.lhs.true197, %if.end194
@@ -12235,7 +12233,7 @@ for.body:                                         ; preds = %for.body.backedge, 
   %7 = load ptr, ptr %arrayidx, align 8
   %call21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
   %conv = trunc i64 %call21 to i32
-  %call22 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 3, ptr noundef %7, i32 noundef %conv) #25
+  %call22 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 3, ptr noundef nonnull %7, i32 noundef %conv) #25
   br i1 %cmp24.not, label %for.inc, label %if.then32
 
 if.then32:                                        ; preds = %for.body
@@ -12610,7 +12608,7 @@ if.then21:                                        ; preds = %do.body19
   %7 = load ptr, ptr %arrayidx, align 8
   %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
   %conv = trunc i64 %call25 to i32
-  %call26 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 4, ptr noundef %7, i32 noundef %conv) #25
+  %call26 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 4, ptr noundef nonnull %7, i32 noundef %conv) #25
   %cmp32 = icmp eq i32 %call26, 0
   br i1 %cmp32, label %for.inc.thread, label %do.body35
 
@@ -12982,7 +12980,7 @@ if.then21:                                        ; preds = %do.body19
   %7 = load ptr, ptr %arrayidx, align 8
   %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
   %conv = trunc i64 %call25 to i32
-  %call26 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 5, ptr noundef %7, i32 noundef %conv) #25
+  %call26 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 5, ptr noundef nonnull %7, i32 noundef %conv) #25
   %cmp32 = icmp eq i32 %call26, 0
   br i1 %cmp32, label %for.inc.thread, label %do.body35
 
@@ -13354,7 +13352,7 @@ if.then21:                                        ; preds = %do.body19
   %7 = load ptr, ptr %arrayidx, align 8
   %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
   %conv = trunc i64 %call25 to i32
-  %call26 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 6, ptr noundef %7, i32 noundef %conv) #25
+  %call26 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 6, ptr noundef nonnull %7, i32 noundef %conv) #25
   %cmp32 = icmp eq i32 %call26, 0
   br i1 %cmp32, label %for.inc.thread, label %do.body35
 
@@ -13726,7 +13724,7 @@ if.then21:                                        ; preds = %do.body19
   %7 = load ptr, ptr %arrayidx, align 8
   %call25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #30
   %conv = trunc i64 %call25 to i32
-  %call26 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 7, ptr noundef %7, i32 noundef %conv) #25
+  %call26 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 7, ptr noundef nonnull %7, i32 noundef %conv) #25
   %cmp32 = icmp eq i32 %call26, 0
   br i1 %cmp32, label %for.inc.thread, label %do.body35
 
@@ -35734,7 +35732,7 @@ do.body428:                                       ; preds = %if.then417
   br label %do.end471
 
 if.then446:                                       ; preds = %if.then417
-  %call448 = call i32 @test_memio_do_handshake(ptr noundef nonnull %call78.i, ptr noundef %call90.i, i32 noundef 10, ptr noundef null)
+  %call448 = call i32 @test_memio_do_handshake(ptr noundef nonnull %call78.i, ptr noundef nonnull %call90.i, i32 noundef 10, ptr noundef null)
   %cmp454 = icmp eq i32 %call448, 0
   br i1 %cmp454, label %do.end471, label %do.body457
 
@@ -35899,7 +35897,7 @@ if.then:                                          ; preds = %for.body
   br label %return
 
 for.end:                                          ; preds = %for.cond
-  %call5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.888, ptr noundef %name)
+  %call5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.888, ptr noundef nonnull %name)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %return
 
@@ -38786,8 +38784,8 @@ do.body.preheader:                                ; preds = %if.then86, %if.end8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.body
-  %call89 = call i32 @wolfSSL_accept(ptr noundef %call43) #25
-  %call90 = call i32 @wolfSSL_get_error(ptr noundef %call43, i32 noundef %call89) #25
+  %call89 = call i32 @wolfSSL_accept(ptr noundef nonnull %call43) #25
+  %call90 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call43, i32 noundef %call89) #25
   %cmp91 = icmp eq i32 %call90, -108
   br i1 %cmp91, label %do.body, label %do.end, !llvm.loop !64
 
@@ -38803,8 +38801,8 @@ if.then95:                                        ; preds = %do.end
   br label %if.end128
 
 do.body101:                                       ; preds = %do.end, %do.body101
-  %call103 = call i32 @wolfSSL_read(ptr noundef %call43, ptr noundef nonnull %input, i32 noundef 1023) #25
-  %call104 = call i32 @wolfSSL_get_error(ptr noundef %call43, i32 noundef %call103) #25
+  %call103 = call i32 @wolfSSL_read(ptr noundef nonnull %call43, ptr noundef nonnull %input, i32 noundef 1023) #25
+  %call104 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call43, i32 noundef %call103) #25
   %cmp106 = icmp eq i32 %call104, -108
   br i1 %cmp106, label %do.body101, label %do.end108, !llvm.loop !65
 
@@ -38824,8 +38822,8 @@ do.body115.preheader:                             ; preds = %if.then111, %do.end
   br label %do.body115
 
 do.body115:                                       ; preds = %do.body115.preheader, %do.body115
-  %call117 = call i32 @wolfSSL_write(ptr noundef %call43, ptr noundef nonnull %msg, i32 noundef %conv) #25
-  %call118 = call i32 @wolfSSL_get_error(ptr noundef %call43, i32 noundef %call117) #25
+  %call117 = call i32 @wolfSSL_write(ptr noundef nonnull %call43, ptr noundef nonnull %msg, i32 noundef %conv) #25
+  %call118 = call i32 @wolfSSL_get_error(ptr noundef nonnull %call43, i32 noundef %call117) #25
   %cmp120 = icmp eq i32 %call118, -108
   br i1 %cmp120, label %do.body115, label %do.end122, !llvm.loop !66
 
@@ -38844,11 +38842,11 @@ if.end128:                                        ; preds = %if.end126, %if.then
   br i1 %tobool129.not, label %if.end132, label %if.then130
 
 if.then130:                                       ; preds = %if.end128
-  call void %25(ptr noundef %call43) #25
+  call void %25(ptr noundef nonnull %call43) #25
   br label %if.end132
 
 if.end132:                                        ; preds = %if.then130, %if.end128
-  %call133 = call i32 @wolfSSL_shutdown(ptr noundef %call43) #25
+  %call133 = call i32 @wolfSSL_shutdown(ptr noundef nonnull %call43) #25
   br label %cleanup
 
 cleanup:                                          ; preds = %do.end122, %if.end76, %if.then68, %if.end61, %if.then51, %if.end33, %if.end27, %if.end20, %if.end132, %if.then46, %if.then

@@ -182,7 +182,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i: ; preds = %if.then.i.i.i.
 _ZN2EA4StdC9Stopwatch7RestartEv.exit.i:           ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i, %if.then2.i.i.i
   %.sink.i.i.i = phi i64 [ %3, %if.then2.i.i.i ], [ %add.i.i.i.i, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i.i ]
   store i64 %.sink.i.i.i, ptr %stopwatch1, align 8
-  invoke void @_ZNSt3setIjSt4lessIjESaIjEE6insertIPKjEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(48) %stdSetUint32, ptr noundef %call.i.i.i.i.i24, ptr noundef nonnull %add.ptr.i)
+  invoke void @_ZNSt3setIjSt4lessIjESaIjEE6insertIPKjEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(48) %stdSetUint32, ptr noundef nonnull %call.i.i.i.i.i24, ptr noundef nonnull %add.ptr.i)
           to label %.noexc unwind label %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit.i
@@ -479,8 +479,8 @@ lpad21:                                           ; preds = %lpad21.loopexit.spl
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad21.loopexit ], [ %lpad.loopexit893, %lpad21.loopexit.split-lp.loopexit ], [ %lpad.loopexit896, %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit898, %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit901, %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit903, %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit906, %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %lpad21.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5eastl3setIjNS_4lessIjEENS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(41) %eaSetUint32) #7
   call void @_ZNSt3setIjSt4lessIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %stdSetUint32) #7
-  %tobool.not.i.i792 = icmp eq ptr %call.i.i.i.i.i24, null
-  br i1 %tobool.not.i.i792, label %ehcleanup216, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i793
+  call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i24) #15
+  resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %invoke.cont33, %invoke.cont27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch1, i8 0, i64 16, i1 false)
@@ -2331,25 +2331,11 @@ terminate.lpad.i.i790:                            ; preds = %_ZN5eastl3setIjNS_4
   unreachable
 
 _ZNSt3setIjSt4lessIjESaIjEED2Ev.exit:             ; preds = %_ZN5eastl3setIjNS_4lessIjEENS_9allocatorEED2Ev.exit
-  br i1 %cmp12, label %invoke.cont17, label %for.end213, !llvm.loop !38
+  br i1 %cmp12, label %invoke.cont17, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, !llvm.loop !38
 
-for.end213:                                       ; preds = %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit
-  %tobool.not.i.i791 = icmp eq ptr %call.i.i.i.i.i24, null
-  br i1 %tobool.not.i.i791, label %_ZN5eastl6vectorIjNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %for.end213
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %_ZNSt3setIjSt4lessIjESaIjEED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i24) #15
-  br label %_ZN5eastl6vectorIjNS_9allocatorEED2Ev.exit
-
-_ZN5eastl6vectorIjNS_9allocatorEED2Ev.exit:       ; preds = %for.end213, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
   ret void
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i793:  ; preds = %lpad21
-  call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i24) #15
-  br label %ehcleanup216
-
-ehcleanup216:                                     ; preds = %lpad21, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i793
-  resume { ptr, i32 } %lpad.phi
 }
 
 declare void @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef, ...) local_unnamed_addr #1

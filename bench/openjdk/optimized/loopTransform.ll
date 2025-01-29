@@ -10608,7 +10608,7 @@ _ZN14PhaseIdealLoop8set_loopEP4NodeP13IdealLoopTree.exit235: ; preds = %541, %54
   %553 = load ptr, ptr %337, align 8
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 32
   %555 = load ptr, ptr %554, align 8
-  %556 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %555, ptr noundef %.0179305) #11
+  %556 = tail call noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr noundef nonnull align 8 dereferenceable(40) %555, ptr noundef nonnull %.0179305) #11
   %557 = getelementptr inbounds nuw i8, ptr %.0179305, i64 8
   %558 = load ptr, ptr %557, align 8
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 8
@@ -11281,7 +11281,7 @@ _ZN4NodenwEm.exit281:                             ; preds = %946, %948
   br label %958
 
 958:                                              ; preds = %951, %_ZN4NodenwEm.exit281
-  call void @_ZN14PhaseIdealLoop17register_new_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %.0.i.i.i280, ptr noundef %.0.i.i.i213) #11
+  call void @_ZN14PhaseIdealLoop17register_new_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %.0.i.i.i280, ptr noundef nonnull %.0.i.i.i213) #11
   %959 = load ptr, ptr %337, align 8
   %960 = getelementptr inbounds nuw i8, ptr %959, i64 32
   %961 = load ptr, ptr %960, align 8
@@ -11479,7 +11479,7 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit298: ; preds = %_ZN9VectorSet
   store float 4.000000e+00, ptr %1070, align 4
   %1071 = getelementptr inbounds nuw i8, ptr %281, i64 68
   store float 4.000000e+00, ptr %1071, align 4
-  call void @_ZN14PhaseIdealLoop20peeled_dom_test_elimEP13IdealLoopTreeR9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2)
+  call void @_ZN14PhaseIdealLoop20peeled_dom_test_elimEP13IdealLoopTreeR9Node_List(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(28) %2)
   call void @_ZN13IdealLoopTree15record_for_igvnEv(ptr noundef nonnull align 8 dereferenceable(113) %1)
   %1072 = load ptr, ptr %10, align 8
   call void @_ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node(ptr noundef nonnull align 8 dereferenceable(2316) %1072, i32 noundef 38, i32 noundef 4, ptr noundef nonnull %16) #11
@@ -13982,13 +13982,13 @@ _ZN4Node7set_reqEjPS_.exit209:                    ; preds = %_ZN4Node7del_outEPS
   %640 = getelementptr inbounds nuw i8, ptr %639, i64 8
   %641 = load ptr, ptr %640, align 8
   %.not.i210 = icmp eq ptr %641, null
-  br i1 %.not.i210, label %_ZN4Node7del_outEPS_.exit.i213, label %642
+  br i1 %.not.i210, label %659, label %642
 
 642:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit209
   %643 = getelementptr inbounds nuw i8, ptr %641, i64 16
   %644 = load ptr, ptr %643, align 8
   %645 = icmp eq ptr %644, null
-  br i1 %645, label %_ZN4Node7del_outEPS_.exit.i213, label %646
+  br i1 %645, label %659, label %646
 
 646:                                              ; preds = %642
   %647 = getelementptr inbounds nuw i8, ptr %641, i64 32
@@ -14011,14 +14011,10 @@ _ZN4Node7set_reqEjPS_.exit209:                    ; preds = %_ZN4Node7del_outEPS
   %657 = getelementptr inbounds nuw ptr, ptr %644, i64 %656
   %658 = load ptr, ptr %657, align 8
   store ptr %658, ptr %652, align 8
-  br label %_ZN4Node7del_outEPS_.exit.i213
+  br label %659
 
-_ZN4Node7del_outEPS_.exit.i213:                   ; preds = %654, %642, %_ZN4Node7set_reqEjPS_.exit209
+659:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit209, %642, %654
   store ptr %595, ptr %640, align 8
-  %.not8.i214 = icmp eq ptr %595, null
-  br i1 %.not8.i214, label %_ZN4Node7set_reqEjPS_.exit217, label %659
-
-659:                                              ; preds = %_ZN4Node7del_outEPS_.exit.i213
   %660 = getelementptr inbounds nuw i8, ptr %595, i64 16
   %661 = load ptr, ptr %660, align 8
   %662 = icmp eq ptr %661, null
@@ -14048,7 +14044,7 @@ _ZN4Node7del_outEPS_.exit.i213:                   ; preds = %654, %642, %_ZN4Nod
   store ptr %637, ptr %675, align 8
   br label %_ZN4Node7set_reqEjPS_.exit217
 
-_ZN4Node7set_reqEjPS_.exit217:                    ; preds = %_ZN4Node7del_outEPS_.exit.i213, %659, %670
+_ZN4Node7set_reqEjPS_.exit217:                    ; preds = %659, %670
   tail call void @_ZN14PhaseIdealLoop17register_new_nodeEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef nonnull %637, ptr noundef %594) #11
   %676 = load ptr, ptr %257, align 8
   %677 = getelementptr inbounds nuw i8, ptr %676, i64 32

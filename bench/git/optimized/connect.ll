@@ -984,7 +984,7 @@ _.exit.i.i:                                       ; preds = %if.end3.i.i.i, %if.
   %retval.0.i.i.i27 = phi ptr [ %call.i.i.i, %if.end3.i.i.i ], [ @.str.54, %if.then.i.i26 ]
   %call3.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reader.val) #25
   %add.ptr.i.i = getelementptr inbounds i8, ptr %reader.val, i64 %call3.i.i
-  call void (ptr, ...) @warning(ptr noundef %retval.0.i.i.i27, ptr noundef %add.ptr.i.i) #23
+  call void (ptr, ...) @warning(ptr noundef %retval.0.i.i.i27, ptr noundef nonnull %add.ptr.i.i) #23
   br label %process_ref.exit
 
 process_ref.exit.thread:                          ; preds = %sw.bb7, %if.end.i18
@@ -1058,7 +1058,7 @@ _.exit.i.i43:                                     ; preds = %if.end3.i.i.i41, %i
   %retval.0.i.i.i44 = phi ptr [ %call.i.i.i42, %if.end3.i.i.i41 ], [ @.str.54, %if.then.i4.i ]
   %call3.i.i45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #25
   %add.ptr.i.i46 = getelementptr inbounds i8, ptr %27, i64 %call3.i.i45
-  call void (ptr, ...) @warning(ptr noundef %retval.0.i.i.i44, ptr noundef %add.ptr.i.i46) #23
+  call void (ptr, ...) @warning(ptr noundef %retval.0.i.i.i44, ptr noundef nonnull %add.ptr.i.i46) #23
   br label %process_shallow.exit.thread
 
 process_shallow.exit.thread:                      ; preds = %if.end9.i, %_.exit.i.i43
@@ -1171,7 +1171,7 @@ if.end.i.i:                                       ; preds = %if.end.i79
 if.end4.i.i:                                      ; preds = %if.end.i.i
   %incdec.ptr.i.i86 = getelementptr inbounds nuw i8, ptr %call1.i.i, i64 1
   store i8 0, ptr %call1.i.i, align 1
-  %call5.i.i = call i32 @check_refname_format(ptr noundef %call.i.i85, i32 noundef 1) #23
+  %call5.i.i = call i32 @check_refname_format(ptr noundef nonnull %call.i.i85, i32 noundef 1) #23
   %tobool6.not.i.i = icmp eq i32 %call5.i.i, 0
   br i1 %tobool6.not.i.i, label %lor.lhs.false.i.i, label %reject.i.i
 
@@ -1181,7 +1181,7 @@ lor.lhs.false.i.i:                                ; preds = %if.end4.i.i
   br i1 %tobool8.not.i.i, label %if.end10.i.i, label %reject.i.i
 
 if.end10.i.i:                                     ; preds = %lor.lhs.false.i.i
-  %call11.i.i87 = call ptr @string_list_append_nodup(ptr noundef nonnull %symref.i, ptr noundef %call.i.i85) #23
+  %call11.i.i87 = call ptr @string_list_append_nodup(ptr noundef nonnull %symref.i, ptr noundef nonnull %call.i.i85) #23
   %util.i.i = getelementptr inbounds nuw i8, ptr %call11.i.i87, i64 8
   store ptr %incdec.ptr.i.i86, ptr %util.i.i, align 8
   br label %parse_one_symref_info.exit.i
@@ -1758,7 +1758,7 @@ for.inc.i:                                        ; preds = %do.cond.i.i
 
 if.end25.i:                                       ; preds = %if.end.i
   %29 = load ptr, ptr %hash_algo.i, align 8
-  %call31.i = call i32 @parse_oid_hex_algop(ptr noundef %23, ptr noundef nonnull %old_oid.i, ptr noundef nonnull %end.i, ptr noundef %29) #23
+  %call31.i = call i32 @parse_oid_hex_algop(ptr noundef nonnull %23, ptr noundef nonnull %old_oid.i, ptr noundef nonnull %end.i, ptr noundef %29) #23
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %lor.lhs.false.i, label %if.then35
 
@@ -2138,29 +2138,28 @@ if.then:                                          ; preds = %next_server_feature
 
 if.end:                                           ; preds = %if.then, %next_server_feature_value.exit
   %tobool3.not = icmp eq ptr %retval.0.i.i, null
-  br i1 %tobool3.not, label %if.end6, label %while.body.preheader
+  br i1 %tobool3.not, label %if.then4, label %if.end6
 
-if.end6:                                          ; preds = %if.end
+if.then4:                                         ; preds = %if.end
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hash_algos, i64 104), align 8
   %call5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
-  %tobool7.not56 = icmp eq ptr %9, null
-  br i1 %tobool7.not56, label %return, label %while.body.preheader
+  br label %if.end6
 
-while.body.preheader:                             ; preds = %if.end, %if.end6
-  %hash.069 = phi ptr [ %9, %if.end6 ], [ %retval.0.i.i, %if.end ]
-  %len.068 = phi i64 [ %call5, %if.end6 ], [ %len.3, %if.end ]
-  %call886 = tail call i32 @xstrncmpz(ptr noundef %desired, ptr noundef nonnull %hash.069, i64 noundef %len.068) #23
-  %tobool9.not87 = icmp eq i32 %call886, 0
-  br i1 %tobool9.not87, label %return, label %if.end11
+if.end6:                                          ; preds = %if.then4, %if.end
+  %len.0 = phi i64 [ %call5, %if.then4 ], [ %len.3, %if.end ]
+  %hash.0 = phi ptr [ %9, %if.then4 ], [ %retval.0.i.i, %if.end ]
+  %call879 = tail call i32 @xstrncmpz(ptr noundef %desired, ptr noundef nonnull %hash.0, i64 noundef %len.0) #23
+  %tobool9.not80 = icmp eq i32 %call879, 0
+  br i1 %tobool9.not80, label %return, label %if.end11
 
-if.end11:                                         ; preds = %while.body.preheader, %next_server_feature_value.exit48
-  %offset.05788 = phi i64 [ %sub.ptr.sub43.i.i36, %next_server_feature_value.exit48 ], [ %offset.1, %while.body.preheader ]
+if.end11:                                         ; preds = %if.end6, %next_server_feature_value.exit48
+  %offset.05681 = phi i64 [ %sub.ptr.sub43.i.i36, %next_server_feature_value.exit48 ], [ %offset.1, %if.end6 ]
   %10 = load ptr, ptr @server_capabilities_v1, align 8
   %tobool.not.i.i6 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i6, label %return, label %if.end.i.i7
 
 if.end.i.i7:                                      ; preds = %if.end11
-  %add.ptr.i.i9 = getelementptr inbounds i8, ptr %10, i64 %offset.05788
+  %add.ptr.i.i9 = getelementptr inbounds i8, ptr %10, i64 %offset.05681
   %11 = load i8, ptr %add.ptr.i.i9, align 1
   %tobool4.not33.i.i10 = icmp eq i8 %11, 0
   br i1 %tobool4.not33.i.i10, label %return, label %while.body.i.i11
@@ -2230,8 +2229,8 @@ next_server_feature_value.exit48:                 ; preds = %next_server_feature
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.end11, !llvm.loop !19
 
-return:                                           ; preds = %next_server_feature_value.exit48, %if.end11, %if.end.i.i7, %while.body.i.i11, %if.end47.i.i40, %while.body.preheader, %if.end6
-  %retval.0 = phi i32 [ 0, %if.end6 ], [ 1, %while.body.preheader ], [ 0, %if.end47.i.i40 ], [ 0, %while.body.i.i11 ], [ 0, %if.end.i.i7 ], [ 0, %if.end11 ], [ 1, %next_server_feature_value.exit48 ]
+return:                                           ; preds = %next_server_feature_value.exit48, %if.end11, %if.end.i.i7, %while.body.i.i11, %if.end47.i.i40, %if.end6
+  %retval.0 = phi i32 [ 1, %if.end6 ], [ 0, %if.end47.i.i40 ], [ 0, %while.body.i.i11 ], [ 0, %if.end.i.i7 ], [ 0, %if.end11 ], [ 1, %next_server_feature_value.exit48 ]
   ret i32 %retval.0
 }
 
@@ -2479,7 +2478,7 @@ if.end12.i.i:                                     ; preds = %if.end8.i.i
 
 if.end16.i.i:                                     ; preds = %if.end12.i.i
   %call17.i.i = tail call fastcc ptr @_(ptr noundef nonnull @.str.73)
-  tail call void (ptr, ...) @die(ptr noundef %call17.i.i, ptr noundef %url.0.i) #24
+  tail call void (ptr, ...) @die(ptr noundef %call17.i.i, ptr noundef nonnull %url.0.i) #24
   unreachable
 
 get_protocol.exit.i:                              ; preds = %if.end12.i.i, %if.end8.i.i, %if.end4.i.i, %if.end.i.i, %if.then5.i
@@ -2561,7 +2560,7 @@ parse_connect_url.exit:                           ; preds = %if.end45.i, %if.the
   %path.2.i = phi ptr [ %spec.select.i, %if.end45.i ], [ %spec.select24.i, %if.then55.i ]
   %call63.i = tail call ptr @xstrdup(ptr noundef nonnull %path.2.i) #23
   store i8 0, ptr %path.0.i, align 1
-  %call64.i = tail call ptr @xstrdup(ptr noundef %host.0.i) #23
+  %call64.i = tail call ptr @xstrdup(ptr noundef nonnull %host.0.i) #23
   tail call void @free(ptr noundef %url.0.i) #23
   %and = and i32 %flags, 2
   %tobool4 = icmp ne i32 %and, 0
@@ -2908,7 +2907,7 @@ git_tcp_connect.exit.i:                           ; preds = %_.exit34.i.i.i, %en
 
 if.end16.i:                                       ; preds = %git_tcp_connect.exit.i, %git_proxy_connect.exit.i
   %conn.0.i = phi ptr [ %call7.i.i, %git_proxy_connect.exit.i ], [ @no_fork, %git_tcp_connect.exit.i ]
-  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %request.i, ptr noundef nonnull @.str.78, ptr noundef %prog, ptr noundef %call63.i, i32 noundef 0, ptr noundef %call2.i38, i32 noundef 0) #23
+  call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %request.i, ptr noundef nonnull @.str.78, ptr noundef %prog, ptr noundef nonnull %call63.i, i32 noundef 0, ptr noundef nonnull %call2.i38, i32 noundef 0) #23
   %cmp.i = icmp sgt i32 %version.0, 0
   br i1 %cmp.i, label %if.then17.i, label %git_connect_git.exit
 
@@ -2977,7 +2976,7 @@ if.then31:                                        ; preds = %if.else27
 
 if.end33:                                         ; preds = %if.else27
   %call.i50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %prog) #25
-  call void @strbuf_add(ptr noundef nonnull %cmd, ptr noundef %prog, i64 noundef %call.i50) #23
+  call void @strbuf_add(ptr noundef nonnull %cmd, ptr noundef nonnull %prog, i64 noundef %call.i50) #23
   %49 = load i64, ptr %cmd, align 8
   %tobool.not.i.i51 = icmp eq i64 %49, 0
   br i1 %tobool.not.i.i51, label %if.then.i58, label %strbuf_avail.exit.i
@@ -3546,7 +3545,7 @@ if.end:                                           ; preds = %if.then
   br i1 %tobool4.not, label %if.then5, label %if.end8
 
 if.then5:                                         ; preds = %if.end
-  %call6 = tail call i32 @config_error_nonbool(ptr noundef %var) #23
+  %call6 = tail call i32 @config_error_nonbool(ptr noundef nonnull %var) #23
   br label %return
 
 if.end8:                                          ; preds = %if.end
@@ -3573,7 +3572,7 @@ if.else18:                                        ; preds = %if.else
   %idx.ext21 = ashr exact i64 %sext24, 32
   %idx.neg = sub nsw i64 0, %idx.ext21
   %add.ptr22 = getelementptr inbounds i8, ptr %add.ptr20, i64 %idx.neg
-  %call24 = tail call i32 @strncmp(ptr noundef nonnull %add.ptr, ptr noundef %add.ptr22, i64 noundef %idx.ext21) #25
+  %call24 = tail call i32 @strncmp(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr22, i64 noundef %idx.ext21) #25
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %land.lhs.true, label %return
 
@@ -3621,7 +3620,7 @@ if.end47:                                         ; preds = %land.lhs.true43, %i
   br label %return
 
 if.end51:                                         ; preds = %entry
-  %call52 = tail call i32 @git_default_config(ptr noundef %var, ptr noundef %value, ptr noundef %ctx, ptr noundef %cb) #23
+  %call52 = tail call i32 @git_default_config(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %ctx, ptr noundef %cb) #23
   br label %return
 
 return:                                           ; preds = %if.else18, %lor.lhs.false, %if.else, %if.end37, %if.end47, %if.then, %if.end51, %if.then5

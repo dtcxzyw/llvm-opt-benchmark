@@ -6475,16 +6475,14 @@ define hidden { i64, ptr } @"_ZN5serde2de5impls78_$LT$impl$u20$serde..de..Deseri
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !1150
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !1144
-  %16 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17hc8925784e979fd38E.llvm.15769799167173126418"(ptr noalias noundef nonnull align 8 %7)
+  %16 = tail call noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_box_in17hc8925784e979fd38E.llvm.15769799167173126418"(ptr noalias noundef nonnull align 8 %7)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h26fcb2e001662606E.llvm.15769799167173126418.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h26fcb2e001662606E.llvm.15769799167173126418.exit": ; preds = %"_ZN5serde2de5impls79_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$11deserialize17h09dfb002c8356767E.exit", %15
   %.pn = phi { i64, ptr } [ { i64 0, ptr poison }, %15 ], [ { i64 1, ptr poison }, %"_ZN5serde2de5impls79_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$11deserialize17h09dfb002c8356767E.exit" ]
-  %.sroa.3.0.i = phi ptr [ %17, %15 ], [ %14, %"_ZN5serde2de5impls79_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$11deserialize17h09dfb002c8356767E.exit" ]
-  %18 = insertvalue { i64, ptr } %.pn, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %18
+  %.sroa.3.0.i = phi ptr [ %16, %15 ], [ %14, %"_ZN5serde2de5impls79_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$alloc..boxed..Box$LT$T$GT$$GT$11deserialize17h09dfb002c8356767E.exit" ]
+  %17 = insertvalue { i64, ptr } %.pn, ptr %.sroa.3.0.i, 1
+  ret { i64, ptr } %17
 }
 
 ; Function Attrs: nonlazybind uwtable

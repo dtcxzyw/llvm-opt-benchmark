@@ -9653,7 +9653,7 @@ Symbol_find.exit.i:                               ; preds = %.lr.ph.i.i
 1009:                                             ; preds = %1007, %1004, %1002
   %sext568.i = shl i64 %937, 32
   %1010 = ashr exact i64 %sext568.i, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0531.i, ptr align 1 %.0528.i, i64 %1010, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0531.i, ptr nonnull align 1 %.0528.i, i64 %1010, i1 false)
   %1011 = getelementptr i8, ptr %.0531.i, i64 %1010
   store i8 0, ptr %1011, align 1
   store i32 1, ptr %9, align 8
@@ -11585,7 +11585,7 @@ tplt_skip_header.exit:                            ; preds = %174, %180, %171
 
 187:                                              ; preds = %184, %tplt_skip_header.exit
   %188 = load ptr, ptr %137, align 8
-  call void @tplt_print(ptr noundef %29, ptr noundef %0, ptr noundef %188, ptr noundef nonnull %5)
+  call void @tplt_print(ptr noundef %29, ptr noundef nonnull %0, ptr noundef %188, ptr noundef nonnull %5)
   %.not874 = icmp eq i32 %1, 0
   br i1 %.not874, label %194, label %189
 
@@ -13543,7 +13543,7 @@ minimum_size_type.exit971:                        ; preds = %870, %872, %874, %8
 .lr.ph1192:                                       ; preds = %._crit_edge1186, %.lr.ph1192
   %.51190 = phi ptr [ %.5, %.lr.ph1192 ], [ %.51187, %._crit_edge1186 ]
   %.281189 = phi i32 [ %1191, %.lr.ph1192 ], [ 0, %._crit_edge1186 ]
-  %1190 = call i32 @translate_code(ptr noundef %0, ptr noundef nonnull %.51190)
+  %1190 = call i32 @translate_code(ptr noundef nonnull %0, ptr noundef nonnull %.51190)
   %1191 = add i32 %1190, %.281189
   %1192 = getelementptr inbounds nuw i8, ptr %.51190, i64 128
   %.5 = load ptr, ptr %1192, align 8
@@ -13642,7 +13642,7 @@ minimum_size_type.exit971:                        ; preds = %870, %872, %874, %8
   br i1 %.not912, label %._crit_edge1201, label %1214, !llvm.loop !194
 
 ._crit_edge1201:                                  ; preds = %1238, %1204
-  call void @emit_code(ptr noundef %29, ptr noundef nonnull %.61204, ptr noundef %0, ptr noundef nonnull %5)
+  call void @emit_code(ptr noundef %29, ptr noundef nonnull %.61204, ptr noundef nonnull %0, ptr noundef nonnull %5)
   %1239 = call i64 @fwrite(ptr nonnull @.str.254, i64 15, i64 1, ptr %29)
   %1240 = load i32, ptr %5, align 4
   %1241 = add i32 %1240, 1
@@ -13723,22 +13723,22 @@ minimum_size_type.exit971:                        ; preds = %870, %872, %874, %8
   call void @tplt_xfer(ptr noundef %1273, ptr noundef %21, ptr noundef %29, ptr noundef nonnull %5)
   %1274 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %1275 = load ptr, ptr %1274, align 8
-  call void @tplt_print(ptr noundef %29, ptr noundef %0, ptr noundef %1275, ptr noundef nonnull %5)
+  call void @tplt_print(ptr noundef %29, ptr noundef nonnull %0, ptr noundef %1275, ptr noundef nonnull %5)
   %1276 = load ptr, ptr %195, align 8
   call void @tplt_xfer(ptr noundef %1276, ptr noundef %21, ptr noundef %29, ptr noundef nonnull %5)
   %1277 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %1278 = load ptr, ptr %1277, align 8
-  call void @tplt_print(ptr noundef %29, ptr noundef %0, ptr noundef %1278, ptr noundef nonnull %5)
+  call void @tplt_print(ptr noundef %29, ptr noundef nonnull %0, ptr noundef %1278, ptr noundef nonnull %5)
   %1279 = load ptr, ptr %195, align 8
   call void @tplt_xfer(ptr noundef %1279, ptr noundef %21, ptr noundef %29, ptr noundef nonnull %5)
   %1280 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %1281 = load ptr, ptr %1280, align 8
-  call void @tplt_print(ptr noundef %29, ptr noundef %0, ptr noundef %1281, ptr noundef nonnull %5)
+  call void @tplt_print(ptr noundef %29, ptr noundef nonnull %0, ptr noundef %1281, ptr noundef nonnull %5)
   %1282 = load ptr, ptr %195, align 8
   call void @tplt_xfer(ptr noundef %1282, ptr noundef %21, ptr noundef %29, ptr noundef nonnull %5)
   %1283 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %1284 = load ptr, ptr %1283, align 8
-  call void @tplt_print(ptr noundef %29, ptr noundef %0, ptr noundef %1284, ptr noundef nonnull %5)
+  call void @tplt_print(ptr noundef %29, ptr noundef nonnull %0, ptr noundef %1284, ptr noundef nonnull %5)
   %1285 = getelementptr inbounds nuw i8, ptr %471, i64 8
   %1286 = load ptr, ptr %1285, align 8
   call void @free(ptr noundef %1286) #42
@@ -15409,7 +15409,7 @@ define hidden noalias noundef ptr @pathsearch(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not52, label %14, label %13
 
 13:                                               ; preds = %5
-  tail call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %12, ptr noundef nonnull @.str.124, ptr noundef %0, ptr noundef %1)
+  tail call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %12, ptr noundef nonnull @.str.124, ptr noundef nonnull %0, ptr noundef nonnull %1)
   br label %14
 
 14:                                               ; preds = %13, %5
@@ -15468,7 +15468,7 @@ lemon_strcpy.exit:                                ; preds = %.preheader, %46
   %.0 = phi ptr [ %39, %36 ], [ %34, %33 ]
   %41 = load i8, ptr %.0, align 1
   store i8 0, ptr %.0, align 1
-  tail call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %26, ptr noundef nonnull @.str.124, ptr noundef nonnull %.041, ptr noundef %1)
+  tail call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %26, ptr noundef nonnull @.str.124, ptr noundef nonnull %.041, ptr noundef nonnull %1)
   store i8 %41, ptr %.0, align 1
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %43, label %44
@@ -15790,11 +15790,11 @@ define hidden noalias noundef ptr @tplt_open(ptr nocapture noundef %0) local_unn
   %31 = ptrtoint ptr %27 to i64
   %32 = sub i64 %30, %31
   %33 = trunc i64 %32 to i32
-  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.131, i32 noundef %33, ptr noundef %27)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.131, i32 noundef %33, ptr noundef nonnull %27)
   br label %35
 
 34:                                               ; preds = %25
-  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.132, ptr noundef %27)
+  call void (ptr, ptr, ...) @lemon_sprintf(ptr noundef %2, ptr noundef nonnull @.str.132, ptr noundef nonnull %27)
   br label %35
 
 35:                                               ; preds = %34, %29
@@ -16873,7 +16873,7 @@ append_str.exit228:                               ; preds = %append_str.exit225,
 270:                                              ; preds = %266
   %271 = load ptr, ptr %234, align 8
   %272 = load i32, ptr %235, align 4
-  call void (ptr, i32, ptr, ...) @ErrorMsg(ptr noundef %271, i32 noundef %272, ptr noundef nonnull @.str.148, ptr noundef %267)
+  call void (ptr, i32, ptr, ...) @ErrorMsg(ptr noundef %271, i32 noundef %272, ptr noundef nonnull @.str.148, ptr noundef nonnull %267)
   %273 = load i32, ptr %237, align 8
   %274 = add i32 %273, 1
   store i32 %274, ptr %237, align 8
@@ -17048,41 +17048,37 @@ strhash.exit.i:                                   ; preds = %.lr.ph.i.i, %6
   %23 = load ptr, ptr %.011.i, align 8
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %0) #45
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %Strsafe_find.exit, label %21
+  br i1 %25, label %.thread20, label %21
 
-Strsafe_find.exit:                                ; preds = %.lr.ph.i
-  %26 = icmp eq ptr %23, null
-  br i1 %26, label %Strsafe_find.exit.thread, label %.thread20
-
-Strsafe_find.exit.thread:                         ; preds = %21, %strhash.exit.i, %3, %Strsafe_find.exit
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #45
-  %28 = shl i64 %27, 32
-  %sext = add i64 %28, 4294967296
-  %29 = ashr exact i64 %sext, 32
-  %30 = tail call noalias ptr @malloc(i64 noundef %29) #44
-  %.not = icmp eq ptr %30, null
+Strsafe_find.exit.thread:                         ; preds = %21, %strhash.exit.i, %3
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #45
+  %27 = shl i64 %26, 32
+  %sext = add i64 %27, 4294967296
+  %28 = ashr exact i64 %sext, 32
+  %29 = tail call noalias ptr @malloc(i64 noundef %28) #44
+  %.not = icmp eq ptr %29, null
   br i1 %.not, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %Strsafe_find.exit.thread, %.preheader
-  %.02.i = phi ptr [ %33, %.preheader ], [ %30, %Strsafe_find.exit.thread ]
-  %.0.i15 = phi ptr [ %31, %.preheader ], [ %0, %Strsafe_find.exit.thread ]
-  %31 = getelementptr i8, ptr %.0.i15, i64 1
-  %32 = load i8, ptr %.0.i15, align 1
-  %33 = getelementptr i8, ptr %.02.i, i64 1
-  store i8 %32, ptr %.02.i, align 1
-  %.not.i16 = icmp eq i8 %32, 0
-  br i1 %.not.i16, label %34, label %.preheader, !llvm.loop !102
+  %.02.i = phi ptr [ %32, %.preheader ], [ %29, %Strsafe_find.exit.thread ]
+  %.0.i15 = phi ptr [ %30, %.preheader ], [ %0, %Strsafe_find.exit.thread ]
+  %30 = getelementptr i8, ptr %.0.i15, i64 1
+  %31 = load i8, ptr %.0.i15, align 1
+  %32 = getelementptr i8, ptr %.02.i, i64 1
+  store i8 %31, ptr %.02.i, align 1
+  %.not.i16 = icmp eq i8 %31, 0
+  br i1 %.not.i16, label %33, label %.preheader, !llvm.loop !102
 
-34:                                               ; preds = %.preheader
-  %35 = tail call i32 @Strsafe_insert(ptr noundef nonnull %30)
+33:                                               ; preds = %.preheader
+  %34 = tail call i32 @Strsafe_insert(ptr noundef nonnull %29)
   br label %.thread20
 
 .thread:                                          ; preds = %Strsafe_find.exit.thread
   tail call void @memory_error()
   unreachable
 
-.thread20:                                        ; preds = %34, %Strsafe_find.exit, %1
-  %.0 = phi ptr [ null, %1 ], [ %30, %34 ], [ %23, %Strsafe_find.exit ]
+.thread20:                                        ; preds = %.lr.ph.i, %33, %1
+  %.0 = phi ptr [ null, %1 ], [ %29, %33 ], [ %23, %.lr.ph.i ]
   ret ptr %.0
 }
 

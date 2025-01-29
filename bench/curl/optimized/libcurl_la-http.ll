@@ -2733,7 +2733,7 @@ land.lhs.true:                                    ; preds = %while.body
   br i1 %cmp, label %if.then8, label %do.body
 
 if.then8:                                         ; preds = %land.lhs.true
-  %call10 = tail call i32 @Curl_dyn_add(ptr noundef %b, ptr noundef %2) #12
+  %call10 = tail call i32 @Curl_dyn_add(ptr noundef %b, ptr noundef nonnull %2) #12
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end13, label %return
 
@@ -2919,7 +2919,7 @@ do.end:                                           ; preds = %while.cond82, %whil
   br i1 %or.cond139, label %hd_name_eq.exit, label %if.else116
 
 hd_name_eq.exit:                                  ; preds = %do.end
-  %call.i = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.15, i64 noundef 5) #12
+  %call.i = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.15, i64 noundef 5) #12
   %tobool.i.not = icmp eq i32 %call.i, 0
   br i1 %tobool.i.not, label %if.else170, label %for.inc
 
@@ -2933,7 +2933,7 @@ land.lhs.true121:                                 ; preds = %if.else116
   br i1 %cmp.i65, label %hd_name_eq.exit70, label %if.else135
 
 hd_name_eq.exit70:                                ; preds = %land.lhs.true121
-  %call.i68 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.16, i64 noundef 13) #12
+  %call.i68 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.16, i64 noundef 13) #12
   %tobool.i69.not = icmp eq i32 %call.i68, 0
   br i1 %tobool.i69.not, label %hd_name_eq.exit70.if.else125thread-pre-split_crit_edge, label %for.inc
 
@@ -2949,7 +2949,7 @@ if.else125:                                       ; preds = %hd_name_eq.exit70.i
   br i1 %or.cond140, label %hd_name_eq.exit76, label %if.else135
 
 hd_name_eq.exit76:                                ; preds = %if.else125
-  %call.i74 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.16, i64 noundef 13) #12
+  %call.i74 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.16, i64 noundef 13) #12
   %tobool.i75.not = icmp eq i32 %call.i74, 0
   br i1 %tobool.i75.not, label %if.else170, label %for.inc
 
@@ -2962,7 +2962,7 @@ if.else135:                                       ; preds = %land.lhs.true121, %
   br i1 %or.cond141, label %hd_name_eq.exit82, label %if.else145
 
 hd_name_eq.exit82:                                ; preds = %if.else135
-  %call.i80 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.17, i64 noundef 15) #12
+  %call.i80 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.17, i64 noundef 15) #12
   %tobool.i81.not = icmp eq i32 %call.i80, 0
   br i1 %tobool.i81.not, label %if.else170, label %for.inc
 
@@ -2974,7 +2974,7 @@ if.else145:                                       ; preds = %if.else135
   br i1 %or.cond142, label %hd_name_eq.exit88, label %if.else153
 
 hd_name_eq.exit88:                                ; preds = %if.else145
-  %call.i86 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.18, i64 noundef 11) #12
+  %call.i86 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.18, i64 noundef 11) #12
   %tobool.i87.not = icmp eq i32 %call.i86, 0
   br i1 %tobool.i87.not, label %if.else170, label %for.inc
 
@@ -2986,7 +2986,7 @@ if.else153:                                       ; preds = %if.else145
   br i1 %or.cond143, label %hd_name_eq.exit94, label %if.else161
 
 hd_name_eq.exit94:                                ; preds = %if.else153
-  %call.i92 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.19, i64 noundef 18) #12
+  %call.i92 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.19, i64 noundef 18) #12
   %tobool.i93.not = icmp eq i32 %call.i92, 0
   br i1 %tobool.i93.not, label %if.else170, label %for.inc
 
@@ -2997,12 +2997,12 @@ if.else161:                                       ; preds = %if.else153
   ]
 
 hd_name_eq.exit100:                               ; preds = %if.else161
-  %call.i98 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.20, i64 noundef 14) #12
+  %call.i98 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.20, i64 noundef 14) #12
   %tobool.i99.not = icmp eq i32 %call.i98, 0
   br i1 %tobool.i99.not, label %if.else170, label %land.lhs.true167
 
 hd_name_eq.exit106:                               ; preds = %if.else161
-  %call.i104 = tail call i32 @curl_strnequal(ptr noundef %8, ptr noundef nonnull @.str.21, i64 noundef 7) #12
+  %call.i104 = tail call i32 @curl_strnequal(ptr noundef nonnull %8, ptr noundef nonnull @.str.21, i64 noundef 7) #12
   %tobool.i105.not = icmp eq i32 %call.i104, 0
   br i1 %tobool.i105.not, label %if.else170, label %land.lhs.true167
 
@@ -3011,7 +3011,7 @@ land.lhs.true167:                                 ; preds = %hd_name_eq.exit106,
   br i1 %call168, label %if.else170, label %for.inc
 
 if.else170:                                       ; preds = %hd_name_eq.exit, %hd_name_eq.exit76, %hd_name_eq.exit82, %hd_name_eq.exit88, %if.else161, %hd_name_eq.exit100, %hd_name_eq.exit94, %land.lhs.true167, %hd_name_eq.exit106
-  %call171 = tail call i32 @Curl_dynhds_add(ptr noundef %hds, ptr noundef %8, i64 noundef %namelen.0, ptr noundef nonnull %value.0, i64 noundef %valuelen.0) #12
+  %call171 = tail call i32 @Curl_dynhds_add(ptr noundef %hds, ptr noundef nonnull %8, i64 noundef %namelen.0, ptr noundef nonnull %value.0, i64 noundef %valuelen.0) #12
   %tobool172.not = icmp eq i32 %call171, 0
   br i1 %tobool172.not, label %for.inc, label %return
 
@@ -3144,7 +3144,7 @@ if.else69:                                        ; preds = %while.cond47, %whil
 
 if.then74:                                        ; preds = %if.else69
   %12 = load ptr, ptr @Curl_cstrdup, align 8
-  %call76 = tail call ptr %12(ptr noundef %8) #12
+  %call76 = tail call ptr %12(ptr noundef nonnull %8) #12
   %tobool77.not = icmp eq ptr %call76, null
   br i1 %tobool77.not, label %if.then78, label %if.end79
 
@@ -3930,7 +3930,7 @@ if.end47:                                         ; preds = %if.end47.loopexit, 
   %16 = load ptr, ptr %headers, align 8
   %call51 = tail call i32 @curl_mime_headers(ptr noundef %15, ptr noundef %16, i32 noundef 0) #12
   %17 = load ptr, ptr %mimepost3264, align 8
-  %call54 = tail call i32 @Curl_mime_prepare_headers(ptr noundef %data, ptr noundef %17, ptr noundef %cthdr.1, ptr noundef null, i32 noundef 1) #12
+  %call54 = tail call i32 @Curl_mime_prepare_headers(ptr noundef nonnull %data, ptr noundef %17, ptr noundef %cthdr.1, ptr noundef null, i32 noundef 1) #12
   %18 = load ptr, ptr %mimepost3264, align 8
   %call57 = tail call i32 @curl_mime_headers(ptr noundef %18, ptr noundef null, i32 noundef 0) #12
   %tobool58.not = icmp eq i32 %call54, 0
@@ -4735,13 +4735,9 @@ if.end48:                                         ; preds = %if.then43.if.end48_
   %add54 = add i64 %add53, %call52
   %add55 = add i64 %add54, %clen.068
   %cmp = icmp ugt i64 %add55, 8189
-  br i1 %cmp, label %do.body, label %if.end67
+  br i1 %cmp, label %land.lhs.true58, label %if.end67
 
-do.body:                                          ; preds = %if.end48
-  %tobool57.not = icmp eq ptr %data, null
-  br i1 %tobool57.not, label %while.end, label %land.lhs.true58
-
-land.lhs.true58:                                  ; preds = %do.body
+land.lhs.true58:                                  ; preds = %if.end48
   %verbose = getelementptr inbounds nuw i8, ptr %data, i64 2706
   %bf.load60 = load i64, ptr %verbose, align 2
   %14 = and i64 %bf.load60, 536870912
@@ -4749,12 +4745,12 @@ land.lhs.true58:                                  ; preds = %do.body
   br i1 %tobool63.not, label %while.end, label %if.then64
 
 if.then64:                                        ; preds = %land.lhs.true58
-  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.65, ptr noundef %13) #12
+  tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %data, ptr noundef nonnull @.str.65, ptr noundef nonnull %13) #12
   br label %while.end
 
 if.end67:                                         ; preds = %if.end48
   %cond69 = select i1 %tobool42.not, ptr @.str.14, ptr @.str.67
-  %call72 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %r, ptr noundef nonnull @.str.66, ptr noundef nonnull %cond69, ptr noundef %13, ptr noundef %12) #12
+  %call72 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %r, ptr noundef nonnull @.str.66, ptr noundef nonnull %cond69, ptr noundef nonnull %13, ptr noundef nonnull %12) #12
   %tobool73.not = icmp eq i32 %call72, 0
   br i1 %tobool73.not, label %if.end75, label %while.end
 
@@ -4772,10 +4768,10 @@ if.end80:                                         ; preds = %if.end75, %while.bo
   %tobool39.not = icmp eq ptr %15, null
   br i1 %tobool39.not, label %while.end, label %while.body, !llvm.loop !25
 
-while.end:                                        ; preds = %if.end67, %if.then43, %if.end80, %if.then64, %land.lhs.true58, %do.body
-  %count.165 = phi i32 [ %count.167, %do.body ], [ %count.167, %land.lhs.true58 ], [ %count.167, %if.then64 ], [ %count.2, %if.end80 ], [ 0, %if.then43 ], [ %count.167, %if.end67 ]
-  %linecap.1 = phi i1 [ true, %do.body ], [ true, %land.lhs.true58 ], [ true, %if.then64 ], [ false, %if.end80 ], [ false, %if.then43 ], [ false, %if.end67 ]
-  %result.3 = phi i32 [ 0, %do.body ], [ 0, %land.lhs.true58 ], [ 0, %if.then64 ], [ 0, %if.end80 ], [ %call44, %if.then43 ], [ %call72, %if.end67 ]
+while.end:                                        ; preds = %if.end67, %if.then43, %if.end80, %if.then64, %land.lhs.true58
+  %count.165 = phi i32 [ %count.167, %land.lhs.true58 ], [ %count.167, %if.then64 ], [ %count.2, %if.end80 ], [ 0, %if.then43 ], [ %count.167, %if.end67 ]
+  %linecap.1 = phi i1 [ true, %land.lhs.true58 ], [ true, %if.then64 ], [ false, %if.end80 ], [ false, %if.then43 ], [ false, %if.end67 ]
+  %result.3 = phi i32 [ 0, %land.lhs.true58 ], [ 0, %if.then64 ], [ 0, %if.end80 ], [ %call44, %if.then43 ], [ %call72, %if.end67 ]
   tail call void @Curl_cookie_freelist(ptr noundef nonnull %call34) #12
   br label %if.end81
 
@@ -6280,7 +6276,7 @@ while.body.i.i.i:                                 ; preds = %if.end.i.i, %while.
   %9 = load ptr, ptr %head.017.i.i.i, align 8
   %call.i.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #13
   %call.len.i.i6.i.i = tail call i64 @llvm.umin.i64(i64 %call.i.i.i.i, i64 %call40.i)
-  %call2.i.i7.i.i = tail call i32 @curl_strnequal(ptr noundef %9, ptr noundef %call37.i, i64 noundef %call.len.i.i6.i.i) #12
+  %call2.i.i7.i.i = tail call i32 @curl_strnequal(ptr noundef nonnull %9, ptr noundef %call37.i, i64 noundef %call.len.i.i6.i.i) #12
   %tobool.i.not.i8.i.i = icmp eq i32 %call2.i.i7.i.i, 0
   br i1 %tobool.i.not.i8.i.i, label %while.cond.i.i.i, label %while.end.i.i.i
 
@@ -7085,7 +7081,7 @@ while.body.i.i:                                   ; preds = %if.else737.i, %whil
   %109 = load ptr, ptr %head.017.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #13
   %call.len.i.i.i = tail call i64 @llvm.umin.i64(i64 %call.i.i.i, i64 %call743.i)
-  %call2.i.i.i = tail call i32 @curl_strnequal(ptr noundef %109, ptr noundef %call740.i, i64 noundef %call.len.i.i.i) #12
+  %call2.i.i.i = tail call i32 @curl_strnequal(ptr noundef nonnull %109, ptr noundef %call740.i, i64 noundef %call.len.i.i.i) #12
   %tobool.i.not.i.i = icmp eq i32 %call2.i.i.i, 0
   br i1 %tobool.i.not.i.i, label %while.cond.i.i, label %while.end.i.i
 
@@ -8132,7 +8128,7 @@ while.body.i:                                     ; preds = %if.end, %while.cond
   %0 = load ptr, ptr %head.017.i, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %call.len.i.i6 = tail call i64 @llvm.umin.i64(i64 %call.i.i, i64 %len)
-  %call2.i.i7 = tail call i32 @curl_strnequal(ptr noundef %0, ptr noundef %s, i64 noundef %call.len.i.i6) #12
+  %call2.i.i7 = tail call i32 @curl_strnequal(ptr noundef nonnull %0, ptr noundef %s, i64 noundef %call.len.i.i6) #12
   %tobool.i.not.i8 = icmp eq i32 %call2.i.i7, 0
   br i1 %tobool.i.not.i8, label %while.cond.i, label %while.end.i
 

@@ -74,7 +74,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i64 @mbstowcs(ptr noundef nonnull %call1, ptr noundef %text, i64 noundef %add) #18
+  %call2 = tail call i64 @mbstowcs(ptr noundef nonnull %call1, ptr noundef nonnull %text, i64 noundef %add) #18
   %call3 = tail call i32 @wcswidth(ptr noundef nonnull %call1, i64 noundef %add) #18
   %conv = sext i32 %call3 to i64
   tail call void @free(ptr noundef nonnull %call1) #18
@@ -178,7 +178,7 @@ if.end:                                           ; preds = %stats_clear.exit
   br i1 %cmp.i4, label %strlen_console.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %call2.i = call i64 @mbstowcs(ptr noundef nonnull %call1.i, ptr noundef %name, i64 noundef %add.i) #18
+  %call2.i = call i64 @mbstowcs(ptr noundef nonnull %call1.i, ptr noundef nonnull %name, i64 noundef %add.i) #18
   %call3.i = call i32 @wcswidth(ptr noundef nonnull %call1.i, i64 noundef %add.i) #18
   %conv.i56 = zext i32 %call3.i to i64
   call void @free(ptr noundef nonnull %call1.i) #18
@@ -194,7 +194,7 @@ strlen_console.exit:                              ; preds = %if.end, %if.end.i
   %sub = sub nsw i32 %6, %rem
   store i32 %sub, ptr @console_chars_left, align 4
   %8 = load ptr, ptr @stderr, align 8
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef %name) #21
+  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.2, ptr noundef nonnull %name) #21
   store i1 true, ptr @is_name_printed, align 4
   br label %if.end4
 
@@ -463,7 +463,7 @@ entry:
   store i32 0, ptr %spec, align 4
   %call = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %s, i32 noundef 45) #19
   %cmp.not = icmp eq ptr %call, null
-  br i1 %cmp.not, label %if.end7, label %if.then
+  br i1 %cmp.not, label %entry.split.us.i, label %if.then
 
 if.then:                                          ; preds = %entry
   %cmp1 = icmp eq ptr %call, %s
@@ -471,15 +471,9 @@ if.then:                                          ; preds = %entry
   %0 = load i8, ptr %add.ptr, align 1
   %cmp3 = icmp eq i8 %0, 0
   %spec.store.select1 = select i1 %cmp3, ptr null, ptr %add.ptr
-  %tobool.not69 = icmp eq ptr %s, null
-  %or.cond = or i1 %tobool.not69, %cmp1
-  br i1 %or.cond, label %if.end14, label %entry.split.i
+  br i1 %cmp1, label %if.end14, label %entry.split.i
 
-if.end7:                                          ; preds = %entry
-  %tobool.not = icmp eq ptr %s, null
-  br i1 %tobool.not, label %return, label %entry.split.us.i
-
-entry.split.us.i:                                 ; preds = %if.end7
+entry.split.us.i:                                 ; preds = %entry
   %start_track = getelementptr inbounds nuw i8, ptr %spec, i64 8
   %start_index = getelementptr inbounds nuw i8, ptr %spec, i64 12
   %1 = load i8, ptr %s, align 1
@@ -722,8 +716,8 @@ if.end20:                                         ; preds = %local__parse_cue_.e
   store i32 1, ptr %has_end_point, align 4
   br label %return
 
-return:                                           ; preds = %while.body29.i, %while.body29.us.i, %while.body29.us.i38, %if.else.i.thread177, %if.else.i.thread, %if.else.i27, %if.else.i, %if.end7, %if.end14, %if.end20, %local__parse_cue_.exit61, %local__parse_cue_.exit
-  %retval.0 = phi i32 [ 0, %local__parse_cue_.exit ], [ 0, %local__parse_cue_.exit61 ], [ 1, %if.end20 ], [ 1, %if.end14 ], [ 1, %if.end7 ], [ 0, %if.else.i ], [ 0, %if.else.i27 ], [ 0, %if.else.i.thread ], [ 0, %if.else.i.thread177 ], [ 0, %while.body29.us.i38 ], [ 0, %while.body29.us.i ], [ 0, %while.body29.i ]
+return:                                           ; preds = %while.body29.i, %while.body29.us.i, %while.body29.us.i38, %if.else.i.thread177, %if.else.i.thread, %if.else.i27, %if.else.i, %if.end14, %if.end20, %local__parse_cue_.exit61, %local__parse_cue_.exit
+  %retval.0 = phi i32 [ 0, %local__parse_cue_.exit ], [ 0, %local__parse_cue_.exit61 ], [ 1, %if.end20 ], [ 1, %if.end14 ], [ 0, %if.else.i ], [ 0, %if.else.i27 ], [ 0, %if.else.i.thread ], [ 0, %if.else.i.thread177 ], [ 0, %while.body29.us.i38 ], [ 0, %while.body29.us.i ], [ 0, %while.body29.i ]
   ret i32 %retval.0
 }
 

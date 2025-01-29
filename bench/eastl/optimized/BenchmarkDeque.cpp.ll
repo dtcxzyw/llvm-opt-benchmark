@@ -190,7 +190,7 @@ lpad23.i.i.i:                                     ; preds = %lpad.body.i.i.i
   %9 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %ehcleanup123 unwind label %terminate.lpad.i.i.i
+          to label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i948 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %lpad23.i.i.i
   %10 = landingpad { ptr, i32 }
@@ -649,7 +649,7 @@ invoke.cont36:                                    ; preds = %invoke.cont34
 lpad22:                                           ; preds = %for.body
   %57 = landingpad { ptr, i32 }
           cleanup
-  br label %ehcleanup123
+  br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i948
 
 lpad26:                                           ; preds = %call.i.i.i.i.i.i.noexc, %invoke.cont25
   %58 = landingpad { ptr, i32 }
@@ -6206,34 +6206,20 @@ _ZNSt11_Deque_baseIN12_GLOBAL__N_19ValuePairESaIS1_EE16_M_destroy_nodesEPPS1_S5_
   br label %_ZNSt5dequeIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit
 
 _ZNSt5dequeIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit: ; preds = %_ZN5eastl5dequeIN12_GLOBAL__N_19ValuePairENS_9allocatorELj128EED2Ev.exit, %_ZNSt11_Deque_baseIN12_GLOBAL__N_19ValuePairESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i
-  br i1 %cmp24, label %for.body, label %for.end, !llvm.loop !324
+  br i1 %cmp24, label %for.body, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, !llvm.loop !324
 
 ehcleanup:                                        ; preds = %lpad28, %lpad26
   %.pn = phi { ptr, i32 } [ %lpad.phi, %lpad28 ], [ %58, %lpad26 ]
   call fastcc void @_ZNSt5dequeIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %stdDeque) #10
-  br label %ehcleanup123
+  br label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i948
 
-for.end:                                          ; preds = %_ZNSt5dequeIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit
-  %tobool.not.i.i946 = icmp eq ptr %call.i.i.i.i.i42, null
-  br i1 %tobool.not.i.i946, label %_ZN5eastl6vectorIjNS_9allocatorEED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %for.end
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %_ZNSt5dequeIN12_GLOBAL__N_19ValuePairESaIS1_EED2Ev.exit
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i42) #20
-  br label %_ZN5eastl6vectorIjNS_9allocatorEED2Ev.exit
-
-_ZN5eastl6vectorIjNS_9allocatorEED2Ev.exit:       ; preds = %for.end, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
   ret void
 
-ehcleanup123:                                     ; preds = %lpad22, %lpad23.i.i.i, %ehcleanup
+_ZN5eastl9allocator10deallocateEPvm.exit.i.i948:  ; preds = %ehcleanup, %lpad23.i.i.i, %lpad22
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %57, %lpad22 ], [ %9, %lpad23.i.i.i ]
-  %tobool.not.i.i947 = icmp eq ptr %call.i.i.i.i.i42, null
-  br i1 %tobool.not.i.i947, label %ehcleanup125, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i948
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i948:  ; preds = %ehcleanup123
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i42) #20
-  br label %ehcleanup125
-
-ehcleanup125:                                     ; preds = %ehcleanup123, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i948
   resume { ptr, i32 } %.pn.pn
 }
 

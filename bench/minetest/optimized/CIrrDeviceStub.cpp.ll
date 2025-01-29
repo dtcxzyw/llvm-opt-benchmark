@@ -420,10 +420,6 @@ if.then.i.i.i.i21:                                ; preds = %_ZN3irr4core6string
 
 _ZN3irr4core6stringIcEpLEPKc.exit22:              ; preds = %_ZN3irr4core6stringIcEpLEPKc.exit
   %call.i9.i.i20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %w, ptr noundef nonnull @.str.3, i64 noundef 64) #18
-  %tobool.not.i.i23 = icmp eq ptr %version, null
-  br i1 %tobool.not.i.i23, label %_ZN3irr4core6stringIcEpLEPKc.exit33, label %if.end.i.i24
-
-if.end.i.i24:                                     ; preds = %_ZN3irr4core6stringIcEpLEPKc.exit22
   %call.i.i.i25 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %version) #20
   %conv.i.i26 = and i64 %call.i.i.i25, 4294967295
   %15 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !31
@@ -431,25 +427,22 @@ if.end.i.i24:                                     ; preds = %_ZN3irr4core6string
   %cmp.i.i.i.i29 = icmp ult i64 %sub3.i.i.i.i28, %conv.i.i26
   br i1 %cmp.i.i.i.i29, label %if.then.i.i.i.i32, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i30
 
-if.then.i.i.i.i32:                                ; preds = %if.end.i.i24
+if.then.i.i.i.i32:                                ; preds = %_ZN3irr4core6stringIcEpLEPKc.exit22
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i30: ; preds = %if.end.i.i24
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i30: ; preds = %_ZN3irr4core6stringIcEpLEPKc.exit22
   %call.i9.i.i31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %w, ptr noundef nonnull %version, i64 noundef %conv.i.i26) #18
-  br label %_ZN3irr4core6stringIcEpLEPKc.exit33
-
-_ZN3irr4core6stringIcEpLEPKc.exit33:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i30, %_ZN3irr4core6stringIcEpLEPKc.exit22
   %16 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !31
   %17 = add i64 %16, -4611686018427387877
   %cmp.i.i.i.i39 = icmp ult i64 %17, 27
   br i1 %cmp.i.i.i.i39, label %if.then.i.i.i.i42, label %_ZN3irr4core6stringIcEpLEPKc.exit43
 
-if.then.i.i.i.i42:                                ; preds = %_ZN3irr4core6stringIcEpLEPKc.exit33
+if.then.i.i.i.i42:                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i30
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #21
   unreachable
 
-_ZN3irr4core6stringIcEpLEPKc.exit43:              ; preds = %_ZN3irr4core6stringIcEpLEPKc.exit33
+_ZN3irr4core6stringIcEpLEPKc.exit43:              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit.i.i30
   %call.i9.i.i41 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %w, ptr noundef nonnull @.str.4, i64 noundef 27) #18
   %18 = load ptr, ptr %w, align 8, !tbaa !51
   call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef %18, i32 noundef 2) #18

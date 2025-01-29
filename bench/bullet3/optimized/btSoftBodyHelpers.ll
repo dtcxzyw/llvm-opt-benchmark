@@ -481,7 +481,7 @@ invoke.cont49:                                    ; preds = %for.body40, %invoke
 for.cond60.preheader:                             ; preds = %invoke.cont49
   %16 = load i32, ptr %m_size.i.i13.i, align 4
   %cmp632034 = icmp sgt i32 %16, 0
-  br i1 %cmp632034, label %invoke.cont70, label %for.end93
+  br i1 %cmp632034, label %invoke.cont70, label %if.then3.i.i.i237
 
 invoke.cont70:                                    ; preds = %for.cond60.preheader, %for.inc91
   %17 = phi i32 [ %30, %for.inc91 ], [ %16, %for.cond60.preheader ]
@@ -563,14 +563,10 @@ for.inc91:                                        ; preds = %for.inc91.loopexit,
   %indvars.iv.next2063 = add nuw nsw i64 %indvars.iv2062, 1
   %31 = sext i32 %30 to i64
   %cmp63 = icmp slt i64 %indvars.iv.next2063, %31
-  br i1 %cmp63, label %invoke.cont70, label %for.end93, !llvm.loop !7
+  br i1 %cmp63, label %invoke.cont70, label %if.then3.i.i.i237, !llvm.loop !7
 
-for.end93:                                        ; preds = %for.inc91, %for.cond60.preheader
+if.then3.i.i.i237:                                ; preds = %for.inc91, %for.cond60.preheader
   call void @_ZN20btConvexHullComputerD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %computer) #23
-  %tobool.not.i.i.i231 = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i.i231, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, label %if.then3.i.i.i237
-
-if.then3.i.i.i237:                                ; preds = %for.end93
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %15)
           to label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit unwind label %terminate.lpad.i
 
@@ -581,7 +577,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i237
   call void @__clang_call_terminate(ptr %33) #24
   unreachable
 
-_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %for.end93, %if.then3.i.i.i237
+_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %if.then3.i.i.i237
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   store ptr null, ptr %m_data.i.i, align 8
   store i32 0, ptr %m_size.i.i, align 4
@@ -4931,13 +4927,9 @@ lpad:                                             ; preds = %if.then.i.i.i, %for
 for.end:                                          ; preds = %invoke.cont14, %_ZZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_iEN10Hammersley8GenerateEPS2_i.exit.thread
   %14 = phi ptr [ null, %_ZZN17btSoftBodyHelpers15CreateEllipsoidER19btSoftBodyWorldInfoRK9btVector3S4_iEN10Hammersley8GenerateEPS2_i.exit.thread ], [ %call.i.i.i.i6, %invoke.cont14 ]
   %call24 = invoke noundef ptr @_ZN17btSoftBodyHelpers20CreateFromConvexHullER19btSoftBodyWorldInfoPK9btVector3ib(ptr noundef nonnull align 8 dereferenceable(128) %worldInfo, ptr noundef nonnull %14, i32 noundef %add, i1 noundef zeroext true)
-          to label %invoke.cont23 unwind label %lpad
+          to label %if.then3.i.i.i33 unwind label %lpad
 
-invoke.cont23:                                    ; preds = %for.end
-  %tobool.not.i.i.i28 = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i28, label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit, label %if.then3.i.i.i33
-
-if.then3.i.i.i33:                                 ; preds = %invoke.cont23
+if.then3.i.i.i33:                                 ; preds = %for.end
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %14)
           to label %_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit unwind label %terminate.lpad.i
 
@@ -4948,7 +4940,7 @@ terminate.lpad.i:                                 ; preds = %if.then3.i.i.i33
   tail call void @__clang_call_terminate(ptr %16) #24
   unreachable
 
-_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %invoke.cont23, %if.then3.i.i.i33
+_ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit:   ; preds = %if.then3.i.i.i33
   ret ptr %call24
 }
 

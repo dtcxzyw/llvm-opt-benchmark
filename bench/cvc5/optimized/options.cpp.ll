@@ -52238,26 +52238,15 @@ cond.end:
 
 call.i43.noexc:                                   ; preds = %cond.end
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef %call.i4348, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
-          to label %.noexc unwind label %lpad
+          to label %if.end.i44 unwind label %lpad
 
-.noexc:                                           ; preds = %call.i43.noexc
-  %cmp.i = icmp eq ptr %spec.select, null
-  br i1 %cmp.i, label %if.then.i47, label %if.end.i44
-
-if.then.i47:                                      ; preds = %.noexc
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.813) #17
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %if.then.i47
-  unreachable
-
-lpad.i:                                           ; preds = %if.end.i44, %if.then.i47
+lpad.i:                                           ; preds = %if.end.i44
   %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #18
   br label %lpad.body
 
-if.end.i44:                                       ; preds = %.noexc
+if.end.i44:                                       ; preds = %call.i43.noexc
   %call.i.i45 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #18
   %add.ptr.i46 = getelementptr inbounds i8, ptr %spec.select, i64 %call.i.i45
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6, ptr noundef nonnull %spec.select, ptr noundef nonnull %add.ptr.i46)

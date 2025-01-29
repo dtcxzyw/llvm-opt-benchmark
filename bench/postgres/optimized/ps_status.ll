@@ -280,9 +280,7 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
   %30 = and i8 %29, 1
   %31 = load i8, ptr @IsUnderPostmaster, align 1
   %32 = trunc i8 %31 to i1
-  %.not.i.i.i = icmp ne ptr %27, null
-  %or.cond.i.i = and i1 %.not.i.i.i, %32
-  br i1 %or.cond.i.i, label %33, label %set_ps_display.exit
+  br i1 %32, label %33, label %set_ps_display.exit
 
 33:                                               ; preds = %26
   store i64 0, ptr @ps_buffer_nosuffix_len, align 8
@@ -414,7 +412,7 @@ define dso_local void @set_ps_display_suffix(ptr nocapture noundef readonly %0) 
   %24 = getelementptr i8, ptr %7, i64 %16
   %reass.sub10 = sub i64 %18, %14
   %25 = add i64 %reass.sub10, -2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %0, i64 %25, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr nonnull align 1 %0, i64 %25, i1 false)
   %26 = getelementptr i8, ptr %7, i64 %18
   %27 = getelementptr i8, ptr %26, i64 -1
   store i8 0, ptr %27, align 1
@@ -425,7 +423,7 @@ define dso_local void @set_ps_display_suffix(ptr nocapture noundef readonly %0) 
   store i8 32, ptr %29, align 1
   %30 = getelementptr i8, ptr %7, i64 %16
   %31 = add i64 %15, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %0, i64 %31, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr nonnull align 1 %0, i64 %31, i1 false)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %28, %22

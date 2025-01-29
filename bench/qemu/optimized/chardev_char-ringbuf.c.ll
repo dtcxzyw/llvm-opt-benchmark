@@ -71,11 +71,8 @@ if.end12:                                         ; preds = %if.then6.if.end12_c
   %write_data.0 = phi ptr [ %call7, %if.then6.if.end12_crit_edge ], [ %data, %if.else ]
   %conv = trunc i64 %0 to i32
   %call.i.i = call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @__func__.RINGBUF_CHARDEV) #7
-  %tobool.i = icmp eq ptr %write_data.0, null
   %cmp.i = icmp slt i32 %conv, 0
-  %or.cond.i = or i1 %tobool.i, %cmp.i
-  %cmp114.not.i = icmp eq i32 %conv, 0
-  %or.cond15 = or i1 %cmp114.not.i, %or.cond.i
+  %or.cond15 = icmp slt i32 %conv, 1
   br i1 %or.cond15, label %ringbuf_chr_write.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end12
@@ -123,11 +120,11 @@ ringbuf_chr_write.exit:                           ; preds = %for.inc.i, %if.end1
   br i1 %cmp14.not, label %if.end17, label %if.then16
 
 if.then16:                                        ; preds = %ringbuf_chr_write.exit
-  call void @g_free(ptr noundef %write_data.0) #7
+  call void @g_free(ptr noundef nonnull %write_data.0) #7
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then16, %ringbuf_chr_write.exit
-  br i1 %or.cond.i, label %if.then20, label %if.end21
+  br i1 %cmp.i, label %if.then20, label %if.end21
 
 if.then20:                                        ; preds = %if.end17
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 155, ptr noundef nonnull @__func__.qmp_ringbuf_write, ptr noundef nonnull @.str.4, ptr noundef %device) #7

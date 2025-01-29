@@ -293,22 +293,15 @@ entry:
   %0 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_19initMutexE, align 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
-  br i1 %tobool.not.i.i.i, label %if.else.i.i, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
   tail call void @_ZSt20__throw_system_errori(i32 noundef %call1.i.i.i.i) #10
   unreachable
 
-if.else.i.i:                                      ; preds = %entry
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %entry
   store atomic i32 2, ptr %uio release, align 4
-  %tobool2.not.i.i = icmp eq ptr %0, null
-  br i1 %tobool2.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %if.then3.i.i
-
-if.then3.i.i:                                     ; preds = %if.else.i.i
   %call1.i.i.i.i2 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #11
-  br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
-
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %if.else.i.i, %if.then3.i.i
   %1 = load ptr, ptr @_ZN6icu_7512_GLOBAL__N_113initConditionE, align 8
   tail call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #11
   ret void

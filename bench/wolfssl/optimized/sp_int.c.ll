@@ -7616,7 +7616,6 @@ if.end118:                                        ; preds = %if.end6.i
 
 land.rhs.lr.ph:                                   ; preds = %if.end118
   %dp143 = getelementptr inbounds nuw i8, ptr %e, i64 8
-  %cmp.i108 = icmp eq ptr %add.ptr, null
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end201
@@ -7671,31 +7670,22 @@ if.end162:                                        ; preds = %if.then140, %if.els
   %c.3 = phi i32 [ 59, %if.then129 ], [ %sub148, %if.then140 ], [ %sub160, %if.else155 ]
   %i.2 = phi i32 [ %dec131, %if.then129 ], [ %dec144, %if.then140 ], [ %i.1230, %if.else155 ]
   %y.1 = trunc i64 %y.1.in to i32
-  br i1 %cmp8, label %for.body170.us, label %if.end162.split
+  br i1 %cmp8, label %for.body170.us, label %for.body170
 
 for.body170.us:                                   ; preds = %if.end162, %for.inc182.us
   %j.0210.us = phi i32 [ %inc183.us, %for.inc182.us ], [ 0, %if.end162 ]
-  %call171.us = call i32 @sp_sqr(ptr noundef %add.ptr, ptr noundef %add.ptr)
+  %call171.us = call i32 @sp_sqr(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr)
   %cmp172.us = icmp eq i32 %call171.us, 0
   br i1 %cmp172.us, label %for.inc182.us, label %do.end216
 
 for.inc182.us:                                    ; preds = %for.body170.us
-  call fastcc void @_sp_mont_red(ptr noundef %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
+  call fastcc void @_sp_mont_red(ptr noundef nonnull %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
   %inc183.us = add nuw nsw i32 %j.0210.us, 1
   %cmp164.us = icmp samesign ult i32 %j.0210.us, 4
   br i1 %cmp164.us, label %for.body170.us, label %for.end184, !llvm.loop !72
 
-if.end162.split:                                  ; preds = %if.end162
-  br i1 %cmp.i108, label %for.body170.us212, label %for.body170
-
-for.body170.us212:                                ; preds = %if.end162.split
-  %call171.us214 = call i32 @sp_sqr(ptr noundef null, ptr noundef null)
-  %cmp172.us215 = icmp eq i32 %call171.us214, 0
-  %spec.select = select i1 %cmp172.us215, i32 -3, i32 %call171.us214
-  br label %do.end216
-
-for.body170:                                      ; preds = %if.end162.split, %for.inc182
-  %j.0210 = phi i32 [ %inc183, %for.inc182 ], [ 0, %if.end162.split ]
+for.body170:                                      ; preds = %if.end162, %for.inc182
+  %j.0210 = phi i32 [ %inc183, %for.inc182 ], [ 0, %if.end162 ]
   %call171 = call i32 @sp_sqr(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr)
   %cmp172 = icmp eq i32 %call171, 0
   br i1 %cmp172, label %if.then174, label %do.end216
@@ -7719,20 +7709,19 @@ for.end184:                                       ; preds = %for.inc182, %for.in
   br i1 %.us-phi211, label %if.end189, label %if.end201
 
 if.end189:                                        ; preds = %for.end184
-  %call188 = call i32 @sp_mul_2d(ptr noundef %add.ptr, i32 noundef %y.1, ptr noundef %add.ptr)
+  %call188 = call i32 @sp_mul_2d(ptr noundef nonnull %add.ptr, i32 noundef %y.1, ptr noundef nonnull %add.ptr)
   %cmp190 = icmp eq i32 %call188, 0
   %or.cond3 = and i1 %cmp8, %cmp190
   br i1 %or.cond3, label %if.then194, label %if.end196
 
 if.then194:                                       ; preds = %if.end189
-  %call195 = call i32 @sp_add(ptr noundef %add.ptr, ptr noundef nonnull %vla, ptr noundef %add.ptr)
+  %call195 = call i32 @sp_add(ptr noundef nonnull %add.ptr, ptr noundef nonnull %vla, ptr noundef nonnull %add.ptr)
   br label %if.end196
 
 if.end196:                                        ; preds = %if.then194, %if.end189
   %err.10 = phi i32 [ %call195, %if.then194 ], [ %call188, %if.end189 ]
-  %cmp197 = icmp ne i32 %err.10, 0
-  %brmerge = or i1 %cmp197, %cmp.i108
-  br i1 %brmerge, label %do.end216.loopexit276.split.loop.exit279, label %if.end6.i122
+  %cmp197.not = icmp eq i32 %err.10, 0
+  br i1 %cmp197.not, label %if.end6.i122, label %do.end216
 
 if.end6.i122:                                     ; preds = %if.end196
   %14 = load i32, ptr %add.ptr, align 16
@@ -7752,7 +7741,7 @@ for.end202:                                       ; preds = %land.rhs
   br i1 %cmp8, label %if.then207, label %if.then212
 
 if.then207:                                       ; preds = %for.end202
-  call fastcc void @_sp_mont_red(ptr noundef %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
+  call fastcc void @_sp_mont_red(ptr noundef nonnull %add.ptr, ptr noundef nonnull %m, i64 noundef %mp.0144154167, i32 noundef 0)
   br label %if.then212
 
 if.then212:                                       ; preds = %if.then207, %for.end202
@@ -7776,12 +7765,8 @@ _sp_copy.exit:                                    ; preds = %if.then.i, %if.else
   store i32 %15, ptr %r, align 8
   br label %do.end216
 
-do.end216.loopexit276.split.loop.exit279:         ; preds = %if.end196
-  %err.10.mux.le = select i1 %cmp197, i32 %err.10, i32 -3
-  br label %do.end216
-
-do.end216:                                        ; preds = %if.end201, %if.end6.i122, %if.then174, %for.body170, %for.body170.us, %do.end216.loopexit276.split.loop.exit279, %for.body170.us212, %entry, %if.end84, %if.end6.i, %if.end113, %if.end118, %_sp_copy.exit
-  %err.6209 = phi i32 [ 0, %_sp_copy.exit ], [ %call.i, %if.end118 ], [ %err.2, %if.end84 ], [ -3, %if.end6.i ], [ %err.4, %if.end113 ], [ -3, %entry ], [ %spec.select, %for.body170.us212 ], [ %err.10.mux.le, %do.end216.loopexit276.split.loop.exit279 ], [ %call171.us, %for.body170.us ], [ %call171, %for.body170 ], [ -3, %if.then174 ], [ %err.11, %if.end201 ], [ -3, %if.end6.i122 ]
+do.end216:                                        ; preds = %if.end201, %if.end6.i122, %if.end196, %if.then174, %for.body170, %for.body170.us, %entry, %if.end84, %if.end6.i, %if.end113, %if.end118, %_sp_copy.exit
+  %err.6209 = phi i32 [ 0, %_sp_copy.exit ], [ %call.i, %if.end118 ], [ %err.2, %if.end84 ], [ -3, %if.end6.i ], [ %err.4, %if.end113 ], [ -3, %entry ], [ %call171.us, %for.body170.us ], [ %call171, %for.body170 ], [ -3, %if.then174 ], [ %err.11, %if.end201 ], [ -3, %if.end6.i122 ], [ %err.10, %if.end196 ]
   ret i32 %err.6209
 }
 
@@ -15152,11 +15137,9 @@ if.end90:                                         ; preds = %if.end84
   br i1 %cmp81, label %if.then93, label %do.end98
 
 if.then93:                                        ; preds = %_sp_sub_off.exit441, %if.end90
-  %cmp.i442 = icmp eq ptr %c.addr.0520, null
   %cmp2.not.i = icmp eq ptr %c.addr.0520, %inv
-  %brmerge.i = or i1 %cmp2.not.i, %cmp.i442
   %spec.store.select.mux.i = select i1 %cmp2.not.i, i32 0, i32 -3
-  br i1 %brmerge.i, label %do.end98, label %land.lhs.true.i
+  br i1 %cmp2.not.i, label %do.end98, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then93
   %141 = load i32, ptr %c.addr.0520, align 8

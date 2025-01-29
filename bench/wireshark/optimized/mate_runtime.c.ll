@@ -198,7 +198,7 @@ define hidden void @mate_analyze_frame(ptr nocapture noundef readonly %0, ptr no
   store float %11, ptr %13, align 4
   %14 = tail call i32 @proto_tracking_interesting_fields(ptr noundef %2) #10
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %619, label %15
+  br i1 %.not, label %618, label %15
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr @rd, align 8
@@ -207,7 +207,7 @@ define hidden void @mate_analyze_frame(ptr nocapture noundef readonly %0, ptr no
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %18, %20
-  br i1 %21, label %.preheader81, label %619
+  br i1 %21, label %.preheader81, label %618
 
 .preheader81:                                     ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -227,7 +227,7 @@ define hidden void @mate_analyze_frame(ptr nocapture noundef readonly %0, ptr no
 
 31:                                               ; preds = %.lr.ph92, %._crit_edge.thread
   %indvars.iv103 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next104, %._crit_edge.thread ]
-  %32 = phi ptr [ %23, %.lr.ph92 ], [ %611, %._crit_edge.thread ]
+  %32 = phi ptr [ %23, %.lr.ph92 ], [ %610, %._crit_edge.thread ]
   %.091 = phi ptr [ null, %.lr.ph92 ], [ %.3, %._crit_edge.thread ]
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr ptr, ptr %33, i64 %indvars.iv103
@@ -1333,7 +1333,7 @@ analyze_pdu.exit:                                 ; preds = %.critedge, %350, %3
   br label %603
 
 603:                                              ; preds = %593, %601, %586, %209
-  %.153 = phi ptr [ null, %209 ], [ %61, %601 ], [ %61, %593 ], [ null, %586 ]
+  %.153 = phi i1 [ true, %209 ], [ false, %601 ], [ false, %593 ], [ true, %586 ]
   %.2 = phi ptr [ %.188, %209 ], [ %61, %601 ], [ %61, %593 ], [ %.188, %586 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %604 = load i32, ptr %42, align 8
@@ -1342,38 +1342,37 @@ analyze_pdu.exit:                                 ; preds = %.critedge, %350, %3
   br i1 %606, label %53, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %603
-  %607 = icmp eq ptr %.153, null
-  br i1 %607, label %._crit_edge.thread, label %608
+  br i1 %.153, label %._crit_edge.thread, label %607
 
-608:                                              ; preds = %._crit_edge
-  %609 = getelementptr inbounds nuw i8, ptr %35, i64 76
-  %610 = load i32, ptr %609, align 4
-  %.not61 = icmp eq i32 %610, 0
+607:                                              ; preds = %._crit_edge
+  %608 = getelementptr inbounds nuw i8, ptr %35, i64 76
+  %609 = load i32, ptr %608, align 4
+  %.not61 = icmp eq i32 %609, 0
   br i1 %.not61, label %._crit_edge.thread, label %._crit_edge93.loopexit
 
-._crit_edge.thread:                               ; preds = %.preheader, %31, %608, %._crit_edge
-  %.3 = phi ptr [ %.2, %608 ], [ %.2, %._crit_edge ], [ %.091, %31 ], [ %.091, %.preheader ]
+._crit_edge.thread:                               ; preds = %.preheader, %31, %607, %._crit_edge
+  %.3 = phi ptr [ %.2, %607 ], [ %.2, %._crit_edge ], [ %.091, %31 ], [ %.091, %.preheader ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %611 = load ptr, ptr %22, align 8
-  %612 = getelementptr inbounds nuw i8, ptr %611, i64 8
-  %613 = load i32, ptr %612, align 8
-  %614 = zext i32 %613 to i64
-  %615 = icmp samesign ult i64 %indvars.iv.next104, %614
-  br i1 %615, label %31, label %._crit_edge93.loopexit, !llvm.loop !14
+  %610 = load ptr, ptr %22, align 8
+  %611 = getelementptr inbounds nuw i8, ptr %610, i64 8
+  %612 = load i32, ptr %611, align 8
+  %613 = zext i32 %612 to i64
+  %614 = icmp samesign ult i64 %indvars.iv.next104, %613
+  br i1 %614, label %31, label %._crit_edge93.loopexit, !llvm.loop !14
 
-._crit_edge93.loopexit:                           ; preds = %608, %._crit_edge.thread
+._crit_edge93.loopexit:                           ; preds = %607, %._crit_edge.thread
   %.pre = load i32, ptr %19, align 4
   %.pre106 = load ptr, ptr @rd, align 8
   br label %._crit_edge93
 
 ._crit_edge93:                                    ; preds = %._crit_edge93.loopexit, %.preheader81
-  %616 = phi ptr [ %.pre106, %._crit_edge93.loopexit ], [ %16, %.preheader81 ]
-  %617 = phi i32 [ %.pre, %._crit_edge93.loopexit ], [ %20, %.preheader81 ]
-  %618 = getelementptr inbounds nuw i8, ptr %616, i64 8
-  store i32 %617, ptr %618, align 8
-  br label %619
+  %615 = phi ptr [ %.pre106, %._crit_edge93.loopexit ], [ %16, %.preheader81 ]
+  %616 = phi i32 [ %.pre, %._crit_edge93.loopexit ], [ %20, %.preheader81 ]
+  %617 = getelementptr inbounds nuw i8, ptr %615, i64 8
+  store i32 %616, ptr %617, align 8
+  br label %618
 
-619:                                              ; preds = %._crit_edge93, %15, %3
+618:                                              ; preds = %._crit_edge93, %15, %3
   ret void
 }
 
