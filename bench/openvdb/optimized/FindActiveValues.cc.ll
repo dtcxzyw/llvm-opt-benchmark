@@ -5634,7 +5634,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i
   %mNodes.i.i = getelementptr inbounds nuw i8, ptr %op, i64 56
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 88
@@ -6022,7 +6022,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -6410,7 +6410,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -6798,7 +6798,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -7186,7 +7186,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -7574,7 +7574,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -7962,7 +7962,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -8350,7 +8350,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -8736,7 +8736,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i
   %mNodes.i.i = getelementptr inbounds nuw i8, ptr %op, i64 56
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 88
@@ -8948,7 +8948,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -9160,7 +9160,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -9372,7 +9372,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -9584,7 +9584,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -9796,7 +9796,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -10008,7 +10008,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -10220,7 +10220,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -10430,7 +10430,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i
   %mNodes.i.i = getelementptr inbounds nuw i8, ptr %op, i64 56
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 88
@@ -10705,7 +10705,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -10980,7 +10980,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -11255,7 +11255,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -11530,7 +11530,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -11805,7 +11805,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -12080,7 +12080,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -12355,7 +12355,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -12628,7 +12628,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i
   %mNodes.i.i = getelementptr inbounds nuw i8, ptr %op, i64 56
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 88
@@ -12743,7 +12743,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -12858,7 +12858,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -12973,7 +12973,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -13088,7 +13088,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -13203,7 +13203,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -13318,7 +13318,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -13433,7 +13433,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -14402,7 +14402,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
 _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS5_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb0EvNS0_14index_sequenceIJLm0ELm1ELm2EEEEEC2ERSC_.exit.i: ; preds = %for.body.i.i.i.i.i.i.i.i
   %mNodes.i.i = getelementptr inbounds nuw i8, ptr %op, i64 56
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 88
@@ -14848,7 +14848,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -15294,7 +15294,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -15740,7 +15740,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -16186,7 +16186,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -16632,7 +16632,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -17232,7 +17232,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -17832,7 +17832,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %0 = getelementptr inbounds nuw i8, ptr %op, i64 16
   store ptr null, ptr %0, align 8
   %1 = getelementptr inbounds nuw i8, ptr %op, i64 72
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %tree, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRootTiles.i = getelementptr inbounds nuw i8, ptr %op, i64 96
@@ -178352,7 +178352,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i70, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i ]
   %51 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %51, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, i8 0, i64 12, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -178763,7 +178763,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i21, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIbEESaIS4_EEC2EmRKS5_.exit.i ]
   %42 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %42, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, i8 0, i64 12, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -181369,7 +181369,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i70, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i ]
   %51 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %51, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, i8 0, i64 12, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -181779,7 +181779,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i21, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIiEESaIS4_EEC2EmRKS5_.exit.i ]
   %42 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %42, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, i8 0, i64 12, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -184381,7 +184381,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i70, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIlEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIlEESaIS4_EEC2EmRKS5_.exit.i ]
   %51 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %51, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -184791,7 +184791,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i21, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIlEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIlEESaIS4_EEC2EmRKS5_.exit.i ]
   %42 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -187393,7 +187393,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i70, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i ]
   %51 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %51, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %51, i8 0, i64 12, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -187803,7 +187803,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i21, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIfEESaIS4_EEC2EmRKS5_.exit.i ]
   %42 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %42, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, i8 0, i64 12, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -190405,7 +190405,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i70, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIdEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIdEESaIS4_EEC2EmRKS5_.exit.i ]
   %51 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %51, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -190815,7 +190815,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i21, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIdEESaIS4_EEC2EmRKS5_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataIdEESaIS4_EEC2EmRKS5_.exit.i ]
   %42 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -193232,7 +193232,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i70, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %50 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %50, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %50, i8 0, i64 20, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -193641,7 +193641,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i21, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IfEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %41 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %41, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -196058,7 +196058,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i70, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %50 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %50, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 32, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -196467,7 +196467,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i21, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IdEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %41 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %41, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -198884,7 +198884,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i70, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %50 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %50, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %50, i8 0, i64 20, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4
@@ -199293,7 +199293,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i21, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %conv, %_ZNSt12_Vector_baseIN7openvdb5v11_05tools8TileDataINS1_4math4Vec3IiEEEESaIS7_EEC2EmRKS8_.exit.i ]
   %41 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %41, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %41, i8 0, i64 20, i1 false)
   store i64 9223372034707292159, ptr %__cur.08.i.i.i.i.i, align 4
   %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 8
   store i32 2147483647, ptr %tmp.coerce.sroa.2.0.coerce.dive2.sroa_idx.i.i.i.i.i.i.i.i, align 4

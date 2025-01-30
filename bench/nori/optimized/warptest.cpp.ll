@@ -2473,7 +2473,7 @@ _ZNSt8functionIFvN7nanogui5ArrayIiLm2EEEEEC2ERKS4_.exit.i.i: ; preds = %154, %16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41)
   %177 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %178 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %178, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, i8 0, i64 24, i1 false)
   store i64 %176, ptr %41, align 8
   %179 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -2685,7 +2685,7 @@ _ZNSt8functionIFvfEEC2ERKS1_.exit.i.i:            ; preds = %_ZN7nanogui6Widget1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40)
   %243 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %244 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %244, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %244, i8 0, i64 24, i1 false)
   store i64 %176, ptr %40, align 8
   %245 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %246 = getelementptr inbounds nuw i8, ptr %237, i64 144
@@ -3048,7 +3048,7 @@ _ZNSt8functionIFviEEC2ERKS1_.exit.i.i:            ; preds = %_ZNSt6vectorINSt7__
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39)
   %342 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %343 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %343, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %343, i8 0, i64 24, i1 false)
   store i64 %176, ptr %39, align 8
   %344 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %345 = getelementptr inbounds nuw i8, ptr %338, i64 392
@@ -3617,7 +3617,7 @@ _ZNSt8functionIFviEEC2ERKS1_.exit.i.i323:         ; preds = %_ZNSt6vectorINSt7__
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38)
   %486 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %487 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %487, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %487, i8 0, i64 24, i1 false)
   store i64 %176, ptr %38, align 8
   %488 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %489 = getelementptr inbounds nuw i8, ptr %482, i64 392
@@ -3731,7 +3731,7 @@ _ZNSt8functionIFvfEEC2ERKS1_.exit.i.i339:         ; preds = %_ZN7nanogui6Widget1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37)
   %525 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %526 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %526, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %526, i8 0, i64 24, i1 false)
   store i64 %176, ptr %37, align 8
   %527 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %528 = getelementptr inbounds nuw i8, ptr %519, i64 144
@@ -3897,7 +3897,7 @@ _ZNSt8functionIFvfEEC2ERKS1_.exit.i.i360:         ; preds = %_ZN7nanogui6Widget1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36)
   %578 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %579 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %579, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %579, i8 0, i64 24, i1 false)
   store i64 %176, ptr %36, align 8
   %580 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %581 = getelementptr inbounds nuw i8, ptr %572, i64 144
@@ -4061,7 +4061,7 @@ _ZNSt8functionIFvbEEC2ERKS1_.exit.i.i:            ; preds = %617, %621
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35)
   %630 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %631 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %631, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %631, i8 0, i64 24, i1 false)
   store i64 %176, ptr %35, align 8
   %632 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %633 = getelementptr inbounds nuw i8, ptr %626, i64 184
@@ -4265,7 +4265,7 @@ _ZNSt8functionIFvfEEC2ERKS1_.exit.i.i406:         ; preds = %_ZN7nanogui6Widget1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34)
   %690 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %691 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %691, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %691, i8 0, i64 24, i1 false)
   store i64 %176, ptr %34, align 8
   %692 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %693 = getelementptr inbounds nuw i8, ptr %684, i64 144
@@ -4472,7 +4472,7 @@ _ZNSt8functionIFvbEEC2ERKS1_.exit.i.i435:         ; preds = %742, %746
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33)
   %755 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %756 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %756, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %756, i8 0, i64 24, i1 false)
   store i64 %176, ptr %33, align 8
   %757 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %758 = getelementptr inbounds nuw i8, ptr %751, i64 184
@@ -4789,7 +4789,7 @@ _ZNSt8functionIFvvEEC2ERKS1_.exit.i.i:            ; preds = %841
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29)
   %853 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %854 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %854, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %854, i8 0, i64 24, i1 false)
   store i64 %176, ptr %29, align 8
   %855 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %856 = getelementptr inbounds nuw i8, ptr %823, i64 224
@@ -6688,7 +6688,7 @@ _ZN7nanogui6MatrixIfLm4EE11perspectiveILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0
   store float 0.000000e+00, ptr %74, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %75 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %75, i8 0, i64 60, i1 false), !alias.scope !60
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %75, i8 0, i64 60, i1 false), !alias.scope !60
   %76 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store float 1.000000e+00, ptr %29, align 4, !alias.scope !60
   br label %77
@@ -12317,7 +12317,7 @@ _ZNK7nanogui5ArrayIfLm3EEngEv.exit:               ; preds = %88
   store <2 x float> %.sroa.0.0.copyload.i50, ptr %11, align 8
   store float %.sroa.2.0.copyload.i52, ptr %.sroa.218.0..sroa_idx, align 8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %94, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %94, i8 0, i64 36, i1 false)
   %95 = extractelement <2 x float> %.sroa.0.0.copyload.i50, i64 0
   %96 = extractelement <2 x float> %.sroa.0.0.copyload.i50, i64 1
   br label %97
@@ -12451,7 +12451,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %34 = fadd float %32, %24
   %35 = fadd float %33, %25
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %36, i8 0, i64 44, i1 false), !alias.scope !241
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %36, i8 0, i64 44, i1 false), !alias.scope !241
   br label %37
 
 37:                                               ; preds = %37, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge

@@ -4846,7 +4846,7 @@ entry:
   %ref.tmp453 = alloca %"class.testing::Message", align 8
   %ref.tmp455 = alloca %"class.testing::internal::AssertHelper", align 8
   %0 = getelementptr inbounds nuw i8, ptr %tm, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %tm_year = getelementptr inbounds nuw i8, ptr %tm, i64 20
   store i32 116, ptr %tm_year, align 4
   %tm_mon = getelementptr inbounds nuw i8, ptr %tm, i64 16
@@ -7138,7 +7138,7 @@ entry:
   %ref.tmp151 = alloca %"class.testing::Message", align 8
   %ref.tmp153 = alloca %"class.testing::internal::AssertHelper", align 8
   %0 = getelementptr inbounds nuw i8, ptr %tm, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %tm_year = getelementptr inbounds nuw i8, ptr %tm, i64 20
   store i32 10445, ptr %tm_year, align 4
   %tm_mon = getelementptr inbounds nuw i8, ptr %tm, i64 16
@@ -8065,7 +8065,7 @@ entry:
   %ref.tmp261 = alloca %"class.testing::Message", align 8
   %ref.tmp263 = alloca %"class.testing::internal::AssertHelper", align 8
   %0 = getelementptr inbounds nuw i8, ptr %tm, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %tm_year = getelementptr inbounds nuw i8, ptr %tm, i64 20
   store i32 -2001, ptr %tm_year, align 4
   %tm_mon = getelementptr inbounds nuw i8, ptr %tm, i64 16
@@ -19289,7 +19289,7 @@ entry:
   %ref.tmp194 = alloca %"class.testing::Message", align 8
   %ref.tmp196 = alloca %"class.testing::internal::AssertHelper", align 8
   %0 = getelementptr inbounds nuw i8, ptr %t, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store i32 16, ptr %t, align 8
   %1 = getelementptr inbounds nuw i8, ptr %t, i64 4
   store i32 14, ptr %1, align 4
@@ -31790,7 +31790,7 @@ _ZN7testing15AssertionResultD2Ev.exit146:         ; preds = %if.end153, %_ZNKSt1
   store ptr null, ptr %message_.i143, align 8
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %jp_loc116) #30
   %61 = getelementptr inbounds nuw i8, ptr %time, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %61, i8 0, i64 40, i1 false), !alias.scope !1098
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %61, i8 0, i64 40, i1 false), !alias.scope !1098
   %tm_mday.i = getelementptr inbounds nuw i8, ptr %time, i64 12
   store i32 1, ptr %tm_mday.i, align 4, !alias.scope !1098
   %tm_hour = getelementptr inbounds nuw i8, ptr %time, i64 8
@@ -50515,7 +50515,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZN7testing15AssertionResultD2Ev.exit571:         ; preds = %if.end455, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i570
   store ptr null, ptr %message_.i568, align 8
   %187 = getelementptr inbounds nuw i8, ptr %tm, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %187, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %187, i8 0, i64 40, i1 false)
   store i32 3, ptr %tm, align 8
   %188 = getelementptr inbounds nuw i8, ptr %tm, i64 4
   store i32 2, ptr %188, align 4
@@ -68298,7 +68298,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2500)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2500
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2500
   %38 = load i64, ptr %s.i3.i, align 8, !noalias !2500
   %div.i.i.i = udiv i64 %38, 3600
   %rem.i.i.i.i = urem i64 %div.i.i.i, 24
@@ -68358,7 +68358,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2503)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2503
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2503
   %46 = load i64, ptr %s.i3.i, align 8, !noalias !2503
   %div.i.i.i203 = udiv i64 %46, 3600
   %rem.i.i.i.i204 = urem i64 %div.i.i.i203, 24
@@ -70535,7 +70535,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2527)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2527
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2527
   %38 = load i32, ptr %s.i3.i, align 4, !noalias !2527
   %div.i.i.i = udiv i32 %38, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -70592,7 +70592,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2530)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2530
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2530
   %46 = load i32, ptr %s.i3.i, align 4, !noalias !2530
   %div.i.i.i203 = udiv i32 %46, 3600
   %rem.i.i.i.i204 = urem i32 %div.i.i.i203, 24
@@ -72989,7 +72989,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2552)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2552
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2552
   %38 = load i32, ptr %s.i3.i, align 4, !noalias !2552
   %div.i.i.i = udiv i32 %38, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -73046,7 +73046,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2555)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2555
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2555
   %46 = load i32, ptr %s.i3.i, align 4, !noalias !2555
   %div.i.i.i203 = udiv i32 %46, 3600
   %rem.i.i.i.i204 = urem i32 %div.i.i.i203, 24
@@ -75366,7 +75366,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2559)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2559
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2559
   %38 = load i32, ptr %s.i3.i, align 4, !noalias !2559
   %div.i.i.i = udiv i32 %38, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -75423,7 +75423,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2562)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2562
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2562
   %46 = load i32, ptr %s.i3.i, align 4, !noalias !2562
   %div.i.i.i203 = udiv i32 %46, 3600
   %rem.i.i.i.i204 = urem i32 %div.i.i.i203, 24
@@ -77744,7 +77744,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2566)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2566
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2566
   %38 = load i64, ptr %s.i3.i, align 8, !noalias !2566
   %div.i.i.i = udiv i64 %38, 3600
   %rem.i.i.i.i = urem i64 %div.i.i.i, 24
@@ -77804,7 +77804,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2569)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2569
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2569
   %46 = load i64, ptr %s.i3.i, align 8, !noalias !2569
   %div.i.i.i203 = udiv i64 %46, 3600
   %rem.i.i.i.i204 = urem i64 %div.i.i.i203, 24
@@ -80133,7 +80133,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2573)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2573
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2573
   %38 = load i64, ptr %s.i3.i, align 8, !noalias !2573
   %div.i.i.i = udiv i64 %38, 3600
   %rem.i.i.i.i = urem i64 %div.i.i.i, 24
@@ -80193,7 +80193,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2576)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2576
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2576
   %46 = load i64, ptr %s.i3.i, align 8, !noalias !2576
   %div.i.i.i203 = udiv i64 %46, 3600
   %rem.i.i.i.i204 = urem i64 %div.i.i.i203, 24
@@ -82522,7 +82522,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2580)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2580
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2580
   %38 = load i64, ptr %s.i3.i, align 8, !noalias !2580
   %div.i.i.i = udiv i64 %38, 3600
   %rem.i.i.i.i = urem i64 %div.i.i.i, 24
@@ -82582,7 +82582,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2583)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2583
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2583
   %46 = load i64, ptr %s.i3.i, align 8, !noalias !2583
   %div.i.i.i203 = udiv i64 %46, 3600
   %rem.i.i.i.i204 = urem i64 %div.i.i.i203, 24
@@ -84903,7 +84903,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2587)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2587
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2587
   %38 = load i32, ptr %s.i3.i, align 4, !noalias !2587
   %div.i.i.i = udiv i32 %38, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -84960,7 +84960,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2590)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2590
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2590
   %46 = load i32, ptr %s.i3.i, align 4, !noalias !2590
   %div.i.i.i203 = udiv i32 %46, 3600
   %rem.i.i.i.i204 = urem i32 %div.i.i.i203, 24
@@ -87286,7 +87286,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2594)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2594
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2594
   %38 = load i32, ptr %s.i3.i, align 4, !noalias !2594
   %div.i.i.i = udiv i32 %38, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -87343,7 +87343,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2597)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2597
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2597
   %46 = load i32, ptr %s.i3.i, align 4, !noalias !2597
   %div.i.i.i203 = udiv i32 %46, 3600
   %rem.i.i.i.i204 = urem i32 %div.i.i.i203, 24
@@ -89686,7 +89686,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2601)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2601
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2601
   %35 = load i32, ptr %s.i3.i, align 4, !noalias !2601
   %div.i.i.i = udiv i32 %35, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -89743,7 +89743,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i198)
   call void @llvm.experimental.noalias.scope.decl(metadata !2604)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2604
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2604
   %43 = load i32, ptr %s.i3.i, align 4, !noalias !2604
   %div.i.i.i200 = udiv i32 %43, 3600
   %rem.i.i.i.i201 = urem i32 %div.i.i.i200, 24
@@ -91734,7 +91734,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2608)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2608
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2608
   %35 = load i32, ptr %s.i3.i, align 4, !noalias !2608
   %div.i.i.i = udiv i32 %35, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -91791,7 +91791,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i198)
   call void @llvm.experimental.noalias.scope.decl(metadata !2611)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2611
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2611
   %43 = load i32, ptr %s.i3.i, align 4, !noalias !2611
   %div.i.i.i200 = udiv i32 %43, 3600
   %rem.i.i.i.i201 = urem i32 %div.i.i.i200, 24
@@ -93782,7 +93782,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2615)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2615
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2615
   %35 = load i32, ptr %s.i3.i, align 4, !noalias !2615
   %div.i.i.i = udiv i32 %35, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -93839,7 +93839,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i198)
   call void @llvm.experimental.noalias.scope.decl(metadata !2618)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2618
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2618
   %43 = load i32, ptr %s.i3.i, align 4, !noalias !2618
   %div.i.i.i200 = udiv i32 %43, 3600
   %rem.i.i.i.i201 = urem i32 %div.i.i.i200, 24
@@ -95830,7 +95830,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2622)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2622
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2622
   %35 = load i32, ptr %s.i3.i, align 4, !noalias !2622
   %div.i.i.i = udiv i32 %35, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -95887,7 +95887,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i198)
   call void @llvm.experimental.noalias.scope.decl(metadata !2625)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2625
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2625
   %43 = load i32, ptr %s.i3.i, align 4, !noalias !2625
   %div.i.i.i200 = udiv i32 %43, 3600
   %rem.i.i.i.i201 = urem i32 %div.i.i.i200, 24
@@ -97878,7 +97878,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2629)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2629
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2629
   %35 = load i32, ptr %s.i3.i, align 4, !noalias !2629
   %div.i.i.i = udiv i32 %35, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -97935,7 +97935,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i198)
   call void @llvm.experimental.noalias.scope.decl(metadata !2632)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2632
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2632
   %43 = load i32, ptr %s.i3.i, align 4, !noalias !2632
   %div.i.i.i200 = udiv i32 %43, 3600
   %rem.i.i.i.i201 = urem i32 %div.i.i.i200, 24
@@ -99931,7 +99931,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2636)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2636
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2636
   %38 = load i32, ptr %s.i3.i, align 4, !noalias !2636
   %div.i.i.i = udiv i32 %38, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -99988,7 +99988,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2639)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2639
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2639
   %46 = load i32, ptr %s.i3.i, align 4, !noalias !2639
   %div.i.i.i203 = udiv i32 %46, 3600
   %rem.i.i.i.i204 = urem i32 %div.i.i.i203, 24
@@ -101989,7 +101989,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2643)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2643
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2643
   %38 = load i32, ptr %s.i3.i, align 4, !noalias !2643
   %div.i.i.i = udiv i32 %38, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -102046,7 +102046,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2646)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2646
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2646
   %46 = load i32, ptr %s.i3.i, align 4, !noalias !2646
   %div.i.i.i203 = udiv i32 %46, 3600
   %rem.i.i.i.i204 = urem i32 %div.i.i.i203, 24
@@ -104047,7 +104047,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2650)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2650
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2650
   %38 = load i32, ptr %s.i3.i, align 4, !noalias !2650
   %div.i.i.i = udiv i32 %38, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -104104,7 +104104,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2653)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2653
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2653
   %46 = load i32, ptr %s.i3.i, align 4, !noalias !2653
   %div.i.i.i203 = udiv i32 %46, 3600
   %rem.i.i.i.i204 = urem i32 %div.i.i.i203, 24
@@ -106106,7 +106106,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2657)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2657
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2657
   %38 = load i64, ptr %s.i3.i, align 8, !noalias !2657
   %div.i.i.i = udiv i64 %38, 3600
   %rem.i.i.i.i = urem i64 %div.i.i.i, 24
@@ -106166,7 +106166,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2660)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2660
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2660
   %46 = load i64, ptr %s.i3.i, align 8, !noalias !2660
   %div.i.i.i203 = udiv i64 %46, 3600
   %rem.i.i.i.i204 = urem i64 %div.i.i.i203, 24
@@ -108165,7 +108165,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2664)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2664
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2664
   %38 = load i64, ptr %s.i3.i, align 8, !noalias !2664
   %div.i.i.i = udiv i64 %38, 3600
   %rem.i.i.i.i = urem i64 %div.i.i.i, 24
@@ -108225,7 +108225,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2667)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2667
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2667
   %46 = load i64, ptr %s.i3.i, align 8, !noalias !2667
   %div.i.i.i203 = udiv i64 %46, 3600
   %rem.i.i.i.i204 = urem i64 %div.i.i.i203, 24
@@ -110213,7 +110213,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2671)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2671
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2671
   %38 = load i64, ptr %s.i3.i, align 8, !noalias !2671
   %div.i.i.i = udiv i64 %38, 3600
   %rem.i.i.i.i = urem i64 %div.i.i.i, 24
@@ -110273,7 +110273,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2674)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2674
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2674
   %46 = load i64, ptr %s.i3.i, align 8, !noalias !2674
   %div.i.i.i203 = udiv i64 %46, 3600
   %rem.i.i.i.i204 = urem i64 %div.i.i.i203, 24
@@ -112324,7 +112324,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2678)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2678
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2678
   %35 = load i32, ptr %s.i3.i, align 4, !noalias !2678
   %div.i.i.i = udiv i32 %35, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -112381,7 +112381,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i198)
   call void @llvm.experimental.noalias.scope.decl(metadata !2681)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2681
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2681
   %43 = load i32, ptr %s.i3.i, align 4, !noalias !2681
   %div.i.i.i200 = udiv i32 %43, 3600
   %rem.i.i.i.i201 = urem i32 %div.i.i.i200, 24
@@ -114522,7 +114522,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2703)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2703
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2703
   %38 = load i32, ptr %s.i3.i, align 4, !noalias !2703
   %div.i.i.i = udiv i32 %38, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -114579,7 +114579,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2706)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2706
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2706
   %46 = load i32, ptr %s.i3.i, align 4, !noalias !2706
   %div.i.i.i203 = udiv i32 %46, 3600
   %rem.i.i.i.i204 = urem i32 %div.i.i.i203, 24
@@ -140550,7 +140550,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2949)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2949
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2949
   %39 = load i32, ptr %s.i3.i, align 4, !noalias !2949
   %div.i.i.i = udiv i32 %39, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -140609,7 +140609,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i205)
   call void @llvm.experimental.noalias.scope.decl(metadata !2952)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2952
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2952
   %47 = load i32, ptr %s.i3.i, align 4, !noalias !2952
   %div.i.i.i207 = udiv i32 %47, 3600
   %rem.i.i.i.i208 = urem i32 %div.i.i.i207, 24
@@ -142914,7 +142914,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2956)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2956
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2956
   %35 = load i32, ptr %s.i3.i, align 4, !noalias !2956
   %div.i.i.i = udiv i32 %35, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -142971,7 +142971,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i198)
   call void @llvm.experimental.noalias.scope.decl(metadata !2959)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2959
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2959
   %43 = load i32, ptr %s.i3.i, align 4, !noalias !2959
   %div.i.i.i200 = udiv i32 %43, 3600
   %rem.i.i.i.i201 = urem i32 %div.i.i.i200, 24
@@ -149939,7 +149939,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !2989)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !2989
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !2989
   %36 = load i32, ptr %s.i3.i, align 4, !noalias !2989
   %div.i.i.i = udiv i32 %36, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -149998,7 +149998,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !2992)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !2992
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !2992
   %44 = load i32, ptr %s.i3.i, align 4, !noalias !2992
   %div.i.i.i203 = udiv i32 %44, 3600
   %rem.i.i.i.i204 = urem i32 %div.i.i.i203, 24
@@ -154393,7 +154393,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3000)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !3000
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !3000
   %35 = load i32, ptr %s.i3.i, align 4, !noalias !3000
   %div.i.i.i = udiv i32 %35, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -154450,7 +154450,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i198)
   call void @llvm.experimental.noalias.scope.decl(metadata !3003)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !3003
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !3003
   %43 = load i32, ptr %s.i3.i, align 4, !noalias !3003
   %div.i.i.i200 = udiv i32 %43, 3600
   %rem.i.i.i.i201 = urem i32 %div.i.i.i200, 24
@@ -156958,7 +156958,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3007)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !3007
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !3007
   %38 = load i64, ptr %s.i3.i, align 8, !noalias !3007
   %div.i.i.i = udiv i64 %38, 3600
   %rem.i.i.i.i = urem i64 %div.i.i.i, 24
@@ -157018,7 +157018,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !3010)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !3010
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !3010
   %46 = load i64, ptr %s.i3.i, align 8, !noalias !3010
   %div.i.i.i203 = udiv i64 %46, 3600
   %rem.i.i.i.i204 = urem i64 %div.i.i.i203, 24
@@ -162521,7 +162521,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3162)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !3162
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !3162
   %38 = load i64, ptr %s.i3.i, align 8, !noalias !3162
   %div.i.i.i = udiv i64 %38, 3600
   %rem.i.i.i.i = urem i64 %div.i.i.i, 24
@@ -162581,7 +162581,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !3165)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !3165
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !3165
   %46 = load i64, ptr %s.i3.i, align 8, !noalias !3165
   %div.i.i.i203 = udiv i64 %46, 3600
   %rem.i.i.i.i204 = urem i64 %div.i.i.i203, 24
@@ -164973,7 +164973,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3169)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !3169
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !3169
   %38 = load i64, ptr %s.i3.i, align 8, !noalias !3169
   %div.i.i.i = udiv i64 %38, 3600
   %rem.i.i.i.i = urem i64 %div.i.i.i, 24
@@ -165033,7 +165033,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !3172)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !3172
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !3172
   %46 = load i64, ptr %s.i3.i, align 8, !noalias !3172
   %div.i.i.i203 = udiv i64 %46, 3600
   %rem.i.i.i.i204 = urem i64 %div.i.i.i203, 24
@@ -167335,7 +167335,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3176)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !3176
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !3176
   %39 = load i32, ptr %s.i3.i, align 4, !noalias !3176
   %div.i.i.i = udiv i32 %39, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -167394,7 +167394,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i205)
   call void @llvm.experimental.noalias.scope.decl(metadata !3179)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !3179
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !3179
   %47 = load i32, ptr %s.i3.i, align 4, !noalias !3179
   %div.i.i.i207 = udiv i32 %47, 3600
   %rem.i.i.i.i208 = urem i32 %div.i.i.i207, 24
@@ -169269,7 +169269,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3183)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !3183
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !3183
   %39 = load i32, ptr %s.i3.i, align 4, !noalias !3183
   %div.i.i.i = udiv i32 %39, 3600
   %rem.i.i.i.i = urem i32 %div.i.i.i, 24
@@ -169328,7 +169328,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i205)
   call void @llvm.experimental.noalias.scope.decl(metadata !3186)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !3186
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !3186
   %47 = load i32, ptr %s.i3.i, align 4, !noalias !3186
   %div.i.i.i207 = udiv i32 %47, 3600
   %rem.i.i.i.i208 = urem i32 %div.i.i.i207, 24
@@ -218702,7 +218702,7 @@ sw.bb68:                                          ; preds = %if.end36
 sw.bb74:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !3271)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 48, i1 false), !alias.scope !3271
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false), !alias.scope !3271
   %38 = load i64, ptr %s.i3.i, align 8, !noalias !3271
   %div.i.i.i = udiv i64 %38, 3600
   %rem.i.i.i.i = urem i64 %div.i.i.i, 24
@@ -218762,7 +218762,7 @@ sw.bb76:                                          ; preds = %if.end36
 sw.bb77:                                          ; preds = %if.end36
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.i201)
   call void @llvm.experimental.noalias.scope.decl(metadata !3274)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 0, i64 48, i1 false), !alias.scope !3274
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %1, i8 0, i64 48, i1 false), !alias.scope !3274
   %46 = load i64, ptr %s.i3.i, align 8, !noalias !3274
   %div.i.i.i203 = udiv i64 %46, 3600
   %rem.i.i.i.i204 = urem i64 %div.i.i.i203, 24

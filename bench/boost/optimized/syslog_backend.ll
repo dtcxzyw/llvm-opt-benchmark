@@ -2014,7 +2014,7 @@ define void @_ZN5boost3log11v2_mt_posix5sinks14syslog_backend17set_local_address
   %14 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 12, ptr noundef nonnull @.str.10, i32 noundef %13) #33
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #33
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %15, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %15, i8 0, i64 20, i1 false)
   store i16 2, ptr %5, align 4, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 0, ptr %16, align 2, !tbaa !28
@@ -5473,70 +5473,63 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix5sinks14syslog_backen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !72
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %22
+  br i1 %.not, label %7, label %21
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #33
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !46
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %10, i8 0, i64 20, i1 false)
-  %11 = icmp eq i32 %9, 2
-  br i1 %11, label %_ZN5boost4asio2ip14basic_endpointINS1_3udpEEC2ERKS3_t.exit, label %12
-
-12:                                               ; preds = %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %10, i8 0, i64 20, i1 false)
-  br label %_ZN5boost4asio2ip14basic_endpointINS1_3udpEEC2ERKS3_t.exit
+  %11 = icmp eq i32 %9, 2
+  %spec.select.i = select i1 %11, i16 2, i16 10
+  store i16 %spec.select.i, ptr %4, align 4, !tbaa !28
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store i16 0, ptr %12, align 2, !tbaa !28
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 0, ptr %13, align 4, !tbaa !28
+  %14 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #36
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load ptr, ptr %15, align 8, !tbaa !40
+  invoke void @_ZN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketC2ERNS_4asio10io_contextERKNS5_2ip3udpERKNS8_14basic_endpointIS9_EE(ptr noundef nonnull align 8 dereferenceable(88) %14, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(28) %4)
+          to label %17 unwind label %19
 
-_ZN5boost4asio2ip14basic_endpointINS1_3udpEEC2ERKS3_t.exit: ; preds = %7, %12
-  %.sink.i.i = phi i16 [ 10, %12 ], [ 2, %7 ]
-  store i16 %.sink.i.i, ptr %4, align 4, !tbaa !28
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i16 0, ptr %13, align 2, !tbaa !28
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 0, ptr %14, align 4, !tbaa !28
-  %15 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #36
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !40
-  invoke void @_ZN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketC2ERNS_4asio10io_contextERKNS5_2ip3udpERKNS8_14basic_endpointIS9_EE(ptr noundef nonnull align 8 dereferenceable(88) %15, ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(28) %4)
-          to label %18 unwind label %20
-
-18:                                               ; preds = %_ZN5boost4asio2ip14basic_endpointINS1_3udpEEC2ERKS3_t.exit
-  %19 = load ptr, ptr %5, align 8, !tbaa !72
-  store ptr %15, ptr %5, align 8, !tbaa !72
-  %.not.i.i = icmp eq ptr %19, null
+17:                                               ; preds = %7
+  %18 = load ptr, ptr %5, align 8, !tbaa !72
+  store ptr %14, ptr %5, align 8, !tbaa !72
+  %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketESt14default_deleteIS5_EE5resetEPS5_.exit, label %_ZNKSt14default_deleteIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketEEclEPS5_.exit.i.i
 
-_ZNKSt14default_deleteIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketEEclEPS5_.exit.i.i: ; preds = %18
-  call void @_ZN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %19) #33
-  call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef 88) #37
+_ZNKSt14default_deleteIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketEEclEPS5_.exit.i.i: ; preds = %17
+  call void @_ZN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %18) #33
+  call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef 88) #37
   %.pre.pre = load ptr, ptr %5, align 8, !tbaa !72
   br label %_ZNSt10unique_ptrIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketESt14default_deleteIS5_EE5resetEPS5_.exit
 
-_ZNSt10unique_ptrIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketESt14default_deleteIS5_EE5resetEPS5_.exit: ; preds = %18, %_ZNKSt14default_deleteIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketEEclEPS5_.exit.i.i
-  %.pre = phi ptr [ %15, %18 ], [ %.pre.pre, %_ZNKSt14default_deleteIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketEEclEPS5_.exit.i.i ]
+_ZNSt10unique_ptrIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketESt14default_deleteIS5_EE5resetEPS5_.exit: ; preds = %17, %_ZNKSt14default_deleteIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketEEclEPS5_.exit.i.i
+  %.pre = phi ptr [ %14, %17 ], [ %.pre.pre, %_ZNKSt14default_deleteIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketEEclEPS5_.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #33
-  br label %22
+  br label %21
 
-20:                                               ; preds = %_ZN5boost4asio2ip14basic_endpointINS1_3udpEEC2ERKS3_t.exit
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %7
+  %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %15, i64 noundef 88) #37
+  call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef 88) #37
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #33
-  resume { ptr, i32 } %21
+  resume { ptr, i32 } %20
 
-22:                                               ; preds = %_ZNSt10unique_ptrIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketESt14default_deleteIS5_EE5resetEPS5_.exit, %3
-  %23 = phi ptr [ %.pre, %_ZNSt10unique_ptrIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketESt14default_deleteIS5_EE5resetEPS5_.exit ], [ %6, %3 ]
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i32, ptr %24, align 8, !tbaa !35
-  %26 = or i32 %25, %1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !40
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !50
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = load ptr, ptr %2, align 8, !tbaa !50
-  call void @_ZN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socket12send_messageEiPKcRKNS_4asio2ip14basic_endpointINS8_3udpEEES6_(ptr noundef nonnull align 8 dereferenceable(88) %23, i32 noundef %26, ptr noundef %30, ptr noundef nonnull align 4 dereferenceable(28) %31, ptr noundef %32)
+21:                                               ; preds = %_ZNSt10unique_ptrIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketESt14default_deleteIS5_EE5resetEPS5_.exit, %3
+  %22 = phi ptr [ %.pre, %_ZNSt10unique_ptrIN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socketESt14default_deleteIS5_EE5resetEPS5_.exit ], [ %6, %3 ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = load i32, ptr %23, align 8, !tbaa !35
+  %25 = or i32 %24, %1
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = load ptr, ptr %26, align 8, !tbaa !40
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load ptr, ptr %28, align 8, !tbaa !50
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %31 = load ptr, ptr %2, align 8, !tbaa !50
+  call void @_ZN5boost3log11v2_mt_posix5sinks9anonymous17syslog_udp_socket12send_messageEiPKcRKNS_4asio2ip14basic_endpointINS8_3udpEEES6_(ptr noundef nonnull align 8 dereferenceable(88) %22, i32 noundef %25, ptr noundef %29, ptr noundef nonnull align 4 dereferenceable(28) %30, ptr noundef %31)
   ret void
 }
 
@@ -20705,7 +20698,7 @@ _ZNSt12__shared_ptrISt6vectorIN5boost4asio2ip20basic_resolver_entryINS3_3udpEEES
 
 74:                                               ; preds = %71, %71
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #33
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %55, i8 0, i64 20, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %55, i8 0, i64 20, i1 false)
   store i16 2, ptr %9, align 4, !tbaa !28
   store i16 0, ptr %56, align 2, !tbaa !28
   store i32 0, ptr %57, align 4, !tbaa !28

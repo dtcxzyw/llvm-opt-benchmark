@@ -6375,7 +6375,7 @@ define dso_local void @_ZN4Luau12autocompleteERNS_8FrontendERKNSt7__cxx1112basic
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %11, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 56, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %12, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6397,7 +6397,7 @@ define dso_local void @_ZN4Luau12autocompleteERNS_8FrontendERKNSt7__cxx1112basic
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %21, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 56, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %22, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6716,7 +6716,7 @@ define internal fastcc void @_ZN4LuauL12autocompleteERKNS_12SourceModuleERKSt10s
 
 121:                                              ; preds = %7
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %122, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %122, i8 0, i64 56, i1 false)
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %123, ptr %0, align 8
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6854,7 +6854,7 @@ define internal fastcc void @_ZN4LuauL12autocompleteERKNS_12SourceModuleERKSt10s
 
 .loopexit109:                                     ; preds = %197, %199, %172, %178
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %202, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %202, i8 0, i64 56, i1 false)
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %203, ptr %0, align 8
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7495,7 +7495,7 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau17Autocomp
 
 482:                                              ; preds = %481, %474
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %483, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %483, i8 0, i64 56, i1 false)
   %484 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %484, ptr %0, align 8
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7673,7 +7673,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit572: ; preds = %549, %551
 
 563:                                              ; preds = %532, %525, %519
   %564 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %564, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %564, i8 0, i64 56, i1 false)
   %565 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %565, ptr %0, align 8
   %566 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7785,7 +7785,7 @@ _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %604, %_ZNK4Luau7Ast
 
 616:                                              ; preds = %615, %_ZNK4Luau7AstNameeqEPKc.exit
   %617 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %617, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %617, i8 0, i64 56, i1 false)
   %618 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %618, ptr %0, align 8
   %619 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7999,7 +7999,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit584: ; preds = %682, %684
 
 696:                                              ; preds = %668
   %697 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %697, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %697, i8 0, i64 56, i1 false)
   %698 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %698, ptr %0, align 8
   %699 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9806,7 +9806,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit666: ; preds = %1445, %1447
 
 1462:                                             ; preds = %1458
   %1463 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1463, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1463, i8 0, i64 56, i1 false)
   %1464 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1464, ptr %0, align 8
   %1465 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9948,7 +9948,7 @@ _ZNSt6vectorIPN4Luau7AstNodeESaIS2_EED2Ev.exit670: ; preds = %1505, %1507
 
 1515:                                             ; preds = %1501
   %1516 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1516, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1516, i8 0, i64 56, i1 false)
   %1517 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1517, ptr %0, align 8
   %1518 = getelementptr inbounds nuw i8, ptr %0, i64 8

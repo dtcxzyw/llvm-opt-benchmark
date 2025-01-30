@@ -25964,7 +25964,7 @@ define void @MatrixInvert(ptr dead_on_unwind noalias nocapture writable writeonl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @MatrixIdentity(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0) local_unnamed_addr #21 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %2, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 1.000000e+00, ptr %3, align 4
@@ -26487,7 +26487,7 @@ define void @MatrixRotate(ptr dead_on_unwind noalias nocapture writable writeonl
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define void @MatrixRotateX(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0, float noundef %1) local_unnamed_addr #22 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -26508,7 +26508,7 @@ define void @MatrixRotateX(ptr dead_on_unwind noalias nocapture writable writeon
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define void @MatrixRotateY(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0, float noundef %1) local_unnamed_addr #22 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float 1.000000e+00, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -26529,7 +26529,7 @@ define void @MatrixRotateY(ptr dead_on_unwind noalias nocapture writable writeon
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define void @MatrixRotateZ(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0, float noundef %1) local_unnamed_addr #22 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 52, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %3, i8 0, i64 52, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float 1.000000e+00, ptr %5, align 4
@@ -26550,7 +26550,7 @@ define void @MatrixRotateZ(ptr dead_on_unwind noalias nocapture writable writeon
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define void @MatrixRotateXYZ(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0, <2 x float> %1, float %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -26660,7 +26660,7 @@ define void @MatrixRotateZYX(ptr dead_on_unwind noalias nocapture writable write
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @MatrixScale(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #21 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   store float %1, ptr %0, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %2, ptr %6, align 4
@@ -26735,7 +26735,7 @@ define void @MatrixFrustum(ptr dead_on_unwind noalias nocapture writable writeon
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define void @MatrixPerspective(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #22 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %6, i8 0, i64 60, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %6, i8 0, i64 60, i1 false)
   %7 = fmul double %1, 5.000000e-01
   %8 = tail call double @tan(double noundef %7) #54
   %9 = fmul double %3, %8
@@ -27611,7 +27611,7 @@ default.unreachable61:                            ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @QuaternionToMatrix(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 initializes((0, 64)) %0, <2 x float> %1, <2 x float> %2) local_unnamed_addr #23 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -29635,7 +29635,7 @@ define void @GetCameraProjectionMatrix(ptr dead_on_unwind noalias nocapture writ
   %11 = fpext float %2 to double
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, i8 0, i64 60, i1 false), !alias.scope !7
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %12, i8 0, i64 60, i1 false), !alias.scope !7
   %13 = fmul double %10, 5.000000e-01
   %14 = tail call double @tan(double noundef %13) #54, !noalias !7
   %15 = fmul double %14, 1.000000e-02
@@ -29711,7 +29711,7 @@ define void @GetCameraProjectionMatrix(ptr dead_on_unwind noalias nocapture writ
 
 65:                                               ; preds = %3
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %66, i8 0, i64 56, i1 false), !alias.scope !13
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %66, i8 0, i64 56, i1 false), !alias.scope !13
   store float 1.000000e+00, ptr %0, align 4, !alias.scope !13
   br label %67
 
@@ -33383,7 +33383,7 @@ msf_put_code.exit.i:                              ; preds = %350, %346, %343
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 1
   store i8 %354, ptr %360, align 1
   %362 = getelementptr inbounds nuw i8, ptr %360, i64 5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(260) %362, i8 0, i64 256, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %362, i8 0, i64 256, i1 false)
   store i8 -1, ptr %361, align 1
   %363 = shl nsw i32 %.0115.lcssa.i, 12
   %364 = sext i32 %363 to i64
@@ -34029,7 +34029,7 @@ define internal fastcc i32 @sinfl_decompress(ptr noundef %0, i32 noundef %1, ptr
   %20 = sext i32 %3 to i64
   %21 = getelementptr inbounds i8, ptr %2, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6976) %22, i8 0, i64 6960, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6960) %22, i8 0, i64 6960, i1 false)
   store ptr %2, ptr %13, align 8
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %21, ptr %23, align 8
@@ -40027,7 +40027,7 @@ define internal void @MouseCursorPosCallback(ptr nocapture readnone %0, double n
   %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1884), align 4
   store i64 %7, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 1976), align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, i8 0, i64 96, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %8, i8 0, i64 96, i1 false)
   store i32 2, ptr %4, align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %9, align 4
@@ -43208,7 +43208,7 @@ define { i32, ptr } @LoadShaderFromMemory(ptr noundef %0, ptr noundef %1) local_
 4:                                                ; preds = %2
   %5 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 32, i64 noundef 4) #57
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %6, i8 -1, i64 84, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(84) %6, i8 -1, i64 84, i1 false)
   %7 = load ptr, ptr @glad_glGetAttribLocation, align 8
   %8 = tail call i32 %7(i32 noundef %3, ptr noundef nonnull @.str.71) #54
   store i32 %8, ptr %5, align 4
@@ -43609,7 +43609,7 @@ define void @GetViewRay(ptr dead_on_unwind noalias nocapture writable writeonly 
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store float 1.000000e+00, ptr %83, align 4, !alias.scope !43
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %84, i8 0, i64 56, i1 false), !alias.scope !46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %84, i8 0, i64 56, i1 false), !alias.scope !46
   store float 1.000000e+00, ptr %7, align 8, !alias.scope !46
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store float 1.000000e+00, ptr %85, align 4, !alias.scope !46

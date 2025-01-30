@@ -2113,7 +2113,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !22
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !22
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -2246,7 +2246,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !25
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !25
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -2375,7 +2375,7 @@ if.end117:                                        ; preds = %if.else.if.end117_c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %lambda, ptr noundef nonnull align 4 dereferenceable(32) %lambda118, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %62 = getelementptr inbounds nuw i8, ptr %ctx, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %62, i8 0, i64 24, i1 false), !alias.scope !28
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %62, i8 0, i64 24, i1 false), !alias.scope !28
   %wo.i = getelementptr inbounds nuw i8, ptr %w, i64 188
   %wo3.i = getelementptr inbounds nuw i8, ptr %ctx, i64 76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %wo3.i, ptr noundef nonnull align 4 dereferenceable(12) %wo.i, i64 12, i1 false)
@@ -11297,7 +11297,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !184)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !184
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !184
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !184
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -11430,7 +11430,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !187)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !187
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !187
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !187
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -11559,7 +11559,7 @@ if.end117:                                        ; preds = %if.else.if.end117_c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %lambda, ptr noundef nonnull align 4 dereferenceable(32) %lambda118, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !190)
   %62 = getelementptr inbounds nuw i8, ptr %ctx, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %62, i8 0, i64 24, i1 false), !alias.scope !190
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %62, i8 0, i64 24, i1 false), !alias.scope !190
   %wo.i = getelementptr inbounds nuw i8, ptr %w, i64 188
   %wo3.i = getelementptr inbounds nuw i8, ptr %ctx, i64 76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %wo3.i, ptr noundef nonnull align 4 dereferenceable(12) %wo.i, i64 12, i1 false)
@@ -14250,7 +14250,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !232)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !232
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !232
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !232
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -14383,7 +14383,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !235)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !235
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !235
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !235
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -14512,7 +14512,7 @@ if.end117:                                        ; preds = %if.else.if.end117_c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %lambda, ptr noundef nonnull align 4 dereferenceable(32) %lambda118, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !238)
   %62 = getelementptr inbounds nuw i8, ptr %ctx, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %62, i8 0, i64 24, i1 false), !alias.scope !238
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %62, i8 0, i64 24, i1 false), !alias.scope !238
   %wo.i = getelementptr inbounds nuw i8, ptr %w, i64 188
   %wo3.i = getelementptr inbounds nuw i8, ptr %ctx, i64 76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %wo3.i, ptr noundef nonnull align 4 dereferenceable(12) %wo.i, i64 12, i1 false)
@@ -16924,7 +16924,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !274)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !274
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !274
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !274
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -17057,7 +17057,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !277)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !277
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !277
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !277
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -17186,7 +17186,7 @@ if.end117:                                        ; preds = %if.else.if.end117_c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %lambda, ptr noundef nonnull align 4 dereferenceable(32) %lambda118, i64 32, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
   %62 = getelementptr inbounds nuw i8, ptr %ctx, i64 12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %62, i8 0, i64 24, i1 false), !alias.scope !280
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %62, i8 0, i64 24, i1 false), !alias.scope !280
   %wo.i = getelementptr inbounds nuw i8, ptr %w, i64 188
   %wo3.i = getelementptr inbounds nuw i8, ptr %ctx, i64 76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %wo3.i, ptr noundef nonnull align 4 dereferenceable(12) %wo.i, i64 12, i1 false)
@@ -19530,7 +19530,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !316)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !316
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !316
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !316
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -19665,7 +19665,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !319)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !319
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !319
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !319
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -25148,7 +25148,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !373)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !373
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !373
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !373
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -25283,7 +25283,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !376)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !376
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !376
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !376
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -28311,7 +28311,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !418)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !418
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !418
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !418
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -28446,7 +28446,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !421)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !421
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !421
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !421
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -31336,7 +31336,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !460)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !460
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !460
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !460
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -31471,7 +31471,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !463)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !463
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !463
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !463
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -34049,7 +34049,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !502)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !502
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !502
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !502
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -34182,7 +34182,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !505)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !505
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !505
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !505
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -36762,7 +36762,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !548)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !548
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !548
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !548
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -36895,7 +36895,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !551)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !551
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !551
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !551
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -39351,7 +39351,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !590)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !590
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !590
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !590
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -39486,7 +39486,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !593)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !593
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !593
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !593
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -42644,7 +42644,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !632)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !632
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !632
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !632
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -42777,7 +42777,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !635)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !635
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !635
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !635
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -51074,7 +51074,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !749)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !749
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !749
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !749
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -51209,7 +51209,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !752)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !752
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !752
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !752
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -53742,7 +53742,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !794)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !794
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !794
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !794
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -53877,7 +53877,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !797)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !797
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !797
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !797
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -56468,7 +56468,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !839)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !839
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !839
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !839
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -56601,7 +56601,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !842)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !842
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !842
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !842
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -59190,7 +59190,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !881)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !881
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !881
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !881
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -59323,7 +59323,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !884)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !884
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !884
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !884
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -62039,7 +62039,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !923)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !923
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !923
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !923
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -62172,7 +62172,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !926)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !926
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !926
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !926
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -64670,7 +64670,7 @@ if.end:                                           ; preds = %cond.true61, %if.th
 if.then71:                                        ; preds = %if.end
   call void @llvm.experimental.noalias.scope.decl(metadata !965)
   %38 = getelementptr inbounds nuw i8, ptr %bctx, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %38, i8 0, i64 112, i1 false), !alias.scope !965
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %38, i8 0, i64 112, i1 false), !alias.scope !965
   %pi.i = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i = load float, ptr %pi.i, align 8, !noalias !965
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i = getelementptr inbounds nuw i8, ptr %w, i64 12
@@ -64803,7 +64803,7 @@ if.else.if.end117_crit_edge:                      ; preds = %if.else
 if.then90:                                        ; preds = %if.else
   call void @llvm.experimental.noalias.scope.decl(metadata !968)
   %50 = getelementptr inbounds nuw i8, ptr %bctx94, i64 20
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(136) %50, i8 0, i64 112, i1 false), !alias.scope !968
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %50, i8 0, i64 112, i1 false), !alias.scope !968
   %pi.i178 = getelementptr inbounds nuw i8, ptr %w, i64 8
   %agg.tmp.sroa.0.sroa.0.0.copyload.i179 = load float, ptr %pi.i178, align 8, !noalias !968
   %agg.tmp.sroa.0.sroa.2.0.pi.sroa_idx.i180 = getelementptr inbounds nuw i8, ptr %w, i64 12

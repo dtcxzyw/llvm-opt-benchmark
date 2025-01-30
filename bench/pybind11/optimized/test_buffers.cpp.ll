@@ -2037,7 +2037,7 @@ _ZN8pybind116detail8accessorINS0_17accessor_policies8str_attrEED2Ev.exit: ; pred
   %137 = getelementptr inbounds nuw i8, ptr %134, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %137, i8 0, i64 32, i1 false), !noalias !17
   %138 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %138, i8 0, i64 83, i1 false), !noalias !17
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %138, i8 0, i64 83, i1 false), !noalias !17
   store ptr %134, ptr %97, align 8, !alias.scope !17
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 48
   store ptr @"_ZZN8pybind1112cpp_function10initializeIZ22test_submodule_buffersRNS_7module_EE3$_0St4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbEJRKSB_RKNS_6bufferEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESY_", ptr %139, align 8
@@ -2340,7 +2340,7 @@ _ZN8pybind116class_IZ22test_submodule_buffersRNS_7module_EE6MatrixJEEC2IJNS_15bu
   %235 = getelementptr inbounds nuw i8, ptr %232, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %235, i8 0, i64 32, i1 false), !noalias !30
   %236 = getelementptr inbounds nuw i8, ptr %232, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %236, i8 0, i64 83, i1 false), !noalias !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %236, i8 0, i64 83, i1 false), !noalias !30
   store ptr %232, ptr %92, align 8, !alias.scope !30
   %237 = getelementptr inbounds nuw i8, ptr %232, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJllEE7executeINS_6class_IZ22test_submodule_buffersRNS_7module_EE6MatrixJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSD_DpRKT0_EUlRNS2_16value_and_holderEllE_vJSM_llEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSD_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES13_, ptr %237, align 8
@@ -2521,7 +2521,7 @@ _ZN8pybind114noneD2Ev.exit.i.i.i:                 ; preds = %261, %_ZN8pybind116
   %294 = getelementptr inbounds nuw i8, ptr %291, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %294, i8 0, i64 32, i1 false), !noalias !43
   %295 = getelementptr inbounds nuw i8, ptr %291, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %295, i8 0, i64 83, i1 false), !noalias !43
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %295, i8 0, i64 83, i1 false), !noalias !43
   store ptr %291, ptr %88, align 8, !alias.scope !43
   %296 = getelementptr inbounds nuw i8, ptr %291, i64 48
   store ptr @"_ZZN8pybind1112cpp_function10initializeIZNOS_6detail8initimpl7factoryIZ22test_submodule_buffersRNS_7module_EE3$_1PFNS2_9void_typeEvEFPZ22test_submodule_buffersS6_E6MatrixRKNS_6bufferEES9_E7executeINS_6class_ISB_JEEEJEEEvRT_DpRKT0_EUlRNS2_16value_and_holderESF_E_vJSS_SF_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSL_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES19_", ptr %296, align 8
@@ -2710,7 +2710,7 @@ _ZN8pybind114noneD2Ev.exit.i.i.i81:               ; preds = %320, %_ZN8pybind116
   %357 = getelementptr inbounds nuw i8, ptr %354, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %357, i8 0, i64 32, i1 false), !noalias !56
   %358 = getelementptr inbounds nuw i8, ptr %354, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %358, i8 0, i64 83, i1 false), !noalias !56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %358, i8 0, i64 83, i1 false), !noalias !56
   store ptr %354, ptr %84, align 8, !alias.scope !56
   %359 = getelementptr inbounds nuw i8, ptr %354, i64 48
   store ptr @"_ZZN8pybind1112cpp_function10initializeIZ22test_submodule_buffersRNS_7module_EE3$_2fJRKZ22test_submodule_buffersS3_E6MatrixSt4pairIllEEJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESQ_", ptr %359, align 8
@@ -2891,7 +2891,7 @@ _ZN8pybind114noneD2Ev.exit.i95:                   ; preds = %383, %_ZN8pybind116
   %416 = getelementptr inbounds nuw i8, ptr %413, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %416, i8 0, i64 32, i1 false), !noalias !69
   %417 = getelementptr inbounds nuw i8, ptr %413, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %417, i8 0, i64 83, i1 false), !noalias !69
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %417, i8 0, i64 83, i1 false), !noalias !69
   store ptr %413, ptr %80, align 8, !alias.scope !69
   %418 = getelementptr inbounds nuw i8, ptr %413, i64 48
   store ptr @"_ZZN8pybind1112cpp_function10initializeIZ22test_submodule_buffersRNS_7module_EE3$_3vJRZ22test_submodule_buffersS3_E6MatrixSt4pairIllEfEJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESP_", ptr %418, align 8
@@ -3312,7 +3312,7 @@ _ZN8pybind116class_IZ22test_submodule_buffersRNS_7module_EE12SquareMatrixJZ22tes
   %549 = getelementptr inbounds nuw i8, ptr %546, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %549, i8 0, i64 32, i1 false), !noalias !85
   %550 = getelementptr inbounds nuw i8, ptr %546, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %550, i8 0, i64 83, i1 false), !noalias !85
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %550, i8 0, i64 83, i1 false), !noalias !85
   store ptr %546, ptr %72, align 8, !alias.scope !85
   %551 = getelementptr inbounds nuw i8, ptr %546, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJlEE7executeINS_6class_IZ22test_submodule_buffersRNS_7module_EE12SquareMatrixJZ22test_submodule_buffersS9_E6MatrixEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderElE_vJSN_lEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES14_, ptr %551, align 8
@@ -3624,7 +3624,7 @@ _ZN8pybind116class_IZ22test_submodule_buffersRNS_7module_EE6BufferJEEC2IJNS_15bu
   %652 = getelementptr inbounds nuw i8, ptr %649, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %652, i8 0, i64 32, i1 false), !noalias !98
   %653 = getelementptr inbounds nuw i8, ptr %649, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %653, i8 0, i64 83, i1 false), !noalias !98
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %653, i8 0, i64 83, i1 false), !noalias !98
   store ptr %649, ptr %67, align 8, !alias.scope !98
   %654 = getelementptr inbounds nuw i8, ptr %649, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ22test_submodule_buffersRNS_7module_EE6BufferJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSD_DpRKT0_EUlRNS2_16value_and_holderEE_vJSM_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSD_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES13_, ptr %654, align 8
@@ -4272,7 +4272,7 @@ _ZN8pybind116class_IZ22test_submodule_buffersRNS_7module_EE11ConstBufferJEEC2IJN
   %857 = getelementptr inbounds nuw i8, ptr %854, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %857, i8 0, i64 32, i1 false), !noalias !120
   %858 = getelementptr inbounds nuw i8, ptr %854, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %858, i8 0, i64 83, i1 false), !noalias !120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %858, i8 0, i64 83, i1 false), !noalias !120
   store ptr %854, ptr %55, align 8, !alias.scope !120
   %859 = getelementptr inbounds nuw i8, ptr %854, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ22test_submodule_buffersRNS_7module_EE11ConstBufferJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSD_DpRKT0_EUlRNS2_16value_and_holderEE_vJSM_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSD_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES13_, ptr %859, align 8
@@ -4916,7 +4916,7 @@ _ZN8pybind116class_IZ22test_submodule_buffersRNS_7module_EE13DerivedBufferJEEC2I
   %1059 = getelementptr inbounds nuw i8, ptr %1056, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1059, i8 0, i64 32, i1 false), !noalias !142
   %1060 = getelementptr inbounds nuw i8, ptr %1056, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %1060, i8 0, i64 83, i1 false), !noalias !142
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %1060, i8 0, i64 83, i1 false), !noalias !142
   store ptr %1056, ptr %43, align 8, !alias.scope !142
   %1061 = getelementptr inbounds nuw i8, ptr %1056, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ22test_submodule_buffersRNS_7module_EE13DerivedBufferJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSD_DpRKT0_EUlRNS2_16value_and_holderEE_vJSM_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSD_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES13_, ptr %1061, align 8
@@ -5564,7 +5564,7 @@ _ZN8pybind116class_IZ22test_submodule_buffersRNS_7module_EE14BufferReadOnlyJEEC2
   %1264 = getelementptr inbounds nuw i8, ptr %1261, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1264, i8 0, i64 32, i1 false), !noalias !164
   %1265 = getelementptr inbounds nuw i8, ptr %1261, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %1265, i8 0, i64 83, i1 false), !noalias !164
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %1265, i8 0, i64 83, i1 false), !noalias !164
   store ptr %1261, ptr %31, align 8, !alias.scope !164
   %1266 = getelementptr inbounds nuw i8, ptr %1261, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJhEE7executeINS_6class_IZ22test_submodule_buffersRNS_7module_EE14BufferReadOnlyJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSD_DpRKT0_EUlRNS2_16value_and_holderEhE_vJSM_hEJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSD_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES13_, ptr %1266, align 8
@@ -5984,7 +5984,7 @@ _ZN8pybind116class_IZ22test_submodule_buffersRNS_7module_EE20BufferReadOnlySelec
   %1397 = getelementptr inbounds nuw i8, ptr %1394, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1397, i8 0, i64 32, i1 false), !noalias !180
   %1398 = getelementptr inbounds nuw i8, ptr %1394, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %1398, i8 0, i64 83, i1 false), !noalias !180
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %1398, i8 0, i64 83, i1 false), !noalias !180
   store ptr %1394, ptr %23, align 8, !alias.scope !180
   %1399 = getelementptr inbounds nuw i8, ptr %1394, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ22test_submodule_buffersRNS_7module_EE20BufferReadOnlySelectJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSD_DpRKT0_EUlRNS2_16value_and_holderEE_vJSM_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSD_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES13_, ptr %1399, align 8
@@ -6794,7 +6794,7 @@ _ZN8pybind116class_IZ22test_submodule_buffersRNS_7module_EE20BufferReadOnlySelec
   %1655 = getelementptr inbounds nuw i8, ptr %1652, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1655, i8 0, i64 32, i1 false), !noalias !208
   %1656 = getelementptr inbounds nuw i8, ptr %1652, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %1656, i8 0, i64 83, i1 false), !noalias !208
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %1656, i8 0, i64 83, i1 false), !noalias !208
   store ptr %1652, ptr %6, align 8, !alias.scope !208
   %1657 = getelementptr inbounds nuw i8, ptr %1652, i64 48
   store ptr @"_ZZN8pybind1112cpp_function10initializeIZ22test_submodule_buffersRNS_7module_EE3$_5NS_3strEJNS_6handleEEJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESN_", ptr %1657, align 8
@@ -6998,7 +6998,7 @@ _ZN8pybind116class_INS_11buffer_infoEJEED2Ev.exit: ; preds = %1699, %1701, %1704
   %1722 = getelementptr inbounds nuw i8, ptr %1719, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1722, i8 0, i64 32, i1 false), !noalias !221
   %1723 = getelementptr inbounds nuw i8, ptr %1719, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %1723, i8 0, i64 83, i1 false), !noalias !221
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %1723, i8 0, i64 83, i1 false), !noalias !221
   store ptr %1719, ptr %2, align 8, !alias.scope !221
   %1724 = getelementptr inbounds nuw i8, ptr %1719, i64 48
   store ptr @"_ZZN8pybind1112cpp_function10initializeIZ22test_submodule_buffersRNS_7module_EE3$_6NS_11buffer_infoEJRKNS_6bufferEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESP_", ptr %1724, align 8
@@ -7390,7 +7390,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN8pybin
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false), !noalias !244
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %22, i8 0, i64 83, i1 false), !noalias !244
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %22, i8 0, i64 83, i1 false), !noalias !244
   store ptr %18, ptr %3, align 8, !alias.scope !244
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store i64 %.0.val, ptr %23, align 8
@@ -8594,7 +8594,7 @@ _ZN8pybind116objectD2Ev.exit48:                   ; preds = %_ZN8pybind116detail
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(472) %62, i8 0, i64 432, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(432) %62, i8 0, i64 432, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 48
   store ptr %63, ptr %60, align 8
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -16048,7 +16048,7 @@ _ZN8pybind117capsuleD2Ev.exit.thread:             ; preds = %_ZL19_PyObject_Type
   %559 = getelementptr inbounds nuw i8, ptr %45, i64 104
   store ptr %557, ptr %559, align 8
   %560 = getelementptr inbounds nuw i8, ptr %557, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %560, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %560, i8 0, i64 16, i1 false)
   %561 = load ptr, ptr %45, align 8
   store ptr %561, ptr %557, align 8
   %562 = getelementptr inbounds nuw i8, ptr %557, i64 8
@@ -36673,7 +36673,7 @@ _ZNKSt10_HashtableISt10type_indexSt4pairIKS0_16ConstructorStatsESaIS4_ENSt8__det
   store i64 %23, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %25, i8 0, i64 72, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %25, i8 0, i64 72, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 64
   store ptr %26, ptr %24, align 8
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -50322,7 +50322,7 @@ define linkonce_odr hidden void @_ZN8pybind1112cpp_functionC2IZNS_6detail8initim
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false), !noalias !1018
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(91) %12, i8 0, i64 83, i1 false), !noalias !1018
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(83) %12, i8 0, i64 83, i1 false), !noalias !1018
   store ptr %8, ptr %7, align 8, !alias.scope !1018
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_INS_11buffer_infoEJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSB_DpRKT0_EUlRNS2_16value_and_holderEE_vJSK_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSB_PFT0_DpT1_EDpRKT2_ENUlRNS2_13function_callEE_8__invokeES11_, ptr %13, align 8

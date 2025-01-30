@@ -10480,7 +10480,7 @@ sqlite3_vfs_find.exit:                            ; preds = %sqlite3_mutex_enter
   br i1 %.not.i29, label %36, label %35
 
 35:                                               ; preds = %33
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) getelementptr inbounds nuw (i8, ptr @sqlite3Prng, i64 20), i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) getelementptr inbounds nuw (i8, ptr @sqlite3Prng, i64 20), i8 0, i64 40, i1 false)
   store i32 %34, ptr getelementptr inbounds nuw (i8, ptr @sqlite3Prng, i64 16), align 4
   br label %sqlite3OsRandomness.exit
 
@@ -13909,7 +13909,7 @@ sqlite3VdbeDisplayP4.exit.i:                      ; preds = %555, %553, %551, %5
   %569 = load ptr, ptr %.ptr123.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %86, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 56, i1 false)
   store i16 1, ptr %87, align 4
   %570 = load ptr, ptr %181, align 8
@@ -13977,7 +13977,7 @@ sqlite3VdbeMemSetInt64.exit.i:                    ; preds = %585, %582, %560
   %599 = load ptr, ptr %590, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %92, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 56, i1 false)
   store i16 1, ptr %93, align 4
   %600 = getelementptr inbounds nuw i8, ptr %172, i64 136
@@ -14046,7 +14046,7 @@ sqlite3VdbeMemSetInt64.exit75.i:                  ; preds = %616, %613, %sqlite3
   %630 = load ptr, ptr %621, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %98, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 56, i1 false)
   store i16 1, ptr %99, align 4
   %631 = getelementptr inbounds nuw i8, ptr %172, i64 192
@@ -14114,7 +14114,7 @@ sqlite3VdbeMemSetInt64.exit81.i:                  ; preds = %647, %644, %sqlite3
   %658 = load ptr, ptr %.ptr123.ptr.i, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %50, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %50, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 56, i1 false)
   store i16 1, ptr %51, align 4
   %659 = load ptr, ptr %181, align 8
@@ -14188,7 +14188,7 @@ sqlite3VdbeMemSetInt64.exit87.i:                  ; preds = %674, %671, %652
   %694 = load ptr, ptr %685, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %56, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 56, i1 false)
   store i16 1, ptr %57, align 4
   %695 = getelementptr inbounds nuw i8, ptr %172, i64 192
@@ -14257,7 +14257,7 @@ sqlite3VdbeMemSetInt64.exit93.i:                  ; preds = %711, %708, %sqlite3
   %725 = load ptr, ptr %716, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %62, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %62, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
   store i16 1, ptr %63, align 4
   %726 = getelementptr inbounds nuw i8, ptr %172, i64 248
@@ -14326,7 +14326,7 @@ sqlite3VdbeMemSetInt64.exit99.i:                  ; preds = %742, %739, %sqlite3
   %756 = load ptr, ptr %747, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   store i16 1, ptr %69, align 4
   %757 = getelementptr inbounds nuw i8, ptr %172, i64 304
@@ -14395,7 +14395,7 @@ sqlite3VdbeMemSetInt64.exit105.i:                 ; preds = %773, %770, %sqlite3
   %787 = load ptr, ptr %778, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %74, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   store i16 1, ptr %75, align 4
   %788 = getelementptr inbounds nuw i8, ptr %172, i64 416
@@ -14461,7 +14461,7 @@ sqlite3VdbeMemSetInt64.exit111.i:                 ; preds = %804, %801, %sqlite3
   %815 = load ptr, ptr %809, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %80, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i16 1, ptr %81, align 4
   %816 = getelementptr inbounds nuw i8, ptr %172, i64 472
@@ -15231,7 +15231,7 @@ sqlite3_mutex_enter.exit:                         ; preds = %sqlite3SafetyCheckO
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %33, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 56, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i16 1, ptr %34, align 4
@@ -15685,7 +15685,7 @@ sqlite3VdbeFinalize.exit:                         ; preds = %.loopexit, %sqlite3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   %221 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %221, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %221, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   %222 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i16 1, ptr %222, align 4
@@ -15977,7 +15977,7 @@ sqlite3DbStrDup.exit:                             ; preds = %326
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %339 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %339, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %339, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %340 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i16 1, ptr %340, align 4
@@ -16750,7 +16750,7 @@ sqlite3_mutex_enter.exit41:                       ; preds = %sqlite3_mutex_enter
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 1, ptr %31, align 4
@@ -17022,7 +17022,7 @@ define internal fastcc void @sqlite3Error(ptr nocapture noundef initializes((80,
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %16, align 4
@@ -22360,7 +22360,7 @@ sqlite3VtabModuleUnref.exit:                      ; preds = %sqlite3VtabEponymou
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %236, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %236, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %237 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %237, align 4
@@ -22731,7 +22731,7 @@ sqlite3OomClear.exit.i:                           ; preds = %24, %12, %11
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %37, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %38, align 4
@@ -23993,7 +23993,7 @@ define dso_local void @sqlite3_result_double(ptr nocapture noundef readonly %0, 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %13, align 4
@@ -24095,7 +24095,7 @@ define internal fastcc range(i32 0, 19) i32 @sqlite3VdbeMemSetStr(ptr noundef %0
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i16 1, ptr %18, align 4
@@ -24250,7 +24250,7 @@ sqlite3DbFree.exit:                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %81, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %81, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i16 1, ptr %82, align 4
@@ -24536,7 +24536,7 @@ define dso_local void @sqlite3_result_int(ptr nocapture noundef readonly %0, i32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %13, align 4
@@ -24615,7 +24615,7 @@ define internal fastcc void @sqlite3VdbeMemSetInt64(ptr noundef %0, i64 noundef 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %12, align 4
@@ -24694,7 +24694,7 @@ define dso_local void @sqlite3_result_int64(ptr nocapture noundef readonly %0, i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %13, align 4
@@ -24773,7 +24773,7 @@ define dso_local void @sqlite3_result_null(ptr nocapture noundef readonly %0) #0
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %12, align 4
@@ -24850,7 +24850,7 @@ define internal fastcc void @sqlite3VdbeMemSetNull(ptr noundef %0) unnamed_addr 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %11, align 4
@@ -25180,7 +25180,7 @@ define internal fastcc range(i32 0, 8) i32 @sqlite3VdbeMemCopy(ptr noundef %0, p
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %12, align 4
@@ -25477,7 +25477,7 @@ define dso_local void @sqlite3_result_error_nomem(ptr nocapture noundef initiali
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %12, align 4
@@ -26261,7 +26261,7 @@ sqlite3VdbeMemFromBtreeZeroOffset.exit._crit_edge: ; preds = %sqlite3VdbeMemFrom
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %170 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %170, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %170, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %171 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %171, align 4
@@ -26753,7 +26753,7 @@ sqlite3_mutex_enter.exit:                         ; preds = %6, %10
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %33, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %34, align 4
@@ -27580,7 +27580,7 @@ define dso_local range(i32 0, 26) i32 @sqlite3_bind_double(ptr noundef %0, i32 n
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %21, align 4
@@ -27722,7 +27722,7 @@ sqlite3_mutex_enter.exit:                         ; preds = %11, %14
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 1, ptr %31, align 4
@@ -27830,7 +27830,7 @@ sqlite3_mutex_leave.exit:                         ; preds = %sqlite3ErrorFinish.
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %80, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %81, align 4
@@ -27987,7 +27987,7 @@ define dso_local range(i32 0, 26) i32 @sqlite3_bind_int64(ptr noundef %0, i32 no
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %21, align 4
@@ -29464,7 +29464,7 @@ sqlite3VdbeChangeEncoding.exit.thread:            ; preds = %223, %222, %228, %s
   %237 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %82, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i16 1, ptr %83, align 4
   %238 = load ptr, ptr %77, align 8
@@ -32639,7 +32639,7 @@ define internal fastcc i32 @blobSeekToRow(ptr nocapture noundef nonnull %0, i64 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %18, align 4
@@ -36551,7 +36551,7 @@ sqlite3_mutex_enter.exit:                         ; preds = %2, %8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %27, align 4
@@ -42119,7 +42119,7 @@ sqlite3VdbeChangeEncoding.exit._crit_edge:        ; preds = %sqlite3VdbeChangeEn
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %32, align 4
@@ -45099,7 +45099,7 @@ sqlite3FindCollSeq.exit.thread:                   ; preds = %142, %sqlite3HashFi
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   %162 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %162, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %162, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %163 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i16 1, ptr %163, align 4
@@ -47872,7 +47872,7 @@ sqlite3_mutex_enter.exit.thread.i:                ; preds = %45
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %119, i8 0, i64 508, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(508) %119, i8 0, i64 508, i1 false)
   store i32 %114, ptr %117, align 8
   br label %sqlite3BitvecCreate.exit.i
 
@@ -57347,7 +57347,7 @@ define internal fastcc void @sqlite3ErrorFinish(ptr nocapture noundef %0, i32 no
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %15, align 4
@@ -60496,7 +60496,7 @@ subjRequiresPage.exit:                            ; preds = %subjRequiresPage.ex
 .thread10.i.i:                                    ; preds = %75, %73
   %79 = load ptr, ptr %66, align 8
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %80, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %80, i8 0, i64 48, i1 false)
   br label %86
 
 81:                                               ; preds = %75
@@ -63030,7 +63030,7 @@ sqlite3BitvecCreate.exit.thread:                  ; preds = %18
 
 sqlite3BitvecCreate.exit:                         ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %20, i8 0, i64 508, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(508) %20, i8 0, i64 508, i1 false)
   store i32 %9, ptr %19, align 8
   store ptr %19, ptr %15, align 8
   br label %21
@@ -69132,7 +69132,7 @@ sqlite3WalUndo.exit.i.i:                          ; preds = %walCleanupHash.exit
 
 167:                                              ; preds = %72
   %168 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %168, i8 0, i64 508, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(508) %168, i8 0, i64 508, i1 false)
   store i32 %74, ptr %75, align 8
   %169 = load i32, ptr %73, align 4
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -74126,7 +74126,7 @@ sqlite3BitvecCreate.exit.thread.i:                ; preds = %38
 
 45:                                               ; preds = %38
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %46, i8 0, i64 508, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(508) %46, i8 0, i64 508, i1 false)
   store i32 %41, ptr %42, align 8
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %42, ptr %47, align 8
@@ -75708,7 +75708,7 @@ sqlite3BitvecCreate.exit.thread.i:                ; preds = %19
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %25, i8 0, i64 508, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(508) %25, i8 0, i64 508, i1 false)
   store i32 %21, ptr %22, align 8
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %22, ptr %26, align 8
@@ -75725,7 +75725,7 @@ sqlite3BitvecCreate.exit.thread.i:                ; preds = %19
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %34, i8 0, i64 48, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, i8 0, i64 48, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 1016, ptr %35, align 8
   store ptr @MemJournalMethods, ptr %28, align 8
@@ -82539,7 +82539,7 @@ sqlite3VdbeMemRelease.exit.i.i.i:                 ; preds = %.preheader.i.i.i
   %170 = load ptr, ptr %.1.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %69, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   store i16 1, ptr %70, align 4
   %171 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 24
@@ -83827,7 +83827,7 @@ sqlite3EndBenignMalloc.exit:                      ; preds = %sqlite3ValueSetStr.
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %39, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %40, align 4
@@ -87423,7 +87423,7 @@ define internal fastcc void @vdbeMemClear(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %11, align 4
@@ -87506,7 +87506,7 @@ define internal fastcc i32 @sqlite3VdbeMemFinalize(ptr noundef %0, ptr noundef %
   %3 = alloca %struct.sqlite3_context, align 8
   %4 = alloca %struct.sqlite3_value, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 1, ptr %6, align 4
@@ -87707,7 +87707,7 @@ sqlite3DbMallocRaw.exit:                          ; preds = %58, %60
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %75, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %76, align 4
@@ -91456,7 +91456,7 @@ split:                                            ; preds = %654
   %727 = load ptr, ptr %721, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %113)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %114)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %553, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %553, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %114, i8 0, i64 56, i1 false)
   store i16 1, ptr %554, align 4
   %728 = getelementptr inbounds nuw i8, ptr %721, i64 24
@@ -91532,7 +91532,7 @@ out2Prerelease.exit:                              ; preds = %718, %741, %744
   %761 = load ptr, ptr %755, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %111)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %112)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %547, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %547, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %112, i8 0, i64 56, i1 false)
   store i16 1, ptr %548, align 4
   %762 = getelementptr inbounds nuw i8, ptr %755, i64 24
@@ -91608,7 +91608,7 @@ out2Prerelease.exit3718:                          ; preds = %752, %775, %778
   %795 = load ptr, ptr %789, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %109)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %110)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %541, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %541, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %110, i8 0, i64 56, i1 false)
   store i16 1, ptr %542, align 4
   %796 = getelementptr inbounds nuw i8, ptr %789, i64 24
@@ -91684,7 +91684,7 @@ out2Prerelease.exit3724:                          ; preds = %786, %809, %812
   %829 = load ptr, ptr %823, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %107)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %108)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %529, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %529, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %108, i8 0, i64 56, i1 false)
   store i16 1, ptr %530, align 4
   %830 = getelementptr inbounds nuw i8, ptr %823, i64 24
@@ -91843,7 +91843,7 @@ sqlite3DbFree.exit:                               ; preds = %878, %876, %sqlite3
   %897 = load ptr, ptr %891, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %105)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %106)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %535, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %535, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %106, i8 0, i64 56, i1 false)
   store i16 1, ptr %536, align 4
   %898 = getelementptr inbounds nuw i8, ptr %891, i64 24
@@ -91942,7 +91942,7 @@ out2Prerelease.exit3739:                          ; preds = %888, %911, %914
   %947 = load ptr, ptr %941, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %103)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %104)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %517, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %517, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %104, i8 0, i64 56, i1 false)
   store i16 1, ptr %518, align 4
   %948 = getelementptr inbounds nuw i8, ptr %941, i64 24
@@ -92024,7 +92024,7 @@ out2Prerelease.exit3745:                          ; preds = %938, %961, %964
   %984 = load ptr, ptr %978, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %101)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %102)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %523, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %523, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %102, i8 0, i64 56, i1 false)
   store i16 1, ptr %524, align 4
   %985 = getelementptr inbounds nuw i8, ptr %.028785243, i64 80
@@ -92111,7 +92111,7 @@ sqlite3VdbeMemSetNull.exit:                       ; preds = %.lr.ph5244, %998, %
   %1026 = load ptr, ptr %1020, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %99)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %100)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %511, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %511, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %100, i8 0, i64 56, i1 false)
   store i16 1, ptr %512, align 4
   %1027 = getelementptr inbounds nuw i8, ptr %1020, i64 24
@@ -92395,7 +92395,7 @@ sqlite3VdbeMemMove.exit:                          ; preds = %1109, %1112
   %1179 = load ptr, ptr %1172, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %97)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %98)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %504, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %504, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %98, i8 0, i64 56, i1 false)
   store i16 1, ptr %505, align 4
   %1180 = getelementptr inbounds nuw i8, ptr %1172, i64 24
@@ -92932,7 +92932,7 @@ sqlite3VdbeRealValue.exit3770:                    ; preds = %1415, %1419, %1422,
   %1464 = load ptr, ptr %1339, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %93)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %94)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %497, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %497, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %94, i8 0, i64 56, i1 false)
   store i16 1, ptr %498, align 4
   %1465 = getelementptr inbounds nuw i8, ptr %1339, i64 24
@@ -93033,7 +93033,7 @@ sqlite3VdbeMemSetNull.exit3776:                   ; preds = %1458, %1478, %1481
   %1517 = load ptr, ptr %1504, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %91)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %92)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %491, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %491, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %92, i8 0, i64 56, i1 false)
   store i16 1, ptr %492, align 4
   %1518 = getelementptr inbounds nuw i8, ptr %1504, i64 24
@@ -93970,7 +93970,7 @@ sqlite3VdbeBooleanValue.exit3813:                 ; preds = %1990, %1994, %sqlit
   %2024 = load ptr, ptr %1981, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %83)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %84)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %480, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %480, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %84, i8 0, i64 56, i1 false)
   store i16 1, ptr %481, align 4
   %2025 = getelementptr inbounds nuw i8, ptr %1981, i64 24
@@ -94072,7 +94072,7 @@ sqlite3VdbeMemSetInt64.exit3819:                  ; preds = %sqlite3VdbeBooleanV
   %2077 = load ptr, ptr %2071, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %81)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %82)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %474, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %474, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %82, i8 0, i64 56, i1 false)
   store i16 1, ptr %475, align 4
   %2078 = getelementptr inbounds nuw i8, ptr %2071, i64 24
@@ -95955,7 +95955,7 @@ sqlite3PutVarint.exit:                            ; preds = %3006, %putVarint64.
   %3062 = load ptr, ptr %3056, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %75)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %76)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %464, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %464, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %76, i8 0, i64 56, i1 false)
   store i16 1, ptr %465, align 4
   %3063 = getelementptr inbounds nuw i8, ptr %3056, i64 24
@@ -96690,7 +96690,7 @@ sqlite3BtreeGetMeta.exit:                         ; preds = %3396, %3399, %unloc
   %3419 = load ptr, ptr %3413, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %73)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %74)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %451, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %451, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %74, i8 0, i64 56, i1 false)
   store i16 1, ptr %452, align 4
   %3420 = getelementptr inbounds nuw i8, ptr %3413, i64 24
@@ -98138,7 +98138,7 @@ sqlite3VdbeMemFromBtreeZeroOffset.exit._crit_edge.i: ; preds = %sqlite3VdbeMemFr
   %4213 = load ptr, ptr %69, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %67)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %68)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %435, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %435, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %68, i8 0, i64 56, i1 false)
   store i16 1, ptr %436, align 4
   %4214 = load ptr, ptr %431, align 8
@@ -98531,7 +98531,7 @@ sqlite3DbMallocRaw.exit.i:                        ; preds = %4332, %4330
   %4421 = load ptr, ptr %4415, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %65)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %66)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %417, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %417, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, i8 0, i64 56, i1 false)
   store i16 1, ptr %418, align 4
   %4422 = getelementptr inbounds nuw i8, ptr %4415, i64 24
@@ -98616,7 +98616,7 @@ out2Prerelease.exit3972:                          ; preds = %4412, %4435, %4438
   %4461 = load ptr, ptr %4455, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %63)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %64)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %411, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %411, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %64, i8 0, i64 56, i1 false)
   store i16 1, ptr %412, align 4
   %4462 = getelementptr inbounds nuw i8, ptr %4455, i64 24
@@ -100051,7 +100051,7 @@ sqlite3VdbeMemClearAndResize.exit._crit_edge.i:   ; preds = %sqlite3VdbeMemClear
   %5258 = load ptr, ptr %5252, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %55)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %56)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %398, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %398, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %56, i8 0, i64 56, i1 false)
   store i16 1, ptr %399, align 4
   %5259 = getelementptr inbounds nuw i8, ptr %5252, i64 24
@@ -100225,7 +100225,7 @@ sqlite3VdbeMemFromBtreeZeroOffset.exit:           ; preds = %5325
   %5360 = load ptr, ptr %5354, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %53)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %54)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %392, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %392, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %54, i8 0, i64 56, i1 false)
   store i16 1, ptr %393, align 4
   %5361 = getelementptr inbounds nuw i8, ptr %5354, i64 24
@@ -100811,7 +100811,7 @@ sqlite3FaultSim.exit.thread.i60.i.i.i:            ; preds = %sqlite3FaultSim.exi
 
 vdbeMergeEngineNew.exit62.i.i.i:                  ; preds = %sqlite3FaultSim.exit.thread.i60.i.i.i
   %5661 = getelementptr inbounds nuw i8, ptr %5660, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1376) %5661, i8 0, i64 range(i64 -4294966714, 34359738361) 1372, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1372) %5661, i8 0, i64 range(i64 -4294966714, 34359738361) 1372, i1 false)
   store i32 16, ptr %5660, align 8
   %5662 = getelementptr inbounds nuw i8, ptr %5660, i64 32
   %5663 = getelementptr inbounds nuw i8, ptr %5660, i64 24
@@ -101016,7 +101016,7 @@ sqlite3Malloc.exit.i.i.i:                         ; preds = %5739, %5737, %mallo
 
 5742:                                             ; preds = %sqlite3Malloc.exit.i.i.i
   %5743 = getelementptr inbounds nuw i8, ptr %.0.i91.i.i.i, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1376) %5743, i8 0, i64 range(i64 -4294966714, 34359738361) 1372, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1372) %5743, i8 0, i64 range(i64 -4294966714, 34359738361) 1372, i1 false)
   store i32 16, ptr %.0.i91.i.i.i, align 8
   %5744 = getelementptr inbounds nuw i8, ptr %.0.i91.i.i.i, i64 32
   %5745 = getelementptr inbounds nuw i8, ptr %.0.i91.i.i.i, i64 24
@@ -101099,7 +101099,7 @@ sqlite3_mutex_enter.exit.i.i.i85.i.i.i:           ; preds = %5757, %5755
 
 ..thread_crit_edge.i.i.i.i:                       ; preds = %sqlite3FaultSim.exit.thread.i88.i.i.i
   %5777 = getelementptr inbounds nuw i8, ptr %5750, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %5777, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %5777, i8 0, i64 56, i1 false)
   store ptr %5750, ptr %5689, align 8
   %5778 = getelementptr inbounds nuw i8, ptr %5750, i64 8
   store ptr %.0.i91.i.i.i, ptr %5778, align 8
@@ -102760,7 +102760,7 @@ sqlite3VdbeCursorRestore.exit.thread:             ; preds = %sqlite3VdbeCursorRe
   %6619 = load ptr, ptr %6613, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %43)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %44)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %378, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %378, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %44, i8 0, i64 56, i1 false)
   store i16 1, ptr %379, align 4
   %6620 = getelementptr inbounds nuw i8, ptr %6613, i64 24
@@ -102964,7 +102964,7 @@ sqlite3VdbeMemFromBtreeZeroOffset.exit4090._crit_edge: ; preds = %sqlite3VdbeMem
   %6734 = load ptr, ptr %134, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %370, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %370, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   store i16 1, ptr %371, align 4
   %6735 = load ptr, ptr %366, align 8
@@ -103054,7 +103054,7 @@ sqlite3VdbeMemReleaseMalloc.exit:                 ; preds = %6724, %vdbeMemClear
   %6770 = load ptr, ptr %6764, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %42)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %356, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %356, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %42, i8 0, i64 56, i1 false)
   store i16 1, ptr %357, align 4
   %6771 = getelementptr inbounds nuw i8, ptr %6764, i64 24
@@ -103630,7 +103630,7 @@ sqlite3BtreeDropTable.exit:                       ; preds = %btreeDropTable.exit
   %7090 = load ptr, ptr %7084, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %36)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %37)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %350, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %350, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %37, i8 0, i64 56, i1 false)
   store i16 1, ptr %351, align 4
   %7091 = getelementptr inbounds nuw i8, ptr %7084, i64 24
@@ -104149,7 +104149,7 @@ tableOfTrigger.exit.i:                            ; preds = %sqlite3StrICmp.exit
 7359:                                             ; preds = %7356, %7324
   %.not82.i = phi i1 [ false, %7324 ], [ %.not.i4161, %7356 ]
   call fastcc void @sqlite3BtreeEnter(ptr noundef nonnull %7339)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %310, i8 0, i64 120, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %310, i8 0, i64 120, i1 false)
   store ptr %149, ptr %311, align 8
   store ptr %7349, ptr %33, align 8
   %7360 = load ptr, ptr %7349, align 8
@@ -104462,7 +104462,7 @@ checkPtrmap.exit.i:                               ; preds = %7518, %7515, %check
   %7531 = load ptr, ptr %7525, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %30)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %328, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %328, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 56, i1 false)
   store i16 1, ptr %329, align 4
   %7532 = getelementptr inbounds nuw i8, ptr %7525, i64 24
@@ -104867,7 +104867,7 @@ sqlite3BtreeIntegrityCheck.exit:                  ; preds = %sqlite3StrAccumFini
   %7709 = load ptr, ptr %7333, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %27)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %28)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %334, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %334, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   store i16 1, ptr %335, align 4
   %7710 = getelementptr i8, ptr %7332, i64 80
@@ -105357,7 +105357,7 @@ sqlite3VdbeMemRelease.exit4175:                   ; preds = %7892, %7895
   %7975 = load ptr, ptr %7969, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %26)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %299, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %299, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %26, i8 0, i64 56, i1 false)
   store i16 1, ptr %300, align 4
   %7976 = getelementptr inbounds nuw i8, ptr %7969, i64 24
@@ -105688,7 +105688,7 @@ sqlite3VdbeMemIntegerify.exit4193:                ; preds = %8097, %8106, %8108,
   %8154 = load ptr, ptr %8148, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %22)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %289, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %289, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 56, i1 false)
   store i16 1, ptr %290, align 4
   %8155 = getelementptr inbounds nuw i8, ptr %8148, i64 24
@@ -106010,7 +106010,7 @@ sqlite3VdbeMemRelease.exit4208:                   ; preds = %8308, %8311
   %8324 = getelementptr inbounds nuw i8, ptr %.22826, i64 16
   %8325 = load ptr, ptr %8324, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %278, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %278, i8 0, i64 32, i1 false)
   %8326 = getelementptr inbounds nuw i8, ptr %8323, i64 20
   %8327 = load i16, ptr %8326, align 4
   %8328 = and i16 %8327, -28672
@@ -106025,7 +106025,7 @@ sqlite3VdbeMemRelease.exit4208:                   ; preds = %8308, %8311
   %8331 = load ptr, ptr %8323, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %279, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %279, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, i8 0, i64 56, i1 false)
   store i16 1, ptr %280, align 4
   %8332 = getelementptr inbounds nuw i8, ptr %8323, i64 24
@@ -106224,7 +106224,7 @@ sqlite3Checkpoint.exit.thread:                    ; preds = %8381, %sqlite3Check
   %8420 = load ptr, ptr %.029395192, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %272, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %272, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 56, i1 false)
   store i16 1, ptr %273, align 4
   %8421 = getelementptr inbounds nuw i8, ptr %.029395192, i64 24
@@ -106300,7 +106300,7 @@ sqlite3VdbeMemSetInt64.exit4227:                  ; preds = %8411, %8434, %8437
   %8452 = load ptr, ptr %8446, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %262, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %262, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %15, i8 0, i64 56, i1 false)
   store i16 1, ptr %263, align 4
   %8453 = getelementptr inbounds nuw i8, ptr %8446, i64 24
@@ -107680,7 +107680,7 @@ sqlite3VtabCallDestroy.exit:                      ; preds = %9097, %9100
   %9142 = load ptr, ptr %9136, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %232, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %232, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 56, i1 false)
   store i16 1, ptr %233, align 4
   %9143 = getelementptr inbounds nuw i8, ptr %9136, i64 24
@@ -107820,7 +107820,7 @@ sqlite3_malloc64.exit:                            ; preds = %9194
   %9220 = load ptr, ptr %9214, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %226, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %226, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   store i16 1, ptr %227, align 4
   %9221 = getelementptr inbounds nuw i8, ptr %9214, i64 24
@@ -107962,7 +107962,7 @@ out2Prerelease.exit4324:                          ; preds = %9204, %9234, %9237
   %9295 = load ptr, ptr %9294, align 8
   %9296 = load ptr, ptr %9295, align 8
   %9297 = load ptr, ptr %9296, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %561, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %561, i8 0, i64 40, i1 false)
   store ptr %9289, ptr %144, align 8
   store i8 %151, ptr %221, align 8
   store ptr null, ptr %222, align 8
@@ -108257,7 +108257,7 @@ sqlite3VdbeChangeEncoding.exit4330.thread:        ; preds = %9369, %9368, %sqlit
   %9450 = load ptr, ptr %9444, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %206, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %206, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   store i16 1, ptr %207, align 4
   %9451 = getelementptr inbounds nuw i8, ptr %9444, i64 24
@@ -108341,7 +108341,7 @@ out2Prerelease.exit4336:                          ; preds = %9441, %9464, %9467
   %9490 = load ptr, ptr %9484, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %199, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %199, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   store i16 1, ptr %200, align 4
   %9491 = getelementptr inbounds nuw i8, ptr %9484, i64 24
@@ -109487,7 +109487,7 @@ define internal fastcc ptr @out2Prerelease(ptr %.104.val, i32 %.8.val) unnamed_a
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i16 1, ptr %12, align 4
@@ -109564,7 +109564,7 @@ define internal fastcc void @sqlite3VdbeMemShallowCopy(ptr noundef %0, ptr nocap
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %12, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %13, align 4
@@ -115850,7 +115850,7 @@ sqlite3VdbeSerialTypeLen.exit:                    ; preds = %100, %103
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %123, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %123, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 1, ptr %124, align 4
@@ -118257,7 +118257,7 @@ sqlite3GetVarint32.exit22:                        ; preds = %115, %124, %133
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %162 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %162, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %162, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %163 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %163, align 4
@@ -121814,7 +121814,7 @@ define internal fastcc range(i32 0, 263) i32 @sqlite3BtreeLockTable(ptr noundef 
 45:                                               ; preds = %._crit_edge.i
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %47, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %47, i8 0, i64 12, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %1, ptr %48, align 8
   store ptr %0, ptr %44, align 8
@@ -122272,7 +122272,7 @@ sqlite3ValueText.exit30.thread:                   ; preds = %63, %sqlite3ValueTe
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %88, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i16 1, ptr %89, align 4
@@ -122362,7 +122362,7 @@ sqlite3VdbeMemReleaseMalloc.exit:                 ; preds = %80, %vdbeMemClear.e
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %126, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %127 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 1, ptr %127, align 4
@@ -127339,7 +127339,7 @@ define internal fastcc range(i32 0, 8) i32 @btreeSetHasContent(ptr nocapture nou
 
 .thread14:                                        ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %9, i8 0, i64 508, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(508) %9, i8 0, i64 508, i1 false)
   store i32 %7, ptr %8, align 8
   store ptr %8, ptr %3, align 8
   br label %.thread
@@ -134759,7 +134759,7 @@ sqlite3FaultSim.exit.thread:                      ; preds = %3, %sqlite3FaultSim
 
 7:                                                ; preds = %sqlite3FaultSim.exit.thread
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %8, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   store ptr %6, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %9, align 8
@@ -138483,7 +138483,7 @@ sqlite3VdbeFinalize.exit:                         ; preds = %342, %sqlite3VdbeRe
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   %391 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %391, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %391, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   %392 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i16 1, ptr %392, align 4
@@ -141996,7 +141996,7 @@ sqlite3DbFree.exit:                               ; preds = %.lr.ph.i, %32, %36,
 
 61:                                               ; preds = %30
   %62 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %62, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %62, i8 0, i64 32, i1 false)
   store ptr %0, ptr %31, align 8
   %63 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %2, ptr %63, align 8
@@ -144590,7 +144590,7 @@ sqlite3_malloc.exit:                              ; preds = %2
 
 6:                                                ; preds = %sqlite3_malloc.exit
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   store ptr %0, ptr %4, align 8
   store ptr %4, ptr %1, align 8
   br label %sqlite3_malloc.exit.thread
@@ -154789,7 +154789,7 @@ sqlite3DbMallocRaw.exit.i.i:                      ; preds = %85, %83
 
 87:                                               ; preds = %sqlite3DbMallocRaw.exit.i.i
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %88, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %88, i8 0, i64 24, i1 false)
   store ptr %.0.i147, ptr %.0.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %88, ptr noundef nonnull readonly align 8 dereferenceable(16) %.1, i64 16, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -154987,7 +154987,7 @@ sqlite3DbMallocRaw.exit.i160:                     ; preds = %171, %sqlite3AuthCh
 
 180:                                              ; preds = %sqlite3DbMallocRaw.exit.i160
   %181 = getelementptr inbounds nuw i8, ptr %174, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %181, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %181, i8 0, i64 96, i1 false)
   store ptr %.0122182, ptr %174, align 8
   %182 = getelementptr inbounds nuw i8, ptr %174, i64 52
   store i16 -1, ptr %182, align 4
@@ -155361,7 +155361,7 @@ sqlite3ResolveSelfReference.exit:                 ; preds = %sqlite3SchemaToInde
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %125 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %125, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %125, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %6, i8 0, i64 112, i1 false)
   store i32 1, ptr %6, align 8
   %126 = load ptr, ptr %14, align 8
@@ -156549,7 +156549,7 @@ sqlite3DbMallocRaw.exit.i.i:                      ; preds = %173, %171
 175:                                              ; preds = %sqlite3DbMallocRaw.exit.i.i
   %176 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %177 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %177, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %177, i8 0, i64 12, i1 false)
   store ptr %.0.i, ptr %.0.i.i.i, align 8
   store ptr %.sroa.0159.0, ptr %176, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -156960,7 +156960,7 @@ sqlite3DbFree.exit:                               ; preds = %sqlite3DbSpanDup.ex
 77:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %78, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
   store ptr %0, ptr %5, align 8
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @renameUnmapExprCb, ptr %79, align 8
@@ -157200,7 +157200,7 @@ sqlite3DbMallocRaw.exit.i.i:                      ; preds = %60, %58
 62:                                               ; preds = %sqlite3DbMallocRaw.exit.i.i
   %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %64, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %64, i8 0, i64 12, i1 false)
   store ptr %8, ptr %.0.i.i.i, align 8
   store ptr %2, ptr %63, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -159635,7 +159635,7 @@ sqlite3DbMallocRaw.exit.i.i:                      ; preds = %71, %69
 
 73:                                               ; preds = %sqlite3DbMallocRaw.exit.i.i
   %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %74, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %74, i8 0, i64 24, i1 false)
   store ptr %64, ptr %.0.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -161453,7 +161453,7 @@ sqlite3SelectDelete.exit:                         ; preds = %112, %113
 
 118:                                              ; preds = %117
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %119, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 32, i1 false)
   store ptr %0, ptr %9, align 8
   %120 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @renameUnmapExprCb, ptr %120, align 8
@@ -161881,7 +161881,7 @@ sqlite3DbMallocRaw.exit.i.thread.i:               ; preds = %132
   %.0.i.i248.i = phi ptr [ %146, %sqlite3DbMallocRaw.exit.i.thread.i ], [ %145, %sqlite3DbMallocRaw.exit.i.i ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %.0.i.i248.i, i8 0, i64 104, i1 false)
   %156 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %156, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %156, i8 0, i64 24, i1 false)
   store ptr %0, ptr %23, align 8
   %157 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @agginfoPersistExprCb, ptr %157, align 8
@@ -161961,7 +161961,7 @@ sqlite3DbMallocRaw.exit.i.thread.i:               ; preds = %132
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %21)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
   %199 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %199, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, i8 0, i64 16, i1 false)
   %200 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i64 0, ptr %200, align 8
   %201 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -162026,7 +162026,7 @@ selectWindowRewriteEList.exit.i:                  ; preds = %sqlite3WalkExprList
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20)
   %217 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %217, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %217, i8 0, i64 16, i1 false)
   %218 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i64 0, ptr %218, align 8
   %219 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -162296,7 +162296,7 @@ exprListAppendList.exit185.i:                     ; preds = %295, %sqlite3ExprDu
 322:                                              ; preds = %312
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %300, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %300, i8 0, i64 16, i1 false)
   store i64 0, ptr %301, align 8
   store ptr %.0244271.i, ptr %302, align 8
   store ptr %143, ptr %18, align 8
@@ -162647,7 +162647,7 @@ sqlite3WindowRewrite.exit:                        ; preds = %443, %sqlite3DbFree
   %453 = lshr i32 %452, 3
   %.lobit = and i32 %453, 1
   %454 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %454, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %454, i8 0, i64 40, i1 false)
   %455 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %456 = load ptr, ptr %455, align 8
   store ptr %456, ptr %25, align 8
@@ -163627,7 +163627,7 @@ findLeftmostExprlist.exit.i:                      ; preds = %895
   br i1 %.not300.i, label %918, label %818, !llvm.loop !685
 
 918:                                              ; preds = %._crit_edge355.i, %833
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %473, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %473, i8 0, i64 24, i1 false)
   store ptr %0, ptr %11, align 8
   store ptr @agginfoPersistExprCb, ptr %474, align 8
   store ptr @sqlite3SelectWalkNoop, ptr %475, align 8
@@ -168076,7 +168076,7 @@ sqlite3WhereOrderByLimitOptLabel.exit:            ; preds = %2901, %2903
   %2986 = getelementptr inbounds nuw i8, ptr %2978, i64 52
   store i32 %2985, ptr %2986, align 4
   %2987 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2987, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2987, i8 0, i64 32, i1 false)
   store ptr %0, ptr %28, align 8
   %2988 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %.2798, ptr %2988, align 8
@@ -168107,7 +168107,7 @@ sqlite3WhereOrderByLimitOptLabel.exit:            ; preds = %2901, %2903
 2999:                                             ; preds = %2998
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
   %3000 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3000, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3000, i8 0, i64 24, i1 false)
   store ptr %0, ptr %14, align 8
   %3001 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @havingToWhereExprCb, ptr %3001, align 8
@@ -169395,7 +169395,7 @@ sqlite3DbMallocRaw.exit.i.i:                      ; preds = %42, %40
 
 44:                                               ; preds = %sqlite3DbMallocRaw.exit.i.i
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %45, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %45, i8 0, i64 24, i1 false)
   store ptr %31, ptr %.0.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull readonly align 8 dereferenceable(16) %37, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -169989,7 +169989,7 @@ sqlite3DbMallocRaw.exit.i.i:                      ; preds = %57, %55
 
 59:                                               ; preds = %sqlite3DbMallocRaw.exit.i.i
   %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %60, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %60, i8 0, i64 24, i1 false)
   store ptr %52, ptr %.0.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -170769,7 +170769,7 @@ sqlite3DbMallocRaw.exit.i:                        ; preds = %10, %8
 
 12:                                               ; preds = %sqlite3DbMallocRaw.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %13, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store ptr %1, ptr %.0.i.i, align 8
   %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
@@ -171458,7 +171458,7 @@ sqlite3AuthCheck.exit.thread:                     ; preds = %161, %sqlite3Schema
 
 191:                                              ; preds = %190, %189
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %192, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %192, i8 0, i64 40, i1 false)
   store ptr %0, ptr %6, align 8
   %193 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %193, align 8
@@ -172185,7 +172185,7 @@ exprListDeleteNN.exit.i:                          ; preds = %23
 
 27:                                               ; preds = %sqlite3DbMallocRaw.exit.i
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(240) %28, i8 0, i64 224, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(224) %28, i8 0, i64 224, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %.0.i.i, ptr %29, align 8
   store ptr %0, ptr %.0.i.i, align 8
@@ -172733,7 +172733,7 @@ sqlite3PrimaryKeyIndex.exit:                      ; preds = %117, %.lr.ph.i, %10
 
 ._crit_edge180:                                   ; preds = %.lr.ph179, %146
   %160 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %160, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %160, i8 0, i64 32, i1 false)
   store ptr %0, ptr %11, align 8
   %161 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %1, ptr %161, align 8
@@ -174945,7 +174945,7 @@ sqlite3ExprUnmapAndDelete.exit.thread:            ; preds = %51
 sqlite3RenameExprUnmap.exit.i:                    ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %65, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
   store ptr %0, ptr %5, align 8
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @renameUnmapExprCb, ptr %66, align 8
@@ -175747,7 +175747,7 @@ sqlite3ReleaseTempReg.exit:                       ; preds = %sqlite3VdbeJumpHere
 
 364:                                              ; preds = %.loopexit726
   %365 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %365, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %365, i8 0, i64 48, i1 false)
   store ptr %0, ptr %11, align 8
   %.not559 = icmp eq ptr %.1524, null
   br i1 %.not559, label %sqlite3ReleaseTempReg.exit631.thread, label %366
@@ -176945,7 +176945,7 @@ sqlite3ExprDelete.exit40:                         ; preds = %sqlite3ExprListDele
 
 40:                                               ; preds = %sqlite3DbMallocRaw.exit.i
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 41
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(88) %41, i8 0, i64 47, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(47) %41, i8 0, i64 47, i1 false)
   store ptr %1, ptr %.0.i.i, align 8
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store ptr %2, ptr %42, align 8
@@ -177149,7 +177149,7 @@ sqlite3DbMallocRaw.exit.i.i:                      ; preds = %77, %75
 
 79:                                               ; preds = %sqlite3DbMallocRaw.exit.i.i
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %80, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %80, i8 0, i64 24, i1 false)
   store ptr %39, ptr %.0.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -178308,7 +178308,7 @@ define internal fastcc void @sqlite3ExprUnmapAndDelete(ptr noundef %0, ptr nound
 sqlite3RenameExprUnmap.exit:                      ; preds = %4
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   store ptr %0, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @renameUnmapExprCb, ptr %9, align 8
@@ -179100,7 +179100,7 @@ sqlite3TwoPartName.exit:                          ; preds = %21, %25
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %31, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 112, i1 false)
   store ptr %0, ptr %6, align 8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -187492,7 +187492,7 @@ sqlite3DbMallocRaw.exit.i:                        ; preds = %7, %5
 
 11:                                               ; preds = %sqlite3DbMallocRaw.exit.i
   %12 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %12, i8 0, i64 94, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(94) %12, i8 0, i64 94, i1 false)
   store i8 -118, ptr %.0.i.i, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store ptr %1, ptr %13, align 8
@@ -213215,7 +213215,7 @@ define internal fastcc range(i32 0, 3) i32 @sqlite3ResolveSelfReference(ptr noun
   %7 = alloca %struct.SrcList, align 8
   %8 = alloca %struct.NameContext, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %7, i8 0, i64 112, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %10
@@ -213564,7 +213564,7 @@ sqlite3DbMallocRaw.exit.i:                        ; preds = %16, %14
 
 18:                                               ; preds = %sqlite3DbMallocRaw.exit.i
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %19, i8 0, i64 96, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %19, i8 0, i64 96, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 44
   store i32 1, ptr %20, align 4
   store ptr null, ptr %.0.i.i, align 8
@@ -218923,7 +218923,7 @@ sqlite3WalkExpr.exit370:                          ; preds = %1842, %1837, %1833
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 40, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1844, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1844, i8 0, i64 16, i1 false)
   store ptr @exprRefToSrcList, ptr %1845, align 8
   store ptr @selectRefEnter, ptr %1846, align 8
   store ptr @selectRefLeave, ptr %1847, align 8
@@ -219542,7 +219542,7 @@ define internal range(i32 1, 3) i32 @resolveSelectStep(ptr nocapture noundef rea
   %57 = load i32, ptr %56, align 4
   %58 = or i32 %57, 4
   store i32 %58, ptr %56, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %54, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %54, i8 0, i64 40, i1 false)
   store ptr %14, ptr %7, align 8
   store ptr %.0108202, ptr %25, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.0108202, i64 96
@@ -227140,7 +227140,7 @@ define internal fastcc i32 @resolveOrderByTermToExprList(ptr noundef %0, ptr %.3
   %3 = alloca %struct.Walker, align 8
   %4 = alloca %struct.NameContext, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   store ptr %0, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.40.val, ptr %6, align 8
@@ -227834,7 +227834,7 @@ sqlite3WithPush.exit:                             ; preds = %38, %sqlite3ParserA
   %49 = getelementptr inbounds nuw [1 x %struct.Cte], ptr %6, i64 0, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %47, i8 0, i64 48, i1 false)
   store ptr %5, ptr %3, align 8
   br i1 %.not28, label %53, label %52
 
@@ -227860,7 +227860,7 @@ sqlite3WithPush.exit:                             ; preds = %38, %sqlite3ParserA
   br i1 %.not.i30, label %sqlite3RenameExprlistUnmap.exit, label %62
 
 62:                                               ; preds = %58
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, i8 0, i64 32, i1 false)
   store ptr %5, ptr %2, align 8
   store ptr @renameUnmapExprCb, ptr %45, align 8
   %63 = load i32, ptr %61, align 8
@@ -234314,7 +234314,7 @@ define internal fastcc ptr @sqlite3WhereBegin(ptr noundef %0, ptr noundef %1, pt
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %26, label %22
 
@@ -240318,7 +240318,7 @@ define internal fastcc void @sqlite3WindowCodeStep(ptr noundef %0, ptr nocapture
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr %21, align 4
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %24, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   store ptr %0, ptr %6, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %25, align 8
@@ -308241,7 +308241,7 @@ sqlite3DbMallocZero.exit80.thread:                ; preds = %sqlite3DbMallocRaw.
 sqlite3ParseObjectInit.exit:                      ; preds = %25, %42
   %43 = phi ptr [ null, %25 ], [ %.pre, %42 ]
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %44, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %44, i8 0, i64 48, i1 false)
   store ptr %8, ptr %7, align 8
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 184
   store ptr %2, ptr %45, align 8
@@ -312709,7 +312709,7 @@ sqlite3PExpr.exit:                                ; preds = %161, %sqlite3ExprAt
 166:                                              ; preds = %sqlite3PExpr.exit, %._crit_edge
   %.184 = phi ptr [ %165, %sqlite3PExpr.exit ], [ %.083.lcssa, %._crit_edge ]
   %167 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %167, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %167, i8 0, i64 40, i1 false)
   %168 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %1, ptr %168, align 8
   store ptr %0, ptr %10, align 8
@@ -326218,7 +326218,7 @@ define internal fastcc range(i32 0, 3) i32 @sqlite3UpsertAnalyzeTarget(ptr nound
   %6 = alloca [2 x %struct.Expr], align 16
   %7 = alloca [16 x i8], align 16
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   store ptr %0, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %9, align 8
@@ -328921,7 +328921,7 @@ sqlite3_value_text.exit45:                        ; preds = %167, %172
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %186 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %186, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %186, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %187 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %187, align 4
@@ -329174,7 +329174,7 @@ sqlite3DbMallocRaw.exit.i.i:                      ; preds = %92, %90
 
 94:                                               ; preds = %sqlite3DbMallocRaw.exit.i.i
   %95 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %95, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %95, i8 0, i64 24, i1 false)
   store ptr %87, ptr %.0.i.i.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull readonly align 8 dereferenceable(16) %2, i64 16, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -330461,7 +330461,7 @@ sqlite3ReadSchema.exit:                           ; preds = %44, %31
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %66, i8 0, i64 48, i1 false)
   store ptr %0, ptr %11, align 8
   %.not.i48 = icmp eq ptr %4, null
   br i1 %.not.i48, label %resolveAttachExpr.exit.thread, label %67
@@ -335108,7 +335108,7 @@ sqlite3_value_int.exit:                           ; preds = %15, %19, %22, %24, 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %80, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %81, align 4
@@ -335719,7 +335719,7 @@ sqlite3ExprIsConstant.exit:                       ; preds = %2
 sqlite3RenameExprUnmap.exit:                      ; preds = %11
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store ptr %0, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @renameUnmapExprCb, ptr %16, align 8
@@ -335971,7 +335971,7 @@ sqlite3_value_text.exit:                          ; preds = %16, %21
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %32, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %33, align 4
@@ -336815,7 +336815,7 @@ sqlite3_value_subtype.exit:                       ; preds = %3, %10
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %23, align 4
@@ -336963,7 +336963,7 @@ sqlite3_value_bytes.exit:                         ; preds = %23, %28, %32, %35, 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %49, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %49, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i16 1, ptr %50, align 4
@@ -337106,7 +337106,7 @@ sqlite3_value_text.exit:                          ; preds = %84, %89
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %113, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i16 1, ptr %114, align 4
@@ -337183,7 +337183,7 @@ sqlite3_result_int.exit28:                        ; preds = %._crit_edge, %132, 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %149 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %149, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %149, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %150 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %150, align 4
@@ -337337,7 +337337,7 @@ sqlite3_value_bytes.exit:                         ; preds = %27, %32, %36, %39, 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %53, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 56, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i16 1, ptr %54, align 4
@@ -337472,7 +337472,7 @@ sqlite3_value_bytes.exit20:                       ; preds = %93, %98, %102, %105
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %11)
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %122, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 56, i1 false)
   %123 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i16 1, ptr %123, align 4
@@ -337599,7 +337599,7 @@ sqlite3_value_bytes.exit33:                       ; preds = %156, %161, %165, %1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   %182 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %182, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %182, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false)
   %183 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i16 1, ptr %183, align 4
@@ -337718,7 +337718,7 @@ sqlite3_value_bytes16.exit:                       ; preds = %211, %216, %220, %2
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %237 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %237, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %237, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %238 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i16 1, ptr %238, align 4
@@ -337794,7 +337794,7 @@ sqlite3_result_int.exit52:                        ; preds = %sqlite3_value_bytes
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %273 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %273, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %273, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %274 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %274, align 4
@@ -338353,7 +338353,7 @@ sqlite3_value_bytes.exit86.thread:                ; preds = %69, %67, %.critedge
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %237 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %237, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %237, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %238 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %238, align 4
@@ -338754,7 +338754,7 @@ sqlite3Utf8Read.exit:                             ; preds = %25, %._crit_edge.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %58, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %58, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %59, align 4
@@ -339113,7 +339113,7 @@ sqlite3_value_int64.exit.thread:                  ; preds = %29, %33, %35, %51, 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10)
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %60, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %60, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 56, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i16 1, ptr %61, align 4
@@ -339188,7 +339188,7 @@ sqlite3_result_int64.exit:                        ; preds = %sqlite3_value_int64
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %95, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %95, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i16 1, ptr %96, align 4
@@ -339304,7 +339304,7 @@ sqlite3_value_double.exit:                        ; preds = %125, %129, %132, %1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %152 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %152, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %152, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %153 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %153, align 4
@@ -339595,7 +339595,7 @@ sqlite3_free.exit:                                ; preds = %sqlite3_free.exitth
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %119, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %120, align 4
@@ -340637,7 +340637,7 @@ define internal void @randomFunc(ptr nocapture noundef readonly %0, i32 %1, ptr 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %22, align 4
@@ -341433,7 +341433,7 @@ sqlite3StrAccumFinish.exit:                       ; preds = %strAccumFinishReall
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %219 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %219, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %219, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %220 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %220, align 4
@@ -341559,7 +341559,7 @@ define internal void @last_insert_rowid(ptr nocapture noundef readonly %0, i32 %
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %18, align 4
@@ -341640,7 +341640,7 @@ define internal void @changes(ptr nocapture noundef readonly %0, i32 %1, ptr noc
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %18, align 4
@@ -341721,7 +341721,7 @@ define internal void @total_changes(ptr nocapture noundef readonly %0, i32 %1, p
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %17, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %18, align 4
@@ -343392,7 +343392,7 @@ sqlite3_aggregate_context.exit:                   ; preds = %1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %51, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i16 1, ptr %52, align 4
@@ -343472,7 +343472,7 @@ sqlite3VdbeMemSetNull.exit.i.i17:                 ; preds = %73, %70, %42
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %88, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %89, align 4
@@ -343554,7 +343554,7 @@ sqlite3VdbeMemSetNull.exit.i.i23:                 ; preds = %110, %107, %80
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %127, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %127, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %128 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %128, align 4
@@ -344077,7 +344077,7 @@ sqlite3_aggregate_context.exit:                   ; preds = %1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %41, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %41, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %42, align 4
@@ -344229,7 +344229,7 @@ sqlite3_aggregate_context.exit:                   ; preds = %1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %48, align 4
@@ -344434,7 +344434,7 @@ sqlite3_aggregate_context.exit:                   ; preds = %1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %30, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %31, align 4
@@ -345653,7 +345653,7 @@ sqlite3_value_int64.exit:                         ; preds = %18, %22, %25, %27, 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %48, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i16 1, ptr %49, align 4
@@ -345775,7 +345775,7 @@ sqlite3_value_double.exit:                        ; preds = %85, %89, %92, %94
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %111 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %111, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %111, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %112, align 4
@@ -346018,7 +346018,7 @@ sqlite3_value_double.exit25:                      ; preds = %49, %53, %58
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %92, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %92, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %93, align 4
@@ -346163,7 +346163,7 @@ sqlite3_value_double.exit:                        ; preds = %16, %20, %23, %25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %46, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %46, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %47, align 4
@@ -346359,7 +346359,7 @@ sqlite3_value_double.exit20:                      ; preds = %45, %49, %52, %54
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %75, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %76, align 4
@@ -346503,7 +346503,7 @@ define internal void @piFunc(ptr nocapture noundef readonly %0, i32 %1, ptr noca
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %14, align 4
@@ -346634,7 +346634,7 @@ sqlite3_value_double.exit:                        ; preds = %16, %20, %23, %25
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %43, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %44, align 4
@@ -347657,7 +347657,7 @@ sqlite3BtreeLeave.exit.i.i:                       ; preds = %unlockBtreeMutex.ex
   store ptr null, ptr %174, align 8
   %251 = call fastcc i32 @renameParseSql(ptr noundef %8, ptr noundef %.0.i.i147, ptr noundef nonnull %12, ptr noundef %.0.i.i, i32 noundef %173)
   %252 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %252, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %252, i8 0, i64 16, i1 false)
   store ptr %8, ptr %9, align 8
   %253 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @renameColumnExprCb, ptr %253, align 8
@@ -348976,7 +348976,7 @@ sqlite3BtreeEnterAll.exit:                        ; preds = %116, %btreeEnterAll
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %140, ptr %141, align 8
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %142, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %142, i8 0, i64 16, i1 false)
   store ptr %5, ptr %7, align 8
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @renameTableExprCb, ptr %143, align 8
@@ -349012,7 +349012,7 @@ sqlite3BtreeEnterAll.exit:                        ; preds = %116, %btreeEnterAll
   %162 = getelementptr inbounds nuw i8, ptr %154, i64 64
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %164, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %164, i8 0, i64 48, i1 false)
   store ptr %5, ptr %8, align 8
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 4
   %166 = load i32, ptr %165, align 4
@@ -350084,7 +350084,7 @@ sqlite3_value_int.exit69:                         ; preds = %104, %108, %111, %1
 
 152:                                              ; preds = %148
   %153 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %153, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %153, i8 0, i64 48, i1 false)
   store ptr %8, ptr %9, align 8
   %154 = getelementptr inbounds nuw i8, ptr %146, i64 64
   %155 = load ptr, ptr %154, align 8
@@ -350250,7 +350250,7 @@ sqlite3FindDbName.exit:                           ; preds = %sqlite3_stricmp.exi
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %232 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %232, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %232, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %233 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %233, align 4
@@ -350834,7 +350834,7 @@ sqlite3BtreeEnterAll.exit:                        ; preds = %sqlite3_value_text.
 74:                                               ; preds = %71
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %75, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
   store ptr %4, ptr %6, align 8
   %76 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @renameQuotefixExprCb, ptr %76, align 8
@@ -351632,7 +351632,7 @@ define internal fastcc i32 @renameResolveTrigger(ptr noundef nonnull %0) unnamed
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, i8 0, i64 48, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
   store ptr %0, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -353646,7 +353646,7 @@ sqlite3_aggregate_context.exit.thread:            ; preds = %sqlite3VdbeMemClear
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %33, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %34, align 4
@@ -353841,7 +353841,7 @@ sqlite3_aggregate_context.exit:                   ; preds = %1, %22
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %37, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %38, align 4
@@ -354034,7 +354034,7 @@ sqlite3_aggregate_context.exit:                   ; preds = %1, %22
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %32, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %33, align 4
@@ -354236,7 +354236,7 @@ sqlite3_aggregate_context.exit:                   ; preds = %1, %24
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %43, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %44, align 4
@@ -354316,7 +354316,7 @@ sqlite3VdbeMemSetNull.exit.i.i:                   ; preds = %65, %62, %31
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %80, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %81 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %81, align 4
@@ -354545,7 +354545,7 @@ sqlite3_aggregate_context.exit:                   ; preds = %1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %34, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %35, align 4
@@ -354890,7 +354890,7 @@ sqlite3_aggregate_context.exit:                   ; preds = %1, %26
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %47, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i16 1, ptr %48, align 4
@@ -354980,7 +354980,7 @@ sqlite3_result_int64.exit:                        ; preds = %36, %66, %69
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %93, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %94, align 4
@@ -355059,7 +355059,7 @@ sqlite3_result_int64.exit34:                      ; preds = %83, %112, %115
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %132, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i16 1, ptr %133, align 4
@@ -356306,7 +356306,7 @@ computeJD.exit:                                   ; preds = %.computeJD.exit_cri
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %83, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %84, align 4
@@ -356516,7 +356516,7 @@ computeJD.exit:                                   ; preds = %.computeJD.exit_cri
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %88, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 56, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i16 1, ptr %89, align 4
@@ -356594,7 +356594,7 @@ sqlite3_result_double.exit:                       ; preds = %76, %107, %110
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %126 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %126, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %127, align 4
@@ -360161,7 +360161,7 @@ sqlite3_stricmp.exit295.thread.i:                 ; preds = %495
   %.0212.i = phi i64 [ %513, %512 ], [ %515, %computeJD.exit.i ]
   %.0211.i = phi i32 [ 0, %512 ], [ %570, %computeJD.exit.i ]
   %.0210.i = phi i64 [ 0, %512 ], [ %569, %computeJD.exit.i ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %315, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %315, i8 0, i64 40, i1 false)
   %515 = sub nsw i64 %.0212.i, %.0210.i
   store i64 %515, ptr %6, align 8
   store i8 1, ptr %313, align 8
@@ -360275,7 +360275,7 @@ computeJD.exit.i:                                 ; preds = %563, %550, %529, %5
   br i1 %or.cond247.i, label %514, label %.critedge.i, !llvm.loop !1367
 
 .critedge.i:                                      ; preds = %computeJD.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %290, i8 0, i64 40, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %290, i8 0, i64 40, i1 false)
   store i64 %515, ptr %3, align 8
   store i8 1, ptr %289, align 8
   store i8 2, ptr %309, align 1
@@ -362508,7 +362508,7 @@ jsonbArrayCount.exit:                             ; preds = %jsonbArrayCount.exi
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %85, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %85, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %86, align 4
@@ -363044,7 +363044,7 @@ jsonParseReset.exit:                              ; preds = %195, %sqlite3DbFree
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %212 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %212, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %212, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %213 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %213, align 4
@@ -364710,7 +364710,7 @@ sqlite3_value_int64.exit.thread:                  ; preds = %20, %25, %27, %sqli
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %58, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %58, i8 0, i64 64, i1 false)
   %59 = load ptr, ptr %2, align 8
   %60 = tail call ptr @sqlite3_value_blob(ptr noundef %59)
   store ptr %60, ptr %7, align 8
@@ -364856,7 +364856,7 @@ jsonParseFree.exit:                               ; preds = %sqlite3DbFree.exit.
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %128 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %128, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %129 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i16 1, ptr %129, align 4
@@ -367079,7 +367079,7 @@ sqlite3DbMallocRaw.exit.i:                        ; preds = %19, %17
 
 21:                                               ; preds = %sqlite3DbMallocRaw.exit.i
   %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %22, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   store ptr %16, ptr %.0.i.i, align 8
   %23 = load ptr, ptr %3, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 296
@@ -373437,7 +373437,7 @@ sqlite3_value_subtype.exit.thread:                ; preds = %sqlite3_value_bytes
 
 179:                                              ; preds = %177
   %180 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %180, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %180, i8 0, i64 64, i1 false)
   %181 = tail call ptr @sqlite3_value_blob(ptr noundef nonnull %1)
   store ptr %181, ptr %4, align 8
   %182 = load i16, ptr %5, align 4
@@ -373662,7 +373662,7 @@ sqlite3_value_bytes.exit:                         ; preds = %18, %23, %27, %34
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %44, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %44, i8 0, i64 64, i1 false)
   store ptr %11, ptr %3, align 8
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.0.i.i, ptr %45, align 8
@@ -374500,7 +374500,7 @@ sqlite3DbFree.exit128:                            ; preds = %82
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %99, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %99, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i16 1, ptr %100, align 4
@@ -374757,7 +374757,7 @@ jsonReturnTextJsonFromBlob.exit:                  ; preds = %228, %229
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %6)
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %242, i8 0, i64 64, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %242, i8 0, i64 64, i1 false)
   store ptr %24, ptr %5, align 8
   store i32 %241, ptr %242, align 8
   store ptr %2, ptr %6, align 8
@@ -380462,7 +380462,7 @@ define internal noundef i32 @jsonEachColumn(ptr noundef %0, ptr noundef %1, i32 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
   %74 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %74, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %13, i8 0, i64 56, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i16 1, ptr %75, align 4
@@ -380660,7 +380660,7 @@ jsonSkipLabel.exit84:                             ; preds = %157, %165
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
   %187 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %187, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %187, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   %188 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i16 1, ptr %188, align 4
@@ -380754,7 +380754,7 @@ sqlite3_result_int64.exit90:                      ; preds = %176, %206, %209
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   %235 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %235, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %235, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %236 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i16 1, ptr %236, align 4

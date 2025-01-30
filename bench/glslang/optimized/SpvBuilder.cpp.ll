@@ -2395,7 +2395,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %42, %2
   store i32 0, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %64, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %64, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -3485,7 +3485,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %33, %3
   store i32 0, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %54, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %54, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %56 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -3988,7 +3988,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %33, %12
   store i32 0, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %47 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %47, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %47, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 32
@@ -4684,7 +4684,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %35, %4
   store i32 0, ptr %51, align 8
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 80
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %53, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %53, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, i8 0, i64 16, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -4992,7 +4992,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %35, %3
   store i32 0, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 80
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %56, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %56, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -5402,7 +5402,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %53, %17
   store i32 0, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 80
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %75, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %75, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
   %76 = getelementptr inbounds nuw i8, ptr %63, i64 40
   %77 = getelementptr inbounds nuw i8, ptr %63, i64 32
@@ -6068,7 +6068,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %41, %2
   store i32 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %63, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %63, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 32
@@ -6568,7 +6568,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %11, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -6867,7 +6867,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %33, %3
   store i32 0, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 80
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %54, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %54, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %56 = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -7175,7 +7175,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %35, %4
   store i32 0, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 80
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %56, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %56, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -7476,7 +7476,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %4
   store i32 0, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %58, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %58, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -7789,7 +7789,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %47, %6
   store i32 0, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %68, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %68, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -8088,7 +8088,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %42, %5
   store i32 0, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 80
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %63, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %63, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -8786,7 +8786,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %35, %.preheader, %4
   store i32 0, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 80
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %56, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %56, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -9997,7 +9997,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %63, %8
   store i32 0, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %73, i64 80
   %84 = getelementptr inbounds nuw i8, ptr %73, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %84, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %84, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
   %85 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %86 = getelementptr inbounds nuw i8, ptr %73, i64 32
@@ -11239,7 +11239,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %1
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -11692,7 +11692,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %36, %4
   store i32 0, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %58, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %58, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -12218,7 +12218,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %17, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -12541,7 +12541,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %30, %.lr.ph.i.i.i.i
   store i32 0, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %49 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %49, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %49, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 32
@@ -12776,7 +12776,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %1
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -12980,7 +12980,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %20, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %20, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -13192,7 +13192,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %18, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -13425,7 +13425,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %1
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -13594,7 +13594,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -13699,7 +13699,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZNSt5stackIjSt5deq
   store i32 0, ptr %43, align 8, !noalias !250
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 80
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %45, i8 0, i64 12, i1 false), !noalias !250
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %45, i8 0, i64 12, i1 false), !noalias !250
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false), !noalias !250
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 32
@@ -13944,7 +13944,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit12:   ; preds = %157
   store i32 0, ptr %167, align 8, !noalias !261
   %168 = getelementptr inbounds nuw i8, ptr %161, i64 80
   %169 = getelementptr inbounds nuw i8, ptr %161, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %169, i8 0, i64 12, i1 false), !noalias !261
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %169, i8 0, i64 12, i1 false), !noalias !261
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, i8 0, i64 16, i1 false), !noalias !261
   %170 = getelementptr inbounds nuw i8, ptr %161, i64 40
   %171 = getelementptr inbounds nuw i8, ptr %161, i64 32
@@ -14119,7 +14119,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit31:   ; preds = %_ZNSt10unique_ptrIN
   store i32 0, ptr %252, align 8, !noalias !269
   %253 = getelementptr inbounds nuw i8, ptr %246, i64 80
   %254 = getelementptr inbounds nuw i8, ptr %246, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %254, i8 0, i64 12, i1 false), !noalias !269
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %254, i8 0, i64 12, i1 false), !noalias !269
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %253, i8 0, i64 16, i1 false), !noalias !269
   %255 = getelementptr inbounds nuw i8, ptr %246, i64 40
   %256 = getelementptr inbounds nuw i8, ptr %246, i64 32
@@ -14454,7 +14454,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -16574,7 +16574,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZN3spv7Builder18fi
   store i32 0, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %67, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %67, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %69 = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -17188,7 +17188,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZN3spv7Builder18fi
   store i32 0, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %68, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %68, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
   %69 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %70 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -18676,7 +18676,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -18832,7 +18832,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %6
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %15, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -19281,7 +19281,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -19435,7 +19435,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -19559,7 +19559,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -20154,7 +20154,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -20309,7 +20309,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -20579,7 +20579,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %15, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -20704,7 +20704,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %15, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -22568,7 +22568,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %17, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -22757,7 +22757,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %14, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -23222,7 +23222,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %27, %31
   store i32 0, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %45, i8 0, i64 12, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %45, i8 0, i64 12, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %47 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -24084,7 +24084,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %15, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -24435,7 +24435,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -25076,7 +25076,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %4
   store i32 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %31, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -25261,7 +25261,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %17, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -25420,7 +25420,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %16, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -25474,7 +25474,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %17, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -25696,7 +25696,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %13, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -25752,7 +25752,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -25900,7 +25900,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %5
   store i32 0, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %29, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %29, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -25983,7 +25983,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %6
   store i32 0, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 80
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %31, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -26595,7 +26595,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:     ; preds = %_ZNK3spv7Builder16g
   store i32 0, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 80
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %71, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %71, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
   %72 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %73 = getelementptr inbounds nuw i8, ptr %60, i64 32
@@ -30763,7 +30763,7 @@ _ZNK3spv7Builder9getTypeIdEj.exit:                ; preds = %_ZNK3spv7Builder18g
 _ZNK3spv7Builder18getContainedTypeIdEj.exit122:   ; preds = %_ZNK3spv7Builder9getTypeIdEj.exit, %132, %136, %141
   %.0.i.i121 = phi i32 [ %144, %141 ], [ %140, %136 ], [ %135, %132 ], [ 0, %_ZNK3spv7Builder9getTypeIdEj.exit ]
   %145 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, i8 0, i64 16, i1 false)
   %.not356 = icmp eq i32 %60, 0
   br i1 %.not356, label %175, label %.lr.ph
 
@@ -30845,7 +30845,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %152, %_ZNSt6vectorI
   %.lcssa293 = phi ptr [ %172, %._crit_edge ], [ null, %_ZNK3spv7Builder18getContainedTypeIdEj.exit122 ]
   store ptr %.lcssa293, ptr %5, align 8
   %176 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %176, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %176, i8 0, i64 16, i1 false)
   %.not357 = icmp eq i32 %.0.i.i, 0
   br i1 %.not357, label %249, label %.lr.ph309
 
@@ -31761,7 +31761,7 @@ _ZNK3spv7Builder18getContainedTypeIdEj.exit192:   ; preds = %.loopexit, %596, %6
 
 615:                                              ; preds = %.lr.ph354, %_ZNSt6vectorIjSaIjEED2Ev.exit212
   %indvars.iv425 = phi i64 [ 0, %.lr.ph354 ], [ %indvars.iv.next426, %_ZNSt6vectorIjSaIjEED2Ev.exit212 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %614, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %614, i8 0, i64 16, i1 false)
   br i1 %.not361, label %645, label %.lr.ph342
 
 .lr.ph342:                                        ; preds = %615, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit200
@@ -32504,7 +32504,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -32558,7 +32558,7 @@ _ZN3spv11Instruction15reserveOperandsEm.exit:
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 0, i64 12, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %13, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -34765,7 +34765,7 @@ define noundef i32 @_ZN3spv7Builder15accessChainLoadENS_10DecorationES1_S1_jNS_1
   %.not47 = icmp eq i32 %21, 0
   %. = select i1 %.not47, i32 %4, i32 %21
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   %23 = ptrtoint ptr %17 to i64
   %24 = ptrtoint ptr %18 to i64
   %25 = sub i64 %23, %24
@@ -37268,7 +37268,7 @@ define void @_ZN3spv7Builder19remapDynamicSwizzleEv(ptr noundef nonnull align 8 
 
 14:                                               ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = lshr exact i64 %12, 2
   %17 = trunc i64 %16 to i32
   %18 = icmp sgt i32 %17, 0

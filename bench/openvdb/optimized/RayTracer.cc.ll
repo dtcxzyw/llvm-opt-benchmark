@@ -1763,7 +1763,7 @@ for.body.i.i.i.i.i.i.i.i8:                        ; preds = %for.body.i.i.i.i.i.
 invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.i.i.i8
   %mNodes.i.i14 = getelementptr inbounds nuw i8, ptr %call2, i64 80
   %15 = getelementptr inbounds nuw i8, ptr %call2, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %mRoot.i.i.i.i15, ptr %mNodes.i.i14, align 8
   %mRay.i = getelementptr inbounds nuw i8, ptr %call2, i64 112
@@ -1816,7 +1816,7 @@ for.body.i.i.i.i.i.i.i.i23:                       ; preds = %for.body.i.i.i.i.i.
 invoke.cont9:                                     ; preds = %for.body.i.i.i.i.i.i.i.i23
   %mNodes.i.i29 = getelementptr inbounds nuw i8, ptr %call7, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %call7, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %mRoot.i.i.i.i30, ptr %mNodes.i.i29, align 8
   %mRay.i31 = getelementptr inbounds nuw i8, ptr %call7, i64 112
@@ -2093,7 +2093,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
 invoke.cont7:                                     ; preds = %for.body.i.i.i.i.i.i.i.i
   %mNodes.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRay.i = getelementptr inbounds nuw i8, ptr %call, i64 112
@@ -2149,7 +2149,7 @@ for.body.i.i.i.i.i.i.i.i21:                       ; preds = %for.body.i.i.i.i.i.
 invoke.cont14:                                    ; preds = %for.body.i.i.i.i.i.i.i.i21
   %mNodes.i.i27 = getelementptr inbounds nuw i8, ptr %call10, i64 80
   %21 = getelementptr inbounds nuw i8, ptr %call10, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %mRoot.i.i.i.i28, ptr %mNodes.i.i27, align 8
   %mRay.i29 = getelementptr inbounds nuw i8, ptr %call10, i64 112
@@ -3727,7 +3727,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i
   %mNodes.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %call, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRay.i = getelementptr inbounds nuw i8, ptr %call, i64 112
@@ -3804,7 +3804,7 @@ for.body.i.i.i.i.i.i.i.i10:                       ; preds = %for.body.i.i.i.i.i.
 invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.i.i.i10
   %mNodes.i.i16 = getelementptr inbounds nuw i8, ptr %call2, i64 80
   %10 = getelementptr inbounds nuw i8, ptr %call2, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %mRoot.i.i.i.i17, ptr %mNodes.i.i16, align 8
   %mRay.i18 = getelementptr inbounds nuw i8, ptr %call2, i64 112
@@ -4212,7 +4212,7 @@ for.body.i.i.i.i.i.i.i.i8:                        ; preds = %for.body.i.i.i.i.i.
 invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.i.i.i8
   %mNodes.i.i14 = getelementptr inbounds nuw i8, ptr %call2, i64 80
   %15 = getelementptr inbounds nuw i8, ptr %call2, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %mRoot.i.i.i.i15, ptr %mNodes.i.i14, align 8
   %mRay.i = getelementptr inbounds nuw i8, ptr %call2, i64 112
@@ -4265,7 +4265,7 @@ for.body.i.i.i.i.i.i.i.i23:                       ; preds = %for.body.i.i.i.i.i.
 invoke.cont9:                                     ; preds = %for.body.i.i.i.i.i.i.i.i23
   %mNodes.i.i29 = getelementptr inbounds nuw i8, ptr %call7, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %call7, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %mRoot.i.i.i.i30, ptr %mNodes.i.i29, align 8
   %mRay.i31 = getelementptr inbounds nuw i8, ptr %call7, i64 112
@@ -4542,7 +4542,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
 invoke.cont7:                                     ; preds = %for.body.i.i.i.i.i.i.i.i
   %mNodes.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %call, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRay.i = getelementptr inbounds nuw i8, ptr %call, i64 112
@@ -4598,7 +4598,7 @@ for.body.i.i.i.i.i.i.i.i21:                       ; preds = %for.body.i.i.i.i.i.
 invoke.cont14:                                    ; preds = %for.body.i.i.i.i.i.i.i.i21
   %mNodes.i.i27 = getelementptr inbounds nuw i8, ptr %call10, i64 80
   %21 = getelementptr inbounds nuw i8, ptr %call10, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %mRoot.i.i.i.i28, ptr %mNodes.i.i27, align 8
   %mRay.i29 = getelementptr inbounds nuw i8, ptr %call10, i64 112
@@ -6143,7 +6143,7 @@ for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i
   %mNodes.i.i = getelementptr inbounds nuw i8, ptr %call, i64 80
   %2 = getelementptr inbounds nuw i8, ptr %call, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mRay.i = getelementptr inbounds nuw i8, ptr %call, i64 112
@@ -6220,7 +6220,7 @@ for.body.i.i.i.i.i.i.i.i10:                       ; preds = %for.body.i.i.i.i.i.
 invoke.cont4:                                     ; preds = %for.body.i.i.i.i.i.i.i.i10
   %mNodes.i.i16 = getelementptr inbounds nuw i8, ptr %call2, i64 80
   %10 = getelementptr inbounds nuw i8, ptr %call2, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %mRoot.i.i.i.i17, ptr %mNodes.i.i16, align 8
   %mRay.i18 = getelementptr inbounds nuw i8, ptr %call2, i64 112
@@ -12199,7 +12199,7 @@ if.end.i:                                         ; preds = %_ZNK7openvdb5v11_04
   store double %t1.1.i.i.i, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.0)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i333)
   store double %t0.1.i.i.i, ptr %dda.i, align 8
   store double %t1.1.i.i.i, ptr %mT1.i, align 8
@@ -12447,7 +12447,7 @@ if.then.i:                                        ; preds = %_ZNK7openvdb5v11_04
   store double %79, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %104, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i268)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i1431)
   store double %79, ptr %dda.i268, align 8
   store double %104, ptr %mT1.i1432, align 8
@@ -12792,7 +12792,7 @@ if.then.i282:                                     ; preds = %_ZNK7openvdb5v11_04
   store double %120, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %157, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i1351)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i3305)
   store double %120, ptr %dda.i1351, align 8
   store double %157, ptr %mT1.i3306, align 8
@@ -13476,7 +13476,7 @@ if.then.i1365:                                    ; preds = %if.then.i1365.sink.
   store double %241, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %248, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i3205)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i5774)
   store double %241, ptr %dda.i3205, align 8
   store double %248, ptr %mT1.i5775, align 8
@@ -27243,7 +27243,7 @@ if.end.i52:                                       ; preds = %_ZNK7openvdb5v11_04
   store double %t1.1.i.i.i44, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i17.sroa.0)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i144)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i619)
   store double %t0.1.i.i.i42, ptr %dda.i144, align 8
   store double %t1.1.i.i.i44, ptr %mT1.i620, align 8
@@ -27491,7 +27491,7 @@ if.then.i158:                                     ; preds = %_ZNK7openvdb5v11_04
   store double %2116, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2141, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i499)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i2442)
   store double %2116, ptr %dda.i499, align 8
   store double %2141, ptr %mT1.i2443, align 8
@@ -27836,7 +27836,7 @@ if.then.i512:                                     ; preds = %_ZNK7openvdb5v11_04
   store double %2157, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2194, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i2339)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i5503)
   store double %2157, ptr %dda.i2339, align 8
   store double %2194, ptr %mT1.i5504, align 8
@@ -28520,7 +28520,7 @@ if.then.i2353:                                    ; preds = %if.then.i2353.sink.
   store double %2278, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2285, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i5357)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i6755)
   store double %2278, ptr %dda.i5357, align 8
   store double %2285, ptr %mT1.i6756, align 8
@@ -51525,7 +51525,7 @@ if.end.i:                                         ; preds = %_ZNK7openvdb5v11_04
   store double %t1.1.i.i.i, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i.sroa.0)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i319)
   store double %t0.1.i.i.i, ptr %dda.i, align 8
   store double %t1.1.i.i.i, ptr %mT1.i, align 8
@@ -51773,7 +51773,7 @@ if.then.i:                                        ; preds = %_ZNK7openvdb5v11_04
   store double %79, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %104, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i254)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i1417)
   store double %79, ptr %dda.i254, align 8
   store double %104, ptr %mT1.i1418, align 8
@@ -52118,7 +52118,7 @@ if.then.i268:                                     ; preds = %_ZNK7openvdb5v11_04
   store double %120, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %157, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i1337)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i3290)
   store double %120, ptr %dda.i1337, align 8
   store double %157, ptr %mT1.i3291, align 8
@@ -52802,7 +52802,7 @@ if.then.i1351:                                    ; preds = %if.then.i1351.sink.
   store double %241, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %248, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i3191)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i5748)
   store double %241, ptr %dda.i3191, align 8
   store double %248, ptr %mT1.i5749, align 8
@@ -66542,7 +66542,7 @@ if.end.i52:                                       ; preds = %_ZNK7openvdb5v11_04
   store double %t1.1.i.i.i44, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i17.sroa.0)
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i130)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i605)
   store double %t0.1.i.i.i42, ptr %dda.i130, align 8
   store double %t1.1.i.i.i44, ptr %mT1.i606, align 8
@@ -66790,7 +66790,7 @@ if.then.i144:                                     ; preds = %_ZNK7openvdb5v11_04
   store double %2116, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2141, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i485)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i2428)
   store double %2116, ptr %dda.i485, align 8
   store double %2141, ptr %mT1.i2429, align 8
@@ -67135,7 +67135,7 @@ if.then.i498:                                     ; preds = %_ZNK7openvdb5v11_04
   store double %2157, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2194, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i2325)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i5484)
   store double %2157, ptr %dda.i2325, align 8
   store double %2194, ptr %mT1.i5485, align 8
@@ -67819,7 +67819,7 @@ if.then.i2339:                                    ; preds = %if.then.i2339.sink.
   store double %2278, ptr %ref.tmp.i.i.sroa.11.0.mInter.sroa_idx, align 8
   store double %2285, ptr %ref.tmp.i.i.sroa.12.0.mInter.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %dda.i5342)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i6721)
   store double %2278, ptr %dda.i5342, align 8
   store double %2285, ptr %mT1.i6722, align 8

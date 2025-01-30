@@ -9467,7 +9467,7 @@ entry:
 
 if.then2.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
@@ -9879,7 +9879,7 @@ if.then159:                                       ; preds = %if.end156
 
 if.then2.i625:                                    ; preds = %if.end156
   %45 = getelementptr inbounds nuw i8, ptr %descriptorPlayback, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %45, i8 0, i64 272, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %45, i8 0, i64 272, i1 false)
   %46 = load ptr, ptr %playback48, align 8
   store ptr %46, ptr %descriptorPlayback, align 8
   %47 = load i32, ptr %shareMode116, align 8
@@ -9912,7 +9912,7 @@ if.then2.i625:                                    ; preds = %if.end156
   %storemerge = select i1 %cmp187, i32 3, i32 %54
   store i32 %storemerge, ptr %periodCount, align 8
   %55 = getelementptr inbounds nuw i8, ptr %descriptorCapture, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %55, i8 0, i64 272, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %55, i8 0, i64 272, i1 false)
   %56 = load ptr, ptr %capture60, align 8
   store ptr %56, ptr %descriptorCapture, align 8
   %57 = load i32, ptr %shareMode, align 8
@@ -20880,7 +20880,7 @@ entry:
 
 if.then2.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
@@ -22421,7 +22421,7 @@ entry:
 
 if.then2.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
@@ -23426,7 +23426,7 @@ entry:
 
 if.then2.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
@@ -25359,7 +25359,7 @@ entry:
 
 if.then2.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
@@ -38343,7 +38343,7 @@ entry:
 
 if.then2.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 40, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
@@ -41455,7 +41455,7 @@ entry:
 
 if.then2.i.i:                                     ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 96, i1 false), !alias.scope !467
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false), !alias.scope !467
   br label %ma_data_converter_config_init_default.exit
 
 ma_data_converter_config_init_default.exit:       ; preds = %entry, %if.then2.i.i
@@ -48662,7 +48662,7 @@ entry:
 
 if.then2.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 56, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
@@ -49628,7 +49628,7 @@ entry:
 
 if.then2.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %pData, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %0, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 %format, ptr %pData, align 8
   %channels2 = getelementptr inbounds nuw i8, ptr %pData, i64 4
   store i32 %channels, ptr %channels2, align 4
@@ -51741,7 +51741,7 @@ entry:
 
 if.then2.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 0, i64 136, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
@@ -51769,7 +51769,7 @@ entry:
 
 if.then2.i.i:                                     ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 0, i64 136, i1 false), !alias.scope !497
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false), !alias.scope !497
   br label %ma_decoder_config_init.exit
 
 ma_decoder_config_init.exit:                      ; preds = %entry, %if.then2.i.i
@@ -51867,7 +51867,7 @@ if.end4:                                          ; preds = %if.end
   store ptr %pReadSeekTellUserData, ptr %pReadSeekTellUserData8, align 8
   %dr = getelementptr inbounds nuw i8, ptr %pWav, i64 112
   %2 = getelementptr inbounds nuw i8, ptr %pWav, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %2, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %2, i8 0, i64 392, i1 false)
   store ptr @ma_wav_dr_callback__read, ptr %dr, align 8
   %onSeek5.i.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 128
   store ptr @ma_wav_dr_callback__seek, ptr %onSeek5.i.i.i, align 8
@@ -51961,7 +51961,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr %onRead, ptr %pWav, align 8
   %onSeek5.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr %onSeek, ptr %onSeek5.i.i, align 8
@@ -52093,7 +52093,7 @@ if.end6.i.i.i:                                    ; preds = %if.end
 
 if.end.i.i:                                       ; preds = %if.end6.i.i.i
   %2 = getelementptr inbounds nuw i8, ptr %pWav, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %2, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %2, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %dr, align 8
   %onSeek5.i.i.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 128
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i.i.i, align 8
@@ -52196,7 +52196,7 @@ if.end.i:                                         ; preds = %if.end6.i.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i
   %0 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %pWav, align 8
   %onSeek5.i.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i.i, align 8
@@ -52303,7 +52303,7 @@ if.end:                                           ; preds = %if.then2.i.i, %land
 if.end.i.i:                                       ; preds = %if.end
   %2 = load ptr, ptr %pFile.i.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %pWav, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %3, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %3, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %dr, align 8
   %onSeek5.i.i.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 128
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i.i.i, align 8
@@ -52410,7 +52410,7 @@ if.end.i:                                         ; preds = %entry
 
 if.end.i.i.i:                                     ; preds = %if.end.i
   %1 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %1, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %1, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %pWav, align 8
   %onSeek5.i.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i.i, align 8
@@ -52516,7 +52516,7 @@ if.end:                                           ; preds = %if.then2.i.i, %land
 
 if.end.i.i.i:                                     ; preds = %if.end
   %2 = getelementptr inbounds nuw i8, ptr %pWav, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %2, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %2, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %dr, align 8
   %onSeek5.i.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 128
   store ptr @ma_dr_wav__on_seek_memory, ptr %onSeek5.i.i.i, align 8
@@ -52616,7 +52616,7 @@ entry:
 
 if.end.i.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %pWav, align 8
   %onSeek5.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %onSeek5.i.i, align 8
@@ -63255,7 +63255,7 @@ if.end6.i:                                        ; preds = %if.end.i
   %tmp.sroa.7.0.converterConfig.sroa_idx.i = getelementptr inbounds nuw i8, ptr %converterConfig.i, i64 24
   %tmp.sroa.9.0.converterConfig.sroa_idx.i = getelementptr inbounds nuw i8, ptr %converterConfig.i, i64 44
   %14 = getelementptr inbounds nuw i8, ptr %converterConfig.i, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %tmp.sroa.10.0.converterConfig.sroa_idx.i = getelementptr inbounds nuw i8, ptr %converterConfig.i, i64 68
   store i32 0, ptr %tmp.sroa.10.0.converterConfig.sroa_idx.i, align 4
   store i32 %3, ptr %converterConfig.i, align 8
@@ -67988,7 +67988,7 @@ entry:
 
 if.then2.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
@@ -74729,7 +74729,7 @@ ma_malloc.exit.i:                                 ; preds = %if.else.i
 
 if.then2.i.i:                                     ; preds = %ma_malloc.exit.i
   %14 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %14, i8 0, i64 104, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %14, i8 0, i64 104, i1 false)
   store i32 %hashedName32.addr.0, ptr %call.i.i, align 8
   %refCount.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   store i32 1, ptr %refCount.i, align 4
@@ -82733,7 +82733,7 @@ entry:
 
 if.then2.i:                                       ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   br label %ma_zero_memory_default.exit
 
 ma_zero_memory_default.exit:                      ; preds = %entry, %if.then2.i
@@ -83960,7 +83960,7 @@ if.end21:                                         ; preds = %ma_malloc.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %tmp22.sroa.3, i8 0, i64 60, i1 false), !alias.scope !760
   %tmp22.sroa.6.0.deviceConfig.sroa_idx = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 112
   %2 = getelementptr inbounds nuw i8, ptr %deviceConfig, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %2, i8 0, i64 152, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 152, i1 false)
   %tmp22.sroa.3.60.resampling.i.sroa_idx = getelementptr inbounds nuw i8, ptr %tmp22.sroa.3, i64 60
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %tmp22.sroa.3.60.resampling.i.sroa_idx, i8 0, i64 40, i1 false), !alias.scope !760
   store i32 1, ptr %deviceConfig, align 8
@@ -87329,7 +87329,7 @@ ma_sound_config_init_2.exit:                      ; preds = %ma_resource_manager
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %config, i8 0, i64 44, i1 false)
   %tmp.sroa.3.0.config.sroa_idx = getelementptr inbounds nuw i8, ptr %config, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %config, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %tmp.sroa.5.0.config.sroa_idx = getelementptr inbounds nuw i8, ptr %config, i64 96
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %tmp.sroa.5.0.config.sroa_idx, i8 0, i64 64, i1 false)
   %tmp.sroa.2.0.config.sroa_idx = getelementptr inbounds nuw i8, ptr %config, i64 44
@@ -91238,7 +91238,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr %onRead, ptr %pWav, align 8
   %onSeek5.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr %onSeek, ptr %onSeek5.i, align 8
@@ -93574,7 +93574,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr %onRead, ptr %pWav, align 8
   %onSeek5.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr %onSeek, ptr %onSeek5.i, align 8
@@ -94429,7 +94429,7 @@ if.end:                                           ; preds = %if.end6.i
 
 if.end.i.i:                                       ; preds = %if.end
   %0 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %pWav, align 8
   %onSeek5.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i, align 8
@@ -94501,7 +94501,7 @@ if.end:                                           ; preds = %entry
 
 if.end.i.i:                                       ; preds = %if.end
   %1 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %1, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %1, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %pWav, align 8
   %onSeek5.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i, align 8
@@ -94576,7 +94576,7 @@ if.end:                                           ; preds = %if.end6.i
 
 if.end.i.i:                                       ; preds = %if.end
   %0 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %pWav, align 8
   %onSeek5.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i, align 8
@@ -94649,7 +94649,7 @@ if.end:                                           ; preds = %entry
 
 if.end.i.i:                                       ; preds = %if.end
   %1 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %1, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %1, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %pWav, align 8
   %onSeek5.i.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i, align 8
@@ -94858,7 +94858,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %pWav, align 8
   %onSeek5.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %onSeek5.i, align 8
@@ -95005,7 +95005,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %0 = getelementptr inbounds nuw i8, ptr %pWav, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %pWav, align 8
   %onSeek5.i = getelementptr inbounds nuw i8, ptr %pWav, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %onSeek5.i, align 8
@@ -97522,7 +97522,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 
 if.end.i.i.i:                                     ; preds = %if.end6
   %0 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr %onRead, ptr %wav, align 8
   %onSeek5.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr %onSeek, ptr %onSeek5.i.i.i, align 8
@@ -97720,7 +97720,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 
 if.end.i.i.i:                                     ; preds = %if.end6
   %0 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr %onRead, ptr %wav, align 8
   %onSeek5.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr %onSeek, ptr %onSeek5.i.i.i, align 8
@@ -97918,7 +97918,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 
 if.end.i.i.i:                                     ; preds = %if.end6
   %0 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr %onRead, ptr %wav, align 8
   %onSeek5.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr %onSeek, ptr %onSeek5.i.i.i, align 8
@@ -98119,7 +98119,7 @@ if.end6.i.i.i:                                    ; preds = %if.end6
 
 if.end.i.i:                                       ; preds = %if.end6.i.i.i
   %0 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %wav, align 8
   %onSeek5.i.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i.i.i, align 8
@@ -98218,7 +98218,7 @@ if.end6.i.i.i:                                    ; preds = %if.end6
 
 if.end.i.i:                                       ; preds = %if.end6.i.i.i
   %0 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %wav, align 8
   %onSeek5.i.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i.i.i, align 8
@@ -98317,7 +98317,7 @@ if.end6.i.i.i:                                    ; preds = %if.end6
 
 if.end.i.i:                                       ; preds = %if.end6.i.i.i
   %0 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %wav, align 8
   %onSeek5.i.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i.i.i, align 8
@@ -98415,7 +98415,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 if.end.i.i:                                       ; preds = %if.end6
   %0 = load ptr, ptr %pFile.i.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %1, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %1, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %wav, align 8
   %onSeek5.i.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i.i.i, align 8
@@ -98518,7 +98518,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 if.end.i.i:                                       ; preds = %if.end6
   %0 = load ptr, ptr %pFile.i.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %1, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %1, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %wav, align 8
   %onSeek5.i.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i.i.i, align 8
@@ -98621,7 +98621,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 if.end.i.i:                                       ; preds = %if.end6
   %0 = load ptr, ptr %pFile.i.i, align 8
   %1 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %1, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %1, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_stdio, ptr %wav, align 8
   %onSeek5.i.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr @ma_dr_wav__on_seek_stdio, ptr %onSeek5.i.i.i.i, align 8
@@ -98722,7 +98722,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 
 if.end.i.i.i:                                     ; preds = %if.end6
   %0 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %wav, align 8
   %onSeek5.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %onSeek5.i.i.i, align 8
@@ -98820,7 +98820,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 
 if.end.i.i.i:                                     ; preds = %if.end6
   %0 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %wav, align 8
   %onSeek5.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %onSeek5.i.i.i, align 8
@@ -98918,7 +98918,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 
 if.end.i.i.i:                                     ; preds = %if.end6
   %0 = getelementptr inbounds nuw i8, ptr %wav, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 392, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(392) %0, i8 0, i64 392, i1 false)
   store ptr @ma_dr_wav__on_read_memory, ptr %wav, align 8
   %onSeek5.i.i.i = getelementptr inbounds nuw i8, ptr %wav, i64 16
   store ptr @ma_dr_wav__on_seek_memory, ptr %onSeek5.i.i.i, align 8
@@ -99211,7 +99211,7 @@ ma_dr_flac__init_cpu_caps.exit:                   ; preds = %entry, %if.then.i
 
 if.end.i:                                         ; preds = %ma_dr_flac__init_cpu_caps.exit
   %1 = getelementptr inbounds nuw i8, ptr %init, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4592) %1, i8 0, i64 4568, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4568) %1, i8 0, i64 4568, i1 false)
   store ptr %onRead, ptr %init, align 8
   %onSeek5.i = getelementptr inbounds nuw i8, ptr %init, i64 8
   store ptr %onSeek, ptr %onSeek5.i, align 8
@@ -99429,7 +99429,7 @@ ma_dr_flac__malloc_from_callbacks.exit:           ; preds = %if.then2.i, %if.the
 if.end39:                                         ; preds = %ma_dr_flac__malloc_from_callbacks.exit
   %narrow = add nuw nsw i32 %mul25, 70496
   %15 = getelementptr inbounds nuw i8, ptr %retval.0.i90, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65944) %15, i8 0, i64 65912, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65912) %15, i8 0, i64 65912, i1 false)
   store ptr %onRead, ptr %retval.0.i90, align 8
   %onSeek41 = getelementptr inbounds nuw i8, ptr %retval.0.i90, i64 8
   store ptr %onSeek, ptr %onSeek41, align 8
@@ -111618,7 +111618,7 @@ if.end63:                                         ; preds = %if.end6, %if.end13
   %39 = load i32, ptr %outputChannels52, align 4
   %backend54 = getelementptr inbounds nuw i8, ptr %pDataBufferNode, i64 32
   %40 = getelementptr inbounds nuw i8, ptr %pDataBufferNode, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %40, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   store i32 %38, ptr %backend54, align 8
   %channels2.i = getelementptr inbounds nuw i8, ptr %pDataBufferNode, i64 36
   store i32 %39, ptr %channels2.i, align 4

@@ -5451,7 +5451,7 @@ if.end13.i:                                       ; preds = %if.then9.i
 
 if.then19.i:                                      ; preds = %if.end13.i
   %3 = getelementptr inbounds nuw i8, ptr %addr.i, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %3, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %3, i8 0, i64 108, i1 false)
   store i16 1, ptr %addr.i, align 2
   %call20.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %host) #39
   %call22.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %host) #39
@@ -29429,7 +29429,7 @@ if.end13.i:                                       ; preds = %if.then9.i
 
 if.then19.i:                                      ; preds = %if.end13.i
   %5 = getelementptr inbounds nuw i8, ptr %addr.i, i64 2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %5, i8 0, i64 108, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(108) %5, i8 0, i64 108, i1 false)
   store i16 1, ptr %addr.i, align 2
   %call20.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %host) #39
   %call22.i = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %host) #39

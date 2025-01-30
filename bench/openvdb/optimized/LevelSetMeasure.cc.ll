@@ -2645,7 +2645,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mValues.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -4887,7 +4887,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %1, align 8
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %mRoot.i.i.i.i, ptr %mNodes.i.i, align 8
   %mValues.i = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -6345,7 +6345,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %mRoot.i.i.i.i.i, ptr %mNodes.i.i.i, align 8
   %mValues.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -8543,7 +8543,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %mRoot.i.i.i.i.i, ptr %mNodes.i.i.i, align 8
   %mValues.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -8649,7 +8649,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %2 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %mRoot.i.i.i.i.i, ptr %mNodes.i.i.i, align 8
   %mValues.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -9274,7 +9274,7 @@ _ZN7openvdb5v11_04tree17ValueAccessorImplIKNS1_4TreeINS1_8RootNodeINS1_12Interna
   %3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %this, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %mRoot.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %mRoot.i.i.i.i.i, ptr %mNodes.i.i.i, align 8
   %mValues.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
