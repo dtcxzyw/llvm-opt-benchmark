@@ -416,7 +416,7 @@ do.end:                                           ; preds = %entry, %if.then
 
 if.then6:                                         ; preds = %do.end
   %5 = and i8 %call2.val, -4
-  %6 = or disjoint i8 %5, 2
+  %cmp.not.i = or disjoint i8 %5, 2
   store i8 %6, ptr %3, align 8
   %notify_slot_change.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 75010
   store i8 1, ptr %notify_slot_change.i, align 2

@@ -7031,8 +7031,8 @@ f_zero_p.exit:                                    ; preds = %4, %rb_integer_type
   %25 = and i64 %24, 7
   %26 = icmp ne i64 %25, 0
   %27 = icmp eq i64 %24, 0
-  %28 = or i1 %27, %26
-  br i1 %28, label %.critedge, label %29
+  %26 = or i1 %27, %26
+  br i1 %26, label %35, label %29
 
 29:                                               ; preds = %23
   %30 = inttoptr i64 %24 to ptr
@@ -7048,16 +7048,16 @@ f_zero_p.exit:                                    ; preds = %4, %rb_integer_type
   br label %RB_FLOAT_TYPE_P.exit.thread
 
 .critedge:                                        ; preds = %23
-  %35 = and i64 %24, 3
+  %36 = and i64 %24, 3
   %36 = icmp eq i64 %35, 2
   br i1 %36, label %RB_FLOAT_TYPE_P.exit.thread, label %RB_FLOAT_TYPE_P.exit.thread32
 
-RB_FLOAT_TYPE_P.exit.thread32:                    ; preds = %29, %.critedge
-  %37 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %24, i64 noundef 3361, i32 noundef 0) #16
+RB_FLOAT_TYPE_P.exit.thread32:                    ; preds = %29, %35
+  %38 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %24, i64 noundef 3361, i32 noundef 0) #16
   br label %RB_FLOAT_TYPE_P.exit.thread
 
-RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %29, %.critedge, %RB_FLOAT_TYPE_P.exit.thread32, %33, %21, %18
-  %.030 = phi i64 [ %20, %18 ], [ %22, %21 ], [ %34, %33 ], [ %37, %RB_FLOAT_TYPE_P.exit.thread32 ], [ %24, %.critedge ], [ %24, %29 ]
+RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %29, %35, %RB_FLOAT_TYPE_P.exit.thread32, %33, %21, %18
+  %39 = phi i64 [ %20, %18 ], [ %22, %21 ], [ %34, %33 ], [ %37, %RB_FLOAT_TYPE_P.exit.thread32 ], [ %24, %.critedge ], [ %24, %29 ]
   ret i64 %.030
 }
 

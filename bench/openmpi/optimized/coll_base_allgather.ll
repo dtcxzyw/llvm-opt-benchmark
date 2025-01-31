@@ -651,39 +651,39 @@ define i32 @ompi_coll_base_allgather_intra_neighborexchange(ptr noundef %0, i32 
   %35 = srem i32 %34, %.val.val
   %36 = add i32 %.val.val, -1
   %37 = add i32 %36, %.val96
-  br label %ompi_coll_base_sendrecv.exit
+  br label %43
 
 38:                                               ; preds = %31
   %39 = add i32 %.val.val, -1
   %40 = add i32 %39, %.val96
   %41 = srem i32 %40, %.val.val
   %42 = add nsw i32 %.val96, 1
-  br label %ompi_coll_base_sendrecv.exit
+  br label %43
 
 ompi_coll_base_sendrecv.exit:                     ; preds = %38, %33
   %.sink108 = phi i32 [ %35, %33 ], [ %41, %38 ]
   %.pn = phi i32 [ %37, %33 ], [ %42, %38 ]
-  %43 = phi i32 [ %.val96, %33 ], [ %41, %38 ]
+  %44 = phi i32 [ %.val96, %33 ], [ %41, %38 ]
   %.sink104 = phi i32 [ 2, %33 ], [ -2, %38 ]
   %.sink = phi i32 [ -2, %33 ], [ 2, %38 ]
   %.sink107 = srem i32 %.pn, %.val.val
   store i32 %.sink108, ptr %9, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %.sink107, ptr %44, align 4
-  store i32 %43, ptr %11, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 %43, ptr %45, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %.sink107, ptr %45, align 4
+  store i32 %44, ptr %11, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 %44, ptr %46, align 4
   store i32 %.sink104, ptr %10, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %.sink, ptr %46, align 4
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 %.sink, ptr %47, align 4
   %47 = mul i64 %23, %25
   %48 = sext i32 %.sink108 to i64
-  %49 = mul i64 %47, %48
-  %50 = getelementptr inbounds i8, ptr %3, i64 %49
-  %51 = mul nsw i64 %23, %26
-  %52 = getelementptr inbounds i8, ptr %3, i64 %51
-  %53 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %52, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %25, ptr noundef nonnull %5, i32 noundef %.sink108, i32 noundef -10, ptr noundef %50, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %25, ptr noundef nonnull %5, i32 noundef %.sink108, i32 noundef -10, ptr noundef nonnull %6, ptr noundef null) #8
-  %.not94 = icmp eq i32 %53, 0
+  %50 = mul i64 %47, %48
+  %50 = getelementptr inbounds i8, ptr %3, i64 %50
+  %52 = mul nsw i64 %23, %26
+  %52 = getelementptr inbounds i8, ptr %3, i64 %52
+  %54 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %52, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %25, ptr noundef nonnull %5, i32 noundef %.sink108, i32 noundef -10, ptr noundef %50, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %25, ptr noundef nonnull %5, i32 noundef %.sink108, i32 noundef -10, ptr noundef nonnull %6, ptr noundef null) #8
+  %.not94 = icmp eq i32 %54, 0
   br i1 %.not94, label %54, label %.loopexit
 
 54:                                               ; preds = %ompi_coll_base_sendrecv.exit
@@ -709,36 +709,36 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %38, %33
   %64 = getelementptr inbounds nuw [2 x i32], ptr %11, i64 0, i64 %63
   %65 = load i32, ptr %64, align 4
   %66 = getelementptr inbounds nuw [2 x i32], ptr %10, i64 0, i64 %63
-  %67 = load i32, ptr %66, align 4
-  %68 = add i32 %65, %.val.val
-  %69 = add i32 %68, %67
+  %65 = load i32, ptr %66, align 4
+  %exitcond.not = add i32 %65, %.val.val
+  %69 = add i32 %exitcond.not, %67
   %70 = srem i32 %69, %.val.val
   store i32 %70, ptr %64, align 4
-  %71 = sext i32 %70 to i64
-  %72 = mul i64 %47, %71
-  %73 = getelementptr inbounds i8, ptr %3, i64 %72
-  %74 = sext i32 %.1102 to i64
-  %75 = mul i64 %47, %74
-  %76 = getelementptr inbounds i8, ptr %3, i64 %75
-  %77 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 0, i64 %63
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp eq i32 %78, %.val96
-  br i1 %79, label %80, label %82
+  %.1102 = sext i32 %70 to i64
+  %.085101 = mul i64 %47, %71
+  %67 = getelementptr inbounds i8, ptr %3, i64 %.085101
+  %68 = sext i32 %.1102 to i64
+  %69 = mul i64 %47, %68
+  %70 = getelementptr inbounds i8, ptr %3, i64 %75
+  %71 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 0, i64 %63
+  %72 = load i32, ptr %71, align 4
+  %73 = icmp eq i32 %78, %.val96
+  br i1 %73, label %80, label %82
 
 80:                                               ; preds = %61
-  %81 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %76, i32 noundef %58, ptr noundef nonnull %5, ptr noundef %73, i32 noundef %58, ptr noundef nonnull %5) #8
+  %76 = tail call i32 @ompi_datatype_sndrcv(ptr noundef %70, i32 noundef %58, ptr noundef nonnull %5, ptr noundef %73, i32 noundef %58, ptr noundef nonnull %5) #8
   br label %ompi_coll_base_sendrecv.exit98
 
 82:                                               ; preds = %61
-  %83 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %76, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %57, ptr noundef nonnull %5, i32 noundef %78, i32 noundef -10, ptr noundef %73, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %57, ptr noundef nonnull %5, i32 noundef %78, i32 noundef -10, ptr noundef nonnull %6, ptr noundef null) #8
+  %80 = tail call i32 @ompi_coll_base_sendrecv_actual(ptr noundef %76, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %57, ptr noundef nonnull %5, i32 noundef %78, i32 noundef -10, ptr noundef %73, i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %57, ptr noundef nonnull %5, i32 noundef %78, i32 noundef -10, ptr noundef nonnull %6, ptr noundef null) #8
   br label %ompi_coll_base_sendrecv.exit98
 
 ompi_coll_base_sendrecv.exit98:                   ; preds = %80, %82
-  %.0.i97 = phi i32 [ %81, %80 ], [ %83, %82 ]
+  %84 = phi i32 [ %81, %80 ], [ %83, %82 ]
   %.not95 = icmp eq i32 %.0.i97, 0
   br i1 %.not95, label %59, label %.loopexit
 
-.loopexit:                                        ; preds = %59, %ompi_coll_base_sendrecv.exit98, %54, %27, %ompi_coll_base_sendrecv.exit, %16
+.loopexit:                                        ; preds = %59, %ompi_coll_base_sendrecv.exit98, %54, %27, %43, %16
   %.0 = phi i32 [ %17, %16 ], [ %30, %27 ], [ %53, %ompi_coll_base_sendrecv.exit ], [ 0, %54 ], [ 0, %59 ], [ %.0.i97, %ompi_coll_base_sendrecv.exit98 ]
   ret i32 %.0
 }

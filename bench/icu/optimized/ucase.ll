@@ -2281,13 +2281,13 @@ land.lhs.true:                                    ; preds = %if.then57
 
 land.lhs.true63:                                  ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true
   %cmp.i = icmp eq ptr %iter, null
-  br i1 %cmp.i, label %lor.lhs.false67, label %for.cond.i
+  br i1 %cmp.i, label %_ZL21isFollowedByMoreAbovePFiPvaES_.exit, label %for.cond.i
 
 for.cond.i:                                       ; preds = %land.lhs.true63, %_ZL10getDotTypei.exit.i
   %dir.0.i = phi i8 [ 0, %_ZL10getDotTypei.exit.i ], [ 1, %land.lhs.true63 ]
   %call.i = tail call noundef i32 %iter(ptr noundef %context, i8 noundef signext %dir.0.i)
   %cmp1.i = icmp sgt i32 %call.i, -1
-  br i1 %cmp1.i, label %for.body.i, label %lor.lhs.false67
+  br i1 %cmp1.i, label %for.body.i, label %_ZL21isFollowedByMoreAbovePFiPvaES_.exit
 
 for.body.i:                                       ; preds = %for.cond.i
   %cmp.i.i = icmp samesign ult i32 %call.i, 55296
@@ -2364,7 +2364,7 @@ if.else.i.i:                                      ; preds = %cond.end39.i.i
 
 _ZL10getDotTypei.exit.i:                          ; preds = %if.else.i.i, %if.then.i.i
   %retval.0.i.i = phi i32 [ %and51.i.i, %if.else.i.i ], [ %and46.i.i, %if.then.i.i ]
-  switch i32 %retval.0.i.i, label %lor.lhs.false67 [
+  switch i32 %retval.0.i.i, label %_ZL21isFollowedByMoreAbovePFiPvaES_.exit [
     i32 64, label %if.then71
     i32 96, label %for.cond.i
   ], !llvm.loop !14
@@ -2401,15 +2401,15 @@ sw.bb74:                                          ; preds = %land.lhs.true, %if.
   store ptr @_ZL9iDotGrave, ptr %pString, align 8
   br label %return
 
-sw.bb75:                                          ; preds = %land.lhs.true, %lor.lhs.false67, %if.then71
+sw.bb75:                                          ; preds = %land.lhs.true, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit, %if.then71
   store ptr @_ZL9iDotAcute, ptr %pString, align 8
   br label %return
 
-sw.bb76:                                          ; preds = %land.lhs.true, %lor.lhs.false67, %if.then71
+sw.bb76:                                          ; preds = %land.lhs.true, %_ZL21isFollowedByMoreAbovePFiPvaES_.exit, %if.then71
   store ptr @_ZL9iDotTilde, ptr %pString, align 8
   br label %return
 
-if.else77:                                        ; preds = %lor.lhs.false67, %if.then57
+if.else77:                                        ; preds = %_ZL21isFollowedByMoreAbovePFiPvaES_.exit, %if.then57
   %cmp78 = icmp eq i32 %loc, 2
   %cmp80 = icmp eq i32 %c, 304
   %or.cond6 = and i1 %cmp80, %cmp78

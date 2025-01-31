@@ -744,8 +744,8 @@ _ZNK12PackageEntry11is_exportedEv.exit:           ; preds = %_ZL9module_idPK12Pa
   %82 = phi i8 [ 1, %73 ], [ 1, %_ZL9module_idPK12PackageEntryb.exit ], [ %81, %77 ]
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %84 = load ptr, ptr %83, align 8
-  %.not.i.i.i.i11 = icmp eq ptr %84, null
-  br i1 %.not.i.i.i.i11, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeEb.exit, label %85
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeEb.exit, label %85
 
 85:                                               ; preds = %_ZNK12PackageEntry11is_exportedEv.exit
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -760,13 +760,13 @@ _ZNK12PackageEntry11is_exportedEv.exit:           ; preds = %_ZL9module_idPK12Pa
   %93 = sub i64 %90, %92
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %95 = load ptr, ptr %94, align 8
+  %96 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %97 = load ptr, ptr %96, align 8
   call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %95, i64 noundef %93, i64 noundef 1, ptr noundef %97) #9
-  %98 = load ptr, ptr %4, align 8
+  %99 = load ptr, ptr %4, align 8
   store ptr %98, ptr %94, align 8
-  %.not5.i.i.i.i = icmp eq ptr %98, null
+  %100 = icmp eq ptr %99, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 

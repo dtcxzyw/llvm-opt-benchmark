@@ -278,7 +278,7 @@ define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr nounde
 
 50:                                               ; preds = %17
   %51 = icmp slt i32 %1, 0
-  br i1 %51, label %.split.us.preheader, label %.split
+  br i1 %51, label %.split.us, label %.split
 
 .split.us.preheader:                              ; preds = %50, %58
   %52 = phi ptr [ %60, %58 ], [ %48, %50 ]
@@ -289,19 +289,19 @@ define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr nounde
   %57 = icmp ult i32 %53, %56
   br i1 %57, label %.loopexit, label %58
 
-58:                                               ; preds = %.split.us.preheader
+58:                                               ; preds = %.split.us
   %59 = add nuw nsw i32 %56, 1
   %60 = load ptr, ptr %52, align 8
   %61 = icmp eq ptr %60, %47
   br i1 %61, label %.loopexit, label %.split.us.preheader, !llvm.loop !10
 
 .split:                                           ; preds = %50, %69
-  %62 = phi ptr [ %70, %69 ], [ %48, %50 ]
-  %63 = getelementptr i8, ptr %62, i64 -79
+  %63 = phi ptr [ %70, %69 ], [ %48, %50 ]
+  %63 = getelementptr i8, ptr %63, i64 -79
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = icmp eq i32 %1, %65
-  br i1 %66, label %.split11.us, label %67
+  %64 = icmp eq i32 %1, %65
+  br i1 %64, label %.split11.us, label %67
 
 .split11.us:                                      ; preds = %.split
   tail call void @kfree(ptr noundef nonnull %15) #10
@@ -311,17 +311,17 @@ define dso_local range(i32 -22, -2147483648) i32 @snd_seq_create_port(ptr nounde
   %68 = icmp samesign ult i32 %44, %65
   br i1 %68, label %.loopexit, label %69
 
-69:                                               ; preds = %67
+69:                                               ; preds = %.split11.us
   %70 = load ptr, ptr %62, align 8
   %71 = icmp eq ptr %70, %47
   br i1 %71, label %.loopexit, label %.split, !llvm.loop !10
 
-.loopexit:                                        ; preds = %67, %69, %58, %.split.us.preheader, %17
-  %72 = phi i32 [ %44, %17 ], [ %53, %.split.us.preheader ], [ %59, %58 ], [ %44, %69 ], [ %44, %67 ]
-  %73 = phi ptr [ %48, %17 ], [ %52, %.split.us.preheader ], [ %60, %58 ], [ %62, %67 ], [ %70, %69 ]
+.loopexit:                                        ; preds = %67, %69, %58, %.split.us, %17
+  %73 = phi i32 [ %44, %17 ], [ %53, %.split.us ], [ %59, %58 ], [ %44, %69 ], [ %44, %67 ]
+  %73 = phi ptr [ %48, %17 ], [ %52, %.split.us ], [ %60, %58 ], [ %62, %67 ], [ %70, %69 ]
   %74 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  %76 = load ptr, ptr %75, align 8
+  %74 = load ptr, ptr %75, align 8
   store ptr %74, ptr %75, align 8
   store ptr %73, ptr %74, align 8
   %77 = getelementptr inbounds nuw i8, ptr %15, i64 88
